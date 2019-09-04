@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>diamondback.commons.Serial &mdash; diamondback  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="diamondback  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>diamondback.commons.Serial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for diamondback.commons.Serial</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+
+<span class="sd">        A serial instance encodes and decodes an instance or collection with</span>
+<span class="sd">        JSON text, or base-64 encoded gzip JSON binary format.</span>
+
+<span class="sd">        An instance may be an object or a collection, referenced by abstract or</span>
+<span class="sd">        concrete types, and the instance will be correctly encoded and decoded.</span>
+<span class="sd">        JSON binary format is selected by electing to compress.  Encoding may</span>
+<span class="sd">        be specified if an alternative to UTF-8 is required.  Comments may be</span>
+<span class="sd">        filtered from JSON text by electing to clean.</span>
+
+<span class="sd">        Singleton.</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback.commons.Serial import Serial</span>
+
+<span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ),</span>
+<span class="sd">                  &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
+
+<span class="sd">            z = Serial.decode( Serial.encode( x, False ), False )</span>
+
+<span class="sd">            y = Serial.encode( x, True )</span>
+
+<span class="sd">            z = Serial.decode( y, True )</span>
+
+<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;, False )</span>
+
+<span class="sd">    **License**</span>
+
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+
+<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-13.</span>
+
+<span class="sd">    **Definition**</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">gzip</span>
+<span class="kn">import</span> <span class="nn">jsonpickle</span>
+<span class="kn">import</span> <span class="nn">jsonpickle.ext.numpy</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<div class="viewcode-block" id="Serial"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial">[docs]</a><span class="k">class</span> <span class="nc">Serial</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot; Serial service, with JSON text or base-64 encoded gzip JSON binary format.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="Serial.decode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.decode">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span> <span class="n">state</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">clean</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Decodes an instance.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                state - State ( str ).</span>
+
+<span class="sd">                compress - Compress ( bool ).</span>
+
+<span class="sd">                encoding - Encoding ( str ).</span>
+
+<span class="sd">                clean - Clean comments ( bool ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                instance - Instance ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">state</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;state = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">compress</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">state</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span> <span class="nb">bytes</span><span class="p">(</span> <span class="n">state</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span> <span class="p">),</span> <span class="n">encoding</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">clean</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">state</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;#.*?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span> <span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&quot;&quot;.*?</span><span class="se">\&quot;</span><span class="s1">&quot;&quot;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span> <span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="Serial.encode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.encode">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span> <span class="n">instance</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Encodes an instance.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                instance - Instance ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</span>
+
+<span class="sd">                compress - Compress ( bool ).</span>
+
+<span class="sd">                encoding - Encoding ( str ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                state - State ( str ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">instance</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;instance = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">compress</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">state</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64encode</span><span class="p">(</span> <span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span> <span class="nb">bytes</span><span class="p">(</span> <span class="n">state</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span> <span class="p">),</span> <span class="n">encoding</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">state</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

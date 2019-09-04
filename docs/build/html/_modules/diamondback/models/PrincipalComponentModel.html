@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>diamondback.models.PrincipalComponentModel &mdash; diamondback  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="diamondback  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>diamondback.models.PrincipalComponentModel</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for diamondback.models.PrincipalComponentModel</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+
+<span class="sd">        A principal component model analyzes an incident signal to define</span>
+<span class="sd">        transformation matrices which consume an incident signal to produce a</span>
+<span class="sd">        reference signal, normalized and ordered to define orthogonal axes of</span>
+<span class="sd">        descending variance.</span>
+
+<span class="sd">        A principal component model is a supervised learning model which</span>
+<span class="sd">        analyzes an incident signal representing a training set to learn a mean</span>
+<span class="sd">        vector, standard deviation vector, and a collection of eigenvectors</span>
+<span class="sd">        associated with an incident signal.</span>
+
+<span class="sd">        An incident signal which is not a part of an inital training set is</span>
+<span class="sd">        transformed without modifying a principal component model, by</span>
+<span class="sd">        translation, normalization, and rotation to produce a reference signal</span>
+<span class="sd">        which is a candidate for dimension reduction, in which higher order</span>
+<span class="sd">        dimensions are discarded, reducing the order of the reference signal,</span>
+<span class="sd">        while preserving significant and often sufficient information. ::</span>
+
+<span class="sd">            s, u = x.std( 1 ), x.mean( 1 )</span>
+
+<span class="sd">            v = eig( cov( ( ( x.T - u ) / s ).T ) ).T</span>
+
+<span class="sd">            y = v * ( ( x.T - u ) / s ).T</span>
+
+<span class="sd">        Principal component analysis and dimension reduction has application in</span>
+<span class="sd">        clustering, classification, pattern recognition, and visualization.</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback.models.PrincipalComponentModel import PrincipalComponentModel</span>
+
+<span class="sd">            obj = PrincipalComponentModel( )</span>
+
+<span class="sd">            x = numpy.random.rand( 3, 32 )</span>
+
+<span class="sd">            y = obj.model( x )</span>
+
+<span class="sd">            e, s, u, v = obj.e, obj.s, obj.u, obj.v</span>
+
+<span class="sd">    **License**</span>
+
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+
+<span class="sd">        Copyright (c) 2019, Larry Turner, Schneider Electric.  All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-01-25.</span>
+
+<span class="sd">    **Definition**</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="k">import</span> <span class="n">IClear</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="k">import</span> <span class="n">IEqual</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="k">import</span> <span class="n">IS</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<div class="viewcode-block" id="PrincipalComponentModel"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.PrincipalComponentModel.PrincipalComponentModel">[docs]</a><span class="k">class</span> <span class="nc">PrincipalComponentModel</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IS</span><span class="p">,</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot; Principal component model.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">e</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Eigenvalues ( array( float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">u</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Mean ( array( float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">v</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Rotation ( array( float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Evaluates equality condition.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                other - other object ( object ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                equality - Equality condition ( bool ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">v</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Initializes an instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="PrincipalComponentModel.clear"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Clears an instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span></div>
+
+<div class="viewcode-block" id="PrincipalComponentModel.model"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.model">[docs]</a>    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Models an incident signal and produces a reference signal.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                x - Incident signal ( array( float ), list( float ) ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_s</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
+
+            <span class="n">z</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_e</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_v</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="k">else</span> <span class="p">:</span>
+
+            <span class="n">z</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span> <span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
+
+        <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">rows</span> <span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">):</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;rows = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">rows</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; cols = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">cols</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

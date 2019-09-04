@@ -1,0 +1,42 @@
+1.  cd <project>
+
+2.  cd doc
+
+3.  sphinx-quickstart
+
+	project, author
+	
+	separate, autodoc, viewcode, githubpages, makefile, command [y]
+
+4.  ren Makefile makefile
+	
+5.  edit .\source\conf.py
+
+	import os
+    import stanford_theme
+	import sys
+	
+	sys.path.insert( 0, os.path.abspath( '../../' ) )
+
+    html_theme = 'stanford_theme'
+
+    html_theme_path = [ stanford_theme.get_html_theme_path( ) ] 
+
+6.  edit .\source\index.rst
+
+<project>
+=========
+
+	.. toctree::
+	:maxdepth: 2
+	:caption: Contents:
+
+	* :ref:`genindex`
+	* :ref:`modindex`
+	* :ref:`search`
+
+7.  del source\*.rst -exclude source\index.rst
+	sphinx-apidoc -o source\ ..\<project>
+
+8.	make <html | clean>
+

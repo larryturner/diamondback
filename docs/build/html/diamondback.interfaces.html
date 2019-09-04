@@ -1,0 +1,683 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>diamondback.interfaces package &mdash; diamondback  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="diamondback  documentation" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">diamondback.interfaces package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IA">diamondback.interfaces.IA module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IB">diamondback.interfaces.IB module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IEqual">diamondback.interfaces.IEqual module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IFrequency">diamondback.interfaces.IFrequency module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IPhase">diamondback.interfaces.IPhase module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IQ">diamondback.interfaces.IQ module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IRate">diamondback.interfaces.IRate module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IReset">diamondback.interfaces.IReset module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IS">diamondback.interfaces.IS module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">diamondback</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>diamondback.interfaces package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/diamondback.interfaces.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="diamondback-interfaces-package">
+<h1>diamondback.interfaces package<a class="headerlink" href="#diamondback-interfaces-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-diamondback.interfaces.IA">
+<span id="diamondback-interfaces-ia-module"></span><h2>diamondback.interfaces.IA module<a class="headerlink" href="#module-diamondback.interfaces.IA" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Recursive coefficient interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IA</span> <span class="k">import</span> <span class="n">IA</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IA</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IA.IA">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IA.</code><code class="sig-name descname">IA</code><a class="reference internal" href="_modules/diamondback/interfaces/IA.html#IA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IA.IA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Recursive coefficient interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IA.IA.a">
+<em class="property">property </em><code class="sig-name descname">a</code><a class="headerlink" href="#diamondback.interfaces.IA.IA.a" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recursive coefficient ( array( complex | float ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IB">
+<span id="diamondback-interfaces-ib-module"></span><h2>diamondback.interfaces.IB module<a class="headerlink" href="#module-diamondback.interfaces.IB" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Forward coefficient interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IB</span> <span class="k">import</span> <span class="n">IB</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IB</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IB.IB">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IB.</code><code class="sig-name descname">IB</code><a class="reference internal" href="_modules/diamondback/interfaces/IB.html#IB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IB.IB" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Forward coefficient interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IB.IB.b">
+<em class="property">property </em><code class="sig-name descname">b</code><a class="headerlink" href="#diamondback.interfaces.IB.IB.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward coefficient ( array( complex | float ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IClear">
+<span id="diamondback-interfaces-iclear-module"></span><h2>diamondback.interfaces.IClear module<a class="headerlink" href="#module-diamondback.interfaces.IClear" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Clear interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="k">import</span> <span class="n">IClear</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2019, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-01-25.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IClear.IClear">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IClear.</code><code class="sig-name descname">IClear</code><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Clear interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IClear.IClear.clear">
+<em class="property">abstract </em><code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clears an instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IEqual">
+<span id="diamondback-interfaces-iequal-module"></span><h2>diamondback.interfaces.IEqual module<a class="headerlink" href="#module-diamondback.interfaces.IEqual" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Equal interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="k">import</span> <span class="n">IEqual</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">phase</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-23.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IEqual.IEqual">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IEqual.</code><code class="sig-name descname">IEqual</code><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Equal interface.</p>
+<p>Initializes an instance.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IFrequency">
+<span id="diamondback-interfaces-ifrequency-module"></span><h2>diamondback.interfaces.IFrequency module<a class="headerlink" href="#module-diamondback.interfaces.IFrequency" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Frequency interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IFrequency</span> <span class="k">import</span> <span class="n">IFrequency</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IFrequency</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IFrequency.IFrequency">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IFrequency.</code><code class="sig-name descname">IFrequency</code><a class="reference internal" href="_modules/diamondback/interfaces/IFrequency.html#IFrequency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Frequency interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IFrequency.IFrequency.frequency">
+<em class="property">property </em><code class="sig-name descname">frequency</code><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IPhase">
+<span id="diamondback-interfaces-iphase-module"></span><h2>diamondback.interfaces.IPhase module<a class="headerlink" href="#module-diamondback.interfaces.IPhase" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Phase interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IPhase.IPhase">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPhase.</code><code class="sig-name descname">IPhase</code><a class="reference internal" href="_modules/diamondback/interfaces/IPhase.html#IPhase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Phase interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IPhase.IPhase.phase">
+<em class="property">property </em><code class="sig-name descname">phase</code><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase.phase" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IQ">
+<span id="diamondback-interfaces-iq-module"></span><h2>diamondback.interfaces.IQ module<a class="headerlink" href="#module-diamondback.interfaces.IQ" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>State derivative interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IQ</span> <span class="k">import</span> <span class="n">IQ</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IQ</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IQ.IQ">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IQ.</code><code class="sig-name descname">IQ</code><a class="reference internal" href="_modules/diamondback/interfaces/IQ.html#IQ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IQ.IQ" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>State derivative interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IQ.IQ.q">
+<em class="property">property </em><code class="sig-name descname">q</code><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.q" title="Permalink to this definition">¶</a></dt>
+<dd><p>State derivative ( array( complex | float ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IRate">
+<span id="diamondback-interfaces-irate-module"></span><h2>diamondback.interfaces.IRate module<a class="headerlink" href="#module-diamondback.interfaces.IRate" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Rate interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="k">import</span> <span class="n">IRate</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IRate.IRate">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IRate.</code><code class="sig-name descname">IRate</code><a class="reference internal" href="_modules/diamondback/interfaces/IRate.html#IRate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IRate.IRate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Rate interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IRate.IRate.rate">
+<em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#diamondback.interfaces.IRate.IRate.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate of adaptation ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IReset">
+<span id="diamondback-interfaces-ireset-module"></span><h2>diamondback.interfaces.IReset module<a class="headerlink" href="#module-diamondback.interfaces.IReset" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Reset interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="k">import</span> <span class="n">IReset</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IReset</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">x</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IReset.IReset">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IReset.</code><code class="sig-name descname">IReset</code><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Reset interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IReset.IReset.reset">
+<em class="property">abstract </em><code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param">x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies a state to minimize edge effects by assuming persistent
+operation at a specified incident signal condition.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( complex, float ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IS">
+<span id="diamondback-interfaces-is-module"></span><h2>diamondback.interfaces.IS module<a class="headerlink" href="#module-diamondback.interfaces.IS" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>State interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="k">import</span> <span class="n">IS</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IS.IS">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IS.</code><code class="sig-name descname">IS</code><a class="reference internal" href="_modules/diamondback/interfaces/IS.html#IS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IS.IS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>State interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IS.IS.s">
+<em class="property">property </em><code class="sig-name descname">s</code><a class="headerlink" href="#diamondback.interfaces.IS.IS.s" title="Permalink to this definition">¶</a></dt>
+<dd><p>State ( array( complex | float ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diamondback.interfaces" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>diamondback.filters.PidFilter &mdash; diamondback  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="diamondback  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>diamondback.filters.PidFilter</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for diamondback.filters.PidFilter</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+
+<span class="sd">        A Proportional Integral Derivative ( PID ) filter realizes a discrete</span>
+<span class="sd">        difference equation as a function of a forward coefficient array and a</span>
+<span class="sd">        state array of a static order.  A forward coefficient array applies a</span>
+<span class="sd">        gain to proportional, integral, and derivative representations of an</span>
+<span class="sd">        incident signal, producing a reference signal.  An integral limit is</span>
+<span class="sd">        specified, preventing integral saturation which may adversely affect</span>
+<span class="sd">        control stability and latency. ::</span>
+
+<span class="sd">            y,n = b,0 * x,n + b,1 * min( integral( x,n ), limit ) + b,2 * derivative( x,n )</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter</span>
+<span class="sd">            from diamondback.filters.PidFilter import PidFilter</span>
+<span class="sd">            import numpy</span>
+
+<span class="sd">            obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )</span>
+
+<span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real</span>
+
+<span class="sd">            y = obj.filter( x )</span>
+
+<span class="sd">    **License**</span>
+
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+
+<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</span>
+
+<span class="sd">    **Definition**</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">diamondback.filters.FirFilter</span> <span class="k">import</span> <span class="n">FirFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<div class="viewcode-block" id="PidFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PidFilter.PidFilter">[docs]</a><span class="k">class</span> <span class="nc">PidFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot; Proportional Integral Derivative ( PID ) filter.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Integral limit ( float ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit</span>
+
+    <span class="nd">@limit</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">limit</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">limit</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;limit = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">limit</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_limit</span> <span class="o">=</span> <span class="n">limit</span>
+
+    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Evaluates equality condition.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                other - Other object ( object ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                equality - Equality condition ( bool ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">limit</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">b</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Initializes an instance.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;b = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">),</span> <span class="mf">0.0</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_limit</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="s1">&#39;inf&#39;</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="PidFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PidFilter.PidFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">d</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                x - Incident signal ( array( complex | float ), list( complex | float ) ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                y - Reference signal ( array( complex | float ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">),</span> <span class="nb">type</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="mi">2</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span> <span class="p">)</span> <span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span>
+
+            <span class="n">y</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">y</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

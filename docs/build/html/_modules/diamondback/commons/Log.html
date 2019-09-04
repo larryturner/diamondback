@@ -1,0 +1,418 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>diamondback.commons.Log &mdash; diamondback  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../../genindex.html"/>
+        <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="top" title="diamondback  documentation" href="../../../index.html"/>
+        <link rel="up" title="Module code" href="../../index.html"/> 
+
+  
+  <script src="../../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <!-- Local TOC -->
+                <div class="local-toc"></div>
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>diamondback.commons.Log</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for diamondback.commons.Log</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+
+<span class="sd">        A log instance formats and writes log entries, electively using the</span>
+<span class="sd">        logger package or directly to a specified stream.  Log entries are</span>
+<span class="sd">        prefaced with an ISO-8601 UTC datetime and log level, and enhancements</span>
+<span class="sd">        are made to the formatting of datetime, exception, and collection data</span>
+<span class="sd">        types.  Dynamic stream redirection and log level specification are</span>
+<span class="sd">        supported.</span>
+
+<span class="sd">        If a stream is defined and associated with a specified name, the</span>
+<span class="sd">        standard logging package is used in subsequent interactions with a log,</span>
+<span class="sd">        a logger instance is defined with the specified name, a logging stream</span>
+<span class="sd">        handler is associated with the stream, and log levels are synchronized</span>
+<span class="sd">        with logging levels.</span>
+
+<span class="sd">        Singleton.</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback.commons.Log import Log</span>
+<span class="sd">            import numpy</span>
+<span class="sd">            import sys</span>
+
+<span class="sd">            try :</span>
+
+<span class="sd">                Log.level( &#39;Info&#39; )</span>
+
+<span class="sd">                with open( &#39;log.000.txt&#39;, &#39;w&#39; ) as fout :</span>
+
+<span class="sd">                    Log.stream( fout )</span>
+
+<span class="sd">                    Log.write( &#39;Warning&#39;, &#39;x = &#39;, numpy.random.rand( 2, 2 ) )</span>
+
+<span class="sd">                Log.stream( sys.stdout, &#39;project_log&#39; )</span>
+
+<span class="sd">                Log.write( &#39;Info&#39;, &#39;y = [ ]&#39; )</span>
+
+<span class="sd">            except Exception as ex :</span>
+
+<span class="sd">                Log.write( ex, &#39;Error&#39; )</span>
+
+<span class="sd">    **License**</span>
+
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+
+<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-22.</span>
+
+<span class="sd">    **Definition**</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">traceback</span>
+
+
+<div class="viewcode-block" id="Log"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log">[docs]</a><span class="k">class</span> <span class="nc">Log</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot; Log service.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;float&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{: .6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">}</span> <span class="p">)</span>
+
+    <span class="n">_handler</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+    <span class="n">_level</span> <span class="o">=</span> <span class="s1">&#39;Info&#39;</span>
+
+    <span class="n">_log</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+    <span class="n">_map</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Critical&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">CRITICAL</span><span class="p">,</span>
+             <span class="s1">&#39;Error&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">,</span>
+             <span class="s1">&#39;Warning&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">,</span>
+             <span class="s1">&#39;Info&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
+             <span class="s1">&#39;Debug&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="p">}</span>
+
+    <span class="n">_stream</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+
+<div class="viewcode-block" id="Log.level"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.level">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">level</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Level.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                level - Level in ( &#39;Critical&#39;, &#39;Error&#39;, &#39;Warning&#39;, &#39;Info&#39;, &#39;Debug&#39; ) ( str ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="o">!=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span> <span class="p">)</span> <span class="p">:</span>
+
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;level = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+
+                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">level</span></div>
+
+<div class="viewcode-block" id="Log.stream"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.stream">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Stream.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                stream - Stream ( sys.stderr, sys.stdout, open( &lt; path &gt;, &#39;w&#39; or &#39;a&#39; ) ).</span>
+
+<span class="sd">                name - Logger name if not empty ( str ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;stream = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="p">[</span> <span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span>
+
+        <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="n">stream</span></div>
+
+<div class="viewcode-block" id="Log.write"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.write">[docs]</a>    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Writes log entry.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                level - Level in ( &#39;Critical&#39;, &#39;Error&#39;, &#39;Warning&#39;, &#39;Info&#39;, &#39;Debug&#39; ) ( str ).</span>
+
+<span class="sd">                entry - Entry ( Exception, str ).</span>
+
+<span class="sd">                data - Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">try</span> <span class="p">:</span>
+
+                <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:30s}{:10s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">)[</span> <span class="p">:</span> <span class="mi">19</span> <span class="p">],</span> <span class="n">level</span> <span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span><span class="o">.</span><span class="vm">__class__</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&lt;class &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
+
+                    <span class="n">trace</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exception</span><span class="p">(</span> <span class="kc">None</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">__traceback__</span> <span class="p">)</span>
+
+                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">trace</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+
+                        <span class="n">s</span> <span class="o">+=</span> <span class="n">trace</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;File&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;line &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
+
+                <span class="k">else</span> <span class="p">:</span>
+
+                    <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span>
+
+                <span class="k">try</span> <span class="p">:</span>
+
+                    <span class="k">if</span> <span class="p">(</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+
+                        <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+
+                            <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                                <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+
+                            <span class="k">else</span> <span class="p">:</span>
+
+                                <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;( &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39; )&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;[ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39; ]&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;{ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39; }&#39;</span> <span class="p">)</span>
+
+                <span class="k">except</span> <span class="p">:</span>
+
+                    <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">],</span> <span class="n">s</span> <span class="p">)</span>
+
+                <span class="k">else</span> <span class="p">:</span>
+
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="n">s</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span> <span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">:</span>
+
+                <span class="k">pass</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

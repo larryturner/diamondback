@@ -1,0 +1,233 @@
+Metadata-Version: 1.1
+Name: diamondback
+Version: 1.0.0
+Summary: Diamondback DSP package including commons, filters, interfaces, models, and transforms.
+Home-page: https://github.com/larryturner/diamondback
+Author: Larry Turner
+Author-email: larry.turner@se.com
+License: BSD-3C.  Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+Description: ### Description
+        
+        Diamondback is a Python package which provides Digital Signal Processing ( DSP )
+        solutions, organized in the form of commons, filters, interfaces, models, and
+        transforms.
+        
+        Diamondback was designed to complement Artificial Intelligence ( AI ) frameworks,
+        by defining components which flexibly and efficiently analyze, filter, extract,
+        and transform data into forms which are more useful in common applications
+        including pattern recognition, feature extraction, and optimization.
+        
+        Diamondback was also designed to provide utility in the context of classical
+        signal processing solutions including communications, modeling, signal
+        identification and extraction, and noise cancellation.
+        
+        Documentation is provided in HTML form, extracted from docstrings in the
+        diamondback package source, and a Jupyter notebook is provided to dynamically
+        construct and exercise diamondback components to facilitate experimentation and
+        visualization.
+        	
+        ### Details
+        
+        An extensible factory design pattern is expressed in many components, and a
+        mix-in design pattern is extensively employed in property definition.  Complex
+        or real types, in adaptive or static forms, are supported as appropriate.  Data
+        collections are consistently expressed in native types, including tuples, sets,
+        lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
+        	
+        Diamondback is defined in subpackages :
+        
+        * _commons_
+        	
+        * _filters_
+        	
+        * _interfaces_
+        	
+        * _models_
+        	
+        * _transforms_
+        
+        #### _commons_
+        	
+        _Log_ is a singleton instance which formats and writes log entries, electively
+        using the logger package or directly to a specified stream. Log entries are
+        prefaced with an ISO-8601 UTC datetime and log level, and enhancements
+        are made to the formatting of datetime, exception, and collection data
+        types.  Dynamic stream redirection and log level specification are
+        supported.
+        	    
+        _Serial_ is a singleton instance which encodes and decodes an instance or
+        collection with JSON text, or base-64 encoded gzip JSON binary format.
+        
+        #### _filters_
+        	
+        _ComplexBandPassFilter_ instances adaptively extract or reject signals at a
+        normalized frequency of interest, and may be employed to dynamically track
+        magnitude and phase or demodulate signals.
+        	
+        _ComplexExponentialFilter_ instances synthesize complex exponential signals at
+        normalized frequencies of interest with contiguous phase.
+        	
+        _ComplexFrequencyFilter_ instances adaptively discriminate and estimate a
+        normalized frequency of a signal.
+        	
+        _DerivativeFilter_ instances estimate discrete derivative approximations at
+        several filter orders, through extensible factory construction.
+        
+        _FirFilter_ instances realize discrete difference equations of Finite Impulse
+        Response ( FIR ) form, in adaptive or static solutions.  A factory electively
+        constructs instances based on type, classification, normalized frequency, order,
+        cascade count, and complement.  Filters may be readily extended to support new
+        types and functionality, while retaining factory support.  Root extraction,
+        group delay, and frequency response evaluation are defined.
+        
+        _GoertzelFilter_ instances efficiently evaluate a Discrete Fourier Transform
+        ( DFT ) at a normalized frequency, based on a window filter and normalized
+        frequency.
+        	
+        _IirFilter_ instances realize discrete difference equations of Infinite Impulse
+        Response ( IIR ) form, in adaptive or static solutions.  A factory electively
+        constructs instances based on type, classification, normalized frequency, order,
+        cascade count, and complement.  Filters may be readily extended to support new
+        types and functionality, while retaining factory support.  Root extraction,
+        group delay, and frequency response evaluation are defined.
+        
+        _IntegralFilter_ instances estimate discrete integral approximations at several
+        filter orders, through extensible factory construction.
+        
+        _PidFilter_ instances realize discrete difference equations of Proportional
+        Integral Derivative ( PID ) form.
+        
+        _PolynomialRateFilter_ instances approximate a signal evaluated at an effective
+        frequency equal to the product of the normalized frequency and a rate greater
+        than or equal to one, supporting interpolation through localized polynomial
+        approximation with no group delay.
+        		
+        _PolyphaseRateFilter_ instances approximate a signal evaluated at an effective
+        frequency equal to the product of the normalized frequency and a rate greater
+        than zero, supporting decimation and interpolation through construction and
+        application of a polyphase filter bank, a sequence of low pass filters with a
+        common frequency response and a fractional sample difference in group delay.  An
+        appropriate stride is determined to realize the specified effective frequency
+        without bias and with group delay based on order.
+        
+        _RankFilter_ instances define nonlinear morphological operators, which define
+        functionality based on rank and order, including dilation, median, and erosion,
+        and may be combined in sequences to support close and open.
+        		
+        _WindowFilter_ instances realize discrete window functions useful in Fourier
+        analysis, based on type, classification, order, and normalization, through
+        extensible factory construction.
+        		
+        #### _interfaces_
+        
+        _IA_, _IB_, _IClear_, _IEqual_, _IFrequency_, _IPhase_, _IQ_, _IRate_,
+        _IReset_, and _IS_ interfaces facilitate mix-in design.
+        	
+        #### _models_
+        
+        _DiversityModel_ instances select and retain a state extracted to maximize the
+        minimum distance between state members based on classification and order,
+        through extensible factory construction.  An opportunistic unsupervised learning
+        model typically improves condition and numerical accuracy and reduces storage
+        relative to alternative approaches including generalized linear inverse.
+        
+        _PrincipalComponentModel_ instances are supervised learning models which
+        analyze an incident signal to learn a mean vector, standard deviation vector,
+        and a collection of eigenvectors, and produce a reference signal which is a
+        candidate for dimension reduction, in which higher order dimensions are
+        discarded, reducing the order of the reference signal, while preserving
+        significant and often sufficient information.
+        		
+        #### _transforms_
+        	
+        _ComplexTransform_ is a singleton instance which converts a three-phase real
+        signal to a complex signal, or a complex signal to a three-phase real signal, in
+        equivalent and reversible representations, based on a neutral condition.
+        		
+        _FourierTransform_ is a singleton instance which converts a real or complex
+        discrete-time signal to a complex discrete-frequency signal, or a complex
+        discrete-frequency signal to a real or complex discrete-time signal, in
+        equivalent and reversible representations, based on a window filter and inverse.
+        		
+        _PowerSpectrumTransform_ is a singleton instance which converts a real or complex
+        discrete-time signal to a real discrete-frequency signal which estimates a mean
+        power density of the signal, based on a window filter.
+        		
+        _WaveletTransform_ instances realize a temporal spatial frequency transformation
+        through construction and application of analysis and synthesis filters with
+        complementary frequency responses, combined with downsampling and upsampling
+        operations, in equivalent and reversible representations.  A factory constructs
+        instances based on type, classification, and order.  Filters may be readily
+        extended to support new types and functionality, while retaining factory
+        support.
+        
+        _ZTransform_ is a singleton instance which converts continuous s-domain to
+        discrete z-domain difference equations, based on a normalized frequency and
+        application of bilinear or impulse invariant methods.	
+        	
+        ### Dependencies
+        
+        Riley depends upon external packages :
+            
+        * [jsonpickle](https://github.com/jsonpickle/jsonpickle)
+            
+        * [numpy](https://github.com/numpy/numpy)
+            
+        * [scipy](https://github.com/scipy/scipy)
+        	
+        ### Installation
+        
+        * [diamondback](https://github.com/larryturner/diamondback)
+        
+        ```bash
+        pip install diamondback
+        ```
+        
+        ```bash
+        pip install git+https://github.com/larryturner/diamondback.git
+        ```
+        	
+        ### Demonstration
+        
+        A Jupyter notebook defines cells to create and exercise diamondback components.
+        The notebook serves as a simplified but useful introduction to and
+        demonstration of diamondback capabilities.	
+        	
+        * [diamondback](https://github.com/larryturner/diamondback/blob/master/jupyter/diamondback.ipynb)
+        
+        ```bash
+        jupyter notebook .\jupyter\diamondback.ipynb
+        ```
+        
+        Restart the kernel, as the first cell contains common definitions, find cells
+        which exercise components of interest, and manipulate widgets to exercise and
+        visualize functionality.
+            
+        ### Documentation
+        
+        * [diamondback](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
+                
+        ### Test
+        
+        A simple test solution is provided to exercise and verify diamondback
+        components.
+        	
+        ```bash
+        py.test -v --capture=no .\test
+        ```
+        	
+        ### Author
+        
+        [Larry Turner](https://github.com/larryturner)
+        	
+        ### License
+        
+        [BSD-3C](https://github.com/larryturner/diamondback/blob/master/license)
+                
+        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        	
+Keywords: DSP,commons,filters,interfaces,models,transforms
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programing Language :: Python :: 3
+Classifier: **License** :: OSI Approved :: BSD-3C License
