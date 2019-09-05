@@ -228,7 +228,7 @@ Description: ### Description
                 
         Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
         	
-Keywords: DSP,commons,filters,interfaces,models,transforms
+Keywords: DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,serial,transform,wavelet
 Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
 Classifier: Programing Language :: Python :: 3
