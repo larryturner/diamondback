@@ -1,7 +1,7 @@
-Metadata-Version: 1.1
+Metadata-Version: 1.2
 Name: diamondback
 Version: 1.0.0
-Summary: Diamondback DSP package including commons, filters, interfaces, models, and transforms.
+Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
 Author-email: larry.turner@se.com
@@ -167,7 +167,7 @@ Description: ### Description
         	
         ### Dependencies
         
-        Riley depends upon external packages :
+        Diamondback depends upon external packages :
             
         * [jsonpickle](https://github.com/jsonpickle/jsonpickle)
             
@@ -176,8 +176,6 @@ Description: ### Description
         * [scipy](https://github.com/scipy/scipy)
         	
         ### Installation
-        
-        * [diamondback](https://github.com/larryturner/diamondback)
         
         ```bash
         pip install diamondback
@@ -192,8 +190,6 @@ Description: ### Description
         A Jupyter notebook defines cells to create and exercise diamondback components.
         The notebook serves as a simplified but useful introduction to and
         demonstration of diamondback capabilities.	
-        	
-        * [diamondback](https://github.com/larryturner/diamondback/blob/master/jupyter/diamondback.ipynb)
         
         ```bash
         jupyter notebook .\jupyter\diamondback.ipynb
@@ -205,7 +201,9 @@ Description: ### Description
             
         ### Documentation
         
-        * [diamondback](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
+        * [GitHub](https://larryturner.github.io/diamondback/)
+        
+        * [HTML](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
                 
         ### Test
         
@@ -213,7 +211,7 @@ Description: ### Description
         components.
         	
         ```bash
-        py.test -v --capture=no .\test
+        py.test -v --capture=no .\pytest
         ```
         	
         ### Author
@@ -223,6 +221,10 @@ Description: ### Description
         ### License
         
         [BSD-3C](https://github.com/larryturner/diamondback/blob/master/license)
+        
+        ### Release
+        
+        [Version](https://github.com/larryturner/diamondback/blob/master/version)
                 
         Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
         	
@@ -231,3 +233,4 @@ Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
 Classifier: Programing Language :: Python :: 3
 Classifier: **License** :: OSI Approved :: BSD-3C License
+Requires-Python: >= 3.6

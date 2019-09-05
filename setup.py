@@ -36,7 +36,7 @@ setup( name = 'diamondback',
        author = 'Larry Turner',
        author_email = 'larry.turner@se.com',
        url = 'https://github.com/larryturner/diamondback',
-       description = 'Diamondback DSP package including commons, filters, interfaces, models, and transforms.',
+       description = 'Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.',
        long_description = _readme,
        classifiers = [ 'Operating System :: OS Independent',
                        'Programing Language :: Python :: 3',
@@ -51,6 +51,7 @@ setup( name = 'diamondback',
                     'models',
                     'transforms' ],
        packages = find_packages( ),
+       python_requires = '>= 3.6',
        license = 'BSD-3C.  Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.' )
 
 

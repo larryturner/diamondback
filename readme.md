@@ -159,7 +159,7 @@ application of bilinear or impulse invariant methods.
 	
 ### Dependencies
 
-Riley depends upon external packages :
+Diamondback depends upon external packages :
     
 * [jsonpickle](https://github.com/jsonpickle/jsonpickle)
     
@@ -168,8 +168,6 @@ Riley depends upon external packages :
 * [scipy](https://github.com/scipy/scipy)
 	
 ### Installation
-
-* [diamondback](https://github.com/larryturner/diamondback)
 
 ```bash
 pip install diamondback
@@ -184,8 +182,6 @@ pip install git+https://github.com/larryturner/diamondback.git
 A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
 demonstration of diamondback capabilities.	
-	
-* [diamondback](https://github.com/larryturner/diamondback/blob/master/jupyter/diamondback.ipynb)
 
 ```bash
 jupyter notebook .\jupyter\diamondback.ipynb
@@ -197,9 +193,9 @@ visualize functionality.
     
 ### Documentation
 
-* [diamondback](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
+* [GitHub](https://larryturner.github.io/diamondback/)
 
-* [GitHub](https://larryturner.github.io/diamondback/index.html)
+* [HTML](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
         
 ### Test
 
@@ -207,7 +203,7 @@ A simple test solution is provided to exercise and verify diamondback
 components.
 	
 ```bash
-py.test -v --capture=no .\test
+py.test -v --capture=no .\pytest
 ```
 	
 ### Author
@@ -217,6 +213,10 @@ py.test -v --capture=no .\test
 ### License
 
 [BSD-3C](https://github.com/larryturner/diamondback/blob/master/license)
+
+### Release
+
+[Version](https://github.com/larryturner/diamondback/blob/master/version)
         
 Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
 	
