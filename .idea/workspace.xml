@@ -37,7 +37,7 @@
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="425">
-              <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+              <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -608,7 +608,7 @@
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
-          <caret line="42" column="31" lean-forward="true" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="31" />
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
         </state>
       </provider>
     </entry>
