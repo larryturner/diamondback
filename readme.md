@@ -194,8 +194,6 @@ visualize functionality.
 ### Documentation
 
 * [GitHub](https://larryturner.github.io/diamondback/)
-
-* [HTML](https://github.com/larryturner/diamondback/blob/master/docs/build/html/diamondback.html)
         
 ### Test
 

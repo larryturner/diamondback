@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="" />
+    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,8 +26,8 @@
         <entry file="file://$PROJECT_DIR$/readme.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="306">
-                <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+              <first_editor relative-caret-position="629">
+                <caret line="196" selection-start-line="196" selection-end-line="196" />
               </first_editor>
               <second_editor />
             </state>
@@ -112,8 +115,8 @@
         <option value="$PROJECT_DIR$/diamondback/commons/Serial.py" />
         <option value="$PROJECT_DIR$/diamondback/filters/DerivativeFilter.py" />
         <option value="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" />
-        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/setup.py" />
+        <option value="$PROJECT_DIR$/readme.md" />
       </list>
     </option>
   </component>
@@ -603,8 +606,8 @@
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="306">
-            <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <first_editor relative-caret-position="629">
+            <caret line="196" selection-start-line="196" selection-end-line="196" />
           </first_editor>
           <second_editor />
         </state>
