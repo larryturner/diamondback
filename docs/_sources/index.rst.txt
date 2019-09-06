@@ -11,3 +11,4 @@ diamondback
 * :ref:`modindex`
 * :ref:`search`
 
+.. mdinclude:: ..\..\readme.md

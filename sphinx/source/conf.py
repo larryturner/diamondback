@@ -37,7 +37,8 @@ project = 'diamondback'
 
 exclude_patterns = [ 'build' ]
 
-extensions = [ 'sphinx.ext.autodoc',
+extensions = [ 'm2r',
+               'sphinx.ext.autodoc',
                'sphinx.ext.githubpages',
                'sphinx.ext.napoleon',
                'sphinx.ext.viewcode' ]
