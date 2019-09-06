@@ -229,6 +229,6 @@ Description: ### Description
 Keywords: DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,serial,transform,wavelet
 Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
-Classifier: Programing Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3
 Classifier: **License** :: OSI Approved :: BSD-3C License
 Requires-Python: >= 3.6
