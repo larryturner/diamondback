@@ -9,7 +9,7 @@
             from diamondback.interfaces.IA import IA
             import numpy
 
-
+.
             class Test( IA ) :
 
                 def __init__( self ) :
