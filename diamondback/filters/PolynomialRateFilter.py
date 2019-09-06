@@ -32,7 +32,12 @@
             import math
             import numpy
 
+
+            # Create an instance with rate and order.
+
             obj = PolynomialRateFilter( rate = math.pi, order = 3 )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
 

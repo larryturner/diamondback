@@ -32,7 +32,12 @@
 
             from diamondback.models.PrincipalComponentModel import PrincipalComponentModel
 
+
+            # Create an instance.
+
             obj = PrincipalComponentModel( )
+
+            # Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.
 
             x = numpy.random.rand( 3, 32 )
 

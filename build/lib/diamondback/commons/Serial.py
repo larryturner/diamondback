@@ -17,14 +17,21 @@
 
             from diamondback.commons.Serial import Serial
 
+
+            # Encode and decode a dictionary instance in JSON.
+
             x = { 'a' : numpy.random.rand( count ),
                   'b' : list( numpy.random.rand( count ) ) }
 
             z = Serial.decode( Serial.encode( x, False ), False )
 
+            # Encode and decode a dictionary instance in gzip JSON.
+
             y = Serial.encode( x, True )
 
             z = Serial.decode( y, True )
+
+            # Decode a dictionary instance from a JSON str.
 
             z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }', False )
 

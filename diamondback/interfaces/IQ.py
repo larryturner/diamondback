@@ -9,6 +9,7 @@
             from diamondback.interfaces.IQ import IQ
             import numpy
 
+
             class Test( IQ ) :
 
                 def __init__( self ) :

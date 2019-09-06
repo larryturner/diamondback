@@ -8,6 +8,7 @@
 
             from diamondback.interfaces.IPhase import IPhase
 
+
             class Test( IPhase ) :
 
                 def __init__( self ) :

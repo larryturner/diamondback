@@ -267,6 +267,7 @@
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="k">import</span> <span class="n">IClear</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
 
+
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -311,6 +312,7 @@
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="k">import</span> <span class="n">IEqual</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
 
+
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
@@ -347,6 +349,7 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IFrequency</span> <span class="k">import</span> <span class="n">IFrequency</span>
+
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IFrequency</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -392,6 +395,7 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
+
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -439,6 +443,7 @@
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IQ</span> <span class="k">import</span> <span class="n">IQ</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
+
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IQ</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -483,6 +488,7 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="k">import</span> <span class="n">IRate</span>
+
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -529,6 +535,7 @@
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="k">import</span> <span class="n">IPhase</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="k">import</span> <span class="n">IReset</span>
+
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IReset</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -578,6 +585,7 @@ operation at a specified incident signal condition.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="k">import</span> <span class="n">IS</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 

@@ -169,9 +169,9 @@
 <div class="toctree-wrapper compound">
 </div>
 <ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="modules.html"><span class="doc">diamondback</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 </ul>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
@@ -207,76 +207,76 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 </ul>
 <div class="section" id="commons">
 <h3><em>commons</em><a class="headerlink" href="#commons" title="Permalink to this headline">¶</a></h3>
-<p><em>Log</em> is a singleton instance which formats and writes log entries, electively
+<p><strong>Log</strong> is a singleton instance which formats and writes log entries, electively
 using the logger package or directly to a specified stream. Log entries are
 prefaced with an ISO-8601 UTC datetime and log level, and enhancements
 are made to the formatting of datetime, exception, and collection data
 types.  Dynamic stream redirection and log level specification are
 supported.</p>
-<p><em>Serial</em> is a singleton instance which encodes and decodes an instance or
+<p><strong>Serial</strong> is a singleton instance which encodes and decodes an instance or
 collection with JSON text, or base-64 encoded gzip JSON binary format.</p>
 </div>
 <div class="section" id="filters">
 <h3><em>filters</em><a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
-<p><em>ComplexBandPassFilter</em> instances adaptively extract or reject signals at a
+<p><strong>ComplexBandPassFilter</strong> instances adaptively extract or reject signals at a
 normalized frequency of interest, and may be employed to dynamically track
 magnitude and phase or demodulate signals.</p>
-<p><em>ComplexExponentialFilter</em> instances synthesize complex exponential signals at
+<p><strong>ComplexExponentialFilter</strong> instances synthesize complex exponential signals at
 normalized frequencies of interest with contiguous phase.</p>
-<p><em>ComplexFrequencyFilter</em> instances adaptively discriminate and estimate a
+<p><strong>ComplexFrequencyFilter</strong> instances adaptively discriminate and estimate a
 normalized frequency of a signal.</p>
-<p><em>DerivativeFilter</em> instances estimate discrete derivative approximations at
+<p><strong>DerivativeFilter</strong> instances estimate discrete derivative approximations at
 several filter orders, through extensible factory construction.</p>
-<p><em>FirFilter</em> instances realize discrete difference equations of Finite Impulse
+<p><strong>FirFilter</strong> instances realize discrete difference equations of Finite Impulse
 Response ( FIR ) form, in adaptive or static solutions.  A factory electively
 constructs instances based on type, classification, normalized frequency, order,
 cascade count, and complement.  Filters may be readily extended to support new
 types and functionality, while retaining factory support.  Root extraction,
 group delay, and frequency response evaluation are defined.</p>
-<p><em>GoertzelFilter</em> instances efficiently evaluate a Discrete Fourier Transform
+<p><strong>GoertzelFilter</strong> instances efficiently evaluate a Discrete Fourier Transform
 ( DFT ) at a normalized frequency, based on a window filter and normalized
 frequency.</p>
-<p><em>IirFilter</em> instances realize discrete difference equations of Infinite Impulse
+<p><strong>IirFilter</strong> instances realize discrete difference equations of Infinite Impulse
 Response ( IIR ) form, in adaptive or static solutions.  A factory electively
 constructs instances based on type, classification, normalized frequency, order,
 cascade count, and complement.  Filters may be readily extended to support new
 types and functionality, while retaining factory support.  Root extraction,
 group delay, and frequency response evaluation are defined.</p>
-<p><em>IntegralFilter</em> instances estimate discrete integral approximations at several
+<p><strong>IntegralFilter</strong> instances estimate discrete integral approximations at several
 filter orders, through extensible factory construction.</p>
-<p><em>PidFilter</em> instances realize discrete difference equations of Proportional
+<p><strong>PidFilter</strong> instances realize discrete difference equations of Proportional
 Integral Derivative ( PID ) form.</p>
-<p><em>PolynomialRateFilter</em> instances approximate a signal evaluated at an effective
+<p><strong>PolynomialRateFilter</strong> instances approximate a signal evaluated at an effective
 frequency equal to the product of the normalized frequency and a rate greater
 than or equal to one, supporting interpolation through localized polynomial
 approximation with no group delay.</p>
-<p><em>PolyphaseRateFilter</em> instances approximate a signal evaluated at an effective
+<p><strong>PolyphaseRateFilter</strong> instances approximate a signal evaluated at an effective
 frequency equal to the product of the normalized frequency and a rate greater
 than zero, supporting decimation and interpolation through construction and
 application of a polyphase filter bank, a sequence of low pass filters with a
 common frequency response and a fractional sample difference in group delay.  An
 appropriate stride is determined to realize the specified effective frequency
 without bias and with group delay based on order.</p>
-<p><em>RankFilter</em> instances define nonlinear morphological operators, which define
+<p><strong>RankFilter</strong> instances define nonlinear morphological operators, which define
 functionality based on rank and order, including dilation, median, and erosion,
 and may be combined in sequences to support close and open.</p>
-<p><em>WindowFilter</em> instances realize discrete window functions useful in Fourier
+<p><strong>WindowFilter</strong> instances realize discrete window functions useful in Fourier
 analysis, based on type, classification, order, and normalization, through
 extensible factory construction.</p>
 </div>
 <div class="section" id="interfaces">
 <h3><em>interfaces</em><a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h3>
-<p><em>IA</em>, <em>IB</em>, <em>IClear</em>, <em>IEqual</em>, <em>IFrequency</em>, <em>IPhase</em>, <em>IQ</em>, <em>IRate</em>,
-<em>IReset</em>, and <em>IS</em> interfaces facilitate mix-in design.</p>
+<p><strong>IA</strong>, <strong>IB</strong>, <strong>IClear</strong>, <strong>IEqual</strong>, <strong>IFrequency</strong>, <strong>IPhase</strong>, <strong>IQ</strong>, <strong>IRate</strong>,
+<strong>IReset</strong>, and <strong>IS</strong> interfaces facilitate mix-in design.</p>
 </div>
 <div class="section" id="models">
 <h3><em>models</em><a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
-<p><em>DiversityModel</em> instances select and retain a state extracted to maximize the
+<p><strong>DiversityModel</strong> instances select and retain a state extracted to maximize the
 minimum distance between state members based on classification and order,
 through extensible factory construction.  An opportunistic unsupervised learning
 model typically improves condition and numerical accuracy and reduces storage
 relative to alternative approaches including generalized linear inverse.</p>
-<p><em>PrincipalComponentModel</em> instances are supervised learning models which
+<p><strong>PrincipalComponentModel</strong> instances are supervised learning models which
 analyze an incident signal to learn a mean vector, standard deviation vector,
 and a collection of eigenvectors, and produce a reference signal which is a
 candidate for dimension reduction, in which higher order dimensions are
@@ -285,24 +285,24 @@ significant and often sufficient information.</p>
 </div>
 <div class="section" id="transforms">
 <h3><em>transforms</em><a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
-<p><em>ComplexTransform</em> is a singleton instance which converts a three-phase real
+<p><strong>ComplexTransform</strong> is a singleton instance which converts a three-phase real
 signal to a complex signal, or a complex signal to a three-phase real signal, in
 equivalent and reversible representations, based on a neutral condition.</p>
-<p><em>FourierTransform</em> is a singleton instance which converts a real or complex
+<p><strong>FourierTransform</strong> is a singleton instance which converts a real or complex
 discrete-time signal to a complex discrete-frequency signal, or a complex
 discrete-frequency signal to a real or complex discrete-time signal, in
 equivalent and reversible representations, based on a window filter and inverse.</p>
-<p><em>PowerSpectrumTransform</em> is a singleton instance which converts a real or complex
+<p><strong>PowerSpectrumTransform</strong> is a singleton instance which converts a real or complex
 discrete-time signal to a real discrete-frequency signal which estimates a mean
 power density of the signal, based on a window filter.</p>
-<p><em>WaveletTransform</em> instances realize a temporal spatial frequency transformation
+<p><strong>WaveletTransform</strong> instances realize a temporal spatial frequency transformation
 through construction and application of analysis and synthesis filters with
 complementary frequency responses, combined with downsampling and upsampling
 operations, in equivalent and reversible representations.  A factory constructs
 instances based on type, classification, and order.  Filters may be readily
 extended to support new types and functionality, while retaining factory
 support.</p>
-<p><em>ZTransform</em> is a singleton instance which converts continuous s-domain to
+<p><strong>ZTransform</strong> is a singleton instance which converts continuous s-domain to
 discrete z-domain difference equations, based on a normalized frequency and
 application of bilinear or impulse invariant methods.</p>
 </div>
@@ -318,10 +318,10 @@ application of bilinear or impulse invariant methods.</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install diamondback
-</pre></div>
-</div>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install git+https://github.com/larryturner/diamondback.git
+<p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diamondback</span>
+
+<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">larryturner</span><span class="o">/</span><span class="n">diamondback</span><span class="p">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
@@ -330,7 +330,7 @@ application of bilinear or impulse invariant methods.</p>
 <p>A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
 demonstration of diamondback capabilities.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter notebook .<span class="se">\j</span>upyter<span class="se">\d</span>iamondback.ipynb
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>jupyter notebook .\jupyter\diamondback.ipynb
 </pre></div>
 </div>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
@@ -339,15 +339,14 @@ visualize functionality.</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub</a></p></li>
-</ul>
+<p>Diamondback documentation is generated from the source, indexed, and searchable.</p>
+<p><a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub</a></p>
 </div>
 <div class="section" id="test">
 <h2>Test<a class="headerlink" href="#test" title="Permalink to this headline">¶</a></h2>
-<p>A simple test solution is provided to exercise and verify diamondback
+<p>A simple pytest solution is provided to exercise and verify diamondback
 components.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py.test -v --capture<span class="o">=</span>no .<span class="se">\p</span>ytest
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span><span class="n">py</span><span class="p">.</span><span class="n">test</span> <span class="o">-</span><span class="n">v</span> <span class="c1">--capture=no .\pytest</span>
 </pre></div>
 </div>
 </div>

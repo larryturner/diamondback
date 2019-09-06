@@ -9,6 +9,7 @@
             from diamondback.interfaces.IEqual import IEqual
             from diamondback.interfaces.IPhase import IPhase
 
+
             class Test( IEqual, IPhase ) :
 
                 def __eq__( self, other ) :

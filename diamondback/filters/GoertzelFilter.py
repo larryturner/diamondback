@@ -29,11 +29,16 @@
             from diamondback.filters.GoertzelFilter import GoertzelFilter
             import numpy
 
+
             b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 ).b
 
             frequency = 0.1
 
+            # Create an instance from coefficients and frequency.
+
             obj = GoertzelFilter( b = b, frequency = frequency )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 1 ]
 

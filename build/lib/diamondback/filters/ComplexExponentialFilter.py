@@ -15,11 +15,16 @@
         from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
         import numpy
 
+
+        # Create an instance with phase.
+
         obj = ComplexExponentialFilter( phase = 0.0 )
+
+        # Filter an incident signal.
 
         x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
 
-        y = obj.filter( x )                                # reference
+        y = obj.filter( x )
 
     **License**
 

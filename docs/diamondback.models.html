@@ -198,7 +198,12 @@ through observation.  An instance, classification, and order are specified.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.models.DiversityModel</span> <span class="k">import</span> <span class="n">DiversityModel</span>
 
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
 <span class="n">obj</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="c1"># Model an incident signal and extract a state.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
 
@@ -307,7 +312,12 @@ clustering, classification, pattern recognition, and visualization.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.models.PrincipalComponentModel</span> <span class="k">import</span> <span class="n">PrincipalComponentModel</span>
 
+
+<span class="c1"># Create an instance.</span>
+
 <span class="n">obj</span> <span class="o">=</span> <span class="n">PrincipalComponentModel</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="c1"># Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
 

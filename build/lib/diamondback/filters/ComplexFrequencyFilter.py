@@ -22,15 +22,22 @@
         from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
         import numpy
 
-        x = numpy.linspace( 0.0, 0.1, 128 )                # incident
 
-        d = ComplexExponentialFilter( 0.0 ).filter( x )    # primary
+        x = numpy.linspace( 0.0, 0.1, 128 )
+
+        # Create a primary signal.
+
+        d = ComplexExponentialFilter( 0.0 ).filter( x )
+
+        # Create an instance with frequency and rate.
 
         obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
 
-        obj.reset( d[ 0 ] )                                # minimize edge effects
+        # Filter a primary signal.
 
-        y, e, b = obj.filter( d )                          # reference, error, coefficient
+        obj.reset( d[ 0 ] )
+
+        y, e, b = obj.filter( d )
 
     **License**
 

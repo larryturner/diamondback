@@ -33,9 +33,12 @@
         from diamondback.transforms.FourierTransform import FourierTransform
         import numpy
 
+
         x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]
 
         b = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( x ) - 1 ).b
+
+        # Transform an incident signal, forward and inverse.
 
         y, f = FourierTransform.transform( x, b = b, inverse = False )
 

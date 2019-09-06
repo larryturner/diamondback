@@ -24,6 +24,7 @@
         import math
         import numpy
 
+
         frequency, order, ripple = 0.1, 2, 0.125
 
         u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
@@ -34,7 +35,11 @@
 
         a /= a[ -1 ]
 
+        # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.
+
         a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
+
+        # Define zeros and normalize gain.
 
         b = numpy.poly( -numpy.ones( order ) )
 

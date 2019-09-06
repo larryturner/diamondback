@@ -5,10 +5,10 @@ diamondback
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Contents
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+*  :doc:`modules`
+*  :ref:`modindex`
+*  :ref:`genindex`
 
 .. mdinclude:: ..\..\readme.md

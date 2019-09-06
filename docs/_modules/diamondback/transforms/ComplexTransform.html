@@ -159,7 +159,10 @@
 <span class="sd">        from diamondback.transforms.ComplexTransform import ComplexTransform</span>
 <span class="sd">        import numpy</span>
 
+
 <span class="sd">        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )</span>
+
+<span class="sd">        # Transform an incident signal, forward and inverse.</span>
 
 <span class="sd">        y = ComplexTransform.transform( x, neutral = True )</span>
 

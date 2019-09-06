@@ -55,11 +55,16 @@
         from diamondback.transforms.WaveletTransform import WaveletTransform
         import numpy
 
+
         count = 3
+
+        # Create an instance from a Factory with constraints.
 
         obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = 'Haar', order = 1 )
 
         x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
+
+        # Transform an incident signal, forward and inverse.
 
         y = obj.transform( x, count, False )
 

@@ -166,7 +166,12 @@
 <span class="sd">            from diamondback.filters.RankFilter import RankFilter</span>
 <span class="sd">            import numpy</span>
 
+
+<span class="sd">            # Create an instance with rank and order.</span>
+
 <span class="sd">            obj = RankFilter( rank = 4, order = 4 )</span>
+
+<span class="sd">            # Filter an incident signal.</span>
 
 <span class="sd">            x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )</span>
 

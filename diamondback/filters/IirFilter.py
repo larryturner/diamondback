@@ -68,15 +68,24 @@
             from diamondback.filters.IirFilter import IirFilter
             import numpy
 
+
+            # Create an instance from a Factory with constraints.
+
             obj = IirFilter.Factory.instance( typ = IirFilter, classification = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
 
+            # Create an instance with coefficients.
+
             obj = IirFilter( a = obj.a, b = obj.b )
+
+            # Estimate frequency response, group delay, and roots.
 
             y, f = obj.response( length = 8192, count = 1 )
 
             y, f = obj.delay( length = 8192, count = 1 )
 
             p, z = obj.roots( count = 1 )
+
+            # Filter an incident signal.
 
             x = numpy.random.rand( 128 ) * 2.0 - 1.0
 

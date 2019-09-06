@@ -222,7 +222,12 @@
 <span class="sd">            from diamondback.filters.DerivativeFilter import DerivativeFilter</span>
 <span class="sd">            import numpy</span>
 
+
+<span class="sd">            # Create an instance from a Factory with constraints.</span>
+
 <span class="sd">            obj = DerivativeFilter.Factory.instance( typ = DerivativeFilter, derivative = 1, order = 2 )</span>
+
+<span class="sd">            # Filter an incident signal.</span>
 
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real</span>
 

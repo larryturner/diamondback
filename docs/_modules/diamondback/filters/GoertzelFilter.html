@@ -175,11 +175,16 @@
 <span class="sd">            from diamondback.filters.GoertzelFilter import GoertzelFilter</span>
 <span class="sd">            import numpy</span>
 
+
 <span class="sd">            b = WindowFilter.Factory.instance( WindowFilter, &#39;Hann&#39;, 128 ).b</span>
 
 <span class="sd">            frequency = 0.1</span>
 
+<span class="sd">            # Create an instance from coefficients and frequency.</span>
+
 <span class="sd">            obj = GoertzelFilter( b = b, frequency = frequency )</span>
+
+<span class="sd">            # Filter an incident signal.</span>
 
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 1 ]</span>
 

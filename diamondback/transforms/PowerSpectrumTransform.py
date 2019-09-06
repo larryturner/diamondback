@@ -34,10 +34,13 @@
         from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
         from diamondback.transforms.PowerSpectrumTransform import PowerSpectrumTransform
         import numpy
-        
+
+
         x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
 
         b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 - 1 ).b
+
+        # Transform an incident signal.
 
         y, f = PowerSpectrumTransform.transform( x, b = b, index = len( b ) // 2 )
 

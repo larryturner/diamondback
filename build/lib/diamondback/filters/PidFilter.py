@@ -18,7 +18,12 @@
             from diamondback.filters.PidFilter import PidFilter
             import numpy
 
+
+            # Create an instance with coefficients.
+
             obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real
 

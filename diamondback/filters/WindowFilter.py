@@ -37,7 +37,12 @@
             from diamondback.filters.WindowFilter import WindowFilter
             import numpy
 
+
+            # Create an instance from a Factory with constraints.
+
             obj = WindowFilter.Factory.instance( typ = WindowFilter, classification = 'Hann', order = 15, normal = True )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( len( obj.b ) ) * 0.1 ).real
 

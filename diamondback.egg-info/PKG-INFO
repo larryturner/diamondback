@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.0
+Version: 1.0.1
 Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -48,61 +48,61 @@ Description: ### Description
         
         #### _commons_
         	
-        _Log_ is a singleton instance which formats and writes log entries, electively
+        **Log** is a singleton instance which formats and writes log entries, electively
         using the logger package or directly to a specified stream. Log entries are
         prefaced with an ISO-8601 UTC datetime and log level, and enhancements
         are made to the formatting of datetime, exception, and collection data
         types.  Dynamic stream redirection and log level specification are
         supported.
         	    
-        _Serial_ is a singleton instance which encodes and decodes an instance or
+        **Serial** is a singleton instance which encodes and decodes an instance or
         collection with JSON text, or base-64 encoded gzip JSON binary format.
         
         #### _filters_
         	
-        _ComplexBandPassFilter_ instances adaptively extract or reject signals at a
+        **ComplexBandPassFilter** instances adaptively extract or reject signals at a
         normalized frequency of interest, and may be employed to dynamically track
         magnitude and phase or demodulate signals.
         	
-        _ComplexExponentialFilter_ instances synthesize complex exponential signals at
+        **ComplexExponentialFilter** instances synthesize complex exponential signals at
         normalized frequencies of interest with contiguous phase.
         	
-        _ComplexFrequencyFilter_ instances adaptively discriminate and estimate a
+        **ComplexFrequencyFilter** instances adaptively discriminate and estimate a
         normalized frequency of a signal.
         	
-        _DerivativeFilter_ instances estimate discrete derivative approximations at
+        **DerivativeFilter** instances estimate discrete derivative approximations at
         several filter orders, through extensible factory construction.
         
-        _FirFilter_ instances realize discrete difference equations of Finite Impulse
+        **FirFilter** instances realize discrete difference equations of Finite Impulse
         Response ( FIR ) form, in adaptive or static solutions.  A factory electively
         constructs instances based on type, classification, normalized frequency, order,
         cascade count, and complement.  Filters may be readily extended to support new
         types and functionality, while retaining factory support.  Root extraction,
         group delay, and frequency response evaluation are defined.
         
-        _GoertzelFilter_ instances efficiently evaluate a Discrete Fourier Transform
+        **GoertzelFilter** instances efficiently evaluate a Discrete Fourier Transform
         ( DFT ) at a normalized frequency, based on a window filter and normalized
         frequency.
         	
-        _IirFilter_ instances realize discrete difference equations of Infinite Impulse
+        **IirFilter** instances realize discrete difference equations of Infinite Impulse
         Response ( IIR ) form, in adaptive or static solutions.  A factory electively
         constructs instances based on type, classification, normalized frequency, order,
         cascade count, and complement.  Filters may be readily extended to support new
         types and functionality, while retaining factory support.  Root extraction,
         group delay, and frequency response evaluation are defined.
         
-        _IntegralFilter_ instances estimate discrete integral approximations at several
+        **IntegralFilter** instances estimate discrete integral approximations at several
         filter orders, through extensible factory construction.
         
-        _PidFilter_ instances realize discrete difference equations of Proportional
+        **PidFilter** instances realize discrete difference equations of Proportional
         Integral Derivative ( PID ) form.
         
-        _PolynomialRateFilter_ instances approximate a signal evaluated at an effective
+        **PolynomialRateFilter** instances approximate a signal evaluated at an effective
         frequency equal to the product of the normalized frequency and a rate greater
         than or equal to one, supporting interpolation through localized polynomial
         approximation with no group delay.
         		
-        _PolyphaseRateFilter_ instances approximate a signal evaluated at an effective
+        **PolyphaseRateFilter** instances approximate a signal evaluated at an effective
         frequency equal to the product of the normalized frequency and a rate greater
         than zero, supporting decimation and interpolation through construction and
         application of a polyphase filter bank, a sequence of low pass filters with a
@@ -110,28 +110,28 @@ Description: ### Description
         appropriate stride is determined to realize the specified effective frequency
         without bias and with group delay based on order.
         
-        _RankFilter_ instances define nonlinear morphological operators, which define
+        **RankFilter** instances define nonlinear morphological operators, which define
         functionality based on rank and order, including dilation, median, and erosion,
         and may be combined in sequences to support close and open.
         		
-        _WindowFilter_ instances realize discrete window functions useful in Fourier
+        **WindowFilter** instances realize discrete window functions useful in Fourier
         analysis, based on type, classification, order, and normalization, through
         extensible factory construction.
         		
         #### _interfaces_
         
-        _IA_, _IB_, _IClear_, _IEqual_, _IFrequency_, _IPhase_, _IQ_, _IRate_,
-        _IReset_, and _IS_ interfaces facilitate mix-in design.
+        **IA**, **IB**, **IClear**, **IEqual**, **IFrequency**, **IPhase**, **IQ**, **IRate**,
+        **IReset**, and **IS** interfaces facilitate mix-in design.
         	
         #### _models_
         
-        _DiversityModel_ instances select and retain a state extracted to maximize the
+        **DiversityModel** instances select and retain a state extracted to maximize the
         minimum distance between state members based on classification and order,
         through extensible factory construction.  An opportunistic unsupervised learning
         model typically improves condition and numerical accuracy and reduces storage
         relative to alternative approaches including generalized linear inverse.
         
-        _PrincipalComponentModel_ instances are supervised learning models which
+        **PrincipalComponentModel** instances are supervised learning models which
         analyze an incident signal to learn a mean vector, standard deviation vector,
         and a collection of eigenvectors, and produce a reference signal which is a
         candidate for dimension reduction, in which higher order dimensions are
@@ -140,20 +140,20 @@ Description: ### Description
         		
         #### _transforms_
         	
-        _ComplexTransform_ is a singleton instance which converts a three-phase real
+        **ComplexTransform** is a singleton instance which converts a three-phase real
         signal to a complex signal, or a complex signal to a three-phase real signal, in
         equivalent and reversible representations, based on a neutral condition.
         		
-        _FourierTransform_ is a singleton instance which converts a real or complex
+        **FourierTransform** is a singleton instance which converts a real or complex
         discrete-time signal to a complex discrete-frequency signal, or a complex
         discrete-frequency signal to a real or complex discrete-time signal, in
         equivalent and reversible representations, based on a window filter and inverse.
         		
-        _PowerSpectrumTransform_ is a singleton instance which converts a real or complex
+        **PowerSpectrumTransform** is a singleton instance which converts a real or complex
         discrete-time signal to a real discrete-frequency signal which estimates a mean
         power density of the signal, based on a window filter.
         		
-        _WaveletTransform_ instances realize a temporal spatial frequency transformation
+        **WaveletTransform** instances realize a temporal spatial frequency transformation
         through construction and application of analysis and synthesis filters with
         complementary frequency responses, combined with downsampling and upsampling
         operations, in equivalent and reversible representations.  A factory constructs
@@ -161,7 +161,7 @@ Description: ### Description
         extended to support new types and functionality, while retaining factory
         support.
         
-        _ZTransform_ is a singleton instance which converts continuous s-domain to
+        **ZTransform** is a singleton instance which converts continuous s-domain to
         discrete z-domain difference equations, based on a normalized frequency and
         application of bilinear or impulse invariant methods.	
         	
@@ -177,13 +177,12 @@ Description: ### Description
         	
         ### Installation
         
-        ```bash
-        pip install diamondback
-        ```
+        Diamondback is a public repository hosted at PyPI and GitHub.
         
-        ```bash
-        pip install git+https://github.com/larryturner/diamondback.git
-        ```
+            pip install diamondback
+        
+            pip install git+https://github.com/larryturner/diamondback.git
+        
         	
         ### Demonstration
         
@@ -191,9 +190,7 @@ Description: ### Description
         The notebook serves as a simplified but useful introduction to and
         demonstration of diamondback capabilities.	
         
-        ```bash
-        jupyter notebook .\jupyter\diamondback.ipynb
-        ```
+            jupyter notebook .\jupyter\diamondback.ipynb
         
         Restart the kernel, as the first cell contains common definitions, find cells
         which exercise components of interest, and manipulate widgets to exercise and
@@ -201,16 +198,16 @@ Description: ### Description
             
         ### Documentation
         
-        * [GitHub](https://larryturner.github.io/diamondback/)
+        Diamondback documentation is generated from the source, indexed, and searchable.
+          
+        [GitHub](https://larryturner.github.io/diamondback/)
                 
         ### Test
         
-        A simple test solution is provided to exercise and verify diamondback
+        A simple pytest solution is provided to exercise and verify diamondback
         components.
         	
-        ```bash
-        py.test -v --capture=no .\pytest
-        ```
+            py.test -v --capture=no .\pytest
         	
         ### Author
         

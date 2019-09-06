@@ -8,6 +8,7 @@
 
             from diamondback.interfaces.IRate import IRate
 
+
             class Test( IRate ) :
 
                 def __init__( self ) :

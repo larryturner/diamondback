@@ -178,7 +178,12 @@
 <span class="sd">            import math</span>
 <span class="sd">            import numpy</span>
 
+
+<span class="sd">            # Create an instance with rate and order.</span>
+
 <span class="sd">            obj = PolynomialRateFilter( rate = math.pi, order = 3 )</span>
+
+<span class="sd">            # Filter an incident signal.</span>
 
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real</span>
 

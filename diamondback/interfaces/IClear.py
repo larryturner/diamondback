@@ -9,6 +9,7 @@
             from diamondback.interfaces.IClear import IClear
             from diamondback.interfaces.IPhase import IPhase
 
+
             class Test( IClear, IPhase ) :
 
                 def clear( self ) :

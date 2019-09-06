@@ -9,6 +9,7 @@
             from diamondback.interfaces.IS import IS
             import numpy
 
+
             class Test( IS ) :
 
                 def __init__( self ) :

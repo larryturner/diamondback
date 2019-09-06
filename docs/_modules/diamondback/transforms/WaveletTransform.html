@@ -201,11 +201,16 @@
 <span class="sd">        from diamondback.transforms.WaveletTransform import WaveletTransform</span>
 <span class="sd">        import numpy</span>
 
+
 <span class="sd">        count = 3</span>
+
+<span class="sd">        # Create an instance from a Factory with constraints.</span>
 
 <span class="sd">        obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = &#39;Haar&#39;, order = 1 )</span>
 
 <span class="sd">        x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )</span>
+
+<span class="sd">        # Transform an incident signal, forward and inverse.</span>
 
 <span class="sd">        y = obj.transform( x, count, False )</span>
 

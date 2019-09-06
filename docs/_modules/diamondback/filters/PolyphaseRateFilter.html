@@ -184,7 +184,12 @@
 <span class="sd">            import math</span>
 <span class="sd">            import numpy</span>
 
+
+<span class="sd">            # Create an instance with rate.</span>
+
 <span class="sd">            obj = PolyphaseRateFilter( rate = 1.0 / math.pi )</span>
+
+<span class="sd">            # Filter an incident signal.</span>
 
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real</span>
 

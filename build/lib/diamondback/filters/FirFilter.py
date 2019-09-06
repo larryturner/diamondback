@@ -67,15 +67,24 @@
             from diamondback.filters.FirFilter import FirFilter
             import numpy
 
+
+            # Create an instance from a Factory with constraints.
+
             obj = FirFilter.Factory.instance( typ = FirFilter, classification = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
 
+            # Create an instance with coefficients.
+
             obj = FirFilter( b = obj.b )
+
+            # Estimate frequency response, group delay, and roots.
 
             y, f = obj.response( length = 8192, count = 1 )
 
             y, f = obj.delay( length = 8192, count = 1 )
 
             p, z = obj.roots( count = 1 )
+
+            # Filter an incident signal.
 
             x = numpy.random.rand( 128 ) * 2.0 - 1.0
 

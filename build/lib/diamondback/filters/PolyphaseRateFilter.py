@@ -38,7 +38,12 @@
             import math
             import numpy
 
+
+            # Create an instance with rate.
+
             obj = PolyphaseRateFilter( rate = 1.0 / math.pi )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
 

@@ -60,7 +60,12 @@
             from diamondback.filters.IntegralFilter import IntegralFilter
             import numpy
 
+
+            # Create an instance from a Factory with constraints.
+
             obj = IntegralFilter.Factory.instance( typ = IntegralFilter, order = 2 )
+
+            # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
 

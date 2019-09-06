@@ -9,6 +9,7 @@
             from diamondback.interfaces.IPhase import IPhase
             from diamondback.interfaces.IReset import IReset
 
+
             class Test( IPhase, IReset ) :
 
                 def reset( self, x ) :

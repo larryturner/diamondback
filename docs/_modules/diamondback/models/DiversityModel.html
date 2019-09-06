@@ -179,7 +179,12 @@
 
 <span class="sd">            from diamondback.models.DiversityModel import DiversityModel</span>
 
+
+<span class="sd">            # Create an instance from a Factory with constraints.</span>
+
 <span class="sd">            obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = &#39;Euclidean&#39;, order = 4 )</span>
+
+<span class="sd">            # Model an incident signal and extract a state.</span>
 
 <span class="sd">            x = numpy.random.rand( 2, 32 )</span>
 

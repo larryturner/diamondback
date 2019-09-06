@@ -33,7 +33,12 @@
 
             from diamondback.models.DiversityModel import DiversityModel
 
+
+            # Create an instance from a Factory with constraints.
+
             obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = 'Euclidean', order = 4 )
+
+            # Model an incident signal and extract a state.
 
             x = numpy.random.rand( 2, 32 )
 

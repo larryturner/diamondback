@@ -20,7 +20,12 @@
             from diamondback.filters.RankFilter import RankFilter
             import numpy
 
+
+            # Create an instance with rank and order.
+
             obj = RankFilter( rank = 4, order = 4 )
+
+            # Filter an incident signal.
 
             x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )
 

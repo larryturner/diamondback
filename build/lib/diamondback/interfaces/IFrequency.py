@@ -8,6 +8,7 @@
 
             from diamondback.interfaces.IFrequency import IFrequency
 
+
             class Test( IFrequency ) :
 
                 def __init__( self ) :

@@ -23,21 +23,30 @@
             import numpy
             import sys
 
+
             try :
+
+                # Set Log level to 'Info'.
 
                 Log.level( 'Info' )
 
                 with open( 'log.000.txt', 'w' ) as fout :
 
+                    # Set Log stream to a file and write a 'Warning' entry.
+
                     Log.stream( fout )
 
                     Log.write( 'Warning', 'x = ', numpy.random.rand( 2, 2 ) )
+
+                # Set Log stream to sys.stdout, use logging as 'project_log', and write an 'Info' entry.
 
                 Log.stream( sys.stdout, 'project_log' )
 
                 Log.write( 'Info', 'y = [ ]' )
 
             except Exception as ex :
+
+                # Write an 'Error' entry on Exception.
 
                 Log.write( ex, 'Error' )
 

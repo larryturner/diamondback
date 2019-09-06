@@ -24,13 +24,18 @@
             from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
             import numpy
 
+
             frequency = 0.1
 
             x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency
 
+            # Create a primary signal.
+
             d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )
 
             obj = ComplexBandPassFilter( frequency = frequency, rate = 5.0e-2 )
+
+            # Filter a primary signal.
 
             obj.reset( d[ 0 ] )
 
