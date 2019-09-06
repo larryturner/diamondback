@@ -84,11 +84,11 @@
 <li><a class="reference internal" href="#">diamondback</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
-<li><a class="reference internal" href="#commons"><em>commons</em></a></li>
-<li><a class="reference internal" href="#filters"><em>filters</em></a></li>
-<li><a class="reference internal" href="#interfaces"><em>interfaces</em></a></li>
-<li><a class="reference internal" href="#models"><em>models</em></a></li>
-<li><a class="reference internal" href="#transforms"><em>transforms</em></a></li>
+<li><a class="reference internal" href="#id2">commons</a></li>
+<li><a class="reference internal" href="#id4">filters</a></li>
+<li><a class="reference internal" href="#id6">interfaces</a></li>
+<li><a class="reference internal" href="#id8">models</a></li>
+<li><a class="reference internal" href="#id10">transforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
@@ -169,7 +169,6 @@
 <div class="toctree-wrapper compound">
 </div>
 <ul class="simple">
-<li><p><a class="reference internal" href="modules.html"><span class="doc">diamondback</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 </ul>
@@ -199,14 +198,14 @@ collections are consistently expressed in native types, including tuples, sets,
 lists, and dictionaries, with vector and matrix types expressed in numpy arrays.</p>
 <p>Diamondback is defined in subpackages :</p>
 <ul class="simple">
-<li><p><em>commons</em></p></li>
-<li><p><em>filters</em></p></li>
-<li><p><em>interfaces</em></p></li>
-<li><p><em>models</em></p></li>
-<li><p><em>transforms</em></p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons.html">commons</a></p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters.html">filters</a></p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces.html">interfaces</a></p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models.html">models</a></p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms.html">transforms</a></p></li>
 </ul>
-<div class="section" id="commons">
-<h3><em>commons</em><a class="headerlink" href="#commons" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id2">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons.html">commons</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
 <p><strong>Log</strong> is a singleton instance which formats and writes log entries, electively
 using the logger package or directly to a specified stream. Log entries are
 prefaced with an ISO-8601 UTC datetime and log level, and enhancements
@@ -216,8 +215,8 @@ supported.</p>
 <p><strong>Serial</strong> is a singleton instance which encodes and decodes an instance or
 collection with JSON text, or base-64 encoded gzip JSON binary format.</p>
 </div>
-<div class="section" id="filters">
-<h3><em>filters</em><a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id4">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters.html">filters</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <p><strong>ComplexBandPassFilter</strong> instances adaptively extract or reject signals at a
 normalized frequency of interest, and may be employed to dynamically track
 magnitude and phase or demodulate signals.</p>
@@ -264,13 +263,13 @@ and may be combined in sequences to support close and open.</p>
 analysis, based on type, classification, order, and normalization, through
 extensible factory construction.</p>
 </div>
-<div class="section" id="interfaces">
-<h3><em>interfaces</em><a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces.html">interfaces</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p><strong>IA</strong>, <strong>IB</strong>, <strong>IClear</strong>, <strong>IEqual</strong>, <strong>IFrequency</strong>, <strong>IPhase</strong>, <strong>IQ</strong>, <strong>IRate</strong>,
 <strong>IReset</strong>, and <strong>IS</strong> interfaces facilitate mix-in design.</p>
 </div>
-<div class="section" id="models">
-<h3><em>models</em><a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models.html">models</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <p><strong>DiversityModel</strong> instances select and retain a state extracted to maximize the
 minimum distance between state members based on classification and order,
 through extensible factory construction.  An opportunistic unsupervised learning
@@ -283,8 +282,8 @@ candidate for dimension reduction, in which higher order dimensions are
 discarded, reducing the order of the reference signal, while preserving
 significant and often sufficient information.</p>
 </div>
-<div class="section" id="transforms">
-<h3><em>transforms</em><a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms.html">transforms</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <p><strong>ComplexTransform</strong> is a singleton instance which converts a three-phase real
 signal to a complex signal, or a complex signal to a three-phase real signal, in
 equivalent and reversible representations, based on a neutral condition.</p>

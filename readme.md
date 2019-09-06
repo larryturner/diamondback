@@ -28,17 +28,17 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 	
 Diamondback is defined in subpackages :
 
-* _commons_
+* [commons](https://larryturner.github.io/diamondback/diamondback.commons.html)
 	
-* _filters_
+* [filters](https://larryturner.github.io/diamondback/diamondback.filters.html)
 	
-* _interfaces_
+* [interfaces](https://larryturner.github.io/diamondback/diamondback.interfaces.html)
 	
-* _models_
+* [models](https://larryturner.github.io/diamondback/diamondback.models.html)
 	
-* _transforms_
+* [transforms](https://larryturner.github.io/diamondback/diamondback.transforms.html)
 
-#### _commons_
+#### [commons](https://larryturner.github.io/diamondback/diamondback.commons.html)
 	
 **Log** is a singleton instance which formats and writes log entries, electively
 using the logger package or directly to a specified stream. Log entries are
@@ -50,7 +50,7 @@ supported.
 **Serial** is a singleton instance which encodes and decodes an instance or
 collection with JSON text, or base-64 encoded gzip JSON binary format.
 
-#### _filters_
+#### [filters](https://larryturner.github.io/diamondback/diamondback.filters.html)
 	
 **ComplexBandPassFilter** instances adaptively extract or reject signals at a
 normalized frequency of interest, and may be employed to dynamically track
@@ -110,12 +110,12 @@ and may be combined in sequences to support close and open.
 analysis, based on type, classification, order, and normalization, through
 extensible factory construction.
 		
-#### _interfaces_
+#### [interfaces](https://larryturner.github.io/diamondback/diamondback.interfaces.html)
 
 **IA**, **IB**, **IClear**, **IEqual**, **IFrequency**, **IPhase**, **IQ**, **IRate**,
 **IReset**, and **IS** interfaces facilitate mix-in design.
 	
-#### _models_
+#### [models](https://larryturner.github.io/diamondback/diamondback.models.html)
 
 **DiversityModel** instances select and retain a state extracted to maximize the
 minimum distance between state members based on classification and order,
@@ -130,7 +130,7 @@ candidate for dimension reduction, in which higher order dimensions are
 discarded, reducing the order of the reference signal, while preserving
 significant and often sufficient information.
 		
-#### _transforms_
+#### [transforms](https://larryturner.github.io/diamondback/diamondback.transforms.html)
 	
 **ComplexTransform** is a singleton instance which converts a three-phase real
 signal to a complex signal, or a complex signal to a three-phase real signal, in

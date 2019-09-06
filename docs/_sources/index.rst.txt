@@ -7,7 +7,6 @@ diamondback
    :maxdepth: 2
    :caption: Contents
 
-*  :doc:`modules`
 *  :ref:`modindex`
 *  :ref:`genindex`
 
