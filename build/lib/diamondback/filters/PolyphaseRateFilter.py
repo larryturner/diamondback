@@ -15,10 +15,6 @@
 
         .. math::
 
-            \matrix{ \ Hann, & f = \\frac{0.85}{M}, & M = K (\ N\ +\ 1 )\ -\ 1\ }\qquad\Longrightarrow\qquad b^{M}
-
-        .. math::
-
             b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]
 
         .. math::
@@ -46,7 +42,7 @@
 
         .. math::
 
-            k_{n+1} = \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor\ \%\ M
+            k_{n+1} = \mod(\ \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor,\ M\ )
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.  Edge
