@@ -152,13 +152,7 @@
 <span class="sd">        frequency.  A forward coefficient array is specified to define a window</span>
 <span class="sd">        filter.</span>
 
-<span class="sd">        Singleton. ::</span>
-
-<span class="sd">            v,i,k = ( 1.0 / N ) * sum( ( b,n * x,n+( i * I ) ) * exp( -j * pi * ( k / N ) * n ) )</span>
-
-<span class="sd">            y,k = ( 1.0 / C ) * sum( v,i,k * conjugate( v,i,k ) )</span>
-
-<span class="sd">            f,k = -1.0 + 2.0 * ( k / N )                       n, k : [ 0, N ], i : [ 0, C )</span>
+<span class="sd">        Singleton.</span>
 
 <span class="sd">        A power spectrum transform is constructed by estimating a mean power</span>
 <span class="sd">        from a collection of Fourier transforms of an incident signal, over a</span>
@@ -166,14 +160,28 @@
 <span class="sd">        window filter.  An index specifies a sample interval, or a</span>
 <span class="sd">        non-overlapping stride, between successive operations.</span>
 
+<span class="sd">        .. math::</span>
+
+<span class="sd">            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{k} = \\frac{1}{C}\ \sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}</span>
+
 <span class="sd">        A power spectrum transform is normalized by incident signal length and</span>
 <span class="sd">        forms a contiguous sequence corresponding to a linear and increasing</span>
 <span class="sd">        normalized frequency.</span>
 
-<span class="sd">        An incident signal length is inversely proportional to a normalized</span>
-<span class="sd">        frequency resolution. ::</span>
+<span class="sd">        .. math::</span>
 
-<span class="sd">            N = 2.0 / R</span>
+<span class="sd">            f_{k} = -1\ + \ 2\ \\frac{k}{N}</span>
+
+<span class="sd">        An incident signal length is inversely proportional to a normalized</span>
+<span class="sd">        frequency resolution.</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            N = \\frac{2}{R}</span>
 
 <span class="sd">    **Example** ::</span>
 
@@ -313,6 +321,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

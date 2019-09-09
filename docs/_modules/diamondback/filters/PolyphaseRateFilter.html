@@ -159,12 +159,40 @@
 <span class="sd">        signal, effectively modifying the sampling rate by a specified rate</span>
 <span class="sd">        ratio.</span>
 
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \matrix{ \ Hann, &amp; f = \\frac{0.85}{M}, &amp; M = K (\ N\ +\ 1 )\ -\ 1\ }\qquad\Longrightarrow\qquad b^{M}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}</span>
+
 <span class="sd">        A specified rate must be greater than 0.0, supporting decimation and</span>
 <span class="sd">        interpolation.</span>
 
 <span class="sd">        Phase dither is present for a real rate, though error is accumulated to</span>
 <span class="sd">        ensure that the specified rate is realized without bias.  Group delay</span>
 <span class="sd">        may be addressed by latency compensation.</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \\frac{K}{\scriptsize{Rate}}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            k_{n+1} = \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor\ \%\ M</span>
 
 <span class="sd">        A reset may minimize edge effects at a discontinuity by assuming</span>
 <span class="sd">        persistent operation at a specified incident signal condition.  Edge</span>
@@ -414,6 +442,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

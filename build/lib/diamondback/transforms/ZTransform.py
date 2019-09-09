@@ -5,18 +5,22 @@
         coefficient array and a forward coefficient array of a specified order.
         A normalized frequency and bilinear condition are specified.
 
-        Singleton. ::
+        Singleton.
 
-            y,n = sum( a,i * y,n-i ) + sum( b,i * x,n-i )      i : [ 0, N ]
+        .. math::
 
-            a,0 = 0.0
+            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
 
         A frequency response is expressed as a function of a recursive coefficient
-        array and a forward coefficient array, in s-domain and z-domain. ::
+        array and a forward coefficient array, in s-domain and z-domain.
 
-            H,s = sum( v,i * s**( N - i ) ) / sum( u,i * s**( N - i ) )
+        .. math::
 
-            H,z = sum( b,i * z**-i ) / ( 1.0 - sum( a,i * z**-i ) )
+            H_{s,n} = \\frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}
+
+        .. math::
+
+            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
 
     **Example** ::
 

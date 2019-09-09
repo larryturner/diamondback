@@ -5,35 +5,45 @@
         a forward coefficient array, and a state array of a specified order,
         consuming an incident signal and producing a reference signal.  A
         primary signal is electively specified to produce an estimation error,
-        to facilitate adaptation.  A rate of adaptation is specified. ::
+        to facilitate adaptation.  A rate of adaptation is specified.
 
-            y,n = sum( a,i,n * y,n-i ) + sum( b,i,n * x,n-i )  i : [ 0, N ]
+        .. math::
 
-                = sum( ( a,i,n * b,0,n + b,i,n ) * s,i,n ) + b,0,n * x,n
+            y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0
 
-            a,0,n = 0.0
+        .. math::
 
-            s,1,n+1 = sum( a,i,n * s,i,n ) + x,n
+            s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}
 
-            s,i,n+1 = s,i-1,n
+        .. math::
 
-            e,n = d,n - y,n
+            e_{n} = d_{n} - y_{n}
 
-            q,i,n = s,i,n-1 + a,i,n-1 * q,i,n-1
+        .. math::
 
-            a,i,n+1 = a,i,n + rate * e,n * conjugate( b,0,n * s,i,n + a,i,n * q,i,n )
+            q_{i,n} = s_{i,n-1} + a_{i,n-1} + q_{i,n-1}
 
-            b,i,n+1 = b,i,n + rate * e,n * conjugate( s,i,n )
+        .. math::
+
+            a_{i,n+1} = a_{i,n} + \mu e_{n} (\ b_{0,n} s_{i,n} + a_{i,n} q_{i,n}\ )^{*}
+
+        .. math::
+
+            b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}
 
         A reset may minimize edge effects at a discontinuity by assuming
-        persistent operation at a specified incident signal condition. ::
+        persistent operation at a specified incident signal condition.
 
-            s,i,n = ( ( 1.0 - b,0,n ) / sum( a,i,n * b,0,n + b,i,n ) ) * x,n
+        .. math::
+
+            s_{i,n} = \\frac{1.0 - b_{0,n}}{\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\ x_{n}
 
         A frequency response is expressed as a function of a recursive
-        coefficient array and a forward coefficient array. ::
+        coefficient array and a forward coefficient array.
 
-            H,z,n = sum( b,i,n * z**-i ) / ( 1.0 - sum( a,i,n * z**-i ) )
+        .. math::
+
+            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i,n} z^{-i}}}
 
         A factory is defined to facilitate construction of an instance,
         defining a recursive coefficient array, a forward coefficient array,

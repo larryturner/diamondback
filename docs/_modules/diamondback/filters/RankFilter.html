@@ -155,9 +155,11 @@
 <span class="sd">        and median, which defines a rank index equal to order divided by two</span>
 <span class="sd">        for even order.  Compound morphological operations include close,</span>
 <span class="sd">        consisting of sequential dilation and erosion, and open, consisting of</span>
-<span class="sd">        sequential erosion and dilation.  An order and rank are specified. ::</span>
+<span class="sd">        sequential erosion and dilation.  An order and rank are specified.</span>
 
-<span class="sd">            y,n = sort( x,n ),i                                i : [ 0, N ]</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ \scriptsize{ rank }\ ]</span>
 
 <span class="sd">    **Example**</span>
 
@@ -331,6 +333,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

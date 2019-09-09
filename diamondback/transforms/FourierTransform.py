@@ -6,26 +6,28 @@
         reference signal, in equivalent and reversible representations.  A
         forward coefficient array is specified to define a window filter.
 
-        Singleton. ::
+        Singleton.
 
-            y,k = ( 1.0 / N ) * sum( ( b,n * x,n ) * exp( -j * pi * ( k / N ) * n ) )
+        .. math::
 
-                = ( 1.0 / N ) * fft( x,n )                     n, k : [ 0, N )
+            y_{k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n} e^{\\frac{\ -j\ \pi\ k \ n}{N}} = \\frac{1}{N}\ fft(\ x_{n}\ )
 
-            f,k = -1.0 + 2.0 * ( k / N )
+        .. math::
 
-            x,n = N * sum( y,k * exp( j * pi * ( k / N ) * n ) ) / b,n
-
-                = N * ifft( y,k ) / b,n
+            x_{n} = \\frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\\frac{\ j\ \pi\ k \ n}{N}} = \\frac{N}{b_{n}}\ ifft(\ y_{k}\ )
 
         A Fourier transform is normalized by incident signal length and forms
         a contiguous sequence corresponding to a linear and increasing
         normalized frequency.
 
-        An incident signal length is inversely proportional to a normalized
-        frequency resolution. ::
+        .. math::
 
-            N = 2.0 / R
+            f_{k} = -1\ + \ 2\ \\frac{k}{N}
+
+        An incident signal length is inversely proportional to a normalized
+        frequency resolution.
+
+            N = \\frac{2}{R}
 
     **Example** ::
 

@@ -148,9 +148,11 @@
 
 <span class="sd">        A window filter realizes a discrete difference equation as a function</span>
 <span class="sd">        of a forward coefficient array of a specified order, consuming an</span>
-<span class="sd">        incident signal and producing a reference signal. ::</span>
+<span class="sd">        incident signal and producing a reference signal.</span>
 
-<span class="sd">            y,n = b,n * x,n                                    n : [ 0, N ]</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = b_{n}\ x_{n}</span>
 
 <span class="sd">        A factory is defined to facilitate construction of an instance,</span>
 <span class="sd">        defining a forward coefficient array of a specified order.  An</span>
@@ -171,9 +173,11 @@
 <span class="sd">          | first kind, with beta equal to 7.0.</span>
 
 <span class="sd">        Normal condition scales a forward coefficient array to electively</span>
-<span class="sd">        compensate for energy loss. ::</span>
+<span class="sd">        compensate for energy loss.</span>
 
-<span class="sd">            b = b * len( b ) / sum( abs( b ) )</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            b = b\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b\ |}</span>
 
 <span class="sd">    **Example**</span>
 
@@ -357,6 +361,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

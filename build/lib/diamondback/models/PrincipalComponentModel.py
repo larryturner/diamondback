@@ -10,18 +10,28 @@
         vector, standard deviation vector, and a collection of eigenvectors
         associated with an incident signal.
 
+        .. math::
+
+            \\vec{\mu_{i}} = \matrix{\ \\frac{\sum_{n=0}^{N}\\vec{x_{i,n}}}{N}}
+
+        .. math::
+
+            \\vec{\sigma_{i}} = \matrix{\ \\frac{\sum_{n=0}^{N}(\ \\vec{x_{i,n}} - \\vec{\mu_{i}}\ )^{2}}{N}}^{0.5}
+
+        .. math::
+
+            \Lambda_{n} = eig\matrix{\ cov\matrix{\ \matrix{\\frac{\ X_{n}^{T} - \\vec{\mu}\ }{\\vec{\sigma}}\ }\ }^{T}\ }^{T}
+
         An incident signal which is not a part of an inital training set is
         transformed without modifying a principal component model, by
         translation, normalization, and rotation to produce a reference signal
         which is a candidate for dimension reduction, in which higher order
         dimensions are discarded, reducing the order of the reference signal,
-        while preserving significant and often sufficient information. ::
+        while preserving significant and often sufficient information.
 
-            s, u = x.std( 1 ), x.mean( 1 )
+        .. math::
 
-            v = eig( cov( ( ( x.T - u ) / s ).T ) ).T
-
-            y = v * ( ( x.T - u ) / s ).T
+            Y_{n} = \Lambda_{n} \ \matrix{\\frac{\ X_{n}^{T} - \\vec{\mu}\ }{\\vec{\sigma}}\ }^{T}
 
         Principal component analysis and dimension reduction has application in
         clustering, classification, pattern recognition, and visualization.

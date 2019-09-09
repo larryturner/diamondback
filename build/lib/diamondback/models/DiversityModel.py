@@ -5,6 +5,14 @@
         maximize a minimum distance between any members of a state, according to
         a specified classification or distance metric.
 
+        .. math::
+
+            d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \\in [\ 0,\ M\ ),\ u \\neq v
+
+        .. math::
+
+            d_{k} \geq d_{n}\qquad \longrightarrow\qquad d_{n} = d_{k}
+
         A diversity model is an opportunistic unsupervised learning model which
         typically improves condition and numerical accuracy and reduces storage
         relative to alternative approaches including generalized linear inverse.
@@ -18,14 +26,30 @@
         * | 'Chebyshev' distance is an L-infinity norm, a maximum absolute difference
           | in any dimension.
 
+        .. math::
+
+            d_{u,v} = \max(\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )
+
         * | 'Euclidean' distance is an L-2 norm, a square root of a sum of squared
           | differences in each dimension.
+
+        .. math::
+
+            d_{u,v} = \matrix{\sum_{i=0}^{N}(\ |\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\ )^2|}^{0.5}
 
         * | 'Geometric' distance is a ordered root of a product of absolute differences
           | in each dimension.
 
+        .. math::
+
+            d_{u,v} = \prod_{i=0}^{N}{(\ |\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\ |\ )}^{\\frac{1}{N}}
+
         * | 'Manhattan' distance is an L-1 norm, a sum of absolute differences in each
           | dimension.
+
+        .. math::
+
+            d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )\ }
 
     **Example**
 

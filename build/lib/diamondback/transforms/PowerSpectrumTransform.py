@@ -6,13 +6,7 @@
         frequency.  A forward coefficient array is specified to define a window
         filter.
 
-        Singleton. ::
-
-            v,i,k = ( 1.0 / N ) * sum( ( b,n * x,n+( i * I ) ) * exp( -j * pi * ( k / N ) * n ) )
-
-            y,k = ( 1.0 / C ) * sum( v,i,k * conjugate( v,i,k ) )
-
-            f,k = -1.0 + 2.0 * ( k / N )                       n, k : [ 0, N ], i : [ 0, C )
+        Singleton.
 
         A power spectrum transform is constructed by estimating a mean power
         from a collection of Fourier transforms of an incident signal, over a
@@ -20,14 +14,28 @@
         window filter.  An index specifies a sample interval, or a
         non-overlapping stride, between successive operations.
 
+        .. math::
+
+            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }
+
+        .. math::
+
+            y_{k} = \\frac{1}{C}\ \sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}
+
         A power spectrum transform is normalized by incident signal length and
         forms a contiguous sequence corresponding to a linear and increasing
         normalized frequency.
 
-        An incident signal length is inversely proportional to a normalized
-        frequency resolution. ::
+        .. math::
 
-            N = 2.0 / R
+            f_{k} = -1\ + \ 2\ \\frac{k}{N}
+
+        An incident signal length is inversely proportional to a normalized
+        frequency resolution.
+
+        .. math::
+
+            N = \\frac{2}{R}
 
     **Example** ::
 

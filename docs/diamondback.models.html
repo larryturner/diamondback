@@ -164,6 +164,10 @@
 finite collection of observations extracted from an incident signal, to
 maximize a minimum distance between any members of a state, according to
 a specified classification or distance metric.</p>
+<div class="math notranslate nohighlight">
+\[d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \in [\ 0,\ M\ ),\ u \neq v\]</div>
+<div class="math notranslate nohighlight">
+\[d_{k} \geq d_{n}\qquad \longrightarrow\qquad d_{n} = d_{k}\]</div>
 <p>A diversity model is an opportunistic unsupervised learning model which
 typically improves condition and numerical accuracy and reduces storage
 relative to alternative approaches including generalized linear inverse.</p>
@@ -177,22 +181,36 @@ through observation.  An instance, classification, and order are specified.</p>
 <div class="line">in any dimension.</div>
 </div>
 </li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \max(\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\]</div>
+<ul>
 <li><div class="line-block">
 <div class="line">‘Euclidean’ distance is an L-2 norm, a square root of a sum of squared</div>
 <div class="line">differences in each dimension.</div>
 </div>
 </li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \matrix{\sum_{i=0}^{N}(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ )^2|}^{0.5}\]</div>
+<ul>
 <li><div class="line-block">
 <div class="line">‘Geometric’ distance is a ordered root of a product of absolute differences</div>
 <div class="line">in each dimension.</div>
 </div>
 </li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \prod_{i=0}^{N}{(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ |\ )}^{\frac{1}{N}}\]</div>
+<ul>
 <li><div class="line-block">
 <div class="line">‘Manhattan’ distance is an L-1 norm, a sum of absolute differences in each</div>
 <div class="line">dimension.</div>
 </div>
 </li>
 </ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\ }\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
@@ -292,19 +310,20 @@ descending variance.</p>
 analyzes an incident signal representing a training set to learn a mean
 vector, standard deviation vector, and a collection of eigenvectors
 associated with an incident signal.</p>
+<div class="math notranslate nohighlight">
+\[\vec{\mu_{i}} = \matrix{\ \frac{\sum_{n=0}^{N}\vec{x_{i,n}}}{N}}\]</div>
+<div class="math notranslate nohighlight">
+\[\vec{\sigma_{i}} = \matrix{\ \frac{\sum_{n=0}^{N}(\ \vec{x_{i,n}} - \vec{\mu_{i}}\ )^{2}}{N}}^{0.5}\]</div>
+<div class="math notranslate nohighlight">
+\[\Lambda_{n} = eig\matrix{\ cov\matrix{\ \matrix{\frac{\ X_{n}^{T} - \vec{\mu}\ }{\vec{\sigma}}\ }\ }^{T}\ }^{T}\]</div>
 <p>An incident signal which is not a part of an inital training set is
 transformed without modifying a principal component model, by
 translation, normalization, and rotation to produce a reference signal
 which is a candidate for dimension reduction, in which higher order
 dimensions are discarded, reducing the order of the reference signal,
 while preserving significant and often sufficient information.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">s</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
-
-<span class="n">v</span> <span class="o">=</span> <span class="n">eig</span><span class="p">(</span> <span class="n">cov</span><span class="p">(</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">u</span> <span class="p">)</span> <span class="o">/</span> <span class="n">s</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">y</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="n">u</span> <span class="p">)</span> <span class="o">/</span> <span class="n">s</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
-</pre></div>
-</div>
+<div class="math notranslate nohighlight">
+\[Y_{n} = \Lambda_{n} \ \matrix{\frac{\ X_{n}^{T} - \vec{\mu}\ }{\vec{\sigma}}\ }^{T}\]</div>
 <p>Principal component analysis and dimension reduction has application in
 clustering, classification, pattern recognition, and visualization.</p>
 </div></blockquote>
@@ -432,6 +451,7 @@ clustering, classification, pattern recognition, and visualization.</p>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
       <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

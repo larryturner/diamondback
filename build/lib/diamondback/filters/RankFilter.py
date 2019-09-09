@@ -9,9 +9,11 @@
         and median, which defines a rank index equal to order divided by two
         for even order.  Compound morphological operations include close,
         consisting of sequential dilation and erosion, and open, consisting of
-        sequential erosion and dilation.  An order and rank are specified. ::
+        sequential erosion and dilation.  An order and rank are specified.
 
-            y,n = sort( x,n ),i                                i : [ 0, N ]
+        .. math::
+
+            y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ \scriptsize{ rank }\ ]
 
     **Example**
 

@@ -152,9 +152,11 @@
 <span class="sd">        gain to proportional, integral, and derivative representations of an</span>
 <span class="sd">        incident signal, producing a reference signal.  An integral limit is</span>
 <span class="sd">        specified, preventing integral saturation which may adversely affect</span>
-<span class="sd">        control stability and latency. ::</span>
+<span class="sd">        control stability and latency.</span>
 
-<span class="sd">            y,n = b,0 * x,n + b,1 * min( integral( x,n ), limit ) + b,2 * derivative( x,n )</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \\frac{d}{dn}(\ x_{n}\ )</span>
 
 <span class="sd">    **Example**</span>
 
@@ -331,6 +333,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

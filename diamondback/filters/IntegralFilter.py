@@ -6,51 +6,51 @@
         consuming an incident signal and producing a reference signal.  An integral
         is approximated relative to a sample.  An integral is electively approximated
         relative to a second by dividing a reference signal by an absolute sampling
-        frequency. ::
+        frequency.
 
-            y,n = sum( a,i,n * y,n-i ) + sum( b,i,n * x,n-i )  i : [ 0, N ]
+        .. math::
 
-                = sum( ( a,i,n * b,0,n + b,i,n ) * s,i,n ) + b,0,n * x,n
+            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
 
-            a,i,n = 0.0                                        i != 1
+        .. math::
 
-            a,1,n = 1.0
-
-            s,1,n+1 = a,i,n * s,i,n + x,n
-
-            s,i,n+1 = s,i-1,n
+            s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
 
         A frequency response is expressed as a function of a recursive coefficient
-        array and a forward coefficient array. ::
+        array and a forward coefficient array.
 
-            H,z,n = sum( b,i,n * z**-i ) / ( 1.0 - sum( a,i,n * z**-i ) )
+        .. math::
+
+            H_{z} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
 
         A factory is defined to facilitate construction of an instance, defining
         a recursive coefficient array, a forward coefficient array, and a state
         array of a specified order, to satisfy specified constraints.  An instance
-        and order are specified. ::
+        and order are specified.
 
-            y,n = ( 1 / f ) * integral( x,n )                  f = 1.0
+        .. math::
 
-            Rectangular, N = 0
+            y_{n} = \\frac{1}{f}\ \sum_{i=0}^{N} x_{n}\quad\quad\quad\quad\scriptsize{ f = 1.0 }
 
-                y,n = y,n-1 + x,n
+        .. math::
 
-            Trapezoidal, N = 1
+            \matrix{ a_{1,0} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,0} = \scriptsize{ [ \matrix{ 1 } ] } }\quad\quad\scriptsize{ Rectangular }
 
-                y,n = y,n-1 + ( 1 / 2 ) * ( x,n + x,n-1 )
+        .. math::
 
-            Simpson 2, N = 2
+            \matrix{ a_{1,1} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,1} = \scriptsize{ [ \matrix{ 1 & 1 } ]\ \\frac{1}{2} } }\quad\quad\scriptsize{ Trapezoidal }
 
-                y,n = y,n-1 + ( 1 / 6 ) * ( x,n + 4 * x,n-1 + x,n-2 )
+        .. math::
 
-            Simpson 3, N = 3
+            \matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,2} = \scriptsize{ [ \matrix{ 1 & 4 & 1 } ]\ \\frac{1}{6} } }\quad\quad\scriptsize{ Simpson 2 }
 
-                y,n = y,n-1 + ( 1 / 8 ) * ( x,n + 3 * x,n-1 + 3 * x,n-2 + x,n-3 )
+        .. math::
 
-            Newton Coats, N = 4
+            \matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,3} = \scriptsize{ [ \matrix{ 1 & 3 & 3 & 1 } ]\ \\frac{1}{8} } }\quad\quad\scriptsize{ Simpson 3 }
 
-                y,n = y,n-1 + ( 1 / 90 ) * ( 7 * x,n + 32 * x,n-1 + 12 * x,n-2 + 32 * x,n-3 + 7 * x,n-4 )
+        .. math::
+
+            \matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,4} = \scriptsize{ [ \matrix{ 7 & 32 & 12 & 32 & 7 } ]\ \\frac{1}{90} } }\quad\quad\scriptsize{ Newton Coats }
 
     **Example**
 

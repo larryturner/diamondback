@@ -156,18 +156,28 @@
 <span class="sd">        vector, standard deviation vector, and a collection of eigenvectors</span>
 <span class="sd">        associated with an incident signal.</span>
 
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\vec{\mu_{i}} = \matrix{\ \\frac{\sum_{n=0}^{N}\\vec{x_{i,n}}}{N}}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \\vec{\sigma_{i}} = \matrix{\ \\frac{\sum_{n=0}^{N}(\ \\vec{x_{i,n}} - \\vec{\mu_{i}}\ )^{2}}{N}}^{0.5}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \Lambda_{n} = eig\matrix{\ cov\matrix{\ \matrix{\\frac{\ X_{n}^{T} - \\vec{\mu}\ }{\\vec{\sigma}}\ }\ }^{T}\ }^{T}</span>
+
 <span class="sd">        An incident signal which is not a part of an inital training set is</span>
 <span class="sd">        transformed without modifying a principal component model, by</span>
 <span class="sd">        translation, normalization, and rotation to produce a reference signal</span>
 <span class="sd">        which is a candidate for dimension reduction, in which higher order</span>
 <span class="sd">        dimensions are discarded, reducing the order of the reference signal,</span>
-<span class="sd">        while preserving significant and often sufficient information. ::</span>
+<span class="sd">        while preserving significant and often sufficient information.</span>
 
-<span class="sd">            s, u = x.std( 1 ), x.mean( 1 )</span>
+<span class="sd">        .. math::</span>
 
-<span class="sd">            v = eig( cov( ( ( x.T - u ) / s ).T ) ).T</span>
-
-<span class="sd">            y = v * ( ( x.T - u ) / s ).T</span>
+<span class="sd">            Y_{n} = \Lambda_{n} \ \matrix{\\frac{\ X_{n}^{T} - \\vec{\mu}\ }{\\vec{\sigma}}\ }^{T}</span>
 
 <span class="sd">        Principal component analysis and dimension reduction has application in</span>
 <span class="sd">        clustering, classification, pattern recognition, and visualization.</span>
@@ -357,6 +367,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

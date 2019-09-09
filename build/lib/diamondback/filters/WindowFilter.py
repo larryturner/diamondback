@@ -2,9 +2,11 @@
 
         A window filter realizes a discrete difference equation as a function
         of a forward coefficient array of a specified order, consuming an
-        incident signal and producing a reference signal. ::
+        incident signal and producing a reference signal.
 
-            y,n = b,n * x,n                                    n : [ 0, N ]
+        .. math::
+
+            y_{n} = b_{n}\ x_{n}
 
         A factory is defined to facilitate construction of an instance,
         defining a forward coefficient array of a specified order.  An
@@ -25,9 +27,11 @@
           | first kind, with beta equal to 7.0.
 
         Normal condition scales a forward coefficient array to electively
-        compensate for energy loss. ::
+        compensate for energy loss.
 
-            b = b * len( b ) / sum( abs( b ) )
+        .. math::
+
+            b = b\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b\ |}
 
     **Example**
 

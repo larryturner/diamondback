@@ -3,19 +3,31 @@
         A complex frequency filter adapts and discriminates the phase of a forward
         complex coefficient to produce a reference signal, which estimates a normalized
         frequency of a primary signal which is normalized to unity magnitude.  A
-        normalized frequency and rate of adaptation are specified. ::
+        normalized frequency and rate of adaptation are specified.
 
-            f,n = angle( b,n ) / pi
+        .. math::
 
-            x,n = d,n / abs( d,n )
+            f_{n} = \\frac{\\tan^{-1}(\ b_{n}\ ) }{\pi}
 
-            y,n = b,n * x,n-1
+        .. math::
 
-            e,n = d,n - y,n
+            x_{n} = \\frac{d_{n}}{|\ d_{n}\ |}
 
-            b,0 = exp( j * pi * f,0 )
+        .. math::
 
-            b,n+1 = b,n + rate * e,n * conjugate( x,n-1 )
+            y_{n} = b_{n} x_{n-1}
+
+        .. math::
+
+            e_{n} = d_{n} - y_{n}
+
+        .. math::
+
+            b_{0} = e^{\ j\ \pi\ f_{0}}
+
+        .. math::
+
+            b_{n} = b_{n} + \mu e_{n} x_{n}^{*}
 
     **Example** ::
 

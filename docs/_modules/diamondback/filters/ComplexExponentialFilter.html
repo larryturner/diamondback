@@ -148,13 +148,19 @@
 
 <span class="sd">        A complex exponential filter produces a complex exponential reference</span>
 <span class="sd">        signal from an incident signal equal to a specified normalized frequency.</span>
-<span class="sd">        A normalized phase is specified. ::</span>
+<span class="sd">        A normalized phase is specified.</span>
 
-<span class="sd">            x,n = f,n</span>
+<span class="sd">        .. math::</span>
 
-<span class="sd">            y,n = exp( j * pi * p,n )</span>
+<span class="sd">            x_{n} = f_{n}</span>
 
-<span class="sd">            p,n+1 += x,n                                       p,n : [ -1.0, 1.0 ]</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            \phi_{n} = \phi_{n-1} + x_{n}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = e^{\ j\ \pi\ \phi_{n}}</span>
 
 <span class="sd">    **Example** ::</span>
 
@@ -293,6 +299,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

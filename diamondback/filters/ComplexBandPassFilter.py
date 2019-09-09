@@ -4,17 +4,27 @@
         signal at a specified normalized frequency and adapts a forward complex
         coefficient to produce a reference signal, which estimates a component
         of interest in a primary signal.  A normalized frequency and rate of
-        adaptation are specified. ::
+        adaptation are specified.
 
-            x,n = exp( j * pi * p,n )
+        .. math::
 
-            p,n+1 = p,n + f,n
+            x_{n} = e^{\ j\ \pi\ \phi_{n}}
 
-            y,n = b,n * x,n
+        .. math::
 
-            e,n = d,n - y,n
+            \phi_{n+1} = \phi_{n} + f_{n}
 
-            b,n+1 = b,n + rate * e,n * conjugate( x,n )
+        .. math::
+
+            y_{n} = b_{n} x_{n}
+
+        .. math::
+
+            e_{n} = d_{n} - y_{n}
+
+        .. math::
+
+            b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}
 
     **Example**
 

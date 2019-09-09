@@ -3,23 +3,35 @@
         A Goertzel filter realizes a discrete difference equation which
         approximates a discrete Fourier transform evaluated at a specified
         normalized frequency and order, consuming an incident signal and
-        producing a reference signal. ::
+        producing a reference signal.
 
-            y,n = sum( a,i * y,n-i ) + sum( ( ( 1.0 + real( x ) ) / N ) * b,i * x,n-i )
-                                                               i : [ 0, N ]
-            a = [ 0.0, 2.0 * cos( pi * f ), -1.0 ]
+        .. math::
 
-            b = [ 1.0, -exp( -j * pi * f ), 0.0 ]
+            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
+
+        .. math::
+
+            s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
+
+        .. math::
+
+            \matrix{ a = \scriptsize{ [\ \matrix{ 0 & 2\ \cos(\ \pi\ f\ ) & -1 }\ ] } & b = \scriptsize{ [\ \matrix{ 1 & -e^{\ j\ \pi\ f\ } & 0 } }\ ] }
 
         At the terminus of each window length a reference signal is evaluated
         to estimate a discrete Fourier transform at a specified normalized
         frequency.
 
+        .. math::
+
+            H_{z} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
+
         A Goertzel filter is normalized by incident signal length.  An incident
         signal length is is inversely proportional to a normalized frequency
-        resolution. ::
+        resolution.
 
-            N = 2.0 / R
+        .. math::
+
+            N = \\frac{2}{R}
 
     **Example**
 

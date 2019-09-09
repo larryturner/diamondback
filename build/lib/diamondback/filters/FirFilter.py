@@ -5,29 +5,37 @@
         of a specified order, consuming an incident signal and producing a
         reference signal.  A primary signal is electively specified to produce
         an estimation error, to facilitate adaptation.  A rate of adaptation is
-        specified. ::
+        specified.
 
-            y,n = sum( b,i,n * x,n-i )                         i : [ 0, N ]
+        .. math::
 
-                = sum( b,i,n * s,i,n ) + b,0,n * x,n
+            y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
 
-            s,1,n+1 = x,n
+        .. math::
 
-            s,i,n+1 = s,i-1,n
+            s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
 
-            e,n = d,n - y,n
+        .. math::
 
-            b,i,n+1 = b,i,n + rate * e,n * conjugate( s,i,n )
+            e_{n} = d_{n} - y_{n}
+
+        .. math::
+
+            b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}
 
         A reset may minimize edge effects at a discontinuity by assuming
-        persistent operation at a specified incident signal condition. ::
+        persistent operation at a specified incident signal condition.
 
-            s,i,n = x,n
+        .. math::
+
+            s_{i,n} = x_{n}
 
         A frequency response is expressed as a function of a forward
-        coefficient array. ::
+        coefficient array.
 
-            H,z,n = sum( b,i,n * z**-i )
+        .. math::
+
+            H_{z,n} = \sum_{i = 0}^{N} b_{i,n} z^{-i}
 
         A factory is defined to facilitate construction of an instance,
         defining a forward coefficient array, and a state array of a

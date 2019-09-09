@@ -2,13 +2,19 @@
 
         A complex exponential filter produces a complex exponential reference
         signal from an incident signal equal to a specified normalized frequency.
-        A normalized phase is specified. ::
+        A normalized phase is specified.
 
-            x,n = f,n
+        .. math::
 
-            y,n = exp( j * pi * p,n )
+            x_{n} = f_{n}
 
-            p,n+1 += x,n                                       p,n : [ -1.0, 1.0 ]
+        .. math::
+
+            \phi_{n} = \phi_{n-1} + x_{n}
+
+        .. math::
+
+            y_{n} = e^{\ j\ \pi\ \phi_{n}}
 
     **Example** ::
 

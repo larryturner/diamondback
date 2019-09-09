@@ -6,9 +6,11 @@
         gain to proportional, integral, and derivative representations of an
         incident signal, producing a reference signal.  An integral limit is
         specified, preventing integral saturation which may adversely affect
-        control stability and latency. ::
+        control stability and latency.
 
-            y,n = b,0 * x,n + b,1 * min( integral( x,n ), limit ) + b,2 * derivative( x,n )
+        .. math::
+
+            y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \\frac{d}{dn}(\ x_{n}\ )
 
     **Example**
 

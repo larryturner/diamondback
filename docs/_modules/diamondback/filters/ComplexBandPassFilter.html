@@ -150,17 +150,27 @@
 <span class="sd">        signal at a specified normalized frequency and adapts a forward complex</span>
 <span class="sd">        coefficient to produce a reference signal, which estimates a component</span>
 <span class="sd">        of interest in a primary signal.  A normalized frequency and rate of</span>
-<span class="sd">        adaptation are specified. ::</span>
+<span class="sd">        adaptation are specified.</span>
 
-<span class="sd">            x,n = exp( j * pi * p,n )</span>
+<span class="sd">        .. math::</span>
 
-<span class="sd">            p,n+1 = p,n + f,n</span>
+<span class="sd">            x_{n} = e^{\ j\ \pi\ \phi_{n}}</span>
 
-<span class="sd">            y,n = b,n * x,n</span>
+<span class="sd">        .. math::</span>
 
-<span class="sd">            e,n = d,n - y,n</span>
+<span class="sd">            \phi_{n+1} = \phi_{n} + f_{n}</span>
 
-<span class="sd">            b,n+1 = b,n + rate * e,n * conjugate( x,n )</span>
+<span class="sd">        .. math::</span>
+
+<span class="sd">            y_{n} = b_{n} x_{n}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            e_{n} = d_{n} - y_{n}</span>
+
+<span class="sd">        .. math::</span>
+
+<span class="sd">            b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}</span>
 
 <span class="sd">    **Example**</span>
 
@@ -332,6 +342,7 @@
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
       <script type="text/javascript" src="../../../_static/language_data.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 
