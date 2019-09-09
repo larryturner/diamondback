@@ -1,3 +1,19 @@
+::  Description
+::
+::      Sphinx documentation management.
+::
+::  License
+::
+::      BSD-3C.
+::
+::      Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+::
+::  Author
+::
+::      Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
+::
+::  Definition
+
 @echo off
 
 set BUILDDIR=..\docs
