@@ -199,7 +199,7 @@ Diamondback documentation is generated from the source, indexed, and searchable.
 A simple pytest solution is provided to exercise and verify diamondback
 components.
 	
-    py.test -v --capture=no .\pytest
+    py.test -v --capture=no .\test
 	
 ### Author
 
