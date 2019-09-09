@@ -42,15 +42,15 @@
 
         .. math::
 
-            \matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,2} = \scriptsize{ [ \matrix{ 1 & 4 & 1 } ]\ \\frac{1}{6} } }\quad\quad\scriptsize{ Simpson 2 }
+            \matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,2} = \scriptsize{ [ \matrix{ 1 & 4 & 1 } ]\ \\frac{1}{6} } }\quad\quad\scriptsize{ Simpson\ 2 }
 
         .. math::
 
-            \matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,3} = \scriptsize{ [ \matrix{ 1 & 3 & 3 & 1 } ]\ \\frac{1}{8} } }\quad\quad\scriptsize{ Simpson 3 }
+            \matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,3} = \scriptsize{ [ \matrix{ 1 & 3 & 3 & 1 } ]\ \\frac{1}{8} } }\quad\quad\scriptsize{ Simpson\ 3 }
 
         .. math::
 
-            \matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,4} = \scriptsize{ [ \matrix{ 7 & 32 & 12 & 32 & 7 } ]\ \\frac{1}{90} } }\quad\quad\scriptsize{ Newton Coats }
+            \matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,4} = \scriptsize{ [ \matrix{ 7 & 32 & 12 & 32 & 7 } ]\ \\frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }
 
     **Example**
 

@@ -15,7 +15,7 @@
 
             \\alpha = \matrix{\\frac{1}{3}}^{0.5}\ e^{\ -j\ \\frac{\pi}{6}\ }
 
-        * Complex - Three-Phase.
+        Complex - Three-Phase.
 
         .. math::
 
@@ -25,7 +25,7 @@
 
             \overline{\scriptsize{Neutral}}\ \qquad\longrightarrow\qquad y_{n} = y_{n}\ \\alpha
 
-        * Three-Phase - Complex.
+        Three-Phase - Complex.
 
         .. math::
 

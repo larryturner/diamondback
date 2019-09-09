@@ -31,7 +31,7 @@
 
         .. math::
 
-            b = b\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b\ |}
+            b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}
 
     **Example**
 

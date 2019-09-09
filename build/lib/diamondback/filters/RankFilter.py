@@ -13,7 +13,7 @@
 
         .. math::
 
-            y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ \scriptsize{ rank }\ ]
+            y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ i\ ]
 
     **Example**
 
