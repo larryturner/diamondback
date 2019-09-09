@@ -5,9 +5,9 @@ solutions, organized in the form of commons, filters, interfaces, models, and
 transforms.
 
 Diamondback was designed to complement Artificial Intelligence ( AI ) frameworks,
-by defining components which flexibly and efficiently analyze, filter, extract,
-and transform data into forms which are more useful in common applications
-including pattern recognition, feature extraction, and optimization.
+by defining components which analyze, filter, extract, model, and transform data
+into forms which are useful in applications including pattern recognition,
+feature extraction, and optimization.
 
 Diamondback was also designed to provide utility in the context of classical
 signal processing solutions including communications, modeling, signal
