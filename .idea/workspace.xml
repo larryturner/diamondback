@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,8 +17,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/setup.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" lean-forward="true" selection-end-line="17" />
+            <state relative-caret-position="629">
+              <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -69,7 +70,6 @@
         <option value="$PROJECT_DIR$/test/commons/test_commons.py" />
         <option value="$PROJECT_DIR$/build/lib/diamondback/commons/Log.py" />
         <option value="$PROJECT_DIR$/build/lib/diamondback/commons/Serial.py" />
-        <option value="$PROJECT_DIR$/setup.py" />
         <option value="$PROJECT_DIR$/diamondback/commons/Log.py" />
         <option value="$PROJECT_DIR$/diamondback/interfaces/IS.py" />
         <option value="$PROJECT_DIR$/diamondback/interfaces/IReset.py" />
@@ -106,12 +106,13 @@
         <option value="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" />
         <option value="$PROJECT_DIR$/version" />
         <option value="$PROJECT_DIR$/diamondback/__init__.py" />
+        <option value="$PROJECT_DIR$/setup.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="305" />
-    <option name="y" value="74" />
+    <option name="x" value="100" />
+    <option name="y" value="49" />
     <option name="width" value="1622" />
     <option name="height" value="983" />
   </component>
@@ -164,17 +165,6 @@
               <item name="diamondback" type="462c0819:PsiDirectoryNode" />
               <item name="diamondback" type="462c0819:PsiDirectoryNode" />
               <item name="transforms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="diamondback" type="b2602c69:ProjectViewProjectNode" />
-              <item name="diamondback" type="462c0819:PsiDirectoryNode" />
-              <item name="sphinx" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="diamondback" type="b2602c69:ProjectViewProjectNode" />
-              <item name="diamondback" type="462c0819:PsiDirectoryNode" />
-              <item name="sphinx" type="462c0819:PsiDirectoryNode" />
-              <item name="source" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="diamondback" type="b2602c69:ProjectViewProjectNode" />
@@ -239,7 +229,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="305" y="74" width="1622" height="983" extended-state="0" />
+    <frame x="100" y="49" width="1622" height="983" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21464646" />
@@ -516,13 +506,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="34" selection-start-line="33" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/diamondback/transforms/FourierTransform.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -586,16 +569,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/readme.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="3179">
-            <caret line="187" column="42" selection-start-line="187" selection-start-column="42" selection-end-line="187" selection-end-column="42" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/version">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -610,10 +583,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="493">
+            <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
+          <caret line="34" selection-start-line="33" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/setup.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" lean-forward="true" selection-end-line="17" />
+        <state relative-caret-position="629">
+          <caret line="74" column="32" selection-start-line="74" selection-start-column="32" selection-end-line="74" selection-end-column="32" />
         </state>
       </provider>
     </entry>
