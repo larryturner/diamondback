@@ -312,23 +312,23 @@
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;type = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">typ</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Type = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">typ</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">classification</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">classification</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_classification</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;classification = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">classification</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Classification = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">classification</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;=</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;frequency = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">frequency</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Frequency = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">frequency</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;order = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">order</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Order = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">order</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">complement</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -356,7 +356,7 @@
 
                     <span class="k">if</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;b = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;V = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span>
 
                     <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">)</span>
 
@@ -399,7 +399,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;b = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;B = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -407,7 +407,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;s = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;S = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -442,11 +442,11 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;length = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">length</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Length = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">length</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">(</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -485,7 +485,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;X = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="n">y</span><span class="p">,</span> <span class="n">e</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">),</span> <span class="nb">type</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">),</span> <span class="kc">None</span>
 
@@ -509,7 +509,7 @@
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">d</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;d = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;D = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span>
 
             <span class="n">e</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">),</span> <span class="nb">type</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
 
@@ -541,7 +541,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;X = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span></div>
 
@@ -564,11 +564,11 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;length = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">length</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Length = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">length</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Count = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">freqz</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="n">length</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)[</span> <span class="mi">1</span> <span class="p">],</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="n">length</span><span class="p">,</span> <span class="n">length</span> <span class="p">)</span>
 

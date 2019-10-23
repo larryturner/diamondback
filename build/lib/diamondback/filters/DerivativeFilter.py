@@ -150,17 +150,17 @@ class DerivativeFilter( FirFilter ) :
 
             if ( ( not typ ) or ( not issubclass( typ, DerivativeFilter ) ) ) :
 
-                raise ValueError( 'type = ' + str( typ ) )
+                raise ValueError( 'Type = ' + str( typ ) )
 
             if ( derivative not in DerivativeFilter.Factory._b ) :
 
-                raise ValueError( 'derivative = ' + str( derivative ) )
+                raise ValueError( 'Derivative = ' + str( derivative ) )
 
             b = DerivativeFilter.Factory._b[ derivative ]
 
             if ( order not in b ) :
 
-                raise ValueError( 'order = ' + str( order ) )
+                raise ValueError( 'Order = ' + str( order ) )
 
             return typ( b[ order ] )
 

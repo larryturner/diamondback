@@ -85,11 +85,11 @@ class Serial( object ) :
 
         if ( not state ) :
 
-            raise ValueError( 'state = ' + str( state ) )
+            raise ValueError( 'State = ' + str( state ) )
 
         if ( not encoding ) :
 
-            raise ValueError( 'encoding = ' + str( encoding ) )
+            raise ValueError( 'Encoding = ' + str( encoding ) )
 
         if ( compress ) :
 
@@ -121,11 +121,11 @@ class Serial( object ) :
 
         if ( not instance ) :
 
-            raise ValueError( 'instance = ' + str( instance ) )
+            raise ValueError( 'Instance = ' + str( instance ) )
 
         if ( not encoding ) :
 
-            raise ValueError( 'encoding = ' + str( encoding ) )
+            raise ValueError( 'Encoding = ' + str( encoding ) )
 
         state = jsonpickle.encode( instance )
 

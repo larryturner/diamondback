@@ -268,7 +268,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;rate = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Rate = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -341,7 +341,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;X = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 
@@ -389,7 +389,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;x = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;X = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
 

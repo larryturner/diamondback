@@ -231,11 +231,11 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">state</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;state = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;State = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">compress</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -267,11 +267,11 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">instance</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;instance = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Instance = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Encoding = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="n">state</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span>
 

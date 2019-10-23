@@ -109,7 +109,7 @@ class Log( object ) :
 
             if ( level not in Log._map ) :
 
-                raise ValueError( 'level = ' + str( level ) )
+                raise ValueError( 'Level = ' + str( level ) )
 
             if ( Log._log ) :
 
@@ -131,7 +131,7 @@ class Log( object ) :
 
         if ( not stream ) :
 
-            raise ValueError( 'stream = ' + str( stream ) )
+            raise ValueError( 'Stream = ' + str( stream ) )
 
         if ( Log._log ) :
 

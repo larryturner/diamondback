@@ -123,11 +123,11 @@ class IntegralFilter( IirFilter ) :
 
             if ( ( not typ ) or ( not issubclass( typ, IntegralFilter ) ) ) :
 
-                raise ValueError( 'type = ' + str( typ ) )
+                raise ValueError( 'Type = ' + str( typ ) )
 
             if ( ( order < 0 ) or ( order >= len( IntegralFilter.Factory._b ) ) ) :
 
-                raise ValueError( 'order = ' + str( order ) )
+                raise ValueError( 'Order = ' + str( order ) )
 
             return typ( numpy.array( [ 0.0, 1.0 ] ), IntegralFilter.Factory._b[ order ] )
 

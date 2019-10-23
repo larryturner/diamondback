@@ -166,23 +166,23 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
             if ( ( not typ ) or ( not issubclass( typ, FirFilter ) ) ) :
 
-                raise ValueError( 'type = ' + str( typ ) )
+                raise ValueError( 'Type = ' + str( typ ) )
 
             if ( ( not classification ) or ( classification not in FirFilter.Factory._classification ) ) :
 
-                raise ValueError( 'classification = ' + str( classification ) )
+                raise ValueError( 'Classification = ' + str( classification ) )
 
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
 
-                raise ValueError( 'frequency = ' + str( frequency ) )
+                raise ValueError( 'Frequency = ' + str( frequency ) )
 
             if ( order < 0 ) :
 
-                raise ValueError( 'order = ' + str( order ) )
+                raise ValueError( 'Order = ' + str( order ) )
 
             if ( count <= 0 ) :
 
-                raise ValueError( 'count = ' + str( count ) )
+                raise ValueError( 'Count = ' + str( count ) )
 
             if ( complement ) :
 
@@ -210,7 +210,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
                     if ( numpy.isnan( v ).any( ) ) :
 
-                        raise ValueError( 'b = ' + str( v ) )
+                        raise ValueError( 'V = ' + str( v ) )
 
                     x = numpy.exp( 1j * math.pi * frequency )
 
@@ -253,7 +253,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) ) :
 
-            raise ValueError( 'b = ' + str( b ) )
+            raise ValueError( 'B = ' + str( b ) )
 
         if ( ( not numpy.isscalar( s ) ) and ( not isinstance( s, numpy.ndarray ) ) ) :
 
@@ -261,7 +261,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( ( len( s.shape ) != 1 ) or ( len( s ) == 0 ) ) :
 
-            raise ValueError( 's = ' + str( s ) )
+            raise ValueError( 'S = ' + str( s ) )
 
         if ( len( b ) < len( s ) ) :
 
@@ -296,11 +296,11 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( length <= 0 ) :
 
-            raise ValueError( 'length = ' + str( length ) )
+            raise ValueError( 'Length = ' + str( length ) )
 
         if ( count <= 0 ) :
 
-            raise ValueError( 'count = ' + str( count ) )
+            raise ValueError( 'Count = ' + str( count ) )
 
         with warnings.catch_warnings( ) :
 
@@ -339,7 +339,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'x = ' + str( x ) )
+            raise ValueError( 'X = ' + str( x ) )
 
         y, e = numpy.zeros( len( x ), type( self.b[ 0 ] ) ), None
 
@@ -363,7 +363,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
             if ( ( len( d.shape ) != 1 ) or ( len( d ) != len( x ) ) ) :
 
-                raise ValueError( 'd = ' + str( d ) )
+                raise ValueError( 'D = ' + str( d ) )
 
             e = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 
@@ -395,7 +395,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( not numpy.isscalar( x ) ) :
 
-            raise ValueError( 'x = ' + str( x ) )
+            raise ValueError( 'X = ' + str( x ) )
 
         self.s.fill( x )
 
@@ -418,11 +418,11 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( length <= 0 ) :
 
-            raise ValueError( 'length = ' + str( length ) )
+            raise ValueError( 'Length = ' + str( length ) )
 
         if ( count <= 0 ) :
 
-            raise ValueError( 'count = ' + str( count ) )
+            raise ValueError( 'Count = ' + str( count ) )
 
         y, f = scipy.signal.freqz( self.b, [ 1.0, 0.0 ], length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
 

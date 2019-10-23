@@ -235,23 +235,23 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             if ( ( not typ ) or ( not issubclass( typ, IirFilter ) ) ) :
 
-                raise ValueError( 'type = ' + str( typ ) )
+                raise ValueError( 'Type = ' + str( typ ) )
 
             if ( ( not classification ) or ( classification not in IirFilter.Factory._classification ) ) :
 
-                raise ValueError( 'classification = ' + str( classification ) )
+                raise ValueError( 'Classification = ' + str( classification ) )
 
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
 
-                raise ValueError( 'frequency = ' + str( frequency ) )
+                raise ValueError( 'Frequency = ' + str( frequency ) )
 
             if ( order <= 0 ) :
 
-                raise ValueError( 'order = ' + str( order ) )
+                raise ValueError( 'Order = ' + str( order ) )
 
             if ( count <= 0 ) :
 
-                raise ValueError( 'count = ' + str( count ) )
+                raise ValueError( 'Count = ' + str( count ) )
 
             if ( complement ) :
 
@@ -310,7 +310,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( ( len( a.shape ) != 1 ) or ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) ) :
 
-            raise ValueError( 'a = ' + str( a ) )
+            raise ValueError( 'A = ' + str( a ) )
 
         if ( len( a ) < len( b ) ) :
 
@@ -326,7 +326,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( a[ 0 ] != 0.0 ) :
 
-            raise ValueError( 'a = ' + str( a ) )
+            raise ValueError( 'A = ' + str( a ) )
 
         super( ).__init__( b, s, rate )
 
@@ -351,11 +351,11 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( length <= 0 ) :
 
-            raise ValueError( 'length = ' + str( length ) )
+            raise ValueError( 'Length = ' + str( length ) )
 
         if ( count <= 0 ) :
 
-            raise ValueError( 'count = ' + str( count ) )
+            raise ValueError( 'Count = ' + str( count ) )
 
         with warnings.catch_warnings( ) :
 
@@ -394,7 +394,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'x = ' + str( x ) )
+            raise ValueError( 'X = ' + str( x ) )
 
         y, e = numpy.zeros( len( x ), type( self.b[ 0 ] ) ), None
 
@@ -424,7 +424,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             if ( ( len( d.shape ) != 1 ) or ( len( d ) != len( x ) ) ) :
 
-                raise ValueError( 'd = ' + str( d ) )
+                raise ValueError( 'D = ' + str( d ) )
 
             e = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 
@@ -468,7 +468,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( not numpy.isscalar( x ) ) :
 
-            raise ValueError( 'x = ' + str( x ) )
+            raise ValueError( 'X = ' + str( x ) )
 
         if ( len( self.s ) > 1 ) :
 
@@ -495,11 +495,11 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         if ( length <= 0 ) :
 
-            raise ValueError( 'length = ' + str( length ) )
+            raise ValueError( 'Length = ' + str( length ) )
 
         if ( count <= 0 ) :
 
-            raise ValueError( 'count = ' + str( count ) )
+            raise ValueError( 'Count = ' + str( count ) )
 
         with warnings.catch_warnings( ) :
 

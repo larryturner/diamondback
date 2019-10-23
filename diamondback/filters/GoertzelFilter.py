@@ -113,7 +113,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
 
-            raise ValueError( 'b = ' + str( b ) )
+            raise ValueError( 'B = ' + str( b ) )
 
         u = numpy.array( [ 0.0, 2.0 * math.cos( math.pi * frequency ), -1.0 ] )
 
@@ -144,7 +144,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'x = ' + str( x ) )
+            raise ValueError( 'X = ' + str( x ) )
 
         y = numpy.zeros( int( numpy.ceil( len( x ) / len( self._w ) ) ) + 1, complex )
 

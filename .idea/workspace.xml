@@ -3,7 +3,90 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/commons/Log.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/commons/Serial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexBandPassFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexExponentialFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexFrequencyFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/DerivativeFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/FirFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/GoertzelFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/IirFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/IntegralFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/PidFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/PolynomialRateFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/PolyphaseRateFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/RankFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/WindowFilter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IA.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IB.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IClear.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IEqual.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IFrequency.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IPhase.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IQ.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IRate.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IReset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IS.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/models/DiversityModel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/models/PrincipalComponentModel.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/ComplexTransform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/FourierTransform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/WaveletTransform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/ZTransform.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/commons/test_commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/filters/test_filters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/models/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/pytest/transforms/test_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/commons/test_commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/filters/test_filters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/models/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/transforms/test_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Serial.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Serial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexBandPassFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexBandPassFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexExponentialFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexExponentialFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexFrequencyFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexFrequencyFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/DerivativeFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/DerivativeFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/IirFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/IirFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PidFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PidFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/RankFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/RankFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPhase.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPhase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IRate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IRate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/models/PrincipalComponentModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/PrincipalComponentModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,25 +100,6 @@
         <option value="Python Script" />
       </list>
     </option>
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>classification = Classification</find>
-      <find>bash</find>
-      <find>_</find>
-      <find>diamondback.transforms</find>
-      <find>Create an instance</find>
-      <find>Filter an incident</find>
-      <find>coefficients</find>
-      <find>b_{i,n}</find>
-      <find>\frac</find>
-      <find>::</find>
-      <find>union</find>
-    </findStrings>
-    <replaceStrings>
-      <replace>`BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</replace>
-      <replace>**</replace>
-    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
