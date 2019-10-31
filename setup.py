@@ -22,7 +22,7 @@ import diamondback
 
 try :
 
-    with open( "readme.md", "r" ) as fin :
+    with open( 'readme.md', 'r' ) as fin :
 
         _readme = fin.read( )
 
