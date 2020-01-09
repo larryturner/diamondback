@@ -119,10 +119,6 @@ class Serial( object ) :
                 state - State ( str ).
         """
 
-        if ( not instance ) :
-
-            raise ValueError( 'Instance = ' + str( instance ) )
-
         if ( not encoding ) :
 
             raise ValueError( 'Encoding = ' + str( encoding ) )
