@@ -230,9 +230,9 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="k">import</span> <span class="n">IClear</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="k">import</span> <span class="n">IEqual</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="k">import</span> <span class="n">IS</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="kn">import</span> <span class="n">IClear</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="kn">import</span> <span class="n">IS</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -283,7 +283,7 @@
 
             <span class="k">return</span> <span class="n">typ</span><span class="p">(</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_distance</span><span class="p">[</span> <span class="n">classification</span> <span class="p">],</span> <span class="n">order</span> <span class="p">)</span></div></div>
 
-    <span class="k">def</span> <span class="nf">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Evaluates equality condition.</span>
 
@@ -298,7 +298,7 @@
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">_distance</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_diversity</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">order</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">distance</span><span class="p">,</span> <span class="n">order</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initializes an instance.</span>
 
