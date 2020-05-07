@@ -94,7 +94,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
                 frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).
 
-                rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).
+                rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
         """
 
         super( ).__init__( numpy.ones( 1, complex ), numpy.ones( 1, complex ), rate )
@@ -107,13 +107,13 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
             Arguments :
 
-                d = Primary signal ( array( complex ), list( complex ) ).
+                d - Primary signal ( array( complex ), list( complex ) ).
 
             Returns :
 
                 y - Reference signal ( array( float ) ).
 
-                e = Error signal ( array( complex ) ).
+                e - Error signal ( array( complex ) ).
 
                 b - Forward coefficient ( array( complex ) ).
         """

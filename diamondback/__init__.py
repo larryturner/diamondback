@@ -5,4 +5,4 @@ from diamondback import models
 from diamondback import transforms
 
 
-__version__ = '1.0.9'
+__version__ = '1.0.10'

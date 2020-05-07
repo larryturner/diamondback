@@ -3,8 +3,26 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexFrequencyFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexFrequencyFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/transforms/PowerSpectrumTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.9-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.9.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/basic.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/doctools.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/doctools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/language_data.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/language_data.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/searchtools.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/searchtools.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.transforms.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.transforms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.transforms.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.transforms.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +45,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -52,18 +69,6 @@
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -82,32 +87,32 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="619" y="362" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581970135679">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="619" y="362" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog/0.0.1920.1050@0.0.1920.1050" timestamp="1581970135679" />
-    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1581970117947">
+    <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1586288250846">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050/-282.-1440.2560.1410@0.0.1920.1050" timestamp="1578949771265" />
-    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1581970117947" />
+    <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586288250846" />
     <state x="461" y="168" key="SettingsEditor" timestamp="1578943039308">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="461" y="168" key="SettingsEditor/0.0.1920.1050/-282.-1440.2560.1410@0.0.1920.1050" timestamp="1578943039308" />
-    <state x="656" y="257" width="607" height="536" key="find.popup" timestamp="1578949819192">
+    <state x="656" y="257" width="997" height="778" key="find.popup" timestamp="1586905008679">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="656" y="257" width="607" height="536" key="find.popup/0.0.1920.1050/-282.-1440.2560.1410@0.0.1920.1050" timestamp="1578949819192" />
+    <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586905008679" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -87,7 +87,7 @@ class PowerSpectrumTransform( object ) :
 
                 b - Forward coefficient ( array( float ), list( float ) ).
 
-                index = Index ( int ).
+                index - Index ( int ).
 
             Returns :
 
