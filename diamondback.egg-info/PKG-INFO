@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.11
+Version: 1.0.12
 Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -123,8 +123,8 @@ Description: ### Description
         **IA**, **IB**, **IClear**, **IData**, **IDateTime**, **IDuration**,
         **IEncoding**, **IEqual**, **IFrequency**, **IInterval**, **ILatency**,
         **IPath**, **IPeriod**, **IPhase**, **IQ**, **IRate**, **IReset**,
-        **IResolution**, **IRotation**, **IS**, **IState**, and **ITimeZone**
-        interfaces facilitate mix-in design.
+        **IResolution**, **IRotation**, **IS**, **IState**, **ITimeZone**, and
+        **IUpdate** interfaces facilitate mix-in design.
         	
         #### [models](https://larryturner.github.io/diamondback/diamondback.models)
         

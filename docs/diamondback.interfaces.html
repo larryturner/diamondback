@@ -105,6 +105,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IS">diamondback.interfaces.IS module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IState">diamondback.interfaces.IState module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IUpdate">diamondback.interfaces.IUpdate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
 </ul>
 </li>
@@ -978,19 +979,22 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IPhase</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="kn">import</span> <span class="n">IReset</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="kn">import</span> <span class="n">IReset</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IS</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 
 
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IReset</span> <span class="p">)</span> <span class="p">:</span>
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
 <span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="n">test</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="mf">0.5</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1271,6 +1275,55 @@ operation at a specified incident signal condition.</p>
 <dt id="diamondback.interfaces.ITimeZone.ITimeZone.timezone">
 <em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.timezone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time zone ( datetime.timezone ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IUpdate">
+<span id="diamondback-interfaces-iupdate-module"></span><h2>diamondback.interfaces.IUpdate module<a class="headerlink" href="#module-diamondback.interfaces.IUpdate" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Update interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IUpdate</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IUpdate</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">+=</span> <span class="mf">1.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-23.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IUpdate.IUpdate">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IUpdate.</code><code class="sig-name descname">IUpdate</code><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
+<p>Update interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IUpdate.IUpdate.update">
+<em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update.</p>
 </dd></dl>
 
 </dd></dl>

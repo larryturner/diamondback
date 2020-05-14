@@ -180,6 +180,14 @@ diamondback.interfaces.ITimeZone module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IUpdate module
+-------------------------------------
+
+.. automodule:: diamondback.interfaces.IUpdate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

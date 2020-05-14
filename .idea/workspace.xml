@@ -2,7 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IUpdate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IUpdate.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.12-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.12.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUpdate.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IReset.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IReset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IReset.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IReset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.11-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.11.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IReset.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IReset.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manifest" beforeDir="false" afterPath="$PROJECT_DIR$/manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.interfaces.rst" beforeDir="false" afterPath="$PROJECT_DIR$/sphinx/source/diamondback.interfaces.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +61,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -75,6 +109,9 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
   <component name="WindowStateProjectService">
     <state x="619" y="362" key="#com.intellij.ide.actions.ChooseComponentsToExportDialog" timestamp="1581970135679">
       <screen x="0" y="0" width="1920" height="1050" />
@@ -84,10 +121,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1586288250846" />
-    <state x="656" y="257" width="997" height="778" key="find.popup" timestamp="1589468648933">
+    <state x="656" y="257" width="997" height="778" key="find.popup" timestamp="1589496198484">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1589468648933" />
+    <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1589496198484" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1586905008679" />
   </component>
   <component name="XDebuggerManager">

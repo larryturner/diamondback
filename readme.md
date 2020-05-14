@@ -115,8 +115,8 @@ extensible factory construction.
 **IA**, **IB**, **IClear**, **IData**, **IDateTime**, **IDuration**,
 **IEncoding**, **IEqual**, **IFrequency**, **IInterval**, **ILatency**,
 **IPath**, **IPeriod**, **IPhase**, **IQ**, **IRate**, **IReset**,
-**IResolution**, **IRotation**, **IS**, **IState**, and **ITimeZone**
-interfaces facilitate mix-in design.
+**IResolution**, **IRotation**, **IS**, **IState**, **ITimeZone**, and
+**IUpdate** interfaces facilitate mix-in design.
 	
 #### [models](https://larryturner.github.io/diamondback/diamondback.models)
 

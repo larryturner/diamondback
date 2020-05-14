@@ -6,19 +6,22 @@
 
         ::
 
-            from diamondback.interfaces.IPhase import IPhase
             from diamondback.interfaces.IReset import IReset
+            from diamondback.interfaces.IPhase import IS
+            import numpy
 
 
-            class Test( IPhase, IReset ) :
+            class Test( IReset, IS ) :
 
                 def reset( self, x ) :
 
-                    self.phase = x
+                    self.s[ : ] = x
 
             test = Test( )
 
-            test.reset( 0.0 )
+            test.s = numpy.array( [ 0.0, 1.0 ] )
+
+            test.reset( 0.5 )
 
     **License**
 
