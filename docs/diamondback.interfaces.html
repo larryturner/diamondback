@@ -86,13 +86,25 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IA">diamondback.interfaces.IA module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IB">diamondback.interfaces.IB module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IData">diamondback.interfaces.IData module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IDateTime">diamondback.interfaces.IDateTime module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IDuration">diamondback.interfaces.IDuration module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IEncoding">diamondback.interfaces.IEncoding module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEqual">diamondback.interfaces.IEqual module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IFrequency">diamondback.interfaces.IFrequency module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IInterval">diamondback.interfaces.IInterval module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.ILatency">diamondback.interfaces.ILatency module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IPath">diamondback.interfaces.IPath module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IPeriod">diamondback.interfaces.IPeriod module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPhase">diamondback.interfaces.IPhase module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IQ">diamondback.interfaces.IQ module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IRate">diamondback.interfaces.IRate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IReset">diamondback.interfaces.IReset module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IResolution">diamondback.interfaces.IResolution module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IRotation">diamondback.interfaces.IRotation module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IS">diamondback.interfaces.IS module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IState">diamondback.interfaces.IState module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
 </ul>
 </li>
@@ -183,6 +195,10 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">a</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -230,6 +246,10 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -275,6 +295,10 @@
     <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -298,6 +322,213 @@
 <dt id="diamondback.interfaces.IClear.IClear.clear">
 <em class="property">abstract </em><code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears an instance.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IData">
+<span id="diamondback-interfaces-idata-module"></span><h2>diamondback.interfaces.IData module<a class="headerlink" href="#module-diamondback.interfaces.IData" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Data interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IData</span> <span class="kn">import</span> <span class="n">IData</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IData</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IData.IData">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IData.</code><code class="sig-name descname">IData</code><a class="reference internal" href="_modules/diamondback/interfaces/IData.html#IData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IData.IData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Data interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IData.IData.data">
+<em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#diamondback.interfaces.IData.IData.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IDateTime">
+<span id="diamondback-interfaces-idatetime-module"></span><h2>diamondback.interfaces.IDateTime module<a class="headerlink" href="#module-diamondback.interfaces.IDateTime" title="Permalink to this headline">¶</a></h2>
+<p>” <strong>Description</strong></p>
+<blockquote>
+<div><p>Date time interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDateTime</span> <span class="kn">import</span> <span class="n">IDateTime</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDateTime</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">datetime</span> <span class="o">+=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span> <span class="n">hours</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IDateTime.IDateTime">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDateTime.</code><code class="sig-name descname">IDateTime</code><a class="reference internal" href="_modules/diamondback/interfaces/IDateTime.html#IDateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.ITimeZone.ITimeZone" title="diamondback.interfaces.ITimeZone.ITimeZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ITimeZone.ITimeZone</span></code></a></p>
+<p>Date time interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IDateTime.IDateTime.datetime">
+<em class="property">property </em><code class="sig-name descname">datetime</code><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime.datetime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Date time ( datetime ).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="diamondback.interfaces.IDateTime.IDateTime.timezone">
+<em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime.timezone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time zone ( datetime.timezone ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IDuration">
+<span id="diamondback-interfaces-iduration-module"></span><h2>diamondback.interfaces.IDuration module<a class="headerlink" href="#module-diamondback.interfaces.IDuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Duration interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDuration</span> <span class="kn">import</span> <span class="n">IDuration</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDuration</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">duration</span> <span class="o">=</span> <span class="mf">3600.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IDuration.IDuration">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDuration.</code><code class="sig-name descname">IDuration</code><a class="reference internal" href="_modules/diamondback/interfaces/IDuration.html#IDuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Duration interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IDuration.IDuration.duration">
+<em class="property">property </em><code class="sig-name descname">duration</code><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration.duration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Duration in seconds ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IEncoding">
+<span id="diamondback-interfaces-iencoding-module"></span><h2>diamondback.interfaces.IEncoding module<a class="headerlink" href="#module-diamondback.interfaces.IEncoding" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Encoding interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEncoding</span> <span class="kn">import</span> <span class="n">IEncoding</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEncoding</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2019, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-10-09.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IEncoding.IEncoding">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IEncoding.</code><code class="sig-name descname">IEncoding</code><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Encoding interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IEncoding.IEncoding.encoding">
+<em class="property">property </em><code class="sig-name descname">encoding</code><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.encoding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encoding ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
 </dd></dl>
 
 </dd></dl>
@@ -359,7 +590,11 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.5</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -388,6 +623,202 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.IInterval">
+<span id="diamondback-interfaces-iinterval-module"></span><h2>diamondback.interfaces.IInterval module<a class="headerlink" href="#module-diamondback.interfaces.IInterval" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Interval interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IInterval</span> <span class="kn">import</span> <span class="n">IInterval</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IInterval</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">interval</span> <span class="o">=</span> <span class="mf">7200.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IInterval.IInterval">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IInterval.</code><code class="sig-name descname">IInterval</code><a class="reference internal" href="_modules/diamondback/interfaces/IInterval.html#IInterval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Interval interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IInterval.IInterval.interval">
+<em class="property">property </em><code class="sig-name descname">interval</code><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval.interval" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interval in seconds ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.ILatency">
+<span id="diamondback-interfaces-ilatency-module"></span><h2>diamondback.interfaces.ILatency module<a class="headerlink" href="#module-diamondback.interfaces.ILatency" title="Permalink to this headline">¶</a></h2>
+<p>Latency interface.</p>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ILatency</span> <span class="kn">import</span> <span class="n">ILatency</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILatency</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">latency</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">latency</span> <span class="o">=</span> <span class="mf">600.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.ILatency.ILatency">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ILatency.</code><code class="sig-name descname">ILatency</code><a class="reference internal" href="_modules/diamondback/interfaces/ILatency.html#ILatency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Latency interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.ILatency.ILatency.latency">
+<em class="property">property </em><code class="sig-name descname">latency</code><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency.latency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Latency in seconds ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IPath">
+<span id="diamondback-interfaces-ipath-module"></span><h2>diamondback.interfaces.IPath module<a class="headerlink" href="#module-diamondback.interfaces.IPath" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Path interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPath</span> <span class="kn">import</span> <span class="n">IPath</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPath</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;.\data&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-01-09.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IPath.IPath">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPath.</code><code class="sig-name descname">IPath</code><a class="reference internal" href="_modules/diamondback/interfaces/IPath.html#IPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPath.IPath" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Path interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IPath.IPath.path">
+<em class="property">property </em><code class="sig-name descname">path</code><a class="headerlink" href="#diamondback.interfaces.IPath.IPath.path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Path ( str ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IPeriod">
+<span id="diamondback-interfaces-iperiod-module"></span><h2>diamondback.interfaces.IPeriod module<a class="headerlink" href="#module-diamondback.interfaces.IPeriod" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Period interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPeriod</span> <span class="kn">import</span> <span class="n">IPeriod</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPeriod</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="mf">300.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IPeriod.IPeriod">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPeriod.</code><code class="sig-name descname">IPeriod</code><a class="reference internal" href="_modules/diamondback/interfaces/IPeriod.html#IPeriod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Period interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IPeriod.IPeriod.period">
+<em class="property">property </em><code class="sig-name descname">period</code><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod.period" title="Permalink to this definition">¶</a></dt>
+<dd><p>Period in seconds ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IPhase">
 <span id="diamondback-interfaces-iphase-module"></span><h2>diamondback.interfaces.IPhase module<a class="headerlink" href="#module-diamondback.interfaces.IPhase" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -406,6 +837,10 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.5</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -453,6 +888,10 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">q</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -499,6 +938,10 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0e-3</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -544,6 +987,10 @@
     <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -577,6 +1024,106 @@ operation at a specified incident signal condition.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.IResolution">
+<span id="diamondback-interfaces-iresolution-module"></span><h2>diamondback.interfaces.IResolution module<a class="headerlink" href="#module-diamondback.interfaces.IResolution" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Resolution interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IResolution</span> <span class="kn">import</span> <span class="n">IResolution</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IResolution</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IResolution.IResolution">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IResolution.</code><code class="sig-name descname">IResolution</code><a class="reference internal" href="_modules/diamondback/interfaces/IResolution.html#IResolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Resolution interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IResolution.IResolution.resolution">
+<em class="property">property </em><code class="sig-name descname">resolution</code><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution.resolution" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resolution ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IRotation">
+<span id="diamondback-interfaces-irotation-module"></span><h2>diamondback.interfaces.IRotation module<a class="headerlink" href="#module-diamondback.interfaces.IRotation" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Rotation interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IRotation</span> <span class="kn">import</span> <span class="n">IRotation</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRotation</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">rotation</span> <span class="o">=</span> <span class="mf">90.0</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2019, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-10-09.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IRotation.IRotation">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IRotation.</code><code class="sig-name descname">IRotation</code><a class="reference internal" href="_modules/diamondback/interfaces/IRotation.html#IRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Rotation interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IRotation.IRotation.rotation">
+<em class="property">property </em><code class="sig-name descname">rotation</code><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation.rotation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotation ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IS">
 <span id="diamondback-interfaces-is-module"></span><h2>diamondback.interfaces.IS module<a class="headerlink" href="#module-diamondback.interfaces.IS" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -596,6 +1143,10 @@ operation at a specified incident signal condition.</p>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -619,6 +1170,107 @@ operation at a specified incident signal condition.</p>
 <dt id="diamondback.interfaces.IS.IS.s">
 <em class="property">property </em><code class="sig-name descname">s</code><a class="headerlink" href="#diamondback.interfaces.IS.IS.s" title="Permalink to this definition">¶</a></dt>
 <dd><p>State ( array( complex | float ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IState">
+<span id="diamondback-interfaces-istate-module"></span><h2>diamondback.interfaces.IState module<a class="headerlink" href="#module-diamondback.interfaces.IState" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>State interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.commons.Serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IState</span> <span class="kn">import</span> <span class="n">IState</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IState</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IState.IState">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IState.</code><code class="sig-name descname">IState</code><a class="reference internal" href="_modules/diamondback/interfaces/IState.html#IState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IState.IState" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>State interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IState.IState.state">
+<em class="property">property </em><code class="sig-name descname">state</code><a class="headerlink" href="#diamondback.interfaces.IState.IState.state" title="Permalink to this definition">¶</a></dt>
+<dd><p>State ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.ITimeZone">
+<span id="diamondback-interfaces-itimezone-module"></span><h2>diamondback.interfaces.ITimeZone module<a class="headerlink" href="#module-diamondback.interfaces.ITimeZone" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Time zone interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeZone</span> <span class="kn">import</span> <span class="n">ITimeZone</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ITimeZone</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">tzinfo</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.ITimeZone.ITimeZone">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ITimeZone.</code><code class="sig-name descname">ITimeZone</code><a class="reference internal" href="_modules/diamondback/interfaces/ITimeZone.html#ITimeZone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Time zone interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.ITimeZone.ITimeZone.timezone">
+<em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.timezone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Time zone ( datetime.timezone ).</p>
 </dd></dl>
 
 </dd></dl>

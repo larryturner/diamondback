@@ -15,7 +15,11 @@
 
                     super( ).__init__( )
 
-                    self.frequency = 0.1
+                    self.frequency = 1.0
+
+            test = Test( )
+
+            test.frequency = 0.5
 
     **License**
 

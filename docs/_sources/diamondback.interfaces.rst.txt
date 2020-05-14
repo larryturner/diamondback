@@ -28,6 +28,38 @@ diamondback.interfaces.IClear module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IData module
+-----------------------------------
+
+.. automodule:: diamondback.interfaces.IData
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IDateTime module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IDateTime
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IDuration module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IDuration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IEncoding module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IEncoding
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IEqual module
 ------------------------------------
 
@@ -40,6 +72,38 @@ diamondback.interfaces.IFrequency module
 ----------------------------------------
 
 .. automodule:: diamondback.interfaces.IFrequency
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IInterval module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IInterval
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.ILatency module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.ILatency
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IPath module
+-----------------------------------
+
+.. automodule:: diamondback.interfaces.IPath
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IPeriod module
+-------------------------------------
+
+.. automodule:: diamondback.interfaces.IPeriod
    :members:
    :undoc-members:
    :show-inheritance:
@@ -76,10 +140,42 @@ diamondback.interfaces.IReset module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IResolution module
+-----------------------------------------
+
+.. automodule:: diamondback.interfaces.IResolution
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IRotation module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IRotation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IS module
 --------------------------------
 
 .. automodule:: diamondback.interfaces.IS
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IState module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IState
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.ITimeZone module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.ITimeZone
    :members:
    :undoc-members:
    :show-inheritance:

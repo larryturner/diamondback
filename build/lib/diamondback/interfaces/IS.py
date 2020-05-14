@@ -18,6 +18,10 @@
 
                     self.s = numpy.array( [ 0.0, 0.1 ] )
 
+            test = Test( )
+
+            test.s[ : ] = 0.0
+
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_

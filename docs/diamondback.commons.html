@@ -177,28 +177,43 @@ with logging levels.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.commons.Log</span> <span class="kn">import</span> <span class="n">Log</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 
 <span class="k">try</span> <span class="p">:</span>
 
+    <span class="c1"># Default - Log stream is sys.stdout, logging package is not used, level is &#39;Info&#39;, and timezone is UTC.</span>
+
     <span class="c1"># Set Log level to &#39;Info&#39;.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span> <span class="p">)</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log.000.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
+    <span class="c1"># Write an &#39;Info&#39; entry with UTC timezone.</span>
 
-        <span class="c1"># Set Log stream to a file and write a &#39;Warning&#39; entry.</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello&#39;</span> <span class="p">)</span>
+
+    <span class="c1"># Write an &#39;Info&#39; entry with &#39;US/Eastern&#39; timezone.</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span> <span class="s1">&#39;US/Eastern&#39;</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="p">(</span> <span class="s1">&#39;Example&#39;</span><span class="p">,</span> <span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Payload&#39;</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="c1"># Set Log stream to a file and write a &#39;Warning&#39; entry.</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log.000.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
 
         <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">fout</span> <span class="p">)</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;x = &#39;</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;X = &#39;</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
 
     <span class="c1"># Set Log stream to sys.stdout, use logging as &#39;project_log&#39;, and write an &#39;Info&#39; entry.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s1">&#39;project_log&#39;</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;y = [ ]&#39;</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Valid = &#39;</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
 
@@ -241,6 +256,16 @@ with logging levels.</p>
 <blockquote>
 <div><p>stream - Stream ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
 <p>name - Logger name if not empty ( str ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="diamondback.commons.Log.Log.timezone">
+<em class="property">classmethod </em><code class="sig-name descname">timezone</code><span class="sig-paren">(</span><em class="sig-param">timezone</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.timezone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.timezone" title="Permalink to this definition">¶</a></dt>
+<dd><p>Timezone.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>timezone - Time zone ( datetime.timezone ).</p>
 </div></blockquote>
 </dd></dl>
 

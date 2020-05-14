@@ -17,6 +17,10 @@
 
                     self.phase = 0.0
 
+            test = Test( )
+
+            test.phase = 0.5
+
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_

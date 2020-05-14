@@ -18,6 +18,10 @@
 
                     self.q = numpy.array( [ 0.0, 0.1 ] )
 
+            test = Test( )
+
+            test.q[ : ] = 0.1
+
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_

@@ -17,6 +17,10 @@
 
                     self.rate = 5.0e-2
 
+            test = Test( )
+
+            test.rate = 1.0e-3
+
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_

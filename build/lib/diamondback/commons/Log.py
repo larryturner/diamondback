@@ -21,28 +21,43 @@
 
             from diamondback.commons.Log import Log
             import numpy
+            import pytz
             import sys
 
 
             try :
 
+                # Default - Log stream is sys.stdout, logging package is not used, level is 'Info', and timezone is UTC.
+
                 # Set Log level to 'Info'.
 
                 Log.level( 'Info' )
 
-                with open( 'log.000.txt', 'w' ) as fout :
+                # Write an 'Info' entry with UTC timezone.
 
-                    # Set Log stream to a file and write a 'Warning' entry.
+                Log.write( 'Info', 'Hello' )
+
+                # Write an 'Info' entry with 'US/Eastern' timezone.
+
+                Log.timezone( pytz.timezone( 'US/Eastern' ) )
+
+                Log.write( 'Info', 'World', ( 'Example', 'Data', 'Payload' ) )
+
+                # Set Log stream to a file and write a 'Warning' entry.
+
+                with open( 'log.000.txt', 'w' ) as fout :
 
                     Log.stream( fout )
 
-                    Log.write( 'Warning', 'x = ', numpy.random.rand( 2, 2 ) )
+                    x = numpy.random.rand( 2, 2 )
+
+                    Log.write( 'Warning', 'X = ', x )
 
                 # Set Log stream to sys.stdout, use logging as 'project_log', and write an 'Info' entry.
 
                 Log.stream( sys.stdout, 'project_log' )
 
-                Log.write( 'Info', 'y = [ ]' )
+                Log.write( 'Info', 'Valid = ', True )
 
             except Exception as ex :
 
@@ -81,9 +96,7 @@ class Log( object ) :
 
     _handler = [ ]
 
-    _level = 'Info'
-
-    _log = [ ]
+    _level, _log = 'Info', [ ]
 
     _map = { 'Critical' : logging.CRITICAL,
              'Error' : logging.ERROR,
@@ -91,7 +104,7 @@ class Log( object ) :
              'Info' : logging.INFO,
              'Debug' : logging.DEBUG }
 
-    _stream = sys.stdout
+    _stream, _timezone = sys.stdout, datetime.timezone.utc
 
     @classmethod
     def level( cls, level ) :
@@ -102,6 +115,10 @@ class Log( object ) :
 
                 level - Level in ( 'Critical', 'Error', 'Warning', 'Info', 'Debug' ) ( str ).
         """
+
+        if ( not level ) :
+
+            raise ValueError( 'Level = ' + str( level ) )
 
         level = level.title( )
 
@@ -152,6 +169,22 @@ class Log( object ) :
         Log._stream = stream
 
     @classmethod
+    def timezone( cls, timezone ) :
+
+        """ Timezone.
+
+            Arguments :
+
+                timezone - Time zone ( datetime.timezone ).
+        """
+
+        if ( not timezone ) :
+
+            raise ValueError( 'TimeZone = ' + str( timezone ) )
+
+        Log._timezone = timezone
+
+    @classmethod
     def write( cls, level, entry, data = None ) :
 
         """ Writes log entry.
@@ -171,7 +204,7 @@ class Log( object ) :
 
             try :
 
-                s = '{:30s}{:10s}'.format( datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).isoformat( )[ : 19 ], level )
+                s = '{:30s}{:10s}'.format( datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).astimezone( Log._timezone ).isoformat( ), level )
 
                 if ( isinstance( entry, Exception ) ) :
 
