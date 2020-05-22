@@ -2,30 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.13-py3-none-any.whl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.13.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexFrequencyFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/filters/ComplexFrequencyFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IDateTime.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IDateTime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/ITimeZone.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/ITimeZone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/test/commons/test_commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/test/commons/test_commons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDateTime.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDateTime.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ITimeZone.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ITimeZone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.12-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.12.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDateTime.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDateTime.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ITimeZone.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ITimeZone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/commons/test_commons.py" beforeDir="false" afterPath="$PROJECT_DIR$/test/commons/test_commons.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.13-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.13-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.13.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.13.tar.gz" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
