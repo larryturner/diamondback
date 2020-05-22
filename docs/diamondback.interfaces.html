@@ -417,19 +417,13 @@
 <dl class="class">
 <dt id="diamondback.interfaces.IDateTime.IDateTime">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDateTime.</code><code class="sig-name descname">IDateTime</code><a class="reference internal" href="_modules/diamondback/interfaces/IDateTime.html#IDateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.ITimeZone.ITimeZone" title="diamondback.interfaces.ITimeZone.ITimeZone"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ITimeZone.ITimeZone</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Date time interface.</p>
 <p>Initializes an instance.</p>
 <dl class="method">
 <dt id="diamondback.interfaces.IDateTime.IDateTime.datetime">
 <em class="property">property </em><code class="sig-name descname">datetime</code><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime.datetime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date time ( datetime ).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="diamondback.interfaces.IDateTime.IDateTime.timezone">
-<em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime.timezone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time zone ( datetime.timezone ).</p>
 </dd></dl>
 
 </dd></dl>
@@ -1231,7 +1225,7 @@ operation at a specified incident signal condition.</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ITimeZone">
 <span id="diamondback-interfaces-itimezone-module"></span><h2>diamondback.interfaces.ITimeZone module<a class="headerlink" href="#module-diamondback.interfaces.ITimeZone" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
+<p>” <strong>Description</strong></p>
 <blockquote>
 <div><p>Time zone interface.</p>
 </div></blockquote>
@@ -1239,6 +1233,7 @@ operation at a specified incident signal condition.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeZone</span> <span class="kn">import</span> <span class="n">ITimeZone</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ITimeZone</span> <span class="p">)</span> <span class="p">:</span>
@@ -1251,7 +1246,7 @@ operation at a specified incident signal condition.</p>
 
 <span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="n">test</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">tzinfo</span>
+<span class="n">test</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span> <span class="s1">&#39;US/Eastern&#39;</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1274,7 +1269,7 @@ operation at a specified incident signal condition.</p>
 <dl class="method">
 <dt id="diamondback.interfaces.ITimeZone.ITimeZone.timezone">
 <em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.timezone" title="Permalink to this definition">¶</a></dt>
-<dd><p>Time zone ( datetime.timezone ).</p>
+<dd><p>Time zone ( timezone ).</p>
 </dd></dl>
 
 </dd></dl>

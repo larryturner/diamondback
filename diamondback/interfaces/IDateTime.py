@@ -36,11 +36,11 @@
 
 """
 
-from diamondback.interfaces.ITimeZone import ITimeZone
+from diamondback.interfaces.IEqual import IEqual
 import datetime
 
 
-class IDateTime( ITimeZone ) :
+class IDateTime( IEqual ) :
 
     """ Date time interface.
     """
@@ -60,17 +60,11 @@ class IDateTime( ITimeZone ) :
 
             raise ValueError( 'DateTime = ' + str( datetim ) )
 
-        self._datetime = datetim.replace( microsecond = 0 ).astimezone( self.timezone )
+        if ( not datetim.tzinfo ) :
 
-    @ITimeZone.timezone.setter
-    def timezone( self, timezone ) :
+            datetim = datetim.replace( tzinfo = datetime.timezone.utc )
 
-        """ Time zone ( datetime.timezone ).
-        """
-
-        ITimeZone.timezone.fset( self, timezone )
-
-        self.datetime = self.datetime
+        self._datetime = datetim.replace( microsecond = 0 )
 
     def __eq__( self, other ) :
 
@@ -94,4 +88,4 @@ class IDateTime( ITimeZone ) :
 
         super( ).__init__( )
 
-        self._datetime = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).astimezone( self.timezone )
+        self._datetime = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )

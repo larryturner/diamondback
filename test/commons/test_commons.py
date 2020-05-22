@@ -50,11 +50,11 @@ def test_Log( count = 2, path = 'test_Log.3.14159.txt' ) :
 
             Log.write( 'Debug', start )
 
-            Log.write( 'Info', 'x = ', numpy.random.rand( count, count ) )
+            Log.write( 'Info', 'X = ', numpy.random.rand( count, count ) )
 
-            Log.write( 'Warning', 'y = ', list( numpy.random.rand( count, count ) ) )
+            Log.write( 'Warning', 'Y = ', list( numpy.random.rand( count, count ) ) )
 
-            Log.write( 'Critical', 'z = ', set( numpy.random.rand( count ) ) )
+            Log.write( 'Critical', 'Z = ', set( numpy.random.rand( count ) ) )
 
             Log.write( 'Error', ValueError( end ) )
 

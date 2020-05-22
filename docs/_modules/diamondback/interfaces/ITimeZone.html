@@ -144,7 +144,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for diamondback.interfaces.ITimeZone</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+<span></span><span class="sd">&quot;&quot;&quot;&quot; **Description**</span>
 
 <span class="sd">        Time zone interface.</span>
 
@@ -154,6 +154,7 @@
 
 <span class="sd">            from diamondback.interfaces.ITimeZone import ITimeZone</span>
 <span class="sd">            import datetime</span>
+<span class="sd">            import pytz</span>
 
 
 <span class="sd">            class Test( ITimeZone ) :</span>
@@ -166,7 +167,7 @@
 
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.timezone = datetime.datetime.now( ).astimezone( ).tzinfo</span>
+<span class="sd">            test.timezone = pytz.timezone( &#39;US/Eastern&#39; )</span>
 
 <span class="sd">    **License**</span>
 
@@ -194,7 +195,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Time zone ( datetime.timezone ).</span>
+        <span class="sd">&quot;&quot;&quot; Time zone ( timezone ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>

@@ -1,4 +1,4 @@
-""" **Description**
+"""" **Description**
 
         Time zone interface.
 
@@ -8,6 +8,7 @@
 
             from diamondback.interfaces.ITimeZone import ITimeZone
             import datetime
+            import pytz
 
 
             class Test( ITimeZone ) :
@@ -20,7 +21,7 @@
 
             test = Test( )
 
-            test.timezone = datetime.datetime.now( ).astimezone( ).tzinfo
+            test.timezone = pytz.timezone( 'US/Eastern' )
 
     **License**
 
@@ -48,7 +49,7 @@ class ITimeZone( IEqual ) :
     @property
     def timezone( self ) :
 
-        """ Time zone ( datetime.timezone ).
+        """ Time zone ( timezone ).
         """
 
         return self._timezone
