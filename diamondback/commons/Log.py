@@ -15,6 +15,8 @@
 
         Singleton.
 
+        Thread safe and reentrant.
+
     **Example**
 
         ::
@@ -79,6 +81,7 @@
 
 """
 
+from threading import RLock
 import datetime
 import logging
 import numpy
@@ -104,6 +107,8 @@ class Log( object ) :
              'Info' : logging.INFO,
              'Debug' : logging.DEBUG }
 
+    _rlock = RLock( )
+
     _stream, _timezone = sys.stdout, datetime.timezone.utc
 
     @classmethod
@@ -116,26 +121,28 @@ class Log( object ) :
                 level - Level in ( 'Critical', 'Error', 'Warning', 'Info', 'Debug' ) ( str ).
         """
 
-        if ( not level ) :
+        with ( Log._rlock ) :
 
-            raise ValueError( 'Level = ' + str( level ) )
-
-        level = level.title( )
-
-        if ( level != Log._level ) :
-
-            if ( level not in Log._map ) :
+            if ( not level ) :
 
                 raise ValueError( 'Level = ' + str( level ) )
 
-            if ( Log._log ) :
+            level = level.title( )
 
-                Log._log.setLevel( Log._map[ level ] )
+            if ( level != Log._level ) :
 
-            Log._level = level
+                if ( level not in Log._map ) :
+
+                    raise ValueError( 'Level = ' + str( level ) )
+
+                if ( Log._log ) :
+
+                    Log._log.setLevel( Log._map[ level ] )
+
+                Log._level = level
 
     @classmethod
-    def stream( cls, stream, name = '' ) :
+    def stream( cls, stream, name = None ) :
 
         """ Stream.
 
@@ -146,27 +153,29 @@ class Log( object ) :
                 name - Logger name if not empty ( str ).
         """
 
-        if ( not stream ) :
+        with ( Log._rlock ) :
 
-            raise ValueError( 'Stream = ' + str( stream ) )
+            if ( not stream ) :
 
-        if ( Log._log ) :
+                raise ValueError( 'Stream = ' + str( stream ) )
 
-            Log._log.removeHandler( Log._handler )
+            if ( Log._log ) :
 
-            Log._handler, Log._log = [ ], [ ]
+                Log._log.removeHandler( Log._handler )
 
-        if ( name ) :
+                Log._handler, Log._log = [ ], [ ]
 
-            Log._handler = logging.StreamHandler( stream )
+            if ( name ) :
 
-            Log._log = logging.getLogger( name )
+                Log._handler = logging.StreamHandler( stream )
 
-            Log._log.addHandler( Log._handler )
+                Log._log = logging.getLogger( name )
 
-            Log._log.setLevel( Log._map[ Log._level ] )
+                Log._log.addHandler( Log._handler )
 
-        Log._stream = stream
+                Log._log.setLevel( Log._map[ Log._level ] )
+
+            Log._stream = stream
 
     @classmethod
     def timezone( cls, timezone ) :
@@ -178,11 +187,13 @@ class Log( object ) :
                 timezone - Time zone ( datetime.timezone ).
         """
 
-        if ( not timezone ) :
+        with ( Log._rlock ) :
 
-            raise ValueError( 'TimeZone = ' + str( timezone ) )
+            if ( not timezone ) :
 
-        Log._timezone = timezone
+                raise ValueError( 'TimeZone = ' + str( timezone ) )
+
+            Log._timezone = timezone
 
     @classmethod
     def write( cls, level, entry, data = None ) :
@@ -198,54 +209,56 @@ class Log( object ) :
                 data - Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
         """
 
-        level = level.title( )
+        with ( Log._rlock ) :
 
-        if ( Log._map[ level ] >= Log._map[ Log._level ] ) :
+            level = level.title( )
 
-            try :
-
-                s = '{:30s}{:10s}'.format( datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).astimezone( Log._timezone ).isoformat( ), level )
-
-                if ( isinstance( entry, Exception ) ) :
-
-                    s += str( entry.__class__ ).replace( '<class ', '' ).replace( '>', '' ) + ' ' + str( entry ) + os.linesep
-
-                    trace = traceback.format_exception( None, entry, entry.__traceback__ )
-
-                    for ii in range( 1, len( trace ) - 1 ) :
-
-                        s += trace[ ii ].replace( 'File', '@' ).replace( 'line ', '' ).replace( '"', '' )
-
-                else :
-
-                    s += str( entry )
+            if ( Log._map[ level ] >= Log._map[ Log._level ] ) :
 
                 try :
 
-                    if ( data is not None ) :
+                    s = '{:30s}{:10s}'.format( datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).astimezone( Log._timezone ).isoformat( ), level )
 
-                        if ( len( data ) > 0 ) :
+                    if ( isinstance( entry, Exception ) ) :
 
-                            if ( isinstance( data, str ) ) :
+                        s += str( entry.__class__ ).replace( '<class ', '' ).replace( '>', '' ) + ' ' + str( entry ) + os.linesep
 
-                                s += ' ' + str( data )
+                        trace = traceback.format_exception( None, entry, entry.__traceback__ )
 
-                            else :
+                        for ii in range( 1, len( trace ) - 1 ) :
 
-                                s += ' ' + str( data ).replace( '(', '( ' ).replace( ')', ' )' ).replace( '[', '[ ' ).replace( ']', ' ]' ).replace( '{', '{ ' ).replace( '}', ' }' )
+                            s += trace[ ii ].replace( 'File', '@' ).replace( 'line ', '' ).replace( '"', '' )
+
+                    else :
+
+                        s += str( entry )
+
+                    try :
+
+                        if ( data is not None ) :
+
+                            if ( len( data ) > 0 ) :
+
+                                if ( isinstance( data, str ) ) :
+
+                                    s += ' ' + str( data )
+
+                                else :
+
+                                    s += ' ' + str( data ).replace( '(', '( ' ).replace( ')', ' )' ).replace( '[', '[ ' ).replace( ']', ' ]' ).replace( '{', '{ ' ).replace( '}', ' }' )
+
+                    except :
+
+                        s += ' ' + str( data )
+
+                    if ( Log._log ) :
+
+                        Log._log.log( Log._map[ level ], s )
+
+                    else :
+
+                        _ = Log._stream.write( s + os.linesep )
 
                 except :
 
-                    s += ' ' + str( data )
-
-                if ( Log._log ) :
-
-                    Log._log.log( Log._map[ level ], s )
-
-                else :
-
-                    _ = Log._stream.write( s + os.linesep )
-
-            except :
-
-                pass
+                    pass

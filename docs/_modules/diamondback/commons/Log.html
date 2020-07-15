@@ -161,6 +161,8 @@
 
 <span class="sd">        Singleton.</span>
 
+<span class="sd">        Thread safe and reentrant.</span>
+
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
@@ -225,6 +227,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">RLock</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -250,6 +253,8 @@
              <span class="s1">&#39;Info&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
              <span class="s1">&#39;Debug&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="p">}</span>
 
+    <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
+
     <span class="n">_stream</span><span class="p">,</span> <span class="n">_timezone</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
 
 <div class="viewcode-block" id="Log.level"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.level">[docs]</a>    <span class="nd">@classmethod</span>
@@ -262,26 +267,28 @@
 <span class="sd">                level - Level in ( &#39;Critical&#39;, &#39;Error&#39;, &#39;Warning&#39;, &#39;Info&#39;, &#39;Debug&#39; ) ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">level</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Level = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span>
-
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="o">!=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">)</span> <span class="p">:</span>
-
-            <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">level</span> <span class="p">)</span> <span class="p">:</span>
 
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Level = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span>
 
-            <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
 
-                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="o">!=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">level</span></div>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">level</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Level = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span>
+
+                <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="p">)</span>
+
+                <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">level</span></div>
 
 <div class="viewcode-block" id="Log.stream"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.stream">[docs]</a>    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Stream.</span>
 
@@ -292,27 +299,29 @@
 <span class="sd">                name - Logger name if not empty ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Stream = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Stream = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">)</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="p">[</span> <span class="p">]</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">removeHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span><span class="p">,</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="p">[</span> <span class="p">]</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">name</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
 
-            <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_handler</span> <span class="p">)</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="n">stream</span></div>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="n">stream</span></div>
 
 <div class="viewcode-block" id="Log.timezone"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.timezone">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
@@ -324,11 +333,13 @@
 <span class="sd">                timezone - Time zone ( datetime.timezone ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;TimeZone = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="n">timezone</span></div>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;TimeZone = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">)</span>
+
+            <span class="n">Log</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="n">timezone</span></div>
 
 <div class="viewcode-block" id="Log.write"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.write">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
@@ -344,57 +355,59 @@
 <span class="sd">                data - Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
 
-            <span class="k">try</span> <span class="p">:</span>
-
-                <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:30s}{:10s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_timezone</span> <span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">),</span> <span class="n">level</span> <span class="p">)</span>
-
-                <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-
-                    <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span><span class="o">.</span><span class="vm">__class__</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&lt;class &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
-
-                    <span class="n">trace</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exception</span><span class="p">(</span> <span class="kc">None</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">__traceback__</span> <span class="p">)</span>
-
-                    <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">trace</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-
-                        <span class="n">s</span> <span class="o">+=</span> <span class="n">trace</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;File&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;line &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
-
-                <span class="k">else</span> <span class="p">:</span>
-
-                    <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">]</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
 
                 <span class="k">try</span> <span class="p">:</span>
 
-                    <span class="k">if</span> <span class="p">(</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+                    <span class="n">s</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:30s}{:10s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_timezone</span> <span class="p">)</span><span class="o">.</span><span class="n">isoformat</span><span class="p">(</span> <span class="p">),</span> <span class="n">level</span> <span class="p">)</span>
 
-                        <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                            <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                        <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span><span class="o">.</span><span class="vm">__class__</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&lt;class &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&gt;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span>
 
-                                <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+                        <span class="n">trace</span> <span class="o">=</span> <span class="n">traceback</span><span class="o">.</span><span class="n">format_exception</span><span class="p">(</span> <span class="kc">None</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">entry</span><span class="o">.</span><span class="n">__traceback__</span> <span class="p">)</span>
 
-                            <span class="k">else</span> <span class="p">:</span>
+                        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">trace</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
 
-                                <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;( &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39; )&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;[ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39; ]&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;{ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39; }&#39;</span> <span class="p">)</span>
+                            <span class="n">s</span> <span class="o">+=</span> <span class="n">trace</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;File&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;line &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
+
+                    <span class="k">else</span> <span class="p">:</span>
+
+                        <span class="n">s</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span>
+
+                    <span class="k">try</span> <span class="p">:</span>
+
+                        <span class="k">if</span> <span class="p">(</span> <span class="n">data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+
+                            <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+
+                                <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">data</span><span class="p">,</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                                    <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+
+                                <span class="k">else</span> <span class="p">:</span>
+
+                                    <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;( &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;)&#39;</span><span class="p">,</span> <span class="s1">&#39; )&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;[&#39;</span><span class="p">,</span> <span class="s1">&#39;[ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;]&#39;</span><span class="p">,</span> <span class="s1">&#39; ]&#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;{&#39;</span><span class="p">,</span> <span class="s1">&#39;{ &#39;</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="s1">&#39;}&#39;</span><span class="p">,</span> <span class="s1">&#39; }&#39;</span> <span class="p">)</span>
+
+                    <span class="k">except</span> <span class="p">:</span>
+
+                        <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
+
+                    <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
+
+                        <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">],</span> <span class="n">s</span> <span class="p">)</span>
+
+                    <span class="k">else</span> <span class="p">:</span>
+
+                        <span class="n">_</span> <span class="o">=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="n">s</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span> <span class="p">)</span>
 
                 <span class="k">except</span> <span class="p">:</span>
 
-                    <span class="n">s</span> <span class="o">+=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">)</span>
-
-                <span class="k">if</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_log</span> <span class="p">)</span> <span class="p">:</span>
-
-                    <span class="n">Log</span><span class="o">.</span><span class="n">_log</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_map</span><span class="p">[</span> <span class="n">level</span> <span class="p">],</span> <span class="n">s</span> <span class="p">)</span>
-
-                <span class="k">else</span> <span class="p">:</span>
-
-                    <span class="n">_</span> <span class="o">=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="n">s</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">linesep</span> <span class="p">)</span>
-
-            <span class="k">except</span> <span class="p">:</span>
-
-                <span class="k">pass</span></div></div>
+                    <span class="k">pass</span></div></div>
 </pre></div>
 
            </div>
