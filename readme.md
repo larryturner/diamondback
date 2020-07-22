@@ -169,6 +169,16 @@ Diamondback depends upon external packages :
 * [numpy](https://github.com/numpy/numpy)
     
 * [scipy](https://github.com/scipy/scipy)
+
+Diamondback Jupyter notebook depends upon additional external packages :
+
+* [IPython](https://github.com/ipython/ipython)
+
+* [ipywidgets](https://github.com/jupyter-widgets/ipywidgets)
+
+* [matplotlib](https://github.com/matplotlib/matplotlib)
+
+* [opencv-python](https://github.com/opencv/opencv)
 	
 ### Installation
 
@@ -185,6 +195,8 @@ A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
 demonstration of diamondback capabilities.	
 
+    pip install IPython ipywidgets matplotlib opencv-python
+    
     jupyter notebook .\jupyter\diamondback.ipynb
 
 Restart the kernel, as the first cell contains common definitions, find cells

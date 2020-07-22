@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.14
+Version: 1.0.15
 Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -177,6 +177,16 @@ Description: ### Description
         * [numpy](https://github.com/numpy/numpy)
             
         * [scipy](https://github.com/scipy/scipy)
+        
+        Diamondback Jupyter notebook depends upon additional external packages :
+        
+        * [IPython](https://github.com/ipython/ipython)
+        
+        * [ipywidgets](https://github.com/jupyter-widgets/ipywidgets)
+        
+        * [matplotlib](https://github.com/matplotlib/matplotlib)
+        
+        * [opencv-python](https://github.com/opencv/opencv)
         	
         ### Installation
         
@@ -193,6 +203,8 @@ Description: ### Description
         The notebook serves as a simplified but useful introduction to and
         demonstration of diamondback capabilities.	
         
+            pip install IPython ipywidgets matplotlib opencv-python
+            
             jupyter notebook .\jupyter\diamondback.ipynb
         
         Restart the kernel, as the first cell contains common definitions, find cells
