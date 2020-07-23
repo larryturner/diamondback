@@ -40,12 +40,11 @@ Diamondback is defined in subpackages :
 
 #### [commons](https://larryturner.github.io/diamondback/diamondback.commons)
 	
-**Log** is a singleton instance which formats and writes log entries, electively
-using the logger package or directly to a specified stream. Log entries are
-prefaced with an ISO-8601 UTC datetime and log level, and enhancements
-are made to the formatting of datetime, exception, and collection data
-types.  Dynamic stream redirection and log level specification are
-supported.
+**Log** is a singleton instance which formats and writes log entries,
+electively using the logger package or directly to a specified stream. Log
+entries are prefaced with an ISO-8601 datetime and log level, and enhancements
+are made to the formatting of datetime, exception, and collection data types.
+Dynamic stream redirection and log level specification are supported.
 	    
 **Serial** is a singleton instance which encodes and decodes an instance or
 collection with JSON text, or base-64 encoded gzip JSON binary format.
