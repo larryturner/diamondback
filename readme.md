@@ -172,9 +172,11 @@ Diamondback depends upon external packages :
 
 Diamondback Jupyter notebook depends upon additional external packages :
 
-* [IPython](https://github.com/ipython/ipython)
+* [ipython](https://github.com/ipython/ipython)
 
 * [ipywidgets](https://github.com/jupyter-widgets/ipywidgets)
+
+* [jupyter](https://github.com/jupyter/notebook)
 
 * [matplotlib](https://github.com/matplotlib/matplotlib)
 
@@ -187,7 +189,6 @@ Diamondback is a public repository hosted at PyPI and GitHub.
     pip install diamondback
 
     pip install git+https://github.com/larryturner/diamondback.git
-
 	
 ### Demonstration
 
@@ -195,7 +196,7 @@ A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
 demonstration of diamondback capabilities.	
 
-    pip install IPython ipywidgets matplotlib opencv-python
+    pip install ipython ipywidgets jupyter matplotlib opencv-python
     
     jupyter notebook .\jupyter\diamondback.ipynb
 
