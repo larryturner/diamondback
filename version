@@ -26,3 +26,8 @@ Version     Date            Notes
                             eliminate Pillow dependency.
 
 1.0.16      2020-07-27      Modified documentation.
+
+1.0.17      2020-08-06      Modified Log to improve exception formatting.
+
+                            Modified Jupyter notebook to utilize warnings to
+                            ignore import deprecation warnings.

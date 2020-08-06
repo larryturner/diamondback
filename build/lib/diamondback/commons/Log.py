@@ -87,7 +87,6 @@ import logging
 import numpy
 import os
 import sys
-import traceback
 
 
 class Log( object ) :
@@ -221,13 +220,17 @@ class Log( object ) :
 
                     if ( isinstance( entry, Exception ) ) :
 
-                        s += str( entry.__class__ ).replace( '<class ', '' ).replace( '>', '' ) + ' ' + str( entry ) + os.linesep
+                        s += '{:30s}{:s}'.format( type( entry ).__name__, str( entry ) )
 
-                        trace = traceback.format_exception( None, entry, entry.__traceback__ )
+                        info = sys.exc_info( )[ -1 ]
 
-                        for ii in range( 1, len( trace ) - 1 ) :
+                        while ( info ) :
 
-                            s += trace[ ii ].replace( 'File', '@' ).replace( 'line ', '' ).replace( '"', '' )
+                            s += os.linesep + '{:40s}@ {:s} {:s} {:d}'.format( '', info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ],
+                                                                                   info.tb_frame.f_code.co_name,
+                                                                                   info.tb_lineno )
+
+                            info = info.tb_next
 
                     else :
 
