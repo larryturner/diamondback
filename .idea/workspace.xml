@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.18-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.18-py3-none-any.whl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.18.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.18.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,10 +86,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1595451477418">
+    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1597793948479">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1595451477418" />
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597793948479" />
     <state x="586" y="162" key="SettingsEditor" timestamp="1597437410104">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
