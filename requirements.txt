@@ -1,0 +1,5 @@
+jsonpickle==1.4.1
+
+numpy==1.19.1
+
+scipy==1.5.2

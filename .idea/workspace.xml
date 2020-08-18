@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.18-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.18-py3-none-any.whl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.18.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.18.tar.gz" afterDir="false" />
@@ -34,7 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -44,13 +46,14 @@
     </option>
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback" />
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -87,11 +90,15 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1595451477418" />
-    <state x="656" y="257" width="997" height="778" key="find.popup" timestamp="1596752039447">
+    <state x="586" y="162" key="SettingsEditor" timestamp="1597437410104">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597437410104" />
+    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1597790891504">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1590162334911" />
-    <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1596752039447" />
+    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597790891504" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
     <state x="462" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1589863361650">
       <screen x="0" y="0" width="1920" height="1050" />
