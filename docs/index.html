@@ -338,8 +338,17 @@ pip install git+https://github.com/larryturner/diamondback.git
 <h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline">¶</a></h2>
 <p>A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
-demonstration of diamondback capabilities.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>pip install ipython ipywidgets jupyter matplotlib opencv-python
+demonstration of diamondback capabilities.  The notebook may be run on a remote
+server without installation from GitHub on Binder, or installed and run on a
+local system.</p>
+<p>Remote.</p>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb">Binder</a></p>
+<p>Local.</p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/larryturner/diamondback.git
+
+cd diamondback
+
+pip install --requirement requirements.txt
 
 jupyter notebook .\jupyter\diamondback.ipynb
 </pre></div>

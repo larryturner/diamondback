@@ -201,9 +201,21 @@ Description: ### Description
         
         A Jupyter notebook defines cells to create and exercise diamondback components.
         The notebook serves as a simplified but useful introduction to and
-        demonstration of diamondback capabilities.	
+        demonstration of diamondback capabilities.  The notebook may be run on a remote
+        server without installation from GitHub on Binder, or installed and run on a
+        local system.
         
-            pip install ipython ipywidgets jupyter matplotlib opencv-python
+        Remote. 
+        
+        [Binder](https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb)
+        
+        Local.
+        
+            git clone https://github.com/larryturner/diamondback.git
+        
+            cd diamondback
+            
+            pip install --requirement requirements.txt
             
             jupyter notebook .\jupyter\diamondback.ipynb
         
