@@ -342,20 +342,18 @@ of diamondback capabilities.</p>
 <p>A Jupyter notebook may be run on a remote server without installation on
 Binder, which dynamically builds and deploys a Docker container from a GitHub
 repository, or installed from GitHub and run on a local system.</p>
-<ul class="simple">
-<li><p>Remote</p></li>
-</ul>
+<p><strong>Remote</strong></p>
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb"><img alt="Binder" src="./images/binder.png" /></a>
-<ul>
-<li><p>Local</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="https://github.com/larryturner/diamondback.git">https://github.com/larryturner/diamondback.git</a></p>
-<p>cd diamondback</p>
-<p>pip install –requirement requirements.txt</p>
-<p>jupyter notebook .jupyterdiamondback.ipynb</p>
-</div></blockquote>
-</li>
-</ul>
+<p><strong>Local</strong></p>
+<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/larryturner/diamondback.git
+
+cd diamondback
+
+pip install --requirement requirements.txt
+
+jupyter notebook .\jupyter\diamondback.ipynb
+</pre></div>
+</div>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
