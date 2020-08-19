@@ -8,6 +8,6 @@ matplotlib>=3.3.1
 
 numpy>=1.19.1
 
-opencv-python>=4.2.0.32
+pillow>=7.2.0
 
 scipy>=1.5.2
