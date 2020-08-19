@@ -195,9 +195,9 @@ A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
 demonstration of diamondback capabilities.
 
-A Jupyter notebook may be run on a remote server without installation Binder,
-which builds a Docker container from the GitHub repository, or installed from
-GitHub and run on a local system.
+A Jupyter notebook may be run on a remote server without installation on
+Binder, which dynamically builds and deploys a Docker container from a GitHub
+repository, or installed from GitHub and run on a local system.
 
 * Remote. 
 
