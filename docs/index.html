@@ -322,7 +322,7 @@ application of bilinear or impulse invariant methods.</p>
 <li><p><a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a></p></li>
 <li><p><a class="reference external" href="https://github.com/jupyter/notebook">jupyter</a></p></li>
 <li><p><a class="reference external" href="https://github.com/matplotlib/matplotlib">matplotlib</a></p></li>
-<li><p><a class="reference external" href="https://github.com/opencv/opencv">opencv-python</a></p></li>
+<li><p><a class="reference external" href="https://github.com/python-pillow/pillow">pillow</a></p></li>
 </ul>
 </div>
 <div class="section" id="installation">
@@ -338,21 +338,24 @@ pip install git+https://github.com/larryturner/diamondback.git
 <h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline">¶</a></h2>
 <p>A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
-demonstration of diamondback capabilities.  The notebook may be run on a remote
-server without installation from GitHub on Binder, or installed and run on a
-local system.</p>
-<p>Remote.</p>
+demonstration of diamondback capabilities.</p>
+<p>A Jupyter notebook may be run on a remote server without installation Binder,
+which builds a Docker container from the GitHub repository, or installed from
+GitHub and run on a local system.</p>
+<ul class="simple">
+<li><p>Remote.</p></li>
+</ul>
 <a class="reference external image-reference" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb"><img alt="Binder" src="https://mybinder.org/badge_logo.svg" /></a>
-<p>Local.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/larryturner/diamondback.git
-
-cd diamondback
-
-pip install --requirement requirements.txt
-
-jupyter notebook .\jupyter\diamondback.ipynb
-</pre></div>
-</div>
+<ul>
+<li><p>Local.</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="https://github.com/larryturner/diamondback.git">https://github.com/larryturner/diamondback.git</a></p>
+<p>cd diamondback</p>
+<p>pip install –requirement requirements.txt</p>
+<p>jupyter notebook .jupyterdiamondback.ipynb</p>
+</div></blockquote>
+</li>
+</ul>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>

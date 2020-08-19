@@ -179,8 +179,8 @@ Diamondback Jupyter notebook depends upon additional external packages :
 
 * [matplotlib](https://github.com/matplotlib/matplotlib)
 
-* [opencv-python](https://github.com/opencv/opencv)
-	
+* [pillow](https://github.com/python-pillow/pillow)
+
 ### Installation
 
 Diamondback is a public repository hosted at PyPI and GitHub.
@@ -193,15 +193,17 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 
 A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a simplified but useful introduction to and
-demonstration of diamondback capabilities.  The notebook may be run on a remote
-server without installation from GitHub on Binder, or installed and run on a
-local system.
+demonstration of diamondback capabilities.
 
-Remote. 
+A Jupyter notebook may be run on a remote server without installation Binder,
+which builds a Docker container from the GitHub repository, or installed from
+GitHub and run on a local system.
+
+* Remote. 
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb)
 
-Local.
+* Local.
 
     git clone https://github.com/larryturner/diamondback.git
 
