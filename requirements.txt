@@ -1,4 +1,4 @@
-dlib>=19.21.0
+dlib
 
 ipython>=7.17.0
 
