@@ -171,8 +171,9 @@
 
 <span class="sd">            s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}</span>
 
-<span class="sd">        A specified rate must be greater than 0.0, supporting decimation and</span>
-<span class="sd">        interpolation.</span>
+<span class="sd">        A specified rate must be greater than 0.0, and less than or equal to</span>
+<span class="sd">        the quantity of filters comprising a polyphase filter bank, supporting</span>
+<span class="sd">        decimation and interpolation.</span>
 
 <span class="sd">        Phase dither is present for a real rate, though error is accumulated to</span>
 <span class="sd">        ensure that the specified rate is realized without bias.  Group delay</span>
@@ -196,8 +197,8 @@
 
 <span class="sd">        A polyphase rate filter may be the most appropriate option in</span>
 <span class="sd">        applications which require fractional decimation and interpolation and</span>
-<span class="sd">        are not highly sensitive to minimization of edge effects or have continuous</span>
-<span class="sd">        operation.</span>
+<span class="sd">        are not highly sensitive to minimization of edge effects or have</span>
+<span class="sd">        continuous operation.</span>
 
 <span class="sd">    **Example**</span>
 

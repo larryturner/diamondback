@@ -10,7 +10,7 @@
         signal, effectively modifying the sampling rate by a specified rate
         ratio.
 
-        A specified rate must be greater than or equal to 1.0, supporting
+        A specified rate must be greater than 0.0, supporting decimation and
         interpolation.
 
         Latency compensation is not necessary, as no group delay is introduced.
@@ -19,9 +19,9 @@
         incident signal.
 
         A polynomial rate filter may be the most appropriate option in
-        applications which require fractional interpolation and benefit from
-        minimization of edge effects due to discontinuous operation or dynamic
-        rate.
+        applications which require fractional decimation and interpolation and
+        benefit from minimization of edge effects due to discontinuous
+        operation or dynamic rate.
 
     **Example**
 
@@ -86,10 +86,10 @@ class PolynomialRateFilter( IRate ) :
     @IRate.rate.setter
     def rate( self, rate ) :
 
-        """ Rate ratio of effective frequency in [ 1.0, inf ) ( float ).
+        """ Rate ratio of effective frequency in ( 0.0, inf ) ( float ).
         """
 
-        if ( rate < 1.0 ) :
+        if ( rate <= 0.0 ) :
 
             raise ValueError( 'Rate = ' + str( rate ) )
 

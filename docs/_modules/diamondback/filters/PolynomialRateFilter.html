@@ -156,7 +156,7 @@
 <span class="sd">        signal, effectively modifying the sampling rate by a specified rate</span>
 <span class="sd">        ratio.</span>
 
-<span class="sd">        A specified rate must be greater than or equal to 1.0, supporting</span>
+<span class="sd">        A specified rate must be greater than 0.0, supporting decimation and</span>
 <span class="sd">        interpolation.</span>
 
 <span class="sd">        Latency compensation is not necessary, as no group delay is introduced.</span>
@@ -165,9 +165,9 @@
 <span class="sd">        incident signal.</span>
 
 <span class="sd">        A polynomial rate filter may be the most appropriate option in</span>
-<span class="sd">        applications which require fractional interpolation and benefit from</span>
-<span class="sd">        minimization of edge effects due to discontinuous operation or dynamic</span>
-<span class="sd">        rate.</span>
+<span class="sd">        applications which require fractional decimation and interpolation and</span>
+<span class="sd">        benefit from minimization of edge effects due to discontinuous</span>
+<span class="sd">        operation or dynamic rate.</span>
 
 <span class="sd">    **Example**</span>
 
@@ -232,10 +232,10 @@
     <span class="nd">@IRate</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Rate ratio of effective frequency in [ 1.0, inf ) ( float ).</span>
+        <span class="sd">&quot;&quot;&quot; Rate ratio of effective frequency in ( 0.0, inf ) ( float ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Rate = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span>
 

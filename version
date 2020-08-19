@@ -45,3 +45,6 @@ Version     Date            Notes
 
                             Modified Jupyter notebook to embed Binder and
                             GitHub images and improve links.
+
+1.0.21      2020-08-19      Modified PolynomialRateFilter to support decimation
+                            and interpolation.

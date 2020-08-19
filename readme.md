@@ -195,7 +195,7 @@ A Jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.
 
-A Jupyter notebook may be run on a remote server without installation on
+A Jupyter notebook may be run on a remote server without installation with
 Binder, which dynamically builds and deploys a Docker container from a GitHub
 repository, or installed from GitHub and run on a local system.
 
@@ -219,7 +219,8 @@ visualize functionality.
     
 ### Documentation
 
-Diamondback documentation is generated from the source, indexed, and searchable.
+Diamondback documentation is generated from the source, indexed, and searchable
+from GitHub.
 
 [![GitHub](./images/github.png)](https://larryturner.github.io/diamondback/)
         
