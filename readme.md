@@ -90,7 +90,7 @@ Integral Derivative ( PID ) form.
 
 **PolynomialRateFilter** instances approximate a signal evaluated at an effective
 frequency equal to the product of the normalized frequency and a rate greater
-than or equal to one, supporting interpolation through localized polynomial
+than zero, supporting decimation and interpolation through localized polynomial
 approximation with no group delay.
 		
 **PolyphaseRateFilter** instances approximate a signal evaluated at an effective

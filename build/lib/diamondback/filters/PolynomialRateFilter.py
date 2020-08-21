@@ -10,7 +10,7 @@
         signal, effectively modifying the sampling rate by a specified rate
         ratio.
 
-        A specified rate must be greater than 0.0, supporting decimation and
+        A specified rate must be greater than zero, supporting decimation and
         interpolation.
 
         Latency compensation is not necessary, as no group delay is introduced.

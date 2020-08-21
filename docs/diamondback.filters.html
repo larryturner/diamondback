@@ -1274,7 +1274,7 @@ form local approximations to an incident signal, and are evaluated at
 indices corresponding to a specified rate to produce a reference
 signal, effectively modifying the sampling rate by a specified rate
 ratio.</p>
-<p>A specified rate must be greater than 0.0, supporting decimation and
+<p>A specified rate must be greater than zero, supporting decimation and
 interpolation.</p>
 <p>Latency compensation is not necessary, as no group delay is introduced.</p>
 <p>Edge effects are internally mitigated by linear extension of an
@@ -1375,7 +1375,7 @@ ratio.</p>
 \[y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}\]</div>
 <div class="math notranslate nohighlight">
 \[s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}\]</div>
-<p>A specified rate must be greater than 0.0, and less than or equal to
+<p>A specified rate must be greater than zero, and less than or equal to
 the quantity of filters comprising a polyphase filter bank, supporting
 decimation and interpolation.</p>
 <p>Phase dither is present for a real rate, though error is accumulated to
