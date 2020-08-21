@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.21-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.21-py3-none-any.whl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.21.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.21.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,11 +93,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597437410104" />
-    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1598027156429">
+    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1598027311163">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1590162334911" />
-    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1598027156429" />
+    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1598027311163" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
     <state x="462" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1589863361650">
       <screen x="0" y="0" width="1920" height="1050" />
