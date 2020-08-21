@@ -58,7 +58,7 @@ instances adaptively extract or reject signals at a normalized frequency of
 interest, and may be employed to dynamically track magnitude and phase or
 demodulate signals.
 	
-* ComplexExponentialFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexExponentialFilter)
+* [ComplexExponentialFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexExponentialFilter)
 instances synthesize complex exponential signals at normalized frequencies of
 interest with contiguous phase.
 	
