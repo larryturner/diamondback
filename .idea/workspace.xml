@@ -36,7 +36,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../mamba" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../solutions/boomslang" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -87,10 +87,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1597874505583">
+    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1598481312159">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597874505583" />
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1598481312159" />
     <state x="586" y="162" key="SettingsEditor" timestamp="1597437410104">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

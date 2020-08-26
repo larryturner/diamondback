@@ -41,163 +41,163 @@ Diamondback is defined in subpackages :
 #### [commons](https://larryturner.github.io/diamondback/diamondback.commons)
 	
 * [Log](https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log)
-    singleton instance which formats and writes log entries, electively using
-    the logger package or directly to a specified stream. Log entries are prefaced
-    with an ISO-8601 datetime and log level, and enhancements are made to the
-    formatting of datetime, exception, and collection data types.  Dynamic stream
-    redirection and log level specification are supported.
+  singleton instance which formats and writes log entries, electively using the
+  logger package or directly to a specified stream. Log entries are prefaced
+  with an ISO-8601 datetime and log level, and enhancements are made to the
+  formatting of datetime, exception, and collection data types.  Dynamic stream
+  redirection and log level specification are supported.
 	    
 * [Serial](https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial)
-    singleton instance which encodes and decodes an instance or collection
-    with JSON text, or base-64 encoded gzip JSON binary format.
+  singleton instance which encodes and decodes an instance or collection
+  with JSON text, or base-64 encoded gzip JSON binary format.
 
 #### [filters](https://larryturner.github.io/diamondback/diamondback.filters)
 	
 * [ComplexBandPassFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexBandPassFilter)
-    instances adaptively extract or reject signals at a normalized frequency of
-    interest, and may be employed to dynamically track magnitude and phase or
-    demodulate signals.
+  instances adaptively extract or reject signals at a normalized frequency of
+  interest, and may be employed to dynamically track magnitude and phase or
+  demodulate signals.
 	
 * [ComplexExponentialFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexExponentialFilter)
-    instances synthesize complex exponential signals at normalized frequencies of
-    interest with contiguous phase.
+  instances synthesize complex exponential signals at normalized frequencies of
+  interest with contiguous phase.
 	
 * [ComplexFrequencyFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexFrequencyFilter)
-    instances adaptively discriminate and estimate a normalized frequency of a
-    signal.
+  instances adaptively discriminate and estimate a normalized frequency of a
+  signal.
 	
 * [DerivativeFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.DerivativeFilter)
-    instances estimate discrete derivative approximations at several filter orders,
-    through extensible factory construction.
+  instances estimate discrete derivative approximations at several filter orders,
+  through extensible factory construction.
 
 * [FirFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter)
-    instances realize discrete difference equations of Finite Impulse Response
-    ( FIR ) form, in adaptive or static solutions.  A factory electively constructs
-    instances based on type, classification, normalized frequency, order, cascade
-    count, and complement.  Filters may be readily extended to support new types
-    and functionality, while retaining factory support.  Root extraction, group
-    delay, and frequency response evaluation are defined.
+  instances realize discrete difference equations of Finite Impulse Response
+  ( FIR ) form, in adaptive or static solutions.  A factory electively constructs
+  instances based on type, classification, normalized frequency, order, cascade
+  count, and complement.  Filters may be readily extended to support new types
+  and functionality, while retaining factory support.  Root extraction, group
+  delay, and frequency response evaluation are defined.
 
 * [GoertzelFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter)
-    instances efficiently evaluate a Discrete Fourier Transform ( DFT ) at a
-    normalized frequency, based on a window filter and normalized frequency.
+  instances efficiently evaluate a Discrete Fourier Transform ( DFT ) at a
+  normalized frequency, based on a window filter and normalized frequency.
 	
 * [IirFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter)
-    instances realize discrete difference equations of Infinite Impulse Response
-    ( IIR ) form, in adaptive or static solutions.  A factory electively constructs
-    instances based on type, classification, normalized frequency, order, cascade
-    count, and complement.  Filters may be readily extended to support new types
-    and functionality, while retaining factory support.  Root extraction, group
-    delay, and frequency response evaluation are defined.
+  instances realize discrete difference equations of Infinite Impulse Response
+  ( IIR ) form, in adaptive or static solutions.  A factory electively constructs
+  instances based on type, classification, normalized frequency, order, cascade
+  count, and complement.  Filters may be readily extended to support new types
+  and functionality, while retaining factory support.  Root extraction, group
+  delay, and frequency response evaluation are defined.
 
 * [IntegralFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter)
-    instances estimate discrete integral approximations at several filter orders,
-    through extensible factory construction.
+  instances estimate discrete integral approximations at several filter orders,
+  through extensible factory construction.
 
 * [PidFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PidFilter)
-    instances realize discrete difference equations of Proportional Integral
-    Derivative ( PID ) form.
+  instances realize discrete difference equations of Proportional Integral
+  Derivative ( PID ) form.
 
 * [PolynomialRateFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolynomialRateFilter)
-    instances approximate a signal evaluated at an effective frequency equal to the
-    product of the normalized frequency and a rate greater than zero, supporting
-    decimation and interpolation through localized polynomial approximation with no
-    group delay.
+  instances approximate a signal evaluated at an effective frequency equal to the
+  product of the normalized frequency and a rate greater than zero, supporting
+  decimation and interpolation through localized polynomial approximation with no
+  group delay.
 		
 * [PolyphaseRateFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolyphaseRateFilter)
-    instances approximate a signal evaluated at an effective frequency equal to the
-    product of the normalized frequency and a rate greater than zero, supporting
-    decimation and interpolation through construction and application of a
-    polyphase filter bank, a sequence of low pass filters with a common frequency
-    response and a fractional sample difference in group delay.  An appropriate
-    stride is determined to realize the specified effective frequency without bias
-    and with group delay based on order.
+  instances approximate a signal evaluated at an effective frequency equal to the
+  product of the normalized frequency and a rate greater than zero, supporting
+  decimation and interpolation through construction and application of a
+  polyphase filter bank, a sequence of low pass filters with a common frequency
+  response and a fractional sample difference in group delay.  An appropriate
+  stride is determined to realize the specified effective frequency without bias
+  and with group delay based on order.
 
 * [RankFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.RankFilter)
-    instances define nonlinear morphological operators, which define functionality
-    based on rank and order, including dilation, median, and erosion, and may be
-    combined in sequences to support close and open.
+  instances define nonlinear morphological operators, which define functionality
+  based on rank and order, including dilation, median, and erosion, and may be
+  combined in sequences to support close and open.
 		
 * [WindowFilter](https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter)
-    instances realize discrete window functions useful in Fourier analysis, based
-    on type, classification, order, and normalization, through extensible factory
-    construction.
+  instances realize discrete window functions useful in Fourier analysis, based
+  on type, classification, order, and normalization, through extensible factory
+  construction.
 		
 #### [interfaces](https://larryturner.github.io/diamondback/diamondback.interfaces)
 
 * [IA](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA),
-    [IB](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB),
-    [IClear](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear),
-    [IData](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData),
-    [IDateTime](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDateTime),
-    [IDuration](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDuration),
-    [IEncoding](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEncoding),
-    [IEqual](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEqual),
-    [IFrequency](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency),
-    [IInterval](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval),
-    [ILatency](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency),
-    [IPath](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath),
-    [IPeriod](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod),
-    [IPhase](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPhase),
-    [IQ](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ),
-    [IRate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate),
-    [IReset](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset),
-    [IResolution](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IResolution),
-    [IRotation](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation),
-    [IS](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS),
-    [IState](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IState),
-    [ITimeZone](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone),
-    and [IUpdate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate)
-    interfaces facilitate mix-in design.
+  [IB](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB),
+  [IClear](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear),
+  [IData](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData),
+  [IDateTime](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDateTime),
+  [IDuration](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDuration),
+  [IEncoding](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEncoding),
+  [IEqual](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEqual),
+  [IFrequency](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency),
+  [IInterval](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval),
+  [ILatency](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency),
+  [IPath](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath),
+  [IPeriod](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod),
+  [IPhase](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPhase),
+  [IQ](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ),
+  [IRate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate),
+  [IReset](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset),
+  [IResolution](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IResolution),
+  [IRotation](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation),
+  [IS](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS),
+  [IState](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IState),
+  [ITimeZone](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone),
+  and [IUpdate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate)
+  interfaces facilitate mix-in design.
 	
 #### [models](https://larryturner.github.io/diamondback/diamondback.models)
 
 * [DiversityModel](https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel)
-    instances select and retain a state extracted to maximize the minimum distance
-    between state members based on classification and order, through extensible
-    factory construction.  An opportunistic unsupervised learning model typically
-    improves condition and numerical accuracy and reduces storage relative to
-    alternative approaches including generalized linear inverse.
+  instances select and retain a state extracted to maximize the minimum distance
+  between state members based on classification and order, through extensible
+  factory construction.  An opportunistic unsupervised learning model typically
+  improves condition and numerical accuracy and reduces storage relative to
+  alternative approaches including generalized linear inverse.
 
 * [PrincipalComponentModel](https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel)
-    instances are supervised learning models which analyze an incident signal to
-    learn a mean vector, standard deviation vector, and a collection of
-    eigenvectors, and produce a reference signal which is a candidate for dimension
-    reduction, in which higher order dimensions are discarded, reducing the order
-    of the reference signal, while preserving significant and often sufficient
-    information.
+  instances are supervised learning models which analyze an incident signal to
+  learn a mean vector, standard deviation vector, and a collection of
+  eigenvectors, and produce a reference signal which is a candidate for dimension
+  reduction, in which higher order dimensions are discarded, reducing the order
+  of the reference signal, while preserving significant and often sufficient
+  information.
 		
 #### [transforms](https://larryturner.github.io/diamondback/diamondback.transforms)
 	
 * [ComplexTransform](https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ComplexTransform)
-    is a singleton instance which converts a three-phase real signal to a complex
-    signal, or a complex signal to a three-phase real signal, in equivalent and
-    reversible representations, based on a neutral condition.
+  is a singleton instance which converts a three-phase real signal to a complex
+  signal, or a complex signal to a three-phase real signal, in equivalent and
+  reversible representations, based on a neutral condition.
 		
 * [FourierTransform](https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.FourierTransform)
-    is a singleton instance which converts a real or complex discrete-time signal
-    to a complex discrete-frequency signal, or a complex discrete-frequency signal
-    to a real or complex discrete-time signal, in equivalent and reversible
-    representations, based on a window filter and inverse.
+  is a singleton instance which converts a real or complex discrete-time signal
+  to a complex discrete-frequency signal, or a complex discrete-frequency signal
+  to a real or complex discrete-time signal, in equivalent and reversible
+  representations, based on a window filter and inverse.
 		
 * [PowerSpectrumTransform](https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.PowerSpectrumTransform)
-    is a singleton instance which converts a real or complex discrete-time signal
-    to a real discrete-frequency signal which estimates a mean power density of the
-    signal, based on a window filter.
+  is a singleton instance which converts a real or complex discrete-time signal
+  to a real discrete-frequency signal which estimates a mean power density of the
+  signal, based on a window filter.
 		
 * [WaveletTransform](https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.WaveletTransform)
-    instances realize a temporal spatial frequency transformation through
-    construction and application of analysis and synthesis filters with
-    complementary frequency responses, combined with downsampling and upsampling
-    operations, in equivalent and reversible representations.  A factory constructs
-    instances based on type, classification, and order.  Filters may be readily
-    extended to support new types and functionality, while retaining factory
-    support.
+  instances realize a temporal spatial frequency transformation through
+  construction and application of analysis and synthesis filters with
+  complementary frequency responses, combined with downsampling and upsampling
+  operations, in equivalent and reversible representations.  A factory constructs
+  instances based on type, classification, and order.  Filters may be readily
+  extended to support new types and functionality, while retaining factory
+  support.
 
 * [ZTransform](https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ZTransform)
-    is a singleton instance which converts continuous s-domain to discrete z-domain
-    difference equations, based on a normalized frequency and application of
-    bilinear or impulse invariant methods.	
+  is a singleton instance which converts continuous s-domain to discrete z-domain
+  difference equations, based on a normalized frequency and application of
+  bilinear or impulse invariant methods.	
 	
 ### Dependencies
 
