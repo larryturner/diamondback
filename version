@@ -48,3 +48,5 @@ Version     Date            Notes
 
 1.0.21      2020-08-19      Modified PolynomialRateFilter to support decimation
                             and interpolation.
+
+1.0.22      2020-08-26      Modified documentation.

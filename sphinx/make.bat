@@ -16,34 +16,47 @@
 
 @echo off
 
-set BUILDDIR=..\docs
+:: Parameters
 
-set SOURCEDIR=source
+set destinationpath=..\docs
 
-set SPHINXBUILD=sphinx-build
+set build=sphinx-build
 
-set ALLSPHINXOPTS=-d %BUILDDIR%\doctrees %SPHINXOPTS%
+set sourcepath=source
+
+set options=-d %buildpath%\doctrees
+
+:: Clean
 
 if "%1" == "clean" (
 
-    for /d %%i in (%BUILDDIR%\*) do rmdir /q /s %%i
+    for /d %%i in (%destinationpath%\*) do rmdir /q /s %%i
 
-    del /q /s %BUILDDIR%\*
+    del /q /s %destinationpath%\*
     
     goto end
 )
+
+:: Help
+
+if "%1" == "help" (
+
+    echo make ^<target^>
+
+    echo       clean    - delete documentation.
+
+    echo       html     - create documentation.
+
+    goto end
+)
+
+:: HTML
 
 if "%1" == "html" (
     
-    %SPHINXBUILD% -b html %ALLSPHINXOPTS% %SOURCEDIR% %BUILDDIR%
+    %build% -b html %options% %sourcepath% %destinationpath%
         
     goto end
 )
-
-echo make ^<target^>
-    
-echo       clean    remove HTML files
-    
-echo       html     create HTML files
 
 :end
