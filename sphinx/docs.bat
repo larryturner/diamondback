@@ -18,21 +18,23 @@
 
 :: Parameters
 
-set destinationpath=..\docs
-
 set build=sphinx-build
+
+set documentpath=..\docs
+
+set imagepath=..\images
 
 set sourcepath=source
 
-set options=-d %buildpath%\doctrees
+set options=-d %documentpath%\doctrees
 
 :: Clean
 
 if "%1" == "clean" (
 
-    for /d %%i in (%destinationpath%\*) do rmdir /q /s %%i
+    for /d %%i in (%documentpath%\*) do rmdir /q /s %%i
 
-    del /q /s %destinationpath%\*
+    del /q /s %documentpath%\*
     
     goto end
 )
@@ -54,8 +56,10 @@ if "%1" == "help" (
 
 if "%1" == "html" (
     
-    %build% -b html %options% %sourcepath% %destinationpath%
-        
+    %build% -b html %options% %sourcepath% %documentpath%
+
+    xcopy /E /I /Y %imagepath% %documentpath%\images
+
     goto end
 )
 
