@@ -17,7 +17,7 @@
 """
 
 import os
-import stanford_theme
+import sphinx_drove_theme
 import sys
 
 
@@ -68,9 +68,9 @@ napoleon_include_special_with_doc = False
 
 # -- Theme--------------------------------------------------------------------
 
-html_theme = 'stanford_theme'
+html_theme = 'sphinx_drove_theme'
 
-html_theme_path = [ stanford_theme.get_html_theme_path( ) ] 
+html_theme_path = [ sphinx_drove_theme.get_html_theme_path( ) ]
 
 # -- Help --------------------------------------------------------------------
 
