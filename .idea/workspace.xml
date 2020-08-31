@@ -2,97 +2,115 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/docs/_static/css/main.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_static/favicon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_static/fonts/logo.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_static/fonts/logo.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_static/fonts/logo.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_static/fonts/logo.woff" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.22-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.22-py3-none-any.whl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.22.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.22.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.buildinfo" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.buildinfo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Serial.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Serial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexBandPassFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexBandPassFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexExponentialFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexExponentialFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexFrequencyFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexFrequencyFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/DerivativeFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/DerivativeFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/FirFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/FirFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/GoertzelFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/GoertzelFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IirFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IirFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IntegralFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IntegralFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PidFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PidFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolynomialRateFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolynomialRateFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolyphaseRateFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolyphaseRateFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/RankFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/RankFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/WindowFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/WindowFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IA.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IA.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IB.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IB.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IClear.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IClear.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IData.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IData.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDateTime.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDateTime.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDuration.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDuration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEncoding.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEncoding.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEqual.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEqual.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IFrequency.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IFrequency.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IInterval.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IInterval.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ILatency.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ILatency.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPath.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPath.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPeriod.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPeriod.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPhase.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPhase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IQ.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IQ.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRate.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IReset.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IReset.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IResolution.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IResolution.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRotation.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRotation.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IS.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IS.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IState.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IState.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ITimeZone.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ITimeZone.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUpdate.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUpdate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/models/DiversityModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/models/DiversityModel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/models/PrincipalComponentModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/models/PrincipalComponentModel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ComplexTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ComplexTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/FourierTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/FourierTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ZTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ZTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/badge_only.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/css/badge_only.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/copied_wy_variables.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/css/theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/css/theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/Inconsolata-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/Inconsolata-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/Lato-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/Lato-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/RobotoSlab-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/RobotoSlab-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/UbuntuMono-Bold.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/UbuntuMono-BoldItalic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/UbuntuMono-Italic.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/UbuntuMono-Regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.eot" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/modernizr.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_static/js/theme.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_static/js/theme.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/binder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.commons.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.commons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.filters.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.filters.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.models.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.models.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.transforms.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.transforms.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/github.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.buildinfo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.nojekyll" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Serial.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexBandPassFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexExponentialFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/ComplexFrequencyFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/DerivativeFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/FirFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/GoertzelFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IirFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IntegralFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PidFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolynomialRateFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolyphaseRateFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/RankFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/WindowFilter.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IA.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IB.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IClear.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IData.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDateTime.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDuration.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEncoding.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEqual.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IFrequency.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IInterval.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ILatency.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPath.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPeriod.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPhase.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IQ.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IReset.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IResolution.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IRotation.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IS.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IState.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ITimeZone.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUpdate.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/models/DiversityModel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/models/PrincipalComponentModel.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ComplexTransform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/FourierTransform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ZTransform.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.commons.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.filters.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.models.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.transforms.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/index.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/modules.rst.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/basic.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/css/badge_only.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/css/theme.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/doctools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/documentation_options.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/file.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/fontawesome-webfont.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/logo.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/logo.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/fonts/logo.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/jquery-3.4.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/jquery.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/js/theme.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/language_data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/minus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/plus.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/pygments.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/searchtools.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/underscore-1.3.1.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_static/underscore.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.commons.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.filters.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.models.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.transforms.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.commons.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.filters.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.models.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.transforms.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/modules.doctree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/images/binder.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/images/github.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/search.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/sphinx/source/conf.py" beforeDir="false" afterPath="$PROJECT_DIR$/sphinx/source/conf.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -181,16 +199,11 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597437410104" />
-    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1598475798941">
+    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1598907311289">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1590162334911" />
-    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1598475798941" />
+    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1598907311289" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
-    <state x="462" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1589863361650">
-      <screen x="0" y="0" width="1920" height="1050" />
-    </state>
-    <state x="462" y="239" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-523.2194.1204@0.0.1920.1050" timestamp="1589863361650" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
