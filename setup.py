@@ -1,6 +1,6 @@
 """ **Description**
 
-        Setup.
+        Diamondback setup.
 
     **License**
 
