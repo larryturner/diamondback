@@ -45,6 +45,7 @@ diamondback/interfaces/IS.py
 diamondback/interfaces/IState.py
 diamondback/interfaces/ITimeZone.py
 diamondback/interfaces/IUpdate.py
+diamondback/interfaces/IVersion.py
 diamondback/interfaces/__init__.py
 diamondback/models/DiversityModel.py
 diamondback/models/PrincipalComponentModel.py

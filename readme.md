@@ -147,7 +147,8 @@ Diamondback is defined in subpackages :
   [IS](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS),
   [IState](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IState),
   [ITimeZone](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone),
-  and [IUpdate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate)
+  [IUpdate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate),
+  and [IVersion](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion)
   interfaces facilitate mix-in design.
 	
 #### [models](https://larryturner.github.io/diamondback/diamondback.models)

@@ -21,3 +21,4 @@ from diamondback.interfaces.IS import IS
 from diamondback.interfaces.IState import IState
 from diamondback.interfaces.ITimeZone import ITimeZone
 from diamondback.interfaces.IUpdate import IUpdate
+from diamondback.interfaces.IVersion import IVersion

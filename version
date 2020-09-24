@@ -52,3 +52,7 @@ Version     Date            Notes
 1.0.22      2020-08-26      Modified documentation.
 
 1.0.23      2020-09-09      Modified documentation, replaced sphinx theme.
+
+1.0.24      2020-09-23      Added IVersion.
+
+                            Modified requirements.
