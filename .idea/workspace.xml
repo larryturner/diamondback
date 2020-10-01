@@ -2,27 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IVersion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IVersion.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/diamondback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/diamondback.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/requires.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.23-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.23.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/test/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/commons/test_commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/filters/test_filters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/models/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/transforms/test_transforms.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +35,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="c170f0e7-70e7-42f0-b5e0-29bf5e49a849" />
   <component name="ProjectId" id="1ReYbSazSuYMEBKFbLHSReZBlt4" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -52,8 +48,9 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kalatoa" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -73,6 +70,30 @@
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="diamondback" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
@@ -84,8 +105,14 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1550870396385</updated>
+      <workItem from="1601056769333" duration="5135000" />
+      <workItem from="1601561141354" duration="3771000" />
+      <workItem from="1601570794407" duration="1453000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -103,14 +130,15 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1600877968579">
+    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1601570805462">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1600877968579" />
-    <state x="586" y="162" key="SettingsEditor" timestamp="1597437410104">
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1601057567216" />
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1601570805462" />
+    <state x="586" y="162" key="SettingsEditor" timestamp="1601056944586">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1597437410104" />
+    <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1601056944586" />
     <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1600877740012">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

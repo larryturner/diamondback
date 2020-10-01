@@ -265,12 +265,12 @@ from GitHub.
 
 [![GitHub](./images/github.png)](https://larryturner.github.io/diamondback/)
         
-### Test
+### Tests
 
 A simple pytest solution is provided to exercise and verify diamondback
 components.
 	
-    py.test --capture=no --verbose .\test
+    py.test --capture=no --verbose .\tests
 	
 ### Author
 
