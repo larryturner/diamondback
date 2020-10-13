@@ -270,7 +270,7 @@ from GitHub.
 A simple pytest solution is provided to exercise and verify diamondback
 components.
 	
-    py.test --capture=no --verbose .\tests
+    pytest --verbose
 	
 ### Author
 

@@ -71,7 +71,7 @@ def docs( session ) :
 @nox.session( venv_backend = 'none' )
 def push( session ) :
 
-    """ Push mirror.
+    """ Push repository.
     """
 
     if ( os.path.exists( '.git' ) ) :
@@ -89,4 +89,4 @@ def tests( session ) :
 
     if ( os.path.exists( 'tests' ) ) :
 
-        session.run( 'py.test', '--capture=no', '--verbose', './tests' )
+        session.run( 'pytest', '--verbose' )
