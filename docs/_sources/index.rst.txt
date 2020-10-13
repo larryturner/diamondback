@@ -10,4 +10,4 @@ diamondback
 *  :ref:`modindex`
 *  :ref:`genindex`
 
-.. mdinclude:: ..\..\readme.md
+.. mdinclude:: ..\readme.md

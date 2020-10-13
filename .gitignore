@@ -1,4 +1,5 @@
-jupyter/data/*.json
-__pycache__/
+.nox/
 .pytest_cache/
+__pycache__/
+build/
 venv/

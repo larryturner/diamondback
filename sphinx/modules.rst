@@ -5,3 +5,5 @@ diamondback
    :maxdepth: 4
 
    diamondback
+   noxfile
+   setup

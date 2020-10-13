@@ -188,6 +188,14 @@ diamondback.interfaces.IUpdate module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IVersion module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.IVersion
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 Module contents
 ---------------

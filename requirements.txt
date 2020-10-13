@@ -6,6 +6,8 @@ jsonpickle>=1.4.1
 
 matplotlib>=3.3.2
 
+nox>=2020.8.22
+
 numpy>=1.19.2
 
 pillow>=7.2.0

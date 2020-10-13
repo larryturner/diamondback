@@ -23,7 +23,7 @@ import sys
 
 # -- Path --------------------------------------------------------------------
 
-sys.path.insert( 0, os.path.abspath( '../../' ) )
+sys.path.insert( 0, os.path.abspath( '../' ) )
 
 # -- Project -----------------------------------------------------------------
 
@@ -43,7 +43,7 @@ extensions = [ 'm2r',
                'sphinx.ext.napoleon',
                'sphinx.ext.viewcode' ]
 
-pygments_style = 'friendly'  # 'colorful', 'default', 'emacs', 'friendly'
+pygments_style = 'friendly'
 
 source_suffix = { '.md' : 'markdown',
                   '.rst' : 'restructuredtext' } 

@@ -2,22 +2,91 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/diamondback.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/diamondback.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.25-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.25.tar.gz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IVersion.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_sources/noxfile.rst.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_sources/setup.rst.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/doctrees/noxfile.doctree" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/doctrees/setup.doctree" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/noxfile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/setup.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/noxfile.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/conf.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.commons.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.filters.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.models.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.transforms.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/index.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/modules.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/noxfile.rst" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/setup.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/test/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/test/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/commons/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/commons/test_commons.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/filters/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/filters/test_filters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/models/test_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transforms/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/transforms/test_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/commons/test_commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/filters/test_filters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/models/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/test/transforms/test_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/commons/test_commons.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/filters/test_filters.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/models/test_models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/transforms/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/lib/tests/transforms/test_transforms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/top_level.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/top_level.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24-py3-none-any.whl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.24.tar.gz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/index.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/index.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/modules.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/modules.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.commons.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.commons.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.filters.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.filters.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.models.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.models.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.transforms.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.transforms.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/modules.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/modules.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/docs.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/conf.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.commons.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.filters.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.interfaces.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.models.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/diamondback.transforms.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/index.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/source/modules.rst" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/commons/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/filters/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/models/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/transforms/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +118,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kalatoa" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../solutions/latency" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JSON" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -60,14 +129,14 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback" />
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback" />
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
   </component>
   <component name="RunManager">
@@ -107,7 +176,13 @@
       <updated>1550870396385</updated>
       <workItem from="1601056769333" duration="5135000" />
       <workItem from="1601561141354" duration="3771000" />
-      <workItem from="1601570794407" duration="1453000" />
+      <workItem from="1601570794407" duration="5234000" />
+      <workItem from="1602098788774" duration="1337000" />
+      <workItem from="1602167509606" duration="15000" />
+      <workItem from="1602167981970" duration="1263000" />
+      <workItem from="1602174012367" duration="13000" />
+      <workItem from="1602177291522" duration="4000" />
+      <workItem from="1602177882868" duration="16780000" />
     </task>
     <servers />
   </component>
@@ -130,24 +205,24 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1601570805462">
+    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1602545664420">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1601057567216" />
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602545664420" />
     <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1601570805462" />
     <state x="586" y="162" key="SettingsEditor" timestamp="1601056944586">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1601056944586" />
-    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1600877740012">
+    <state x="449" y="126" width="997" height="778" key="find.popup" timestamp="1602168043157">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1600877740012" />
+    <state x="449" y="126" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602168043157" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
-    <state x="615" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1599659590749">
+    <state x="615" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1602540340530">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="615" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1599659590749" />
+    <state x="615" y="229" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602540340530" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

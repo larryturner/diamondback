@@ -56,12 +56,7 @@ diamondback/transforms/PowerSpectrumTransform.py
 diamondback/transforms/WaveletTransform.py
 diamondback/transforms/ZTransform.py
 diamondback/transforms/__init__.py
-tests/__init__.py
-tests/commons/__init__.py
 tests/commons/test_commons.py
-tests/filters/__init__.py
 tests/filters/test_filters.py
-tests/models/__init__.py
 tests/models/test_models.py
-tests/transforms/__init__.py
 tests/transforms/test_transforms.py

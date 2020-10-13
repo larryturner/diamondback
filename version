@@ -58,3 +58,6 @@ Version     Date            Notes
                             Renamed tests.
 
                             Modified requirements.
+
+1.0.25      2020-10-12      Added nox sessions with dist, docs, push, and tests
+                            methods.
