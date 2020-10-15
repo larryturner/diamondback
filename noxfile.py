@@ -57,6 +57,10 @@ def docs( session ) :
 
     if ( os.path.exists( 'sphinx' ) ) :
 
+        for x in [ x for x in glob.glob( './sphinx/*.rst' ) if ( x.split( os.path.sep )[ -1 ] != 'index.rst' ) ] :
+
+            os.remove( x )
+
         session.run( 'sphinx-apidoc', '-f', '-o', './sphinx', '.' )
 
         shutil.rmtree( './docs', ignore_errors = True )

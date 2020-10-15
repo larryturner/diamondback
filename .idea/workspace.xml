@@ -5,40 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/ICache.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IProxy.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IUrl.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IData.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IState.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/IState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/build/lib/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IData.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IData.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IState.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IState.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.25-py3-none-any.whl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.25.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IData.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IData.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IState.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IState.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IUrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IUrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.26-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.26-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.26.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.26.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUrl.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IUrl.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" beforeDir="false" afterPath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/noxfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/noxfile.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +107,7 @@
       <workItem from="1602174012367" duration="13000" />
       <workItem from="1602177291522" duration="4000" />
       <workItem from="1602177882868" duration="21523000" />
-      <workItem from="1602695895744" duration="5232000" />
+      <workItem from="1602695895744" duration="6239000" />
     </task>
     <servers />
   </component>
