@@ -20,6 +20,14 @@ diamondback.interfaces.IB module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ICache module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.ICache
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IClear module
 ------------------------------------
 
@@ -116,6 +124,14 @@ diamondback.interfaces.IPhase module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IProxy module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IQ module
 --------------------------------
 
@@ -184,6 +200,14 @@ diamondback.interfaces.IUpdate module
 -------------------------------------
 
 .. automodule:: diamondback.interfaces.IUpdate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IUrl module
+----------------------------------
+
+.. automodule:: diamondback.interfaces.IUrl
    :members:
    :undoc-members:
    :show-inheritance:

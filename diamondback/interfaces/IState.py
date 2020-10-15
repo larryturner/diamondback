@@ -46,7 +46,7 @@ class IState( IEqual ) :
     @property
     def state( self ) :
 
-        """ State ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ State ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
         """
 
         return self._state

@@ -61,3 +61,5 @@ Version     Date            Notes
 
 1.0.25      2020-10-12      Added nox sessions with dist, docs, push, and tests
                             methods.
+
+1.0.26      2020-10-13      Added ICache, IProxy, and IUrl.

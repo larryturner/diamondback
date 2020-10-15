@@ -24,6 +24,7 @@ diamondback/filters/WindowFilter.py
 diamondback/filters/__init__.py
 diamondback/interfaces/IA.py
 diamondback/interfaces/IB.py
+diamondback/interfaces/ICache.py
 diamondback/interfaces/IClear.py
 diamondback/interfaces/IData.py
 diamondback/interfaces/IDateTime.py
@@ -36,6 +37,7 @@ diamondback/interfaces/ILatency.py
 diamondback/interfaces/IPath.py
 diamondback/interfaces/IPeriod.py
 diamondback/interfaces/IPhase.py
+diamondback/interfaces/IProxy.py
 diamondback/interfaces/IQ.py
 diamondback/interfaces/IRate.py
 diamondback/interfaces/IReset.py
@@ -45,6 +47,7 @@ diamondback/interfaces/IS.py
 diamondback/interfaces/IState.py
 diamondback/interfaces/ITimeZone.py
 diamondback/interfaces/IUpdate.py
+diamondback/interfaces/IUrl.py
 diamondback/interfaces/IVersion.py
 diamondback/interfaces/__init__.py
 diamondback/models/DiversityModel.py

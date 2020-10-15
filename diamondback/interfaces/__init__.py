@@ -1,5 +1,6 @@
 from diamondback.interfaces.IA import IA
 from diamondback.interfaces.IB import IB
+from diamondback.interfaces.ICache import ICache
 from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IData import IData
 from diamondback.interfaces.IDateTime import IDateTime
@@ -12,6 +13,7 @@ from diamondback.interfaces.ILatency import ILatency
 from diamondback.interfaces.IPath import IPath
 from diamondback.interfaces.IPeriod import IPeriod
 from diamondback.interfaces.IPhase import IPhase
+from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IQ import IQ
 from diamondback.interfaces.IRate import IRate
 from diamondback.interfaces.IReset import IReset
@@ -21,4 +23,5 @@ from diamondback.interfaces.IS import IS
 from diamondback.interfaces.IState import IState
 from diamondback.interfaces.ITimeZone import ITimeZone
 from diamondback.interfaces.IUpdate import IUpdate
+from diamondback.interfaces.IUrl import IUrl
 from diamondback.interfaces.IVersion import IVersion

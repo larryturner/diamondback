@@ -1,35 +1,35 @@
 """ **Description**
 
-        Data interface.
+        Proxy interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IData import IData
+            from diamondback.interfaces.IProxy import IProxy
 
 
-            class Test( IData ) :
+            class Test( IProxy ) :
 
                 def __init__( self ) :
 
                     super( ).__init__( )
 
-                    self.data = [ ]
+                    self.proxy = 'https://gateway.schneider.zscaler.net:9480'
 
             test = Test( )
 
-            test.data = { 'a' : 0.0, 'b' : 1.0 }
+            test.proxy = 'https://gateway.schneider.zscaler.net:80'
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-09-25.
 
     **Definition**
 
@@ -38,23 +38,23 @@
 from diamondback.interfaces.IEqual import IEqual
 
 
-class IData( IEqual ) :
+class IProxy( IEqual ) :
 
-    """ Data interface.
+    """ Proxy interface.
     """
 
     @property
-    def data( self ) :
+    def proxy( self ) :
 
-        """ Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Proxy ( str ).
         """
 
-        return self._data
+        return self._proxy
 
-    @data.setter
-    def data( self, data ) :
+    @proxy.setter
+    def proxy( self, proxy ) :
 
-        self._data = data
+        self._proxy = proxy
 
     def __eq__( self, other ) :
 
@@ -69,7 +69,7 @@ class IData( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.data == other.data ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.proxy == other.proxy ) )
 
     def __init__( self ) :
 
@@ -78,4 +78,4 @@ class IData( IEqual ) :
 
         super( ).__init__( )
 
-        self._data = [ ]
+        self._proxy = ''

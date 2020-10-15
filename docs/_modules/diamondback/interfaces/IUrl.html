@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>diamondback.interfaces.IState &mdash; diamondback  documentation</title>
+  <title>diamondback.interfaces.IUrl &mdash; diamondback  documentation</title>
   
 
   
@@ -129,7 +129,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>diamondback.interfaces.IState</li>
+      <li>diamondback.interfaces.IUrl</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,39 +144,39 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for diamondback.interfaces.IState</h1><div class="highlight"><pre>
+  <h1>Source code for diamondback.interfaces.IUrl</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        State interface.</span>
+<span class="sd">        Url interface.</span>
 
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
 
-<span class="sd">            from diamondback.commons.Serial import Serial</span>
-<span class="sd">            from diamondback.interfaces.IState import IState</span>
+<span class="sd">            from diamondback.interfaces.IUrl import IUrl</span>
 
-<span class="sd">            class Test( IState ) :</span>
+
+<span class="sd">            class Test( IUrl ) :</span>
 
 <span class="sd">                def __init__( self ) :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
-<span class="sd">                    self.state = &#39;&#39;</span>
+<span class="sd">                    self.url = &#39;http://127.0.0.1:80/service&#39;</span>
 
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.state = Serial.encode( { &#39;a&#39; : 0.0, &#39;b&#39; : 1.0 } )</span>
+<span class="sd">            test.url = &#39;http://10.0.0.1:8080/service&#39;</span>
 
 <span class="sd">    **License**</span>
 
 <span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
 
-<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
+<span class="sd">        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 
-<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</span>
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</span>
 
 <span class="sd">    **Definition**</span>
 
@@ -185,23 +185,27 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
 
 
-<div class="viewcode-block" id="IState"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IState.IState">[docs]</a><span class="k">class</span> <span class="nc">IState</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IUrl"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl">[docs]</a><span class="k">class</span> <span class="nc">IUrl</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; State interface.</span>
+    <span class="sd">&quot;&quot;&quot; Url interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">url</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; State ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</span>
+        <span class="sd">&quot;&quot;&quot; Url ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
 
-    <span class="nd">@state</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">state</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="nd">@url</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">url</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">url</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">url</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Url = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">url</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="n">url</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -216,7 +220,7 @@
 <span class="sd">                equality - Equality condition ( bool ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">url</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -225,7 +229,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="s1">&#39;http://0.0.0.0:8080&#39;</span></div>
 </pre></div>
 
            </div>

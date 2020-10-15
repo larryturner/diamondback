@@ -1,35 +1,35 @@
 """ **Description**
 
-        Data interface.
+        Cache interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IData import IData
+            from diamondback.interfaces.IUrl import ICache
 
 
-            class Test( IData ) :
+            class Test( ICach ) :
 
                 def __init__( self ) :
 
                     super( ).__init__( )
 
-                    self.data = [ ]
+                    self.cache = False
 
             test = Test( )
 
-            test.data = { 'a' : 0.0, 'b' : 1.0 }
+            test.cache = True
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
 
     **Definition**
 
@@ -38,23 +38,23 @@
 from diamondback.interfaces.IEqual import IEqual
 
 
-class IData( IEqual ) :
+class ICache( IEqual ) :
 
-    """ Data interface.
+    """ Cache interface.
     """
 
     @property
-    def data( self ) :
+    def cache( self ) :
 
-        """ Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Cache ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
         """
 
-        return self._data
+        return self._cache
 
-    @data.setter
-    def data( self, data ) :
+    @cache.setter
+    def cache( self, cache ) :
 
-        self._data = data
+        self._cache = cache
 
     def __eq__( self, other ) :
 
@@ -69,7 +69,7 @@ class IData( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.data == other.data ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.cache == other.cache ) )
 
     def __init__( self ) :
 
@@ -78,4 +78,4 @@ class IData( IEqual ) :
 
         super( ).__init__( )
 
-        self._data = [ ]
+        self._cache = [ ]

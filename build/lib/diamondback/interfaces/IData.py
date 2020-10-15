@@ -46,7 +46,7 @@ class IData( IEqual ) :
     @property
     def data( self ) :
 
-        """ Data ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
         """
 
         return self._data

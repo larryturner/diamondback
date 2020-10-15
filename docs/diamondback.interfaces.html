@@ -87,6 +87,7 @@
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IA">diamondback.interfaces.IA module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IB">diamondback.interfaces.IB module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.ICache">diamondback.interfaces.ICache module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IData">diamondback.interfaces.IData module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDateTime">diamondback.interfaces.IDateTime module</a></li>
@@ -99,6 +100,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPath">diamondback.interfaces.IPath module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPeriod">diamondback.interfaces.IPeriod module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPhase">diamondback.interfaces.IPhase module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IProxy">diamondback.interfaces.IProxy module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IQ">diamondback.interfaces.IQ module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IRate">diamondback.interfaces.IRate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IReset">diamondback.interfaces.IReset module</a></li>
@@ -108,6 +110,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IState">diamondback.interfaces.IState module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUpdate">diamondback.interfaces.IUpdate module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IUrl">diamondback.interfaces.IUrl module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IVersion">diamondback.interfaces.IVersion module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
 </ul>
@@ -284,6 +287,56 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.ICache">
+<span id="diamondback-interfaces-icache-module"></span><h2>diamondback.interfaces.ICache module<a class="headerlink" href="#module-diamondback.interfaces.ICache" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Cache interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">ICache</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICach</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.ICache.ICache">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ICache.</code><code class="sig-name descname">ICache</code><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Cache interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.ICache.ICache.cache">
+<em class="property">property </em><code class="sig-name descname">cache</code><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.cache" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cache ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IClear">
 <span id="diamondback-interfaces-iclear-module"></span><h2>diamondback.interfaces.IClear module<a class="headerlink" href="#module-diamondback.interfaces.IClear" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -377,7 +430,7 @@
 <dl class="method">
 <dt id="diamondback.interfaces.IData.IData.data">
 <em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#diamondback.interfaces.IData.IData.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>Data ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
+<dd><p>Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
 </dd></dl>
 
 </dd></dl>
@@ -869,6 +922,56 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.IProxy">
+<span id="diamondback-interfaces-iproxy-module"></span><h2>diamondback.interfaces.IProxy module<a class="headerlink" href="#module-diamondback.interfaces.IProxy" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Proxy interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IProxy</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;https://gateway.schneider.zscaler.net:9480&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;https://gateway.schneider.zscaler.net:80&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IProxy.IProxy">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IProxy.</code><code class="sig-name descname">IProxy</code><a class="reference internal" href="_modules/diamondback/interfaces/IProxy.html#IProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Proxy interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IProxy.IProxy.proxy">
+<em class="property">property </em><code class="sig-name descname">proxy</code><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.proxy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proxy ( str ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IQ">
 <span id="diamondback-interfaces-iq-module"></span><h2>diamondback.interfaces.IQ module<a class="headerlink" href="#module-diamondback.interfaces.IQ" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -1222,7 +1325,7 @@ operation at a specified incident signal condition.</p>
 <dl class="method">
 <dt id="diamondback.interfaces.IState.IState.state">
 <em class="property">property </em><code class="sig-name descname">state</code><a class="headerlink" href="#diamondback.interfaces.IState.IState.state" title="Permalink to this definition">¶</a></dt>
-<dd><p>State ( array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
+<dd><p>State ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).</p>
 </dd></dl>
 
 </dd></dl>
@@ -1324,6 +1427,56 @@ operation at a specified incident signal condition.</p>
 <dt id="diamondback.interfaces.IUpdate.IUpdate.update">
 <em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IUrl">
+<span id="diamondback-interfaces-iurl-module"></span><h2>diamondback.interfaces.IUrl module<a class="headerlink" href="#module-diamondback.interfaces.IUrl" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Url interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:80/service&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://10.0.0.1:8080/service&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IUrl.IUrl">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IUrl.</code><code class="sig-name descname">IUrl</code><a class="reference internal" href="_modules/diamondback/interfaces/IUrl.html#IUrl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Url interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IUrl.IUrl.url">
+<em class="property">property </em><code class="sig-name descname">url</code><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl.url" title="Permalink to this definition">¶</a></dt>
+<dd><p>Url ( str ).</p>
 </dd></dl>
 
 </dd></dl>
