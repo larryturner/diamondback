@@ -1,3 +1,19 @@
+#   Description
+#
+#       Version.
+#
+#   License
+#
+#       BSD-3C. https://github.schneider-electric.com/sesa14073/kalatoa/blob/master/license
+#
+#       Copyright (c) 2019, Larry Turner, Schneider Electric.  All rights reserved.
+#
+#   Author
+#
+#       Larry Turner, Schneider Electric, Analytics & AI, 2019-09-08.
+#
+#   Definition
+
 Version     Date            Notes
 
 1.0.6       2019-09-08      Initial release.
