@@ -80,6 +80,8 @@ def push( session ) :
 
     if ( os.path.exists( '.git' ) ) :
 
+        session.run( 'git', 'status', '--short' )
+
         value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
 
         if ( value ) :
