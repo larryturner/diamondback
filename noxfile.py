@@ -86,9 +86,9 @@ def push( session ) :
 
         if ( value ) :
 
-            session.run( 'git', 'commit', '--all', '--message', '"' + value + '"' )
+            if ( session.run( 'git', 'commit', '--all', '--message', '"' + value + '"' ) ) :
 
-            session.run( 'git', 'push', 'origin', 'master' )
+                session.run( 'git', 'push', 'origin', 'master' )
 
         url = 'https://github.schneider-electric.com/sesa14073/' + os.getcwd( ).split( os.path.sep )[ -1 ] + '.git'
 
