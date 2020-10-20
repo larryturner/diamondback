@@ -8,7 +8,7 @@
 
             nox --list
 
-            nox --sessions dist docs push tests
+            nox --sessions dist docs push status tests
 
     **License**
 
@@ -80,7 +80,7 @@ def push( session ) :
 
     if ( os.path.exists( '.git' ) ) :
 
-        value = input(  '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
+        value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
 
         if ( value ) :
 
@@ -91,6 +91,15 @@ def push( session ) :
         url = 'https://github.schneider-electric.com/sesa14073/' + os.getcwd( ).split( os.path.sep )[ -1 ] + '.git'
 
         session.run( 'git', 'push', '--mirror', url )
+
+
+@nox.session( venv_backend = 'none' )
+def status( session ) :
+
+    """ Check status.
+    """
+
+    session.run( 'git', 'status', '--short' )
 
 
 @nox.session( venv_backend = 'none' )
