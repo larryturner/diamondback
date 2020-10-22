@@ -12,7 +12,7 @@
 
             class Test( IClear, IPhase ) :
 
-                def clear( self ) :
+                def clear( self ) -> None :
 
                     self.phase = 0.0
 
@@ -42,7 +42,7 @@ class IClear( ABC ) :
     """ Clear interface.
     """
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """
@@ -50,7 +50,7 @@ class IClear( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def clear( self ) :
+    def clear( self ) -> None :
 
         """ Clears an instance.
         """

@@ -106,7 +106,7 @@ class IntegralFilter( IirFilter ) :
                numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
 
         @classmethod
-        def instance( cls, typ, order ) :
+        def instance( cls, typ : type, order : int ) -> any :
 
             """ Constructs an instance.
 
@@ -131,7 +131,7 @@ class IntegralFilter( IirFilter ) :
 
             return typ( numpy.array( [ 0.0, 1.0 ] ), IntegralFilter.Factory._b[ order ] )
 
-    def __init__( self, a = numpy.zeros( 1 ), b = numpy.ones( 1 ) ) :
+    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ) ) -> None :
 
         """ Initializes an instance.
 
@@ -144,7 +144,7 @@ class IntegralFilter( IirFilter ) :
 
         super( ).__init__( a, b )
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

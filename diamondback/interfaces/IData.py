@@ -11,7 +11,7 @@
 
             class Test( IData ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -46,17 +46,17 @@ class IData( IEqual ) :
     @property
     def data( self ) :
 
-        """ Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Data ( any ).
         """
 
         return self._data
 
     @data.setter
-    def data( self, data ) :
+    def data( self, data : any ) :
 
         self._data = data
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -71,7 +71,7 @@ class IData( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.data == other.data ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

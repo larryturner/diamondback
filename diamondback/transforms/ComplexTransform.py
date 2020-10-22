@@ -66,6 +66,7 @@
 
 import math
 import numpy
+import typing
 
 
 class ComplexTransform( object ) :
@@ -80,7 +81,7 @@ class ComplexTransform( object ) :
     _gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
-    def transform( cls, x, neutral = True ) :
+    def transform( cls, x : any, neutral : bool = True ) -> any :
 
         """ Transforms a real three-phase or complex incident signal into a complex
             or three-phase reference signal.

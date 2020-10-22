@@ -11,7 +11,7 @@
 
             class Test( IInterval ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -61,7 +61,7 @@ class IInterval( IEqual ) :
 
         self._interval = interval
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -76,7 +76,7 @@ class IInterval( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.interval, other.interval ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

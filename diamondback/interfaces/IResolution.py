@@ -11,7 +11,7 @@
 
             class Test( IResolution ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -53,7 +53,7 @@ class IResolution( IEqual ) :
         return self._resolution
 
     @resolution.setter
-    def resolution( self, resolution ) :
+    def resolution( self, resolution : float ) :
 
         if ( resolution <= 0.0 ) :
 
@@ -61,7 +61,7 @@ class IResolution( IEqual ) :
 
         self._resolution = resolution
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -76,7 +76,7 @@ class IResolution( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.resolution, other.resolution ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

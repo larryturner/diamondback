@@ -11,7 +11,7 @@
 
             class Test( IRotation ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -53,11 +53,11 @@ class IRotation( IEqual ) :
         return self._rotation
 
     @rotation.setter
-    def rotation( self, rotation ) :
+    def rotation( self, rotation : float ) :
 
         self._rotation = rotation
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -72,7 +72,7 @@ class IRotation( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.rotation, other.rotation ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

@@ -12,7 +12,7 @@
 
             class Test( IDateTime ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -48,25 +48,25 @@ class IDateTime( IEqual ) :
     @property
     def datetime( self ) :
 
-        """ Date time ( datetime ).
+        """ Date ( datetime ).
         """
 
         return self._datetime
 
     @datetime.setter
-    def datetime( self, datetim ) :
+    def datetime( self, date ) :
 
-        if ( not datetim ) :
+        if ( not date ) :
 
-            raise ValueError( 'DateTime = ' + str( datetim ) )
+            raise ValueError( 'Date = ' + str( date ) )
 
-        if ( not datetim.tzinfo ) :
+        if ( not date.tzinfo ) :
 
-            datetim = datetim.replace( tzinfo = datetime.timezone.utc )
+            date = date.replace( tzinfo = datetime.timezone.utc )
 
-        self._datetime = datetim.replace( microsecond = 0 )
+        self._datetime = date.replace( microsecond = 0 )
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -81,7 +81,7 @@ class IDateTime( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.datetime == other.datetime ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

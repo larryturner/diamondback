@@ -160,7 +160,7 @@
 
 <span class="sd">            class Test( ITimeZone ) :</span>
 
-<span class="sd">                def __init__( self ) :</span>
+<span class="sd">                def __init__( self ) -&gt; None :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
@@ -202,7 +202,7 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span>
 
     <span class="nd">@timezone</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">timezone</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">timezone</span> <span class="p">:</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -210,7 +210,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_timezone</span> <span class="o">=</span> <span class="n">timezone</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Evaluates equality condition.</span>
 
@@ -225,7 +225,7 @@
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">timezone</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">timezone</span> <span class="p">)</span> <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initializes an instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

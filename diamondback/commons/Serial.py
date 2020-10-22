@@ -64,7 +64,7 @@ class Serial( object ) :
     jsonpickle.ext.numpy.register_handlers( )
 
     @staticmethod
-    def decode( state, compress = True, encoding = 'utf_8', clean = False ) :
+    def decode( state : str, compress : bool = True, encoding : str = 'utf_8', clean : bool = False ) -> any :
 
         """ Decodes an instance.
 
@@ -80,7 +80,7 @@ class Serial( object ) :
 
             Returns :
 
-                instance - Instance ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+                instance - Instance ( any ).
         """
 
         if ( not state ) :
@@ -102,13 +102,13 @@ class Serial( object ) :
         return jsonpickle.decode( state )
 
     @staticmethod
-    def encode( instance, compress = True, encoding = 'utf_8' ) :
+    def encode( instance : any, compress : bool = True, encoding : str = 'utf_8' ) -> str :
 
         """ Encodes an instance.
 
             Arguments :
 
-                instance - Instance ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+                instance - Instance ( any ).
 
                 compress - Compress ( bool ).
 

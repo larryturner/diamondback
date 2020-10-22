@@ -75,7 +75,7 @@ class PolynomialRateFilter( IRate ) :
         return self._order
 
     @order.setter
-    def order( self, order ) :
+    def order( self, order : int ) :
 
         if ( order < 2 ) :
 
@@ -84,7 +84,7 @@ class PolynomialRateFilter( IRate ) :
         self._order = order
 
     @IRate.rate.setter
-    def rate( self, rate ) :
+    def rate( self, rate : float ) :
 
         """ Rate ratio of effective frequency in ( 0.0, inf ) ( float ).
         """
@@ -99,7 +99,7 @@ class PolynomialRateFilter( IRate ) :
 
         IRate.rate.fset( self, rate )
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -114,7 +114,7 @@ class PolynomialRateFilter( IRate ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) and ( self.order == other.order ) )
 
-    def __init__( self, rate, order = 3 ) :
+    def __init__( self, rate : float, order : int = 3 ) -> None :
 
         """ Initializes an instance.
 
@@ -135,7 +135,7 @@ class PolynomialRateFilter( IRate ) :
 
         self.rate = rate
 
-    def filter( self, x ) :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

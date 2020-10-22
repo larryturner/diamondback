@@ -87,6 +87,7 @@ import logging
 import numpy
 import os
 import sys
+import typing
 
 
 class Log( object ) :
@@ -111,7 +112,7 @@ class Log( object ) :
     _stream, _timezone = sys.stdout, datetime.timezone.utc
 
     @classmethod
-    def level( cls, level ) :
+    def level( cls, level : str ) -> None :
 
         """ Level.
 
@@ -141,7 +142,7 @@ class Log( object ) :
                 Log._level = level
 
     @classmethod
-    def stream( cls, stream, name = None ) :
+    def stream( cls, stream : any, name : str = None ) -> None :
 
         """ Stream.
 
@@ -177,7 +178,7 @@ class Log( object ) :
             Log._stream = stream
 
     @classmethod
-    def timezone( cls, timezone ) :
+    def timezone( cls, timezone : datetime.timezone ) -> None :
 
         """ Timezone.
 
@@ -195,7 +196,7 @@ class Log( object ) :
             Log._timezone = timezone
 
     @classmethod
-    def write( cls, level, entry, data = None ) :
+    def write( cls, level : str, entry : typing.Union[ Exception, str ], data : any = None ) -> None :
 
         """ Writes log entry.
 
@@ -205,7 +206,7 @@ class Log( object ) :
 
                 entry - Entry ( Exception, str ).
 
-                data - Data ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+                data - Data ( any ).
         """
 
         with ( Log._rlock ) :

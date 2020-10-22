@@ -13,7 +13,7 @@
 
             class Test( IReset, IS ) :
 
-                def reset( self, x ) :
+                def reset( self, x : any ) -> None :
 
                     self.s[ : ] = x
 
@@ -45,7 +45,7 @@ class IReset( ABC ) :
     """ Reset interface.
     """
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """
@@ -53,7 +53,7 @@ class IReset( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def reset( self, x ) :
+    def reset( self, x : any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

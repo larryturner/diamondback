@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.26
+Version: 1.0.27
 Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner

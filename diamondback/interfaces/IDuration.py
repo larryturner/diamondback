@@ -11,7 +11,7 @@
 
             class Test( IDuration ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -61,7 +61,7 @@ class IDuration( IEqual ) :
 
         self._duration = duration
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -76,7 +76,7 @@ class IDuration( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.duration, other.duration ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

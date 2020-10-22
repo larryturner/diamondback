@@ -131,7 +131,7 @@ class DerivativeFilter( FirFilter ) :
                      8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
 
         @classmethod
-        def instance( cls, typ, derivative, order ) :
+        def instance( cls, typ : type, derivative : int, order : int ) -> any :
 
             """ Constructs an instance.
 
@@ -164,7 +164,7 @@ class DerivativeFilter( FirFilter ) :
 
             return typ( b[ order ] )
 
-    def __init__( self, b = numpy.ones( 1 ) ) :
+    def __init__( self, b : any = numpy.ones( 1 ) ) -> None :
 
         """ Initializes an instance.
 
@@ -175,7 +175,7 @@ class DerivativeFilter( FirFilter ) :
 
         super( ).__init__( b )
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

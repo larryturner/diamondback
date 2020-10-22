@@ -61,6 +61,7 @@
 """
 
 import numpy
+import typing
 
 
 class FourierTransform( object ) :
@@ -69,7 +70,7 @@ class FourierTransform( object ) :
     """
 
     @staticmethod
-    def transform( x, b, inverse = False ) :
+    def transform( x : any, b : any, inverse : bool = False ) -> typing.Tuple[ any, any ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             complex discrete-frequency reference signal, or performs an

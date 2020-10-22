@@ -85,7 +85,7 @@ class WindowFilter( IB, IEqual ) :
         _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
         @classmethod
-        def instance( cls, typ, classification, order, normal = True ) :
+        def instance( cls, typ : type, classification : str, order : int, normal : bool = True ) -> any :
 
             """ Constructs an instance.
 
@@ -132,7 +132,7 @@ class WindowFilter( IB, IEqual ) :
 
             return typ( b )
 
-    def __init__( self, b = numpy.ones( 1 ) ) :
+    def __init__( self, b : any = numpy.ones( 1 ) ) -> None :
 
         """ Initializes an instance.
 
@@ -149,7 +149,7 @@ class WindowFilter( IB, IEqual ) :
 
         self.b = numpy.array( b )
 
-    def filter( self, x ) :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

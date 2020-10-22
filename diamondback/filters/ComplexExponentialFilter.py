@@ -56,7 +56,7 @@ class ComplexExponentialFilter( IPhase ) :
     """ Complex exponential filter.
     """
 
-    def __init__( self, phase = 0.0 ) :
+    def __init__( self, phase : float = 0.0 ) -> None :
 
         """ Initializes an instance.
 
@@ -69,7 +69,7 @@ class ComplexExponentialFilter( IPhase ) :
 
         self.phase = phase
 
-    def filter( self, x ) :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

@@ -12,7 +12,7 @@
 
             class Test( IS ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -46,7 +46,7 @@ class IS( IEqual ) :
     """
 
     @property
-    def s( self ) :
+    def s( self : any ) :
 
         """ State ( array( complex | float ) ).
         """
@@ -58,7 +58,7 @@ class IS( IEqual ) :
 
         self._s = s
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -73,7 +73,7 @@ class IS( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.s, other.s ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

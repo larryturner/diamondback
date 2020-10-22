@@ -88,6 +88,7 @@ from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
 import numpy
+import typing
 
 
 class DiversityModel( IClear, IS, IEqual ) :
@@ -106,7 +107,7 @@ class DiversityModel( IClear, IS, IEqual ) :
                       'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
 
         @classmethod
-        def instance( cls, typ, classification, order ) :
+        def instance( cls, typ : type, classification : str, order : int ) -> any :
 
             """ Constructs an instance.
 
@@ -137,7 +138,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             return typ( DiversityModel.Factory._distance[ classification ], order )
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -152,7 +153,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )
 
-    def __init__( self, distance, order ) :
+    def __init__( self, distance : typing.Callable[ [ any, any ], any ], order : int ) -> None :
 
         """ Initializes an instance.
 
@@ -171,14 +172,14 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         self._distance, self._diversity, self._s = distance, 0.0, numpy.zeros( ( 0, order + 1 ) )
 
-    def clear( self ) :
+    def clear( self ) -> None :
 
         """ Clears an instance.
         """
 
         self._diversity, self._s = 0.0, numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
 
-    def model( self, x ) :
+    def model( self, x : any ) -> any :
 
         """ Models an incident signal and produces a reference signal.
 

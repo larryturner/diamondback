@@ -66,6 +66,7 @@
 import math
 import numpy
 import scipy.signal
+import typing
 
 
 class ZTransform( object ) :
@@ -75,7 +76,7 @@ class ZTransform( object ) :
     """
 
     @staticmethod
-    def transform( u, v, frequency, bilinear = True ) :
+    def transform( u : any, v : any, frequency : float, bilinear : bool = True ) -> typing.Tuple[ any, any ] :
 
         """ Transforms continuous s-domain coefficient arrays and produces
             discrete z-domain coefficient arrays.

@@ -190,7 +190,7 @@ class WaveletTransform( IB, IEqual ) :
                                                  -0.00080435893437, 0.00459317358270, 0.00005703608433, -0.00045932942045 ] ) } }
 
         @classmethod
-        def instance( cls, typ, classification, order ) :
+        def instance( cls, typ : type, classification : str, order : int ) -> any :
 
             """ Constructs an instance.
 
@@ -223,7 +223,7 @@ class WaveletTransform( IB, IEqual ) :
 
             return typ( b[ order ] )
 
-    def __init__( self, b ) :
+    def __init__( self, b : any ) -> None :
 
         """ Initializes an instance.
 
@@ -268,7 +268,7 @@ class WaveletTransform( IB, IEqual ) :
 
                 self.b[ kk ][ 1 ][ : ] = numpy.flip( self.b[ kk ][ 1 ], 0 )
 
-    def transform( self, x, count, inverse = False ) :
+    def transform( self, x : any, count : int, inverse : bool = False ) -> any :
 
         """ Transforms an incident signal and produces a reference signal,
             performing analysis or synthesis operations.  Incident and reference

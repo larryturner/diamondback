@@ -12,7 +12,7 @@
 
             class Test( IEqual, IPhase ) :
 
-                def __eq__( self, other ) :
+                def __eq__( self, other : any ) -> bool :
 
                     return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )
 
@@ -35,7 +35,7 @@ class IEqual( object ) :
     """ Equal interface.
     """
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -50,7 +50,7 @@ class IEqual( object ) :
 
         return ( ( isinstance( other, self.__class__ ) ) and ( ( id( self ) == id( other ) ) or ( super( ).__eq__( other ) ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

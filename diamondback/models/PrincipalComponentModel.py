@@ -104,7 +104,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         return self._v
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -119,7 +119,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.u, other.u ) ) and ( numpy.isclose( self.v, other.v ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """
@@ -128,14 +128,14 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         self._e, self._s, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
 
-    def clear( self ) :
+    def clear( self ) -> None :
 
         """ Clears an instance.
         """
 
         self._e, self._s, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
 
-    def model( self, x ) :
+    def model( self, x : any ) -> any :
 
         """ Models an incident signal and produces a reference signal.
 

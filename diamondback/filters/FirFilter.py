@@ -121,6 +121,7 @@ from diamondback.interfaces.IS import IS
 import math
 import numpy
 import scipy.signal
+import typing
 import warnings
 
 
@@ -137,7 +138,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
         _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
         @classmethod
-        def instance( cls, typ, classification, frequency, order, count = 1, complement = False, gain = 1.0, rate = 0.0 ) :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0, rate : float = 0.0 ) -> any :
 
             """ Constructs an instance.
 
@@ -234,7 +235,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
             return typ( b * gain, rate = rate )
 
-    def __init__( self, b = numpy.ones( 1 ), s = numpy.zeros( 1 ), rate = 0.0 ) :
+    def __init__( self, b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
 
         """ Initializes an instance.
 
@@ -277,7 +278,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         self.rate = rate
 
-    def delay( self, length = 8192, count = 1 ) :
+    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -316,7 +317,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         return y, f
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> typing.Tuple[ any, any ] :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -383,7 +384,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         return y, e
 
-    def reset( self, x ) :
+    def reset( self, x : any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

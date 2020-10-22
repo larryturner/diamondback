@@ -11,7 +11,7 @@
 
             class Test( IUrl ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -52,7 +52,7 @@ class IUrl( IEqual ) :
         return self._url
 
     @url.setter
-    def url( self, url ) :
+    def url( self, url : str ) :
 
         if ( not url ) :
 
@@ -60,7 +60,7 @@ class IUrl( IEqual ) :
 
         self._url = url
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -75,7 +75,7 @@ class IUrl( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.url == other.url ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

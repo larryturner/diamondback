@@ -12,7 +12,7 @@
 
             class Test( IPhase, IUpdate ) :
 
-                def update( self ) :
+                def update( self ) -> None :
 
                     self.phase += 1.0
 
@@ -42,7 +42,7 @@ class IUpdate( ABC ) :
     """ Update interface.
     """
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """
@@ -50,7 +50,7 @@ class IUpdate( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def update( self ) :
+    def update( self ) -> None :
 
         """ Update.
         """

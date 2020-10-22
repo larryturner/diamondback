@@ -114,7 +114,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         return PolyphaseRateFilter._b
 
     @IRate.rate.setter
-    def rate( self, rate ) :
+    def rate( self, rate : float ) :
 
         """ Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).
         """
@@ -131,7 +131,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         IRate.rate.fset( self, rate )
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -146,7 +146,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) )
 
-    def __init__( self, rate ) :
+    def __init__( self, rate : float ) -> None :
 
         """ Initializes an instance.
 
@@ -177,7 +177,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         
         self.rate = rate
 
-    def filter( self, x ) :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -232,7 +232,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         return y[ 0 : min( jj, len( y ) ) ]
 
-    def reset( self, x ) :
+    def reset( self, x : float ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

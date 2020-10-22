@@ -11,7 +11,7 @@
 
             class Test( IState ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -46,17 +46,17 @@ class IState( IEqual ) :
     @property
     def state( self ) :
 
-        """ State ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ State ( any ).
         """
 
         return self._state
 
     @state.setter
-    def state( self, state ) :
+    def state( self, state : any ) :
 
         self._state = state
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -71,7 +71,7 @@ class IState( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.state == other.state ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

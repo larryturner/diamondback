@@ -11,7 +11,7 @@
 
             class Test( IEncoding ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -46,17 +46,17 @@ class IEncoding( IEqual ) :
     @property
     def encoding( self ) :
 
-        """ Encoding ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Encoding ( any ).
         """
 
         return self._encoding
 
     @encoding.setter
-    def encoding( self, encoding ) :
+    def encoding( self, encoding : any ) :
 
         self._encoding = encoding
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -71,7 +71,7 @@ class IEncoding( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.encoding == other.encoding ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

@@ -12,7 +12,7 @@
 
             class Test( IA ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -58,7 +58,7 @@ class IA( IEqual ) :
 
         self._a = a
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -73,7 +73,7 @@ class IA( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.a, other.a ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

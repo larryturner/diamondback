@@ -81,7 +81,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
     """ Goertzel filter.
     """
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -96,7 +96,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._index == other._index ) and ( numpy.allclose( self._w, other._w ) ) )
 
-    def __init__( self, b, frequency ) :
+    def __init__( self, b : any, frequency : float ) -> None :
 
         """ Initializes an instance.
 
@@ -125,13 +125,15 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         self.frequency = frequency
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
                 x - Incident signal ( array( complex | float ), list( complex | float ) ).
+
+                d - Primary signal ( array( complex | float ), list( complex | float ) ).
 
             Returns :
 

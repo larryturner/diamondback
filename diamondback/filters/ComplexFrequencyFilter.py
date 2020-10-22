@@ -69,6 +69,7 @@ from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
 import math
 import numpy
+import typing
 
 
 class ComplexFrequencyFilter( FirFilter, IFrequency ) :
@@ -77,7 +78,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
     """
 
     @IFrequency.frequency.setter
-    def frequency( self, frequency ) :
+    def frequency( self, frequency : float) :
 
         """ Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).
         """
@@ -86,7 +87,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
         self.b[ 0 ] = numpy.exp( 1j * math.pi * self.frequency )
 
-    def __init__( self, frequency, rate ) :
+    def __init__( self, frequency : float, rate : float ) -> None :
 
         """ Initializes an instance.
 
@@ -101,7 +102,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
         self.frequency = frequency
 
-    def filter( self, d, x = None ) :
+    def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -148,7 +149,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
         return y, e, b
 
-    def reset( self, x ) :
+    def reset( self, x : any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified primary incident condition.

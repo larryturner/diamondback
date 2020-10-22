@@ -68,6 +68,7 @@
 
 from diamondback.transforms.FourierTransform import FourierTransform
 import numpy
+import typing
 
 
 class PowerSpectrumTransform( object ) :
@@ -76,7 +77,7 @@ class PowerSpectrumTransform( object ) :
     """
 
     @staticmethod
-    def transform( x, b, index ) :
+    def transform( x : any, b : any, index : int ) -> typing.Tuple[ any, any ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             real discrete-frequency reference signal.

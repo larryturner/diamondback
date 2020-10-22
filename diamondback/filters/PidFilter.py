@@ -63,7 +63,7 @@ class PidFilter( FirFilter ) :
         return self._limit
 
     @limit.setter
-    def limit( self, limit ) :
+    def limit( self, limit : float ) :
 
         if ( limit < 0.0 ) :
 
@@ -71,7 +71,7 @@ class PidFilter( FirFilter ) :
 
         self._limit = limit
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -86,7 +86,7 @@ class PidFilter( FirFilter ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.limit, other.limit ) ) )
 
-    def __init__( self, b ) :
+    def __init__( self, b : any ) -> None :
 
         """ Initializes an instance.
 
@@ -107,7 +107,7 @@ class PidFilter( FirFilter ) :
 
         self._limit = float( 'inf' )
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

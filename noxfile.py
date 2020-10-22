@@ -31,7 +31,7 @@ import shutil
 
 
 @nox.session( venv_backend = 'none' )
-def dist( session ) :
+def dist( session ) -> None :
 
     """ Build distributions.
     """
@@ -50,7 +50,7 @@ def dist( session ) :
 
 
 @nox.session( venv_backend = 'none' )
-def docs( session ) :
+def docs( session ) -> None :
 
     """ Build documents.
     """
@@ -73,7 +73,7 @@ def docs( session ) :
 
 
 @nox.session( venv_backend = 'none' )
-def push( session ) :
+def push( session ) -> None :
 
     """ Push repository.
     """
@@ -96,7 +96,7 @@ def push( session ) :
 
 
 @nox.session( venv_backend = 'none' )
-def status( session ) :
+def status( session ) -> None :
 
     """ Check status.
     """
@@ -105,7 +105,7 @@ def status( session ) :
 
 
 @nox.session( venv_backend = 'none' )
-def tests( session ) :
+def tests( session ) -> None :
 
     """ Run tests.
     """

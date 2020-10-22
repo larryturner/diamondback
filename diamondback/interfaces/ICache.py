@@ -11,7 +11,7 @@
 
             class Test( ICach ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -46,17 +46,17 @@ class ICache( IEqual ) :
     @property
     def cache( self ) :
 
-        """ Cache ( object, array( object ), list( object ), set( object ), tuple( object ), dict( object, object ) ).
+        """ Cache ( any ).
         """
 
         return self._cache
 
     @cache.setter
-    def cache( self, cache ) :
+    def cache( self, cache : any ) :
 
         self._cache = cache
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -71,7 +71,7 @@ class ICache( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.cache == other.cache ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

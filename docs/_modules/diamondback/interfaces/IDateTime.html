@@ -159,7 +159,7 @@
 
 <span class="sd">            class Test( IDateTime ) :</span>
 
-<span class="sd">                def __init__( self ) :</span>
+<span class="sd">                def __init__( self ) -&gt; None :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
@@ -195,25 +195,25 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Date time ( datetime ).</span>
+        <span class="sd">&quot;&quot;&quot; Date ( datetime ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span>
 
     <span class="nd">@datetime</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">datetim</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">datetim</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;DateTime = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">datetim</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Date = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">date</span> <span class="p">)</span> <span class="p">)</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">datetim</span><span class="o">.</span><span class="n">tzinfo</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">date</span><span class="o">.</span><span class="n">tzinfo</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="n">datetim</span> <span class="o">=</span> <span class="n">datetim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span>
+            <span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span> <span class="o">=</span> <span class="n">datetim</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Evaluates equality condition.</span>
 
@@ -228,7 +228,7 @@
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">datetime</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">datetime</span> <span class="p">)</span> <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initializes an instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>

@@ -13,7 +13,7 @@
 
             class Test( ITimeZone ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -55,7 +55,7 @@ class ITimeZone( IEqual ) :
         return self._timezone
 
     @timezone.setter
-    def timezone( self, timezone ) :
+    def timezone( self, timezone : datetime.timezone ) :
 
         if ( not timezone ) :
 
@@ -63,7 +63,7 @@ class ITimeZone( IEqual ) :
 
         self._timezone = timezone
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -78,7 +78,7 @@ class ITimeZone( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.timezone == other.timezone ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

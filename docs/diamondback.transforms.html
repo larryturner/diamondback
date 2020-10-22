@@ -219,7 +219,7 @@ specified.</p>
 <p>Complex transform.</p>
 <dl class="method">
 <dt id="diamondback.transforms.ComplexTransform.ComplexTransform.transform">
-<em class="property">classmethod </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">neutral=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/ComplexTransform.html#ComplexTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.ComplexTransform.ComplexTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x: any</em>, <em class="sig-param">neutral: bool = True</em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/transforms/ComplexTransform.html#ComplexTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.ComplexTransform.ComplexTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real three-phase or complex incident signal into a complex
 or three-phase reference signal.</p>
 <p>Arguments :</p>
@@ -295,7 +295,7 @@ frequency resolution.</p>
 <p>Fourier transform.</p>
 <dl class="method">
 <dt id="diamondback.transforms.FourierTransform.FourierTransform.transform">
-<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">b</em>, <em class="sig-param">inverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/FourierTransform.html#FourierTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.FourierTransform.FourierTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x: any</em>, <em class="sig-param">b: any</em>, <em class="sig-param">inverse: bool = False</em><span class="sig-paren">)</span> &#x2192; Tuple[any, any]<a class="reference internal" href="_modules/diamondback/transforms/FourierTransform.html#FourierTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.FourierTransform.FourierTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 complex discrete-frequency reference signal, or performs an
 inverse transform.  Indices definition depends upon an inverse
@@ -378,7 +378,7 @@ frequency resolution.</p>
 <p>Power spectrum transform.</p>
 <dl class="method">
 <dt id="diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform">
-<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">b</em>, <em class="sig-param">index</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/PowerSpectrumTransform.html#PowerSpectrumTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x: any</em>, <em class="sig-param">b: any</em>, <em class="sig-param">index: int</em><span class="sig-paren">)</span> &#x2192; Tuple[any, any]<a class="reference internal" href="_modules/diamondback/transforms/PowerSpectrumTransform.html#PowerSpectrumTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 real discrete-frequency reference signal.</p>
 <p>Arguments :</p>
@@ -489,7 +489,7 @@ specified.</p>
 <p><strong>Definition</strong></p>
 <dl class="class">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform">
-<em class="property">class </em><code class="sig-prename descclassname">diamondback.transforms.WaveletTransform.</code><code class="sig-name descname">WaveletTransform</code><span class="sig-paren">(</span><em class="sig-param">b</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.transforms.WaveletTransform.</code><code class="sig-name descname">WaveletTransform</code><span class="sig-paren">(</span><em class="sig-param">b: any</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IB.IB" title="diamondback.interfaces.IB.IB"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IB.IB</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Wavelet transform.</p>
 <p>Initializes an instance.</p>
@@ -504,7 +504,7 @@ specified.</p>
 <p>Factory.</p>
 <dl class="method">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance">
-<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param">typ</em>, <em class="sig-param">classification</em>, <em class="sig-param">order</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param">typ: type</em>, <em class="sig-param">classification: str</em>, <em class="sig-param">order: int</em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -522,7 +522,7 @@ specified.</p>
 
 <dl class="method">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.transform">
-<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x</em>, <em class="sig-param">count</em>, <em class="sig-param">inverse=False</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">x: any</em>, <em class="sig-param">count: int</em>, <em class="sig-param">inverse: bool = False</em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms an incident signal and produces a reference signal,
 performing analysis or synthesis operations.  Incident and reference
 signals have two dimensions.  Dimension lengths must be unity or
@@ -605,7 +605,7 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 or impulse invariant methods.</p>
 <dl class="method">
 <dt id="diamondback.transforms.ZTransform.ZTransform.transform">
-<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">u</em>, <em class="sig-param">v</em>, <em class="sig-param">frequency</em>, <em class="sig-param">bilinear=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/ZTransform.html#ZTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.ZTransform.ZTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">u: any</em>, <em class="sig-param">v: any</em>, <em class="sig-param">frequency: float</em>, <em class="sig-param">bilinear: bool = True</em><span class="sig-paren">)</span> &#x2192; Tuple[any, any]<a class="reference internal" href="_modules/diamondback/transforms/ZTransform.html#ZTransform.transform"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.transforms.ZTransform.ZTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms continuous s-domain coefficient arrays and produces
 discrete z-domain coefficient arrays.</p>
 <p>Arguments :</p>

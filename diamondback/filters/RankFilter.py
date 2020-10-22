@@ -67,7 +67,7 @@ class RankFilter( FirFilter ) :
         return self._rank
 
     @rank.setter
-    def rank( self, rank ) :
+    def rank( self, rank : int ) :
 
         if ( ( rank < 0 ) or ( rank > ( len( self.s ) - 1 ) ) ) :
 
@@ -75,7 +75,7 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -90,7 +90,7 @@ class RankFilter( FirFilter ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.rank == other.rank ) )
 
-    def __init__( self, rank, order ) :
+    def __init__( self, rank : int, order : int ) -> None :
 
         """ Initializes an instance.
 
@@ -109,7 +109,7 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 

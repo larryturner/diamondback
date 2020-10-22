@@ -11,7 +11,7 @@
 
             class Test( IRate ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -53,7 +53,7 @@ class IRate( IEqual ) :
         return self._rate
 
     @rate.setter
-    def rate( self, rate ) :
+    def rate( self, rate : float ) :
 
         if ( rate < 0.0 ) :
 
@@ -61,7 +61,7 @@ class IRate( IEqual ) :
 
         self._rate = rate
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -76,7 +76,7 @@ class IRate( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.rate, other.rate ) ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

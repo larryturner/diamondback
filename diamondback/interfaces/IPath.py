@@ -10,7 +10,7 @@
 
             class Test( IPath ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -63,7 +63,7 @@ class IPath( IEqual ) :
 
         self._path = path
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -78,7 +78,7 @@ class IPath( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.path == other.path ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """

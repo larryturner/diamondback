@@ -69,6 +69,7 @@ from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilte
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
 import numpy
+import typing
 
 
 class ComplexBandPassFilter( FirFilter, IFrequency ) :
@@ -76,7 +77,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
     """ Complex band pass filter.
     """
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -91,7 +92,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._complexexponentialfilter == other._complexexponentialfilter ) )
 
-    def __init__( self, frequency, rate ) :
+    def __init__( self, frequency : float, rate : float ) -> None :
 
         """ Initializes an instance.
 
@@ -108,7 +109,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
 
         self.frequency = frequency
 
-    def filter( self, d, x = None ) :
+    def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
 
         """ Filters an incident signal and produces a reference signal.
 

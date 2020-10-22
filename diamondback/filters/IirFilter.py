@@ -124,6 +124,7 @@ from diamondback.transforms.ZTransform import ZTransform
 import math
 import numpy
 import scipy.signal
+import typing
 import warnings
 
 
@@ -140,7 +141,7 @@ class IirFilter( FirFilter, IA, IQ ) :
         _classification = ( 'Bessel', 'Butterworth', 'Chebyshev' )
 
         @staticmethod
-        def _evaluate( classification, frequency, order ) :
+        def _evaluate( classification : str, frequency : float, order : int ) -> typing.Tuple[ any, any ] :
 
             """ Evaluates coefficients.
 
@@ -206,7 +207,7 @@ class IirFilter( FirFilter, IA, IQ ) :
             return a, b
 
         @classmethod
-        def instance( cls, typ, classification, frequency, order, count = 1, complement = False, gain = 1.0, rate = 0.0 ) :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0, rate : float = 0.0 ) -> any :
 
             """ Constructs an instance.
 
@@ -289,7 +290,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             return typ( a, b * gain, rate = rate )
 
-    def __init__( self, a = numpy.zeros( 1 ), b = numpy.ones( 1 ), s = numpy.zeros( 1 ), rate = 0.0 ) :
+    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
 
         """ Initializes an instance.
 
@@ -332,7 +333,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         self.a, self.q = numpy.array( a ), numpy.array( self.s )
 
-    def delay( self, length = 8192, count = 1 ) :
+    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -371,7 +372,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def filter( self, x, d = None ) :
+    def filter( self, x : any, d : any = None ) -> typing.Tuple[ any, any ] :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -456,7 +457,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, e
 
-    def reset( self, x ) :
+    def reset( self, x : any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

@@ -11,7 +11,7 @@
 
             class Test( IProxy ) :
 
-                def __init__( self ) :
+                def __init__( self ) -> None :
 
                     super( ).__init__( )
 
@@ -56,7 +56,7 @@ class IProxy( IEqual ) :
 
         self._proxy = proxy
 
-    def __eq__( self, other ) :
+    def __eq__( self, other : any ) -> bool :
 
         """ Evaluates equality condition.
 
@@ -71,7 +71,7 @@ class IProxy( IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self.proxy == other.proxy ) )
 
-    def __init__( self ) :
+    def __init__( self ) -> None :
 
         """ Initializes an instance.
         """
