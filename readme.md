@@ -129,9 +129,12 @@ Diamondback is defined in subpackages :
   [IB](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB),
   [ICache](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICache),
   [IClear](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear),
+  [IConnect](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IConnect),
   [IData](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData),
   [IDate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDate),
+  [IDispose](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDispose),
   [IDuration](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDuration),
+  [IEmulate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEmulate),
   [IEncoding](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEncoding),
   [IEqual](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEqual),
   [IFrequency](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency),
@@ -148,10 +151,13 @@ Diamondback is defined in subpackages :
   [IRotation](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation),
   [IS](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS),
   [IState](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IState),
+  [IStream](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IStream),
   [ITimeZone](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone),
   [IUpdate](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate),
   [IUrl](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl),
-  and [IVersion](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion)
+  [IValid](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid),
+  [IVersion](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion),
+  and [IWrite](https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IWrite)
   interfaces facilitate mix-in design.
 	
 #### [models](https://larryturner.github.io/diamondback/diamondback.models)

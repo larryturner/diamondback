@@ -46,7 +46,7 @@ class IS( IEqual ) :
     """
 
     @property
-    def s( self : any ) :
+    def s( self ) :
 
         """ State ( array( complex | float ) ).
         """
@@ -54,7 +54,7 @@ class IS( IEqual ) :
         return self._s
 
     @s.setter
-    def s( self, s ) :
+    def s( self, s : any ) :
 
         self._s = s
 

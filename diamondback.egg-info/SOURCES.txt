@@ -26,9 +26,12 @@ diamondback/interfaces/IA.py
 diamondback/interfaces/IB.py
 diamondback/interfaces/ICache.py
 diamondback/interfaces/IClear.py
+diamondback/interfaces/IConnect.py
 diamondback/interfaces/IData.py
 diamondback/interfaces/IDate.py
+diamondback/interfaces/IDispose.py
 diamondback/interfaces/IDuration.py
+diamondback/interfaces/IEmulate.py
 diamondback/interfaces/IEncoding.py
 diamondback/interfaces/IEqual.py
 diamondback/interfaces/IFrequency.py
@@ -45,10 +48,13 @@ diamondback/interfaces/IResolution.py
 diamondback/interfaces/IRotation.py
 diamondback/interfaces/IS.py
 diamondback/interfaces/IState.py
+diamondback/interfaces/IStream.py
 diamondback/interfaces/ITimeZone.py
 diamondback/interfaces/IUpdate.py
 diamondback/interfaces/IUrl.py
+diamondback/interfaces/IValid.py
 diamondback/interfaces/IVersion.py
+diamondback/interfaces/IWrite.py
 diamondback/interfaces/__init__.py
 diamondback/models/DiversityModel.py
 diamondback/models/PrincipalComponentModel.py

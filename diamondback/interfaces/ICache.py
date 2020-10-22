@@ -6,10 +6,10 @@
 
         ::
 
-            from diamondback.interfaces.IUrl import ICache
+            from diamondback.interfaces.ICache import ICache
 
 
-            class Test( ICach ) :
+            class Test( ICache ) :
 
                 def __init__( self ) -> None :
 

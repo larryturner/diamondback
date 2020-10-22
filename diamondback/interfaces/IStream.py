@@ -1,62 +1,61 @@
 """ **Description**
 
-        Forward coefficient interface.
+        Stream interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IB import IB
-            import numpy
+            from diamondback.interfaces.IStream import IStream
+            import sys
 
 
-            class Test( IB ) :
+            class Test( IStream ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.b = numpy.array( [ 0.75, 0.25 ] )
+                    self.stream = sys.stdout
 
             test = Test( )
 
-            test.b[ : ] = 0.5
+            test.stream = sys.stderr
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
 
     **Definition**
 
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import numpy
 
 
-class IB( IEqual ) :
+class IStream( IEqual ) :
 
-    """ Forward coefficient interface.
+    """ Stream interface.
     """
 
     @property
-    def b( self ) :
+    def stream( self ) :
 
-        """ Forward coefficient ( array( complex | float ) ).
+        """ Stream ( any ).
         """
 
-        return self._b
+        return self._stream
 
-    @b.setter
-    def b( self, b : any ) :
+    @stream.setter
+    def stream( self, stream : any ) :
 
-        self._b = b
+        self._stream = stream
 
     def __eq__( self, other : any ) -> bool :
 
@@ -71,7 +70,7 @@ class IB( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.stream == other.stream ) )
 
     def __init__( self ) -> None :
 
@@ -80,4 +79,4 @@ class IB( IEqual ) :
 
         super( ).__init__( )
 
-        self._b = [ ]
+        self._stream = [ ]

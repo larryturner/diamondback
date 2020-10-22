@@ -1,62 +1,60 @@
 """ **Description**
 
-        Forward coefficient interface.
+        Valid interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IB import IB
-            import numpy
+            from diamondback.interfaces.IValid import IValid
 
 
-            class Test( IB ) :
+            class Test( IValid ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.b = numpy.array( [ 0.75, 0.25 ] )
+                    self.valid = False
 
             test = Test( )
 
-            test.b[ : ] = 0.5
+            test.valid = True
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
 
     **Definition**
 
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import numpy
 
 
-class IB( IEqual ) :
+class IValid( IEqual ) :
 
-    """ Forward coefficient interface.
+    """ Valid interface.
     """
 
     @property
-    def b( self ) :
+    def valid( self ) :
 
-        """ Forward coefficient ( array( complex | float ) ).
+        """ Valid ( any ).
         """
 
-        return self._b
+        return self._valid
 
-    @b.setter
-    def b( self, b : any ) :
+    @valid.setter
+    def valid( self, valid : any ) :
 
-        self._b = b
+        self._valid = valid
 
     def __eq__( self, other : any ) -> bool :
 
@@ -71,7 +69,7 @@ class IB( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.valid == other.valid ) )
 
     def __init__( self ) -> None :
 
@@ -80,4 +78,4 @@ class IB( IEqual ) :
 
         super( ).__init__( )
 
-        self._b = [ ]
+        self._valid = [ ]

@@ -84,3 +84,6 @@ Version     Date            Notes
 
                             Renamed IDateTime to IDate to avoid datetime
                             conflict.
+
+                            Added IConnect, IDispose, IEmulate, IStream,
+                            IValid, and IWrite.

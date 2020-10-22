@@ -105,7 +105,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
     _b = numpy.zeros( ( 256, 15 ) )
 
-    @property
+    @IB.b.getter
     def b( self ) :
 
         """ Forward coefficient ( array( float ) ).

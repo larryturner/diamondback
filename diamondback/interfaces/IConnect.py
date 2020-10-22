@@ -1,62 +1,60 @@
 """ **Description**
 
-        Forward coefficient interface.
+        Connect interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IB import IB
-            import numpy
+            from diamondback.interfaces.IConnect import IConnect
 
 
-            class Test( IB ) :
+            class Test( IConnect ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.b = numpy.array( [ 0.75, 0.25 ] )
+                    self.connect = { }
 
             test = Test( )
 
-            test.b[ : ] = 0.5
+            test.connect = { 'http' : 'proxy.net:8080' }
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
 
     **Definition**
 
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import numpy
 
 
-class IB( IEqual ) :
+class IConnect( IEqual ) :
 
-    """ Forward coefficient interface.
+    """ Connect interface.
     """
 
     @property
-    def b( self ) :
+    def connect( self ) :
 
-        """ Forward coefficient ( array( complex | float ) ).
+        """ Connect ( any ).
         """
 
-        return self._b
+        return self._connect
 
-    @b.setter
-    def b( self, b : any ) :
+    @connect.setter
+    def connect( self, connect : any ) :
 
-        self._b = b
+        self._connect = connect
 
     def __eq__( self, other : any ) -> bool :
 
@@ -71,7 +69,7 @@ class IB( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.connect == other.connect ) )
 
     def __init__( self ) -> None :
 
@@ -80,4 +78,4 @@ class IB( IEqual ) :
 
         super( ).__init__( )
 
-        self._b = [ ]
+        self._connect = [ ]

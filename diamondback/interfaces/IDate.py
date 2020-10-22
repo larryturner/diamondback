@@ -54,7 +54,7 @@ class IDate( IEqual ) :
         return self._date
 
     @date.setter
-    def date( self, date ) :
+    def date( self, date : datetime.datetime ) :
 
         if ( not date ) :
 

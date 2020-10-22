@@ -54,7 +54,7 @@ class IQ( IEqual ) :
         return self._q
 
     @q.setter
-    def q( self, q ) :
+    def q( self, q : any ) :
 
         self._q = q
 

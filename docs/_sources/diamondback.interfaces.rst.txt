@@ -36,6 +36,14 @@ diamondback.interfaces.IClear module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IConnect module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.IConnect
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IData module
 -----------------------------------
 
@@ -52,10 +60,26 @@ diamondback.interfaces.IDate module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IDispose module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.IDispose
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IDuration module
 ---------------------------------------
 
 .. automodule:: diamondback.interfaces.IDuration
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IEmulate module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.IEmulate
    :members:
    :undoc-members:
    :show-inheritance:
@@ -188,6 +212,14 @@ diamondback.interfaces.IState module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IStream module
+-------------------------------------
+
+.. automodule:: diamondback.interfaces.IStream
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.ITimeZone module
 ---------------------------------------
 
@@ -212,10 +244,26 @@ diamondback.interfaces.IUrl module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IValid module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IValid
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IVersion module
 --------------------------------------
 
 .. automodule:: diamondback.interfaces.IVersion
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IWrite module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IWrite
    :members:
    :undoc-members:
    :show-inheritance:

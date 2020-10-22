@@ -50,7 +50,7 @@ class ILatency( IEqual ) :
         return self._latency
 
     @latency.setter
-    def latency( self, latency ) :
+    def latency( self, latency : float ) :
 
         if ( latency < 0.0 ) :
 

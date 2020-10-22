@@ -1,62 +1,60 @@
 """ **Description**
 
-        Forward coefficient interface.
+        Dispose interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IB import IB
-            import numpy
+            from diamondback.interfaces.IDispose import IDispose
 
 
-            class Test( IB ) :
+            class Test( IDispose ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.b = numpy.array( [ 0.75, 0.25 ] )
+                    self.dispose = False
 
             test = Test( )
 
-            test.b[ : ] = 0.5
+            test.dispose = True
 
     **License**
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
 
     **Definition**
 
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import numpy
 
 
-class IB( IEqual ) :
+class IDispose( IEqual ) :
 
-    """ Forward coefficient interface.
+    """ Dispose interface.
     """
 
     @property
-    def b( self ) :
+    def dispose( self ) :
 
-        """ Forward coefficient ( array( complex | float ) ).
+        """ Dispose ( any ).
         """
 
-        return self._b
+        return self._dispose
 
-    @b.setter
-    def b( self, b : any ) :
+    @dispose.setter
+    def dispose( self, dispose : any ) :
 
-        self._b = b
+        self._dispose = dispose
 
     def __eq__( self, other : any ) -> bool :
 
@@ -71,7 +69,7 @@ class IB( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.dispose == other.dispose ) )
 
     def __init__( self ) -> None :
 
@@ -80,4 +78,4 @@ class IB( IEqual ) :
 
         super( ).__init__( )
 
-        self._b = [ ]
+        self._dispose = [ ]

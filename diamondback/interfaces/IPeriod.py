@@ -53,7 +53,7 @@ class IPeriod( IEqual ) :
         return self._period
 
     @period.setter
-    def period( self, period ) :
+    def period( self, period : float ) :
 
         if ( period < 0.0 ) :
 
