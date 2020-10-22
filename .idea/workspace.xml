@@ -5,46 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IConnect.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IDispose.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IEmulate.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IStream.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IValid.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IWrite.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/ICompress.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IConnect.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEmulate.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IStream.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IWrite.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IB.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ICache.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ICache.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDate.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ILatency.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ILatency.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPeriod.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPeriod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IS.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolyphaseRateFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/PolyphaseRateFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IB.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IB.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ICache.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ICache.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDate.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ILatency.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ILatency.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPeriod.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IPeriod.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IQ.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IQ.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/diamondback.interfaces.rst.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.interfaces.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.interfaces.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.interfaces.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" beforeDir="false" afterPath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -77,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/diamondback/interfaces" />
     <property name="settings.editor.selected.configurable" value="configurable.group.project" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -156,7 +125,7 @@
       <workItem from="1603335401148" duration="134000" />
       <workItem from="1603337760060" duration="158000" />
       <workItem from="1603344496498" duration="146000" />
-      <workItem from="1603377854097" duration="3454000" />
+      <workItem from="1603377854097" duration="6829000" />
     </task>
     <servers />
   </component>
@@ -179,10 +148,10 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1603130900038">
+    <state x="928" y="298" key="FileChooserDialogImpl" timestamp="1603382734539">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1603130900038" />
+    <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1603382734539" />
     <state x="928" y="298" key="FileChooserDialogImpl/0.0.1920.1050@0.0.1920.1050" timestamp="1601570805462" />
     <state x="586" y="162" key="SettingsEditor" timestamp="1602707345850">
       <screen x="0" y="0" width="1920" height="1050" />

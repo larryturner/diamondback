@@ -1,6 +1,7 @@
 from diamondback.interfaces.IA import IA
 from diamondback.interfaces.IB import IB
 from diamondback.interfaces.ICache import ICache
+from diamondback.interfaces.ICompress import ICompress
 from diamondback.interfaces.IConnect import IConnect
 from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IData import IData

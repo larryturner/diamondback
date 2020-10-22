@@ -36,6 +36,14 @@ diamondback.interfaces.IClear module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ICompress module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.ICompress
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IConnect module
 --------------------------------------
 
