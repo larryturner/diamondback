@@ -81,3 +81,6 @@ Version     Date            Notes
 1.0.26      2020-10-13      Added ICache, IProxy, and IUrl.
 
 1.0.27      2020-10-21      Added type hints and modified documentation.
+
+                            Renamed IDateTime to IDate to avoid datetime
+                            conflict.

@@ -27,7 +27,7 @@ diamondback/interfaces/IB.py
 diamondback/interfaces/ICache.py
 diamondback/interfaces/IClear.py
 diamondback/interfaces/IData.py
-diamondback/interfaces/IDateTime.py
+diamondback/interfaces/IDate.py
 diamondback/interfaces/IDuration.py
 diamondback/interfaces/IEncoding.py
 diamondback/interfaces/IEqual.py

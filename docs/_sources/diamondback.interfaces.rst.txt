@@ -44,10 +44,10 @@ diamondback.interfaces.IData module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.IDateTime module
----------------------------------------
+diamondback.interfaces.IDate module
+-----------------------------------
 
-.. automodule:: diamondback.interfaces.IDateTime
+.. automodule:: diamondback.interfaces.IDate
    :members:
    :undoc-members:
    :show-inheritance:

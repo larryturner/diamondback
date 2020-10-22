@@ -1,26 +1,26 @@
 """" **Description**
 
-        Date time interface.
+        Date interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IDateTime import IDateTime
+            from diamondback.interfaces.IDate import IDate
             import datetime
 
 
-            class Test( IDateTime ) :
+            class Test( IDate ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.datetime = datetime.datetime.utcnow( )
+                    self.date = datetime.datetime.utcnow( )
 
             test = Test( )
 
-            test.datetime += datetime.timedelta( hours = 4 )
+            test.date += datetime.timedelta( hours = 4 )
 
     **License**
 
@@ -40,21 +40,21 @@ from diamondback.interfaces.IEqual import IEqual
 import datetime
 
 
-class IDateTime( IEqual ) :
+class IDate( IEqual ) :
 
-    """ Date time interface.
+    """ Date interface.
     """
 
     @property
-    def datetime( self ) :
+    def date( self ) :
 
         """ Date ( datetime ).
         """
 
-        return self._datetime
+        return self._date
 
-    @datetime.setter
-    def datetime( self, date ) :
+    @date.setter
+    def date( self, date ) :
 
         if ( not date ) :
 
@@ -64,7 +64,7 @@ class IDateTime( IEqual ) :
 
             date = date.replace( tzinfo = datetime.timezone.utc )
 
-        self._datetime = date.replace( microsecond = 0 )
+        self._date = date.replace( microsecond = 0 )
 
     def __eq__( self, other : any ) -> bool :
 
@@ -79,7 +79,7 @@ class IDateTime( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.datetime == other.datetime ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.date == other.date ) )
 
     def __init__( self ) -> None :
 
@@ -88,4 +88,4 @@ class IDateTime( IEqual ) :
 
         super( ).__init__( )
 
-        self._datetime = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )
+        self._date = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )

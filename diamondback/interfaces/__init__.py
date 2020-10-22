@@ -3,7 +3,7 @@ from diamondback.interfaces.IB import IB
 from diamondback.interfaces.ICache import ICache
 from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IData import IData
-from diamondback.interfaces.IDateTime import IDateTime
+from diamondback.interfaces.IDate import IDate
 from diamondback.interfaces.IDuration import IDuration
 from diamondback.interfaces.IEncoding import IEncoding
 from diamondback.interfaces.IEqual import IEqual

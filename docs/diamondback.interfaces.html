@@ -90,7 +90,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.ICache">diamondback.interfaces.ICache module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IData">diamondback.interfaces.IData module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IDateTime">diamondback.interfaces.IDateTime module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IDate">diamondback.interfaces.IDate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDuration">diamondback.interfaces.IDuration module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEncoding">diamondback.interfaces.IEncoding module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEqual">diamondback.interfaces.IEqual module</a></li>
@@ -436,29 +436,29 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-diamondback.interfaces.IDateTime">
-<span id="diamondback-interfaces-idatetime-module"></span><h2>diamondback.interfaces.IDateTime module<a class="headerlink" href="#module-diamondback.interfaces.IDateTime" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-diamondback.interfaces.IDate">
+<span id="diamondback-interfaces-idate-module"></span><h2>diamondback.interfaces.IDate module<a class="headerlink" href="#module-diamondback.interfaces.IDate" title="Permalink to this headline">¶</a></h2>
 <p>” <strong>Description</strong></p>
 <blockquote>
-<div><p>Date time interface.</p>
+<div><p>Date interface.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDateTime</span> <span class="kn">import</span> <span class="n">IDateTime</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDate</span> <span class="kn">import</span> <span class="n">IDate</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
 
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDateTime</span> <span class="p">)</span> <span class="p">:</span>
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDate</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span>
 
 <span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="n">test</span><span class="o">.</span><span class="n">datetime</span> <span class="o">+=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span> <span class="n">hours</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">date</span> <span class="o">+=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span> <span class="n">hours</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -473,14 +473,14 @@
 </div></blockquote>
 <p><strong>Definition</strong></p>
 <dl class="class">
-<dt id="diamondback.interfaces.IDateTime.IDateTime">
-<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDateTime.</code><code class="sig-name descname">IDateTime</code><a class="reference internal" href="_modules/diamondback/interfaces/IDateTime.html#IDateTime"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime" title="Permalink to this definition">¶</a></dt>
+<dt id="diamondback.interfaces.IDate.IDate">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDate.</code><code class="sig-name descname">IDate</code><a class="reference internal" href="_modules/diamondback/interfaces/IDate.html#IDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDate.IDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Date time interface.</p>
+<p>Date interface.</p>
 <p>Initializes an instance.</p>
 <dl class="method">
-<dt id="diamondback.interfaces.IDateTime.IDateTime.datetime">
-<em class="property">property </em><code class="sig-name descname">datetime</code><a class="headerlink" href="#diamondback.interfaces.IDateTime.IDateTime.datetime" title="Permalink to this definition">¶</a></dt>
+<dt id="diamondback.interfaces.IDate.IDate.date">
+<em class="property">property </em><code class="sig-name descname">date</code><a class="headerlink" href="#diamondback.interfaces.IDate.IDate.date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date ( datetime ).</p>
 </dd></dl>
 

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>diamondback.interfaces.IDateTime &mdash; diamondback  documentation</title>
+  <title>diamondback.interfaces.IDate &mdash; diamondback  documentation</title>
   
 
   
@@ -129,7 +129,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>diamondback.interfaces.IDateTime</li>
+      <li>diamondback.interfaces.IDate</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,30 +144,30 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for diamondback.interfaces.IDateTime</h1><div class="highlight"><pre>
+  <h1>Source code for diamondback.interfaces.IDate</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        Date time interface.</span>
+<span class="sd">        Date interface.</span>
 
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
 
-<span class="sd">            from diamondback.interfaces.IDateTime import IDateTime</span>
+<span class="sd">            from diamondback.interfaces.IDate import IDate</span>
 <span class="sd">            import datetime</span>
 
 
-<span class="sd">            class Test( IDateTime ) :</span>
+<span class="sd">            class Test( IDate ) :</span>
 
 <span class="sd">                def __init__( self ) -&gt; None :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
-<span class="sd">                    self.datetime = datetime.datetime.utcnow( )</span>
+<span class="sd">                    self.date = datetime.datetime.utcnow( )</span>
 
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.datetime += datetime.timedelta( hours = 4 )</span>
+<span class="sd">            test.date += datetime.timedelta( hours = 4 )</span>
 
 <span class="sd">    **License**</span>
 
@@ -187,21 +187,21 @@
 <span class="kn">import</span> <span class="nn">datetime</span>
 
 
-<div class="viewcode-block" id="IDateTime"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IDateTime.IDateTime">[docs]</a><span class="k">class</span> <span class="nc">IDateTime</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IDate"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IDate.IDate">[docs]</a><span class="k">class</span> <span class="nc">IDate</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Date time interface.</span>
+    <span class="sd">&quot;&quot;&quot; Date interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Date ( datetime ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_date</span>
 
-    <span class="nd">@datetime</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">datetime</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="nd">@date</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">date</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -211,7 +211,7 @@
 
             <span class="n">date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span> <span class="o">=</span> <span class="n">date</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
@@ -226,7 +226,7 @@
 <span class="sd">                equality - Equality condition ( bool ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">datetime</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">datetime</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">date</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -235,7 +235,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_datetime</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span></div>
 </pre></div>
 
            </div>
