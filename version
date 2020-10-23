@@ -87,3 +87,5 @@ Version     Date            Notes
 
                             Added ICompress, IConnect, IDispose, IEmulate,
                             IStream, IValid, and IWrite.
+
+                            Added RestClient.
