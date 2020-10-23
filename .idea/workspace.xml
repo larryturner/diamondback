@@ -5,16 +5,39 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/ICompress.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IConnect.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IEmulate.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IStream.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IWrite.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/diamondback/clients/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/clients/RestClient.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/ICompress.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/_sources/diamondback.clients.rst.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/diamondback.clients.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.clients.doctree" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sphinx/diamondback.clients.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/requires.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/requires.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_sources/diamondback.rst.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_sources/diamondback.rst.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.commons.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.commons.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.commons.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.commons.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/diamondback.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/diamondback.doctree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/genindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/genindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/modules.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/modules.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" afterPath="$PROJECT_DIR$/docs/objects.inv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/py-modindex.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/py-modindex.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.rst" beforeDir="false" afterPath="$PROJECT_DIR$/sphinx/diamondback.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,6 +86,7 @@
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\clients" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons" />
     </key>
@@ -125,7 +149,7 @@
       <workItem from="1603335401148" duration="134000" />
       <workItem from="1603337760060" duration="158000" />
       <workItem from="1603344496498" duration="146000" />
-      <workItem from="1603377854097" duration="6829000" />
+      <workItem from="1603377854097" duration="14789000" />
     </task>
     <servers />
   </component>
@@ -158,10 +182,10 @@
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602707345850" />
     <state x="2590" y="-643" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@1920.-829.2194.1204" timestamp="1602707133010" />
-    <state x="923" y="272" width="997" height="778" key="find.popup" timestamp="1603381095006">
+    <state x="923" y="272" width="997" height="778" key="find.popup" timestamp="1603411734129">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="923" y="272" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1603381095006" />
+    <state x="923" y="272" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1603411734129" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
     <state x="615" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1602540340530">
       <screen x="0" y="0" width="1920" height="1050" />

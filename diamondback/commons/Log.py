@@ -184,7 +184,7 @@ class Log( object ) :
 
             Arguments :
 
-                timezone - Time zone ( datetime.timezone ).
+                timezone - Time zone ( timezone ).
         """
 
         with ( Log._rlock ) :

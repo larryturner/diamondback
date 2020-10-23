@@ -86,11 +86,12 @@
 <li><a class="reference internal" href="#">diamondback</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
-<li><a class="reference internal" href="#id2">commons</a></li>
-<li><a class="reference internal" href="#id4">filters</a></li>
-<li><a class="reference internal" href="#id6">interfaces</a></li>
-<li><a class="reference internal" href="#id8">models</a></li>
-<li><a class="reference internal" href="#id10">transforms</a></li>
+<li><a class="reference internal" href="#id2">clients</a></li>
+<li><a class="reference internal" href="#id4">commons</a></li>
+<li><a class="reference internal" href="#id6">filters</a></li>
+<li><a class="reference internal" href="#id8">interfaces</a></li>
+<li><a class="reference internal" href="#id10">models</a></li>
+<li><a class="reference internal" href="#id12">transforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
@@ -202,6 +203,7 @@ collections are consistently expressed in native types, including tuples, sets,
 lists, and dictionaries, with vector and matrix types expressed in numpy arrays.</p>
 <p>Diamondback is defined in subpackages :</p>
 <ul class="simple">
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients">clients</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a></p></li>
@@ -209,7 +211,22 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a></p></li>
 </ul>
 <div class="section" id="id2">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients">clients</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients#module-diamondback.clients.RestClient">RestClient</a>
+instances define a client for simple REST service requests.  Parameters in a
+dictionary of strings are encoded to build a URL, a request is made, and a
+JSON response is returned and decoded.  A client instance may be useful as a
+base client definition to interact with a service which satisfies the
+constraints of parameterized value URL encoding, with a JSON response.
+Caching may be useful in environments with intermittent or inconsistent
+network connectivity.  If caching is enabled, delete and put requests are
+cached and sent in order during a later request when the service is not
+ready, a property which may be overriden.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log">Log</a>
 singleton instance which formats and writes log entries, electively using the
@@ -222,8 +239,8 @@ singleton instance which encodes and decodes an instance or collection
 with JSON text, or base-64 encoded gzip JSON binary format.</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexBandPassFilter">ComplexBandPassFilter</a>
 instances adaptively extract or reject signals at a normalized frequency of
@@ -284,8 +301,8 @@ on type, classification, order, and normalization, through extensible factory
 construction.</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id8">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA">IA</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB">IB</a>,
@@ -324,8 +341,8 @@ and <a class="reference external" href="https://larryturner.github.io/diamondbac
 interfaces facilitate mix-in design.</p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id10">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel">DiversityModel</a>
 instances select and retain a state extracted to maximize the minimum distance
@@ -342,8 +359,8 @@ of the reference signal, while preserving significant and often sufficient
 information.</p></li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id12">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ComplexTransform">ComplexTransform</a>
 is a singleton instance which converts a three-phase real signal to a complex

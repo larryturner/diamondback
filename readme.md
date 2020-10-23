@@ -28,6 +28,8 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 	
 Diamondback is defined in subpackages :
 
+* [clients](https://larryturner.github.io/diamondback/diamondback.clients)
+
 * [commons](https://larryturner.github.io/diamondback/diamondback.commons)
 	
 * [filters](https://larryturner.github.io/diamondback/diamondback.filters)
@@ -37,6 +39,19 @@ Diamondback is defined in subpackages :
 * [models](https://larryturner.github.io/diamondback/diamondback.models)
 	
 * [transforms](https://larryturner.github.io/diamondback/diamondback.transforms)
+
+#### [clients](https://larryturner.github.io/diamondback/diamondback.clients)
+
+* [RestClient](https://larryturner.github.io/diamondback/diamondback.clients#module-diamondback.clients.RestClient)
+  instances define a client for simple REST service requests.  Parameters in a
+  dictionary of strings are encoded to build a URL, a request is made, and a
+  JSON response is returned and decoded.  A client instance may be useful as a
+  base client definition to interact with a service which satisfies the
+  constraints of parameterized value URL encoding, with a JSON response.
+  Caching may be useful in environments with intermittent or inconsistent
+  network connectivity.  If caching is enabled, delete and put requests are
+  cached and sent in order during a later request when the service is not
+  ready, a property which may be overriden.
 
 #### [commons](https://larryturner.github.io/diamondback/diamondback.commons)
 	

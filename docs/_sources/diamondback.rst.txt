@@ -6,6 +6,7 @@ Subpackages
 
 .. toctree::
 
+   diamondback.clients
    diamondback.commons
    diamondback.filters
    diamondback.interfaces
