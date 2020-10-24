@@ -31,7 +31,7 @@
 
                     super( ).__init__( )
 
-                    self.cache, self.proxy = True, ''
+                    self.cache = True
 
                 @property
                 def add( self, data ) :

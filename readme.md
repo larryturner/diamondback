@@ -282,7 +282,7 @@ repository, or installed from GitHub and run on a local system.
 Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
-    
+  
 ### Documentation
 
 Diamondback documentation is generated from the source, indexed, and searchable

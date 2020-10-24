@@ -1,7 +1,7 @@
 Metadata-Version: 1.2
 Name: diamondback
 Version: 1.0.27
-Summary: Diamondback Digital Signal Processing ( DSP ) package including commons, filters, interfaces, models, and transforms.
+Summary: Diamondback Digital Signal Processing ( DSP ) package including clients, commons, filters, interfaces, models, and transforms.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
 Author-email: larry.turner@se.com
@@ -290,7 +290,7 @@ Description: ### Description
         Restart the kernel, as the first cell contains common definitions, find cells
         which exercise components of interest, and manipulate widgets to exercise and
         visualize functionality.
-            
+          
         ### Documentation
         
         Diamondback documentation is generated from the source, indexed, and searchable
@@ -319,7 +319,7 @@ Description: ### Description
                 
         Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
         	
-Keywords: DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,serial,transform,wavelet
+Keywords: DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,REST,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,rate,serial,transform,wavelet
 Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3

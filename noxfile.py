@@ -86,7 +86,7 @@ def push( session ) -> None :
 
         if ( value ) :
 
-            if ( session.run( 'git', 'commit', '--all', '--message', '"' + value + '"' ) ) :
+            if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
 
                 session.run( 'git', 'push', 'origin', 'master' )
 
