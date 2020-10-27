@@ -44,6 +44,14 @@ diamondback.interfaces.ICompress module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IConfigure module
+----------------------------------------
+
+.. automodule:: diamondback.interfaces.IConfigure
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IConnect module
 --------------------------------------
 

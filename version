@@ -89,3 +89,5 @@ Version     Date            Notes
                             IStream, IValid, and IWrite.
 
                             Added clients subpackage and RestClient.
+
+1.0.28      2020-10-27      Added IConfigure.

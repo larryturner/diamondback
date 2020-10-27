@@ -90,6 +90,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.ICache">diamondback.interfaces.ICache module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ICompress">diamondback.interfaces.ICompress module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IConfigure">diamondback.interfaces.IConfigure module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IConnect">diamondback.interfaces.IConnect module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IData">diamondback.interfaces.IData module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDate">diamondback.interfaces.IDate module</a></li>
@@ -438,6 +439,56 @@
 <dt id="diamondback.interfaces.ICompress.ICompress.compress">
 <em class="property">property </em><code class="sig-name descname">compress</code><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.compress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compress ( any ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IConfigure">
+<span id="diamondback-interfaces-iconfigure-module"></span><h2>diamondback.interfaces.IConfigure module<a class="headerlink" href="#module-diamondback.interfaces.IConfigure" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Configure interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IConfigure</span> <span class="kn">import</span> <span class="n">IConfigure</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IConfigure</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">configure</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">configure</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-27.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="class">
+<dt id="diamondback.interfaces.IConfigure.IConfigure">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IConfigure.</code><code class="sig-name descname">IConfigure</code><a class="reference internal" href="_modules/diamondback/interfaces/IConfigure.html#IConfigure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Configure interface.</p>
+<p>Initializes an instance.</p>
+<dl class="method">
+<dt id="diamondback.interfaces.IConfigure.IConfigure.configure">
+<em class="property">property </em><code class="sig-name descname">configure</code><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.configure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configure ( any ).</p>
 </dd></dl>
 
 </dd></dl>
