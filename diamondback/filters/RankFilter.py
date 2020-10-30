@@ -77,7 +77,7 @@ class RankFilter( FirFilter ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -92,7 +92,7 @@ class RankFilter( FirFilter ) :
 
     def __init__( self, rank : int, order : int ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

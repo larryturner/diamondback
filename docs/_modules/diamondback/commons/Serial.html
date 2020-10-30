@@ -30,7 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -153,8 +153,11 @@
 <span class="sd">        An instance may be an object or a collection, referenced by abstract or</span>
 <span class="sd">        concrete types, and the instance will be correctly encoded and decoded.</span>
 <span class="sd">        JSON binary format is selected by electing to compress.  Encoding may</span>
-<span class="sd">        be specified if an alternative to UTF-8 is required.  Comments may be</span>
-<span class="sd">        filtered from JSON text by electing to clean.</span>
+<span class="sd">        be specified if an alternative to UTF-8 is required.</span>
+
+<span class="sd">        Comments may be filtered from JSON by electing to clean.  Python style</span>
+<span class="sd">        docstring and line comments are supported, though line comments must be</span>
+<span class="sd">        terminated by a new line.</span>
 
 <span class="sd">        Singleton.</span>
 
@@ -163,6 +166,8 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            from diamondback.commons.Serial import Serial</span>
+<span class="sd">            import numpy</span>
+<span class="sd">            import pandas</span>
 
 
 <span class="sd">            # Encode and decode a dictionary instance in JSON.</span>
@@ -170,17 +175,27 @@
 <span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ),</span>
 <span class="sd">                  &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
 
-<span class="sd">            z = Serial.decode( Serial.encode( x, False ), False )</span>
+<span class="sd">            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )</span>
 
 <span class="sd">            # Encode and decode a dictionary instance in gzip JSON.</span>
 
-<span class="sd">            y = Serial.encode( x, True )</span>
+<span class="sd">            y = Serial.encode( x, compress = True )</span>
 
-<span class="sd">            z = Serial.decode( y, True )</span>
+<span class="sd">            z = Serial.decode( y, compress = True )</span>
 
-<span class="sd">            # Decode a dictionary instance from a JSON str.</span>
+<span class="sd">            # Encode and decode a pandas data frame in gzip JSON.</span>
 
-<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;, False )</span>
+<span class="sd">            model = pandas.DataFrame( { &#39;Fruit&#39; : [ &#39;Orange&#39;, &#39;Apple&#39;, &#39;Kiwi&#39; ], &#39;Cost&#39; : [ 1.25, 1.5, 0.30 ] } )</span>
+
+<span class="sd">            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )</span>
+
+<span class="sd">            # Decode a dictionary instance from JSON.</span>
+
+<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;, compress = False )</span>
+
+<span class="sd">            # Decode a dictionary instance from JSON, and clean comments.</span>
+
+<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }  # Comments.\n&#39;, compress = False, clean = True )</span>
 
 <span class="sd">    **License**</span>
 
@@ -200,6 +215,7 @@
 <span class="kn">import</span> <span class="nn">gzip</span>
 <span class="kn">import</span> <span class="nn">jsonpickle</span>
 <span class="kn">import</span> <span class="nn">jsonpickle.ext.numpy</span>
+<span class="kn">import</span> <span class="nn">jsonpickle.ext.pandas</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
 
@@ -209,6 +225,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
+
+    <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">pandas</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="Serial.decode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.decode">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">clean</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>

@@ -166,7 +166,7 @@ class DerivativeFilter( FirFilter ) :
 
     def __init__( self, b : any = numpy.ones( 1 ) ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

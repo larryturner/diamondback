@@ -237,7 +237,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
     def __init__( self, b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

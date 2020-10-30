@@ -225,7 +225,7 @@ class WaveletTransform( IB, IEqual ) :
 
     def __init__( self, b : any ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

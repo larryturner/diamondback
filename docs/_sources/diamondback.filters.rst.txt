@@ -108,7 +108,6 @@ diamondback.filters.WindowFilter module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 

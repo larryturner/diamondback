@@ -58,7 +58,7 @@ class ComplexExponentialFilter( IPhase ) :
 
     def __init__( self, phase : float = 0.0 ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

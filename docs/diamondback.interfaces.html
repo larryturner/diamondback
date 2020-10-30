@@ -30,7 +30,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -229,13 +229,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IA.IA">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IA.</code><code class="sig-name descname">IA</code><a class="reference internal" href="_modules/diamondback/interfaces/IA.html#IA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IA.IA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Recursive coefficient interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IA.IA.a">
 <em class="property">property </em><code class="sig-name descname">a</code><a class="headerlink" href="#diamondback.interfaces.IA.IA.a" title="Permalink to this definition">¶</a></dt>
 <dd><p>Recursive coefficient ( array( complex | float ) ).</p>
@@ -280,13 +280,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IB.IB">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IB.</code><code class="sig-name descname">IB</code><a class="reference internal" href="_modules/diamondback/interfaces/IB.html#IB"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IB.IB" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Forward coefficient interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IB.IB.b">
 <em class="property">property </em><code class="sig-name descname">b</code><a class="headerlink" href="#diamondback.interfaces.IB.IB.b" title="Permalink to this definition">¶</a></dt>
 <dd><p>Forward coefficient ( array( complex | float ) ).</p>
@@ -330,13 +330,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.ICache.ICache">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ICache.</code><code class="sig-name descname">ICache</code><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Cache interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.ICache.ICache.cache">
 <em class="property">property </em><code class="sig-name descname">cache</code><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.cache" title="Permalink to this definition">¶</a></dt>
 <dd><p>Cache ( any ).</p>
@@ -379,13 +379,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-01-25.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IClear.IClear">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IClear.</code><code class="sig-name descname">IClear</code><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Clear interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IClear.IClear.clear">
 <em class="property">abstract </em><code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears an instance.</p>
@@ -429,13 +429,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.ICompress.ICompress">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ICompress.</code><code class="sig-name descname">ICompress</code><a class="reference internal" href="_modules/diamondback/interfaces/ICompress.html#ICompress"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Compress interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.ICompress.ICompress.compress">
 <em class="property">property </em><code class="sig-name descname">compress</code><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.compress" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compress ( any ).</p>
@@ -479,13 +479,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-27.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IConfigure.IConfigure">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IConfigure.</code><code class="sig-name descname">IConfigure</code><a class="reference internal" href="_modules/diamondback/interfaces/IConfigure.html#IConfigure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Configure interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IConfigure.IConfigure.configure">
 <em class="property">property </em><code class="sig-name descname">configure</code><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.configure" title="Permalink to this definition">¶</a></dt>
 <dd><p>Configure ( any ).</p>
@@ -529,13 +529,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IConnect.IConnect">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IConnect.</code><code class="sig-name descname">IConnect</code><a class="reference internal" href="_modules/diamondback/interfaces/IConnect.html#IConnect"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Connect interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IConnect.IConnect.connect">
 <em class="property">property </em><code class="sig-name descname">connect</code><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.connect" title="Permalink to this definition">¶</a></dt>
 <dd><p>Connect ( any ).</p>
@@ -579,13 +579,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IData.IData">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IData.</code><code class="sig-name descname">IData</code><a class="reference internal" href="_modules/diamondback/interfaces/IData.html#IData"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IData.IData" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Data interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IData.IData.data">
 <em class="property">property </em><code class="sig-name descname">data</code><a class="headerlink" href="#diamondback.interfaces.IData.IData.data" title="Permalink to this definition">¶</a></dt>
 <dd><p>Data ( any ).</p>
@@ -630,13 +630,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IDate.IDate">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDate.</code><code class="sig-name descname">IDate</code><a class="reference internal" href="_modules/diamondback/interfaces/IDate.html#IDate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDate.IDate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Date interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IDate.IDate.date">
 <em class="property">property </em><code class="sig-name descname">date</code><a class="headerlink" href="#diamondback.interfaces.IDate.IDate.date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Date ( datetime ).</p>
@@ -680,13 +680,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IDispose.IDispose">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDispose.</code><code class="sig-name descname">IDispose</code><a class="reference internal" href="_modules/diamondback/interfaces/IDispose.html#IDispose"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Dispose interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IDispose.IDispose.dispose">
 <em class="property">property </em><code class="sig-name descname">dispose</code><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose.dispose" title="Permalink to this definition">¶</a></dt>
 <dd><p>Dispose ( any ).</p>
@@ -730,13 +730,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IDuration.IDuration">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IDuration.</code><code class="sig-name descname">IDuration</code><a class="reference internal" href="_modules/diamondback/interfaces/IDuration.html#IDuration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Duration interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IDuration.IDuration.duration">
 <em class="property">property </em><code class="sig-name descname">duration</code><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration.duration" title="Permalink to this definition">¶</a></dt>
 <dd><p>Duration in seconds ( float ).</p>
@@ -780,13 +780,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IEmulate.IEmulate">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IEmulate.</code><code class="sig-name descname">IEmulate</code><a class="reference internal" href="_modules/diamondback/interfaces/IEmulate.html#IEmulate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Emulate interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IEmulate.IEmulate.emulate">
 <em class="property">property </em><code class="sig-name descname">emulate</code><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.emulate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Emulate ( any ).</p>
@@ -830,13 +830,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-10-09.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IEncoding.IEncoding">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IEncoding.</code><code class="sig-name descname">IEncoding</code><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Encoding interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IEncoding.IEncoding.encoding">
 <em class="property">property </em><code class="sig-name descname">encoding</code><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.encoding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encoding ( any ).</p>
@@ -875,12 +875,12 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-23.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IEqual.IEqual">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IEqual.</code><code class="sig-name descname">IEqual</code><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Equal interface.</p>
-<p>Initializes an instance.</p>
+<p>Initialize.</p>
 </dd></dl>
 
 </div>
@@ -919,13 +919,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IFrequency.IFrequency">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IFrequency.</code><code class="sig-name descname">IFrequency</code><a class="reference internal" href="_modules/diamondback/interfaces/IFrequency.html#IFrequency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Frequency interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IFrequency.IFrequency.frequency">
 <em class="property">property </em><code class="sig-name descname">frequency</code><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency.frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</p>
@@ -969,13 +969,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IInterval.IInterval">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IInterval.</code><code class="sig-name descname">IInterval</code><a class="reference internal" href="_modules/diamondback/interfaces/IInterval.html#IInterval"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Interval interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IInterval.IInterval.interval">
 <em class="property">property </em><code class="sig-name descname">interval</code><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval.interval" title="Permalink to this definition">¶</a></dt>
 <dd><p>Interval in seconds ( float ).</p>
@@ -1016,13 +1016,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.ILatency.ILatency">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ILatency.</code><code class="sig-name descname">ILatency</code><a class="reference internal" href="_modules/diamondback/interfaces/ILatency.html#ILatency"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Latency interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.ILatency.ILatency.latency">
 <em class="property">property </em><code class="sig-name descname">latency</code><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency.latency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Latency in seconds ( float ).</p>
@@ -1065,13 +1065,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-01-09.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IPath.IPath">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPath.</code><code class="sig-name descname">IPath</code><a class="reference internal" href="_modules/diamondback/interfaces/IPath.html#IPath"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPath.IPath" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Path interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IPath.IPath.path">
 <em class="property">property </em><code class="sig-name descname">path</code><a class="headerlink" href="#diamondback.interfaces.IPath.IPath.path" title="Permalink to this definition">¶</a></dt>
 <dd><p>Path ( str ).</p>
@@ -1115,13 +1115,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IPeriod.IPeriod">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPeriod.</code><code class="sig-name descname">IPeriod</code><a class="reference internal" href="_modules/diamondback/interfaces/IPeriod.html#IPeriod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Period interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IPeriod.IPeriod.period">
 <em class="property">property </em><code class="sig-name descname">period</code><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod.period" title="Permalink to this definition">¶</a></dt>
 <dd><p>Period in seconds ( float ).</p>
@@ -1165,13 +1165,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IPhase.IPhase">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IPhase.</code><code class="sig-name descname">IPhase</code><a class="reference internal" href="_modules/diamondback/interfaces/IPhase.html#IPhase"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Phase interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IPhase.IPhase.phase">
 <em class="property">property </em><code class="sig-name descname">phase</code><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase.phase" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).</p>
@@ -1215,13 +1215,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IProxy.IProxy">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IProxy.</code><code class="sig-name descname">IProxy</code><a class="reference internal" href="_modules/diamondback/interfaces/IProxy.html#IProxy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Proxy interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IProxy.IProxy.proxy">
 <em class="property">property </em><code class="sig-name descname">proxy</code><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.proxy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Proxy ( str ).</p>
@@ -1266,13 +1266,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IQ.IQ">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IQ.</code><code class="sig-name descname">IQ</code><a class="reference internal" href="_modules/diamondback/interfaces/IQ.html#IQ"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IQ.IQ" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>State derivative interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IQ.IQ.q">
 <em class="property">property </em><code class="sig-name descname">q</code><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.q" title="Permalink to this definition">¶</a></dt>
 <dd><p>State derivative ( array( complex | float ) ).</p>
@@ -1316,13 +1316,13 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IRate.IRate">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IRate.</code><code class="sig-name descname">IRate</code><a class="reference internal" href="_modules/diamondback/interfaces/IRate.html#IRate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IRate.IRate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Rate interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IRate.IRate.rate">
 <em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#diamondback.interfaces.IRate.IRate.rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of adaptation ( float ).</p>
@@ -1368,15 +1368,15 @@
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IReset.IReset">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IReset.</code><code class="sig-name descname">IReset</code><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Reset interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IReset.IReset.reset">
-<em class="property">abstract </em><code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param">x: any</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
+<em class="property">abstract </em><code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
@@ -1423,13 +1423,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IResolution.IResolution">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IResolution.</code><code class="sig-name descname">IResolution</code><a class="reference internal" href="_modules/diamondback/interfaces/IResolution.html#IResolution"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Resolution interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IResolution.IResolution.resolution">
 <em class="property">property </em><code class="sig-name descname">resolution</code><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution.resolution" title="Permalink to this definition">¶</a></dt>
 <dd><p>Resolution ( float ).</p>
@@ -1473,13 +1473,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-10-09.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IRotation.IRotation">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IRotation.</code><code class="sig-name descname">IRotation</code><a class="reference internal" href="_modules/diamondback/interfaces/IRotation.html#IRotation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Rotation interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IRotation.IRotation.rotation">
 <em class="property">property </em><code class="sig-name descname">rotation</code><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation.rotation" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rotation ( float ).</p>
@@ -1524,13 +1524,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IS.IS">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IS.</code><code class="sig-name descname">IS</code><a class="reference internal" href="_modules/diamondback/interfaces/IS.html#IS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IS.IS" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>State interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IS.IS.s">
 <em class="property">property </em><code class="sig-name descname">s</code><a class="headerlink" href="#diamondback.interfaces.IS.IS.s" title="Permalink to this definition">¶</a></dt>
 <dd><p>State ( array( complex | float ) ).</p>
@@ -1574,13 +1574,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IState.IState">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IState.</code><code class="sig-name descname">IState</code><a class="reference internal" href="_modules/diamondback/interfaces/IState.html#IState"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IState.IState" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>State interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IState.IState.state">
 <em class="property">property </em><code class="sig-name descname">state</code><a class="headerlink" href="#diamondback.interfaces.IState.IState.state" title="Permalink to this definition">¶</a></dt>
 <dd><p>State ( any ).</p>
@@ -1625,13 +1625,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IStream.IStream">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IStream.</code><code class="sig-name descname">IStream</code><a class="reference internal" href="_modules/diamondback/interfaces/IStream.html#IStream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IStream.IStream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Stream interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IStream.IStream.stream">
 <em class="property">property </em><code class="sig-name descname">stream</code><a class="headerlink" href="#diamondback.interfaces.IStream.IStream.stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stream ( any ).</p>
@@ -1677,13 +1677,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.ITimeZone.ITimeZone">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ITimeZone.</code><code class="sig-name descname">ITimeZone</code><a class="reference internal" href="_modules/diamondback/interfaces/ITimeZone.html#ITimeZone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Time zone interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.ITimeZone.ITimeZone.timezone">
 <em class="property">property </em><code class="sig-name descname">timezone</code><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.timezone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Time zone ( timezone ).</p>
@@ -1726,13 +1726,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-23.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IUpdate.IUpdate">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IUpdate.</code><code class="sig-name descname">IUpdate</code><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></p>
 <p>Update interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IUpdate.IUpdate.update">
 <em class="property">abstract </em><code class="sig-name descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update.</p>
@@ -1776,13 +1776,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IUrl.IUrl">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IUrl.</code><code class="sig-name descname">IUrl</code><a class="reference internal" href="_modules/diamondback/interfaces/IUrl.html#IUrl"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Url interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IUrl.IUrl.url">
 <em class="property">property </em><code class="sig-name descname">url</code><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl.url" title="Permalink to this definition">¶</a></dt>
 <dd><p>Url ( str ).</p>
@@ -1826,13 +1826,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IValid.IValid">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IValid.</code><code class="sig-name descname">IValid</code><a class="reference internal" href="_modules/diamondback/interfaces/IValid.html#IValid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IValid.IValid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Valid interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IValid.IValid.valid">
 <em class="property">property </em><code class="sig-name descname">valid</code><a class="headerlink" href="#diamondback.interfaces.IValid.IValid.valid" title="Permalink to this definition">¶</a></dt>
 <dd><p>Valid ( any ).</p>
@@ -1876,13 +1876,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-23.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IVersion.IVersion">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IVersion.</code><code class="sig-name descname">IVersion</code><a class="reference internal" href="_modules/diamondback/interfaces/IVersion.html#IVersion"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IVersion.IVersion" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Version interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IVersion.IVersion.version">
 <em class="property">property </em><code class="sig-name descname">version</code><a class="headerlink" href="#diamondback.interfaces.IVersion.IVersion.version" title="Permalink to this definition">¶</a></dt>
 <dd><p>Version ( any ).</p>
@@ -1926,13 +1926,13 @@ operation at a specified incident signal condition.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.interfaces.IWrite.IWrite">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IWrite.</code><code class="sig-name descname">IWrite</code><a class="reference internal" href="_modules/diamondback/interfaces/IWrite.html#IWrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IWrite.IWrite" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Write interface.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.interfaces.IWrite.IWrite.write">
 <em class="property">property </em><code class="sig-name descname">write</code><a class="headerlink" href="#diamondback.interfaces.IWrite.IWrite.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Write ( any ).</p>

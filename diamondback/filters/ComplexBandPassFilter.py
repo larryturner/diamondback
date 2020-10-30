@@ -79,7 +79,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -94,7 +94,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
 
     def __init__( self, frequency : float, rate : float ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

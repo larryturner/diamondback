@@ -59,7 +59,7 @@ class IRotation( IEqual ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -74,7 +74,7 @@ class IRotation( IEqual ) :
 
     def __init__( self ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
         """
 
         super( ).__init__( )

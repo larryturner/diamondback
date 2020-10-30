@@ -58,7 +58,7 @@ class IProxy( IEqual ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -73,7 +73,7 @@ class IProxy( IEqual ) :
 
     def __init__( self ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
         """
 
         super( ).__init__( )

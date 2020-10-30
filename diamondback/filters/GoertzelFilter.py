@@ -83,7 +83,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -98,7 +98,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
     def __init__( self, b : any, frequency : float ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

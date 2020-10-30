@@ -22,6 +22,7 @@
         ::
 
             from diamondback.commons.Log import Log
+            import io
             import numpy
             import pytz
             import sys
@@ -45,6 +46,26 @@
 
                 Log.write( 'Info', 'World', ( 'Example', 'Data', 'Payload' ) )
 
+                # Set Log stream to sys.stdout, use logging as 'project_log', and write an 'Info' entry.
+
+                Log.stream( sys.stdout, 'project_log' )
+
+                Log.write( 'Info', 'Valid = ', True )
+
+                # Set Log stream to a memory stream, write an Info entry, and read and reset the stream.
+
+                stream = io.StringIO( )
+
+                Log.stream( stream )
+
+                x = numpy.random.rand( 2, 2 )
+
+                Log.write( 'Info', 'X = ', x )
+
+                value = stream.getvalue( )
+
+                _, _ = stream.truncate( 0 ), stream.seek( 0 )
+
                 # Set Log stream to a file and write a 'Warning' entry.
 
                 with open( 'log.000.txt', 'w' ) as fout :
@@ -54,12 +75,6 @@
                     x = numpy.random.rand( 2, 2 )
 
                     Log.write( 'Warning', 'X = ', x )
-
-                # Set Log stream to sys.stdout, use logging as 'project_log', and write an 'Info' entry.
-
-                Log.stream( sys.stdout, 'project_log' )
-
-                Log.write( 'Info', 'Valid = ', True )
 
             except Exception as ex :
 

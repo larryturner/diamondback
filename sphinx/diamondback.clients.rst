@@ -12,7 +12,6 @@ diamondback.clients.RestClient module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 

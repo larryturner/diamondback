@@ -284,7 +284,6 @@ diamondback.interfaces.IWrite module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 

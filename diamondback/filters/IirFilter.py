@@ -292,7 +292,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
     def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

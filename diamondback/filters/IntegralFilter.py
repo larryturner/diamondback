@@ -133,7 +133,7 @@ class IntegralFilter( IirFilter ) :
 
     def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ) ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

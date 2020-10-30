@@ -30,7 +30,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="../../../_static/js/theme.js"></script>
 
@@ -169,6 +169,7 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            from diamondback.commons.Log import Log</span>
+<span class="sd">            import io</span>
 <span class="sd">            import numpy</span>
 <span class="sd">            import pytz</span>
 <span class="sd">            import sys</span>
@@ -192,6 +193,26 @@
 
 <span class="sd">                Log.write( &#39;Info&#39;, &#39;World&#39;, ( &#39;Example&#39;, &#39;Data&#39;, &#39;Payload&#39; ) )</span>
 
+<span class="sd">                # Set Log stream to sys.stdout, use logging as &#39;project_log&#39;, and write an &#39;Info&#39; entry.</span>
+
+<span class="sd">                Log.stream( sys.stdout, &#39;project_log&#39; )</span>
+
+<span class="sd">                Log.write( &#39;Info&#39;, &#39;Valid = &#39;, True )</span>
+
+<span class="sd">                # Set Log stream to a memory stream, write an Info entry, and read and reset the stream.</span>
+
+<span class="sd">                stream = io.StringIO( )</span>
+
+<span class="sd">                Log.stream( stream )</span>
+
+<span class="sd">                x = numpy.random.rand( 2, 2 )</span>
+
+<span class="sd">                Log.write( &#39;Info&#39;, &#39;X = &#39;, x )</span>
+
+<span class="sd">                value = stream.getvalue( )</span>
+
+<span class="sd">                _, _ = stream.truncate( 0 ), stream.seek( 0 )</span>
+
 <span class="sd">                # Set Log stream to a file and write a &#39;Warning&#39; entry.</span>
 
 <span class="sd">                with open( &#39;log.000.txt&#39;, &#39;w&#39; ) as fout :</span>
@@ -201,12 +222,6 @@
 <span class="sd">                    x = numpy.random.rand( 2, 2 )</span>
 
 <span class="sd">                    Log.write( &#39;Warning&#39;, &#39;X = &#39;, x )</span>
-
-<span class="sd">                # Set Log stream to sys.stdout, use logging as &#39;project_log&#39;, and write an &#39;Info&#39; entry.</span>
-
-<span class="sd">                Log.stream( sys.stdout, &#39;project_log&#39; )</span>
-
-<span class="sd">                Log.write( &#39;Info&#39;, &#39;Valid = &#39;, True )</span>
 
 <span class="sd">            except Exception as ex :</span>
 

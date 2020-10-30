@@ -133,7 +133,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -148,7 +148,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
     def __init__( self, rate : float ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

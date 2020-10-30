@@ -73,7 +73,7 @@ class PidFilter( FirFilter ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -88,7 +88,7 @@ class PidFilter( FirFilter ) :
 
     def __init__( self, b : any ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

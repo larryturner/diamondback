@@ -1,17 +1,16 @@
 """ **Description**
 
-    REST client for simple REST service requests.  Parameters in a dictionary
-    of strings are encoded to build a URL, a request is made, and a JSON
-    response is returned and decoded.
+    REST client for simple REST service requests.  An API and a dictionary of
+    parameter strings are encoded to build a URL, a data dictionary is attached
+    in the body of a request, and a JSON response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
-    with a service which satisfies the constraints of parameterized value URL
-    encoding, with a JSON response.
+    with a service which satisfies flexible request constraints.
 
     Caching may be useful in environments with intermittent or inconsistent
-    network connectivity.  If caching is enabled, delete and put requests are
-    cached and sent in order during a later request when the service is not
-    ready, a property which may be overriden.
+    network connectivity.  If caching is enabled, delete, patch, and put
+    requests are cached and sent in order during a later request when the
+    service is not ready, a property which may be overriden.
 
     URL and proxy definition is supported.
 
@@ -23,6 +22,7 @@
 
             from diamondback.clients.RestClient import RestClient
             import requests
+            import typing
 
 
             class TestClient( RestClient ) :
@@ -31,12 +31,11 @@
 
                     super( ).__init__( )
 
-                    self.cache = True
+                    self.cache = False
 
-                @property
-                def add( self, data ) :
+                def add( self, item : typing.Dict[ str, float ], data : any = None ) :
 
-                    return float( self.request( method = requests.get, api = 'test/add', data = data ) )
+                    return float( self.request( 'get', api = 'test/add', item = item, data = data ) )
 
             client = TestClient( )
 
@@ -79,7 +78,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Live ( bool ).
         """
 
-        return bool( self.request( requests.get, 'live' ) )
+        return bool( self.request( 'get', 'live' ) )
 
     @property
     def ready( self ) :
@@ -87,7 +86,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Ready ( bool ).
         """
 
-        return ( ( self.live ) and ( bool( self.request( requests.get, 'ready' ) ) ) )
+        return ( ( self.live ) and ( bool( self.request( 'get', 'ready' ) ) ) )
 
     @property
     def user( self ) :
@@ -99,7 +98,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
     def __init__( self ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
         """
 
         super( ).__init__( )
@@ -110,17 +109,19 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = '', 'http://127.0.0.1:8080'
 
-    def request( self, method : typing.Callable[ [ ], any ], api : str, data : typing.Dict[ str, str ] = None ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : any = None ) -> any :
 
         """ Request.
 
             Arguments :
 
-                method - Method ( method ) in ( requests.delete, requests.get, requests.post, requests.put ).
+                method - Method ( str ) in ( 'delete', 'get', 'options', 'patch', 'post', 'put' ).
 
                 api - API ( str ).
 
-                data - Data ( dict( str, str ) ).
+                item - Item ( dict( str, str ) ).
+
+                data - Data ( any ).
 
             Returns :
 
@@ -128,29 +129,35 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         """
 
-        if ( ( not method ) or ( method not in ( requests.delete, requests.get, requests.post, requests.put ) ) ) :
+        if ( not method ) :
+
+            raise ValueError( 'Method = ' + str( method ) )
+
+        method = method.lower( )
+
+        if ( method not in ( 'delete', 'get', 'options', 'patch', 'post', 'put' ) ) :
 
             raise ValueError( 'Method = ' + str( method ) )
 
         url = self.url + '/' + api
 
-        if ( data ) :
+        if ( item ) :
 
-            url += '?' + '&'.join( [ x + '=' + requests.utils.quote( y ) for ( x, y ) in data.items( ) ] )
+            url += '?' + '&'.join( [ x + '=' + requests.utils.quote( y ) for ( x, y ) in item.items( ) ] )
 
         value = True
 
         with ( self._rlock ) :
 
-            self.data.append( { 'method' : method, 'url' : url } )
+            self.data.append( { 'method' : method, 'url' : url, 'data' : data } )
 
-            if ( ( not self.cache ) or ( ( method not in ( requests.delete, requests.put ) ) or ( self.ready ) ) ) :
+            if ( ( not self.cache ) or ( ( method not in ( 'delete', 'patch', 'put' ) ) or ( self.ready ) ) ) :
 
                 for x in [ x for x in self.data ] :
 
                     try :
 
-                        with x[ 'method' ]( url = x[ 'url' ], proxies = { 'http' : self.proxy, 'https' : self.proxy }, timeout = 15.0 ) as value :
+                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], json = x[ 'data' ], proxies = { 'http' : self.proxy, 'https' : self.proxy }, timeout = 15.0 ) as value :
 
                             if ( ( not value ) or ( value.status_code != 200 ) ) :
 

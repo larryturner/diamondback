@@ -30,7 +30,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -86,12 +86,12 @@
 <li><a class="reference internal" href="#">diamondback</a><ul>
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
-<li><a class="reference internal" href="#id2">clients</a></li>
-<li><a class="reference internal" href="#id4">commons</a></li>
-<li><a class="reference internal" href="#id6">filters</a></li>
-<li><a class="reference internal" href="#id8">interfaces</a></li>
-<li><a class="reference internal" href="#id10">models</a></li>
-<li><a class="reference internal" href="#id12">transforms</a></li>
+<li><a class="reference internal" href="#clients">clients</a></li>
+<li><a class="reference internal" href="#commons">commons</a></li>
+<li><a class="reference internal" href="#filters">filters</a></li>
+<li><a class="reference internal" href="#interfaces">interfaces</a></li>
+<li><a class="reference internal" href="#models">models</a></li>
+<li><a class="reference internal" href="#transforms">transforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
@@ -179,28 +179,29 @@
 </ul>
 <div class="section" id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
-<p>Diamondback is a Python package which provides Digital Signal Processing ( DSP )
-solutions, organized in the form of commons, filters, interfaces, models, and
-transforms.</p>
-<p>Diamondback was designed to complement Artificial Intelligence ( AI ) frameworks,
-by defining components which analyze, filter, extract, model, and transform data
-into forms which are useful in applications including pattern recognition,
-feature extraction, and optimization.</p>
-<p>Diamondback was also designed to provide utility in the context of classical
-signal processing solutions including communications, modeling, signal
-identification and extraction, and noise cancellation.</p>
+<p>Diamondback is a Python package which provides Digital Signal Processing
+( DSP ) solutions, organized in the form of commons, filters,
+interfaces, models, and transforms.</p>
+<p>Diamondback was designed to complement Artificial Intelligence ( AI )
+frameworks, by defining components which analyze, filter, extract,
+model, and transform data into forms which are useful in applications
+including pattern recognition, feature extraction, and optimization.</p>
+<p>Diamondback was also designed to provide utility in the context of
+classical signal processing solutions including communications,
+modeling, signal identification and extraction, and noise cancellation.</p>
 <p>Documentation is provided in HTML form, extracted from docstrings in the
-diamondback package source, and a Jupyter notebook is provided to dynamically
-construct and exercise diamondback components to facilitate experimentation and
-visualization.</p>
+diamondback package source, and a Jupyter notebook is provided to
+dynamically construct and exercise diamondback components to facilitate
+experimentation and visualization.</p>
 </div>
 <div class="section" id="details">
 <h2>Details<a class="headerlink" href="#details" title="Permalink to this headline">¶</a></h2>
-<p>An extensible factory design pattern is expressed in many components, and a
-mix-in design pattern is extensively employed in property definition.  Complex
-or real types, in adaptive or static forms, are supported as appropriate.  Data
-collections are consistently expressed in native types, including tuples, sets,
-lists, and dictionaries, with vector and matrix types expressed in numpy arrays.</p>
+<p>An extensible factory design pattern is expressed in many components,
+and a mix-in design pattern is extensively employed in property
+definition. Complex or real types, in adaptive or static forms, are
+supported as appropriate. Data collections are consistently expressed in
+native types, including tuples, sets, lists, and dictionaries, with
+vector and matrix types expressed in numpy arrays.</p>
 <p>Diamondback is defined in subpackages :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients">clients</a></p></li>
@@ -210,99 +211,107 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a></p></li>
 </ul>
-<div class="section" id="id2">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients">clients</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="clients">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients">clients</a><a class="headerlink" href="#clients" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.clients#module-diamondback.clients.RestClient">RestClient</a>
-instances define a client for simple REST service requests.  Parameters in a
-dictionary of strings are encoded to build a URL, a request is made, and a
-JSON response is returned and decoded.  A client instance may be useful as a
-base client definition to interact with a service which satisfies the
-constraints of parameterized value URL encoding, with a JSON response.
-Caching may be useful in environments with intermittent or inconsistent
-network connectivity.  If caching is enabled, delete and put requests are
-cached and sent in order during a later request when the service is not
-ready, a property which may be overriden.</p></li>
+instances define a client for simple REST service requests. An API
+and a dictionary of parameter strings are encoded to build a URL, a
+data dictionary is attached in the body of a request, and a JSON
+response is returned and decoded. A client instance may be useful as
+a base client definition to interact with a service which satisfies
+flexible request constraints. Caching may be useful in environments
+with intermittent or inconsistent network connectivity. If caching is
+enabled, delete, patch, and put requests are cached and sent in order
+during a later request when the service is not ready, a property
+which may be overriden.</p></li>
 </ul>
 </div>
-<div class="section" id="id4">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="commons">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#commons" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log">Log</a>
-singleton instance which formats and writes log entries, electively using the
-logger package or directly to a specified stream. Log entries are prefaced
-with an ISO-8601 datetime and log level, and enhancements are made to the
-formatting of datetime, exception, and collection data types.  Dynamic stream
-redirection and log level specification are supported.</p></li>
+singleton instance which formats and writes log entries, electively
+using the logger package or directly to a specified stream. Log
+entries are prefaced with an ISO-8601 datetime and log level, and
+enhancements are made to the formatting of datetime, exception, and
+collection data types. Dynamic stream redirection and log level
+specification are supported.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial">Serial</a>
-singleton instance which encodes and decodes an instance or collection
-with JSON text, or base-64 encoded gzip JSON binary format.</p></li>
+singleton instance which encodes and decodes an instance or
+collection with JSON text, or base-64 encoded gzip JSON binary
+format.</p></li>
 </ul>
 </div>
-<div class="section" id="id6">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="filters">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#filters" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexBandPassFilter">ComplexBandPassFilter</a>
-instances adaptively extract or reject signals at a normalized frequency of
-interest, and may be employed to dynamically track magnitude and phase or
-demodulate signals.</p></li>
+instances adaptively extract or reject signals at a normalized
+frequency of interest, and may be employed to dynamically track
+magnitude and phase or demodulate signals.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexExponentialFilter">ComplexExponentialFilter</a>
-instances synthesize complex exponential signals at normalized frequencies of
-interest with contiguous phase.</p></li>
+instances synthesize complex exponential signals at normalized
+frequencies of interest with contiguous phase.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexFrequencyFilter">ComplexFrequencyFilter</a>
-instances adaptively discriminate and estimate a normalized frequency of a
-signal.</p></li>
+instances adaptively discriminate and estimate a normalized frequency
+of a signal.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.DerivativeFilter">DerivativeFilter</a>
-instances estimate discrete derivative approximations at several filter orders,
-through extensible factory construction.</p></li>
+instances estimate discrete derivative approximations at several
+filter orders, through extensible factory construction.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter">FirFilter</a>
-instances realize discrete difference equations of Finite Impulse Response
-( FIR ) form, in adaptive or static solutions.  A factory electively constructs
-instances based on type, classification, normalized frequency, order, cascade
-count, and complement.  Filters may be readily extended to support new types
-and functionality, while retaining factory support.  Root extraction, group
-delay, and frequency response evaluation are defined.</p></li>
+instances realize discrete difference equations of Finite Impulse
+Response ( FIR ) form, in adaptive or static solutions. A factory
+electively constructs instances based on type, classification,
+normalized frequency, order, cascade count, and complement. Filters
+may be readily extended to support new types and functionality, while
+retaining factory support. Root extraction, group delay, and
+frequency response evaluation are defined.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter">GoertzelFilter</a>
-instances efficiently evaluate a Discrete Fourier Transform ( DFT ) at a
-normalized frequency, based on a window filter and normalized frequency.</p></li>
+instances efficiently evaluate a Discrete Fourier Transform ( DFT )
+at a normalized frequency, based on a window filter and normalized
+frequency.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter">IirFilter</a>
-instances realize discrete difference equations of Infinite Impulse Response
-( IIR ) form, in adaptive or static solutions.  A factory electively constructs
-instances based on type, classification, normalized frequency, order, cascade
-count, and complement.  Filters may be readily extended to support new types
-and functionality, while retaining factory support.  Root extraction, group
-delay, and frequency response evaluation are defined.</p></li>
+instances realize discrete difference equations of Infinite Impulse
+Response ( IIR ) form, in adaptive or static solutions. A factory
+electively constructs instances based on type, classification,
+normalized frequency, order, cascade count, and complement. Filters
+may be readily extended to support new types and functionality, while
+retaining factory support. Root extraction, group delay, and
+frequency response evaluation are defined.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter">IntegralFilter</a>
-instances estimate discrete integral approximations at several filter orders,
-through extensible factory construction.</p></li>
+instances estimate discrete integral approximations at several filter
+orders, through extensible factory construction.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PidFilter">PidFilter</a>
-instances realize discrete difference equations of Proportional Integral
-Derivative ( PID ) form.</p></li>
+instances realize discrete difference equations of Proportional
+Integral Derivative ( PID ) form.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolynomialRateFilter">PolynomialRateFilter</a>
-instances approximate a signal evaluated at an effective frequency equal to the
-product of the normalized frequency and a rate greater than zero, supporting
-decimation and interpolation through localized polynomial approximation with no
-group delay.</p></li>
+instances approximate a signal evaluated at an effective frequency
+equal to the product of the normalized frequency and a rate greater
+than zero, supporting decimation and interpolation through localized
+polynomial approximation with no group delay.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolyphaseRateFilter">PolyphaseRateFilter</a>
-instances approximate a signal evaluated at an effective frequency equal to the
-product of the normalized frequency and a rate greater than zero, supporting
-decimation and interpolation through construction and application of a
-polyphase filter bank, a sequence of low pass filters with a common frequency
-response and a fractional sample difference in group delay.  An appropriate
-stride is determined to realize the specified effective frequency without bias
-and with group delay based on order.</p></li>
+instances approximate a signal evaluated at an effective frequency
+equal to the product of the normalized frequency and a rate greater
+than zero, supporting decimation and interpolation through
+construction and application of a polyphase filter bank, a sequence
+of low pass filters with a common frequency response and a fractional
+sample difference in group delay. An appropriate stride is determined
+to realize the specified effective frequency without bias and with
+group delay based on order.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.RankFilter">RankFilter</a>
-instances define nonlinear morphological operators, which define functionality
-based on rank and order, including dilation, median, and erosion, and may be
-combined in sequences to support close and open.</p></li>
+instances define nonlinear morphological operators, which define
+functionality based on rank and order, including dilation, median,
+and erosion, and may be combined in sequences to support close and
+open.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter">WindowFilter</a>
-instances realize discrete window functions useful in Fourier analysis, based
-on type, classification, order, and normalization, through extensible factory
-construction.</p></li>
+instances realize discrete window functions useful in Fourier
+analysis, based on type, classification, order, and normalization,
+through extensible factory construction.</p></li>
 </ul>
 </div>
-<div class="section" id="id8">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="interfaces">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a><a class="headerlink" href="#interfaces" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA">IA</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB">IB</a>,
@@ -338,56 +347,61 @@ construction.</p></li>
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl">IUrl</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid">IValid</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion">IVersion</a>,
-and <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IWrite">IWrite</a>
+and
+<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IWrite">IWrite</a>
 interfaces facilitate mix-in design.</p></li>
 </ul>
 </div>
-<div class="section" id="id10">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="models">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#models" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel">DiversityModel</a>
-instances select and retain a state extracted to maximize the minimum distance
-between state members based on classification and order, through extensible
-factory construction.  An opportunistic unsupervised learning model typically
-improves condition and numerical accuracy and reduces storage relative to
-alternative approaches including generalized linear inverse.</p></li>
+instances select and retain a state extracted to maximize the minimum
+distance between state members based on classification and order,
+through extensible factory construction. An opportunistic
+unsupervised learning model typically improves condition and
+numerical accuracy and reduces storage relative to alternative
+approaches including generalized linear inverse.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel">PrincipalComponentModel</a>
-instances are supervised learning models which analyze an incident signal to
-learn a mean vector, standard deviation vector, and a collection of
-eigenvectors, and produce a reference signal which is a candidate for dimension
-reduction, in which higher order dimensions are discarded, reducing the order
-of the reference signal, while preserving significant and often sufficient
-information.</p></li>
+instances are supervised learning models which analyze an incident
+signal to learn a mean vector, standard deviation vector, and a
+collection of eigenvectors, and produce a reference signal which is a
+candidate for dimension reduction, in which higher order dimensions
+are discarded, reducing the order of the reference signal, while
+preserving significant and often sufficient information.</p></li>
 </ul>
 </div>
-<div class="section" id="id12">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="transforms">
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#transforms" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ComplexTransform">ComplexTransform</a>
-is a singleton instance which converts a three-phase real signal to a complex
-signal, or a complex signal to a three-phase real signal, in equivalent and
-reversible representations, based on a neutral condition.</p></li>
+is a singleton instance which converts a three-phase real signal to a
+complex signal, or a complex signal to a three-phase real signal, in
+equivalent and reversible representations, based on a neutral
+condition.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.FourierTransform">FourierTransform</a>
-is a singleton instance which converts a real or complex discrete-time signal
-to a complex discrete-frequency signal, or a complex discrete-frequency signal
-to a real or complex discrete-time signal, in equivalent and reversible
-representations, based on a window filter and inverse.</p></li>
+is a singleton instance which converts a real or complex
+discrete-time signal to a complex discrete-frequency signal, or a
+complex discrete-frequency signal to a real or complex discrete-time
+signal, in equivalent and reversible representations, based on a
+window filter and inverse.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.PowerSpectrumTransform">PowerSpectrumTransform</a>
-is a singleton instance which converts a real or complex discrete-time signal
-to a real discrete-frequency signal which estimates a mean power density of the
-signal, based on a window filter.</p></li>
+is a singleton instance which converts a real or complex
+discrete-time signal to a real discrete-frequency signal which
+estimates a mean power density of the signal, based on a window
+filter.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.WaveletTransform">WaveletTransform</a>
 instances realize a temporal spatial frequency transformation through
 construction and application of analysis and synthesis filters with
-complementary frequency responses, combined with downsampling and upsampling
-operations, in equivalent and reversible representations.  A factory constructs
-instances based on type, classification, and order.  Filters may be readily
-extended to support new types and functionality, while retaining factory
-support.</p></li>
+complementary frequency responses, combined with downsampling and
+upsampling operations, in equivalent and reversible representations.
+A factory constructs instances based on type, classification, and
+order. Filters may be readily extended to support new types and
+functionality, while retaining factory support.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ZTransform">ZTransform</a>
-is a singleton instance which converts continuous s-domain to discrete z-domain
-difference equations, based on a normalized frequency and application of
-bilinear or impulse invariant methods.</p></li>
+is a singleton instance which converts continuous s-domain to
+discrete z-domain difference equations, based on a normalized
+frequency and application of bilinear or impulse invariant methods.</p></li>
 </ul>
 </div>
 </div>
@@ -398,6 +412,7 @@ bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://github.com/jsonpickle/jsonpickle">jsonpickle</a></p></li>
 <li><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/scipy/scipy">scipy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
 </ul>
 <p>Diamondback Jupyter notebook depends upon additional external packages :</p>
 <ul class="simple">
@@ -411,47 +426,48 @@ bilinear or impulse invariant methods.</p></li>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>pip install diamondback
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diamondback</span>
 
-pip install git+https://github.com/larryturner/diamondback.git
+<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">larryturner</span><span class="o">/</span><span class="n">diamondback</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="demonstration">
 <h2>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline">¶</a></h2>
-<p>A Jupyter notebook defines cells to create and exercise diamondback components.
-The notebook serves as a tool for visualization, validation, and demonstration
-of diamondback capabilities.</p>
-<p>A Jupyter notebook may be run on a remote server without installation with
-Binder, which dynamically builds and deploys a Docker container from a GitHub
-repository, or installed from GitHub and run on a local system.</p>
+<p>A Jupyter notebook defines cells to create and exercise diamondback
+components. The notebook serves as a tool for visualization, validation,
+and demonstration of diamondback capabilities.</p>
+<p>A Jupyter notebook may be run on a remote server without installation
+with Binder, which dynamically builds and deploys a Docker container
+from a GitHub repository, or installed from GitHub and run on a local
+system.</p>
 <p><strong>Remote</strong></p>
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb"><img alt="Binder" src="./images/binder.png" /></a>
+<p><a class="reference external" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb"><img alt="Binder" src="./images/binder.png" /></a></p>
 <p><strong>Local</strong></p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>git clone https://github.com/larryturner/diamondback.git
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">larryturner</span><span class="o">/</span><span class="n">diamondback</span><span class="o">.</span><span class="n">git</span>
 
-cd diamondback
+<span class="n">cd</span> <span class="n">diamondback</span>
 
-pip install --requirement requirements.txt
+<span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">requirement</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 
-jupyter notebook .\jupyter\diamondback.ipynb
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">.</span>\<span class="n">jupyter</span>\<span class="n">diamondback</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
-<p>Restart the kernel, as the first cell contains common definitions, find cells
-which exercise components of interest, and manipulate widgets to exercise and
-visualize functionality.</p>
+<p>Restart the kernel, as the first cell contains common definitions, find
+cells which exercise components of interest, and manipulate widgets to
+exercise and visualize functionality.</p>
 </div>
 <div class="section" id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
-<p>Diamondback documentation is generated from the source, indexed, and searchable
-from GitHub.</p>
-<a class="reference external image-reference" href="https://larryturner.github.io/diamondback/"><img alt="GitHub" src="./images/github.png" /></a>
+<p>Diamondback documentation is generated from the source, indexed, and
+searchable from GitHub.</p>
+<p><a class="reference external" href="https://larryturner.github.io/diamondback/"><img alt="GitHub" src="./images/github.png" /></a></p>
 </div>
 <div class="section" id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h2>
 <p>A simple pytest solution is provided to exercise and verify diamondback
 components.</p>
-<div class="highlight-guess notranslate"><div class="highlight"><pre><span></span>pytest --verbose
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">verbose</span>
 </pre></div>
 </div>
 </div>
@@ -466,7 +482,8 @@ components.</p>
 <div class="section" id="release">
 <h2>Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/version">Version</a></p>
-<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric. All rights
+reserved.</p>
 </div>
 </div>
 

@@ -30,7 +30,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -181,6 +181,7 @@ with logging levels.</p>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.commons.Log</span> <span class="kn">import</span> <span class="n">Log</span>
+<span class="kn">import</span> <span class="nn">io</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">pytz</span>
 <span class="kn">import</span> <span class="nn">sys</span>
@@ -204,6 +205,26 @@ with logging levels.</p>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="p">(</span> <span class="s1">&#39;Example&#39;</span><span class="p">,</span> <span class="s1">&#39;Data&#39;</span><span class="p">,</span> <span class="s1">&#39;Payload&#39;</span> <span class="p">)</span> <span class="p">)</span>
 
+    <span class="c1"># Set Log stream to sys.stdout, use logging as &#39;project_log&#39;, and write an &#39;Info&#39; entry.</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s1">&#39;project_log&#39;</span> <span class="p">)</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Valid = &#39;</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
+
+    <span class="c1"># Set Log stream to a memory stream, write an Info entry, and read and reset the stream.</span>
+
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="p">)</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
+
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;X = &#39;</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
+
+    <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
+
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span> <span class="mi">0</span> <span class="p">),</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+
     <span class="c1"># Set Log stream to a file and write a &#39;Warning&#39; entry.</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log.000.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
@@ -213,12 +234,6 @@ with logging levels.</p>
         <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
 
         <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;X = &#39;</span><span class="p">,</span> <span class="n">x</span> <span class="p">)</span>
-
-    <span class="c1"># Set Log stream to sys.stdout, use logging as &#39;project_log&#39;, and write an &#39;Info&#39; entry.</span>
-
-    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="s1">&#39;project_log&#39;</span> <span class="p">)</span>
-
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Valid = &#39;</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
 
@@ -238,14 +253,14 @@ with logging levels.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-22.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.commons.Log.Log">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.commons.Log.</code><code class="sig-name descname">Log</code><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Log service.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Log.Log.level">
-<em class="property">classmethod </em><code class="sig-name descname">level</code><span class="sig-paren">(</span><em class="sig-param">level: str</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.level" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">level</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.level"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.level" title="Permalink to this definition">¶</a></dt>
 <dd><p>Level.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -253,9 +268,9 @@ with logging levels.</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Log.Log.stream">
-<em class="property">classmethod </em><code class="sig-name descname">stream</code><span class="sig-paren">(</span><em class="sig-param">stream: any</em>, <em class="sig-param">name: str = None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.stream" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">stream</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">stream</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">name</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.stream" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stream.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -264,9 +279,9 @@ with logging levels.</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Log.Log.timezone">
-<em class="property">classmethod </em><code class="sig-name descname">timezone</code><span class="sig-paren">(</span><em class="sig-param">timezone: datetime.timezone</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.timezone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.timezone" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">timezone</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">timezone</span><span class="p">:</span> <span class="n">datetime.timezone</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.timezone"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.timezone" title="Permalink to this definition">¶</a></dt>
 <dd><p>Timezone.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -274,9 +289,9 @@ with logging levels.</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Log.Log.write">
-<em class="property">classmethod </em><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param">level: str, entry: Union[Exception, str], data: any = None</em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.write" title="Permalink to this definition">¶</a></dt>
+<em class="property">classmethod </em><code class="sig-name descname">write</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">entry</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>Exception<span class="p">, </span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.write"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Log.Log.write" title="Permalink to this definition">¶</a></dt>
 <dd><p>Writes log entry.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -293,18 +308,23 @@ with logging levels.</p>
 <span id="diamondback-commons-serial-module"></span><h2>diamondback.commons.Serial module<a class="headerlink" href="#module-diamondback.commons.Serial" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
 <blockquote>
+<div><blockquote>
 <div><p>A serial instance encodes and decodes an instance or collection with
 JSON text, or base-64 encoded gzip JSON binary format.</p>
 <p>An instance may be an object or a collection, referenced by abstract or
 concrete types, and the instance will be correctly encoded and decoded.
 JSON binary format is selected by electing to compress.  Encoding may
-be specified if an alternative to UTF-8 is required.  Comments may be
-filtered from JSON text by electing to clean.</p>
+be specified if an alternative to UTF-8 is required.</p>
+<p>Comments may be filtered from JSON by electing to clean.  Python style
+docstring and line comments are supported, though line comments must be
+terminated by a new line.</p>
 <p>Singleton.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.commons.Serial</span> <span class="kn">import</span> <span class="n">Serial</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
 
 
 <span class="c1"># Encode and decode a dictionary instance in JSON.</span>
@@ -312,21 +332,34 @@ filtered from JSON text by electing to clean.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">),</span>
       <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">}</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="kc">False</span> <span class="p">),</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">),</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
 
 <span class="c1"># Encode and decode a dictionary instance in gzip JSON.</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
-<span class="c1"># Decode a dictionary instance from a JSON str.</span>
+<span class="c1"># Encode and decode a pandas data frame in gzip JSON.</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span><span class="p">,</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;Fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Orange&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">),</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+
+<span class="c1"># Decode a dictionary instance from JSON.</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+
+<span class="c1"># Decode a dictionary instance from JSON, and clean comments.</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }  # Comments.</span>
 </pre></div>
 </div>
 </div></blockquote>
-<p><strong>License</strong></p>
+</div></blockquote>
+<p>‘, compress = False, clean = True )</p>
+<blockquote>
+<div><p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
 <p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
@@ -336,14 +369,15 @@ filtered from JSON text by electing to clean.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-13.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+</div></blockquote>
+<dl class="py class">
 <dt id="diamondback.commons.Serial.Serial">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.commons.Serial.</code><code class="sig-name descname">Serial</code><a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Serial service, with JSON text or base-64 encoded gzip JSON binary format.</p>
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.decode">
-<em class="property">static </em><code class="sig-name descname">decode</code><span class="sig-paren">(</span><em class="sig-param">state: str</em>, <em class="sig-param">compress: bool = True</em>, <em class="sig-param">encoding: str = 'utf_8'</em>, <em class="sig-param">clean: bool = False</em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.decode" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">decode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">compress</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf_8'</span></em>, <em class="sig-param"><span class="n">clean</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.decode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decodes an instance.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -358,9 +392,9 @@ filtered from JSON text by electing to clean.</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.encode">
-<em class="property">static </em><code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param">instance: any</em>, <em class="sig-param">compress: bool = True</em>, <em class="sig-param">encoding: str = 'utf_8'</em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.encode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.encode" title="Permalink to this definition">¶</a></dt>
+<em class="property">static </em><code class="sig-name descname">encode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">instance</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">compress</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf_8'</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.encode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.encode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Encodes an instance.</p>
 <p>Arguments :</p>
 <blockquote>

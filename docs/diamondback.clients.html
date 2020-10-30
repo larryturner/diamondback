@@ -30,7 +30,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -162,22 +162,22 @@
 <div class="section" id="module-diamondback.clients.RestClient">
 <span id="diamondback-clients-restclient-module"></span><h2>diamondback.clients.RestClient module<a class="headerlink" href="#module-diamondback.clients.RestClient" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
-<p>REST client for simple REST service requests.  Parameters in a dictionary
-of strings are encoded to build a URL, a request is made, and a JSON
-response is returned and decoded.</p>
+<p>REST client for simple REST service requests.  An API and a dictionary of
+parameter strings are encoded to build a URL, a data dictionary is attached
+in the body of a request, and a JSON response is returned and decoded.</p>
 <p>A client instance may be useful as a base client definition to interact
-with a service which satisfies the constraints of parameterized value URL
-encoding, with a JSON response.</p>
+with a service which satisfies flexible request constraints.</p>
 <p>Caching may be useful in environments with intermittent or inconsistent
-network connectivity.  If caching is enabled, delete and put requests are
-cached and sent in order during a later request when the service is not
-ready, a property which may be overriden.</p>
+network connectivity.  If caching is enabled, delete, patch, and put
+requests are cached and sent in order during a later request when the
+service is not ready, a property which may be overriden.</p>
 <p>URL and proxy definition is supported.</p>
 <p>Thread safe and reentrant.</p>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.clients.RestClient</span> <span class="kn">import</span> <span class="n">RestClient</span>
 <span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">typing</span>
 
 
 <span class="k">class</span> <span class="nc">TestClient</span><span class="p">(</span> <span class="n">RestClient</span> <span class="p">)</span> <span class="p">:</span>
@@ -186,12 +186,11 @@ ready, a property which may be overriden.</p>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">data</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">],</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="p">)</span> <span class="p">)</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
 
@@ -211,39 +210,40 @@ ready, a property which may be overriden.</p>
 <div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
 </div></blockquote>
 <p><strong>Definition</strong></p>
-<dl class="class">
+<dl class="py class">
 <dt id="diamondback.clients.RestClient.RestClient">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.clients.RestClient.</code><code class="sig-name descname">RestClient</code><a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ICache.ICache" title="diamondback.interfaces.ICache.ICache"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ICache.ICache</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IData.IData" title="diamondback.interfaces.IData.IData"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IData.IData</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IProxy.IProxy" title="diamondback.interfaces.IProxy.IProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IProxy.IProxy</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl" title="diamondback.interfaces.IUrl.IUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IUrl.IUrl</span></code></a></p>
 <p>Rest client.</p>
-<p>Initializes an instance.</p>
-<dl class="method">
+<p>Initialize.</p>
+<dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.live">
 <em class="property">property </em><code class="sig-name descname">live</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.live" title="Permalink to this definition">¶</a></dt>
 <dd><p>Live ( bool ).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.ready">
 <em class="property">property </em><code class="sig-name descname">ready</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.ready" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ready ( bool ).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.user">
 <em class="property">property </em><code class="sig-name descname">user</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.user" title="Permalink to this definition">¶</a></dt>
 <dd><p>User ( str ).</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.request">
-<code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param">method: Callable[[], any], api: str, data: Dict[str, str] = None</em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
 <dd><p>Request.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>method - Method ( method ) in ( requests.delete, requests.get, requests.post, requests.put ).</p>
+<div><p>method - Method ( str ) in ( ‘delete’, ‘get’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>
 <p>api - API ( str ).</p>
-<p>data - Data ( dict( str, str ) ).</p>
+<p>item - Item ( dict( str, str ) ).</p>
+<p>data - Data ( any ).</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>

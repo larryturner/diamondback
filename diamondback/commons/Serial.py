@@ -6,8 +6,11 @@
         An instance may be an object or a collection, referenced by abstract or
         concrete types, and the instance will be correctly encoded and decoded.
         JSON binary format is selected by electing to compress.  Encoding may
-        be specified if an alternative to UTF-8 is required.  Comments may be
-        filtered from JSON text by electing to clean.
+        be specified if an alternative to UTF-8 is required.
+
+        Comments may be filtered from JSON by electing to clean.  Python style
+        docstring and line comments are supported, though line comments must be
+        terminated by a new line.
 
         Singleton.
 
@@ -16,6 +19,8 @@
         ::
 
             from diamondback.commons.Serial import Serial
+            import numpy
+            import pandas
 
 
             # Encode and decode a dictionary instance in JSON.
@@ -23,17 +28,27 @@
             x = { 'a' : numpy.random.rand( count ),
                   'b' : list( numpy.random.rand( count ) ) }
 
-            z = Serial.decode( Serial.encode( x, False ), False )
+            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )
 
             # Encode and decode a dictionary instance in gzip JSON.
 
-            y = Serial.encode( x, True )
+            y = Serial.encode( x, compress = True )
 
-            z = Serial.decode( y, True )
+            z = Serial.decode( y, compress = True )
 
-            # Decode a dictionary instance from a JSON str.
+            # Encode and decode a pandas data frame in gzip JSON.
 
-            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }', False )
+            model = pandas.DataFrame( { 'Fruit' : [ 'Orange', 'Apple', 'Kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
+
+            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )
+
+            # Decode a dictionary instance from JSON.
+
+            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }', compress = False )
+
+            # Decode a dictionary instance from JSON, and clean comments.
+
+            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }  # Comments.\n', compress = False, clean = True )
 
     **License**
 
@@ -53,6 +68,7 @@ import base64
 import gzip
 import jsonpickle
 import jsonpickle.ext.numpy
+import jsonpickle.ext.pandas
 import re
 
 
@@ -62,6 +78,8 @@ class Serial( object ) :
     """
 
     jsonpickle.ext.numpy.register_handlers( )
+
+    jsonpickle.ext.pandas.register_handlers( )
 
     @staticmethod
     def decode( state : str, compress : bool = True, encoding : str = 'utf_8', clean : bool = False ) -> any :

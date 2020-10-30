@@ -101,7 +101,7 @@ class PolynomialRateFilter( IRate ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -116,7 +116,7 @@ class PolynomialRateFilter( IRate ) :
 
     def __init__( self, rate : float, order : int = 3 ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

@@ -44,7 +44,6 @@ diamondback.transforms.ZTransform module
    :undoc-members:
    :show-inheritance:
 
-
 Module contents
 ---------------
 

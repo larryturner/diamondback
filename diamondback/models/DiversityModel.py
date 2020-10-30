@@ -140,7 +140,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Evaluates equality condition.
+        """ Equality.
 
             Arguments :
 
@@ -155,7 +155,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
     def __init__( self, distance : typing.Callable[ [ any, any ], any ], order : int ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
 
             Arguments :
 

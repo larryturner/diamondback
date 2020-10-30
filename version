@@ -91,3 +91,9 @@ Version     Date            Notes
                             Added clients subpackage and RestClient.
 
 1.0.28      2020-10-27      Added IConfigure.
+
+                            Modified RequestClient in extend requests support,
+                            reduce external dependencies, and add data.
+
+                            Modified Serial to add support for pandas
+                            and register extensions.

@@ -37,16 +37,12 @@ project = 'diamondback'
 
 exclude_patterns = [ 'build' ]
 
-extensions = [ 'm2r',
-               'sphinx.ext.autodoc',
+extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.githubpages',
                'sphinx.ext.napoleon',
                'sphinx.ext.viewcode' ]
 
 pygments_style = 'friendly'
-
-source_suffix = { '.md' : 'markdown',
-                  '.rst' : 'restructuredtext' } 
 
 templates_path = [ 'templates' ]
 

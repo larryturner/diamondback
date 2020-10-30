@@ -44,7 +44,7 @@ class IUpdate( ABC ) :
 
     def __init__( self ) -> None :
 
-        """ Initializes an instance.
+        """ Initialize.
         """
 
         super( ).__init__( )

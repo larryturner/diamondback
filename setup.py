@@ -22,7 +22,7 @@ import diamondback
 
 try :
 
-    with open( 'readme.md', 'r' ) as fin :
+    with open( 'readme.rst', 'r' ) as fin :
 
         _readme = fin.read( )
 
@@ -42,7 +42,8 @@ setup( name = 'diamondback',
                        'Programming Language :: Python :: 3',
                        'License :: OSI Approved :: BSD License' ],
        install_requires = [ 'jsonpickle >= 1.4.1',
-                            'numpy >= 1.19.2',
+                            'numpy >= 1.19.3',
+                            'pandas >= 1.1.3',
                             'requests >= 2.24.0',
                             'scipy >= 1.5.3' ],
        keywords = [ 'DSP',

@@ -10,5 +10,5 @@ diamondback
 *  :ref:`modindex`
 *  :ref:`genindex`
 
-.. mdinclude:: ..\readme.md
+.. include:: ..\readme.rst
 
