@@ -117,6 +117,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUpdate">diamondback.interfaces.IUpdate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUrl">diamondback.interfaces.IUrl module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IUser">diamondback.interfaces.IUser module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IValid">diamondback.interfaces.IValid module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IVersion">diamondback.interfaces.IVersion module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IWrite">diamondback.interfaces.IWrite module</a></li>
@@ -1197,11 +1198,12 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;https://gateway.schneider.zscaler.net:9480&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;http://proxy.net:9480&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://proxy.net:8080&#39;</span> <span class="p">}</span>
+
 
 <span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="n">test</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="s1">&#39;https://gateway.schneider.zscaler.net:80&#39;</span>
+<span class="n">test</span><span class="o">.</span><span class="n">proxy</span><span class="p">[</span> <span class="s1">&#39;http&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://proxy.net:80&#39;</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1224,7 +1226,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IProxy.IProxy.proxy">
 <em class="property">property </em><code class="sig-name descname">proxy</code><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.proxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Proxy ( str ).</p>
+<dd><p>Proxy ( dict( str, str ) ).</p>
 </dd></dl>
 
 </dd></dl>
@@ -1791,6 +1793,54 @@ operation at a specified incident signal condition.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.IUser">
+<span id="diamondback-interfaces-iuser-module"></span><h2>diamondback.interfaces.IUser module<a class="headerlink" href="#module-diamondback.interfaces.IUser" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>User interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IUser</span> <span class="kn">import</span> <span class="n">IUser</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUser</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span> <span class="n">test</span><span class="o">.</span><span class="n">user</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-11-02.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.interfaces.IUser.IUser">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IUser.</code><code class="sig-name descname">IUser</code><a class="reference internal" href="_modules/diamondback/interfaces/IUser.html#IUser"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IUser.IUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>User interface.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.interfaces.IUser.IUser.user">
+<em class="property">property </em><code class="sig-name descname">user</code><a class="headerlink" href="#diamondback.interfaces.IUser.IUser.user" title="Permalink to this definition">¶</a></dt>
+<dd><p>User ( str ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IValid">
 <span id="diamondback-interfaces-ivalid-module"></span><h2>diamondback.interfaces.IValid module<a class="headerlink" href="#module-diamondback.interfaces.IValid" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -1885,7 +1935,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IVersion.IVersion.version">
 <em class="property">property </em><code class="sig-name descname">version</code><a class="headerlink" href="#diamondback.interfaces.IVersion.IVersion.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Version ( any ).</p>
+<dd><p>Version ( str ).</p>
 </dd></dl>
 
 </dd></dl>

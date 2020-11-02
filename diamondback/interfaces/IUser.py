@@ -1,25 +1,23 @@
 """ **Description**
 
-        Write interface.
+        User interface.
 
     **Example**
 
         ::
 
-            from diamondback.interfaces.IWrite import IWrite
+            from diamondback.interfaces.IUser import IUser
 
 
-            class Test( IWrite ) :
+            class Test( IUser ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.write = False
-
             test = Test( )
 
-            test.write = True
+            print( test.user )
 
     **License**
 
@@ -29,32 +27,28 @@
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
+        Larry Turner, Schneider Electric, Analytics & AI, 2020-11-02.
 
     **Definition**
 
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import getpass
 
 
-class IWrite( IEqual ) :
+class IUser( IEqual ) :
 
-    """ Write interface.
+    """ User interface.
     """
 
     @property
-    def write( self ) :
+    def user( self ) :
 
-        """ Write ( any ).
+        """ User ( str ).
         """
 
-        return self._write
-
-    @write.setter
-    def write( self, write : any ) :
-
-        self._write = write
+        return getpass.getuser( )
 
     def __eq__( self, other : any ) -> bool :
 
@@ -69,7 +63,7 @@ class IWrite( IEqual ) :
                 equality - Equality condition ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.write == other.write ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.user == other.user ) )
 
     def __init__( self ) -> None :
 
@@ -77,5 +71,3 @@ class IWrite( IEqual ) :
         """
 
         super( ).__init__( )
-
-        self._write = [ ]

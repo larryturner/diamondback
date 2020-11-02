@@ -54,7 +54,7 @@ class IA( IEqual ) :
         return self._a
 
     @a.setter
-    def a( self, a ) :
+    def a( self, a : any ) :
 
         self._a = a
 

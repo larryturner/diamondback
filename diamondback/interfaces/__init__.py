@@ -30,6 +30,7 @@ from diamondback.interfaces.IStream import IStream
 from diamondback.interfaces.ITimeZone import ITimeZone
 from diamondback.interfaces.IUpdate import IUpdate
 from diamondback.interfaces.IUrl import IUrl
+from diamondback.interfaces.IUser import IUser
 from diamondback.interfaces.IValid import IValid
 from diamondback.interfaces.IVersion import IVersion
 from diamondback.interfaces.IWrite import IWrite

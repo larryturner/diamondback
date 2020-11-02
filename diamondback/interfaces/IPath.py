@@ -51,7 +51,7 @@ class IPath( IEqual ) :
         return self._path
 
     @path.setter
-    def path( self, path ) :
+    def path( self, path : str ) :
 
         if ( path ) :
 

@@ -53,7 +53,7 @@ class IDuration( IEqual ) :
         return self._duration
 
     @duration.setter
-    def duration( self, duration ) :
+    def duration( self, duration : float ) :
 
         if ( duration < 0.0 ) :
 

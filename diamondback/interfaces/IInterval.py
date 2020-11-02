@@ -53,7 +53,7 @@ class IInterval( IEqual ) :
         return self._interval
 
     @interval.setter
-    def interval( self, interval ) :
+    def interval( self, interval : float ) :
 
         if ( interval < 0.0 ) :
 

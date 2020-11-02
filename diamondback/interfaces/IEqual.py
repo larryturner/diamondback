@@ -57,7 +57,7 @@ class IEqual( object ) :
 
         pass
 
-    def __ne__( self, other ) :
+    def __ne__( self, other : any ) -> bool :
 
         """ Evaluates inequality condition.
 

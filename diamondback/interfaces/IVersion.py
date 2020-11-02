@@ -46,13 +46,13 @@ class IVersion( IEqual ) :
     @property
     def version( self ) :
 
-        """ Version ( any ).
+        """ Version ( str ).
         """
 
         return self._version
 
     @version.setter
-    def version( self, version : any ) :
+    def version( self, version : str ) :
 
         self._version = version
 

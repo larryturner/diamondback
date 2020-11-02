@@ -33,6 +33,9 @@
 
                     self.cache = False
 
+                    self.proxy = { 'http' : '', 'https' : '' }
+
+
                 def add( self, item : typing.Dict[ str, float ], data : any = None ) :
 
                     return float( self.request( 'get', api = 'test/add', item = item, data = data ) )
@@ -62,7 +65,6 @@ from diamondback.interfaces.IData import IData
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IUrl import IUrl
 from threading import RLock
-import getpass
 import requests
 import typing
 
@@ -88,14 +90,6 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         return ( ( self.live ) and ( bool( self.request( 'get', 'ready' ) ) ) )
 
-    @property
-    def user( self ) :
-
-        """ User ( str ).
-        """
-
-        return getpass.getuser( )
-
     def __init__( self ) -> None :
 
         """ Initialize.
@@ -107,7 +101,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.cache, self.data = False, [ ]
 
-        self.proxy, self.url = '', 'http://127.0.0.1:8080'
+        self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
     def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : any = None ) -> any :
 
@@ -157,7 +151,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     try :
 
-                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], json = x[ 'data' ], proxies = { 'http' : self.proxy, 'https' : self.proxy }, timeout = 15.0 ) as value :
+                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], json = x[ 'data' ], proxies = self.proxy, timeout = 15.0 ) as value :
 
                             if ( ( not value ) or ( value.status_code != 200 ) ) :
 

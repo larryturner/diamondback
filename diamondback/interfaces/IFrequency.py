@@ -53,7 +53,7 @@ class IFrequency( IEqual ) :
         return self._frequency
 
     @frequency.setter
-    def frequency( self, frequency ) :
+    def frequency( self, frequency : float ) :
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
 

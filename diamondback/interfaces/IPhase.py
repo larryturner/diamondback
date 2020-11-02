@@ -53,7 +53,7 @@ class IPhase( IEqual ) :
         return self._phase
 
     @phase.setter
-    def phase( self, phase ) :
+    def phase( self, phase : float ) :
 
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
 

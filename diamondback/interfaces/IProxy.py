@@ -15,11 +15,12 @@
 
                     super( ).__init__( )
 
-                    self.proxy = 'https://gateway.schneider.zscaler.net:9480'
+                    self.proxy = { 'http' : 'http://proxy.net:9480', 'https' : 'https://proxy.net:8080' }
+
 
             test = Test( )
 
-            test.proxy = 'https://gateway.schneider.zscaler.net:80'
+            test.proxy[ 'http' ] = 'http://proxy.net:80'
 
     **License**
 
@@ -36,6 +37,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IProxy( IEqual ) :
@@ -46,13 +48,13 @@ class IProxy( IEqual ) :
     @property
     def proxy( self ) :
 
-        """ Proxy ( str ).
+        """ Proxy ( dict( str, str ) ).
         """
 
         return self._proxy
 
     @proxy.setter
-    def proxy( self, proxy ) :
+    def proxy( self, proxy : typing.Dict[ str, str ] ) :
 
         self._proxy = proxy
 
@@ -78,4 +80,4 @@ class IProxy( IEqual ) :
 
         super( ).__init__( )
 
-        self._proxy = ''
+        self._proxy = { }

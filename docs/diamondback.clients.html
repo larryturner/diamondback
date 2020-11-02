@@ -188,6 +188,9 @@ service is not ready, a property which may be overriden.</p>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
+
+
     <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">],</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="k">return</span> <span class="nb">float</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="p">)</span> <span class="p">)</span>
@@ -226,12 +229,6 @@ service is not ready, a property which may be overriden.</p>
 <dt id="diamondback.clients.RestClient.RestClient.ready">
 <em class="property">property </em><code class="sig-name descname">ready</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.ready" title="Permalink to this definition">¶</a></dt>
 <dd><p>Ready ( bool ).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.clients.RestClient.RestClient.user">
-<em class="property">property </em><code class="sig-name descname">user</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>User ( str ).</p>
 </dd></dl>
 
 <dl class="py method">

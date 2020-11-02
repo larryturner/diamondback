@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>diamondback.interfaces.IA &mdash; diamondback  documentation</title>
+  <title>diamondback.interfaces.IUser &mdash; diamondback  documentation</title>
   
 
   
@@ -129,7 +129,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>diamondback.interfaces.IA</li>
+      <li>diamondback.interfaces.IUser</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,66 +144,58 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for diamondback.interfaces.IA</h1><div class="highlight"><pre>
+  <h1>Source code for diamondback.interfaces.IUser</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        Recursive coefficient interface.</span>
+<span class="sd">        User interface.</span>
 
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
 
-<span class="sd">            from diamondback.interfaces.IA import IA</span>
-<span class="sd">            import numpy</span>
+<span class="sd">            from diamondback.interfaces.IUser import IUser</span>
 
 
-<span class="sd">            class Test( IA ) :</span>
+<span class="sd">            class Test( IUser ) :</span>
 
 <span class="sd">                def __init__( self ) -&gt; None :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
-<span class="sd">                    self.a = numpy.array( [ 0.0, 0.1 ] )</span>
-
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.a[ : ] = 0.0</span>
+<span class="sd">            print( test.user )</span>
 
 <span class="sd">    **License**</span>
 
 <span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
 
-<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
+<span class="sd">        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 
-<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</span>
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-11-02.</span>
 
 <span class="sd">    **Definition**</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
-<span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
 
 
-<div class="viewcode-block" id="IA"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IA.IA">[docs]</a><span class="k">class</span> <span class="nc">IA</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IUser"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IUser.IUser">[docs]</a><span class="k">class</span> <span class="nc">IUser</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Recursive coefficient interface.</span>
+    <span class="sd">&quot;&quot;&quot; User interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">user</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Recursive coefficient ( array( complex | float ) ).</span>
+        <span class="sd">&quot;&quot;&quot; User ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_a</span>
-
-    <span class="nd">@a</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">a</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">a</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="n">a</span>
+        <span class="k">return</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">(</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
@@ -218,16 +210,14 @@
 <span class="sd">                equality - Equality condition ( bool ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">a</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">user</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">user</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initialize.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">_a</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span></div>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span></div>
 </pre></div>
 
            </div>
