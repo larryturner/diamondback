@@ -8,7 +8,7 @@
 
             nox --list
 
-            nox --sessions dist docs push status tests
+            nox --sessions dist docs docker push status tests
 
     **License**
 
@@ -47,6 +47,13 @@ def dist( session ) -> None :
     if ( os.path.exists( 'setup.py' ) ) :
 
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel' )
+
+
+@nox.session( venv_backend = 'none' )
+def docker( session ) -> None :
+
+    """ Build docker image.
+    """
 
     if ( os.path.exists( 'Dockerfile' ) ) :
 
