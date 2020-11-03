@@ -48,6 +48,10 @@ def dist( session ) -> None :
 
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel' )
 
+    if ( os.path.exists( 'Dockerfile' ) ) :
+
+        session.run( 'docker', 'build', '--tag', os.getcwd( ).split( os.path.sep )[ -1 ] + ':latest', '.' )
+
 
 @nox.session( venv_backend = 'none' )
 def docs( session ) -> None :
