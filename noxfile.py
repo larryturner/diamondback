@@ -8,7 +8,7 @@
 
             nox --list
 
-            nox --sessions dist docs docker push status tests
+            nox --sessions build dist docs push status tests
 
     **License**
 
@@ -31,6 +31,17 @@ import shutil
 
 
 @nox.session( venv_backend = 'none' )
+def build( session ) -> None :
+
+    """ Build Docker image.
+    """
+
+    if ( os.path.exists( 'Dockerfile' ) ) :
+
+        session.run( 'docker', 'build', '--tag', os.getcwd( ).split( os.path.sep )[ -1 ] + ':latest', '.' )
+
+
+@nox.session( venv_backend = 'none' )
 def dist( session ) -> None :
 
     """ Build distributions.
@@ -47,17 +58,6 @@ def dist( session ) -> None :
     if ( os.path.exists( 'setup.py' ) ) :
 
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel' )
-
-
-@nox.session( venv_backend = 'none' )
-def docker( session ) -> None :
-
-    """ Build docker image.
-    """
-
-    if ( os.path.exists( 'Dockerfile' ) ) :
-
-        session.run( 'docker', 'build', '--tag', os.getcwd( ).split( os.path.sep )[ -1 ] + ':latest', '.' )
 
 
 @nox.session( venv_backend = 'none' )

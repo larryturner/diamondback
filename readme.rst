@@ -288,14 +288,13 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 Demonstration
 ~~~~~~~~~~~~~
 
-A Jupyter notebook defines cells to create and exercise diamondback
-components. The notebook serves as a tool for visualization, validation,
-and demonstration of diamondback capabilities.
+A Jupyter notebook defines cells to create and exercise diamondback components.
+The notebook serves as a tool for visualization, validation, and demonstration
+of diamondback capabilities.
 
-A Jupyter notebook may be run on a remote server without installation
-with Binder, which dynamically builds and deploys a Docker container
-from a GitHub repository, or installed from GitHub and run on a local
-system.
+A Jupyter notebook may be run on a remote server without installation with
+Binder, which dynamically builds and deploys a Docker container from a GitHub
+repository, or installed from GitHub and run on a local system.
 
 **Remote**
 
@@ -313,15 +312,15 @@ system.
 
     jupyter notebook .\jupyter\diamondback.ipynb
 
-Restart the kernel, as the first cell contains common definitions, find
-cells which exercise components of interest, and manipulate widgets to
-exercise and visualize functionality.
+Restart the kernel, as the first cell contains common definitions, find cells
+which exercise components of interest, and manipulate widgets to exercise and
+visualize functionality.
 
 Documentation
 ~~~~~~~~~~~~~
 
-Diamondback documentation is generated from the source, indexed, and
-searchable from GitHub.
+Diamondback documentation is generated from the source, indexed, and searchable
+from GitHub.
 
 |GitHub|
 
@@ -350,8 +349,7 @@ Release
 
 `Version <https://github.com/larryturner/diamondback/blob/master/version>`__
 
-Copyright (c) 2018, Larry Turner, Schneider Electric. All rights
-reserved.
+Copyright (c) 2018, Larry Turner, Schneider Electric. All rights reserved.
 
 .. |Binder| image:: ./images/binder.png
    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
