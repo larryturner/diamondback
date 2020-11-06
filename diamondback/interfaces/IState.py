@@ -19,7 +19,7 @@
 
             test = Test( )
 
-            test.state = Serial.encode( { 'a' : 0.0, 'b' : 1.0 } )
+            test.state = Serial.encode( { 'a' : 0.0, 'b' : 1.0 }, compress = False )
 
     **License**
 

@@ -82,7 +82,7 @@ class Serial( object ) :
     jsonpickle.ext.pandas.register_handlers( )
 
     @staticmethod
-    def decode( state : str, compress : bool = True, encoding : str = 'utf_8', clean : bool = False ) -> any :
+    def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :
 
         """ Decodes an instance.
 
@@ -120,7 +120,7 @@ class Serial( object ) :
         return jsonpickle.decode( state )
 
     @staticmethod
-    def encode( instance : any, compress : bool = True, encoding : str = 'utf_8' ) -> str :
+    def encode( instance : any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
         """ Encodes an instance.
 

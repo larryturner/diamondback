@@ -54,6 +54,8 @@ class IUrl( IEqual ) :
     @url.setter
     def url( self, url : str ) :
 
+        url = url.strip( '/' )
+
         if ( not url ) :
 
             raise ValueError( 'Url = ' + str( url ) )

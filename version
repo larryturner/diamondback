@@ -101,3 +101,9 @@ Version     Date            Notes
 1.0.29      2020-11-02      Modified RestClient to remove user and added IUser.
 
 1.0.30      2020-11-04      Modified nox, dependencies, and documentation.
+
+1.0.31      2020-11-06      Modified Serial encode and decode disable
+                            compression as default behavior.
+
+                            Modified RestClient to strip leading and trailing
+                            '/' from URL and API properties and arguments.

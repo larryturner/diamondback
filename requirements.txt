@@ -32,4 +32,4 @@ pillow >= 8.0.1
 
 requests >= 2.24.0
 
-scipy >= 1.5.3
+scipy >= 1.5.4

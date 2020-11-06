@@ -133,7 +133,13 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
             raise ValueError( 'Method = ' + str( method ) )
 
-        url = self.url + '/' + api
+        api = api.strip( '/' )
+
+        url = self.url
+
+        if ( api ) :
+
+            url += '/' + api
 
         if ( item ) :
 
