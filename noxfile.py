@@ -112,7 +112,9 @@ def status( session ) -> None :
     """ Check status.
     """
 
-    session.run( 'git', 'status', '--short' )
+    if ( os.path.exists( '.git' ) ) :
+
+        session.run( 'git', 'status', '--short' )
 
 
 @nox.session( venv_backend = 'none' )
