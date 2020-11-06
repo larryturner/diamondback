@@ -49,7 +49,7 @@ def dist( session ) -> None :
 
     shutil.rmtree( './build', ignore_errors = True )
 
-    shutil.rmtree( './dist', ignore_errors = True )
+    shutil.rmtree( './dist/*', ignore_errors = True )
 
     for x in glob.glob( './**/__pycache__', recursive = True ) :
 
@@ -74,7 +74,7 @@ def docs( session ) -> None :
 
         session.run( 'sphinx-apidoc', '-f', '-o', './sphinx', '.' )
 
-        shutil.rmtree( './docs', ignore_errors = True )
+        shutil.rmtree( './docs/*', ignore_errors = True )
 
         if ( os.path.exists( 'images' ) ) :
 
