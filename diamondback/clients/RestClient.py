@@ -80,7 +80,17 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Live ( bool ).
         """
 
-        return self.request( 'get', 'live' )
+        value = False
+
+        try :
+
+            value = self.request( 'get', 'live' )
+
+        except :
+
+            pass
+
+        return value
 
     @property
     def ready( self ) :
@@ -88,7 +98,17 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Ready ( bool ).
         """
 
-        return ( ( self.live ) and ( self.request( 'get', 'ready' ) ) )
+        value = False
+
+        try :
+
+            value = ( ( self.live ) and ( self.request( 'get', 'ready' ) ) )
+
+        except :
+
+            pass
+
+        return value
 
     def __init__( self ) -> None :
 
