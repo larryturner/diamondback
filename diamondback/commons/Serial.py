@@ -1,7 +1,7 @@
 """ **Description**
 
         A serial instance encodes and decodes an instance or collection with
-        JSON text, or base-64 encoded gzip JSON binary format.
+        JSON, or base-64 encoded gzip JSON binary format.
 
         An instance may be an object or a collection, referenced by abstract or
         concrete types, and the instance will be correctly encoded and decoded.
@@ -74,7 +74,7 @@ import re
 
 class Serial( object ) :
 
-    """ Serial service, with JSON text or base-64 encoded gzip JSON binary format.
+    """ Serial service, with JSON or base-64 encoded gzip JSON binary format.
     """
 
     jsonpickle.ext.numpy.register_handlers( )
@@ -84,7 +84,11 @@ class Serial( object ) :
     @staticmethod
     def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :
 
-        """ Decodes an instance.
+        """ Decodes an instance or collection from JSON, or base-64 encoded
+            gzip JSON binary format state.  Encoding may be specified if an
+            alternative to UTF-8 is required.  Python style docstring and line
+            comments may be cleaned, though line comments must be terminated by
+            a new line.
 
             Arguments :
 
@@ -122,7 +126,9 @@ class Serial( object ) :
     @staticmethod
     def encode( instance : any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
-        """ Encodes an instance.
+        """ Encodes JSON, or base-64 encoded gzip JSON binary format state from
+            an instance or collection.  Encoding may be specified if an
+            alternative to UTF-8 is required.
 
             Arguments :
 

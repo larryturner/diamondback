@@ -213,7 +213,10 @@ class Log( object ) :
     @classmethod
     def write( cls, level : str, entry : typing.Union[ Exception, str ], data : any = None ) -> None :
 
-        """ Writes log entry.
+        """ Formats and writes log entries, electively using the logger package
+            or directly to a specified stream.  Log entries are prefaced with
+            an ISO-8601 datetime and log level, and enhancements are made to
+            the formatting of datetime, exception, and collection data types.
 
             Arguments :
 

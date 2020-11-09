@@ -360,7 +360,10 @@
 <div class="viewcode-block" id="Log.write"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.write">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="ne">Exception</span><span class="p">,</span> <span class="nb">str</span> <span class="p">],</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Writes log entry.</span>
+        <span class="sd">&quot;&quot;&quot; Formats and writes log entries, electively using the logger package</span>
+<span class="sd">            or directly to a specified stream.  Log entries are prefaced with</span>
+<span class="sd">            an ISO-8601 datetime and log level, and enhancements are made to</span>
+<span class="sd">            the formatting of datetime, exception, and collection data types.</span>
 
 <span class="sd">            Arguments :</span>
 

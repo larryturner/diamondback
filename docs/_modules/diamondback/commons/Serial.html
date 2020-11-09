@@ -148,7 +148,7 @@
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
 <span class="sd">        A serial instance encodes and decodes an instance or collection with</span>
-<span class="sd">        JSON text, or base-64 encoded gzip JSON binary format.</span>
+<span class="sd">        JSON, or base-64 encoded gzip JSON binary format.</span>
 
 <span class="sd">        An instance may be an object or a collection, referenced by abstract or</span>
 <span class="sd">        concrete types, and the instance will be correctly encoded and decoded.</span>
@@ -221,7 +221,7 @@
 
 <div class="viewcode-block" id="Serial"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial">[docs]</a><span class="k">class</span> <span class="nc">Serial</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Serial service, with JSON text or base-64 encoded gzip JSON binary format.</span>
+    <span class="sd">&quot;&quot;&quot; Serial service, with JSON or base-64 encoded gzip JSON binary format.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
@@ -231,7 +231,11 @@
 <div class="viewcode-block" id="Serial.decode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.decode">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">clean</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Decodes an instance.</span>
+        <span class="sd">&quot;&quot;&quot; Decodes an instance or collection from JSON, or base-64 encoded</span>
+<span class="sd">            gzip JSON binary format state.  Encoding may be specified if an</span>
+<span class="sd">            alternative to UTF-8 is required.  Python style docstring and line</span>
+<span class="sd">            comments may be cleaned, though line comments must be terminated by</span>
+<span class="sd">            a new line.</span>
 
 <span class="sd">            Arguments :</span>
 
@@ -269,7 +273,9 @@
 <div class="viewcode-block" id="Serial.encode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.encode">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">:</span> <span class="nb">any</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Encodes an instance.</span>
+        <span class="sd">&quot;&quot;&quot; Encodes JSON, or base-64 encoded gzip JSON binary format state from</span>
+<span class="sd">            an instance or collection.  Encoding may be specified if an</span>
+<span class="sd">            alternative to UTF-8 is required.</span>
 
 <span class="sd">            Arguments :</span>
 
