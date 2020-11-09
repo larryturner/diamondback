@@ -218,7 +218,7 @@
 
 <div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">ICache</span><span class="p">,</span> <span class="n">IData</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Rest client.</span>
+    <span class="sd">&quot;&quot;&quot; REST client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
@@ -252,7 +252,10 @@
 
 <div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Request.</span>
+        <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and a</span>
+<span class="sd">            dictionary of parameter strings are encoded to build a URL, a data</span>
+<span class="sd">            dictionary is attached in the body of a request, and a JSON</span>
+<span class="sd">            response is returned and decoded.</span>
 
 <span class="sd">            Arguments :</span>
 

@@ -217,7 +217,7 @@ service is not ready, a property which may be overriden.</p>
 <dt id="diamondback.clients.RestClient.RestClient">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.clients.RestClient.</code><code class="sig-name descname">RestClient</code><a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ICache.ICache" title="diamondback.interfaces.ICache.ICache"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ICache.ICache</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IData.IData" title="diamondback.interfaces.IData.IData"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IData.IData</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IProxy.IProxy" title="diamondback.interfaces.IProxy.IProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IProxy.IProxy</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl" title="diamondback.interfaces.IUrl.IUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IUrl.IUrl</span></code></a></p>
-<p>Rest client.</p>
+<p>REST client.</p>
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.live">
@@ -234,7 +234,10 @@ service is not ready, a property which may be overriden.</p>
 <dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.request">
 <code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request.</p>
+<dd><p>Request client for simple REST service requests. An API and a
+dictionary of parameter strings are encoded to build a URL, a data
+dictionary is attached in the body of a request, and a JSON
+response is returned and decoded.</p>
 <p>Arguments :</p>
 <blockquote>
 <div><p>method - Method ( str ) in ( ‘delete’, ‘get’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>

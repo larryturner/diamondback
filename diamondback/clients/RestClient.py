@@ -71,7 +71,7 @@ import typing
 
 class RestClient( ICache, IData, IProxy, IUrl ) :
 
-    """ Rest client.
+    """ REST client.
     """
 
     @property
@@ -105,7 +105,10 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
     def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : any = None ) -> any :
 
-        """ Request.
+        """ Request client for simple REST service requests. An API and a
+            dictionary of parameter strings are encoded to build a URL, a data
+            dictionary is attached in the body of a request, and a JSON
+            response is returned and decoded.
 
             Arguments :
 
