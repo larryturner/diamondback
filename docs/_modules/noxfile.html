@@ -225,7 +225,7 @@
 
         <span class="n">remove</span><span class="p">(</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span> <span class="s1">&#39;./sphinx/*.rst&#39;</span> <span class="p">)</span> <span class="k">if</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;index.rst&#39;</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span>
 
-        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;sphinx-apidoc&#39;</span><span class="p">,</span> <span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;./sphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;sphinx-apidoc&#39;</span><span class="p">,</span> <span class="s1">&#39;--force&#39;</span><span class="p">,</span> <span class="s1">&#39;--output&#39;</span><span class="p">,</span> <span class="s1">&#39;./sphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
 
         <span class="n">remove</span><span class="p">(</span> <span class="s1">&#39;./docs/*&#39;</span> <span class="p">)</span>
 
@@ -233,7 +233,7 @@
 
             <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span> <span class="s1">&#39;./images&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs/images&#39;</span><span class="p">,</span> <span class="n">dirs_exist_ok</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
-        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;sphinx-build&#39;</span><span class="p">,</span> <span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs/doctrees&#39;</span><span class="p">,</span> <span class="s1">&#39;./sphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs&#39;</span> <span class="p">)</span>
+        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;sphinx-build&#39;</span><span class="p">,</span> <span class="s1">&#39;./sphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs&#39;</span> <span class="p">)</span>
 
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>

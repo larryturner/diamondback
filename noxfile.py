@@ -78,7 +78,7 @@ def docs( session ) -> None :
 
         remove( [ x for x in glob.glob( './sphinx/*.rst' ) if ( x.split( os.path.sep )[ -1 ] != 'index.rst' ) ] )
 
-        session.run( 'sphinx-apidoc', '-f', '-o', './sphinx', '.' )
+        session.run( 'sphinx-apidoc', '--force', '--output', './sphinx', '.' )
 
         remove( './docs/*' )
 
@@ -86,7 +86,7 @@ def docs( session ) -> None :
 
             shutil.copytree( './images', './docs/images', dirs_exist_ok = True )
 
-        session.run( 'sphinx-build', '-b', 'html', '-d', './docs/doctrees', './sphinx', './docs' )
+        session.run( 'sphinx-build', './sphinx', './docs' )
 
 
 @nox.session( venv_backend = 'none' )
