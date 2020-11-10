@@ -8,7 +8,7 @@
 
             nox --list
 
-            nox --sessions build dist docs push status tests
+            nox --sessions build clean dist docs push status tests
 
     **License**
 
@@ -28,6 +28,7 @@ import glob
 import nox
 import os
 import shutil
+import typing
 
 
 @nox.session( venv_backend = 'none' )
@@ -42,22 +43,29 @@ def build( session ) -> None :
 
 
 @nox.session( venv_backend = 'none' )
+def clean( session ) -> None :
+
+    """ Clean repository.
+    """
+
+    remove( './build' )
+
+    remove( './**/__pycache__' )
+
+
+@nox.session( venv_backend = 'none' )
 def dist( session ) -> None :
 
     """ Build distributions.
     """
 
-    shutil.rmtree( './build', ignore_errors = True )
-
-    shutil.rmtree( './dist/*', ignore_errors = True )
-
-    for x in glob.glob( './**/__pycache__', recursive = True ) :
-
-        shutil.rmtree( x, ignore_errors = True )
+    remove( './dist/*' )
 
     if ( os.path.exists( 'setup.py' ) ) :
 
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel' )
+
+    clean( session )
 
 
 @nox.session( venv_backend = 'none' )
@@ -68,13 +76,11 @@ def docs( session ) -> None :
 
     if ( os.path.exists( 'sphinx' ) ) :
 
-        for x in [ x for x in glob.glob( './sphinx/*.rst' ) if ( x.split( os.path.sep )[ -1 ] != 'index.rst' ) ] :
-
-            os.remove( x )
+        remove( [ x for x in glob.glob( './sphinx/*.rst' ) if ( x.split( os.path.sep )[ -1 ] != 'index.rst' ) ] )
 
         session.run( 'sphinx-apidoc', '-f', '-o', './sphinx', '.' )
 
-        shutil.rmtree( './docs/*', ignore_errors = True )
+        remove( './docs/*' )
 
         if ( os.path.exists( 'images' ) ) :
 
@@ -126,3 +132,49 @@ def tests( session ) -> None :
     if ( os.path.exists( 'tests' ) ) :
 
         session.run( 'pytest', '--verbose' )
+
+
+def remove( path : typing.Union[ str, typing.List[ str ] ] ) -> None :
+
+    """ Remove path, expand for wildcards.
+
+        Arguments :
+
+            path - Path ( str, list( str ) ).
+    """
+
+    if ( not path ) :
+
+        raise ValueError( 'Path = ' + str( path ) )
+
+    v = [ ]
+
+    if ( issubclass( type( path ), str ) ) :
+
+        if ( path.find( '*' ) >= 0 ) :
+
+            v = glob.glob( path, recursive = True )
+
+        else :
+
+            v = [ path ]
+
+    elif ( not issubclass( type( v ), list ) ) :
+
+        raise ValueError( 'Path = ' + str( path ) )
+
+    for x in v :
+
+        try :
+
+            if ( os.path.isdir( x ) ) :
+
+                shutil.rmtree( x, ignore_errors = True )
+
+            else :
+
+                os.remove( x )
+
+        except :
+
+            pass
