@@ -166,7 +166,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         if ( item ) :
 
-            url += '?' + '&'.join( [ x + '=' + requests.utils.quote( y ) for ( x, y ) in item.items( ) ] )
+            url += '?' + '&'.join( [ str( x ) + '=' + requests.utils.quote( str( y ) ) for ( x, y ) in item.items( ) ] )
 
         value = True
 

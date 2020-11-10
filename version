@@ -107,3 +107,8 @@ Version     Date            Notes
 
                             Modified RestClient to strip leading and trailing
                             '/' from URL and API properties and arguments.
+
+1.0.32      2020-11-09      Modified RestClient to force coercion of item
+                            dictionary values to strings.
+
+                            Modified nox sessions.
