@@ -40,7 +40,8 @@ exclude_patterns = [ 'build' ]
 extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.githubpages',
                'sphinx.ext.napoleon',
-               'sphinx.ext.viewcode' ]
+               'sphinx.ext.viewcode',
+               'sphinx-pydantic' ]
 
 pygments_style = 'friendly'
 
