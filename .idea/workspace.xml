@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/noxfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/noxfile.py" afterDir="false" />
-    </list>
+    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -125,7 +122,7 @@
       <workItem from="1603737438334" duration="4329000" />
       <workItem from="1603914773887" duration="18246000" />
       <workItem from="1604088770271" duration="22277000" />
-      <workItem from="1604531214262" duration="22437000" />
+      <workItem from="1604531214262" duration="22796000" />
     </task>
     <servers />
   </component>
@@ -158,10 +155,10 @@
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602707345850" />
     <state x="2590" y="-643" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@1920.-829.2194.1204" timestamp="1602707133010" />
-    <state x="756" y="173" width="997" height="778" key="find.popup" timestamp="1604971689658">
+    <state x="756" y="173" width="997" height="778" key="find.popup" timestamp="1605110371299">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="756" y="173" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1604971689658" />
+    <state x="756" y="173" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1605110371299" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
     <state x="615" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1602540340530">
       <screen x="0" y="0" width="1920" height="1050" />
