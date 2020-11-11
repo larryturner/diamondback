@@ -133,6 +133,7 @@ def tests( session ) -> None :
 
         session.run( 'pytest', '--verbose' )
 
+# Private utilities.
 
 def remove( path : typing.Union[ str, typing.List[ str ] ] ) -> None :
 
