@@ -169,6 +169,7 @@ Diamondback is defined in subpackages :
    `IEncoding <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEncoding>`__,
    `IEqual <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IEqual>`__,
    `IFrequency <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency>`__,
+   `IIdentity <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity>`__,
    `IInterval <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval>`__,
    `ILatency <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency>`__,
    `IPath <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath>`__,

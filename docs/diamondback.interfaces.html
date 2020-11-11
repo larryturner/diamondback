@@ -100,6 +100,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEncoding">diamondback.interfaces.IEncoding module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEqual">diamondback.interfaces.IEqual module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IFrequency">diamondback.interfaces.IFrequency module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IIdentity">diamondback.interfaces.IIdentity module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IInterval">diamondback.interfaces.IInterval module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILatency">diamondback.interfaces.ILatency module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPath">diamondback.interfaces.IPath module</a></li>
@@ -930,6 +931,57 @@
 <dt id="diamondback.interfaces.IFrequency.IFrequency.frequency">
 <em class="property">property </em><code class="sig-name descname">frequency</code><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency.frequency" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IIdentity">
+<span id="diamondback-interfaces-iidentity-module"></span><h2>diamondback.interfaces.IIdentity module<a class="headerlink" href="#module-diamondback.interfaces.IIdentity" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Identity interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IIdentity</span> <span class="kn">import</span> <span class="n">IIdentity</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IIdentity</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">identity</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">identity</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-23.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.interfaces.IIdentity.IIdentity">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IIdentity.</code><code class="sig-name descname">IIdentity</code><a class="reference internal" href="_modules/diamondback/interfaces/IIdentity.html#IIdentity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Identity interface.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.interfaces.IIdentity.IIdentity.identity">
+<em class="property">property </em><code class="sig-name descname">identity</code><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity.identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identity ( any ).</p>
 </dd></dl>
 
 </dd></dl>

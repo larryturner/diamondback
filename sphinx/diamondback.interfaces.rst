@@ -124,6 +124,14 @@ diamondback.interfaces.IFrequency module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IIdentity module
+---------------------------------------
+
+.. automodule:: diamondback.interfaces.IIdentity
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IInterval module
 ---------------------------------------
 

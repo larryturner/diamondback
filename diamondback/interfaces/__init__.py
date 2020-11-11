@@ -13,6 +13,7 @@ from diamondback.interfaces.IEmulate import IEmulate
 from diamondback.interfaces.IEncoding import IEncoding
 from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IFrequency import IFrequency
+from diamondback.interfaces.IIdentity import IIdentity
 from diamondback.interfaces.IInterval import IInterval
 from diamondback.interfaces.ILatency import ILatency
 from diamondback.interfaces.IPath import IPath

@@ -112,3 +112,5 @@ Version     Date            Notes
                             dictionary values to strings.
 
                             Modified nox sessions.
+
+1.0.33      2020-11-10      Added IIdentity.
