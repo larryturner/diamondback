@@ -47,16 +47,15 @@ Diamondback is defined in subpackages :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  `RestClient <https://larryturner.github.io/diamondback/diamondback.clients#module-diamondback.clients.RestClient>`__
-   instances define a client for simple REST service requests. An API
-   and a dictionary of parameter strings are encoded to build a URL, a
-   data dictionary is attached in the body of a request, and a JSON
-   response is returned and decoded. A client instance may be useful as
-   a base client definition to interact with a service which satisfies
-   flexible request constraints. Caching may be useful in environments
-   with intermittent or inconsistent network connectivity. If caching is
-   enabled, delete, patch, and put requests are cached and sent in order
-   during a later request when the service is not ready, a property
-   which may be overriden.
+   instances define a client for simple REST service requests.  An API and an
+   elective dictionary of parameter strings are encoded to build a URL,
+   elective JSON and binary data are defined in the body of a request, and a
+   JSON response is returned and decoded.  A client instance may be useful as
+   a base client definition to interact with a service which satisfies flexible
+   request constraints. Caching may be useful in environments with intermittent
+   or inconsistent network connectivity. If caching is enabled, delete, patch,
+   and put requests are cached and sent in order during a later request when
+   the service is not ready, a property which may be overriden.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

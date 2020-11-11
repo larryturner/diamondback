@@ -1,8 +1,9 @@
 """ **Description**
 
-    REST client for simple REST service requests.  An API and a dictionary of
-    parameter strings are encoded to build a URL, a data dictionary is attached
-    in the body of a request, and a JSON response is returned and decoded.
+    REST client for simple REST service requests.  An API and an elective
+    dictionary of parameter strings are encoded to build a URL, elective
+    JSON and binary data are defined in the body of a request, and a JSON
+    response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
     with a service which satisfies flexible request constraints.
@@ -36,9 +37,9 @@
                     self.proxy = { 'http' : '', 'https' : '' }
 
 
-                def add( self, item : typing.Dict[ str, float ], data : any = None ) :
+                def add( self, item : typing.Dict[ str, float ] ) -> float :
 
-                    return float( self.request( 'get', api = 'test/add', item = item, data = data ) )
+                    return self.request( 'get', api = 'test/add', item = item )
 
             client = TestClient( )
 
@@ -123,12 +124,12 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : any = None ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, any ] = None, json : any = None, data : any = None ) -> any :
 
-        """ Request client for simple REST service requests. An API and a
-            dictionary of parameter strings are encoded to build a URL, a data
-            dictionary is attached in the body of a request, and a JSON
-            response is returned and decoded.
+        """ Request client for simple REST service requests. An API and an
+            elective dictionary of parameter strings are encoded to build a
+            URL, elective JSON and binary data are defined in the body of a
+            request, and a JSON response is returned and decoded.
 
             Arguments :
 
@@ -137,6 +138,8 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
                 api - API ( str ).
 
                 item - Item ( dict( str, str ) ).
+
+                json - JSON ( any ).
 
                 data - Data ( any ).
 
@@ -172,7 +175,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         with ( self._rlock ) :
 
-            self.data.append( { 'method' : method, 'url' : url, 'data' : data } )
+            self.data.append( { 'method' : method, 'url' : url, 'data' : data, 'json' : json } )
 
             if ( ( not self.cache ) or ( ( method not in ( 'delete', 'patch', 'put' ) ) or ( self.ready ) ) ) :
 
@@ -180,7 +183,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     try :
 
-                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], json = x[ 'data' ], proxies = self.proxy, timeout = 15.0 ) as value :
+                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = 15.0 ) as value :
 
                             if ( ( not value ) or ( value.status_code != 200 ) ) :
 

@@ -162,9 +162,10 @@
 <div class="section" id="module-diamondback.clients.RestClient">
 <span id="diamondback-clients-restclient-module"></span><h2>diamondback.clients.RestClient module<a class="headerlink" href="#module-diamondback.clients.RestClient" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
-<p>REST client for simple REST service requests.  An API and a dictionary of
-parameter strings are encoded to build a URL, a data dictionary is attached
-in the body of a request, and a JSON response is returned and decoded.</p>
+<p>REST client for simple REST service requests.  An API and an elective
+dictionary of parameter strings are encoded to build a URL, elective
+JSON and binary data are defined in the body of a request, and a JSON
+response is returned and decoded.</p>
 <p>A client instance may be useful as a base client definition to interact
 with a service which satisfies flexible request constraints.</p>
 <p>Caching may be useful in environments with intermittent or inconsistent
@@ -191,9 +192,9 @@ service is not ready, a property which may be overriden.</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
 
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">],</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="p">:</span>
 
-        <span class="k">return</span> <span class="nb">float</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">api</span> <span class="o">=</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span> <span class="p">)</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
 
@@ -233,16 +234,17 @@ service is not ready, a property which may be overriden.</p>
 
 <dl class="py method">
 <dt id="diamondback.clients.RestClient.RestClient.request">
-<code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
-<dd><p>Request client for simple REST service requests. An API and a
-dictionary of parameter strings are encoded to build a URL, a data
-dictionary is attached in the body of a request, and a JSON
-response is returned and decoded.</p>
+<code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">json</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request client for simple REST service requests. An API and an
+elective dictionary of parameter strings are encoded to build a
+URL, elective JSON and binary data are defined in the body of a
+request, and a JSON response is returned and decoded.</p>
 <p>Arguments :</p>
 <blockquote>
 <div><p>method - Method ( str ) in ( ‘delete’, ‘get’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>
 <p>api - API ( str ).</p>
 <p>item - Item ( dict( str, str ) ).</p>
+<p>json - JSON ( any ).</p>
 <p>data - Data ( any ).</p>
 </div></blockquote>
 <p>Returns :</p>

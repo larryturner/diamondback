@@ -114,3 +114,6 @@ Version     Date            Notes
                             Modified nox sessions.
 
 1.0.33      2020-11-10      Added IIdentity.
+
+1.0.34      2020-11-11      Modified RestClient to support json and binary data
+                            body definition.
