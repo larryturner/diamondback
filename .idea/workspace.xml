@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.34-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.34.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +126,7 @@
       <workItem from="1603737438334" duration="4329000" />
       <workItem from="1603914773887" duration="18246000" />
       <workItem from="1604088770271" duration="22277000" />
-      <workItem from="1604531214262" duration="26410000" />
+      <workItem from="1604531214262" duration="27223000" />
     </task>
     <servers />
   </component>
@@ -161,10 +159,10 @@
     </state>
     <state x="586" y="162" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1602707345850" />
     <state x="2590" y="-643" key="SettingsEditor/0.0.1920.1050/1920.-829.2194.1204@1920.-829.2194.1204" timestamp="1602707133010" />
-    <state x="756" y="173" width="997" height="778" key="find.popup" timestamp="1605110371299">
+    <state x="756" y="173" width="997" height="778" key="find.popup" timestamp="1605137158658">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="756" y="173" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1605110371299" />
+    <state x="756" y="173" width="997" height="778" key="find.popup/0.0.1920.1050/1920.-829.2194.1204@0.0.1920.1050" timestamp="1605137158658" />
     <state x="656" y="257" width="997" height="778" key="find.popup/0.0.1920.1050@0.0.1920.1050" timestamp="1596727490333" />
     <state x="615" y="229" width="672" height="678" key="search.everywhere.popup" timestamp="1605136355236">
       <screen x="0" y="0" width="1920" height="1050" />
