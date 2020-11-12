@@ -163,7 +163,7 @@
 
 <span class="sd">                    super( ).__init__( )</span>
 
-<span class="sd">                    self.date = datetime.datetime.utcnow( )</span>
+<span class="sd">                    self.date = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )</span>
 
 <span class="sd">            test = Test( )</span>
 

@@ -250,9 +250,15 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">if</span> <span class="p">(</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;--all&#39;</span><span class="p">,</span> <span class="s1">&#39;--message&#39;</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">try</span> <span class="p">:</span>
 
-                <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;commit&#39;</span><span class="p">,</span> <span class="s1">&#39;--all&#39;</span><span class="p">,</span> <span class="s1">&#39;--message&#39;</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;origin&#39;</span><span class="p">,</span> <span class="s1">&#39;master&#39;</span> <span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">:</span>
+
+                <span class="k">pass</span>
 
         <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.schneider-electric.com/sesa14073/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.git&#39;</span>
 

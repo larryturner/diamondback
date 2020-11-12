@@ -16,7 +16,7 @@
 
                     super( ).__init__( )
 
-                    self.date = datetime.datetime.utcnow( )
+                    self.date = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )
 
             test = Test( )
 
