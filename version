@@ -115,5 +115,5 @@ Version     Date            Notes
 
 1.0.33      2020-11-10      Added IIdentity.
 
-1.0.34      2020-11-11      Modified RestClient to support json and binary data
-                            body definition.
+1.0.34      2020-11-11      Modified RestClient to add json and binary data
+                            body and head method support.

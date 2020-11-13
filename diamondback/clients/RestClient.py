@@ -133,7 +133,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
             Arguments :
 
-                method - Method ( str ) in ( 'delete', 'get', 'options', 'patch', 'post', 'put' ).
+                method - Method ( str ) in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
 
                 api - API ( str ).
 
@@ -155,7 +155,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         method = method.lower( )
 
-        if ( method not in ( 'delete', 'get', 'options', 'patch', 'post', 'put' ) ) :
+        if ( method not in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ) ) :
 
             raise ValueError( 'Method = ' + str( method ) )
 
