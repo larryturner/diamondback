@@ -124,7 +124,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, any ] = None, json : any = None, data : any = None ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -167,15 +167,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
             url += '/' + api
 
-        if ( item ) :
-
-            url += '?' + '&'.join( [ str( x ) + '=' + requests.utils.quote( str( y ) ) for ( x, y ) in item.items( ) ] )
-
         value = True
 
         with ( self._rlock ) :
 
-            self.data.append( { 'method' : method, 'url' : url, 'data' : data, 'json' : json } )
+            self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
             if ( ( not self.cache ) or ( ( method not in ( 'delete', 'patch', 'put' ) ) or ( self.ready ) ) ) :
 
@@ -183,7 +179,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     try :
 
-                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = 15.0 ) as value :
+                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = 15.0 ) as value :
 
                             if ( ( not value ) or ( value.status_code != 200 ) ) :
 
