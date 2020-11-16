@@ -20,7 +20,7 @@ ipywidgets >= 7.5.1
 
 jsonpickle >= 1.4.1
 
-matplotlib >= 3.3.2
+matplotlib >= 3.3.3
 
 nox >= 2020.8.22
 
@@ -30,11 +30,11 @@ pandas >= 1.1.4
 
 pillow >= 8.0.1
 
-requests >= 2.24.0
+requests >= 2.25.0
 
 scipy >= 1.5.4
 
-sphinx >= 3.3.0
+sphinx >= 3.3.1
 
 sphinx-pydantic >= 0.1.1
 
