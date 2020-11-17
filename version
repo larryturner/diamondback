@@ -117,3 +117,5 @@ Version     Date            Notes
 
 1.0.34      2020-11-11      Modified RestClient to add json and binary data
                             body and head method support.
+
+1.0.35      2020-11-16      Modified RestClient to add timeout.

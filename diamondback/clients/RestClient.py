@@ -2,7 +2,7 @@
 
     REST client for simple REST service requests.  An API and an elective
     dictionary of parameter strings are encoded to build a URL, elective
-    JSON and binary data are defined in the body of a request, and a JSON
+    JSON or binary data are defined in the body of a request, and a JSON
     response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
@@ -124,11 +124,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout = 15.0 ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
-            URL, elective JSON and binary data are defined in the body of a
+            URL, elective JSON or binary data are defined in the body of a
             request, and a JSON response is returned and decoded.
 
             Arguments :
@@ -142,6 +142,8 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
                 json - JSON ( any ).
 
                 data - Data ( any ).
+
+                timeout - Timeout ( float ).
 
             Returns :
 
@@ -158,6 +160,14 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         if ( method not in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ) ) :
 
             raise ValueError( 'Method = ' + str( method ) )
+
+        if ( ( data ) and ( json ) ) :
+
+            raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'Json = ' + str( json ) ) )
+
+        if ( timeout <= 0.0 ) :
+
+            raise ValueError( 'Timeout = ' + str( timeout ) )
 
         api = api.strip( '/' )
 
@@ -179,7 +189,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     try :
 
-                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = 15.0 ) as value :
+                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
                             if ( ( not value ) or ( value.status_code != 200 ) ) :
 
