@@ -85,7 +85,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         try :
 
-            self.request( 'get', '/' )
+            requests.request( method = 'get', url = self.url, timeout = 15.0 )
 
         except :
 
