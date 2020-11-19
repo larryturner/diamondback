@@ -81,17 +81,19 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Live ( bool ).
         """
 
-        value = True
-
         try :
 
-            requests.request( method = 'get', url = self.url, timeout = 15.0 )
+            value = requests.request( method = 'get', url = self.url, timeout = 15.0 )
+
+            if ( ( value ) and ( value.status_code == 200 ) ) :
+
+                value = True
 
         except :
 
             value = False
 
-        return value
+        return bool( value )
 
     def __init__( self ) -> None :
 
