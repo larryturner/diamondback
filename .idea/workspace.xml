@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.36-py3-none-any.whl" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.36.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +127,7 @@
       <workItem from="1604531214262" duration="30778000" />
       <workItem from="1605305496311" duration="598000" />
       <workItem from="1605462504036" duration="2672000" />
-      <workItem from="1605560487292" duration="12335000" />
+      <workItem from="1605560487292" duration="13008000" />
     </task>
     <servers />
   </component>
