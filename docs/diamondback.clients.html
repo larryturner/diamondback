@@ -170,8 +170,8 @@ response is returned and decoded.</p>
 with a service which satisfies flexible request constraints.</p>
 <p>Caching may be useful in environments with intermittent or inconsistent
 network connectivity.  If caching is enabled, delete, patch, and put
-requests are cached and sent in order during a later request when the
-service is not ready, a property which may be overriden.</p>
+requests are cached when a service is not ready, and sent in order during a
+subsequent request when a service is ready.</p>
 <p>URL and proxy definition is supported.</p>
 <p>Thread safe and reentrant.</p>
 <p><strong>Example</strong></p>

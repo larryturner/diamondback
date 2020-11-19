@@ -10,8 +10,8 @@
 
     Caching may be useful in environments with intermittent or inconsistent
     network connectivity.  If caching is enabled, delete, patch, and put
-    requests are cached and sent in order during a later request when the
-    service is not ready, a property which may be overriden.
+    requests are cached when a service is not ready, and sent in order during a
+    subsequent request when a service is ready.
 
     URL and proxy definition is supported.
 
@@ -181,24 +181,36 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         with ( self._rlock ) :
 
-            self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
+            cache, ready = self.cache, self.ready
 
-            if ( ( not self.cache ) or ( ( method not in ( 'delete', 'patch', 'put' ) ) or ( self.ready ) ) ) :
+            if ( ( cache ) and ( not ready ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
 
-                for x in [ x for x in self.data ] :
+                self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
-                    try :
+            else :
 
-                        with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
+                if ( ( cache ) and ( ready ) ) :
 
-                            if ( ( not value ) or ( value.status_code != 200 ) ) :
+                    for x in [ x for x in self.data ] :
 
-                                raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                        try :
 
-                            value = value.json( )
+                            with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                    finally :
+                                if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                        del self.data[ 0 ]
+                                    raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+
+                        finally :
+
+                            del self.data[ 0 ]
+
+                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
+
+                    if ( ( not value ) or ( value.status_code != 200 ) ) :
+
+                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+
+                    value = value.json( )
 
         return value
