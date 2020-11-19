@@ -10,8 +10,8 @@
 
     Caching may be useful in environments with intermittent or inconsistent
     network connectivity.  If caching is enabled, delete, patch, and put
-    requests are cached when a service is not ready, and sent in order during a
-    subsequent request when a service is ready.
+    requests are cached when a service is not live, and sent in order during
+    a subsequent request when a service is live.
 
     URL and proxy definition is supported.
 
@@ -81,33 +81,15 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Live ( bool ).
         """
 
-        value = False
+        value = True
 
         try :
 
-            value = self.request( 'get', 'live' )
+            self.request( 'get', '/' )
 
         except :
 
-            pass
-
-        return value
-
-    @property
-    def ready( self ) :
-
-        """ Ready ( bool ).
-        """
-
-        value = False
-
-        try :
-
-            value = ( ( self.live ) and ( self.request( 'get', 'ready' ) ) )
-
-        except :
-
-            pass
+            value = False
 
         return value
 
@@ -181,15 +163,15 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         with ( self._rlock ) :
 
-            cache, ready = self.cache, self.ready
+            cache, live = self.cache, self.live
 
-            if ( ( cache ) and ( not ready ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
+            if ( ( cache ) and ( not live ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
 
                 self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
             else :
 
-                if ( ( cache ) and ( ready ) ) :
+                if ( ( cache ) and ( live ) ) :
 
                     for x in [ x for x in self.data ] :
 

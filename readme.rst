@@ -54,8 +54,8 @@ Diamondback is defined in subpackages :
    a base client definition to interact with a service which satisfies flexible
    request constraints. Caching may be useful in environments with intermittent
    or inconsistent network connectivity. If caching is enabled, delete, patch,
-   and put requests are cached when a service is not ready, and sent in order
-   during a subsequent request when a service is ready.
+   and put requests are cached when a service is not live, and sent in order
+   during a subsequent request when a service is live.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

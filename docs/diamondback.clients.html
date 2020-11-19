@@ -170,8 +170,8 @@ response is returned and decoded.</p>
 with a service which satisfies flexible request constraints.</p>
 <p>Caching may be useful in environments with intermittent or inconsistent
 network connectivity.  If caching is enabled, delete, patch, and put
-requests are cached when a service is not ready, and sent in order during a
-subsequent request when a service is ready.</p>
+requests are cached when a service is not live, and sent in order during
+a subsequent request when a service is live.</p>
 <p>URL and proxy definition is supported.</p>
 <p>Thread safe and reentrant.</p>
 <p><strong>Example</strong></p>
@@ -224,12 +224,6 @@ subsequent request when a service is ready.</p>
 <dt id="diamondback.clients.RestClient.RestClient.live">
 <em class="property">property </em><code class="sig-name descname">live</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.live" title="Permalink to this definition">¶</a></dt>
 <dd><p>Live ( bool ).</p>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.clients.RestClient.RestClient.ready">
-<em class="property">property </em><code class="sig-name descname">ready</code><a class="headerlink" href="#diamondback.clients.RestClient.RestClient.ready" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ready ( bool ).</p>
 </dd></dl>
 
 <dl class="py method">

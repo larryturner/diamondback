@@ -157,8 +157,8 @@
 
 <span class="sd">    Caching may be useful in environments with intermittent or inconsistent</span>
 <span class="sd">    network connectivity.  If caching is enabled, delete, patch, and put</span>
-<span class="sd">    requests are cached when a service is not ready, and sent in order during a</span>
-<span class="sd">    subsequent request when a service is ready.</span>
+<span class="sd">    requests are cached when a service is not live, and sent in order during</span>
+<span class="sd">    a subsequent request when a service is live.</span>
 
 <span class="sd">    URL and proxy definition is supported.</span>
 
@@ -228,33 +228,15 @@
         <span class="sd">&quot;&quot;&quot; Live ( bool ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
 
         <span class="k">try</span> <span class="p">:</span>
 
-            <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;live&#39;</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
 
         <span class="k">except</span> <span class="p">:</span>
 
-            <span class="k">pass</span>
-
-        <span class="k">return</span> <span class="n">value</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="sd">&quot;&quot;&quot; Ready ( bool ).</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">try</span> <span class="p">:</span>
-
-            <span class="n">value</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">live</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;ready&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-
-        <span class="k">except</span> <span class="p">:</span>
-
-            <span class="k">pass</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="n">value</span>
 
@@ -328,15 +310,15 @@
 
         <span class="k">with</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="n">cache</span><span class="p">,</span> <span class="n">ready</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ready</span>
+            <span class="n">cache</span><span class="p">,</span> <span class="n">live</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">live</span>
 
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cache</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">ready</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cache</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">live</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;method&#39;</span> <span class="p">:</span> <span class="n">method</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span> <span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span> <span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span> <span class="p">:</span> <span class="n">json</span> <span class="p">}</span> <span class="p">)</span>
 
             <span class="k">else</span> <span class="p">:</span>
 
-                <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cache</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">ready</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cache</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">live</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
                     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="p">]</span> <span class="p">:</span>
 
