@@ -155,7 +155,7 @@ def remove( path : typing.Union[ str, typing.List[ str ] ] ) -> None :
 
         v = [ ]
 
-        if ( issubclass( type( path ), str ) ) :
+        if ( isinstance( path, str ) ) :
 
             if ( path.find( '*' ) >= 0 ) :
 
@@ -165,7 +165,7 @@ def remove( path : typing.Union[ str, typing.List[ str ] ] ) -> None :
 
                 v = [ path ]
 
-        elif ( not issubclass( type( v ), list ) ) :
+        elif ( not isinstance( v, list ) ) :
 
             raise ValueError( 'Path = ' + str( path ) )
 
