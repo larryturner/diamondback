@@ -127,5 +127,5 @@ Version     Date            Notes
 
 1.0.38      2020-11-20      Modified RestClient live.
 
-                            Modified inits to simplify import by eliminating
+                            Modified init to simplify import by eliminating
                             required package declaration.

@@ -151,38 +151,36 @@ def remove( path : typing.Union[ str, typing.List[ str ] ] ) -> None :
             path - Path ( str, list( str ) ).
     """
 
-    if ( not path ) :
+    if ( path ) :
 
-        raise ValueError( 'Path = ' + str( path ) )
+        v = [ ]
 
-    v = [ ]
+        if ( issubclass( type( path ), str ) ) :
 
-    if ( issubclass( type( path ), str ) ) :
+            if ( path.find( '*' ) >= 0 ) :
 
-        if ( path.find( '*' ) >= 0 ) :
-
-            v = glob.glob( path, recursive = True )
-
-        else :
-
-            v = [ path ]
-
-    elif ( not issubclass( type( v ), list ) ) :
-
-        raise ValueError( 'Path = ' + str( path ) )
-
-    for x in v :
-
-        try :
-
-            if ( os.path.isdir( x ) ) :
-
-                shutil.rmtree( x, ignore_errors = True )
+                v = glob.glob( path, recursive = True )
 
             else :
 
-                os.remove( x )
+                v = [ path ]
 
-        except :
+        elif ( not issubclass( type( v ), list ) ) :
 
-            pass
+            raise ValueError( 'Path = ' + str( path ) )
+
+        for x in v :
+
+            try :
+
+                if ( os.path.isdir( x ) ) :
+
+                    shutil.rmtree( x, ignore_errors = True )
+
+                else :
+
+                    os.remove( x )
+
+            except :
+
+                pass
