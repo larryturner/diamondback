@@ -56,8 +56,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.IntegralFilter import IntegralFilter
+            from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 
 

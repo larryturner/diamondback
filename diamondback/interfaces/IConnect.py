@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IConnect import IConnect
+            from diamondback import IConnect
 
 
             class Test( IConnect ) :

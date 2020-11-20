@@ -203,7 +203,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IA</span> <span class="kn">import</span> <span class="n">IA</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IA</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -254,7 +254,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IB</span> <span class="kn">import</span> <span class="n">IB</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IB</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -305,7 +305,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ICache</span> <span class="kn">import</span> <span class="n">ICache</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ICache</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICache</span> <span class="p">)</span> <span class="p">:</span>
@@ -355,8 +355,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="kn">import</span> <span class="n">IClear</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IPhase</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
@@ -404,7 +403,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ICompress</span> <span class="kn">import</span> <span class="n">ICompress</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ICompress</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICompress</span> <span class="p">)</span> <span class="p">:</span>
@@ -454,7 +453,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IConfigure</span> <span class="kn">import</span> <span class="n">IConfigure</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IConfigure</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IConfigure</span> <span class="p">)</span> <span class="p">:</span>
@@ -504,7 +503,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IConnect</span> <span class="kn">import</span> <span class="n">IConnect</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IConnect</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IConnect</span> <span class="p">)</span> <span class="p">:</span>
@@ -554,7 +553,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IData</span> <span class="kn">import</span> <span class="n">IData</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IData</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IData</span> <span class="p">)</span> <span class="p">:</span>
@@ -604,7 +603,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDate</span> <span class="kn">import</span> <span class="n">IDate</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IDate</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 
 
@@ -655,7 +654,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDispose</span> <span class="kn">import</span> <span class="n">IDispose</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IDispose</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDispose</span> <span class="p">)</span> <span class="p">:</span>
@@ -705,7 +704,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IDuration</span> <span class="kn">import</span> <span class="n">IDuration</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IDuration</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDuration</span> <span class="p">)</span> <span class="p">:</span>
@@ -755,7 +754,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEmulate</span> <span class="kn">import</span> <span class="n">IEmulate</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEmulate</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEmulate</span> <span class="p">)</span> <span class="p">:</span>
@@ -805,7 +804,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEncoding</span> <span class="kn">import</span> <span class="n">IEncoding</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEncoding</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEncoding</span> <span class="p">)</span> <span class="p">:</span>
@@ -855,8 +854,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IPhase</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
@@ -894,7 +892,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IFrequency</span> <span class="kn">import</span> <span class="n">IFrequency</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IFrequency</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IFrequency</span> <span class="p">)</span> <span class="p">:</span>
@@ -944,7 +942,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IIdentity</span> <span class="kn">import</span> <span class="n">IIdentity</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IIdentity</span>
 <span class="kn">import</span> <span class="nn">uuid</span>
 
 
@@ -995,7 +993,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IInterval</span> <span class="kn">import</span> <span class="n">IInterval</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IInterval</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IInterval</span> <span class="p">)</span> <span class="p">:</span>
@@ -1042,7 +1040,7 @@
 <p>Latency interface.</p>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ILatency</span> <span class="kn">import</span> <span class="n">ILatency</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ILatency</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILatency</span> <span class="p">)</span> <span class="p">:</span>
@@ -1092,7 +1090,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPath</span> <span class="kn">import</span> <span class="n">IPath</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPath</span>
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPath</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -1141,7 +1139,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPeriod</span> <span class="kn">import</span> <span class="n">IPeriod</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPeriod</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPeriod</span> <span class="p">)</span> <span class="p">:</span>
@@ -1191,7 +1189,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IPhase</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPhase</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
@@ -1241,7 +1239,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IProxy</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IProxy</span> <span class="p">)</span> <span class="p">:</span>
@@ -1292,7 +1290,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IQ</span> <span class="kn">import</span> <span class="n">IQ</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IQ</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -1343,7 +1341,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="kn">import</span> <span class="n">IRate</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IRate</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
@@ -1393,8 +1391,7 @@
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="kn">import</span> <span class="n">IReset</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span> <span class="kn">import</span> <span class="n">IS</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -1450,7 +1447,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IResolution</span> <span class="kn">import</span> <span class="n">IResolution</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IResolution</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IResolution</span> <span class="p">)</span> <span class="p">:</span>
@@ -1500,7 +1497,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IRotation</span> <span class="kn">import</span> <span class="n">IRotation</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IRotation</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRotation</span> <span class="p">)</span> <span class="p">:</span>
@@ -1550,7 +1547,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="kn">import</span> <span class="n">IS</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IS</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -1601,8 +1598,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.commons.Serial</span> <span class="kn">import</span> <span class="n">Serial</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IState</span> <span class="kn">import</span> <span class="n">IState</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IState</span><span class="p">,</span> <span class="n">Serial</span>
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IState</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -1651,7 +1647,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IStream</span> <span class="kn">import</span> <span class="n">IStream</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IStream</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
 
@@ -1702,7 +1698,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeZone</span> <span class="kn">import</span> <span class="n">ITimeZone</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ITimeZone</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">pytz</span>
 
@@ -1754,8 +1750,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IPhase</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IUpdate</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IUpdate</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IUpdate</span> <span class="p">)</span> <span class="p">:</span>
@@ -1803,7 +1798,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IUrl</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
@@ -1853,7 +1848,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IUser</span> <span class="kn">import</span> <span class="n">IUser</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IUser</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUser</span> <span class="p">)</span> <span class="p">:</span>
@@ -1901,7 +1896,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IValid</span> <span class="kn">import</span> <span class="n">IValid</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IValid</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IValid</span> <span class="p">)</span> <span class="p">:</span>
@@ -1951,7 +1946,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IVersion</span> <span class="kn">import</span> <span class="n">IVersion</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IVersion</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IVersion</span> <span class="p">)</span> <span class="p">:</span>
@@ -2001,7 +1996,7 @@ operation at a specified incident signal condition.</p>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.interfaces.IWrite</span> <span class="kn">import</span> <span class="n">IWrite</span>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IWrite</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IWrite</span> <span class="p">)</span> <span class="p">:</span>

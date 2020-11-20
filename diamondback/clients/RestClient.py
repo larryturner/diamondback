@@ -21,7 +21,7 @@
 
         ::
 
-            from diamondback.clients.RestClient import RestClient
+            from diamondback import RestClient
             import requests
             import typing
 
@@ -81,15 +81,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
         """ Live ( bool ).
         """
 
-        value = False
-
         try :
 
-            v = requests.request( method = 'get', url = self.url, timeout = 15.0 )
+            requests.request( method = 'get', url = self.url, timeout = 15.0 )
 
-            if ( ( v ) and ( v.status_code == 200 ) ) :
-
-                value = True
+            value = True
 
         except :
 

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IRate import IRate
+            from diamondback import IRate
 
 
             class Test( IRate ) :

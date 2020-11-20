@@ -18,7 +18,7 @@
 
         ::
 
-            from diamondback.commons.Serial import Serial
+            from diamondback import Serial
             import numpy
             import pandas
 

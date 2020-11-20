@@ -16,8 +16,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.PidFilter import PidFilter
+            from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 
 

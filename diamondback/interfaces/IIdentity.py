@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IIdentity import IIdentity
+            from diamondback import IIdentity
             import uuid
 
 

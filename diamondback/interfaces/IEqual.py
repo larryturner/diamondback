@@ -6,8 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IEqual import IEqual
-            from diamondback.interfaces.IPhase import IPhase
+            from diamondback import IEqual, IPhase
 
 
             class Test( IEqual, IPhase ) :

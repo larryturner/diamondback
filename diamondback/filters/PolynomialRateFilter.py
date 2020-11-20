@@ -27,8 +27,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.PolynomialRateFilter import PolynomialRateFilter
+            from diamondback import ComplexExponentialFilter, PolynomialRateFilter
             import math
             import numpy
 

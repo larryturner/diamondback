@@ -1,1 +1,1 @@
-from diamondback.clients.RestClient import RestClient
+from .RestClient import RestClient

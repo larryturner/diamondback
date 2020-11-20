@@ -30,8 +30,7 @@
 
         ::
 
-            from diamondback.filters.ComplexBandPassFilter import ComplexBandPassFilter
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
+            from diamondback import ComplexBandPassFilter, ComplexExponentialFilter
             import numpy
 
 

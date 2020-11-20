@@ -6,8 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IReset import IReset
-            from diamondback.interfaces.IPhase import IS
+            from diamondback import IReset, IS
             import numpy
 
 

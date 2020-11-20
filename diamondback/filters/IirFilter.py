@@ -75,7 +75,7 @@
 
         ::
 
-            from diamondback.filters.IirFilter import IirFilter
+            from diamondback import IirFilter
             import numpy
 
 

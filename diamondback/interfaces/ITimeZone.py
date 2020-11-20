@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.ITimeZone import ITimeZone
+            from diamondback import ITimeZone
             import datetime
             import pytz
 

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IInterval import IInterval
+            from diamondback import IInterval
 
 
             class Test( IInterval ) :

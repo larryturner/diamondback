@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IQ import IQ
+            from diamondback import IQ
             import numpy
 
 

@@ -39,8 +39,7 @@
 
     **Example** ::
 
-        from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-        from diamondback.transforms.PowerSpectrumTransform import PowerSpectrumTransform
+        from diamondback import ComplexExponentialFilter, PowerSpectrumTransform
         import numpy
 
 

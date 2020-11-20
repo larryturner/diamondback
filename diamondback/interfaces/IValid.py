@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IValid import IValid
+            from diamondback import IValid
 
 
             class Test( IValid ) :

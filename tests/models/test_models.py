@@ -22,8 +22,7 @@
 
 """
 
-from diamondback.models.DiversityModel import DiversityModel
-from diamondback.models.PrincipalComponentModel import PrincipalComponentModel
+from diamondback import DiversityModel, PrincipalComponentModel
 import numpy
 
 

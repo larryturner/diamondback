@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IData import IData
+            from diamondback import IData
 
 
             class Test( IData ) :

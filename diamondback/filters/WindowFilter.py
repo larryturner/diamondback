@@ -37,8 +37,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.WindowFilter import WindowFilter
+            from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
 

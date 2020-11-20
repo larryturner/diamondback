@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IPath import IPath
+            from diamondback import IPath
 
             class Test( IPath ) :
 

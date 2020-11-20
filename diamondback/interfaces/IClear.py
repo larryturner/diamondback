@@ -6,8 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IClear import IClear
-            from diamondback.interfaces.IPhase import IPhase
+            from diamondback import IClear, IPhase
 
 
             class Test( IClear, IPhase ) :

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IEmulate import IEmulate
+            from diamondback import IEmulate
 
 
             class Test( IEmulate ) :

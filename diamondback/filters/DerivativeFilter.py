@@ -74,8 +74,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.DerivativeFilter import DerivativeFilter
+            from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy
 
 

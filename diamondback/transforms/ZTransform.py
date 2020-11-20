@@ -24,7 +24,7 @@
 
     **Example** ::
 
-        from diamondback.transforms.ZTransform import ZTransform
+        from diamondback import ZTransform
         import math
         import numpy
 

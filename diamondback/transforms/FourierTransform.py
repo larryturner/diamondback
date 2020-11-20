@@ -31,8 +31,7 @@
 
     **Example** ::
 
-        from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-        from diamondback.transforms.FourierTransform import FourierTransform
+        from diamondback import ComplexExponentialFilter, FourierTransform
         import numpy
 
 

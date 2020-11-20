@@ -6,8 +6,7 @@
 
         ::
 
-            from diamondback.commons.Serial import Serial
-            from diamondback.interfaces.IState import IState
+            from diamondback import IState, Serial
 
             class Test( IState ) :
 

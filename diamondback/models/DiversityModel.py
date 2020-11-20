@@ -55,7 +55,7 @@
 
         ::
 
-            from diamondback.models.DiversityModel import DiversityModel
+            from diamondback import DiversityModel
 
 
             # Create an instance from a Factory with constraints.

@@ -21,7 +21,7 @@
 
         ::
 
-            from diamondback.commons.Log import Log
+            from diamondback import Log
             import io
             import numpy
             import pytz

@@ -40,7 +40,7 @@
 
         ::
 
-            from diamondback.models.PrincipalComponentModel import PrincipalComponentModel
+            from diamondback import PrincipalComponentModel
 
 
             # Create an instance.

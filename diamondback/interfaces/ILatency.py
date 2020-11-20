@@ -4,7 +4,7 @@
 
         ::
 
-            from diamondback.interfaces.ILatency import ILatency
+            from diamondback import ILatency
 
 
             class Test( ILatency ) :

@@ -22,13 +22,9 @@
 
 """
 
-from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-from diamondback.filters.WindowFilter import WindowFilter
-from diamondback.transforms.ComplexTransform import ComplexTransform
-from diamondback.transforms.FourierTransform import FourierTransform
-from diamondback.transforms.PowerSpectrumTransform import PowerSpectrumTransform
-from diamondback.transforms.WaveletTransform import WaveletTransform
-from diamondback.transforms.ZTransform import ZTransform
+from diamondback import ComplexExponentialFilter, WindowFilter
+from diamondback import ComplexTransform, FourierTransform, PowerSpectrumTransform, WaveletTransform
+from diamondback import ZTransform
 import math
 import numpy
 

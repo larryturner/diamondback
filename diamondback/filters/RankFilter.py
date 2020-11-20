@@ -19,7 +19,7 @@
 
         ::
 
-            from diamondback.filters.RankFilter import RankFilter
+            from diamondback import RankFilter
             import numpy
 
 

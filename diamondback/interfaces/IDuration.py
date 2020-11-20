@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IDuration import IDuration
+            from diamondback import IDuration
 
 
             class Test( IDuration ) :

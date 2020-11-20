@@ -58,8 +58,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.PolyphaseRateFilter import PolyphaseRateFilter
+            from diamondback import ComplexExponentialFilter, PolyphaseRateFilter
             import math
             import numpy
 

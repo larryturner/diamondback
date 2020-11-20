@@ -188,8 +188,7 @@ specified.</p>
 \[y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) &amp; imag(\ x_{n}\ ) &amp; 0 }\ ]^{T}}}^{T}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.filters.ComplexExponentialFilter</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
-<span class="kn">from</span> <span class="nn">diamondback.transforms.ComplexTransform</span> <span class="kn">import</span> <span class="n">ComplexTransform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">ComplexTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -262,8 +261,7 @@ frequency resolution.</p>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.filters.ComplexExponentialFilter</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
-<span class="kn">from</span> <span class="nn">diamondback.transforms.FourierTransform</span> <span class="kn">import</span> <span class="n">FourierTransform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">FourierTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -347,8 +345,7 @@ frequency resolution.</p>
 \[N = \frac{2}{R}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.filters.ComplexExponentialFilter</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
-<span class="kn">from</span> <span class="nn">diamondback.transforms.PowerSpectrumTransform</span> <span class="kn">import</span> <span class="n">PowerSpectrumTransform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PowerSpectrumTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -458,7 +455,7 @@ specified.</p>
 </ul>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.transforms.WaveletTransform</span> <span class="kn">import</span> <span class="n">WaveletTransform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">WaveletTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -561,7 +558,7 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 \[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback.transforms.ZTransform</span> <span class="kn">import</span> <span class="n">ZTransform</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ZTransform</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 

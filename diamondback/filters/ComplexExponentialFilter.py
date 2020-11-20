@@ -18,7 +18,7 @@
 
     **Example** ::
 
-        from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
+        from diamondback import ComplexExponentialFilter
         import numpy
 
 

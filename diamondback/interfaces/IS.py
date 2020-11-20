@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IS import IS
+            from diamondback import IS
             import numpy
 
 

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IPhase import IPhase
+            from diamondback import IPhase
 
 
             class Test( IPhase ) :

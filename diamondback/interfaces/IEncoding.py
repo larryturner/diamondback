@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IEncoding import IEncoding
+            from diamondback import IEncoding
 
 
             class Test( IEncoding ) :

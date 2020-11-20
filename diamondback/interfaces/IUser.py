@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IUser import IUser
+            from diamondback import IUser
 
 
             class Test( IUser ) :

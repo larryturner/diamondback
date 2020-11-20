@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IWrite import IWrite
+            from diamondback import IWrite
 
 
             class Test( IWrite ) :

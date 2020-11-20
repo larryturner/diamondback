@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.ICache import ICache
+            from diamondback import ICache
 
 
             class Test( ICache ) :

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IConfigure import IConfigure
+            from diamondback import IConfigure
 
 
             class Test( IConfigure ) :

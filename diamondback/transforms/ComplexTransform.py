@@ -37,8 +37,7 @@
 
     **Example** ::
 
-        from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-        from diamondback.transforms.ComplexTransform import ComplexTransform
+        from diamondback import ComplexExponentialFilter, ComplexTransform
         import numpy
 
 
@@ -66,7 +65,6 @@
 
 import math
 import numpy
-import typing
 
 
 class ComplexTransform( object ) :

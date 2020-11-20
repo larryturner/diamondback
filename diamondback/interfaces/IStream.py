@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IStream import IStream
+            from diamondback import IStream
             import sys
 
 

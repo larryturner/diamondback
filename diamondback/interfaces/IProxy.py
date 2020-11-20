@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IProxy import IProxy
+            from diamondback import IProxy
 
 
             class Test( IProxy ) :

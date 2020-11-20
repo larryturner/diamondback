@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IDate import IDate
+            from diamondback import IDate
             import datetime
 
 

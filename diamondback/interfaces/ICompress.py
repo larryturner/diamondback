@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.ICompress import ICompress
+            from diamondback import ICompress
 
 
             class Test( ICompress ) :

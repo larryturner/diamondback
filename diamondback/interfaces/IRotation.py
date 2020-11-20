@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IRotation import IRotation
+            from diamondback import IRotation
 
 
             class Test( IRotation ) :

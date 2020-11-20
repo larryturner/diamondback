@@ -60,7 +60,7 @@
 
     **Example** ::
 
-        from diamondback.transforms.WaveletTransform import WaveletTransform
+        from diamondback import WaveletTransform
         import numpy
 
 

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IFrequency import IFrequency
+            from diamondback import IFrequency
 
 
             class Test( IFrequency ) :

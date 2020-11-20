@@ -72,7 +72,7 @@
 
         ::
 
-            from diamondback.filters.FirFilter import FirFilter
+            from diamondback import FirFilter
             import numpy
 
 

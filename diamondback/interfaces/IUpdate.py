@@ -6,8 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IPhase
-            from diamondback.interfaces.IUpdate
+            from diamondback import IPhase, IUpdate
 
 
             class Test( IPhase, IUpdate ) :

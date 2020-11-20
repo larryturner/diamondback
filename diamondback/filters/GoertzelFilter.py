@@ -37,8 +37,7 @@
 
         ::
 
-            from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-            from diamondback.filters.GoertzelFilter import GoertzelFilter
+            from diamondback import ComplexExponentialFilter, GoertzelFilter
             import numpy
 
 

@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IPeriod import IPeriod
+            from diamondback import IPeriod
 
 
             class Test( IPeriod ) :

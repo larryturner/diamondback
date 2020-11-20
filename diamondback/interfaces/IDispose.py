@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IDispose import IDispose
+            from diamondback import IDispose
 
 
             class Test( IDispose ) :

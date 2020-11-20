@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IA import IA
+            from diamondback import IA
             import numpy
 
 

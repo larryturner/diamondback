@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IB import IB
+            from diamondback import IB
             import numpy
 
 

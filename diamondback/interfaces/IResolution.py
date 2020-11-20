@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IResolution import IResolution
+            from diamondback import IResolution
 
 
             class Test( IResolution ) :

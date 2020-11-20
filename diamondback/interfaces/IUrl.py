@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IUrl import IUrl
+            from diamondback import IUrl
 
 
             class Test( IUrl ) :

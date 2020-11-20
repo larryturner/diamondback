@@ -6,7 +6,7 @@
 
         ::
 
-            from diamondback.interfaces.IVersion import IVersion
+            from diamondback import IVersion
 
 
             class Test( IVersion ) :
