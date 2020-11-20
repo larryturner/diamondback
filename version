@@ -120,5 +120,7 @@ Version     Date            Notes
 
 1.0.35      2020-11-16      Modified RestClient to add timeout.
 
-1.0.36      2020-11-19      Modified RestClient cache management, deprecated
-                            ready, and modified live.
+1.0.36      2020-11-19      Modified RestClient cache, deprecated ready, and
+                            modified live.
+
+1.0.37      2020-11-19      Modified RestClient cache.

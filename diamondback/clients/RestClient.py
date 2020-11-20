@@ -165,17 +165,17 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         with ( self._rlock ) :
 
-            cache = self.cache
+            cache, live = self.cache, self.live
 
-            if ( ( cache ) and ( not self.live ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
+            if ( ( cache ) and ( not live ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
 
                 self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
             else :
 
-                for x in [ x for x in self.data ] :
+                if ( live ) :
 
-                    if ( self.live ) :
+                    for x in [ x for x in self.data ] :
 
                         try :
 
