@@ -6,7 +6,7 @@
 
         ::
 
-            pytest --verbose
+            pytest --capture=no --verbose
 
     **License**
 

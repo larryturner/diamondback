@@ -331,7 +331,7 @@ components.
 
 ::
 
-    pytest --verbose
+    pytest --capture=no --verbose
 
 Author
 ~~~~~~

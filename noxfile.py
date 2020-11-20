@@ -137,7 +137,7 @@ def tests( session ) -> None :
 
     if ( os.path.exists( 'tests' ) ) :
 
-        session.run( 'pytest', '--verbose' )
+        session.run( 'pytest', '--capture=no', '--verbose' )
 
 
 # Private.
