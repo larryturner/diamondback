@@ -52,6 +52,8 @@ def clean( session ) -> None :
 
     remove( './**/__pycache__' )
 
+    remove( './**/.pytest_cache' )
+
 
 @nox.session( venv_backend = 'none' )
 def dist( session ) -> None :
