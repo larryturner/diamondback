@@ -56,11 +56,11 @@ class IUser( IEqual ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.user == other.user ) )

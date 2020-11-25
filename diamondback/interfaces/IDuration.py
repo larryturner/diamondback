@@ -67,11 +67,11 @@ class IDuration( IEqual ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.duration, other.duration ) ) )

@@ -130,4 +130,6 @@ Version     Date            Notes
                             Modified init to simplify import by eliminating
                             required package declaration.
 
-1.0.39      2020-11-25      Modified IClear, IReset, and IUpdate to return any.
+1.0.39      2020-11-25      Modified IClear, IReset, and IUpdate.
+
+                            Renamed IState to IModel.

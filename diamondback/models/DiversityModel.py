@@ -144,11 +144,11 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )

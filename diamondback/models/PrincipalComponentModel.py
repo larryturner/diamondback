@@ -114,7 +114,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.u, other.u ) ) and ( numpy.isclose( self.v, other.v ) ) )

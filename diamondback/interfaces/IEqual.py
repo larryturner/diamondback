@@ -40,11 +40,11 @@ class IEqual( object ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( isinstance( other, self.__class__ ) ) and ( ( id( self ) == id( other ) ) or ( super( ).__eq__( other ) ) ) )
@@ -62,11 +62,11 @@ class IEqual( object ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                inequality - Inequality condition ( bool ).
+                inequality - Inequality ( bool ).
         """
 
         return not ( self == other )

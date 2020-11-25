@@ -1,24 +1,24 @@
 """ **Description**
 
-        State interface.
+        Model interface.
 
     **Example**
 
         ::
 
-            from diamondback import IState, Serial
+            from diamondback import IModel, Serial
 
-            class Test( IState ) :
+            class Test( IModel ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.state = ''
+                    self.model = [ ]
 
             test = Test( )
 
-            test.state = Serial.encode( { 'a' : 0.0, 'b' : 1.0 }, compress = False )
+            test.model = Serial.encode( { 'a' : 0.0, 'b' : 1.0 }, compress = False )
 
     **License**
 
@@ -37,23 +37,23 @@
 from diamondback.interfaces.IEqual import IEqual
 
 
-class IState( IEqual ) :
+class IModel( IEqual ) :
 
-    """ State interface.
+    """ Model interface.
     """
 
     @property
-    def state( self ) :
+    def model( self ) :
 
-        """ State ( any ).
+        """ Model ( any ).
         """
 
-        return self._state
+        return self._model
 
-    @state.setter
-    def state( self, state : any ) :
+    @model.setter
+    def model( self, model : any ) :
 
-        self._state = state
+        self._model = model
 
     def __eq__( self, other : any ) -> bool :
 
@@ -61,14 +61,14 @@ class IState( IEqual ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.state == other.state ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.model == other.model ) )
 
     def __init__( self ) -> None :
 
@@ -77,4 +77,4 @@ class IState( IEqual ) :
 
         super( ).__init__( )
 
-        self._state = [ ]
+        self._model = [ ]

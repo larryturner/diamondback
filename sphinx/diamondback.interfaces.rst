@@ -148,6 +148,14 @@ diamondback.interfaces.ILatency module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IModel module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IModel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IPath module
 -----------------------------------
 
@@ -224,14 +232,6 @@ diamondback.interfaces.IS module
 --------------------------------
 
 .. automodule:: diamondback.interfaces.IS
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.IState module
-------------------------------------
-
-.. automodule:: diamondback.interfaces.IState
    :members:
    :undoc-members:
    :show-inheritance:

@@ -16,6 +16,7 @@ from .IFrequency import IFrequency
 from .IIdentity import IIdentity
 from .IInterval import IInterval
 from .ILatency import ILatency
+from .IModel import IModel
 from .IPath import IPath
 from .IPeriod import IPeriod
 from .IPhase import IPhase
@@ -26,7 +27,6 @@ from .IReset import IReset
 from .IResolution import IResolution
 from .IRotation import IRotation
 from .IS import IS
-from .IState import IState
 from .IStream import IStream
 from .ITimeZone import ITimeZone
 from .IUpdate import IUpdate

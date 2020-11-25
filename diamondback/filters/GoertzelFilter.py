@@ -86,11 +86,11 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
             Arguments :
 
-                other - Other object ( object ).
+                other - Other ( any ).
 
             Returns :
 
-                equality - Equality condition ( bool ).
+                equality - Equality ( bool ).
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self._index == other._index ) and ( numpy.allclose( self._w, other._w ) ) )

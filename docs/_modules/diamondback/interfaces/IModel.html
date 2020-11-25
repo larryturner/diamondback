@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>diamondback.interfaces.ICompress &mdash; diamondback  documentation</title>
+  <title>diamondback.interfaces.IModel &mdash; diamondback  documentation</title>
   
 
   
@@ -129,7 +129,7 @@
         
           <li><a href="../../index.html">Module code</a> &raquo;</li>
         
-      <li>diamondback.interfaces.ICompress</li>
+      <li>diamondback.interfaces.IModel</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -144,39 +144,38 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <h1>Source code for diamondback.interfaces.ICompress</h1><div class="highlight"><pre>
+  <h1>Source code for diamondback.interfaces.IModel</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        Compress interface.</span>
+<span class="sd">        Model interface.</span>
 
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
 
-<span class="sd">            from diamondback import ICompress</span>
+<span class="sd">            from diamondback import IModel, Serial</span>
 
-
-<span class="sd">            class Test( ICompress ) :</span>
+<span class="sd">            class Test( IModel ) :</span>
 
 <span class="sd">                def __init__( self ) -&gt; None :</span>
 
 <span class="sd">                    super( ).__init__( )</span>
 
-<span class="sd">                    self.compress = False</span>
+<span class="sd">                    self.model = [ ]</span>
 
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.compress = True</span>
+<span class="sd">            test.model = Serial.encode( { &#39;a&#39; : 0.0, &#39;b&#39; : 1.0 }, compress = False )</span>
 
 <span class="sd">    **License**</span>
 
 <span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
 
-<span class="sd">        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</span>
+<span class="sd">        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 
-<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</span>
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-07-12.</span>
 
 <span class="sd">    **Definition**</span>
 
@@ -185,23 +184,23 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
 
 
-<div class="viewcode-block" id="ICompress"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.ICompress.ICompress">[docs]</a><span class="k">class</span> <span class="nc">ICompress</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IModel"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IModel.IModel">[docs]</a><span class="k">class</span> <span class="nc">IModel</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Compress interface.</span>
+    <span class="sd">&quot;&quot;&quot; Model interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">compress</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Compress ( any ).</span>
+        <span class="sd">&quot;&quot;&quot; Model ( any ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_compress</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model</span>
 
-    <span class="nd">@compress</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">compress</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="nd">@model</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">model</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_compress</span> <span class="o">=</span> <span class="n">compress</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="n">model</span>
 
     <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
@@ -216,7 +215,7 @@
 <span class="sd">                equality - Equality ( bool ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">compress</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">compress</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="n">other</span><span class="o">.</span><span class="n">model</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -225,7 +224,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_compress</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_model</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span></div>
 </pre></div>
 
            </div>
