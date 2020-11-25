@@ -49,7 +49,7 @@ class IClear( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def clear( self ) -> None :
+    def clear( self ) -> any :
 
         """ Clears an instance.
         """

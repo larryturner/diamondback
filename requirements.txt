@@ -1,6 +1,6 @@
 #   Description
 #
-#       Requirements.
+#       Diamondback requirements.
 #
 #   License
 #

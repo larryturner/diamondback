@@ -1,6 +1,6 @@
 """ **Description**
 
-        Sphinx document builder configuration.
+        Diamondback sphinx documentation generation.
 
     **License**
 

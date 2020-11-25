@@ -44,7 +44,7 @@ class IReset( ABC ) :
     """ Reset interface.
     """
 
-    def __init__( self ) -> None :
+    def __init__( self ) -> any :
 
         """ Initialize.
         """

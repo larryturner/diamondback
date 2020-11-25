@@ -1,6 +1,6 @@
 """ **Description**
 
-        Nox configuration.
+        Nox project management.
 
     **Example**
 

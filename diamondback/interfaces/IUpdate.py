@@ -49,7 +49,7 @@ class IUpdate( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def update( self ) -> None :
+    def update( self ) -> any :
 
         """ Update.
         """
