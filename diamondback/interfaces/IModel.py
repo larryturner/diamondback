@@ -18,7 +18,7 @@
 
             test = Test( )
 
-            test.model = Serial.encode( { 'a' : 0.0, 'b' : 1.0 }, compress = False )
+            test.model = Serial.encode( { 'a' : 0.0, 'b' : 1.0 } )
 
     **License**
 

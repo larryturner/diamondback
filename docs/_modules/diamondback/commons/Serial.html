@@ -175,7 +175,7 @@
 <span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ),</span>
 <span class="sd">                  &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
 
-<span class="sd">            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )</span>
+<span class="sd">            z = Serial.decode( Serial.encode( x ) )</span>
 
 <span class="sd">            # Encode and decode a dictionary instance in gzip JSON.</span>
 
@@ -187,15 +187,15 @@
 
 <span class="sd">            model = pandas.DataFrame( { &#39;Fruit&#39; : [ &#39;Orange&#39;, &#39;Apple&#39;, &#39;Kiwi&#39; ], &#39;Cost&#39; : [ 1.25, 1.5, 0.30 ] } )</span>
 
-<span class="sd">            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )</span>
+<span class="sd">            z = Serial.decode( Serial.encode( x ) )</span>
 
 <span class="sd">            # Decode a dictionary instance from JSON.</span>
 
-<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;, compress = False )</span>
+<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39; )</span>
 
 <span class="sd">            # Decode a dictionary instance from JSON, and clean comments.</span>
 
-<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }  # Comments.\n&#39;, compress = False, clean = True )</span>
+<span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }  # Comments.\n&#39;, clean = True )</span>
 
 <span class="sd">    **License**</span>
 

@@ -28,7 +28,7 @@
             x = { 'a' : numpy.random.rand( count ),
                   'b' : list( numpy.random.rand( count ) ) }
 
-            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )
+            z = Serial.decode( Serial.encode( x ) )
 
             # Encode and decode a dictionary instance in gzip JSON.
 
@@ -40,15 +40,15 @@
 
             model = pandas.DataFrame( { 'Fruit' : [ 'Orange', 'Apple', 'Kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
 
-            z = Serial.decode( Serial.encode( x, compress = False ), compress = False )
+            z = Serial.decode( Serial.encode( x ) )
 
             # Decode a dictionary instance from JSON.
 
-            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }', compress = False )
+            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }' )
 
             # Decode a dictionary instance from JSON, and clean comments.
 
-            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }  # Comments.\n', compress = False, clean = True )
+            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }  # Comments.\n', clean = True )
 
     **License**
 

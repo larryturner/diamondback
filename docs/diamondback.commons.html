@@ -335,7 +335,7 @@ terminated by a new line.</p>
 <span class="n">x</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">),</span>
       <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">}</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">),</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
 <span class="c1"># Encode and decode a dictionary instance in gzip JSON.</span>
 
@@ -347,11 +347,11 @@ terminated by a new line.</p>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;Fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Orange&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">),</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
 <span class="c1"># Decode a dictionary instance from JSON.</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span> <span class="p">)</span>
 
 <span class="c1"># Decode a dictionary instance from JSON, and clean comments.</span>
 
@@ -360,7 +360,7 @@ terminated by a new line.</p>
 </div>
 </div></blockquote>
 </div></blockquote>
-<p>‘, compress = False, clean = True )</p>
+<p>‘, clean = True )</p>
 <blockquote>
 <div><p><strong>License</strong></p>
 <blockquote>
