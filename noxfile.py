@@ -139,7 +139,9 @@ def tests( session ) -> None :
 
     if ( os.path.exists( 'tests' ) ) :
 
-        session.run( 'pytest', '--capture=no', '--verbose' )
+        if ( os.listdir( 'tests' ) ) :
+
+            session.run( 'pytest', '--capture=no', '--verbose' )
 
 
 # Private.

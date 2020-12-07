@@ -22,8 +22,8 @@
 
 """
 
-from diamondback import Log, Serial
 from diamondback import IirFilter
+from diamondback import Log, Serial
 import numpy
 import os
 

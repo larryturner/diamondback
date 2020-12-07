@@ -286,7 +286,9 @@
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;tests&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;pytest&#39;</span><span class="p">,</span> <span class="s1">&#39;--capture=no&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span> <span class="s1">&#39;tests&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;pytest&#39;</span><span class="p">,</span> <span class="s1">&#39;--capture=no&#39;</span><span class="p">,</span> <span class="s1">&#39;--verbose&#39;</span> <span class="p">)</span>
 
 
 <span class="c1"># Private.</span>
