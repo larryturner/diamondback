@@ -38,7 +38,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cipp" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -137,7 +137,8 @@
       <workItem from="1607373279008" duration="1944000" />
       <workItem from="1607458099321" duration="1192000" />
       <workItem from="1607528681775" duration="1194000" />
-      <workItem from="1607613806761" duration="596000" />
+      <workItem from="1607613806761" duration="601000" />
+      <workItem from="1607708235461" duration="1222000" />
     </task>
     <servers />
   </component>
