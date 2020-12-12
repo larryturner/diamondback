@@ -133,3 +133,5 @@ Version     Date            Notes
 1.0.39      2020-11-25      Modified IClear, IReset, and IUpdate.
 
                             Renamed IState to IModel.
+
+1.0.40      2020-12-11      Modified IUser to recover from getpass failure.

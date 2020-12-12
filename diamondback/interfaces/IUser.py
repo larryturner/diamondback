@@ -48,7 +48,15 @@ class IUser( IEqual ) :
         """ User ( str ).
         """
 
-        return getpass.getuser( )
+        try :
+
+            value = getpass.getuser( )
+
+        except :
+
+            value = ''
+
+        return value
 
     def __eq__( self, other : any ) -> bool :
 
