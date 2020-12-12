@@ -257,6 +257,8 @@ Diamondback depends upon external packages :
 
 -  `numpy <https://github.com/numpy/numpy>`__
 
+-  `pandas <https://github.com/pandas-dev/pandas>`__
+
 -  `scipy <https://github.com/scipy/scipy>`__
 
 Diamondback Jupyter notebook depends upon additional external packages :

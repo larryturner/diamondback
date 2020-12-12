@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.40
+Version: 1.0.41
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -264,6 +264,8 @@ Description: Description
         -  `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
         
         -  `numpy <https://github.com/numpy/numpy>`__
+        
+        -  `pandas <https://github.com/pandas-dev/pandas>`__
         
         -  `scipy <https://github.com/scipy/scipy>`__
         

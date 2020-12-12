@@ -135,3 +135,5 @@ Version     Date            Notes
                             Renamed IState to IModel.
 
 1.0.40      2020-12-11      Modified IUser to recover from getpass failure.
+
+1.0.41      2020-12-11      Modified requirements.
