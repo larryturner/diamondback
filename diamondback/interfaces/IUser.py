@@ -34,7 +34,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import os
+import getpass
 
 
 class IUser( IEqual ) :
@@ -50,7 +50,7 @@ class IUser( IEqual ) :
 
         try :
 
-            value = os.getlogin( )
+            value = getpass.getuser( )
 
         except :
 

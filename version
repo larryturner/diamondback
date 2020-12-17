@@ -137,5 +137,3 @@ Version     Date            Notes
 1.0.40      2020-12-11      Modified IUser to recover from getpass failure.
 
 1.0.41      2020-12-11      Modified requirements.
-
-1.0.42      2020-12-17      Modified IUser to replace getpass with os.
