@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>diamondback.filters package &mdash; diamondback  documentation</title>
   
@@ -16,7 +16,10 @@
 
   
   
+
   
+  
+
   
 
   
@@ -29,7 +32,6 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
         <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
@@ -50,7 +52,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home" alt="Documentation Home"> diamondback
+            <a href="index.html" class="icon icon-home"> diamondback
           
 
           
@@ -141,6 +143,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -152,7 +156,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="_sources/diamondback.filters.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -238,7 +242,7 @@ adaptation are specified.</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexBandPassFilter.html#ComplexBandPassFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexBandPassFilter.html#ComplexBandPassFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -394,7 +398,7 @@ normalized frequency and rate of adaptation are specified.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexFrequencyFilter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexFrequencyFilter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -531,7 +535,7 @@ specified.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.DerivativeFilter.DerivativeFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -708,7 +712,7 @@ frequency response.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.FirFilter.FirFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -837,7 +841,7 @@ resolution.</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.GoertzelFilter.GoertzelFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/GoertzelFilter.html#GoertzelFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.GoertzelFilter.GoertzelFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/GoertzelFilter.html#GoertzelFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.GoertzelFilter.GoertzelFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1014,7 +1018,7 @@ frequency response.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.IirFilter.IirFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1172,7 +1176,7 @@ and order are specified.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.IntegralFilter.IntegralFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1247,7 +1251,7 @@ control stability and latency.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.PidFilter.PidFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/PidFilter.html#PidFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/PidFilter.html#PidFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1540,7 +1544,7 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.RankFilter.RankFilter.filter">
-<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/RankFilter.html#RankFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter.filter" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/RankFilter.html#RankFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter.filter" title="Permalink to this definition">¶</a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1684,28 +1688,25 @@ compensate for energy loss.</p>
            
           </div>
           <footer>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2018, Larry Turner, Schneider Electric
+        &#169; Copyright 2018, Larry Turner, Schneider Electric.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 
