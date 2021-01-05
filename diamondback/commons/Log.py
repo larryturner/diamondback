@@ -46,9 +46,9 @@
 
                 Log.write( 'Info', 'World', ( 'Example', 'Data', 'Payload' ) )
 
-                # Set Log stream to sys.stdout, use logging as 'project_log', and write an 'Info' entry.
+                # Set Log stream to sys.stdout, use logging as 'output', and write an 'Info' entry.
 
-                Log.stream( sys.stdout, 'project_log' )
+                Log.stream( sys.stdout, 'output' )
 
                 Log.write( 'Info', 'Valid = ', True )
 
