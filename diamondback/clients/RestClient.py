@@ -106,7 +106,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout = 15.0 ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout = 30.0 ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
