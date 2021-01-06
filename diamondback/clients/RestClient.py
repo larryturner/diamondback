@@ -83,7 +83,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         try :
 
-            requests.request( method = 'get', url = self.url, timeout = 15.0 )
+            requests.request( method = 'get', url = self.url )
 
             value = True
 
@@ -106,7 +106,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout = 30.0 ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -125,7 +125,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                 data - Data ( any ).
 
-                timeout - Timeout ( float ).
+                timeout - Timeout ( tuple ).
 
             Returns :
 
@@ -147,7 +147,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
             raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'Json = ' + str( json ) ) )
 
-        if ( timeout <= 0.0 ) :
+        if ( min( timeout ) <= 0.0 ) :
 
             raise ValueError( 'Timeout = ' + str( timeout ) )
 
