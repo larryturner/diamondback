@@ -184,13 +184,13 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                                 with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
+                                    if ( ( value ) and ( value.status_code >= 500 ) and ( ii == 0 ) ) :
+
+                                        continue
+
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
                                         raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
-
-                                    if ( ( value ) and ( value.status_code >= 500 ) ) :
-
-                                        continue
 
                                     break
 
@@ -202,13 +202,13 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
+                        if ( ( value ) and ( value.status_code >= 500 ) and ( ii == 0 ) ) :
+
+                            continue
+
                         if ( ( not value ) or ( value.status_code != 200 ) ) :
 
                             raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
-
-                        if ( ( value ) and ( value.status_code >= 500 ) ) :
-
-                            continue
 
                         value = value.json( )
 

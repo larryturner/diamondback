@@ -142,4 +142,6 @@ Version     Date            Notes
 
 1.0.43      2021-01-07      Modified RestClient request retry status 5xx.
 
-1.0.44      2021-01-07      Modified RestClient request retry logic.
+1.0.44      2021-01-07      Modified RestClient request retry status 5xx.
+
+1.0.45      2021-01-07      Modified RestClient request Log entries.
