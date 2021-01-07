@@ -177,22 +177,34 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                         try :
 
-                            with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
+                            for ii in range( 0, 2 ) :
 
-                                if ( ( not value ) or ( value.status_code != 200 ) ) :
+                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                                    raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                                    if ( ( value ) and ( value.status.code >= 500 ) and ( value.status.code < 600 ) and ( ii == 0 ) ) :
+
+                                        continue
+
+                                    if ( ( not value ) or ( value.status_code != 200 ) ) :
+
+                                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
 
                         finally :
 
                             del self.data[ 0 ]
 
-                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
+                for ii in range( 0, 2 ) :
 
-                    if ( ( not value ) or ( value.status_code != 200 ) ) :
+                    with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
-                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                        if ( ( value ) and ( value.status.code >= 500 ) and ( value.status.code < 600 ) and ( ii == 0 ) ) :
 
-                    value = value.json( )
+                            continue
+
+                        if ( ( not value ) or ( value.status_code != 200 ) ) :
+
+                            raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+
+                        value = value.json( )
 
         return value
