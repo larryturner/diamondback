@@ -13,6 +13,9 @@
     requests are cached when a service is not live, and sent in order during
     a subsequent request when a service is live.
 
+    Requests are retried once if status 5xx is returned indicating a service
+    error.
+
     URL and proxy definition is supported.
 
     Thread safe and reentrant.
@@ -181,13 +184,15 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                                 with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                                    if ( ( value ) and ( value.status.code >= 500 ) and ( value.status.code < 600 ) and ( ii == 0 ) ) :
-
-                                        continue
-
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
                                         raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+
+                                    if ( ( value ) and ( value.status_code >= 500 ) ) :
+
+                                        continue
+
+                                    break
 
                         finally :
 
@@ -197,14 +202,16 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                     with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
-                        if ( ( value ) and ( value.status.code >= 500 ) and ( value.status.code < 600 ) and ( ii == 0 ) ) :
-
-                            continue
-
                         if ( ( not value ) or ( value.status_code != 200 ) ) :
 
                             raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
 
+                        if ( ( value ) and ( value.status_code >= 500 ) ) :
+
+                            continue
+
                         value = value.json( )
+
+                        break
 
         return value

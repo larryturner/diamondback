@@ -176,6 +176,8 @@ with a service which satisfies flexible request constraints.</p>
 network connectivity.  If caching is enabled, delete, patch, and put
 requests are cached when a service is not live, and sent in order during
 a subsequent request when a service is live.</p>
+<p>Requests are retried once if status 5xx is returned indicating a service
+error.</p>
 <p>URL and proxy definition is supported.</p>
 <p>Thread safe and reentrant.</p>
 <p><strong>Example</strong></p>

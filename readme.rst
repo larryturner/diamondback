@@ -53,9 +53,11 @@ Diamondback is defined in subpackages :
    JSON response is returned and decoded.  A client instance may be useful as
    a base client definition to interact with a service which satisfies flexible
    request constraints. Caching may be useful in environments with intermittent
-   or inconsistent network connectivity. If caching is enabled, delete, patch,
+   or inconsistent network connectivity.  If caching is enabled, delete, patch,
    and put requests are cached when a service is not live, and sent in order
-   during a subsequent request when a service is live.
+   during a subsequent request when a service is live.  Requests are retried
+   once if status 5xx is returned indicating a service error.
+
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
