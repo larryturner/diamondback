@@ -73,6 +73,7 @@ from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IUrl import IUrl
 from threading import RLock
 import requests
+import time
 import typing
 
 
@@ -191,6 +192,8 @@ class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
 
                                     if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
 
+                                        time.sleep( 5.0 )
+
                                         continue
 
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
@@ -208,6 +211,8 @@ class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
                     with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
                         if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
+
+                            time.sleep( 5.0 )
 
                             continue
 
