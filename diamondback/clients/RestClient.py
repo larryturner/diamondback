@@ -13,8 +13,8 @@
     requests are cached when a service is not live, and sent in order during
     a subsequent request when a service is live.
 
-    Requests are retried once if status 5xx is returned indicating a service
-    error.
+    Requests are retried up to three times if status 5xx is returned
+    indicating a service error.
 
     URL and proxy definition is supported.
 
@@ -180,11 +180,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                         try :
 
-                            for ii in range( 0, 2 ) :
+                            for ii in range( 0, 3 ) :
 
                                 with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                                    if ( ( value ) and ( value.status_code >= 500 ) and ( ii == 0 ) ) :
+                                    if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
 
                                         continue
 
@@ -198,11 +198,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                             del self.data[ 0 ]
 
-                for ii in range( 0, 2 ) :
+                for ii in range( 0, 3 ) :
 
                     with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
-                        if ( ( value ) and ( value.status_code >= 500 ) and ( ii == 0 ) ) :
+                        if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
 
                             continue
 

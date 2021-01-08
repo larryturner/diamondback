@@ -56,7 +56,7 @@ Diamondback is defined in subpackages :
    or inconsistent network connectivity.  If caching is enabled, delete, patch,
    and put requests are cached when a service is not live, and sent in order
    during a subsequent request when a service is live.  Requests are retried
-   once if status 5xx is returned indicating a service error.
+   up to three times if status 5xx is returned indicating a service error.
 
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
