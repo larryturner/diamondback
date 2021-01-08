@@ -13,7 +13,7 @@
     requests are cached when a service is not live, and sent in order during
     a subsequent request when a service is live.
 
-    Requests are retried up to three times if status 5xx is returned
+    Requests are retried up to a specified count if status 5xx is returned
     indicating a service error.
 
     URL and proxy definition is supported.
@@ -36,6 +36,8 @@
                     super( ).__init__( )
 
                     self.cache = False
+
+                    self.count = 3
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
@@ -65,6 +67,7 @@
 """
 
 from diamondback.interfaces.ICache import ICache
+from diamondback.interfaces.ICount import ICount
 from diamondback.interfaces.IData import IData
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IUrl import IUrl
@@ -73,7 +76,7 @@ import requests
 import typing
 
 
-class RestClient( ICache, IData, IProxy, IUrl ) :
+class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
 
     """ REST client.
     """
@@ -105,9 +108,11 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self._rlock = RLock( )
 
-        self.cache, self.data = False, [ ]
+        self.cache, self.count = False, 3
 
-        self.proxy, self.url = { }, 'http://127.0.0.1:8080'
+        self.data, self.proxy = [ ], { }
+
+        self.url = 'http://127.0.0.1:8080'
 
     def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
 
@@ -120,7 +125,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                 method - Method ( str ) in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
 
-                api - API ( str ).
+                api - API, relative to the URL ( str ).
 
                 item - Item ( dict( str, str ) ).
 
@@ -128,7 +133,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                 data - Data ( any ).
 
-                timeout - Timeout ( tuple ).
+                timeout - Timeout ( tuple( connect : float, read : float ) ).
 
             Returns :
 
@@ -180,7 +185,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                         try :
 
-                            for ii in range( 0, 3 ) :
+                            for ii in range( 0, self.count + 1 ) :
 
                                 with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
@@ -198,7 +203,7 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
                             del self.data[ 0 ]
 
-                for ii in range( 0, 3 ) :
+                for ii in range( 0, self.count + 1 ) :
 
                     with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 

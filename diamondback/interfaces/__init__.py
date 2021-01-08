@@ -5,6 +5,7 @@ from .IClear import IClear
 from .ICompress import ICompress
 from .IConfigure import IConfigure
 from .IConnect import IConnect
+from .ICount import ICount
 from .IData import IData
 from .IDate import IDate
 from .IDispose import IDispose

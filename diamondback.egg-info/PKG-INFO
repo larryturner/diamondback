@@ -64,7 +64,8 @@ Description: Description
            or inconsistent network connectivity.  If caching is enabled, delete, patch,
            and put requests are cached when a service is not live, and sent in order
            during a subsequent request when a service is live.  Requests are retried
-           up to three times if status 5xx is returned indicating a service error.
+           up to a specified count if status 5xx is returned indicating a service
+           error.
         
         
         `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
@@ -170,6 +171,7 @@ Description: Description
            `ICompress <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICompress>`__,
            `IConfigure <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IConfigure>`__,
            `IConnect <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IConnect>`__,
+           `ICount <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICount>`__,
            `IData <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData>`__,
            `IDate <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDate>`__,
            `IDispose <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDispose>`__,

@@ -60,6 +60,14 @@ diamondback.interfaces.IConnect module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ICount module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.ICount
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IData module
 -----------------------------------
 

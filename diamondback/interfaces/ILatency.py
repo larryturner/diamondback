@@ -1,4 +1,6 @@
-""" Latency interface.
+""" **Description**
+
+        Latency interface.
 
     **Example**
 

@@ -31,6 +31,7 @@ diamondback/interfaces/IClear.py
 diamondback/interfaces/ICompress.py
 diamondback/interfaces/IConfigure.py
 diamondback/interfaces/IConnect.py
+diamondback/interfaces/ICount.py
 diamondback/interfaces/IData.py
 diamondback/interfaces/IDate.py
 diamondback/interfaces/IDispose.py
