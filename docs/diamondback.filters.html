@@ -1,0 +1,1730 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>diamondback.filters package &mdash; diamondback  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">diamondback.filters package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.ComplexBandPassFilter">diamondback.filters.ComplexBandPassFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.ComplexExponentialFilter">diamondback.filters.ComplexExponentialFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.ComplexFrequencyFilter">diamondback.filters.ComplexFrequencyFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.DerivativeFilter">diamondback.filters.DerivativeFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.FirFilter">diamondback.filters.FirFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.GoertzelFilter">diamondback.filters.GoertzelFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.IirFilter">diamondback.filters.IirFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.IntegralFilter">diamondback.filters.IntegralFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.PidFilter">diamondback.filters.PidFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.PolynomialRateFilter">diamondback.filters.PolynomialRateFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.PolyphaseRateFilter">diamondback.filters.PolyphaseRateFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.RankFilter">diamondback.filters.RankFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters.WindowFilter">diamondback.filters.WindowFilter module</a></li>
+<li><a class="reference internal" href="#module-diamondback.filters">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">diamondback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>diamondback.filters package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/diamondback.filters.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="diamondback-filters-package">
+<h1>diamondback.filters package<a class="headerlink" href="#diamondback-filters-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-diamondback.filters.ComplexBandPassFilter">
+<span id="diamondback-filters-complexbandpassfilter-module"></span><h2>diamondback.filters.ComplexBandPassFilter module<a class="headerlink" href="#module-diamondback.filters.ComplexBandPassFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A complex band pass filter produces a complex exponential incident
+signal at a specified normalized frequency and adapts a forward complex
+coefficient to produce a reference signal, which estimates a component
+of interest in a primary signal.  A normalized frequency and rate of
+adaptation are specified.</p>
+<div class="math notranslate nohighlight">
+\[x_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n+1} = \phi_{n} + f_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{n} x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexBandPassFilter</span><span class="p">,</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="n">frequency</span>
+
+<span class="c1"># Create a primary signal.</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexBandPassFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span> <span class="p">)</span>
+
+<span class="c1"># Filter a primary signal.</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.ComplexBandPassFilter.</code><code class="sig-name descname">ComplexBandPassFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frequency</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/ComplexBandPassFilter.html#ComplexBandPassFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IFrequency.IFrequency" title="diamondback.interfaces.IFrequency.IFrequency"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IFrequency.IFrequency</span></code></a></p>
+<p>Complex band pass filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
+<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexBandPassFilter.html#ComplexBandPassFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<p>e - Error signal ( array( complex | float ) ).</p>
+<p>b - Forward coefficient ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.ComplexExponentialFilter">
+<span id="diamondback-filters-complexexponentialfilter-module"></span><h2>diamondback.filters.ComplexExponentialFilter module<a class="headerlink" href="#module-diamondback.filters.ComplexExponentialFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A complex exponential filter produces a complex exponential reference
+signal from an incident signal equal to a specified normalized frequency.
+A normalized phase is specified.</p>
+<div class="math notranslate nohighlight">
+\[x_{n} = f_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n} = \phi_{n-1} + x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance with phase.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.ComplexExponentialFilter.</code><code class="sig-name descname">ComplexExponentialFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">phase</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/ComplexExponentialFilter.html#ComplexExponentialFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IPhase.IPhase" title="diamondback.interfaces.IPhase.IPhase"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IPhase.IPhase</span></code></a></p>
+<p>Complex exponential filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>phase - Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/ComplexExponentialFilter.html#ComplexExponentialFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal, normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ), list( float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.ComplexFrequencyFilter">
+<span id="diamondback-filters-complexfrequencyfilter-module"></span><h2>diamondback.filters.ComplexFrequencyFilter module<a class="headerlink" href="#module-diamondback.filters.ComplexFrequencyFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A complex frequency filter adapts and discriminates the phase of a forward
+complex coefficient to produce a reference signal, which estimates a normalized
+frequency of a primary signal which is normalized to unity magnitude.  A
+normalized frequency and rate of adaptation are specified.</p>
+<div class="math notranslate nohighlight">
+\[f_{n} = \frac{\tan^{-1}(\ b_{n}\ ) }{\pi}\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n} = \frac{d_{n}}{|\ d_{n}\ |}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{n} x_{n-1}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{0} = e^{\ j\ \pi\ f_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{n} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span>
+
+<span class="c1"># Create a primary signal.</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with frequency and rate.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexFrequencyFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="c1"># Filter a primary signal.</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-02-01.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.ComplexFrequencyFilter.</code><code class="sig-name descname">ComplexFrequencyFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">frequency</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/ComplexFrequencyFilter.html#ComplexFrequencyFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IFrequency.IFrequency" title="diamondback.interfaces.IFrequency.IFrequency"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IFrequency.IFrequency</span></code></a></p>
+<p>Complex frequency filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
+<p>rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency">
+<em class="property">property </em><code class="sig-name descname">frequency</code><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/ComplexFrequencyFilter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>d = Primary signal ( array( complex ), list( complex ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+<p>e = Error signal ( array( complex ) ).</p>
+<p>b - Forward coefficient ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/filters/ComplexFrequencyFilter.html#ComplexFrequencyFilter.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies a state to minimize edge effects by assuming persistent
+operation at a specified primary incident condition.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( complex ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.DerivativeFilter">
+<span id="diamondback-filters-derivativefilter-module"></span><h2>diamondback.filters.DerivativeFilter module<a class="headerlink" href="#module-diamondback.filters.DerivativeFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A derivative filter realizes a discrete difference equation which
+approximates a discrete derivative as a function of a forward coefficient
+array and a state array of a specified order, consuming an incident signal
+and producing a reference signal.  A derivative is approximated relative
+to a sample.  A derivative is electively approximated relative to a second
+by multiplying a reference signal by an absolute sampling frequency raised
+to a derivative power.</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}y_{n} = \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} b_{i} s_{i,n} + b_{0} x_{n}\\s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\end{aligned}\end{align} \]</div>
+<p>A frequency response is expressed as a function of a forward coefficient
+array.</p>
+<div class="math notranslate nohighlight">
+\[H_{z} = \sum_{i = 0}^{N} b_{i} z^{-i}\]</div>
+<p>A factory is defined to facilitate construction of an instance, defining
+a forward coefficient array and a state array of a specified order, to
+satisfy specified constraints.  An instance, derivative, and order are
+specified.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = f^{D}\ \frac{x_{n}}{D}\quad\quad\quad\quad\scriptsize{ f = 1.0 }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; -1 } ] }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -1 } ]\ \frac{1}{2} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,4} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 0 &amp; -8 &amp; 1 } ]\ \frac{1}{12} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,2} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 1 } ] }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,4} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -2 &amp; 0 &amp; 1 } ]\ \frac{1}{4} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,6} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 1 &amp; -16 &amp; 1 &amp; 8 &amp; -1 } ]\ \frac{1}{24} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,8} = \scriptsize{ [ \matrix{ 1 &amp; -16 &amp; 64 &amp; 16 &amp; -130 &amp; 16 &amp; 64 &amp; -16 &amp; 1 } ]\ \frac{1}{144} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,4} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 0 &amp; 2 &amp; -1 } ]\ \frac{1}{2} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,6} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -3 &amp; 0 &amp; 3 &amp; 0 &amp; 1 } ]\ \frac{1}{8} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,8} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 2 &amp; -24 &amp; 0 &amp; 24 &amp; -2 &amp; -8 &amp; 1 } ]\ \frac{1}{48} }\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">DerivativeFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="p">,</span> <span class="n">derivative</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-02-06.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.DerivativeFilter.DerivativeFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.DerivativeFilter.</code><code class="sig-name descname">DerivativeFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([1.000000])</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a></p>
+<p>Derivative filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="diamondback.filters.DerivativeFilter.DerivativeFilter.Factory">
+<em class="property">class </em><code class="sig-name descname">Factory</code><a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter.Factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory.</p>
+<dl class="py method">
+<dt id="diamondback.filters.DerivativeFilter.DerivativeFilter.Factory.instance">
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">type</span></em>, <em class="sig-param"><span class="n">derivative</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>typ - Type derived from DerivativeFilter ( type ).</p>
+<p>derivative - Derivative in [ 1, 3 ]  ( int ).</p>
+<p>order - Order ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>instance - Instance ( typ( ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.DerivativeFilter.DerivativeFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/DerivativeFilter.html#DerivativeFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.DerivativeFilter.DerivativeFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.FirFilter">
+<span id="diamondback-filters-firfilter-module"></span><h2>diamondback.filters.FirFilter module<a class="headerlink" href="#module-diamondback.filters.FirFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A Finite Impulse Response ( FIR ) filter realizes a discrete difference
+equation as a function of a forward coefficient array and a state array
+of a specified order, consuming an incident signal and producing a
+reference signal.  A primary signal is electively specified to produce
+an estimation error, to facilitate adaptation.  A rate of adaptation is
+specified.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}\]</div>
+<p>A reset may minimize edge effects at a discontinuity by assuming
+persistent operation at a specified incident signal condition.</p>
+<div class="math notranslate nohighlight">
+\[s_{i,n} = x_{n}\]</div>
+<p>A frequency response is expressed as a function of a forward
+coefficient array.</p>
+<div class="math notranslate nohighlight">
+\[H_{z,n} = \sum_{i = 0}^{N} b_{i,n} z^{-i}\]</div>
+<p>A factory is defined to facilitate construction of an instance,
+defining a forward coefficient array, and a state array of a
+specified order, to realize specified constraints.  An instance,
+classification, frequency, order, count, complement, gain, and
+rate are specified.</p>
+<p>Frequency corresponds to a -3 dB frequency response normalized relative
+to Nyquist.</p>
+<p>Classification is in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).</p>
+<ul>
+<li><div class="line-block">
+<div class="line">‘Blackman’ filters demonstrate low resolution and spectral leakage</div>
+<div class="line">with improved rate of attenuation.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Hamming’ filters demonstrate minimal nearest side lobe magnitude</div>
+<div class="line">response.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Hann’ filters demonstrate high resolution and spectral leakage.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Kaiser’ filters demonstrate flexible resolution and spectral</div>
+<div class="line">leakage dependent upon a beta value of a Bessel function of the</div>
+<div class="line">first kind, with beta equal to 7.0.</div>
+</div>
+</li>
+</ul>
+<p>Order must even to ensure a Type I form linear phase solution.</p>
+<p>Count is a quantity of filters of a specified order concatenated to
+form an aggregate frequency response in cascade form.</p>
+<p>Complement effectively constructs a mirror image of a specified
+frequency response.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">FirFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Kaiser&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+
+<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-23.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.FirFilter.FirFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.FirFilter.</code><code class="sig-name descname">FirFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([1.000000])</span></em>, <em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([0.000000])</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IB.IB" title="diamondback.interfaces.IB.IB"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IB.IB</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IRate.IRate" title="diamondback.interfaces.IRate.IRate"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IRate.IRate</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IReset.IReset" title="diamondback.interfaces.IReset.IReset"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IReset.IReset</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
+<p>Finite Impulse Response ( FIR ) filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<p>s - State ( array( complex | float ), list( complex | float ) ).</p>
+<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="diamondback.filters.FirFilter.FirFilter.Factory">
+<em class="property">class </em><code class="sig-name descname">Factory</code><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.Factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory.</p>
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.Factory.instance">
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">type</span></em>, <em class="sig-param"><span class="n">classification</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">frequency</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">complement</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">gain</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>typ - Type derived from FirFilter ( type ).</p>
+<p>classification - Classification in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ) ( str ).</p>
+<p>frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</p>
+<p>order - Order ( int ).</p>
+<p>count - Count ( int ).</p>
+<p>complement - Complement, or high pass, response condition ( bool ).</p>
+<p>gain - Gain ( float ).</p>
+<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>instance - Instance ( typ( ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.delay">
+<code class="sig-name descname">delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.delay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates group delay and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>length - Length ( int ).</p>
+<p>count - Count ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<p>e - Error signal ( array( complex | float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies a state to minimize edge effects by assuming persistent
+operation at a specified incident signal condition.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( complex, float ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.response">
+<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates frequency response and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>length - Length ( int ).</p>
+<p>count - Count ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex ) ).</p>
+<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.FirFilter.FirFilter.roots">
+<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.roots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates roots of a frequency response in poles and zeros.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>count - Count.  ( int )</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>p - Poles ( array( complex ) ).</p>
+<p>z - Zeros ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.GoertzelFilter">
+<span id="diamondback-filters-goertzelfilter-module"></span><h2>diamondback.filters.GoertzelFilter module<a class="headerlink" href="#module-diamondback.filters.GoertzelFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A Goertzel filter realizes a discrete difference equation which
+approximates a discrete Fourier transform evaluated at a specified
+normalized frequency and order, consuming an incident signal and
+producing a reference signal.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a = \scriptsize{ [\ \matrix{ 0 &amp; 2\ \cos(\ \pi\ f\ ) &amp; -1 }\ ] } &amp; b = \scriptsize{ [\ \matrix{ 1 &amp; -e^{\ j\ \pi\ f\ } &amp; 0 } }\ ] }\]</div>
+<p>At the terminus of each window length a reference signal is evaluated
+to estimate a discrete Fourier transform at a specified normalized
+frequency.</p>
+<div class="math notranslate nohighlight">
+\[H_{z} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
+<p>A Goertzel filter is normalized by incident signal length.  An incident
+signal length is is inversely proportional to a normalized frequency
+resolution.</p>
+<div class="math notranslate nohighlight">
+\[N = \frac{2}{R}\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">GoertzelFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Create an instance from coefficients and frequency.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">GoertzelFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1024</span> <span class="p">)</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">1</span> <span class="p">]</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-04-16.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.GoertzelFilter.GoertzelFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.GoertzelFilter.</code><code class="sig-name descname">GoertzelFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">frequency</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/GoertzelFilter.html#GoertzelFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.GoertzelFilter.GoertzelFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.IirFilter.IirFilter" title="diamondback.filters.IirFilter.IirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.IirFilter.IirFilter</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IFrequency.IFrequency" title="diamondback.interfaces.IFrequency.IFrequency"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IFrequency.IFrequency</span></code></a></p>
+<p>Goertzel filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>b - Forward coefficient ( array( float ), list( float ) ).</p>
+<p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.GoertzelFilter.GoertzelFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/GoertzelFilter.html#GoertzelFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.GoertzelFilter.GoertzelFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.IirFilter">
+<span id="diamondback-filters-iirfilter-module"></span><h2>diamondback.filters.IirFilter module<a class="headerlink" href="#module-diamondback.filters.IirFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>An Infinite Impulse Response ( IIR ) filter realizes a discrete
+difference equation as a function of a recursive coefficient array,
+a forward coefficient array, and a state array of a specified order,
+consuming an incident signal and producing a reference signal.  A
+primary signal is electively specified to produce an estimation error,
+to facilitate adaptation.  A rate of adaptation is specified.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[q_{i,n} = s_{i,n-1} + a_{i,n-1} + q_{i,n-1}\]</div>
+<div class="math notranslate nohighlight">
+\[a_{i,n+1} = a_{i,n} + \mu e_{n} (\ b_{0,n} s_{i,n} + a_{i,n} q_{i,n}\ )^{*}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}\]</div>
+<p>A reset may minimize edge effects at a discontinuity by assuming
+persistent operation at a specified incident signal condition.</p>
+<div class="math notranslate nohighlight">
+\[s_{i,n} = \frac{1.0 - b_{0,n}}{\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\ x_{n}\]</div>
+<p>A frequency response is expressed as a function of a recursive
+coefficient array and a forward coefficient array.</p>
+<div class="math notranslate nohighlight">
+\[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i,n} z^{-i}}}\]</div>
+<p>A factory is defined to facilitate construction of an instance,
+defining a recursive coefficient array, a forward coefficient array,
+and a state array of a specified order, to realize specified
+constraints.  An instance, classification, frequency, order, count,
+complement, gain, and rate are specified.</p>
+<p>Frequency corresponds to a -3 dB frequency response normalized relative
+to Nyquist.</p>
+<p>Classification is in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).</p>
+<ul>
+<li><div class="line-block">
+<div class="line">‘Bessel’ filters demonstrate maximally linear phase response or</div>
+<div class="line">constant group delay.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Butterworth’ filters demonstrate maximally flat magnitude response.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Chebyshev’ filters demonstrate minimally low magnitude response error</div>
+<div class="line">and improved rate of attenuation in a Type I form, with a maximum in</div>
+<div class="line">band ripple of 0.125 dB.</div>
+</div>
+</li>
+</ul>
+<p>Count is a quantity of filters of a specified order concatenated to
+form an aggregate frequency response in cascade form.</p>
+<p>Complement effectively constructs a mirror image of a specified
+frequency response.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IirFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+
+<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-23.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.IirFilter.IirFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.IirFilter.</code><code class="sig-name descname">IirFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([0.000000])</span></em>, <em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([1.000000])</span></em>, <em class="sig-param"><span class="n">s</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([0.000000])</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IA.IA" title="diamondback.interfaces.IA.IA"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IA.IA</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IQ.IQ" title="diamondback.interfaces.IQ.IQ"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IQ.IQ</span></code></a></p>
+<p>Infinite Impulse Response ( IIR ) filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<p>s - State ( array( complex | float ), list( complex | float ) ).</p>
+<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="diamondback.filters.IirFilter.IirFilter.Factory">
+<em class="property">class </em><code class="sig-name descname">Factory</code><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.Factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory.</p>
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.Factory.instance">
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">type</span></em>, <em class="sig-param"><span class="n">classification</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">frequency</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em>, <em class="sig-param"><span class="n">complement</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">gain</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">1.0</span></em>, <em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span> <span class="o">=</span> <span class="default_value">0.0</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>typ - Type derived from IirFilter ( type ).</p>
+<p>classification - Classification in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ) ( str ).</p>
+<p>frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</p>
+<p>order - Order ( int ).</p>
+<p>count - Count ( int ).</p>
+<p>complement - Complement, or high pass, response condition ( bool ).</p>
+<p>gain - Gain ( float ).</p>
+<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>instance - Instance ( typ( ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.delay">
+<code class="sig-name descname">delay</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.delay"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.delay" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates group delay and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>length - Length ( int ).</p>
+<p>count - Count ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<p>e - Error signal ( array( complex | float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies a state to minimize edge effects by assuming persistent
+operation at a specified incident signal condition.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( complex, float ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.response">
+<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.response" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates frequency response and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>length - Length ( int ).</p>
+<p>count - Count ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex ) ).</p>
+<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IirFilter.IirFilter.roots">
+<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.roots" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimates roots of a frequency response in poles and zeros.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>count - Count.  ( int )</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>p - Poles ( array( complex ) ).</p>
+<p>z - Zeros ( array( complex ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.IntegralFilter">
+<span id="diamondback-filters-integralfilter-module"></span><h2>diamondback.filters.IntegralFilter module<a class="headerlink" href="#module-diamondback.filters.IntegralFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>An integral filter realizes a discrete difference equation which
+approximates a discrete integral as a function of a recursive coefficient
+array, a forward coefficient array, and a state array of a specified order,
+consuming an incident signal and producing a reference signal.  An integral
+is approximated relative to a sample.  An integral is electively approximated
+relative to a second by dividing a reference signal by an absolute sampling
+frequency.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<p>A frequency response is expressed as a function of a recursive coefficient
+array and a forward coefficient array.</p>
+<div class="math notranslate nohighlight">
+\[H_{z} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
+<p>A factory is defined to facilitate construction of an instance, defining
+a recursive coefficient array, a forward coefficient array, and a state
+array of a specified order, to satisfy specified constraints.  An instance
+and order are specified.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = \frac{1}{f}\ \sum_{i=0}^{N} x_{n}\quad\quad\quad\quad\scriptsize{ f = 1.0 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,0} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,0} = \scriptsize{ [ \matrix{ 1 } ] } }\quad\quad\scriptsize{ Rectangular }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,1} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; 1 } ]\ \frac{1}{2} } }\quad\quad\scriptsize{ Trapezoidal }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 4 &amp; 1 } ]\ \frac{1}{6} } }\quad\quad\scriptsize{ Simpson\ 2 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,3} = \scriptsize{ [ \matrix{ 1 &amp; 3 &amp; 3 &amp; 1 } ]\ \frac{1}{8} } }\quad\quad\scriptsize{ Simpson\ 3 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \scriptsize{ [ \matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\ \frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">IntegralFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-02-06.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.IntegralFilter.IntegralFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.IntegralFilter.</code><code class="sig-name descname">IntegralFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">a</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([0.000000])</span></em>, <em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([1.000000])</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.IirFilter.IirFilter" title="diamondback.filters.IirFilter.IirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.IirFilter.IirFilter</span></code></a></p>
+<p>Integral filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="diamondback.filters.IntegralFilter.IntegralFilter.Factory">
+<em class="property">class </em><code class="sig-name descname">Factory</code><a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter.Factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory.</p>
+<dl class="py method">
+<dt id="diamondback.filters.IntegralFilter.IntegralFilter.Factory.instance">
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">type</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>typ - Type derived from IntegralFilter ( type ).</p>
+<p>order - Order ( int ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>instance - Instance ( typ( ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.IntegralFilter.IntegralFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/IntegralFilter.html#IntegralFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IntegralFilter.IntegralFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.PidFilter">
+<span id="diamondback-filters-pidfilter-module"></span><h2>diamondback.filters.PidFilter module<a class="headerlink" href="#module-diamondback.filters.PidFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A Proportional Integral Derivative ( PID ) filter realizes a discrete
+difference equation as a function of a forward coefficient array and a
+state array of a static order.  A forward coefficient array applies a
+gain to proportional, integral, and derivative representations of an
+incident signal, producing a reference signal.  An integral limit is
+specified, preventing integral saturation which may adversely affect
+control stability and latency.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \frac{d}{dn}(\ x_{n}\ )\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PidFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PidFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">5.0e-2</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.PidFilter.PidFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.PidFilter.</code><code class="sig-name descname">PidFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PidFilter.html#PidFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a></p>
+<p>Proportional Integral Derivative ( PID ) filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.PidFilter.PidFilter.limit">
+<em class="property">property </em><code class="sig-name descname">limit</code><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter.limit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Integral limit ( float ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PidFilter.PidFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/PidFilter.html#PidFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.PolynomialRateFilter">
+<span id="diamondback-filters-polynomialratefilter-module"></span><h2>diamondback.filters.PolynomialRateFilter module<a class="headerlink" href="#module-diamondback.filters.PolynomialRateFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A polynomial rate filter produces a reference signal which approximates
+an incident signal evaluated at an effective frequency equal to the
+product of an incident sample frequency and a specified rate.</p>
+<p>A polynomial rate filter synthesizes a sequence of polynomials which
+form local approximations to an incident signal, and are evaluated at
+indices corresponding to a specified rate to produce a reference
+signal, effectively modifying the sampling rate by a specified rate
+ratio.</p>
+<p>A specified rate must be greater than zero, supporting decimation and
+interpolation.</p>
+<p>Latency compensation is not necessary, as no group delay is introduced.</p>
+<p>Edge effects are internally mitigated by linear extension of an
+incident signal.</p>
+<p>A polynomial rate filter may be the most appropriate option in
+applications which require fractional decimation and interpolation and
+benefit from minimization of edge effects due to discontinuous
+operation or dynamic rate.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolynomialRateFilter</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance with rate and order.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-19.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.PolynomialRateFilter.</code><code class="sig-name descname">PolynomialRateFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">3</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IRate.IRate" title="diamondback.interfaces.IRate.IRate"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IRate.IRate</span></code></a></p>
+<p>Polynomial rate filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>rate - Rate ratio of effective frequency in [ 1.0, inf ) ( float ).</p>
+<p>order - Order in [ 2 , inf ) ( int ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.order">
+<em class="property">property </em><code class="sig-name descname">order</code><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Order in [ 2, inf ) ( int ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.rate">
+<em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate of adaptation ( float ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.PolyphaseRateFilter">
+<span id="diamondback-filters-polyphaseratefilter-module"></span><h2>diamondback.filters.PolyphaseRateFilter module<a class="headerlink" href="#module-diamondback.filters.PolyphaseRateFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A polyphase rate filter produces a reference signal which approximates
+an incident signal evaluated at an effective frequency equal to the
+product of an incident sample frequency and a specified rate.</p>
+<p>A polyphase rate filter synthesizes a polyphase filter bank with
+comprised of a sequence of low pass filters.  Each low pass filter in a
+filter bank realizes a common frequency response, with a fractional
+sample difference in group delay.  A stride is defined to be dependent
+upon a specified rate ratio and count.  An incident signal is filtered
+to reduce aliasing and decimated or interpolated to produce a reference
+signal, effectively modifying the sampling rate by a specified rate
+ratio.</p>
+<div class="math notranslate nohighlight">
+\[b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<p>A specified rate must be greater than zero, and less than or equal to
+the quantity of filters comprising a polyphase filter bank, supporting
+decimation and interpolation.</p>
+<p>Phase dither is present for a real rate, though error is accumulated to
+ensure that the specified rate is realized without bias.  Group delay
+may be addressed by latency compensation.</p>
+<div class="math notranslate nohighlight">
+\[\phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \frac{K}{\scriptsize{Rate}}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K\]</div>
+<div class="math notranslate nohighlight">
+\[k_{n+1} = \mod(\ \lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\rfloor,\ M\ )\]</div>
+<p>A reset may minimize edge effects at a discontinuity by assuming
+persistent operation at a specified incident signal condition.  Edge
+extension may also be applied to an incident signal.</p>
+<p>A polyphase rate filter may be the most appropriate option in
+applications which require fractional decimation and interpolation and
+are not highly sensitive to minimization of edge effects or have
+continuous operation.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolyphaseRateFilter</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance with rate.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-19.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.PolyphaseRateFilter.</code><code class="sig-name descname">PolyphaseRateFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rate</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolyphaseRateFilter.html#PolyphaseRateFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IB.IB" title="diamondback.interfaces.IB.IB"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IB.IB</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IRate.IRate" title="diamondback.interfaces.IRate.IRate"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IRate.IRate</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IReset.IReset" title="diamondback.interfaces.IReset.IReset"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IReset.IReset</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
+<p>Polyphase rate filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>rate - Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.b">
+<em class="property">property </em><code class="sig-name descname">b</code><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.b" title="Permalink to this definition">¶</a></dt>
+<dd><p>Forward coefficient ( array( float ) ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.rate">
+<em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.rate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rate of adaptation ( float ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/PolyphaseRateFilter.html#PolyphaseRateFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.reset">
+<code class="sig-name descname">reset</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">float</span></em><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/filters/PolyphaseRateFilter.html#PolyphaseRateFilter.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modifies a state to minimize edge effects by assuming persistent
+operation at a specified incident signal condition.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( float ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.RankFilter">
+<span id="diamondback-filters-rankfilter-module"></span><h2>diamondback.filters.RankFilter module<a class="headerlink" href="#module-diamondback.filters.RankFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A rank filter realizes a nonlinear morphological operator consuming an
+incident signal, sorting, indexing, and selecting over a sliding window
+of a specified order, and producing a reference signal.</p>
+<p>Simple morphological operations include dilation, which defines a rank
+index equal to zero, erosion, which defines a rank index equal to order,
+and median, which defines a rank index equal to order divided by two
+for even order.  Compound morphological operations include close,
+consisting of sequential dilation and erosion, and open, consisting of
+sequential erosion and dilation.  An order and rank are specified.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ i\ ]\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RankFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance with rank and order.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">RankFilter</span><span class="p">(</span> <span class="n">rank</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">10</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">4</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">5</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">6</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-01-31.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.RankFilter.RankFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.RankFilter.</code><code class="sig-name descname">RankFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">rank</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/RankFilter.html#RankFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.filters.FirFilter.FirFilter" title="diamondback.filters.FirFilter.FirFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.filters.FirFilter.FirFilter</span></code></a></p>
+<p>Rank filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>rank - Rank in [ 0, order ] ( int ).</p>
+<p>order - Order ( int ).</p>
+</div></blockquote>
+<dl class="py method">
+<dt id="diamondback.filters.RankFilter.RankFilter.rank">
+<em class="property">property </em><code class="sig-name descname">rank</code><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rank in [ 0, order ] ( int ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.RankFilter.RankFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em>, <em class="sig-param"><span class="n">d</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/RankFilter.html#RankFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters.WindowFilter">
+<span id="diamondback-filters-windowfilter-module"></span><h2>diamondback.filters.WindowFilter module<a class="headerlink" href="#module-diamondback.filters.WindowFilter" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>A window filter realizes a discrete difference equation as a function
+of a forward coefficient array of a specified order, consuming an
+incident signal and producing a reference signal.</p>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{n}\ x_{n}\]</div>
+<p>A factory is defined to facilitate construction of an instance,
+defining a forward coefficient array of a specified order.  An
+instance, classification, order, and normalization are specified.</p>
+<p>Classification is in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).</p>
+<ul>
+<li><div class="line-block">
+<div class="line">‘Blackman’ filters demonstrate low resolution and spectral leakage</div>
+<div class="line">with improved rate of attenuation.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Hamming’ filters demonstrate minimal nearest side lobe magnitude</div>
+<div class="line">response.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Hann’ filters demonstrate high resolution and spectral leakage.</div>
+</div>
+</li>
+<li><div class="line-block">
+<div class="line">‘Kaiser’ filters demonstrate flexible resolution and spectral</div>
+<div class="line">leakage dependent upon a beta value of a Bessel function of the</div>
+<div class="line">first kind, with beta equal to 7.0.</div>
+</div>
+</li>
+</ul>
+<p>Normal condition scales a forward coefficient array to electively
+compensate for energy loss.</p>
+<div class="math notranslate nohighlight">
+\[b_{n} = b_{n}\ \frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}\]</div>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">WindowFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normal</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-04-13.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.filters.WindowFilter.WindowFilter">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.filters.WindowFilter.</code><code class="sig-name descname">WindowFilter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">b</span><span class="p">:</span> <span class="n">any</span> <span class="o">=</span> <span class="default_value">array([1.000000])</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/WindowFilter.html#WindowFilter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.WindowFilter.WindowFilter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IB.IB" title="diamondback.interfaces.IB.IB"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IB.IB</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Window filter.</p>
+<p>Initialize.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>b - Forward coefficient ( array( float ) ).</p>
+</div></blockquote>
+<dl class="py class">
+<dt id="diamondback.filters.WindowFilter.WindowFilter.Factory">
+<em class="property">class </em><code class="sig-name descname">Factory</code><a class="reference internal" href="_modules/diamondback/filters/WindowFilter.html#WindowFilter.Factory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.WindowFilter.WindowFilter.Factory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Factory.</p>
+<dl class="py method">
+<dt id="diamondback.filters.WindowFilter.WindowFilter.Factory.instance">
+<em class="property">classmethod </em><code class="sig-name descname">instance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">typ</span><span class="p">:</span> <span class="n">type</span></em>, <em class="sig-param"><span class="n">classification</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">order</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">normal</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/WindowFilter.html#WindowFilter.Factory.instance"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.WindowFilter.WindowFilter.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constructs an instance.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>typ - Type derived from WindowFilter ( type ).</p>
+<p>classification - Classification in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ) ( str ).</p>
+<p>order - Order ( int ).</p>
+<p>normal - Normal condition ( bool ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>instance - Instance ( typ( ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.filters.WindowFilter.WindowFilter.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x</span><span class="p">:</span> <span class="n">any</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/filters/WindowFilter.html#WindowFilter.filter"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.WindowFilter.WindowFilter.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filters an incident signal and produces a reference signal.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>y - Reference signal ( array( complex | float ) ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.filters">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diamondback.filters" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2018, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

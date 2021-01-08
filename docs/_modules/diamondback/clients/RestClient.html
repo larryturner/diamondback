@@ -1,0 +1,419 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>diamondback.clients.RestClient &mdash; diamondback  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/jquery.js"></script>
+        <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> diamondback
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>diamondback.clients.RestClient</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for diamondback.clients.RestClient</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+
+<span class="sd">    REST client for simple REST service requests.  An API and an elective</span>
+<span class="sd">    dictionary of parameter strings are encoded to build a URL, elective</span>
+<span class="sd">    JSON or binary data are defined in the body of a request, and a JSON</span>
+<span class="sd">    response is returned and decoded.</span>
+
+<span class="sd">    A client instance may be useful as a base client definition to interact</span>
+<span class="sd">    with a service which satisfies flexible request constraints.</span>
+
+<span class="sd">    Caching may be useful in environments with intermittent or inconsistent</span>
+<span class="sd">    network connectivity.  If caching is enabled, delete, patch, and put</span>
+<span class="sd">    requests are cached when a service is not live, and sent in order during</span>
+<span class="sd">    a subsequent request when a service is live.</span>
+
+<span class="sd">    Requests are retried up to a specified count if status 5xx is returned</span>
+<span class="sd">    indicating a service error.</span>
+
+<span class="sd">    URL and proxy definition is supported.</span>
+
+<span class="sd">    Thread safe and reentrant.</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback import RestClient</span>
+<span class="sd">            import requests</span>
+<span class="sd">            import typing</span>
+
+
+<span class="sd">            class TestClient( RestClient ) :</span>
+
+<span class="sd">                def __init__( self ) -&gt; None :</span>
+
+<span class="sd">                    super( ).__init__( )</span>
+
+<span class="sd">                    self.cache = False</span>
+
+<span class="sd">                    self.count = 3</span>
+
+<span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
+
+
+<span class="sd">                def add( self, item : typing.Dict[ str, float ] ) -&gt; float :</span>
+
+<span class="sd">                    return self.request( &#39;get&#39;, api = &#39;test/add&#39;, item = item )</span>
+
+<span class="sd">            client = TestClient( )</span>
+
+<span class="sd">            client.url = &#39;http://127.0.0.1:8080&#39;</span>
+
+<span class="sd">            client.add( { &#39;x&#39;, 2.71827, &#39;y&#39; : 3.14159 } )</span>
+
+<span class="sd">    **License**</span>
+
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+
+<span class="sd">        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+
+<span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</span>
+
+<span class="sd">    **Definition**</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.ICache</span> <span class="kn">import</span> <span class="n">ICache</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.ICount</span> <span class="kn">import</span> <span class="n">ICount</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IData</span> <span class="kn">import</span> <span class="n">IData</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">RLock</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+
+<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">ICache</span><span class="p">,</span> <span class="n">ICount</span><span class="p">,</span> <span class="n">IData</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="sd">&quot;&quot;&quot; REST client.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Live ( bool ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">try</span> <span class="p">:</span>
+
+            <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="p">)</span>
+
+            <span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">except</span> <span class="p">:</span>
+
+            <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">return</span> <span class="n">value</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Initialize.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="mi">3</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="p">{</span> <span class="p">}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
+
+<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
+<span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
+<span class="sd">            URL, elective JSON or binary data are defined in the body of a</span>
+<span class="sd">            request, and a JSON response is returned and decoded.</span>
+
+<span class="sd">            Arguments :</span>
+
+<span class="sd">                method - Method ( str ) in ( &#39;delete&#39;, &#39;get&#39;, &#39;head&#39;, &#39;options&#39;, &#39;patch&#39;, &#39;post&#39;, &#39;put&#39; ).</span>
+
+<span class="sd">                api - API, relative to the URL ( str ).</span>
+
+<span class="sd">                item - Item ( dict( str, str ) ).</span>
+
+<span class="sd">                json - JSON ( any ).</span>
+
+<span class="sd">                data - Data ( any ).</span>
+
+<span class="sd">                timeout - Timeout ( tuple( connect : float, read : float ) ).</span>
+
+<span class="sd">            Returns :</span>
+
+<span class="sd">                value - Value ( any ).</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">method</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Method = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Method = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;</span><span class="si">{:30s}{:30s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="s1">&#39;Data = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">),</span> <span class="s1">&#39;Json = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="nb">min</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Timeout = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span> <span class="p">)</span>
+
+        <span class="n">api</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
+
+        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">api</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">api</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">with</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">cache</span><span class="p">,</span> <span class="n">live</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">live</span>
+
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cache</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">live</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;method&#39;</span> <span class="p">:</span> <span class="n">method</span><span class="p">,</span> <span class="s1">&#39;url&#39;</span> <span class="p">:</span> <span class="n">url</span><span class="p">,</span> <span class="s1">&#39;item&#39;</span> <span class="p">:</span> <span class="n">item</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span> <span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span> <span class="p">:</span> <span class="n">json</span> <span class="p">}</span> <span class="p">)</span>
+
+            <span class="k">else</span> <span class="p">:</span>
+
+                <span class="k">if</span> <span class="p">(</span> <span class="n">live</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="p">]</span> <span class="p">:</span>
+
+                        <span class="k">try</span> <span class="p">:</span>
+
+                            <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+
+                                <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;method&#39;</span> <span class="p">],</span> <span class="n">url</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;url&#39;</span> <span class="p">],</span> <span class="n">params</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;item&#39;</span> <span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;data&#39;</span> <span class="p">],</span> <span class="n">json</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;json&#39;</span> <span class="p">],</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
+
+                                    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                                        <span class="k">continue</span>
+
+                                    <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                                        <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span> <span class="s1">&#39;</span><span class="si">{:30s}{:30s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="s1">&#39;Status = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="p">),</span> <span class="s1">&#39;Reason = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">reason</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+                                    <span class="k">break</span>
+
+                        <span class="k">finally</span> <span class="p">:</span>
+
+                            <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
+
+                <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+
+                    <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
+
+                        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&gt;=</span> <span class="mi">500</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                            <span class="k">continue</span>
+
+                        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+                            <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span> <span class="s1">&#39;</span><span class="si">{:30s}{:30s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="s1">&#39;Status = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="p">),</span> <span class="s1">&#39;Reason = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">reason</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
+
+                        <span class="k">break</span>
+
+        <span class="k">return</span> <span class="n">value</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2018, Larry Turner, Schneider Electric.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
