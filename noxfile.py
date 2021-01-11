@@ -37,7 +37,7 @@ def build( session ) -> None :
     """ Build Docker image.
     """
 
-    if ( os.path.exists( 'Dockerfile' ) ) :
+    if ( os.path.exists( 'dockerfile' ) ) :
 
         session.run( 'docker', 'build', '--tag', os.getcwd( ).split( os.path.sep )[ -1 ] + ':latest', '.' )
 
@@ -100,6 +100,18 @@ def push( session ) -> None :
     if ( os.path.exists( '.git' ) ) :
 
         session.run( 'git', 'status', '--short' )
+
+        value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] release : ' )
+
+        if ( ( value ) and ( len( [ x for x in value if ( x == '.' ) ] ) == 2 ) ) :
+
+            try :
+
+                session.run( 'git', 'tag', '--annotate', value, '--force', '--message', value )
+
+            except :
+
+                pass
 
         value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
 
