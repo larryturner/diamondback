@@ -9,9 +9,9 @@
     with a service which satisfies flexible request constraints.
 
     Caching may be useful in environments with intermittent or inconsistent
-    network connectivity.  If caching is enabled, delete, patch, and put
-    requests are cached when a service is not live, and sent in order during
-    a subsequent request when a service is live.
+    network connectivity.  If caching is specified, requests are cached when
+    a service is not live, and sent in order during a subsequent request when
+    a service is live.
 
     URL and proxy definition is supported.
 
@@ -31,8 +31,6 @@
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
-
-                    self.cache = False
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
@@ -61,22 +59,24 @@
 
 """
 
-from diamondback.interfaces.ICache import ICache
 from diamondback.interfaces.IData import IData
+from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
+from diamondback.interfaces.IReady import IReady
 from diamondback.interfaces.IUrl import IUrl
+from diamondback.interfaces.IUser import IUser
+from diamondback.interfaces.IVersion import IVersion
 from threading import RLock
 import requests
-import time
 import typing
 
 
-class RestClient( ICache, IData, IProxy, IUrl ) :
+class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
     """ REST client.
     """
 
-    @property
+    @ILive.live.getter
     def live( self ) :
 
         """ Live ( bool ).
@@ -90,7 +90,45 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         except :
 
+            try :
+
+                value = requests.request( method = 'get', url = self.url + '/live' ).json( )
+
+            except :
+
+                value = False
+
+        return value
+
+    @IReady.ready.getter
+    def ready( self ) :
+
+        """ Ready ( bool ).
+        """
+
+        try :
+
+            value = requests.request( method = 'get', url = self.url + '/ready' ).json( )
+
+        except :
+
             value = False
+
+        return value
+
+    @IVersion.version.getter
+    def version( self ) :
+
+        """ Version ( str ).
+        """
+
+        try :
+
+            value = requests.request( method = 'get', url = self.url + '/version' ).json( )
+
+        except :
+
+            value = ''
 
         return value
 
@@ -103,16 +141,17 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
         self._rlock = RLock( )
 
-        self.cache, self.data = False, [ ]
+        self.data = [ ]
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, cache : bool = False, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective JSON or binary data are defined in the body of a
-            request, and a JSON response is returned and decoded.
+            request, and a JSON response is returned and decoded.  If cache
+            is specified, requests are cached if a service is not live.
 
             Arguments :
 
@@ -125,6 +164,8 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
                 json - JSON ( any ).
 
                 data - Data ( any ).
+
+                cache - Cache ( bool ).
 
                 timeout - Timeout ( tuple( connect : float, read : float ) ).
 
@@ -160,37 +201,37 @@ class RestClient( ICache, IData, IProxy, IUrl ) :
 
             url += '/' + api
 
-        value = True
+        ready, value = True, True
 
         with ( self._rlock ) :
 
-            cache, live = self.cache, self.live
+            if ( cache ) :
 
-            if ( ( cache ) and ( not live ) and ( method in ( 'delete', 'patch', 'put' ) ) ) :
+                if ( not self.live ) :
 
-                self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
+                    self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
-            else :
+                    ready = False
 
-                if ( live ) :
+            if ( ready ) :
 
-                    for x in [ x for x in self.data ] :
+                if ( any( self.data ) ) :
 
-                        try :
+                    if ( self.live ) :
 
-                            print( 'cache ' + method + ' ' + url )
+                        for x in [ x for x in self.data ] :
 
-                            with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
+                            try :
 
-                                if ( ( not value ) or ( value.status_code != 200 ) ) :
+                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                                    raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                                    if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                        finally :
+                                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
 
-                            del self.data[ 0 ]
+                            finally :
 
-                print( '!cache ' + method + ' ' + url )
+                                del self.data[ 0 ]
 
                 with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 

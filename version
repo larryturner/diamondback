@@ -120,8 +120,8 @@ Version     Date            Notes
 
 1.0.35      2020-11-16      Modified RestClient to add timeout.
 
-1.0.36      2020-11-19      Modified RestClient cache, deprecated ready, and
-                            modified live.
+1.0.36      2020-11-19      Modified RestClient cache and live, and deprecated
+                            ready.
 
 1.0.37      2020-11-19      Modified RestClient cache.
 
@@ -148,8 +148,12 @@ Version     Date            Notes
 
 1.0.46      2021-01-08      Added ICount.
 
-                            Modified RestClient to use ICount.
+1.0.47      2020-01-08      Modified RestClient request to delay on retry.
 
-1.0.47      2020-01-08      Modified RestClient to add delay on retry.
+1.0.48      2020-01-12      Added ILive and IReady.
 
-1.0.48      2020-01-09      Modified RestClient to remove retry.
+                            Modified RestClient to use ILive, IReady, IUser,
+                            and IVersion.
+
+                            Modified RestClient request to deprecate retry
+                            and migrate cache specification.

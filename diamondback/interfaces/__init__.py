@@ -17,6 +17,7 @@ from .IFrequency import IFrequency
 from .IIdentity import IIdentity
 from .IInterval import IInterval
 from .ILatency import ILatency
+from .ILive import ILive
 from .IModel import IModel
 from .IPath import IPath
 from .IPeriod import IPeriod
@@ -24,6 +25,7 @@ from .IPhase import IPhase
 from .IProxy import IProxy
 from .IQ import IQ
 from .IRate import IRate
+from .IReady import IReady
 from .IReset import IReset
 from .IResolution import IResolution
 from .IRotation import IRotation

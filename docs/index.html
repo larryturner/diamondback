@@ -225,9 +225,9 @@ elective JSON or binary data are defined in the body of a request, and a
 JSON response is returned and decoded.  A client instance may be useful as
 a base client definition to interact with a service which satisfies flexible
 request constraints. Caching may be useful in environments with intermittent
-or inconsistent network connectivity.  If caching is enabled, delete, patch,
-and put requests are cached when a service is not live, and sent in order
-during a subsequent request when a service is live.</p></li>
+or inconsistent network connectivity.  If caching is specified, requests are
+cached when a service is not live, and sent in order during a subsequent
+request when a service is live.</p></li>
 </ul>
 </div>
 <div class="section" id="commons">
@@ -334,6 +334,7 @@ through extensible factory construction.</p></li>
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity">IIdentity</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval">IInterval</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency">ILatency</a>,
+<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive">ILive</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel">IModel</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath">IPath</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod">IPeriod</a>,
@@ -341,6 +342,7 @@ through extensible factory construction.</p></li>
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IProxy">IProxy</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ">IQ</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate">IRate</a>,
+<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReady">IReady</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset">IReset</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IResolution">IResolution</a>,
 <a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation">IRotation</a>,

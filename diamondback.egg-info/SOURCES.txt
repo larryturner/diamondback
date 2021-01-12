@@ -43,6 +43,7 @@ diamondback/interfaces/IFrequency.py
 diamondback/interfaces/IIdentity.py
 diamondback/interfaces/IInterval.py
 diamondback/interfaces/ILatency.py
+diamondback/interfaces/ILive.py
 diamondback/interfaces/IModel.py
 diamondback/interfaces/IPath.py
 diamondback/interfaces/IPeriod.py
@@ -50,6 +51,7 @@ diamondback/interfaces/IPhase.py
 diamondback/interfaces/IProxy.py
 diamondback/interfaces/IQ.py
 diamondback/interfaces/IRate.py
+diamondback/interfaces/IReady.py
 diamondback/interfaces/IReset.py
 diamondback/interfaces/IResolution.py
 diamondback/interfaces/IRotation.py

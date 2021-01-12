@@ -106,6 +106,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IIdentity">diamondback.interfaces.IIdentity module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IInterval">diamondback.interfaces.IInterval module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILatency">diamondback.interfaces.ILatency module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.ILive">diamondback.interfaces.ILive module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IModel">diamondback.interfaces.IModel module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPath">diamondback.interfaces.IPath module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPeriod">diamondback.interfaces.IPeriod module</a></li>
@@ -113,6 +114,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IProxy">diamondback.interfaces.IProxy module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IQ">diamondback.interfaces.IQ module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IRate">diamondback.interfaces.IRate module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IReady">diamondback.interfaces.IReady module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IReset">diamondback.interfaces.IReset module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IResolution">diamondback.interfaces.IResolution module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IRotation">diamondback.interfaces.IRotation module</a></li>
@@ -1140,6 +1142,56 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.ILive">
+<span id="diamondback-interfaces-ilive-module"></span><h2>diamondback.interfaces.ILive module<a class="headerlink" href="#module-diamondback.interfaces.ILive" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Live interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ILive</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILive</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">live</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">live</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2021, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2021-01-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.interfaces.ILive.ILive">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.ILive.</code><code class="sig-name descname">ILive</code><a class="reference internal" href="_modules/diamondback/interfaces/ILive.html#ILive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.ILive.ILive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Live interface.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.interfaces.ILive.ILive.live">
+<em class="property">property </em><code class="sig-name descname">live</code><a class="headerlink" href="#diamondback.interfaces.ILive.ILive.live" title="Permalink to this definition">¶</a></dt>
+<dd><p>Live ( any ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.IModel">
 <span id="diamondback-interfaces-imodel-module"></span><h2>diamondback.interfaces.IModel module<a class="headerlink" href="#module-diamondback.interfaces.IModel" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -1485,6 +1537,56 @@
 <dt id="diamondback.interfaces.IRate.IRate.rate">
 <em class="property">property </em><code class="sig-name descname">rate</code><a class="headerlink" href="#diamondback.interfaces.IRate.IRate.rate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Rate of adaptation ( float ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IReady">
+<span id="diamondback-interfaces-iready-module"></span><h2>diamondback.interfaces.IReady module<a class="headerlink" href="#module-diamondback.interfaces.IReady" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Ready interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReady</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReady</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2021, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2021-01-12.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.interfaces.IReady.IReady">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.interfaces.IReady.</code><code class="sig-name descname">IReady</code><a class="reference internal" href="_modules/diamondback/interfaces/IReady.html#IReady"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.interfaces.IReady.IReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Ready interface.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.interfaces.IReady.IReady.ready">
+<em class="property">property </em><code class="sig-name descname">ready</code><a class="headerlink" href="#diamondback.interfaces.IReady.IReady.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ready ( any ).</p>
 </dd></dl>
 
 </dd></dl>

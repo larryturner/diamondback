@@ -53,9 +53,9 @@ Diamondback is defined in subpackages :
    JSON response is returned and decoded.  A client instance may be useful as
    a base client definition to interact with a service which satisfies flexible
    request constraints. Caching may be useful in environments with intermittent
-   or inconsistent network connectivity.  If caching is enabled, delete, patch,
-   and put requests are cached when a service is not live, and sent in order
-   during a subsequent request when a service is live.
+   or inconsistent network connectivity.  If caching is specified, requests are
+   cached when a service is not live, and sent in order during a subsequent
+   request when a service is live.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -172,6 +172,7 @@ Diamondback is defined in subpackages :
    `IIdentity <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity>`__,
    `IInterval <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval>`__,
    `ILatency <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency>`__,
+   `ILive <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive>`__,
    `IModel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel>`__,
    `IPath <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath>`__,
    `IPeriod <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod>`__,
@@ -179,6 +180,7 @@ Diamondback is defined in subpackages :
    `IProxy <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IProxy>`__,
    `IQ <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ>`__,
    `IRate <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate>`__,
+   `IReady <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReady>`__,
    `IReset <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset>`__,
    `IResolution <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IResolution>`__,
    `IRotation <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation>`__,

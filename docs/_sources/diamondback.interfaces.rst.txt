@@ -156,6 +156,14 @@ diamondback.interfaces.ILatency module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ILive module
+-----------------------------------
+
+.. automodule:: diamondback.interfaces.ILive
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IModel module
 ------------------------------------
 
@@ -208,6 +216,14 @@ diamondback.interfaces.IRate module
 -----------------------------------
 
 .. automodule:: diamondback.interfaces.IRate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.interfaces.IReady module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IReady
    :members:
    :undoc-members:
    :show-inheritance:
