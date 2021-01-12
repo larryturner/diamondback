@@ -188,7 +188,7 @@
     <span class="sd">&quot;&quot;&quot; Build Docker image.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;Dockerfile&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;dockerfile&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;docker&#39;</span><span class="p">,</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;--tag&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;:latest&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
 
@@ -251,6 +251,18 @@
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;.git&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;--short&#39;</span> <span class="p">)</span>
+
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;[ &#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; ] release : &#39;</span> <span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="p">[</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">if</span> <span class="p">(</span> <span class="n">x</span> <span class="o">==</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">try</span> <span class="p">:</span>
+
+                <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;tag&#39;</span><span class="p">,</span> <span class="s1">&#39;--annotate&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="s1">&#39;--force&#39;</span><span class="p">,</span> <span class="s1">&#39;--message&#39;</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">:</span>
+
+                <span class="k">pass</span>
 
         <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;[ &#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; ] message : &#39;</span> <span class="p">)</span>
 
