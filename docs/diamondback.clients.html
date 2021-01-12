@@ -176,8 +176,6 @@ with a service which satisfies flexible request constraints.</p>
 network connectivity.  If caching is enabled, delete, patch, and put
 requests are cached when a service is not live, and sent in order during
 a subsequent request when a service is live.</p>
-<p>Requests are retried up to a specified count if status 5xx is returned
-indicating a service error.</p>
 <p>URL and proxy definition is supported.</p>
 <p>Thread safe and reentrant.</p>
 <p><strong>Example</strong></p>
@@ -194,8 +192,6 @@ indicating a service error.</p>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">3</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
 
@@ -225,7 +221,7 @@ indicating a service error.</p>
 <dl class="py class">
 <dt id="diamondback.clients.RestClient.RestClient">
 <em class="property">class </em><code class="sig-prename descclassname">diamondback.clients.RestClient.</code><code class="sig-name descname">RestClient</code><a class="reference internal" href="_modules/diamondback/clients/RestClient.html#RestClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.clients.RestClient.RestClient" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ICache.ICache" title="diamondback.interfaces.ICache.ICache"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ICache.ICache</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ICount.ICount" title="diamondback.interfaces.ICount.ICount"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ICount.ICount</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IData.IData" title="diamondback.interfaces.IData.IData"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IData.IData</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IProxy.IProxy" title="diamondback.interfaces.IProxy.IProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IProxy.IProxy</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl" title="diamondback.interfaces.IUrl.IUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IUrl.IUrl</span></code></a></p>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ICache.ICache" title="diamondback.interfaces.ICache.ICache"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ICache.ICache</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IData.IData" title="diamondback.interfaces.IData.IData"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IData.IData</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IProxy.IProxy" title="diamondback.interfaces.IProxy.IProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IProxy.IProxy</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl" title="diamondback.interfaces.IUrl.IUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IUrl.IUrl</span></code></a></p>
 <p>REST client.</p>
 <p>Initialize.</p>
 <dl class="py method">

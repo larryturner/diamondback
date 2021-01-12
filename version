@@ -151,3 +151,5 @@ Version     Date            Notes
                             Modified RestClient to use ICount.
 
 1.0.47      2020-01-08      Modified RestClient to add delay on retry.
+
+1.0.48      2020-01-09      Modified RestClient to remove retry.

@@ -13,9 +13,6 @@
     requests are cached when a service is not live, and sent in order during
     a subsequent request when a service is live.
 
-    Requests are retried up to a specified count if status 5xx is returned
-    indicating a service error.
-
     URL and proxy definition is supported.
 
     Thread safe and reentrant.
@@ -36,8 +33,6 @@
                     super( ).__init__( )
 
                     self.cache = False
-
-                    self.count = 3
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
@@ -67,7 +62,6 @@
 """
 
 from diamondback.interfaces.ICache import ICache
-from diamondback.interfaces.ICount import ICount
 from diamondback.interfaces.IData import IData
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IUrl import IUrl
@@ -77,7 +71,7 @@ import time
 import typing
 
 
-class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
+class RestClient( ICache, IData, IProxy, IUrl ) :
 
     """ REST client.
     """
@@ -109,11 +103,9 @@ class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
 
         self._rlock = RLock( )
 
-        self.cache, self.count = False, 3
+        self.cache, self.data = False, [ ]
 
-        self.data, self.proxy = [ ], { }
-
-        self.url = 'http://127.0.0.1:8080'
+        self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
     def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
 
@@ -186,42 +178,26 @@ class RestClient( ICache, ICount, IData, IProxy, IUrl ) :
 
                         try :
 
-                            for ii in range( 0, self.count + 1 ) :
+                            print( 'cache ' + method + ' ' + url )
 
-                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
+                            with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
 
-                                    if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
+                                if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                                        time.sleep( 5.0 )
-
-                                        continue
-
-                                    if ( ( not value ) or ( value.status_code != 200 ) ) :
-
-                                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
-
-                                    break
+                                    raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
 
                         finally :
 
                             del self.data[ 0 ]
 
-                for ii in range( 0, self.count + 1 ) :
+                print( '!cache ' + method + ' ' + url )
 
-                    with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
+                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
 
-                        if ( ( value ) and ( value.status_code >= 500 ) and ( ii < 2 ) ) :
+                    if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                            time.sleep( 5.0 )
+                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
 
-                            continue
-
-                        if ( ( not value ) or ( value.status_code != 200 ) ) :
-
-                            raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
-
-                        value = value.json( )
-
-                        break
+                    value = value.json( )
 
         return value

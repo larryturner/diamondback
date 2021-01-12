@@ -55,10 +55,7 @@ Diamondback is defined in subpackages :
    request constraints. Caching may be useful in environments with intermittent
    or inconsistent network connectivity.  If caching is enabled, delete, patch,
    and put requests are cached when a service is not live, and sent in order
-   during a subsequent request when a service is live.  Requests are retried
-   up to a specified count if status 5xx is returned indicating a service
-   error.
-
+   during a subsequent request when a service is live.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
