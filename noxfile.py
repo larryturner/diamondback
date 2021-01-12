@@ -101,18 +101,6 @@ def push( session ) -> None :
 
         session.run( 'git', 'status', '--short' )
 
-        value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] release : ' )
-
-        if ( ( value ) and ( len( [ x for x in value if ( x == '.' ) ] ) == 2 ) ) :
-
-            try :
-
-                session.run( 'git', 'tag', '--annotate', value, '--force', '--message', value )
-
-            except :
-
-                pass
-
         value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
 
         if ( value ) :
