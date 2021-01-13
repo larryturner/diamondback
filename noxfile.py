@@ -99,7 +99,7 @@ def push( session ) -> None :
 
     if ( os.path.exists( '.git' ) ) :
 
-        session.run( 'git', 'status', '--short' )
+        status( session )
 
         value = input( '[ ' + os.getcwd( ).split( os.path.sep )[ -1 ] + ' ] message : ' )
 
@@ -129,6 +129,8 @@ def status( session ) -> None :
     if ( os.path.exists( '.git' ) ) :
 
         session.run( 'git', 'status', '--short' )
+
+        session.run( 'git', 'tag', '--list' )
 
 
 @nox.session( venv_backend = 'none' )
