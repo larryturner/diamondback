@@ -247,7 +247,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">Lock</span>
+<span class="kn">from</span> <span class="nn">threading</span> <span class="kn">import</span> <span class="n">RLock</span>
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">logging</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
@@ -273,7 +273,7 @@
              <span class="s1">&#39;Info&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span>
              <span class="s1">&#39;Debug&#39;</span> <span class="p">:</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span> <span class="p">}</span>
 
-    <span class="n">_lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">(</span> <span class="p">)</span>
+    <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
 
     <span class="n">_stream</span><span class="p">,</span> <span class="n">_timezone</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
 
@@ -287,7 +287,7 @@
 <span class="sd">                level - Level in ( &#39;Critical&#39;, &#39;Error&#39;, &#39;Warning&#39;, &#39;Info&#39;, &#39;Debug&#39; ) ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_lock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">level</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -319,7 +319,7 @@
 <span class="sd">                name - Logger name if not empty ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_lock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -353,7 +353,7 @@
 <span class="sd">                timezone - Time zone ( timezone ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_lock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">timezone</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -378,7 +378,7 @@
 <span class="sd">                data - Data ( any ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_lock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="n">level</span> <span class="o">=</span> <span class="n">level</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
 
