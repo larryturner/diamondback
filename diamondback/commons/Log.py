@@ -15,7 +15,7 @@
 
         Singleton.
 
-        Thread safe and reentrant.
+        Thread safe.
 
     **Example**
 
@@ -96,7 +96,7 @@
 
 """
 
-from threading import RLock
+from threading import Lock
 import datetime
 import logging
 import numpy
@@ -122,7 +122,7 @@ class Log( object ) :
              'Info' : logging.INFO,
              'Debug' : logging.DEBUG }
 
-    _rlock = RLock( )
+    _lock = Lock( )
 
     _stream, _timezone = sys.stdout, datetime.timezone.utc
 
@@ -136,7 +136,7 @@ class Log( object ) :
                 level - Level in ( 'Critical', 'Error', 'Warning', 'Info', 'Debug' ) ( str ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log._lock ) :
 
             if ( not level ) :
 
@@ -168,7 +168,7 @@ class Log( object ) :
                 name - Logger name if not empty ( str ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log._lock ) :
 
             if ( not stream ) :
 
@@ -202,7 +202,7 @@ class Log( object ) :
                 timezone - Time zone ( timezone ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log._lock ) :
 
             if ( not timezone ) :
 
@@ -227,7 +227,7 @@ class Log( object ) :
                 data - Data ( any ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log._lock ) :
 
             level = level.title( )
 

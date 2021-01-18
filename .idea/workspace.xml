@@ -8,7 +8,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -183,7 +183,7 @@
       <workItem from="1609775480756" duration="1893000" />
       <workItem from="1609857077479" duration="49000" />
       <workItem from="1609857693533" duration="4664000" />
-      <workItem from="1609964202025" duration="34854000" />
+      <workItem from="1609964202025" duration="38729000" />
     </task>
     <servers />
   </component>

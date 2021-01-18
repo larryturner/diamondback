@@ -15,7 +15,7 @@
 
     URL and proxy definition is supported.
 
-    Thread safe and reentrant.
+    Thread safe.
 
     **Example**
 
@@ -66,7 +66,7 @@ from diamondback.interfaces.IReady import IReady
 from diamondback.interfaces.IUrl import IUrl
 from diamondback.interfaces.IUser import IUser
 from diamondback.interfaces.IVersion import IVersion
-from threading import RLock
+from threading import Lock
 import requests
 import typing
 
@@ -139,9 +139,9 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
         super( ).__init__( )
 
-        self._rlock = RLock( )
-
         self.data = [ ]
+
+        self._lock = Lock( )
 
         self.proxy, self.url = { }, 'http://127.0.0.1:8080'
 
@@ -204,7 +204,7 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
         ready, value = True, True
 
-        with ( self._rlock ) :
+        with ( self._lock ) :
 
             if ( cache ) :
 

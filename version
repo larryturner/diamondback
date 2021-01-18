@@ -160,3 +160,5 @@ Version     Date            Notes
 
 1.0.49      2021-01-15      Modified RestClient to attempt to return binary
                             data on JSON conversion exception.
+
+1.0.50      2021-01-17      Modified Log and RestClient RLock to Lock.
