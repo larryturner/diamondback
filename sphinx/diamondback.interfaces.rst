@@ -268,6 +268,14 @@ diamondback.interfaces.IStream module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ITimeOut module
+--------------------------------------
+
+.. automodule:: diamondback.interfaces.ITimeOut
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.ITimeZone module
 ---------------------------------------
 

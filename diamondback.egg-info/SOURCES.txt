@@ -57,6 +57,7 @@ diamondback/interfaces/IResolution.py
 diamondback/interfaces/IRotation.py
 diamondback/interfaces/IS.py
 diamondback/interfaces/IStream.py
+diamondback/interfaces/ITimeOut.py
 diamondback/interfaces/ITimeZone.py
 diamondback/interfaces/IUpdate.py
 diamondback/interfaces/IUrl.py

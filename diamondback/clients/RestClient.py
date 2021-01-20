@@ -34,14 +34,15 @@
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
-
                 def add( self, item : typing.Dict[ str, float ] ) -> float :
 
-                    return self.request( 'get', api = 'test/add', item = item )
+                    return self.request( 'get', 'test/add', item = item )
 
             client = TestClient( )
 
             client.url = 'http://127.0.0.1:8080'
+
+            client.timeout = ( 15.0, 90.0 )  # requests : ( connect, read )
 
             client.add( { 'x', 2.71827, 'y' : 3.14159 } )
 
@@ -63,6 +64,7 @@ from diamondback.interfaces.IData import IData
 from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IReady import IReady
+from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
 from diamondback.interfaces.IUser import IUser
 from diamondback.interfaces.IVersion import IVersion
@@ -71,7 +73,7 @@ import requests
 import typing
 
 
-class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
+class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion ) :
 
     """ REST client.
     """
@@ -143,9 +145,11 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
         self.data = [ ]
 
-        self.proxy, self.url = { }, 'http://127.0.0.1:8080'
+        self.proxy, self.timeout = { }, ( 15.0, 60.0 )
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, cache : bool = False, timeout : typing.Tuple[ float, float ] = ( 15.0, 60.0 ) ) -> any :
+        self.url = 'http://127.0.0.1:8080'
+
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, cache : bool = False ) -> any :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -168,8 +172,6 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
                 cache - Cache ( bool ).
 
-                timeout - Timeout ( tuple( connect : float, read : float ) ).
-
             Returns :
 
                 value - Value ( any ).
@@ -189,10 +191,6 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
         if ( ( data ) and ( json ) ) :
 
             raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'Json = ' + str( json ) ) )
-
-        if ( min( timeout ) <= 0.0 ) :
-
-            raise ValueError( 'Timeout = ' + str( timeout ) )
 
         api = api.strip( '/' )
 
@@ -224,7 +222,7 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
                             try :
 
-                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = timeout ) as value :
+                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = self.timeout ) as value :
 
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
@@ -234,7 +232,7 @@ class RestClient( IData, ILive, IProxy, IReady, IUrl, IUser, IVersion ) :
 
                                 del self.data[ 0 ]
 
-                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = timeout ) as value :
+                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
 
                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 

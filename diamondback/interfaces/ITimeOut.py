@@ -1,25 +1,25 @@
 """ **Description**
 
-        Encoding interface.
+        Time out interface.
 
     **Example**
 
         ::
 
-            from diamondback import IEncoding
+            from diamondback import ITimeOut
 
 
-            class Test( IEncoding ) :
+            class Test( ITimeOut ) :
 
                 def __init__( self ) -> None :
 
                     super( ).__init__( )
 
-                    self.encoding = 'utf-8'
+                    self.timeout = ( 15.0, 60.0 )
 
             test = Test( )
 
-            test.encoding = 'utf-16'
+            test.timeout = ( 15.0, 90.0 )
 
     **License**
 
@@ -38,23 +38,23 @@
 from diamondback.interfaces.IEqual import IEqual
 
 
-class IEncoding( IEqual ) :
+class ITimeOut( IEqual ) :
 
-    """ Encoding interface.
+    """ Time out interface.
     """
 
     @property
-    def encoding( self ) :
+    def timeout( self ) :
 
-        """ Encoding ( any ).
+        """ Time out ( any ).
         """
 
-        return self._encoding
+        return self._timeout
 
-    @encoding.setter
-    def encoding( self, encoding : any ) :
+    @timeout.setter
+    def timeout( self, timeout : any ) :
 
-        self._encoding = encoding
+        self._timeout = timeout
 
     def __eq__( self, other : any ) -> bool :
 
@@ -69,7 +69,7 @@ class IEncoding( IEqual ) :
                 equality - Equality ( bool ).
         """
 
-        return ( ( super( ).__eq__( other ) ) and ( self.encoding == other.encoding ) )
+        return ( ( super( ).__eq__( other ) ) and ( self.timeout == other.timeout ) )
 
     def __init__( self ) -> None :
 
@@ -78,4 +78,4 @@ class IEncoding( IEqual ) :
 
         super( ).__init__( )
 
-        self._encoding = [ ]
+        self._timeout = [ ]

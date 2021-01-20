@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.51
+Version: 1.0.52
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -194,6 +194,7 @@ Description: Description
            `IRotation <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRotation>`__,
            `IS <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS>`__,
            `IStream <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IStream>`__,
+           `ITimeOut <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeOut>`__,
            `ITimeZone <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone>`__,
            `IUpdate <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUpdate>`__,
            `IUrl <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl>`__,

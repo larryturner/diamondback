@@ -185,14 +185,15 @@
 
 <span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
 
-
 <span class="sd">                def add( self, item : typing.Dict[ str, float ] ) -&gt; float :</span>
 
-<span class="sd">                    return self.request( &#39;get&#39;, api = &#39;test/add&#39;, item = item )</span>
+<span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, item = item )</span>
 
 <span class="sd">            client = TestClient( )</span>
 
 <span class="sd">            client.url = &#39;http://127.0.0.1:8080&#39;</span>
+
+<span class="sd">            client.timeout = ( 15.0, 90.0 )  # requests : ( connect, read )</span>
 
 <span class="sd">            client.add( { &#39;x&#39;, 2.71827, &#39;y&#39; : 3.14159 } )</span>
 
@@ -214,6 +215,7 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.ILive</span> <span class="kn">import</span> <span class="n">ILive</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IReady</span> <span class="kn">import</span> <span class="n">IReady</span>
+<span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeOut</span> <span class="kn">import</span> <span class="n">ITimeOut</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IUser</span> <span class="kn">import</span> <span class="n">IUser</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IVersion</span> <span class="kn">import</span> <span class="n">IVersion</span>
@@ -222,7 +224,7 @@
 <span class="kn">import</span> <span class="nn">typing</span>
 
 
-<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">IData</span><span class="p">,</span> <span class="n">ILive</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">IReady</span><span class="p">,</span> <span class="n">IUrl</span><span class="p">,</span> <span class="n">IUser</span><span class="p">,</span> <span class="n">IVersion</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">IData</span><span class="p">,</span> <span class="n">ILive</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">IReady</span><span class="p">,</span> <span class="n">ITimeOut</span><span class="p">,</span> <span class="n">IUrl</span><span class="p">,</span> <span class="n">IUser</span><span class="p">,</span> <span class="n">IVersion</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; REST client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -294,9 +296,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span> <span class="p">(</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cache</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">timeout</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
+
+<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.clients.html#diamondback.clients.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">cache</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
 <span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
@@ -319,8 +323,6 @@
 
 <span class="sd">                cache - Cache ( bool ).</span>
 
-<span class="sd">                timeout - Timeout ( tuple( connect : float, read : float ) ).</span>
-
 <span class="sd">            Returns :</span>
 
 <span class="sd">                value - Value ( any ).</span>
@@ -340,10 +342,6 @@
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;</span><span class="si">{:30s}{:30s}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="s1">&#39;Data = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">data</span> <span class="p">),</span> <span class="s1">&#39;Json = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-
-        <span class="k">if</span> <span class="p">(</span> <span class="nb">min</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
-
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Timeout = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span> <span class="p">)</span>
 
         <span class="n">api</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
 
@@ -375,7 +373,7 @@
 
                             <span class="k">try</span> <span class="p">:</span>
 
-                                <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;method&#39;</span> <span class="p">],</span> <span class="n">url</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;url&#39;</span> <span class="p">],</span> <span class="n">params</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;item&#39;</span> <span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;data&#39;</span> <span class="p">],</span> <span class="n">json</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;json&#39;</span> <span class="p">],</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
+                                <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;method&#39;</span> <span class="p">],</span> <span class="n">url</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;url&#39;</span> <span class="p">],</span> <span class="n">params</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;item&#39;</span> <span class="p">],</span> <span class="n">data</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;data&#39;</span> <span class="p">],</span> <span class="n">json</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="s1">&#39;json&#39;</span> <span class="p">],</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
 
                                     <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -385,7 +383,7 @@
 
                                 <span class="k">del</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
 
-                <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
+                <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
 
                     <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">value</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">value</span><span class="o">.</span><span class="n">status_code</span> <span class="o">!=</span> <span class="mi">200</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 

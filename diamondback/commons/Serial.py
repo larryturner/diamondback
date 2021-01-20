@@ -14,6 +14,8 @@
 
         Singleton.
 
+        Thread safe.
+
     **Example**
 
         ::

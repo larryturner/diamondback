@@ -31,6 +31,7 @@ from .IResolution import IResolution
 from .IRotation import IRotation
 from .IS import IS
 from .IStream import IStream
+from .ITimeOut import ITimeOut
 from .ITimeZone import ITimeZone
 from .IUpdate import IUpdate
 from .IUrl import IUrl
