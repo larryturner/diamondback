@@ -169,5 +169,5 @@ Version     Date            Notes
 
                             Modified RestClient to use ITimeOut.
 
-1.0.53      2021-01-21      Modified RestClient request to return JSON, text,
-                            or binary response.
+1.0.53      2021-01-21      Modified RestClient request to return JSON, binary,
+                            or text response.

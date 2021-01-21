@@ -154,7 +154,7 @@
 <span class="sd">    REST client for simple REST service requests.  An API and an elective</span>
 <span class="sd">    dictionary of parameter strings are encoded to build a URL, elective</span>
 <span class="sd">    JSON or binary data are defined in the body of a request, and a JSON,</span>
-<span class="sd">    text, or binary response is returned and decoded.</span>
+<span class="sd">    binary, or text response is returned and decoded.</span>
 
 <span class="sd">    A client instance may be useful as a base client definition to interact</span>
 <span class="sd">    with a service which satisfies flexible request constraints.</span>
@@ -397,11 +397,11 @@
 
                         <span class="k">try</span> <span class="p">:</span>
 
-                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">text</span>
+                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">content</span>
 
                         <span class="k">except</span> <span class="p">:</span>
 
-                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">content</span>
+                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">text</span>
 
         <span class="k">return</span> <span class="n">value</span></div></div>
 </pre></div>

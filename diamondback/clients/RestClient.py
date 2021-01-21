@@ -3,7 +3,7 @@
     REST client for simple REST service requests.  An API and an elective
     dictionary of parameter strings are encoded to build a URL, elective
     JSON or binary data are defined in the body of a request, and a JSON,
-    text, or binary response is returned and decoded.
+    binary, or text response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
     with a service which satisfies flexible request constraints.
@@ -246,10 +246,10 @@ class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion 
 
                         try :
 
-                            value = value.text
+                            value = value.content
 
                         except :
 
-                            value = value.content
+                            value = value.text
 
         return value
