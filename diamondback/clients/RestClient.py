@@ -2,8 +2,8 @@
 
     REST client for simple REST service requests.  An API and an elective
     dictionary of parameter strings are encoded to build a URL, elective
-    JSON or binary data are defined in the body of a request, and a JSON
-    or binary response is returned and decoded.
+    JSON or binary data are defined in the body of a request, and a JSON,
+    text, or binary response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
     with a service which satisfies flexible request constraints.
@@ -154,9 +154,9 @@ class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective JSON or binary data are defined in the body of a
-            request, and a JSON or binary response is returned and decoded.
-            If cache is specified, requests are cached if a service is not
-            live.
+            request, and a JSON, text, or binary response is returned and
+            decoded.  If cache is specified, requests are cached if a service
+            is not live.
 
             Arguments :
 
@@ -244,6 +244,12 @@ class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion 
 
                     except :
 
-                        value = value.content
+                        try :
+
+                            value = value.text
+
+                        except :
+
+                            value = value.content
 
         return value

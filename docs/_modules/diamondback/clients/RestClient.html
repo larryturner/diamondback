@@ -153,8 +153,8 @@
 
 <span class="sd">    REST client for simple REST service requests.  An API and an elective</span>
 <span class="sd">    dictionary of parameter strings are encoded to build a URL, elective</span>
-<span class="sd">    JSON or binary data are defined in the body of a request, and a JSON</span>
-<span class="sd">    or binary response is returned and decoded.</span>
+<span class="sd">    JSON or binary data are defined in the body of a request, and a JSON,</span>
+<span class="sd">    text, or binary response is returned and decoded.</span>
 
 <span class="sd">    A client instance may be useful as a base client definition to interact</span>
 <span class="sd">    with a service which satisfies flexible request constraints.</span>
@@ -305,9 +305,9 @@
         <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
 <span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
 <span class="sd">            URL, elective JSON or binary data are defined in the body of a</span>
-<span class="sd">            request, and a JSON or binary response is returned and decoded.</span>
-<span class="sd">            If cache is specified, requests are cached if a service is not</span>
-<span class="sd">            live.</span>
+<span class="sd">            request, and a JSON, text, or binary response is returned and</span>
+<span class="sd">            decoded.  If cache is specified, requests are cached if a service</span>
+<span class="sd">            is not live.</span>
 
 <span class="sd">            Arguments :</span>
 
@@ -395,7 +395,13 @@
 
                     <span class="k">except</span> <span class="p">:</span>
 
-                        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">content</span>
+                        <span class="k">try</span> <span class="p">:</span>
+
+                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">text</span>
+
+                        <span class="k">except</span> <span class="p">:</span>
+
+                            <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">content</span>
 
         <span class="k">return</span> <span class="n">value</span></div></div>
 </pre></div>

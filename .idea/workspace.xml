@@ -5,16 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/ITimeOut.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/Serial.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Serial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IEncoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IEncoding.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +51,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/diamondback/interfaces" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -189,7 +184,9 @@
       <workItem from="1609775480756" duration="1893000" />
       <workItem from="1609857077479" duration="49000" />
       <workItem from="1609857693533" duration="4664000" />
-      <workItem from="1609964202025" duration="45418000" />
+      <workItem from="1609964202025" duration="46142000" />
+      <workItem from="1611185626262" duration="18000" />
+      <workItem from="1611186892446" duration="1004000" />
     </task>
     <servers />
   </component>
