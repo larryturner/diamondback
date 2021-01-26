@@ -15,7 +15,7 @@ classical signal processing solutions including communications,
 modeling, signal identification and extraction, and noise cancellation.
 
 Documentation is provided in HTML form, extracted from docstrings in the
-diamondback package source, and a Jupyter notebook is provided to
+diamondback package source, and a jupyter notebook is provided to
 dynamically construct and exercise diamondback components to facilitate
 experimentation and visualization.
 
@@ -265,7 +265,7 @@ Diamondback depends upon external packages :
 
 -  `scipy <https://github.com/scipy/scipy>`__
 
-Diamondback Jupyter notebook depends upon additional external packages :
+Diamondback jupyter notebook depends upon additional external packages :
 
 -  `ipython <https://github.com/ipython/ipython>`__
 
@@ -291,12 +291,12 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 Demonstration
 ~~~~~~~~~~~~~
 
-A Jupyter notebook defines cells to create and exercise diamondback components.
+A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.
 
-A Jupyter notebook may be run on a remote server without installation with
-Binder, which dynamically builds and deploys a Docker container from a GitHub
+A jupyter notebook may be run on a remote server without installation with
+Binder, which dynamically builds and deploys a docker container from a GitHub
 repository, or installed from GitHub and run on a local system.
 
 **Remote**

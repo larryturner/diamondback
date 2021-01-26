@@ -19,7 +19,7 @@
 
             test = Test( )
 
-            test.timeout = ( 15.0, 90.0 )
+            test.timeout = ( 15.0, 120.0 )
 
     **License**
 

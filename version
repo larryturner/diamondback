@@ -22,7 +22,7 @@ Version     Date            Notes
 
 1.0.8       2020-01-09      Modified Serial encode exceptions.
 
-1.0.9       2020-01-13      Modified Jupyter notebook Pillow import.
+1.0.9       2020-01-13      Modified jupyter notebook Pillow import.
 
 1.0.10      2020-03-08      Modified comments.
 
@@ -38,28 +38,28 @@ Version     Date            Notes
 
 1.0.14      2020-07-15      Modified Log to integrate reentrant thread safety.
 
-1.0.15      2020-07-22      Modified Jupyter notebook to utilize Open CV, and
+1.0.15      2020-07-22      Modified jupyter notebook to utilize Open CV, and
                             eliminate Pillow dependency.
 
 1.0.16      2020-07-27      Modified documentation.
 
 1.0.17      2020-08-06      Modified Log to improve exception formatting.
 
-                            Modified Jupyter notebook to utilize warnings to
+                            Modified jupyter notebook to utilize warnings to
                             ignore import deprecation warnings.
 
-1.0.18      2020-08-11      Modified Jupyter notebook to improve appearance.
+1.0.18      2020-08-11      Modified jupyter notebook to improve appearance.
 
-1.0.19      2020-08-18      Modified Jupyter notebook to utilize Pillow, and
+1.0.19      2020-08-18      Modified jupyter notebook to utilize Pillow, and
                             eliminate OpenCV dependency.
 
-                            Modified documentation to run Jupyter notebook
+                            Modified documentation to run jupyter notebook
                             remotely from GitHub on Binder without
                             installation, or locally.
 
 1.0.20      2020-08-19      Modified documentation.
 
-                            Modified Jupyter notebook to embed Binder and
+                            Modified jupyter notebook to embed Binder and
                             GitHub images and improve links.
 
 1.0.21      2020-08-19      Modified PolynomialRateFilter to support decimation

@@ -34,7 +34,7 @@ import typing
 @nox.session( venv_backend = 'none' )
 def build( session ) -> None :
 
-    """ Build Docker image.
+    """ Build docker image.
     """
 
     if ( os.path.exists( 'dockerfile' ) ) :

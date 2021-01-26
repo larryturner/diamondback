@@ -42,7 +42,7 @@
 
             client.url = 'http://127.0.0.1:8080'
 
-            client.timeout = ( 15.0, 90.0 )  # requests : ( connect, read )
+            client.timeout = ( 15.0, 60.0 )  # requests : ( connect, read )
 
             client.add( { 'x', 2.71827, 'y' : 3.14159 } )
 
