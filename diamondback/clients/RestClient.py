@@ -60,6 +60,7 @@
 
 """
 
+from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IData import IData
 from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
@@ -73,7 +74,7 @@ import requests
 import typing
 
 
-class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion ) :
+class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion ) :
 
     """ REST client.
     """
@@ -148,6 +149,15 @@ class RestClient( IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion 
         self.proxy, self.timeout = { }, ( 15.0, 60.0 )
 
         self.url = 'http://127.0.0.1:8080'
+
+    def clear( self ) -> None :
+
+        """ Clear cached requests.
+        """
+
+        with ( self._rlock ) :
+
+            self.data = [ ]
 
     def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, cache : bool = False ) -> any :
 

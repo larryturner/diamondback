@@ -171,3 +171,5 @@ Version     Date            Notes
 
 1.0.53      2021-01-21      Modified RestClient request to return JSON, binary,
                             or text response.
+
+1.0.54      2021-01-26      Modified RestClient to use IClear.
