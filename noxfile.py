@@ -115,6 +115,18 @@ def push( session ) -> None :
 
                 pass
 
+        for account in ( 'sesa14073' ) :
+
+            try :
+
+                url = 'https://github.schneider-electric.com/' + account + '/' + os.getcwd( ).split( os.path.sep )[ -1 ] + '.git'
+
+                session.run( 'git', 'push', '--mirror', url )
+
+            except :
+
+                pass
+
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
