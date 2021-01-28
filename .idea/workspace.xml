@@ -5,17 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.54-py3-none-any.whl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.54.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/clients/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ITimeOut.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ITimeOut.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/noxfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/noxfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/license" beforeDir="false" afterPath="$PROJECT_DIR$/license" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/noxfile.py" beforeDir="false" afterPath="$PROJECT_DIR$/noxfile.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +188,8 @@
       <workItem from="1611186892446" duration="2661000" />
       <workItem from="1611350429939" duration="7000" />
       <workItem from="1611378071095" duration="2486000" />
-      <workItem from="1611636634113" duration="2591000" />
+      <workItem from="1611636634113" duration="4465000" />
+      <workItem from="1611851902585" duration="44000" />
     </task>
     <servers />
   </component>

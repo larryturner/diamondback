@@ -115,10 +115,6 @@ def push( session ) -> None :
 
                 pass
 
-        url = 'https://github.schneider-electric.com/sesa14073/' + os.getcwd( ).split( os.path.sep )[ -1 ] + '.git'
-
-        session.run( 'git', 'push', '--mirror', url )
-
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
