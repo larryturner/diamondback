@@ -115,7 +115,7 @@ def push( session ) -> None :
 
                 pass
 
-        for account in ( 'sesa14073' ) :
+        for account in ( 'sesa14073', ) :
 
             try :
 
