@@ -266,6 +266,18 @@
 
                 <span class="k">pass</span>
 
+        <span class="k">for</span> <span class="n">account</span> <span class="ow">in</span> <span class="p">(</span> <span class="s1">&#39;sesa14073&#39;</span><span class="p">,</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="k">try</span> <span class="p">:</span>
+
+                <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.schneider-electric.com/&#39;</span> <span class="o">+</span> <span class="n">account</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.git&#39;</span>
+
+                <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;--mirror&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">:</span>
+
+                <span class="k">pass</span>
+
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">status</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
