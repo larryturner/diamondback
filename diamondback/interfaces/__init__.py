@@ -1,4 +1,5 @@
 from .IA import IA
+from .IAsset import IAsset
 from .IB import IB
 from .ICache import ICache
 from .IClear import IClear

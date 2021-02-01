@@ -25,6 +25,7 @@ diamondback/filters/RankFilter.py
 diamondback/filters/WindowFilter.py
 diamondback/filters/__init__.py
 diamondback/interfaces/IA.py
+diamondback/interfaces/IAsset.py
 diamondback/interfaces/IB.py
 diamondback/interfaces/ICache.py
 diamondback/interfaces/IClear.py

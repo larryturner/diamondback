@@ -173,3 +173,5 @@ Version     Date            Notes
                             or text response.
 
 1.0.54      2021-01-26      Modified RestClient to use IClear.
+
+1.0.55      2021-02-01      Added IAsset.

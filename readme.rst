@@ -154,6 +154,7 @@ Diamondback is defined in subpackages :
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 -  `IA <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA>`__,
+   `IAsset <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IAsset>`__,
    `IB <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB>`__,
    `ICache <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICache>`__,
    `IClear <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear>`__,

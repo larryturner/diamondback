@@ -12,6 +12,14 @@ diamondback.interfaces.IA module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IAsset module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.IAsset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IB module
 --------------------------------
 
