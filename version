@@ -177,3 +177,5 @@ Version     Date            Notes
 1.0.55      2021-02-01      Added IAsset.
 
 1.0.56      2021-02-01      Modified requirements.
+
+1.0.57      2021-02-01      Modified requirements, removed pytz dependency.

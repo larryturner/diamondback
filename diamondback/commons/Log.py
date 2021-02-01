@@ -21,10 +21,10 @@
 
         ::
 
+            from dateutil import tz
             from diamondback import Log
             import io
             import numpy
-            import pytz
             import sys
 
 
@@ -42,7 +42,7 @@
 
                 # Write an 'Info' entry with 'US/Eastern' timezone.
 
-                Log.timezone( pytz.timezone( 'US/Eastern' ) )
+                Log.timezone( tz.gettz( 'US/Eastern' ) )
 
                 Log.write( 'Info', 'World', ( 'Example', 'Data', 'Payload' ) )
 

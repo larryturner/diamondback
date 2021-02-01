@@ -258,6 +258,8 @@ Dependencies
 
 Diamondback depends upon external packages :
 
+-  `dateutil <https://github.com/dateutil/dateutil>`__
+
 -  `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
 
 -  `numpy <https://github.com/numpy/numpy>`__

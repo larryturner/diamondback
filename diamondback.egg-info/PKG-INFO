@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.56
+Version: 1.0.57
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -265,6 +265,8 @@ Description: Description
         ~~~~~~~~~~~~
         
         Diamondback depends upon external packages :
+        
+        -  `dateutil <https://github.com/dateutil/dateutil>`__
         
         -  `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
         

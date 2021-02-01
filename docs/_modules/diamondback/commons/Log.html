@@ -172,10 +172,10 @@
 
 <span class="sd">        ::</span>
 
+<span class="sd">            from dateutil import tz</span>
 <span class="sd">            from diamondback import Log</span>
 <span class="sd">            import io</span>
 <span class="sd">            import numpy</span>
-<span class="sd">            import pytz</span>
 <span class="sd">            import sys</span>
 
 
@@ -193,7 +193,7 @@
 
 <span class="sd">                # Write an &#39;Info&#39; entry with &#39;US/Eastern&#39; timezone.</span>
 
-<span class="sd">                Log.timezone( pytz.timezone( &#39;US/Eastern&#39; ) )</span>
+<span class="sd">                Log.timezone( tz.gettz( &#39;US/Eastern&#39; ) )</span>
 
 <span class="sd">                Log.write( &#39;Info&#39;, &#39;World&#39;, ( &#39;Example&#39;, &#39;Data&#39;, &#39;Payload&#39; ) )</span>
 
