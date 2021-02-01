@@ -1,5 +1,5 @@
-jsonpickle>=1.4.2
-numpy>=1.19.4
-pandas>=1.2.0
+jsonpickle>=1.5.1
+numpy>=1.20.0
+pandas>=1.2.1
 requests>=2.25.1
 scipy>=1.5.4
