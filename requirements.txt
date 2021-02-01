@@ -14,7 +14,7 @@
 #
 #   Definition
 
-ipython >= 7.19.0
+ipython >= 7.20.0
 
 ipywidgets >= 7.6.3
 
