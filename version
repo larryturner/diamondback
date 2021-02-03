@@ -181,3 +181,5 @@ Version     Date            Notes
 1.0.57      2021-02-01      Modified requirements, removed pytz dependency.
 
 1.0.58      2021-02-03      Modified RestClient to remove IUser.
+
+1.0.59      2021-02-03      Modified documentation.
