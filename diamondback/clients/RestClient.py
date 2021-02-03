@@ -67,14 +67,13 @@ from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IReady import IReady
 from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
-from diamondback.interfaces.IUser import IUser
 from diamondback.interfaces.IVersion import IVersion
 from threading import RLock
 import requests
 import typing
 
 
-class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IUser, IVersion ) :
+class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
     """ REST client.
     """
