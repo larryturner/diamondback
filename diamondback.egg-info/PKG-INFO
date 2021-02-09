@@ -373,4 +373,4 @@ Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3
 Classifier: License :: OSI Approved :: BSD License
-Requires-Python: >= 3.8
+Requires-Python: >= 3.7
