@@ -50,10 +50,8 @@ Diamondback is defined in subpackages :
    instances define a client for simple REST service requests.  An API and an
    elective dictionary of parameter strings are encoded to build a URL,
    elective JSON or binary data are defined in the body of a request, and a
-   JSON, binary, or text response is returned and decoded.  A client instance
-   may be useful as a base client definition to interact with a service which
-   satisfies flexible request constraints. Caching may be useful in
-   environments with intermittent or inconsistent network connectivity.  If
+   JSON or binary data response is returned and decoded.  Caching may be useful
+   in environments with intermittent or inconsistent network connectivity.  If
    caching is specified, requests are cached when a service is not live, and
    sent in order during a subsequent request when a service is live.
 

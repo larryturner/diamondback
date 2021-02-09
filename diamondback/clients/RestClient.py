@@ -2,8 +2,8 @@
 
     REST client for simple REST service requests.  An API and an elective
     dictionary of parameter strings are encoded to build a URL, elective
-    JSON or binary data are defined in the body of a request, and a JSON,
-    binary, or text response is returned and decoded.
+    JSON or binary data are defined in the body of a request, and a JSON
+    or binary data response is returned and decoded.
 
     A client instance may be useful as a base client definition to interact
     with a service which satisfies flexible request constraints.
@@ -22,7 +22,6 @@
         ::
 
             from diamondback import RestClient
-            import requests
             import typing
 
 
@@ -42,7 +41,7 @@
 
             client.url = 'http://127.0.0.1:8080'
 
-            client.timeout = ( 15.0, 60.0 )  # requests : ( connect, read )
+            client.timeout = ( 10.0, 60.0 )  # connect, read
 
             client.add( { 'x', 2.71827, 'y' : 3.14159 } )
 
@@ -86,19 +85,13 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         try :
 
-            requests.request( method = 'get', url = self.url )
+            requests.request( method = 'head', url = self.url, proxies = self.proxy, timeout = self.timeout )
 
             value = True
 
         except :
 
-            try :
-
-                value = requests.request( method = 'get', url = self.url + '/live' ).json( )
-
-            except :
-
-                value = False
+            value = False
 
         return value
 
@@ -110,7 +103,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         try :
 
-            value = requests.request( method = 'get', url = self.url + '/ready' ).json( )
+            value = requests.request( method = 'get', url = self.url + '/ready', proxies = self.proxy, timeout = self.timeout ).json( )
 
         except :
 
@@ -126,7 +119,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         try :
 
-            value = requests.request( method = 'get', url = self.url + '/version' ).json( )
+            value = requests.request( method = 'get', url = self.url + '/version', proxies = self.proxy, timeout = self.timeout ).json( )
 
         except :
 
@@ -145,7 +138,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         self.data = [ ]
 
-        self.proxy, self.timeout = { }, ( 15.0, 60.0 )
+        self.proxy, self.timeout = { }, ( 10.0, 60.0 )
 
         self.url = 'http://127.0.0.1:8080'
 
@@ -163,9 +156,11 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective JSON or binary data are defined in the body of a
-            request, and a JSON, text, or binary response is returned and
-            decoded.  If cache is specified, requests are cached if a service
-            is not live.
+            request, and a JSON or binary data response is returned and
+            decoded.  Caching may be useful in environments with intermittent
+            or inconsistent network connectivity.  If caching is specified,
+            requests are cached when a service is not live, and sent in order
+            during a subsequent request when a service is live.
 
             Arguments :
 
@@ -199,7 +194,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         if ( ( data ) and ( json ) ) :
 
-            raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'Json = ' + str( json ) ) )
+            raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'JSON = ' + str( json ) ) )
 
         api = api.strip( '/' )
 
@@ -209,7 +204,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
             url += '/' + api
 
-        ready, value = True, True
+        valid, value = True, True
 
         with ( self._rlock ) :
 
@@ -219,9 +214,9 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                     self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
 
-                    ready = False
+                    valid = False
 
-            if ( ready ) :
+            if ( valid ) :
 
                 if ( any( self.data ) ) :
 
@@ -253,12 +248,6 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                     except :
 
-                        try :
-
-                            value = value.content
-
-                        except :
-
-                            value = value.text
+                        value = value.content
 
         return value

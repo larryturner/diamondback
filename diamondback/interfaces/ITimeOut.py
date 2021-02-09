@@ -15,7 +15,7 @@
 
                     super( ).__init__( )
 
-                    self.timeout = ( 15.0, 60.0 )
+                    self.timeout = ( 10.0, 60.0 )
 
             test = Test( )
 
