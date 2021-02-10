@@ -220,6 +220,8 @@
 
         <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;python&#39;</span><span class="p">,</span> <span class="s1">&#39;setup.py&#39;</span><span class="p">,</span> <span class="s1">&#39;sdist&#39;</span><span class="p">,</span> <span class="s1">&#39;bdist_wheel&#39;</span> <span class="p">)</span>
 
+        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;./dist/*&#39;</span> <span class="p">)</span>
+
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">docs</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
