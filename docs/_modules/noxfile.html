@@ -196,7 +196,7 @@
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">clean</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Clean repository.</span>
+    <span class="sd">&quot;&quot;&quot; Clean project files.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">remove</span><span class="p">(</span> <span class="s1">&#39;./build&#39;</span> <span class="p">)</span>
@@ -211,7 +211,7 @@
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">dist</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Build distributions.</span>
+    <span class="sd">&quot;&quot;&quot; Build project distributions.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">remove</span><span class="p">(</span> <span class="s1">&#39;./dist/*&#39;</span> <span class="p">)</span>
@@ -226,7 +226,7 @@
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">docs</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Build documents.</span>
+    <span class="sd">&quot;&quot;&quot; Build project documents.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;sphinx&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -243,18 +243,26 @@
 
         <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;sphinx-build&#39;</span><span class="p">,</span> <span class="s1">&#39;./sphinx&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs&#39;</span> <span class="p">)</span>
 
+        <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;./docs/*&#39;</span> <span class="p">)</span>
+
 
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">push</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Push repository.</span>
+    <span class="sd">&quot;&quot;&quot; Push git repository.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;.git&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
+        <span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;./&#39;</span> <span class="o">+</span> <span class="n">path</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+
+            <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;add&#39;</span><span class="p">,</span> <span class="s1">&#39;./&#39;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;/*&#39;</span> <span class="p">)</span>
+
         <span class="n">status</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span>
 
-        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;[ &#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39; ] message : &#39;</span> <span class="p">)</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span> <span class="s1">&#39;[ &#39;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39; ] message : &#39;</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">value</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -272,7 +280,7 @@
 
             <span class="k">try</span> <span class="p">:</span>
 
-                <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.schneider-electric.com/&#39;</span> <span class="o">+</span> <span class="n">account</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;.git&#39;</span>
+                <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;https://github.schneider-electric.com/&#39;</span> <span class="o">+</span> <span class="n">account</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">path</span> <span class="o">+</span> <span class="s1">&#39;.git&#39;</span>
 
                 <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;git&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;--mirror&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="p">)</span>
 
@@ -284,7 +292,7 @@
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">status</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Check status.</span>
+    <span class="sd">&quot;&quot;&quot; Check git status.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;.git&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -297,7 +305,7 @@
 <span class="nd">@nox</span><span class="o">.</span><span class="n">session</span><span class="p">(</span> <span class="n">venv_backend</span> <span class="o">=</span> <span class="s1">&#39;none&#39;</span> <span class="p">)</span>
 <span class="k">def</span> <span class="nf">tests</span><span class="p">(</span> <span class="n">session</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Run tests.</span>
+    <span class="sd">&quot;&quot;&quot; Run project tests.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;tests&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

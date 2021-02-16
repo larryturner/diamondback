@@ -218,7 +218,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
             if ( valid ) :
 
-                if ( any( self.data ) ) :
+                if ( self.data ) :
 
                     if ( self.live ) :
 
