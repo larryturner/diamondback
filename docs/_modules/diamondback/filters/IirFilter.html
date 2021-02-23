@@ -154,9 +154,7 @@
 <span class="sd">        An Infinite Impulse Response ( IIR ) filter realizes a discrete</span>
 <span class="sd">        difference equation as a function of a recursive coefficient array,</span>
 <span class="sd">        a forward coefficient array, and a state array of a specified order,</span>
-<span class="sd">        consuming an incident signal and producing a reference signal.  A</span>
-<span class="sd">        primary signal is electively specified to produce an estimation error,</span>
-<span class="sd">        to facilitate adaptation.  A rate of adaptation is specified.</span>
+<span class="sd">        consuming an incident signal and producing a reference signal.</span>
 
 <span class="sd">        .. math::</span>
 
@@ -165,6 +163,9 @@
 <span class="sd">        .. math::</span>
 
 <span class="sd">            s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}</span>
+
+<span class="sd">        A primary signal and a rate of adaptation are electively specified to</span>
+<span class="sd">        produce an estimation error, to facilitate adaptation.</span>
 
 <span class="sd">        .. math::</span>
 
@@ -628,7 +629,7 @@
 
             <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="o">/</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">[</span> <span class="mi">1</span> <span class="p">:</span> <span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">1</span> <span class="p">:</span> <span class="p">]</span> <span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="IirFilter.response"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.response">[docs]</a>    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IirFilter.response"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.response">[docs]</a>    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Estimates frequency response and produces a reference signal.</span>
 
@@ -663,7 +664,7 @@
 
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span></div>
 
-<div class="viewcode-block" id="IirFilter.roots"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.roots">[docs]</a>    <span class="k">def</span> <span class="nf">roots</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="IirFilter.roots"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.roots">[docs]</a>    <span class="k">def</span> <span class="nf">roots</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Estimates roots of a frequency response in poles and zeros.</span>
 

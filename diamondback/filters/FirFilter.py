@@ -3,9 +3,9 @@
         A Finite Impulse Response ( FIR ) filter realizes a discrete difference
         equation as a function of a forward coefficient array and a state array
         of a specified order, consuming an incident signal and producing a
-        reference signal.  A primary signal is electively specified to produce
-        an estimation error, to facilitate adaptation.  A rate of adaptation is
-        specified.
+        reference signal.
+
+        A rate of adaptation may be specified
 
         .. math::
 
@@ -14,6 +14,9 @@
         .. math::
 
             s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
+
+        A primary signal and a rate of adaptation are electively specified to
+        produce an estimation error, to facilitate adaptation.
 
         .. math::
 
@@ -400,7 +403,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         self.s.fill( x )
 
-    def response( self, length = 8192, count = 1 ) :
+    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -431,7 +434,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         return y, f
 
-    def roots( self, count = 1 ) :
+    def roots( self, count = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 

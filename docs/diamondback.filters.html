@@ -557,13 +557,14 @@ specified.</p>
 <div><p>A Finite Impulse Response ( FIR ) filter realizes a discrete difference
 equation as a function of a forward coefficient array and a state array
 of a specified order, consuming an incident signal and producing a
-reference signal.  A primary signal is electively specified to produce
-an estimation error, to facilitate adaptation.  A rate of adaptation is
-specified.</p>
+reference signal.</p>
+<p>A rate of adaptation may be specified</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}\]</div>
 <div class="math notranslate nohighlight">
 \[s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<p>A primary signal and a rate of adaptation are electively specified to
+produce an estimation error, to facilitate adaptation.</p>
 <div class="math notranslate nohighlight">
 \[e_{n} = d_{n} - y_{n}\]</div>
 <div class="math notranslate nohighlight">
@@ -739,7 +740,7 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.FirFilter.FirFilter.response">
-<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.response" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -755,7 +756,7 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.FirFilter.FirFilter.roots">
-<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.roots" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/FirFilter.html#FirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.FirFilter.FirFilter.roots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -864,13 +865,13 @@ resolution.</p>
 <div><p>An Infinite Impulse Response ( IIR ) filter realizes a discrete
 difference equation as a function of a recursive coefficient array,
 a forward coefficient array, and a state array of a specified order,
-consuming an incident signal and producing a reference signal.  A
-primary signal is electively specified to produce an estimation error,
-to facilitate adaptation.  A rate of adaptation is specified.</p>
+consuming an incident signal and producing a reference signal.</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0\]</div>
 <div class="math notranslate nohighlight">
 \[s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}\]</div>
+<p>A primary signal and a rate of adaptation are electively specified to
+produce an estimation error, to facilitate adaptation.</p>
 <div class="math notranslate nohighlight">
 \[e_{n} = d_{n} - y_{n}\]</div>
 <div class="math notranslate nohighlight">
@@ -1045,7 +1046,7 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.IirFilter.IirFilter.response">
-<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.response" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">response</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">length</span><span class="o">=</span><span class="default_value">8192</span></em>, <em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.response"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.response" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1061,7 +1062,7 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.filters.IirFilter.IirFilter.roots">
-<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.roots" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">roots</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">count</span><span class="o">=</span><span class="default_value">1</span></em><span class="sig-paren">)</span> &#x2192; Tuple<span class="p">[</span>any<span class="p">, </span>any<span class="p">]</span><a class="reference internal" href="_modules/diamondback/filters/IirFilter.html#IirFilter.roots"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.filters.IirFilter.IirFilter.roots" title="Permalink to this definition">¶</a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <p>Arguments :</p>
 <blockquote>

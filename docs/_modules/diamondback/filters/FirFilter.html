@@ -154,9 +154,9 @@
 <span class="sd">        A Finite Impulse Response ( FIR ) filter realizes a discrete difference</span>
 <span class="sd">        equation as a function of a forward coefficient array and a state array</span>
 <span class="sd">        of a specified order, consuming an incident signal and producing a</span>
-<span class="sd">        reference signal.  A primary signal is electively specified to produce</span>
-<span class="sd">        an estimation error, to facilitate adaptation.  A rate of adaptation is</span>
-<span class="sd">        specified.</span>
+<span class="sd">        reference signal.</span>
+
+<span class="sd">        A rate of adaptation may be specified</span>
 
 <span class="sd">        .. math::</span>
 
@@ -165,6 +165,9 @@
 <span class="sd">        .. math::</span>
 
 <span class="sd">            s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}</span>
+
+<span class="sd">        A primary signal and a rate of adaptation are electively specified to</span>
+<span class="sd">        produce an estimation error, to facilitate adaptation.</span>
 
 <span class="sd">        .. math::</span>
 
@@ -551,7 +554,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">fill</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="FirFilter.response"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.response">[docs]</a>    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="FirFilter.response"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.response">[docs]</a>    <span class="k">def</span> <span class="nf">response</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Estimates frequency response and produces a reference signal.</span>
 
@@ -582,7 +585,7 @@
 
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span></div>
 
-<div class="viewcode-block" id="FirFilter.roots"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.roots">[docs]</a>    <span class="k">def</span> <span class="nf">roots</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="FirFilter.roots"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.roots">[docs]</a>    <span class="k">def</span> <span class="nf">roots</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Estimates roots of a frequency response in poles and zeros.</span>
 

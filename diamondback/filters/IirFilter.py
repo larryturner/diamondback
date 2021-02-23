@@ -3,9 +3,7 @@
         An Infinite Impulse Response ( IIR ) filter realizes a discrete
         difference equation as a function of a recursive coefficient array,
         a forward coefficient array, and a state array of a specified order,
-        consuming an incident signal and producing a reference signal.  A
-        primary signal is electively specified to produce an estimation error,
-        to facilitate adaptation.  A rate of adaptation is specified.
+        consuming an incident signal and producing a reference signal.
 
         .. math::
 
@@ -14,6 +12,9 @@
         .. math::
 
             s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}
+
+        A primary signal and a rate of adaptation are electively specified to
+        produce an estimation error, to facilitate adaptation.
 
         .. math::
 
@@ -477,7 +478,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             self.s.fill( x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( ) )
 
-    def response( self, length = 8192, count = 1 ) :
+    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -512,7 +513,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def roots( self, count = 1 ) :
+    def roots( self, count = 1 ) -> typing.Tuple[ any, any ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 
