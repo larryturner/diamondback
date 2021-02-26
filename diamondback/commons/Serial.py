@@ -68,6 +68,7 @@
 
 import base64
 import gzip
+import hashlib
 import jsonpickle
 import jsonpickle.ext.numpy
 import jsonpickle.ext.pandas
@@ -82,6 +83,32 @@ class Serial( object ) :
     jsonpickle.ext.numpy.register_handlers( )
 
     jsonpickle.ext.pandas.register_handlers( )
+
+    @staticmethod
+    def code( state : str, encoding : str = 'utf_8' ) -> str :
+
+        """ Code generation.  SHA3-256 hash.
+
+            Arguments :
+
+                state - State ( str ).
+
+                encoding - Encoding ( str ).
+
+            Returns :
+
+                code - Code ( str ).
+        """
+
+        if ( not state ) :
+
+            raise ValueError( 'State = ' + str( state ) )
+
+        if ( not encoding ) :
+
+            raise ValueError( 'Encoding = ' + str( encoding ) )
+
+        return hashlib.sha3_256( bytes( state, encoding ) ).hexdigest( )
 
     @staticmethod
     def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :

@@ -189,3 +189,5 @@ Version     Date            Notes
                             Modified IUrl.
 
 1.0.61      2021-02-16      Modified RestClient.
+
+1.0.62      2021-02-26      Modified Serial code.

@@ -384,6 +384,21 @@ terminated by a new line.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Serial service, with JSON or base-64 encoded gzip JSON binary format.</p>
 <dl class="py method">
+<dt id="diamondback.commons.Serial.Serial.code">
+<em class="property">static </em><code class="sig-name descname">code</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf_8'</span></em><span class="sig-paren">)</span> &#x2192; str<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.code"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code generation.  SHA3-256 hash.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>state - State ( str ).</p>
+<p>encoding - Encoding ( str ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>code - Code ( str ).</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.decode">
 <em class="property">static </em><code class="sig-name descname">decode</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">state</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">compress</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">encoding</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'utf_8'</span></em>, <em class="sig-param"><span class="n">clean</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.decode"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.decode" title="Permalink to this definition">¶</a></dt>
 <dd><p>Decodes an instance or collection from JSON, or base-64 encoded
