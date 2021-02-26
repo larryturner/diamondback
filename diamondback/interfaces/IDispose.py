@@ -23,7 +23,7 @@
 
     **License**
 
-        `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
+        `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
 
         Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.
 
