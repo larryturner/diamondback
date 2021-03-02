@@ -101,7 +101,7 @@ class ComplexTransform( object ) :
 
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = ' + str( x ) )
+            raise ValueError( 'X = {}'.format( x ) )
 
         if ( len( x.shape ) < 2 ) :
 
@@ -113,7 +113,7 @@ class ComplexTransform( object ) :
 
         if ( ( ( rows != 1 ) and ( rows != 3 ) ) or ( cols <= 0 ) ) :
 
-            raise ValueError( '{:30s}{:30s}'.format( 'Rows = ' + str( rows ), 'Columns = ' + str( cols ) ) )
+            raise ValueError( 'Rows = {} Columns = {}'.format( rows, cols ) )
 
         if ( rows == 1 ) :
 

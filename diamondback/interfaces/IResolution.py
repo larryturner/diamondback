@@ -57,7 +57,7 @@ class IResolution( IEqual ) :
 
         if ( resolution <= 0.0 ) :
 
-            raise ValueError( 'Resolution = ' + str( resolution ) )
+            raise ValueError( 'Resolution = {}'.format( resolution ) )
 
         self._resolution = resolution
 

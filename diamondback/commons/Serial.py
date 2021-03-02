@@ -102,11 +102,11 @@ class Serial( object ) :
 
         if ( not state ) :
 
-            raise ValueError( 'State = ' + str( state ) )
+            raise ValueError( 'State = {}'.format( state ) )
 
         if ( not encoding ) :
 
-            raise ValueError( 'Encoding = ' + str( encoding ) )
+            raise ValueError( 'Encoding = {}'.format( encoding ) )
 
         return hashlib.sha3_256( bytes( state, encoding ) ).hexdigest( )
 
@@ -136,11 +136,11 @@ class Serial( object ) :
 
         if ( not state ) :
 
-            raise ValueError( 'State = ' + str( state ) )
+            raise ValueError( 'State = {}'.format( state ) )
 
         if ( not encoding ) :
 
-            raise ValueError( 'Encoding = ' + str( encoding ) )
+            raise ValueError( 'Encoding = {}'.format( encoding ) )
 
         if ( compress ) :
 
@@ -174,7 +174,7 @@ class Serial( object ) :
 
         if ( not encoding ) :
 
-            raise ValueError( 'Encoding = ' + str( encoding ) )
+            raise ValueError( 'Encoding = {}'.format( encoding ) )
 
         state = jsonpickle.encode( instance )
 

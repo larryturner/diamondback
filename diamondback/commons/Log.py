@@ -1,17 +1,7 @@
 """ **Description**
 
-        A log instance formats and writes log entries, electively using the
-        logger package or directly to a specified stream.  Log entries are
-        prefaced with an ISO-8601 datetime and log level, and enhancements are
-        made to the formatting of datetime, exception, and collection data
-        types.  Dynamic stream redirection and log level specification are
-        supported.
-
-        If a stream is defined and associated with a specified name, the
-        standard logging package is used in subsequent interactions with a log,
-        a logger instance is defined with the specified name, a logging stream
-        handler is associated with the stream, and log levels are synchronized
-        with logging levels.
+        A log instance formats and writes log entries using the loguru package.
+        Log entries are prefaced with an ISO-8601 datetime and log level.
 
         Singleton.
 
@@ -21,7 +11,6 @@
 
         ::
 
-            from dateutil import tz
             from diamondback import Log
             import io
             import numpy
@@ -30,29 +19,23 @@
 
             try :
 
-                # Default - Log stream is sys.stdout, logging package is not used, level is 'Info', and timezone is UTC.
+                # Default - Log level is 'INFO'.
 
-                # Set Log level to 'Info'.
+                # Set Log level to 'INFO'.
 
-                Log.level( 'Info' )
+                Log.level( 'INFO' )
 
-                # Write an 'Info' entry with UTC timezone.
+                # Write an 'INFO' entry.
 
-                Log.write( 'Info', 'Hello' )
+                Log.write( 'INFO', 'Hello World.' )
 
-                # Write an 'Info' entry with 'US/Eastern' timezone.
+                # Set Log stream to sys.stdout, and write an 'INFO' entry.
 
-                Log.timezone( tz.gettz( 'US/Eastern' ) )
+                Log.stream( sys.stdout )
 
-                Log.write( 'Info', 'World', ( 'Example', 'Data', 'Payload' ) )
+                Log.write( 'INFO', 'Valid = {}'.format( True ) )
 
-                # Set Log stream to sys.stdout, use logging as 'output', and write an 'Info' entry.
-
-                Log.stream( sys.stdout, 'output' )
-
-                Log.write( 'Info', 'Valid = ', True )
-
-                # Set Log stream to a memory stream, write an Info entry, and read and reset the stream.
+                # Set Log stream to a memory stream, write an 'INFO' entry, and read and reset the stream.
 
                 stream = io.StringIO( )
 
@@ -60,13 +43,13 @@
 
                 x = numpy.random.rand( 2, 2 )
 
-                Log.write( 'Info', 'X = ', x )
+                Log.write( 'INFO', 'X = {}'.format( x ) )
 
                 value = stream.getvalue( )
 
                 _, _ = stream.truncate( 0 ), stream.seek( 0 )
 
-                # Set Log stream to a file and write a 'Warning' entry.
+                # Set Log stream to a file and write a 'WARNING' entry.
 
                 with open( 'log.000.txt', 'w' ) as fout :
 
@@ -74,13 +57,13 @@
 
                     x = numpy.random.rand( 2, 2 )
 
-                    Log.write( 'Warning', 'X = ', x )
+                    Log.write( 'WARNING', 'X = {}'.format( x ) )
 
             except Exception as ex :
 
-                # Write an 'Error' entry on Exception.
+                # Write an 'ERROR' entry on Exception.
 
-                Log.write( ex, 'Error' )
+                Log.write( 'ERROR', ex )
 
     **License**
 
@@ -96,9 +79,8 @@
 
 """
 
+from loguru import logger
 from threading import RLock
-import datetime
-import logging
 import numpy
 import os
 import sys
@@ -112,19 +94,13 @@ class Log( object ) :
 
     numpy.set_printoptions( formatter = { 'float' : '{: .6f}'.format } )
 
-    _handler = [ ]
+    logger.remove( 0 )
 
-    _level, _log = 'Info', [ ]
+    _identity = logger.add( sys.stdout, level = 'TRACE', format = '{time:YYYY-MM-DDTHH:mm:ss.SSZ} {level} {message}' )
 
-    _map = { 'Critical' : logging.CRITICAL,
-             'Error' : logging.ERROR,
-             'Warning' : logging.WARNING,
-             'Info' : logging.INFO,
-             'Debug' : logging.DEBUG }
+    _level = logger.level( 'INFO' )
 
     _rlock = RLock( )
-
-    _stream, _timezone = sys.stdout, datetime.timezone.utc
 
     @classmethod
     def level( cls, level : str ) -> None :
@@ -133,153 +109,81 @@ class Log( object ) :
 
             Arguments :
 
-                level - Level in ( 'Critical', 'Error', 'Warning', 'Info', 'Debug' ) ( str ).
+                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE' ) ( str ).
         """
 
         with ( Log._rlock ) :
 
-            if ( not level ) :
+            try :
 
-                raise ValueError( 'Level = ' + str( level ) )
+                Log._level = logger.level( level.upper( ) )
 
-            level = level.title( )
+            except :
 
-            if ( level != Log._level ) :
-
-                if ( level not in Log._map ) :
-
-                    raise ValueError( 'Level = ' + str( level ) )
-
-                if ( Log._log ) :
-
-                    Log._log.setLevel( Log._map[ level ] )
-
-                Log._level = level
+                raise ValueError( 'Level = {}'.format( level ) )
 
     @classmethod
-    def stream( cls, stream : any, name : str = None ) -> None :
+    def stream( cls, stream : any ) -> None :
 
         """ Stream.
 
             Arguments :
 
                 stream - Stream ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
-
-                name - Logger name if not empty ( str ).
         """
 
         with ( Log._rlock ) :
 
-            if ( not stream ) :
+            if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
 
-                raise ValueError( 'Stream = ' + str( stream ) )
+                raise ValueError( 'Stream = {}'.format( stream ) )
 
-            if ( Log._log ) :
+            logger.remove( Log._identity )
 
-                Log._log.removeHandler( Log._handler )
+            Log._identity = logger.add( stream, level = 'TRACE', format = '{time:YYYY-MM-DDTHH:mm:ss.SSZ} {level} {message}' )
 
-                Log._handler, Log._log = [ ], [ ]
-
-            if ( name ) :
-
-                Log._handler = logging.StreamHandler( stream )
-
-                Log._log = logging.getLogger( name )
-
-                Log._log.addHandler( Log._handler )
-
-                Log._log.setLevel( Log._map[ Log._level ] )
-
-            Log._stream = stream
 
     @classmethod
-    def timezone( cls, timezone : datetime.timezone ) -> None :
+    def write( cls, level : str, entry : typing.Union[ Exception, str ] ) -> None :
 
-        """ Timezone.
+        """ Formats and writes log entries using the loguru package to a specified
+            stream.  Log entries are prefaced with an ISO-8601 datetime and log
+            level.
 
             Arguments :
 
-                timezone - Time zone ( timezone ).
-        """
-
-        with ( Log._rlock ) :
-
-            if ( not timezone ) :
-
-                raise ValueError( 'TimeZone = ' + str( timezone ) )
-
-            Log._timezone = timezone
-
-    @classmethod
-    def write( cls, level : str, entry : typing.Union[ Exception, str ], data : any = None ) -> None :
-
-        """ Formats and writes log entries, electively using the logger package
-            or directly to a specified stream.  Log entries are prefaced with
-            an ISO-8601 datetime and log level, and enhancements are made to
-            the formatting of datetime, exception, and collection data types.
-
-            Arguments :
-
-                level - Level in ( 'Critical', 'Error', 'Warning', 'Info', 'Debug' ) ( str ).
+                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE' ) ( str ).
 
                 entry - Entry ( Exception, str ).
-
-                data - Data ( any ).
         """
 
         with ( Log._rlock ) :
 
-            level = level.title( )
+            try :
 
-            if ( Log._map[ level ] >= Log._map[ Log._level ] ) :
+                level = logger.level( level.upper( ) )
+
+            except :
+
+                raise ValueError( 'Level = {}'.format( level ) )
+
+            if ( level.no >= Log._level.no ) :
 
                 try :
 
-                    s = '{:30s}{:10s}'.format( datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc ).astimezone( Log._timezone ).isoformat( ), level )
-
                     if ( isinstance( entry, Exception ) ) :
 
-                        s += '{:30s}{:s}'.format( type( entry ).__name__, str( entry ) )
+                        entry = 'Exception = {} Description = {}'.format( type( entry ).__name__, str( entry ) )
 
                         info = sys.exc_info( )[ -1 ]
 
                         while ( info ) :
 
-                            s += os.linesep + '{:40s}@ {:s} {:s} {:d}'.format( '', info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ],
-                                                                                   info.tb_frame.f_code.co_name,
-                                                                                   info.tb_lineno )
+                            entry += ' @ File = {} Line = {}'.format( info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ], info.tb_lineno )
 
                             info = info.tb_next
 
-                    else :
-
-                        s += str( entry )
-
-                    try :
-
-                        if ( data is not None ) :
-
-                            if ( len( data ) > 0 ) :
-
-                                if ( isinstance( data, str ) ) :
-
-                                    s += ' ' + str( data )
-
-                                else :
-
-                                    s += ' ' + str( data ).replace( '(', '( ' ).replace( ')', ' )' ).replace( '[', '[ ' ).replace( ']', ' ]' ).replace( '{', '{ ' ).replace( '}', ' }' )
-
-                    except :
-
-                        s += ' ' + str( data )
-
-                    if ( Log._log ) :
-
-                        Log._log.log( Log._map[ level ], s )
-
-                    else :
-
-                        _ = Log._stream.write( s + os.linesep )
+                    logger.log( level.name, entry )
 
                 except :
 

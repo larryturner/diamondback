@@ -98,7 +98,7 @@ class FourierTransform( object ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = ' + str( x ) )
+            raise ValueError( 'X = {}'.format( x ) )
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
 
@@ -106,7 +106,7 @@ class FourierTransform( object ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) > len( x ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
 
-            raise ValueError( 'B = ' + str( b ) )
+            raise ValueError( 'B = {}'.format( b ) )
 
         u = numpy.array( x[ : len( b ) ] )
 

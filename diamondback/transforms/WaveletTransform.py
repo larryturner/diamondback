@@ -209,17 +209,17 @@ class WaveletTransform( IB, IEqual ) :
 
             if ( ( not typ ) or ( not issubclass( typ, WaveletTransform ) ) ) :
 
-                raise ValueError( 'Type = ' + str( typ ) )
+                raise ValueError( 'Type = {}'.format( typ ) )
 
             if ( classification not in WaveletTransform.Factory._b ) :
 
-                raise ValueError( 'Classification = ' + str( classification ) )
+                raise ValueError( 'Classification = {}'.format( classification ) )
 
             b = WaveletTransform.Factory._b[ classification ]
 
             if ( order not in b ) :
 
-                raise ValueError( 'Order = ' + str( order ) )
+                raise ValueError( 'Order = {}'.format( order ) )
 
             return typ( b[ order ] )
 
@@ -238,7 +238,7 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) ) :
 
-            raise ValueError( 'B = ' + str( b ) )
+            raise ValueError( 'B = {}'.format( b ) )
 
         super( ).__init__( )
 
@@ -294,7 +294,7 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = ' + str( x ) )
+            raise ValueError( 'X = {}'.format( x ) )
 
         if ( len( x.shape ) == 2 ) :
 
@@ -308,11 +308,11 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( count <= 0 ) :
 
-            raise ValueError( 'Count = ' + str( count ) )
+            raise ValueError( 'Count = {}'.format( count ) )
 
         if ( ( ( rows != 1 ) and ( rows % ( 2 ** count ) ) ) or ( ( cols != 1 ) and ( cols % ( 2 ** count ) ) ) ) :
 
-            raise ValueError( '{:30s}{:30s}'.format( 'Rows = ' + str( rows ), 'Columns = ' + str( cols ) ) )
+            raise ValueError( 'Rows = {} Columns = {}'.format( rows, cols ) )
 
         rr = max( ( rows // ( 2 ** count ) ) * ( 2 ** count ), 1 )
 

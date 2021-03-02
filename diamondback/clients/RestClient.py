@@ -184,17 +184,17 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         if ( not method ) :
 
-            raise ValueError( 'Method = ' + str( method ) )
+            raise ValueError( 'Method = {}'.format( method ) )
 
         method = method.lower( )
 
         if ( method not in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ) ) :
 
-            raise ValueError( 'Method = ' + str( method ) )
+            raise ValueError( 'Method = {}'.format( method ) )
 
         if ( ( data ) and ( json ) ) :
 
-            raise ValueError( '{:30s}{:30s}'.format( 'Data = ' + str( data ), 'JSON = ' + str( json ) ) )
+            raise ValueError( 'Data = {} JSON = {}'.format( data, json ) )
 
         api = api.strip( '/' )
 
@@ -230,7 +230,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                                        raise ConnectionError( 'Status = {} Reason = {}'.format( value.status_code, value.reason ) )
 
                             finally :
 
@@ -240,7 +240,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                        raise ConnectionError( '{:30s}{:30s}'.format( 'Status = ' + str( value.status_code ), 'Reason = ' + str( value.reason ) ) )
+                        raise ConnectionError( 'Status = {} Reason = {}'.format( value.status_code, value.reason ) )
 
                     try :
 

@@ -131,7 +131,7 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
 
         if ( ( len( d.shape ) != 1 ) or ( len( d ) == 0 ) ) :
 
-            raise ValueError( 'D = ' + str( d ) )
+            raise ValueError( 'D = {}'.format( d ) )
 
         x = self._complexexponentialfilter.filter( numpy.ones( len( d ) ) * self.frequency )
 

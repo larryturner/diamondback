@@ -55,7 +55,7 @@ class ICount( IEqual ) :
 
         if ( count < 0 ) :
 
-            raise ValueError( 'Count = ' + str( count ) )
+            raise ValueError( 'Count = {}'.format( count ) )
 
         self._count = count
 

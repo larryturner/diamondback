@@ -66,7 +66,7 @@ class PidFilter( FirFilter ) :
 
         if ( limit < 0.0 ) :
 
-            raise ValueError( 'Limit = ' + str( limit ) )
+            raise ValueError( 'Limit = {}'.format( limit ) )
 
         self._limit = limit
 
@@ -100,7 +100,7 @@ class PidFilter( FirFilter ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) != 3 ) ) :
 
-            raise ValueError( 'B = ' + str( b ) )
+            raise ValueError( 'B = {}'.format( b ) )
 
         super( ).__init__( b, numpy.zeros( len( b ) ), 0.0 )
 
@@ -125,7 +125,7 @@ class PidFilter( FirFilter ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = ' + str( x ) )
+            raise ValueError( 'X = {}'.format( x ) )
 
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 

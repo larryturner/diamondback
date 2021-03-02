@@ -105,15 +105,15 @@ class WindowFilter( IB, IEqual ) :
 
             if ( ( not typ ) or ( not issubclass( typ, WindowFilter ) ) ) :
 
-                raise ValueError( 'Type = ' + str( typ ) )
+                raise ValueError( 'Type = {}'.format( typ ) )
 
             if ( ( not classification ) or ( classification not in WindowFilter.Factory._classification ) ) :
 
-                raise ValueError( 'Classification = ' + str( classification ) )
+                raise ValueError( 'Classification = {}'.format( classification ) )
 
             if ( order < 0 ) :
 
-                raise ValueError( 'Order = ' + str( order ) )
+                raise ValueError( 'Order = {}'.format( order ) )
 
             if ( classification == 'Kaiser' ) :
 
@@ -142,7 +142,7 @@ class WindowFilter( IB, IEqual ) :
 
         if ( ( numpy.isscalar( b ) ) or ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
 
-            raise ValueError( 'B = ' + str( b ) )
+            raise ValueError( 'B = {}'.format( b ) )
 
         super( ).__init__( )
 
@@ -167,6 +167,6 @@ class WindowFilter( IB, IEqual ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) != len( self.b ) ) ) :
 
-            raise ValueError( 'X = ' + str( x ) )
+            raise ValueError( 'X = {}'.format( x ) )
 
         return self.b * x

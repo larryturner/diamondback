@@ -41,21 +41,21 @@ def test_Log( count = 2, path = 'test_Log.3.14159.txt' ) :
 
             Log.stream( fout )
 
-            Log.level( 'Error' )
+            Log.level( 'ERROR' )
 
-            Log.write( 'Debug', error )
+            Log.write( 'DEBUG', error )
 
-            Log.level( 'Debug' )
+            Log.level( 'DEBUG' )
 
-            Log.write( 'Debug', start )
+            Log.write( 'DEBUG', start )
 
-            Log.write( 'Info', 'X = ', numpy.random.rand( count, count ) )
+            Log.write( 'INFO', 'X = {}'.format( numpy.random.rand( count, count ) ) )
 
-            Log.write( 'Warning', 'Y = ', list( numpy.random.rand( count, count ) ) )
+            Log.write( 'WARNING', 'Y = {}'.format( list( numpy.random.rand( count, count ) ) ) )
 
-            Log.write( 'Critical', 'Z = ', set( numpy.random.rand( count ) ) )
+            Log.write( 'CRITICAL', 'Z = {}'.format( set( numpy.random.rand( count ) ) ) )
 
-            Log.write( 'Error', ValueError( end ) )
+            Log.write( 'ERROR', ValueError( end ) )
 
         with open( path, 'r' ) as fin :
 
@@ -69,7 +69,7 @@ def test_Log( count = 2, path = 'test_Log.3.14159.txt' ) :
 
             assert x.find( end ) >= 0
 
-            assert ( ( x.find( 'Critical' ) >= 0 ) and ( x.find( 'Error' ) >= 0 ) and ( x.find( 'Warning' ) >= 0 ) and ( x.find( 'Info' ) >= 0 ) and ( x.find( 'Debug' ) >= 0 ) )
+            assert ( ( x.find( 'CRITICAL' ) >= 0 ) and ( x.find( 'ERROR' ) >= 0 ) and ( x.find( 'WARNING' ) >= 0 ) and ( x.find( 'INFO' ) >= 0 ) and ( x.find( 'DEBUG' ) >= 0 ) )
 
     except Exception as ex :
 

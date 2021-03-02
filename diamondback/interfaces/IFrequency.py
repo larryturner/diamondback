@@ -57,7 +57,7 @@ class IFrequency( IEqual ) :
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
 
-            raise ValueError( 'Frequency = ' + str( frequency ) )
+            raise ValueError( 'Frequency = {}'.format( frequency ) )
 
         self._frequency = frequency
 

@@ -57,7 +57,7 @@ class IPeriod( IEqual ) :
 
         if ( period < 0.0 ) :
 
-            raise ValueError( 'Period = ' + str( period ) )
+            raise ValueError( 'Period = {}'.format( period ) )
 
         self._period = period
 

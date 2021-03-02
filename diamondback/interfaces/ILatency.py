@@ -56,7 +56,7 @@ class ILatency( IEqual ) :
 
         if ( latency < 0.0 ) :
 
-            raise ValueError( 'Latency = ' + str( latency ) )
+            raise ValueError( 'Latency = {}'.format( latency ) )
 
         self._latency = latency
 

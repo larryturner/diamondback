@@ -20,6 +20,8 @@ ipywidgets >= 7.6.3
 
 jsonpickle >= 2.0.0
 
+loguru >= 0.5.3
+
 matplotlib >= 3.3.4
 
 nox >= 2020.12.31
