@@ -31,8 +31,6 @@ vector and matrix types expressed in numpy arrays.
 
 Diamondback is defined in subpackages :
 
--  `clients <https://larryturner.github.io/diamondback/diamondback.clients>`__
-
 -  `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 
 -  `filters <https://larryturner.github.io/diamondback/diamondback.filters>`__
@@ -43,18 +41,6 @@ Diamondback is defined in subpackages :
 
 -  `transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`__
 
-`clients <https://larryturner.github.io/diamondback/diamondback.clients>`__
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--  `RestClient <https://larryturner.github.io/diamondback/diamondback.clients#module-diamondback.clients.RestClient>`__
-   instances define a client for simple REST service requests.  An API and an
-   elective dictionary of parameter strings are encoded to build a URL,
-   elective JSON or binary data are defined in the body of a request, and a
-   JSON or binary data response is returned and decoded.  Caching may be useful
-   in environments with intermittent or inconsistent network connectivity.  If
-   caching is specified, requests are cached when a service is not live, and
-   sent in order during a subsequent request when a service is live.
-
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -63,6 +49,15 @@ Diamondback is defined in subpackages :
    loguru package with a specified level and stream. Log entries contain
    an ISO-8601 datetime and level.  Dynamic stream redirection and level
    specification are supported.
+
+-  `RestClient <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.RestClient>`__
+   instances define a client for simple REST service requests.  An API and an
+   elective dictionary of parameter strings are encoded to build a URL,
+   elective JSON or binary data are defined in the body of a request, and a
+   JSON or binary data response is returned and decoded.  Caching may be useful
+   in environments with intermittent or inconsistent network connectivity.  If
+   caching is specified, requests are cached when a service is not live, and
+   sent in order during a subsequent request when a service is live.
 
 -  `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
    singleton instance which encodes and decodes an instance or

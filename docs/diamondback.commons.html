@@ -88,6 +88,7 @@
 <li><a class="reference internal" href="#">diamondback.commons package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-diamondback.commons.Log">diamondback.commons.Log module</a></li>
+<li><a class="reference internal" href="#module-diamondback.commons.RestClient">diamondback.commons.RestClient module</a></li>
 <li><a class="reference internal" href="#module-diamondback.commons.Serial">diamondback.commons.Serial module</a></li>
 <li><a class="reference internal" href="#module-diamondback.commons">Module contents</a></li>
 </ul>
@@ -285,6 +286,118 @@ datetime and level.</p>
 <blockquote>
 <div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt;custom&gt; ) ( str ).</p>
 <p>entry - Entry ( any ).</p>
+</div></blockquote>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.commons.RestClient">
+<span id="diamondback-commons-restclient-module"></span><h2>diamondback.commons.RestClient module<a class="headerlink" href="#module-diamondback.commons.RestClient" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<p>REST client for simple REST service requests.  An API and an elective
+dictionary of parameter strings are encoded to build a URL, elective
+JSON or binary data are defined in the body of a request, and a JSON
+or binary data response is returned and decoded.</p>
+<p>A client instance may be useful as a base client definition to interact
+with a service which satisfies flexible request constraints.</p>
+<p>Caching may be useful in environments with intermittent or inconsistent
+network connectivity.  If caching is specified, requests are cached when
+a service is not live, and sent in order during a subsequent request when
+a service is live.</p>
+<p>URL and proxy definition is supported.</p>
+<p>Thread safe.</p>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RestClient</span>
+<span class="kn">import</span> <span class="nn">typing</span>
+
+
+<span class="k">class</span> <span class="nc">TestClient</span><span class="p">(</span> <span class="n">RestClient</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="p">:</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span> <span class="p">)</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>  <span class="c1"># connect, read</span>
+
+<span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">2.71827</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="mf">3.14159</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.commons.RestClient.RestClient">
+<em class="property">class </em><code class="sig-prename descclassname">diamondback.commons.RestClient.</code><code class="sig-name descname">RestClient</code><a class="reference internal" href="_modules/diamondback/commons/RestClient.html#RestClient"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.RestClient.RestClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IData.IData" title="diamondback.interfaces.IData.IData"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IData.IData</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ILive.ILive" title="diamondback.interfaces.ILive.ILive"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ILive.ILive</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IProxy.IProxy" title="diamondback.interfaces.IProxy.IProxy"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IProxy.IProxy</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IReady.IReady" title="diamondback.interfaces.IReady.IReady"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IReady.IReady</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.ITimeOut.ITimeOut" title="diamondback.interfaces.ITimeOut.ITimeOut"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.ITimeOut.ITimeOut</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IUrl.IUrl" title="diamondback.interfaces.IUrl.IUrl"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IUrl.IUrl</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IVersion.IVersion" title="diamondback.interfaces.IVersion.IVersion"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IVersion.IVersion</span></code></a></p>
+<p>REST client.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.commons.RestClient.RestClient.live">
+<em class="property">property </em><code class="sig-name descname">live</code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.live" title="Permalink to this definition">¶</a></dt>
+<dd><p>Live ( bool ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.commons.RestClient.RestClient.ready">
+<em class="property">property </em><code class="sig-name descname">ready</code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ready ( bool ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.commons.RestClient.RestClient.version">
+<em class="property">property </em><code class="sig-name descname">version</code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Version ( str ).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.commons.RestClient.RestClient.clear">
+<code class="sig-name descname">clear</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; None<a class="reference internal" href="_modules/diamondback/commons/RestClient.html#RestClient.clear"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.clear" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clear cached requests.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="diamondback.commons.RestClient.RestClient.request">
+<code class="sig-name descname">request</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">method</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">api</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">item</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">json</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">cache</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; any<a class="reference internal" href="_modules/diamondback/commons/RestClient.html#RestClient.request"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.request" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request client for simple REST service requests. An API and an
+elective dictionary of parameter strings are encoded to build a
+URL, elective JSON or binary data are defined in the body of a
+request, and a JSON or binary data response is returned and
+decoded.  Caching may be useful in environments with intermittent
+or inconsistent network connectivity.  If caching is specified,
+requests are cached when a service is not live, and sent in order
+during a subsequent request when a service is live.</p>
+<p>Arguments :</p>
+<blockquote>
+<div><p>method - Method ( str ) in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>
+<p>api - API, relative to the URL ( str ).</p>
+<p>item - Item ( dict( str, str ) ).</p>
+<p>json - JSON ( any ).</p>
+<p>data - Data ( any ).</p>
+<p>cache - Cache ( bool ).</p>
+</div></blockquote>
+<p>Returns :</p>
+<blockquote>
+<div><p>value - Value ( any ).</p>
 </div></blockquote>
 </dd></dl>
 

@@ -7,7 +7,6 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
-   diamondback.clients
    diamondback.commons
    diamondback.filters
    diamondback.interfaces

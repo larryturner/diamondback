@@ -5,9 +5,8 @@ diamondback.egg-info/SOURCES.txt
 diamondback.egg-info/dependency_links.txt
 diamondback.egg-info/requires.txt
 diamondback.egg-info/top_level.txt
-diamondback/clients/RestClient.py
-diamondback/clients/__init__.py
 diamondback/commons/Log.py
+diamondback/commons/RestClient.py
 diamondback/commons/Serial.py
 diamondback/commons/__init__.py
 diamondback/filters/ComplexBandPassFilter.py

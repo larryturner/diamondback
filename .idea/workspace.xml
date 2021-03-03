@@ -6,8 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/clients/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/RestClient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/clients/__init__.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,9 +71,9 @@
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\clients" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
-      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons" />
     </key>
   </component>
   <component name="RunManager">
@@ -85,7 +90,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/diamondback/clients/RestClient.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\commons\RestClient.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="true" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -205,7 +210,7 @@
       <workItem from="1614319718991" duration="8459000" />
       <workItem from="1614611687404" duration="638000" />
       <workItem from="1614625459307" duration="3000" />
-      <workItem from="1614697889099" duration="33818000" />
+      <workItem from="1614697889099" duration="35064000" />
     </task>
     <servers />
   </component>
