@@ -86,7 +86,6 @@ from threading import RLock
 import numpy
 import os
 import sys
-import typing
 
 
 class Log( object ) :
@@ -146,7 +145,7 @@ class Log( object ) :
 
 
     @classmethod
-    def write( cls, level : str, entry : typing.Union[ Exception, str ] ) -> None :
+    def write( cls, level : str, entry : any ) -> None :
 
         """ Formats and writes log entries using the loguru package with a
             specified level and stream.  Log entries contain an ISO-8601
@@ -156,7 +155,7 @@ class Log( object ) :
 
                 level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE' ) ( str ).
 
-                entry - Entry ( Exception, str ).
+                entry - Entry ( any ).
         """
 
         with ( Log._rlock ) :

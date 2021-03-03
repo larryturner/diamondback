@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="" />
+    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -200,7 +206,7 @@
       <workItem from="1614319718991" duration="8459000" />
       <workItem from="1614611687404" duration="638000" />
       <workItem from="1614625459307" duration="3000" />
-      <workItem from="1614697889099" duration="27897000" />
+      <workItem from="1614697889099" duration="29852000" />
     </task>
     <servers />
   </component>

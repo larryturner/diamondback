@@ -193,3 +193,5 @@ Version     Date            Notes
 1.0.62      2021-02-26      Modified Serial code.
 
 1.0.63      2021-03-02      Modified Log to use loguru and deprecate logging.
+
+1.0.64      2021-03-02      Modified Log to define any entry.
