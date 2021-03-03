@@ -151,8 +151,10 @@
   <h1>Source code for diamondback.commons.Log</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        A log instance formats and writes log entries using the loguru package.</span>
-<span class="sd">        Log entries are prefaced with an ISO-8601 datetime and log level.</span>
+<span class="sd">        A log instance formats and writes log entries using the loguru package</span>
+<span class="sd">        with a specified level and stream.  Log entries contain an ISO-8601</span>
+<span class="sd">        datetime and level.  Dynamic stream redirection and level specification</span>
+<span class="sd">        are supported.</span>
 
 <span class="sd">        Singleton.</span>
 
@@ -297,9 +299,9 @@
 <div class="viewcode-block" id="Log.write"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.write">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="ne">Exception</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Formats and writes log entries using the loguru package to a specified</span>
-<span class="sd">            stream.  Log entries are prefaced with an ISO-8601 datetime and log</span>
-<span class="sd">            level.</span>
+        <span class="sd">&quot;&quot;&quot; Formats and writes log entries using the loguru package with a</span>
+<span class="sd">            specified level and stream.  Log entries contain an ISO-8601</span>
+<span class="sd">            datetime and level.</span>
 
 <span class="sd">            Arguments :</span>
 

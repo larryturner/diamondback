@@ -232,11 +232,9 @@ sent in order during a subsequent request when a service is live.</p></li>
 <h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#commons" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log">Log</a>
-singleton instance which formats and writes log entries, electively
-using the logger package or directly to a specified stream. Log
-entries are prefaced with an ISO-8601 datetime and log level, and
-enhancements are made to the formatting of datetime, exception, and
-collection data types. Dynamic stream redirection and log level
+singleton instance which formats and writes log entries using the
+loguru package with a specified level and stream. Log entries contain
+an ISO-8601 datetime and level.  Dynamic stream redirection and level
 specification are supported.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial">Serial</a>
 singleton instance which encodes and decodes an instance or
@@ -418,6 +416,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/dateutil/dateutil">dateutil</a></p></li>
 <li><p><a class="reference external" href="https://github.com/jsonpickle/jsonpickle">jsonpickle</a></p></li>
+<li><p><a class="reference external" href="https://github.com/delgan/loguru">loguru</a></p></li>
 <li><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
 <li><p><a class="reference external" href="https://github.com/scipy/scipy">scipy</a></p></li>

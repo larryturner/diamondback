@@ -1,7 +1,9 @@
 """ **Description**
 
-        A log instance formats and writes log entries using the loguru package.
-        Log entries are prefaced with an ISO-8601 datetime and log level.
+        A log instance formats and writes log entries using the loguru package
+        with a specified level and stream.  Log entries contain an ISO-8601
+        datetime and level.  Dynamic stream redirection and level specification
+        are supported.
 
         Singleton.
 
@@ -146,9 +148,9 @@ class Log( object ) :
     @classmethod
     def write( cls, level : str, entry : typing.Union[ Exception, str ] ) -> None :
 
-        """ Formats and writes log entries using the loguru package to a specified
-            stream.  Log entries are prefaced with an ISO-8601 datetime and log
-            level.
+        """ Formats and writes log entries using the loguru package with a
+            specified level and stream.  Log entries contain an ISO-8601
+            datetime and level.
 
             Arguments :
 

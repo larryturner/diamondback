@@ -67,11 +67,9 @@ Description: Description
         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
         
         -  `Log <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log>`__
-           singleton instance which formats and writes log entries, electively
-           using the logger package or directly to a specified stream. Log
-           entries are prefaced with an ISO-8601 datetime and log level, and
-           enhancements are made to the formatting of datetime, exception, and
-           collection data types. Dynamic stream redirection and log level
+           singleton instance which formats and writes log entries using the
+           loguru package with a specified level and stream. Log entries contain
+           an ISO-8601 datetime and level.  Dynamic stream redirection and level
            specification are supported.
         
         -  `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
@@ -267,6 +265,8 @@ Description: Description
         -  `dateutil <https://github.com/dateutil/dateutil>`__
         
         -  `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
+        
+        -  `loguru <https://github.com/delgan/loguru>`__
         
         -  `numpy <https://github.com/numpy/numpy>`__
         
