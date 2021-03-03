@@ -57,7 +57,7 @@ class IDuration( IEqual ) :
 
         if ( duration < 0.0 ) :
 
-            raise ValueError( 'Duration = {}'.format( duration ) )
+            raise ValueError( f'Duration = { duration }' )
 
         self._duration = duration
 

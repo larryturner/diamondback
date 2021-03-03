@@ -57,7 +57,7 @@ class IRate( IEqual ) :
 
         if ( rate < 0.0 ) :
 
-            raise ValueError( 'Rate = {}'.format( rate ) )
+            raise ValueError( f'Rate = { rate }' )
 
         self._rate = rate
 

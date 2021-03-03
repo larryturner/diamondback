@@ -5,6 +5,15 @@
         datetime and level.  Dynamic stream redirection and level specification
         are supported.
 
+        An internal loguru handler is created on initialization with a stream
+        redirection to sys.stdout and a level of 'INFO'.  Stream assignment
+        deletes the existing internal loguru handler and creates a new
+        instance.
+
+        Levels defined by loguru are supported, including custom definitions.
+        The level may be dynamically modified without creating, deleting, or
+        modifying a loguru handler.
+
         Singleton.
 
         Thread safe.
@@ -35,7 +44,7 @@
 
                 Log.stream( sys.stdout )
 
-                Log.write( 'INFO', 'Valid = {}'.format( True ) )
+                Log.write( 'INFO', f'Valid = { True }' )
 
                 # Set Log stream to a memory stream, write an 'INFO' entry, and read and reset the stream.
 
@@ -45,7 +54,7 @@
 
                 x = numpy.random.rand( 2, 2 )
 
-                Log.write( 'INFO', 'X = {}'.format( x ) )
+                Log.write( 'INFO', f'X = { x }' )
 
                 value = stream.getvalue( )
 
@@ -59,7 +68,7 @@
 
                     x = numpy.random.rand( 2, 2 )
 
-                    Log.write( 'WARNING', 'X = {}'.format( x ) )
+                    Log.write( 'WARNING', f'X = { x }' )
 
             except Exception as ex :
 
@@ -110,7 +119,7 @@ class Log( object ) :
 
             Arguments :
 
-                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE' ) ( str ).
+                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... <custom> ) ( str ).
         """
 
         with ( Log._rlock ) :
@@ -121,7 +130,7 @@ class Log( object ) :
 
             except :
 
-                raise ValueError( 'Level = {}'.format( level ) )
+                raise ValueError( f'Level = { level }' )
 
     @classmethod
     def stream( cls, stream : any ) -> None :
@@ -137,7 +146,7 @@ class Log( object ) :
 
             if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
 
-                raise ValueError( 'Stream = {}'.format( stream ) )
+                raise ValueError( f'Stream = { stream }' )
 
             logger.remove( Log._identity )
 
@@ -153,7 +162,7 @@ class Log( object ) :
 
             Arguments :
 
-                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE' ) ( str ).
+                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... <custom> ) ( str ).
 
                 entry - Entry ( any ).
         """
@@ -166,7 +175,7 @@ class Log( object ) :
 
             except :
 
-                raise ValueError( 'Level = {}'.format( level ) )
+                raise ValueError( f'Level = { level }' )
 
             if ( level.no >= Log._level.no ) :
 
@@ -174,13 +183,13 @@ class Log( object ) :
 
                     if ( isinstance( entry, Exception ) ) :
 
-                        entry = 'Exception = {} Description = {}'.format( type( entry ).__name__, str( entry ) )
+                        entry = f'Exception = { type( entry ).__name__ } Description = { entry }'
 
                         info = sys.exc_info( )[ -1 ]
 
                         while ( info ) :
 
-                            entry += ' @ File = {} Line = {}'.format( info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ], info.tb_lineno )
+                            entry += f' @ File = { info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ] } Line = { info.tb_lineno }'
 
                             info = info.tb_next
 

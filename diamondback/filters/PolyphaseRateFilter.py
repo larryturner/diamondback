@@ -122,7 +122,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         if ( ( rate <= 0.0 ) or ( rate > count ) ) :
 
-            raise ValueError( 'Rate = {}'.format( rate ) )
+            raise ValueError( f'Rate = { rate }' )
 
         if ( not numpy.isclose( self.rate, rate ) ) :
 
@@ -195,7 +195,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         y = numpy.zeros( int( numpy.ceil( len( x ) * self.rate ) ) )
 
@@ -243,7 +243,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         if ( not numpy.isscalar( x ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         if ( len( self.s ) > 1 ) :
 

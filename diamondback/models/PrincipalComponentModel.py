@@ -154,7 +154,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         if ( ( len( x.shape ) != 2 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         if ( not len( self.s ) ) :
 
@@ -174,6 +174,6 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         if ( ( rows != len( self._u ) ) or ( ( rows, rows ) != self._v.shape ) or ( cols <= 0 ) ):
 
-            raise ValueError( 'Rows = {} Columns = {}'.format( rows, cols ) )
+            raise ValueError( f'Rows = { rows } Columns = { cols }' )
 
         return numpy.matmul( self.v, z )

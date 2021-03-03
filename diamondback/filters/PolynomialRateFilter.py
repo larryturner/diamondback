@@ -78,7 +78,7 @@ class PolynomialRateFilter( IRate ) :
 
         if ( order < 2 ) :
 
-            raise ValueError( 'Order = {}'.format( order ) )
+            raise ValueError( f'Order = { order }' )
 
         self._order = order
 
@@ -90,7 +90,7 @@ class PolynomialRateFilter( IRate ) :
 
         if ( rate <= 0.0 ) :
 
-            raise ValueError( 'Rate = {}'.format( rate ) )
+            raise ValueError( f'Rate = { rate }' )
 
         if ( not numpy.isclose( self.rate, rate ) ) :
 
@@ -126,7 +126,7 @@ class PolynomialRateFilter( IRate ) :
 
         if ( order < 2 ) :
 
-            raise ValueError( 'Order = {}'.format( order ) )
+            raise ValueError( f'Order = { order }' )
 
         super( ).__init__( )
 
@@ -153,7 +153,7 @@ class PolynomialRateFilter( IRate ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) < 2 ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         cc = len( x )
 

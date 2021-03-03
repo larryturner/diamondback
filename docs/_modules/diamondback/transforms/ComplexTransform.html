@@ -252,7 +252,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;X = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span> <span class="n">x</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -264,7 +264,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Rows = </span><span class="si">{}</span><span class="s1"> Columns = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rows = </span><span class="si">{</span> <span class="n">rows</span> <span class="si">}</span><span class="s1"> Columns = </span><span class="si">{</span> <span class="n">cols</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
 

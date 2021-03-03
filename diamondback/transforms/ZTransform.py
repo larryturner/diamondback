@@ -104,7 +104,7 @@ class ZTransform( object ) :
 
         if ( ( len( u.shape ) != 1 ) or ( len( u ) == 0 ) or ( not u.any( ) ) ) :
 
-            raise ValueError( 'U = {}'.format( u ) )
+            raise ValueError( f'U = { u }' )
 
         if ( ( not numpy.isscalar( v ) ) and ( not isinstance( v, numpy.ndarray ) ) ) :
 
@@ -112,11 +112,11 @@ class ZTransform( object ) :
 
         if ( ( len( v.shape ) != 1 ) or ( len( v ) == 0 ) or ( not v.any( ) ) ) :
 
-            raise ValueError( 'V = {}'.format( v ) )
+            raise ValueError( f'V = { v }' )
 
         if ( frequency <= 0.0 ) :
 
-            raise ValueError( 'Frequency = {}'.format( frequency ) )
+            raise ValueError( f'Frequency = { frequency }' )
 
         while ( not u[ 0 ] ) :
 

@@ -172,6 +172,13 @@
 with a specified level and stream.  Log entries contain an ISO-8601
 datetime and level.  Dynamic stream redirection and level specification
 are supported.</p>
+<p>An internal loguru handler is created on initialization with a stream
+redirection to sys.stdout and a level of ‘INFO’.  Stream assignment
+deletes the existing internal loguru handler and creates a new
+instance.</p>
+<p>Levels defined by loguru are supported, including custom definitions.
+The level may be dynamically modified without creating, deleting, or
+modifying a loguru handler.</p>
 <p>Singleton.</p>
 <p>Thread safe.</p>
 </div></blockquote>
@@ -199,7 +206,7 @@ are supported.</p>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;Valid = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="kc">True</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span> <span class="kc">True</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
     <span class="c1"># Set Log stream to a memory stream, write an &#39;INFO&#39; entry, and read and reset the stream.</span>
 
@@ -209,7 +216,7 @@ are supported.</p>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;X = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span> <span class="n">x</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
     <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
 
@@ -223,7 +230,7 @@ are supported.</p>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="s1">&#39;X = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span> <span class="n">x</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
 
@@ -254,7 +261,7 @@ are supported.</p>
 <dd><p>Level.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’ ) ( str ).</p>
+<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt;custom&gt; ) ( str ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -276,7 +283,7 @@ specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’ ) ( str ).</p>
+<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt;custom&gt; ) ( str ).</p>
 <p>entry - Entry ( any ).</p>
 </div></blockquote>
 </dd></dl>

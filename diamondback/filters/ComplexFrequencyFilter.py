@@ -125,7 +125,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
         if ( ( len( d.shape ) != 1 ) or ( len( d ) == 0 ) or ( not isinstance( d[ 0 ], complex ) ) ) :
 
-            raise ValueError( 'D = {}'.format( d ) )
+            raise ValueError( f'D = { d }' )
 
         x = abs( d )
 
@@ -161,7 +161,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
 
         if ( not numpy.isscalar( x ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         if ( numpy.isclose( x, 0.0 ) ) :
 

@@ -156,6 +156,15 @@
 <span class="sd">        datetime and level.  Dynamic stream redirection and level specification</span>
 <span class="sd">        are supported.</span>
 
+<span class="sd">        An internal loguru handler is created on initialization with a stream</span>
+<span class="sd">        redirection to sys.stdout and a level of &#39;INFO&#39;.  Stream assignment</span>
+<span class="sd">        deletes the existing internal loguru handler and creates a new</span>
+<span class="sd">        instance.</span>
+
+<span class="sd">        Levels defined by loguru are supported, including custom definitions.</span>
+<span class="sd">        The level may be dynamically modified without creating, deleting, or</span>
+<span class="sd">        modifying a loguru handler.</span>
+
 <span class="sd">        Singleton.</span>
 
 <span class="sd">        Thread safe.</span>
@@ -186,7 +195,7 @@
 
 <span class="sd">                Log.stream( sys.stdout )</span>
 
-<span class="sd">                Log.write( &#39;INFO&#39;, &#39;Valid = {}&#39;.format( True ) )</span>
+<span class="sd">                Log.write( &#39;INFO&#39;, f&#39;Valid = { True }&#39; )</span>
 
 <span class="sd">                # Set Log stream to a memory stream, write an &#39;INFO&#39; entry, and read and reset the stream.</span>
 
@@ -196,7 +205,7 @@
 
 <span class="sd">                x = numpy.random.rand( 2, 2 )</span>
 
-<span class="sd">                Log.write( &#39;INFO&#39;, &#39;X = {}&#39;.format( x ) )</span>
+<span class="sd">                Log.write( &#39;INFO&#39;, f&#39;X = { x }&#39; )</span>
 
 <span class="sd">                value = stream.getvalue( )</span>
 
@@ -210,7 +219,7 @@
 
 <span class="sd">                    x = numpy.random.rand( 2, 2 )</span>
 
-<span class="sd">                    Log.write( &#39;WARNING&#39;, &#39;X = {}&#39;.format( x ) )</span>
+<span class="sd">                    Log.write( &#39;WARNING&#39;, f&#39;X = { x }&#39; )</span>
 
 <span class="sd">            except Exception as ex :</span>
 
@@ -261,7 +270,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                level - Level in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39; ) ( str ).</span>
+<span class="sd">                level - Level in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, ... &lt;custom&gt; ) ( str ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
@@ -272,7 +281,7 @@
 
             <span class="k">except</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Level = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span></div>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span> <span class="n">level</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
 
 <div class="viewcode-block" id="Log.stream"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Log.Log.stream">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
@@ -288,7 +297,7 @@
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Stream = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span> <span class="n">stream</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
             <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
 
@@ -304,7 +313,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                level - Level in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39; ) ( str ).</span>
+<span class="sd">                level - Level in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, ... &lt;custom&gt; ) ( str ).</span>
 
 <span class="sd">                entry - Entry ( any ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -317,7 +326,7 @@
 
             <span class="k">except</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Level = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">level</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span> <span class="n">level</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">no</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span><span class="o">.</span><span class="n">no</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -325,13 +334,13 @@
 
                     <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                        <span class="n">entry</span> <span class="o">=</span> <span class="s1">&#39;Exception = </span><span class="si">{}</span><span class="s1"> Description = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="nb">type</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span> <span class="p">)</span>
+                        <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Exception = </span><span class="si">{</span> <span class="nb">type</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span><span class="o">.</span><span class="vm">__name__</span> <span class="si">}</span><span class="s1"> Description = </span><span class="si">{</span> <span class="n">entry</span> <span class="si">}</span><span class="s1">&#39;</span>
 
                         <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
 
                         <span class="k">while</span> <span class="p">(</span> <span class="n">info</span> <span class="p">)</span> <span class="p">:</span>
 
-                            <span class="n">entry</span> <span class="o">+=</span> <span class="s1">&#39; @ File = </span><span class="si">{}</span><span class="s1"> Line = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">],</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span> <span class="p">)</span>
+                            <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; @ File = </span><span class="si">{</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="si">}</span><span class="s1"> Line = </span><span class="si">{</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span> <span class="si">}</span><span class="s1">&#39;</span>
 
                             <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
 

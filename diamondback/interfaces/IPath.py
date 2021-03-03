@@ -59,7 +59,7 @@ class IPath( IEqual ) :
 
             if ( not os.path.exists( path ) ) :
 
-                raise FileNotFoundError( 'Path = {}'.format( path ) )
+                raise FileNotFoundError( f'Path = { path }' )
 
         self._path = path
 

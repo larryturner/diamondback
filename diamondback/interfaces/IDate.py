@@ -58,7 +58,7 @@ class IDate( IEqual ) :
 
         if ( not date ) :
 
-            raise ValueError( 'Date = {}'.format( date ) )
+            raise ValueError( f'Date = { date }' )
 
         if ( not date.tzinfo ) :
 

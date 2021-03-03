@@ -209,7 +209,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">date</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="s1">&#39;Date = </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span> <span class="n">date</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Date = </span><span class="si">{</span> <span class="n">date</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">date</span><span class="o">.</span><span class="n">tzinfo</span> <span class="p">)</span> <span class="p">:</span>
 

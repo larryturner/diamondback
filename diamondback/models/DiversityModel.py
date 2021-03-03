@@ -126,15 +126,15 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             if ( ( not typ ) or ( not issubclass( typ, DiversityModel ) ) ) :
 
-                raise ValueError( 'Type = {}'.format( typ ) )
+                raise ValueError( f'Type = { typ }' )
 
             if ( ( not classification ) or ( classification not in DiversityModel.Factory._distance ) ) :
 
-                raise ValueError( 'Classification = {}'.format( classification ) )
+                raise ValueError( f'Classification = { classification }' )
 
             if ( order <= 0 ) :
 
-                raise ValueError( 'Order = {}'.format( order ) )
+                raise ValueError( f'Order = { order }' )
 
             return typ( DiversityModel.Factory._distance[ classification ], order )
 
@@ -166,7 +166,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         if ( ( not distance ) or ( isinstance( distance, str ) ) ) :
 
-            raise ValueError( 'Distance = {}'.format( distance ) )
+            raise ValueError( f'Distance = { distance }' )
 
         super( ).__init__( )
 
@@ -198,7 +198,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( 'X = {}'.format( x ) )
+            raise ValueError( f'X = { x }' )
 
         if ( len( x.shape ) < 2 ) :
 
@@ -214,7 +214,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         if ( ( rows != self.s.shape[ 0 ] ) or ( cols <= 0 ) ) :
 
-            raise ValueError( 'Rows = {} Colums = {}'.format( str( rows ), str( cols ) ) )
+            raise ValueError( f'Rows = { rows } Colums = { cols }' )
 
         cc = 0
 
