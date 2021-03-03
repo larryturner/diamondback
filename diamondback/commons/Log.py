@@ -183,7 +183,7 @@ class Log( object ) :
 
                     if ( isinstance( entry, Exception ) ) :
 
-                        entry = f'Exception = { type( entry ).__name__ } Description = { entry }'
+                        entry = f'Exception = { type( entry ).__name__ } { entry }'
 
                         info = sys.exc_info( )[ -1 ]
 

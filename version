@@ -196,4 +196,6 @@ Version     Date            Notes
 
 1.0.64      2021-03-02      Modified Log to define any entry.
 
-1.0.65      2021-03-02      Modified Log format.
+1.0.65      2021-03-03      Modified Log format.
+
+1.0.66      2021-03-03      Modified Log exceptions.
