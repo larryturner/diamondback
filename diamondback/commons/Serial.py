@@ -102,11 +102,11 @@ class Serial( object ) :
 
         if ( not state ) :
 
-            raise ValueError( f'State = { state }' )
+            raise ValueError( f'State = {state}' )
 
         if ( not encoding ) :
 
-            raise ValueError( f'Encoding = { encoding }' )
+            raise ValueError( f'Encoding = {encoding}' )
 
         return hashlib.sha3_256( bytes( state, encoding ) ).hexdigest( )
 
@@ -136,11 +136,11 @@ class Serial( object ) :
 
         if ( not state ) :
 
-            raise ValueError( f'State = { state }' )
+            raise ValueError( f'State = {state}' )
 
         if ( not encoding ) :
 
-            raise ValueError( f'Encoding = { encoding }' )
+            raise ValueError( f'Encoding = {encoding}' )
 
         if ( compress ) :
 

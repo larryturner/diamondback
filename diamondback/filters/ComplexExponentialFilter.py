@@ -88,7 +88,7 @@ class ComplexExponentialFilter( IPhase ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) or ( abs( x ) > 1.0 ).any( ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         y = numpy.zeros( len( x ), complex )
 

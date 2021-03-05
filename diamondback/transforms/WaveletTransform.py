@@ -209,17 +209,17 @@ class WaveletTransform( IB, IEqual ) :
 
             if ( ( not typ ) or ( not issubclass( typ, WaveletTransform ) ) ) :
 
-                raise ValueError( f'Type = { typ }' )
+                raise ValueError( f'Type = {typ}' )
 
             if ( classification not in WaveletTransform.Factory._b ) :
 
-                raise ValueError( f'Classification = { classification }' )
+                raise ValueError( f'Classification = {classification}' )
 
             b = WaveletTransform.Factory._b[ classification ]
 
             if ( order not in b ) :
 
-                raise ValueError( f'Order = { order }' )
+                raise ValueError( f'Order = {order}' )
 
             return typ( b[ order ] )
 
@@ -238,7 +238,7 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) ) :
 
-            raise ValueError( f'B = { b }' )
+            raise ValueError( f'B = {b}' )
 
         super( ).__init__( )
 
@@ -294,7 +294,7 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         if ( len( x.shape ) == 2 ) :
 

@@ -71,7 +71,7 @@ class RankFilter( FirFilter ) :
 
         if ( ( rank < 0 ) or ( rank > ( len( self.s ) - 1 ) ) ) :
 
-            raise ValueError( f'Rank = { rank }' )
+            raise ValueError( f'Rank = {rank}' )
 
         self._rank = rank
 
@@ -103,7 +103,7 @@ class RankFilter( FirFilter ) :
 
         if ( ( rank < 0 ) or ( rank > order ) ) :
 
-            raise ValueError( f'Rank = { rank } Order = { order }' )
+            raise ValueError( f'Rank = {rank} Order = {order}' )
 
         super( ).__init__( numpy.ones( order + 1 ) / ( order + 1 ) )
 
@@ -128,7 +128,7 @@ class RankFilter( FirFilter ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         y = numpy.zeros( len( x ), type( x[ 0 ] ) )
 

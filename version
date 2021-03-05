@@ -203,3 +203,7 @@ Version     Date            Notes
 1.0.67      2021-03-03      Modified RestClient package.
 
 1.0.68      2021-03-03      Modified jupyter.
+
+1.0.69      2021-03-05      Modified strings to F-strings.
+
+                            Modified jupyter.

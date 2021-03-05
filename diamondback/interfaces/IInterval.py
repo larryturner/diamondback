@@ -57,7 +57,7 @@ class IInterval( IEqual ) :
 
         if ( interval < 0.0 ) :
 
-            raise ValueError( f'Interval = { interval }' )
+            raise ValueError( f'Interval = {interval}' )
 
         self._interval = interval
 

@@ -57,7 +57,7 @@ class IPhase( IEqual ) :
 
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
 
-            raise ValueError( f'Phase = { phase }' )
+            raise ValueError( f'Phase = {phase}' )
 
         self._phase = phase
 

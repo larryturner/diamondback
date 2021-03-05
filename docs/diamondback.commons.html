@@ -207,7 +207,7 @@ modifying a loguru handler.</p>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span> <span class="kc">True</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span><span class="kc">True</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
     <span class="c1"># Set Log stream to a memory stream, write an &#39;INFO&#39; entry, and read and reset the stream.</span>
 
@@ -217,7 +217,7 @@ modifying a loguru handler.</p>
 
     <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span> <span class="n">x</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
     <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
 
@@ -231,7 +231,7 @@ modifying a loguru handler.</p>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
 
-        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span> <span class="n">x</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
 

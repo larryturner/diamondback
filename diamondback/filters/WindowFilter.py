@@ -142,7 +142,7 @@ class WindowFilter( IB, IEqual ) :
 
         if ( ( numpy.isscalar( b ) ) or ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
 
-            raise ValueError( f'B = { b }' )
+            raise ValueError( f'B = {b}' )
 
         super( ).__init__( )
 
@@ -167,6 +167,6 @@ class WindowFilter( IB, IEqual ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) != len( self.b ) ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         return self.b * x

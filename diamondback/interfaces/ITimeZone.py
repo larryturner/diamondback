@@ -59,7 +59,7 @@ class ITimeZone( IEqual ) :
 
         if ( not timezone ) :
 
-            raise ValueError( f'TimeZone = { timezone }' )
+            raise ValueError( f'TimeZone = {timezone}' )
 
         self._timezone = timezone
 

@@ -44,7 +44,7 @@
 
                 Log.stream( sys.stdout )
 
-                Log.write( 'INFO', f'Valid = { True }' )
+                Log.write( 'INFO', f'Valid = {True}' )
 
                 # Set Log stream to a memory stream, write an 'INFO' entry, and read and reset the stream.
 
@@ -54,7 +54,7 @@
 
                 x = numpy.random.rand( 2, 2 )
 
-                Log.write( 'INFO', f'X = { x }' )
+                Log.write( 'INFO', f'X = {x}' )
 
                 value = stream.getvalue( )
 
@@ -68,7 +68,7 @@
 
                     x = numpy.random.rand( 2, 2 )
 
-                    Log.write( 'WARNING', f'X = { x }' )
+                    Log.write( 'WARNING', f'X = {x}' )
 
             except Exception as ex :
 
@@ -102,7 +102,7 @@ class Log( object ) :
     """ Log service.
     """
 
-    numpy.set_printoptions( formatter = { 'float' : '{: .6f}'.format } )
+    numpy.set_printoptions( formatter = { 'float' : '{:.6f}'.format } )
 
     logger.remove( 0 )
 
@@ -130,7 +130,7 @@ class Log( object ) :
 
             except :
 
-                raise ValueError( f'Level = { level }' )
+                raise ValueError( f'Level = {level}' )
 
     @classmethod
     def stream( cls, stream : any ) -> None :
@@ -146,7 +146,7 @@ class Log( object ) :
 
             if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
 
-                raise ValueError( f'Stream = { stream }' )
+                raise ValueError( f'Stream = {stream}' )
 
             logger.remove( Log._identity )
 
@@ -175,7 +175,7 @@ class Log( object ) :
 
             except :
 
-                raise ValueError( f'Level = { level }' )
+                raise ValueError( f'Level = {level}' )
 
             if ( level.no >= Log._level.no ) :
 
@@ -183,13 +183,13 @@ class Log( object ) :
 
                     if ( isinstance( entry, Exception ) ) :
 
-                        entry = f'Exception = { type( entry ).__name__ } { entry }'
+                        entry = f'Exception = {type( entry ).__name__} {entry}'
 
                         info = sys.exc_info( )[ -1 ]
 
                         while ( info ) :
 
-                            entry += f' @ File = { info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ] } Line = { info.tb_lineno }'
+                            entry += f' @ File = {info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ]} Line = {info.tb_lineno}'
 
                             info = info.tb_next
 

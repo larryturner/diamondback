@@ -102,7 +102,7 @@ class PowerSpectrumTransform( object ) :
 
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
 
@@ -110,11 +110,11 @@ class PowerSpectrumTransform( object ) :
 
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
 
-            raise ValueError( f'B = { b }' )
+            raise ValueError( f'B = {b}' )
 
         if ( len( x ) < len( b ) ) :
 
-            raise ValueError( f'X = { x }' )
+            raise ValueError( f'X = {x}' )
 
         y, f = numpy.zeros( len( b ) ), None
 
