@@ -5,33 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/dist/diamondback-1.0.70.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/commons/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/Serial.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Serial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.69-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.70-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.69.tar.gz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.doctrees/diamondback.commons.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/diamondback.commons.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/RestClient.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/RestClient.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Serial.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Serial.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/FirFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/FirFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IntegralFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/IntegralFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/filters/WindowFilter.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/filters/WindowFilter.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDuration.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/interfaces/IDuration.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/models/DiversityModel.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/models/DiversityModel.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/diamondback.commons.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.commons.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -233,7 +209,8 @@
       <workItem from="1614958492571" duration="5017000" />
       <workItem from="1614964486153" duration="237000" />
       <workItem from="1614964954982" duration="130000" />
-      <workItem from="1614976805682" duration="178000" />
+      <workItem from="1614976805682" duration="803000" />
+      <workItem from="1614985504514" duration="117000" />
     </task>
     <servers />
   </component>
