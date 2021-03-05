@@ -184,17 +184,17 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         if ( not method ) :
 
-            raise ValueError( f'Method = { method }' )
+            raise ValueError( f'Method = {method}' )
 
         method = method.lower( )
 
         if ( method not in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ) ) :
 
-            raise ValueError( f'Method = { method }' )
+            raise ValueError( f'Method = {method}' )
 
         if ( ( data ) and ( json ) ) :
 
-            raise ValueError( f'Data = { data } JSON = { json }' )
+            raise ValueError( f'Data = {data} JSON = {json}' )
 
         api = api.strip( '/' )
 
@@ -230,7 +230,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                                        raise ConnectionError( f'Status = { value.status_code } Reason = { value.reason }' )
+                                        raise ConnectionError( f'Status = {value.status_code} Reason = {value.reason}' )
 
                             finally :
 
@@ -240,7 +240,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                     if ( ( not value ) or ( value.status_code != 200 ) ) :
 
-                        raise ConnectionError( f'Status = { value.status_code } Reason = { value.reason }' )
+                        raise ConnectionError( f'Status = {value.status_code} Reason = {value.reason}' )
 
                     try :
 

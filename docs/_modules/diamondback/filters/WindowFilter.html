@@ -256,15 +256,15 @@
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">WindowFilter</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Type = </span><span class="si">{</span> <span class="n">typ</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Type = </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">classification</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">classification</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_classification</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Classification = </span><span class="si">{</span> <span class="n">classification</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Classification = </span><span class="si">{</span><span class="n">classification</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
 
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span> <span class="n">order</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="n">classification</span> <span class="o">==</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span> <span class="p">:</span>
 

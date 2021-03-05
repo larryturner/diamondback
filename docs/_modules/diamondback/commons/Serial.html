@@ -178,8 +178,7 @@
 
 <span class="sd">            # Encode and decode a dictionary instance in JSON.</span>
 
-<span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ),</span>
-<span class="sd">                  &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
+<span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ), &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
 
 <span class="sd">            z = Serial.decode( Serial.encode( x ) )</span>
 
@@ -325,7 +324,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">:</span>
 
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Encoding = </span><span class="si">{</span> <span class="n">encoding</span> <span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Encoding = </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
         <span class="n">state</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">)</span>
 

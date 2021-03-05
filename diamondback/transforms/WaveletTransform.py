@@ -308,11 +308,11 @@ class WaveletTransform( IB, IEqual ) :
 
         if ( count <= 0 ) :
 
-            raise ValueError( f'Count = { count }' )
+            raise ValueError( f'Count = {count}' )
 
         if ( ( ( rows != 1 ) and ( rows % ( 2 ** count ) ) ) or ( ( cols != 1 ) and ( cols % ( 2 ** count ) ) ) ) :
 
-            raise ValueError( f'Rows = { rows } Columns = { cols }' )
+            raise ValueError( f'Rows = {rows} Columns = {cols}' )
 
         rr = max( ( rows // ( 2 ** count ) ) * ( 2 ** count ), 1 )
 

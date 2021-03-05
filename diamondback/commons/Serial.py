@@ -27,8 +27,7 @@
 
             # Encode and decode a dictionary instance in JSON.
 
-            x = { 'a' : numpy.random.rand( count ),
-                  'b' : list( numpy.random.rand( count ) ) }
+            x = { 'a' : numpy.random.rand( count ), 'b' : list( numpy.random.rand( count ) ) }
 
             z = Serial.decode( Serial.encode( x ) )
 
@@ -174,7 +173,7 @@ class Serial( object ) :
 
         if ( not encoding ) :
 
-            raise ValueError( f'Encoding = { encoding }' )
+            raise ValueError( f'Encoding = {encoding}' )
 
         state = jsonpickle.encode( instance )
 

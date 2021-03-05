@@ -207,3 +207,5 @@ Version     Date            Notes
 1.0.69      2021-03-05      Modified strings to F-strings.
 
                             Modified jupyter.
+
+1.0.70      2021-03-05      Modified jupyter.

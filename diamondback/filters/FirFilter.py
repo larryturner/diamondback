@@ -367,7 +367,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
             if ( ( len( d.shape ) != 1 ) or ( len( d ) != len( x ) ) ) :
 
-                raise ValueError( f'D = { d }' )
+                raise ValueError( f'D = {d}' )
 
             e = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 
@@ -422,11 +422,11 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         if ( length <= 0 ) :
 
-            raise ValueError( f'Length = { length }' )
+            raise ValueError( f'Length = {length}' )
 
         if ( count <= 0 ) :
 
-            raise ValueError( f'Count = { count }' )
+            raise ValueError( f'Count = {count}' )
 
         y, f = scipy.signal.freqz( self.b, [ 1.0, 0.0 ], length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
 

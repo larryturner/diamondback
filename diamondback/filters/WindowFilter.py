@@ -105,15 +105,15 @@ class WindowFilter( IB, IEqual ) :
 
             if ( ( not typ ) or ( not issubclass( typ, WindowFilter ) ) ) :
 
-                raise ValueError( f'Type = { typ }' )
+                raise ValueError( f'Type = {typ}' )
 
             if ( ( not classification ) or ( classification not in WindowFilter.Factory._classification ) ) :
 
-                raise ValueError( f'Classification = { classification }' )
+                raise ValueError( f'Classification = {classification}' )
 
             if ( order < 0 ) :
 
-                raise ValueError( f'Order = { order }' )
+                raise ValueError( f'Order = {order}' )
 
             if ( classification == 'Kaiser' ) :
 

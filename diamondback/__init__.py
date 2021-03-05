@@ -5,4 +5,4 @@ from .models import *
 from .transforms import *
 
 
-__version__ = '1.0.69'
+__version__ = '1.0.70'

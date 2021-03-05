@@ -166,7 +166,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         if ( ( not distance ) or ( isinstance( distance, str ) ) ) :
 
-            raise ValueError( f'Distance = { distance }' )
+            raise ValueError( f'Distance = {distance}' )
 
         super( ).__init__( )
 
@@ -214,7 +214,7 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         if ( ( rows != self.s.shape[ 0 ] ) or ( cols <= 0 ) ) :
 
-            raise ValueError( f'Rows = { rows } Colums = { cols }' )
+            raise ValueError( f'Rows = {rows} Colums = {cols}' )
 
         cc = 0
 
