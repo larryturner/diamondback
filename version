@@ -209,3 +209,5 @@ Version     Date            Notes
                             Modified jupyter.
 
 1.0.70      2021-03-05      Modified jupyter.
+
+1.0.71      2021-03-12      Modified RestClient exceptions.

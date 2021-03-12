@@ -14,7 +14,7 @@
 #
 #   Definition
 
-ipython >= 7.20.0
+ipython >= 7.21.0
 
 ipywidgets >= 7.6.3
 
@@ -28,17 +28,17 @@ nox >= 2020.12.31
 
 numpy >= 1.20.1
 
-pandas >= 1.2.2
+pandas >= 1.2.3
 
-pillow >= 8.1.0
+pillow >= 8.1.2
 
 python-dateutil >= 2.8.1
 
 requests >= 2.25.1
 
-scipy >= 1.6.0
+scipy >= 1.6.1
 
-sphinx >= 3.4.3
+sphinx >= 3.5.2
 
 sphinx-pydantic >= 0.1.1
 

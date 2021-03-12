@@ -228,9 +228,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                                 with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = self.timeout ) as value :
 
-                                    if ( ( not value ) or ( value.status_code != 200 ) ) :
-
-                                        raise ConnectionError( f'Status = {value.status_code} Reason = {value.reason}' )
+                                    value.raise_for_status( )
 
                             finally :
 
@@ -238,9 +236,7 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                 with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
 
-                    if ( ( not value ) or ( value.status_code != 200 ) ) :
-
-                        raise ConnectionError( f'Status = {value.status_code} Reason = {value.reason}' )
+                    value.raise_for_status( )
 
                     try :
 
