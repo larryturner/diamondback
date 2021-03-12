@@ -1,7 +1,7 @@
 Description
 ~~~~~~~~~~~
 
-Diamondback is a Python package which provides Digital Signal Processing
+Diamondback is a package which provides Digital Signal Processing
 ( DSP ) solutions, organized in the form of commons, filters,
 interfaces, models, and transforms.
 

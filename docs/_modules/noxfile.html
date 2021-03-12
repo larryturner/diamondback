@@ -163,8 +163,6 @@
 
 <span class="sd">    **License**</span>
 
-<span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-
 <span class="sd">        Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
@@ -190,7 +188,7 @@
 
     <span class="k">if</span> <span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span> <span class="s1">&#39;dockerfile&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;python-&#39;</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;-service&#39;</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;a2s-&#39;</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;python-&#39;</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;-core&#39;</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="s1">&#39;-ws&#39;</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
 
         <span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span> <span class="s1">&#39;docker&#39;</span><span class="p">,</span> <span class="s1">&#39;build&#39;</span><span class="p">,</span> <span class="s1">&#39;--tag&#39;</span><span class="p">,</span> <span class="n">image</span> <span class="o">+</span> <span class="s1">&#39;:latest&#39;</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span> <span class="p">)</span>
 
@@ -378,7 +376,7 @@
 
   <div role="contentinfo">
     <p>
-        &#169; Copyright 2018, Larry Turner, Schneider Electric.
+        &#169; Copyright Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved..
 
     </p>
   </div>

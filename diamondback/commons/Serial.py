@@ -47,10 +47,6 @@
 
             z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }' )
 
-            # Decode a dictionary instance from JSON, and clean comments.
-
-            z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }  # Comments.\n', clean = True )
-
     **License**
 
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

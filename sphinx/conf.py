@@ -29,7 +29,7 @@ sys.path.insert( 0, os.path.abspath( '../' ) )
 
 author = 'Larry Turner'
 
-copyright = '2018, Larry Turner, Schneider Electric'
+copyright = 'Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.'
 
 project = 'diamondback'
 

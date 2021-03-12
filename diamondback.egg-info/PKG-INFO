@@ -9,7 +9,7 @@ License: BSD-3C.  Copyright (c) 2018, Larry Turner, Schneider Electric.  All rig
 Description: Description
         ~~~~~~~~~~~
         
-        Diamondback is a Python package which provides Digital Signal Processing
+        Diamondback is a package which provides Digital Signal Processing
         ( DSP ) solutions, organized in the form of commons, filters,
         interfaces, models, and transforms.
         
