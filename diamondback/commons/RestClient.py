@@ -6,7 +6,7 @@
     defined in the body of a request, and requests response containing JSON or
     binary data response is returned.
 
-    URL and proxy definition are supported.
+    URL, proxy, and timeout definition are supported.
 
     **Example**
 
