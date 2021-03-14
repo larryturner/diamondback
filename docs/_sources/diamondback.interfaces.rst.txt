@@ -140,6 +140,14 @@ diamondback.interfaces.IFrequency module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IHeader module
+-------------------------------------
+
+.. automodule:: diamondback.interfaces.IHeader
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IIdentity module
 ---------------------------------------
 

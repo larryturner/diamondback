@@ -40,6 +40,7 @@ diamondback/interfaces/IEmulate.py
 diamondback/interfaces/IEncoding.py
 diamondback/interfaces/IEqual.py
 diamondback/interfaces/IFrequency.py
+diamondback/interfaces/IHeader.py
 diamondback/interfaces/IIdentity.py
 diamondback/interfaces/IInterval.py
 diamondback/interfaces/ILatency.py

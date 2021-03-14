@@ -1,21 +1,12 @@
 """ **Description**
 
-    REST client for simple REST service requests.  An API and an elective
-    dictionary of parameter strings are encoded to build a URL, elective
-    JSON or binary data are defined in the body of a request, and a JSON
-    or binary data response is returned and decoded.
+    REST client instances define a client for simple REST service requests
+    using the requests package.  An API and an elective dictionary of parameter
+    strings are encoded to build a URL, elective JSON or binary data are
+    defined in the body of a request, and requests response containing JSON or
+    binary data response is returned.
 
-    A client instance may be useful as a base client definition to interact
-    with a service which satisfies flexible request constraints.
-
-    Caching may be useful in environments with intermittent or inconsistent
-    network connectivity.  If caching is specified, requests are cached when
-    a service is not live, and sent in order during a subsequent request when
-    a service is live.
-
-    URL and proxy definition is supported.
-
-    Thread safe.
+    URL and proxy definition are supported.
 
     **Example**
 
@@ -59,20 +50,17 @@
 
 """
 
-from diamondback.interfaces.IClear import IClear
-from diamondback.interfaces.IData import IData
 from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.IReady import IReady
 from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
 from diamondback.interfaces.IVersion import IVersion
-from threading import RLock
 import requests
 import typing
 
 
-class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
+class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
     """ REST client.
     """
@@ -134,33 +122,17 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
         super( ).__init__( )
 
-        self._rlock = RLock( )
-
-        self.data = [ ]
-
         self.proxy, self.timeout = { }, ( 10.0, 60.0 )
 
         self.url = 'http://127.0.0.1:8080'
 
-    def clear( self ) -> None :
-
-        """ Clear cached requests.
-        """
-
-        with ( self._rlock ) :
-
-            self.data = [ ]
-
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None, cache : bool = False ) -> any :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective JSON or binary data are defined in the body of a
-            request, and a JSON or binary data response is returned and
-            decoded.  Caching may be useful in environments with intermittent
-            or inconsistent network connectivity.  If caching is specified,
-            requests are cached when a service is not live, and sent in order
-            during a subsequent request when a service is live.
+            request, and a requests response containing JSON or binary data is
+            returned.
 
             Arguments :
 
@@ -174,11 +146,9 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
                 data - Data ( any ).
 
-                cache - Cache ( bool ).
-
             Returns :
 
-                value - Value ( any ).
+                value - Value ( Response ).
 
         """
 
@@ -204,46 +174,8 @@ class RestClient( IClear, IData, ILive, IProxy, IReady, ITimeOut, IUrl, IVersion
 
             url += '/' + api
 
-        valid, value = True, True
+        with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
 
-        with ( self._rlock ) :
-
-            if ( cache ) :
-
-                if ( not self.live ) :
-
-                    self.data.append( { 'method' : method, 'url' : url, 'item' : item, 'data' : data, 'json' : json } )
-
-                    valid = False
-
-            if ( valid ) :
-
-                if ( self.data ) :
-
-                    if ( self.live ) :
-
-                        for x in [ x for x in self.data ] :
-
-                            try :
-
-                                with requests.request( method = x[ 'method' ], url = x[ 'url' ], params = x[ 'item' ], data = x[ 'data' ], json = x[ 'json' ], proxies = self.proxy, timeout = self.timeout ) as value :
-
-                                    value.raise_for_status( )
-
-                            finally :
-
-                                del self.data[ 0 ]
-
-                with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
-
-                    value.raise_for_status( )
-
-                    try :
-
-                        value = value.json( )
-
-                    except :
-
-                        value = value.content
+            value.raise_for_status( )
 
         return value

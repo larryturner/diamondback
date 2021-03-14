@@ -211,3 +211,8 @@ Version     Date            Notes
 1.0.70      2021-03-05      Modified jupyter.
 
 1.0.71      2021-03-12      Modified RestClient exceptions.
+
+1.0.72      2021-03-14      Modified RestClient to use IHeader, deprecate
+                            caching and return requests response type.
+
+                            Modified documentation.

@@ -1,7 +1,7 @@
 """ **Description**
 
-        A log instance formats and writes log entries using the loguru package
-        with a specified level and stream.  Log entries contain an ISO-8601
+        A log instance formats and writes log entries with a specified level
+        and stream using the loguru package. Log entries contain an ISO-8601
         datetime and level.  Dynamic stream redirection and level specification
         are supported.
 

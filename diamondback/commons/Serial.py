@@ -1,7 +1,8 @@
 """ **Description**
 
         A serial instance encodes and decodes an instance or collection with
-        JSON, or base-64 encoded gzip JSON binary format.
+        JSON, or base-64 encoded gzip JSON binary format using the jsonpickle
+        package.
 
         An instance may be an object or a collection, referenced by abstract or
         concrete types, and the instance will be correctly encoded and decoded.

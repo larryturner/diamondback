@@ -15,6 +15,7 @@ from .IEmulate import IEmulate
 from .IEncoding import IEncoding
 from .IEqual import IEqual
 from .IFrequency import IFrequency
+from .IHeader import IHeader
 from .IIdentity import IIdentity
 from .IInterval import IInterval
 from .ILatency import ILatency
