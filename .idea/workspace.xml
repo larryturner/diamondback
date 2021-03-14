@@ -4,26 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/diamondback/interfaces/IHeader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/Serial.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Serial.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.commons.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.filters.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.interfaces.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.models.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/diamondback.transforms.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/modules.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/noxfile.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/sphinx/setup.rst" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
-    </list>
+    <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -232,7 +213,7 @@
       <workItem from="1615590800500" duration="1069000" />
       <workItem from="1615656560047" duration="1346000" />
       <workItem from="1615680348344" duration="262000" />
-      <workItem from="1615737744928" duration="3942000" />
+      <workItem from="1615737744928" duration="4320000" />
     </task>
     <servers />
   </component>
