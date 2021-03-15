@@ -6,8 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/commons/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/RestClient.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/diamondback/interfaces" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -218,6 +216,10 @@
       <workItem from="1615656560047" duration="1346000" />
       <workItem from="1615680348344" duration="262000" />
       <workItem from="1615737744928" duration="5083000" />
+      <workItem from="1615744594147" duration="1000" />
+      <workItem from="1615745096859" duration="1884000" />
+      <workItem from="1615762734106" duration="898000" />
+      <workItem from="1615764331381" duration="870000" />
     </task>
     <servers />
   </component>
