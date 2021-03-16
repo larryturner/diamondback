@@ -216,3 +216,5 @@ Version     Date            Notes
                             caching and return requests response type.
 
                             Modified documentation.
+
+1.0.73      2021-03-15      Added ILabel.

@@ -106,6 +106,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IHeader">diamondback.interfaces.IHeader module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IIdentity">diamondback.interfaces.IIdentity module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IInterval">diamondback.interfaces.IInterval module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.ILabel">diamondback.interfaces.ILabel module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILatency">diamondback.interfaces.ILatency module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILive">diamondback.interfaces.ILive module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IModel">diamondback.interfaces.IModel module</a></li>
@@ -1196,6 +1197,56 @@
 </dd></dl>
 
 </div>
+<div class="section" id="module-diamondback.interfaces.ILabel">
+<span id="diamondback-interfaces-ilabel-module"></span><h2>diamondback.interfaces.ILabel module<a class="headerlink" href="#module-diamondback.interfaces.ILabel" title="Permalink to this headline">¶</a></h2>
+<p><strong>Description</strong></p>
+<blockquote>
+<div><p>Label interface.</p>
+</div></blockquote>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ILabel</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILabel</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="n">test</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;label&#39;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>License</strong></p>
+<blockquote>
+<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
+<p>Copyright (c) 2021, Larry Turner, Schneider Electric.  All rights reserved.</p>
+</div></blockquote>
+<p><strong>Author</strong></p>
+<blockquote>
+<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2021-03-15.</p>
+</div></blockquote>
+<p><strong>Definition</strong></p>
+<dl class="py class">
+<dt id="diamondback.interfaces.ILabel.ILabel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.ILabel.</span></code><code class="sig-name descname"><span class="pre">ILabel</span></code><a class="reference internal" href="_modules/diamondback/interfaces/ILabel.html#ILabel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
+<p>Label interface.</p>
+<p>Initialize.</p>
+<dl class="py method">
+<dt id="diamondback.interfaces.ILabel.ILabel.label">
+<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">label</span></code><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel.label" title="Permalink to this definition">¶</a></dt>
+<dd><p>Label ( any ).</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-diamondback.interfaces.ILatency">
 <span id="diamondback-interfaces-ilatency-module"></span><h2>diamondback.interfaces.ILatency module<a class="headerlink" href="#module-diamondback.interfaces.ILatency" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -2269,11 +2320,11 @@ operation at a specified incident signal condition.</p>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.0&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.1&#39;</span>
 
 <span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="n">test</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.1&#39;</span>
+<span class="n">test</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.2&#39;</span>
 </pre></div>
 </div>
 </div></blockquote>

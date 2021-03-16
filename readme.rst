@@ -163,6 +163,7 @@ Diamondback is defined in subpackages :
     `IHeader <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IHeader>`__,
     `IIdentity <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity>`__,
     `IInterval <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IInterval>`__,
+    `ILabel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILabel>`__,
     `ILatency <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILatency>`__,
     `ILive <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive>`__,
     `IModel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel>`__,

@@ -15,11 +15,11 @@
 
                     super( ).__init__( )
 
-                    self.version = '1.0.0'
+                    self.version = '1.0.1'
 
             test = Test( )
 
-            test.version = '1.0.1'
+            test.version = '1.0.2'
 
     **License**
 

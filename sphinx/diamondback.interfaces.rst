@@ -164,6 +164,14 @@ diamondback.interfaces.IInterval module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.ILabel module
+------------------------------------
+
+.. automodule:: diamondback.interfaces.ILabel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.ILatency module
 --------------------------------------
 
