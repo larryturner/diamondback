@@ -18,6 +18,7 @@ from .IFrequency import IFrequency
 from .IHeader import IHeader
 from .IIdentity import IIdentity
 from .IInterval import IInterval
+from .ILabel import ILabel
 from .ILatency import ILatency
 from .ILive import ILive
 from .IModel import IModel

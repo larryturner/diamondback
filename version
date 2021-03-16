@@ -218,3 +218,5 @@ Version     Date            Notes
                             Modified documentation.
 
 1.0.73      2021-03-15      Added ILabel.
+
+1.0.74      2021-03-15      Modified init.
