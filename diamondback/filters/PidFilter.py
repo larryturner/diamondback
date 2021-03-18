@@ -72,7 +72,7 @@ class PidFilter( FirFilter ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Equality.
+        """ Equal.
 
             Arguments :
 

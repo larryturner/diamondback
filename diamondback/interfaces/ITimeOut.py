@@ -58,7 +58,7 @@ class ITimeOut( IEqual ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Equality.
+        """ Equal.
 
             Arguments :
 

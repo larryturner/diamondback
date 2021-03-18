@@ -1,7 +1,7 @@
 """ **Description**
 
         A serial instance encodes and decodes an instance or collection with
-        JSON, or base-64 encoded gzip JSON binary format using the jsonpickle
+        JSON, or base-85 encoded gzip JSON binary format using the jsonpickle
         package.
 
         An instance may be an object or a collection, referenced by abstract or
@@ -73,7 +73,7 @@ import re
 
 class Serial( object ) :
 
-    """ Serial service, with JSON or base-64 encoded gzip JSON binary format.
+    """ Serial service, with JSON or base-85 encoded gzip JSON binary format.
     """
 
     jsonpickle.ext.numpy.register_handlers( )
@@ -109,7 +109,7 @@ class Serial( object ) :
     @staticmethod
     def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :
 
-        """ Decodes an instance or collection from JSON, or base-64 encoded
+        """ Decodes an instance or collection from JSON, or base-85 encoded
             gzip JSON binary format state.  Encoding may be specified if an
             alternative to UTF-8 is required.  Python style docstring and line
             comments may be cleaned, though line comments must be terminated by
@@ -140,7 +140,7 @@ class Serial( object ) :
 
         if ( compress ) :
 
-            state = str( gzip.decompress( base64.b64decode( bytes( state, encoding ) ) ), encoding )
+            state = str( gzip.decompress( base64.b85decode( bytes( state, encoding ) ) ), encoding )
 
         if ( clean ) :
 
@@ -151,7 +151,7 @@ class Serial( object ) :
     @staticmethod
     def encode( instance : any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
-        """ Encodes JSON, or base-64 encoded gzip JSON binary format state from
+        """ Encodes JSON, or base-85 encoded gzip JSON binary format state from
             an instance or collection.  Encoding may be specified if an
             alternative to UTF-8 is required.
 
@@ -172,10 +172,10 @@ class Serial( object ) :
 
             raise ValueError( f'Encoding = {encoding}' )
 
-        state = jsonpickle.encode( instance )
+        state = jsonpickle.encode( instance, separators = ( ',', ':' ) )
 
         if ( compress ) :
 
-            state = str( base64.b64encode( gzip.compress( bytes( state, encoding ) ) ), encoding )
+            state = str( base64.b85encode( gzip.compress( bytes( state, encoding ) ) ), encoding )
 
         return state

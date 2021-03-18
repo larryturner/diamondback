@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.74
+Version: 1.0.75
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -67,7 +67,7 @@ Description: Description
         
         -   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
             singleton instance which encodes and decodes an instance or collection
-            with JSON, or base-64 encoded gzip JSON binary format using the jsonpickle
+            with JSON, or base-85 encoded gzip JSON binary format using the jsonpickle
             packages.
         
         `filters <https://larryturner.github.io/diamondback/diamondback.filters>`__

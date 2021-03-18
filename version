@@ -220,3 +220,6 @@ Version     Date            Notes
 1.0.73      2021-03-15      Added ILabel.
 
 1.0.74      2021-03-15      Modified init.
+
+1.0.75      2021-03-16      Modified Serial to use base-85 encoded gzip JSON,
+                            and compact JSON separators.

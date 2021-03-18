@@ -36,7 +36,7 @@ class IEqual( object ) :
 
     def __eq__( self, other : any ) -> bool :
 
-        """ Equality.
+        """ Equal.
 
             Arguments :
 
@@ -58,7 +58,7 @@ class IEqual( object ) :
 
     def __ne__( self, other : any ) -> bool :
 
-        """ Evaluates inequality condition.
+        """ Not equal.
 
             Arguments :
 
