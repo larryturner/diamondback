@@ -6,7 +6,15 @@
     defined in the body of a request, and requests response containing JSON or
     binary data response is returned.
 
-    URL, proxy, and timeout definition are supported.
+    Proxy, timeout, and URL definition are supported.
+
+    Live makes a head request to a URL and detects a live service.
+
+    Ready makes a get request to a ready API and a service may respond with
+    an indication that it is in a condition which supports normal function.
+
+    Version makes a get request to a version API and a service may respond
+    with a version string.
 
     **Example**
 

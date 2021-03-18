@@ -299,7 +299,12 @@ using the requests package.  An API and an elective dictionary of parameter
 strings are encoded to build a URL, elective JSON or binary data are
 defined in the body of a request, and requests response containing JSON or
 binary data response is returned.</p>
-<p>URL, proxy, and timeout definition are supported.</p>
+<p>Proxy, timeout, and URL definition are supported.</p>
+<p>Live makes a head request to a URL and detects a live service.</p>
+<p>Ready makes a get request to a ready API and a service may respond with
+an indication that it is in a condition which supports normal function.</p>
+<p>Version makes a get request to a version API and a service may respond
+with a version string.</p>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RestClient</span>

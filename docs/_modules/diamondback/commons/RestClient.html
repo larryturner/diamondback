@@ -156,7 +156,15 @@
 <span class="sd">    defined in the body of a request, and requests response containing JSON or</span>
 <span class="sd">    binary data response is returned.</span>
 
-<span class="sd">    URL, proxy, and timeout definition are supported.</span>
+<span class="sd">    Proxy, timeout, and URL definition are supported.</span>
+
+<span class="sd">    Live makes a head request to a URL and detects a live service.</span>
+
+<span class="sd">    Ready makes a get request to a ready API and a service may respond with</span>
+<span class="sd">    an indication that it is in a condition which supports normal function.</span>
+
+<span class="sd">    Version makes a get request to a version API and a service may respond</span>
+<span class="sd">    with a version string.</span>
 
 <span class="sd">    **Example**</span>
 
