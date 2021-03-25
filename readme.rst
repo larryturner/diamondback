@@ -84,12 +84,11 @@ Diamondback is defined in subpackages :
 
 -   `FirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter>`__
     instances realize discrete difference equations of Finite Impulse
-    Response ( FIR ) form, in adaptive or static solutions. A factory
-    electively constructs instances based on type, classification,
-    normalized frequency, order, cascade count, and complement. Filters
-    may be readily extended to support new types and functionality, while
-    retaining factory support. Root extraction, group delay, and
-    frequency response evaluation are defined.
+    Response ( FIR ) form. A factory electively constructs instances based
+    on type, classification, normalized frequency, order, cascade count, and
+    complement. Filters may be readily extended to support new types and
+    functionality, while retaining factory support. Root extraction, group
+    delay, and frequency response evaluation are defined.
 
 -   `GoertzelFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter>`__
     instances efficiently evaluate a Discrete Fourier Transform ( DFT )
@@ -98,12 +97,11 @@ Diamondback is defined in subpackages :
 
 -   `IirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter>`__
     instances realize discrete difference equations of Infinite Impulse
-    Response ( IIR ) form, in adaptive or static solutions. A factory
-    electively constructs instances based on type, classification,
-    normalized frequency, order, cascade count, and complement. Filters
-    may be readily extended to support new types and functionality, while
-    retaining factory support. Root extraction, group delay, and
-    frequency response evaluation are defined.
+    Response ( IIR ) form. A factory electively constructs instances based
+    on type, classification, normalized frequency, order, cascade count, and
+    complement. Filters may be readily extended to support new types and
+    functionality, while retaining factory support. Root extraction, group
+    delay, and frequency response evaluation are defined.
 
 -   `IntegralFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter>`__
     instances estimate discrete integral approximations at several filter
