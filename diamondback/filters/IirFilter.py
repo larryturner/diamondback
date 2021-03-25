@@ -350,15 +350,13 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def filter( self, x : any, d : any = None ) -> any :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
                 x - Incident signal ( array( complex | float ), list( complex | float ) ).
-
-                d - Primary signal ( array( complex | float ), list( complex | float ) ).
 
             Returns :
 

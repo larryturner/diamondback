@@ -228,3 +228,5 @@ Version     Date            Notes
                             of IRate.
 
                             Modified documentation.
+
+1.0.77      2021-03-25      Modified IirFilter filter.
