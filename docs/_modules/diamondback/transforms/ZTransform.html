@@ -172,32 +172,34 @@
 
 <span class="sd">            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
 
-<span class="sd">    **Example** ::</span>
+<span class="sd">    **Example**</span>
 
-<span class="sd">        from diamondback import ZTransform</span>
-<span class="sd">        import math</span>
-<span class="sd">        import numpy</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback import ZTransform</span>
+<span class="sd">            import math</span>
+<span class="sd">            import numpy</span>
 
 
-<span class="sd">        frequency, order, ripple = 0.1, 2, 0.125</span>
+<span class="sd">            frequency, order, ripple = 0.1, 2, 0.125</span>
 
-<span class="sd">        u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )</span>
+<span class="sd">            u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )</span>
 
-<span class="sd">        v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order</span>
+<span class="sd">            v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order</span>
 
-<span class="sd">        a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real</span>
+<span class="sd">            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real</span>
 
-<span class="sd">        a /= a[ -1 ]</span>
+<span class="sd">            a /= a[ -1 ]</span>
 
-<span class="sd">        # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.</span>
+<span class="sd">            # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.</span>
 
-<span class="sd">        a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )</span>
+<span class="sd">            a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )</span>
 
-<span class="sd">        # Define zeros and normalize gain.</span>
+<span class="sd">            # Define zeros and normalize gain.</span>
 
-<span class="sd">        b = numpy.poly( -numpy.ones( order ) )</span>
+<span class="sd">            b = numpy.poly( -numpy.ones( order ) )</span>
 
-<span class="sd">        b *= ( 1.0 - sum( a ) ) / sum( b )</span>
+<span class="sd">            b *= ( 1.0 - sum( a ) ) / sum( b )</span>
 
 <span class="sd">    **License**</span>
 

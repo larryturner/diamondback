@@ -192,7 +192,8 @@ specified.</p>
 \[y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) &amp; imag(\ x_{n}\ ) &amp; 0 }\ ]^{T}}}^{T}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">ComplexTransform</span>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">ComplexTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -205,6 +206,7 @@ specified.</p>
 <span class="n">z</span> <span class="o">=</span> <span class="n">ComplexTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">neutral</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
@@ -265,7 +267,8 @@ frequency resolution.</p>
 </div></blockquote>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">FourierTransform</span>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">FourierTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -280,6 +283,7 @@ frequency resolution.</p>
 <span class="n">z</span> <span class="o">=</span> <span class="n">FourierTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
@@ -349,7 +353,8 @@ frequency resolution.</p>
 \[N = \frac{2}{R}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PowerSpectrumTransform</span>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PowerSpectrumTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -362,6 +367,7 @@ frequency resolution.</p>
 <span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">PowerSpectrumTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
@@ -459,7 +465,8 @@ specified.</p>
 </ul>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">WaveletTransform</span>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">WaveletTransform</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 
@@ -478,6 +485,7 @@ specified.</p>
 <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
@@ -562,7 +570,8 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 \[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ZTransform</span>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ZTransform</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
@@ -588,6 +597,7 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 <span class="n">b</span> <span class="o">*=</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">a</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
 </pre></div>
 </div>
+</div></blockquote>
 <p><strong>License</strong></p>
 <blockquote>
 <div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>

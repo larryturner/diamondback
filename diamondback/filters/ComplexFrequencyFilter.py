@@ -29,27 +29,29 @@
 
             b_{n} = b_{n} + \mu e_{n} x_{n}^{*}
 
-    **Example** ::
+    **Example**
 
-        from diamondback import ComplexExponentialFilter
-        import numpy
+        ::
+
+            from diamondback import ComplexExponentialFilter
+            import numpy
 
 
-        x = numpy.linspace( 0.0, 0.1, 128 )
+            x = numpy.linspace( 0.0, 0.1, 128 )
 
-        # Create a primary signal.
+            # Create a primary signal.
 
-        d = ComplexExponentialFilter( 0.0 ).filter( x )
+            d = ComplexExponentialFilter( 0.0 ).filter( x )
 
-        # Create an instance with frequency and rate.
+            # Create an instance with frequency and rate.
 
-        obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
+            obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
 
-        # Filter a primary signal.
+            # Filter a primary signal.
 
-        obj.reset( d[ 0 ] )
+            obj.reset( d[ 0 ] )
 
-        y, e, b = obj.filter( d )
+            y, e, b = obj.filter( d )
 
     **License**
 
@@ -67,12 +69,13 @@
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
+from diamondback.interfaces.IRate import IRate
 import math
 import numpy
 import typing
 
 
-class ComplexFrequencyFilter( FirFilter, IFrequency ) :
+class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
     """ Complex frequency filter.
     """
@@ -98,9 +101,13 @@ class ComplexFrequencyFilter( FirFilter, IFrequency ) :
                 rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).
         """
 
-        super( ).__init__( numpy.ones( 1, complex ), numpy.ones( 1, complex ), rate )
+        if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
 
-        self.frequency = frequency
+            raise ValueError( f'Rate = {rate}' )
+
+        super( ).__init__( numpy.ones( 1, complex ), numpy.ones( 1, complex ) )
+
+        self.frequency, self.rate = frequency, rate
 
     def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
 

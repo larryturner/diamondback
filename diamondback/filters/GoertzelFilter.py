@@ -51,7 +51,7 @@
 
             # Filter an incident signal.
 
-            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 1 ]
+            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 0 ]
 
             y = obj.filter( x )
 
@@ -155,7 +155,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         for ii in range( 0, len( x ) ) :
 
-            v = super( ).filter( u * self._w[ self._index ] * x[ ii : ii + 1 ] )[ 0 ]
+            v = super( ).filter( u * self._w[ self._index ] * x[ ii : ii + 1 ] )
 
             self._index += 1
 

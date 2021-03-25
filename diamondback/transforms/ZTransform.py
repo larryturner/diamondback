@@ -22,32 +22,34 @@
 
             H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
 
-    **Example** ::
+    **Example**
 
-        from diamondback import ZTransform
-        import math
-        import numpy
+        ::
+
+            from diamondback import ZTransform
+            import math
+            import numpy
 
 
-        frequency, order, ripple = 0.1, 2, 0.125
+            frequency, order, ripple = 0.1, 2, 0.125
 
-        u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
+            u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
 
-        v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
+            v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
 
-        a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
+            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
 
-        a /= a[ -1 ]
+            a /= a[ -1 ]
 
-        # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.
+            # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.
 
-        a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
+            a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
 
-        # Define zeros and normalize gain.
+            # Define zeros and normalize gain.
 
-        b = numpy.poly( -numpy.ones( order ) )
+            b = numpy.poly( -numpy.ones( order ) )
 
-        b *= ( 1.0 - sum( a ) ) / sum( b )
+            b *= ( 1.0 - sum( a ) ) / sum( b )
 
     **License**
 

@@ -42,6 +42,8 @@
 
             d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )
 
+            # Create an instance with frequency and rate.
+
             obj = ComplexBandPassFilter( frequency = frequency, rate = 5.0e-2 )
 
             # Filter a primary signal.
@@ -67,11 +69,12 @@
 from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
+from diamondback.interfaces.IRate import IRate
 import numpy
 import typing
 
 
-class ComplexBandPassFilter( FirFilter, IFrequency ) :
+class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
     """ Complex band pass filter.
     """
@@ -102,11 +105,15 @@ class ComplexBandPassFilter( FirFilter, IFrequency ) :
                 rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
         """
 
-        super( ).__init__( numpy.array( [ numpy.finfo( float ).eps + 0j ] ), numpy.zeros( 1, complex ), rate )
+        if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
+
+            raise ValueError( f'Rate = {rate}' )
+
+        super( ).__init__( numpy.array( [ numpy.finfo( float ).eps + 0j ] ), numpy.zeros( 1, complex ) )
 
         self._complexexponentialfilter = ComplexExponentialFilter( )
 
-        self.frequency = frequency
+        self.frequency, self.rate = frequency, rate
 
     def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
 

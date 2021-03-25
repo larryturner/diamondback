@@ -89,7 +89,7 @@ Diamondback is defined in subpackages :
     normalized frequency, order, cascade count, and complement. Filters
     may be readily extended to support new types and functionality, while
     retaining factory support. Root extraction, group delay, and
-    frequency response evaluation are defined.  Adaptation is elective.
+    frequency response evaluation are defined.
 
 -   `GoertzelFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter>`__
     instances efficiently evaluate a Discrete Fourier Transform ( DFT )
@@ -103,7 +103,7 @@ Diamondback is defined in subpackages :
     normalized frequency, order, cascade count, and complement. Filters
     may be readily extended to support new types and functionality, while
     retaining factory support. Root extraction, group delay, and
-    frequency response evaluation are defined.  Adaptation is elective.
+    frequency response evaluation are defined.
 
 -   `IntegralFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter>`__
     instances estimate discrete integral approximations at several filter

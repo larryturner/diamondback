@@ -47,7 +47,7 @@ class IDuration( IEqual ) :
     @property
     def duration( self ) :
 
-        """ Duration in seconds ( float ).
+        """ Duration in seconds in [ 0.0, inf ) ( float ).
         """
 
         return self._duration

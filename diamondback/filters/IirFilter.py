@@ -13,25 +13,6 @@
 
             s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}
 
-        A primary signal and a rate of adaptation are electively specified to
-        produce an estimation error, to facilitate adaptation.
-
-        .. math::
-
-            e_{n} = d_{n} - y_{n}
-
-        .. math::
-
-            q_{i,n} = s_{i,n-1} + a_{i,n-1} + q_{i,n-1}
-
-        .. math::
-
-            a_{i,n+1} = a_{i,n} + \mu e_{n} (\ b_{0,n} s_{i,n} + a_{i,n} q_{i,n}\ )^{*}
-
-        .. math::
-
-            b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}
-
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
 
@@ -50,7 +31,7 @@
         defining a recursive coefficient array, a forward coefficient array,
         and a state array of a specified order, to realize specified
         constraints.  An instance, classification, frequency, order, count,
-        complement, gain, and rate are specified.
+        complement, and gain are specified.
 
         Frequency corresponds to a -3 dB frequency response normalized relative
         to Nyquist.
@@ -102,7 +83,7 @@
 
             obj.reset( x[ 0 ] )
 
-            y = obj.filter( x )[ 0 ]
+            y = obj.filter( x )
 
     **License**
 
@@ -208,7 +189,7 @@ class IirFilter( FirFilter, IA, IQ ) :
             return a, b
 
         @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0, rate : float = 0.0 ) -> any :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> any :
 
             """ Constructs an instance.
 
@@ -227,8 +208,6 @@ class IirFilter( FirFilter, IA, IQ ) :
                     complement - Complement, or high pass, response condition ( bool ).
 
                     gain - Gain ( float ).
-
-                    rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
 
                 Returns :
 
@@ -289,9 +268,9 @@ class IirFilter( FirFilter, IA, IQ ) :
 
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )
 
-            return typ( a, b * gain, rate = rate )
+            return typ( a, b * gain )
 
-    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
+    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ) ) -> None :
 
         """ Initialize.
 
@@ -302,8 +281,6 @@ class IirFilter( FirFilter, IA, IQ ) :
                 b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
 
                 s - State ( array( complex | float ), list( complex | float ) ).
-
-                rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
         """
 
         if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
@@ -330,7 +307,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             raise ValueError( f'A = {a}' )
 
-        super( ).__init__( b, s, rate )
+        super( ).__init__( b, s )
 
         self.a, self.q = numpy.array( a ), numpy.array( self.s )
 
@@ -373,7 +350,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def filter( self, x : any, d : any = None ) -> typing.Tuple[ any, any ] :
+    def filter( self, x : any, d : any = None ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -386,8 +363,6 @@ class IirFilter( FirFilter, IA, IQ ) :
             Returns :
 
                 y - Reference signal ( array( complex | float ) ).
-
-                e - Error signal ( array( complex | float ) ).
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
@@ -398,65 +373,25 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             raise ValueError( f'X = {x}' )
 
-        y, e = numpy.zeros( len( x ), type( self.b[ 0 ] ) ), None
+        y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 
-        if ( d is None ) :
+        for ii in range( 0, len( x ) ) :
 
-            for ii in range( 0, len( x ) ) :
+            self.s[ 0 ] = x[ ii ]
 
-                self.s[ 0 ] = x[ ii ]
+            c = self.a * self.b[ 0 ] + self.b
 
-                c = self.a * self.b[ 0 ] + self.b
+            y[ ii ] = c.dot( self.s )
 
-                y[ ii ] = c.dot( self.s )
+            if ( len( self.s ) > 1 ) :
 
-                if ( len( self.s ) > 1 ) :
+                z = self.a.dot( self.s )
 
-                    z = self.a.dot( self.s )
+                self.s[ 1 : ] = self.s[ : -1 ]
 
-                    self.s[ 1 : ] = self.s[ : -1 ]
+                self.s[ 1 ] += z
 
-                    self.s[ 1 ] += z
-
-        else :
-
-            if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
-
-                d = numpy.array( list( d ) )
-
-            if ( ( len( d.shape ) != 1 ) or ( len( d ) != len( x ) ) ) :
-
-                raise ValueError( f'D = {d}' )
-
-            e = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
-
-            for ii in range( 0, len( x ) ) :
-
-                self.s[ 0 ] = x[ ii ]
-
-                c, q = self.a * self.b[ 0 ] + self.b, self.s + self.a * self.q
-
-                y[ ii ] = c.dot( self.s )
-
-                e[ ii ] = d[ ii ] - y[ ii ]
-
-                self.a[ : ] += self.rate * e[ ii ] * numpy.conjugate( self.b[ 0 ] * self.s + c * self.q )
-
-                self.b[ : ] += self.rate * e[ ii ] * numpy.conjugate( self.s )
-
-                self.q[ : ] = q
-
-                self.a[ 0 ], self.q[ 0 ] = 0.0, 0.0
-
-                if ( len( self.s ) > 1 ) :
-
-                    self.s[ 0 ] += self.a.dot( self.s )
-
-                    self.s[ 1 : ] = self.s[ : -1 ]
-
-                    self.s[ 0 ] = x[ ii ]
-
-        return y, e
+        return y
 
     def reset( self, x : any ) -> None :
 

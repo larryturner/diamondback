@@ -5,8 +5,6 @@
         of a specified order, consuming an incident signal and producing a
         reference signal.
 
-        A rate of adaptation may be specified
-
         .. math::
 
             y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
@@ -14,17 +12,6 @@
         .. math::
 
             s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
-
-        A primary signal and a rate of adaptation are electively specified to
-        produce an estimation error, to facilitate adaptation.
-
-        .. math::
-
-            e_{n} = d_{n} - y_{n}
-
-        .. math::
-
-            b_{i,n+1} = b_{i,n} + \mu e_{n} s_{i,n}^{*}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
@@ -43,8 +30,8 @@
         A factory is defined to facilitate construction of an instance,
         defining a forward coefficient array, and a state array of a
         specified order, to realize specified constraints.  An instance,
-        classification, frequency, order, count, complement, gain, and
-        rate are specified.
+        classification, frequency, order, count, complement, and gain
+        are specified.
 
         Frequency corresponds to a -3 dB frequency response normalized relative
         to Nyquist.
@@ -101,7 +88,7 @@
 
             obj.reset( x[ 0 ] )
 
-            y = obj.filter( x )[ 0 ]
+            y = obj.filter( x )
 
     **License**
 
@@ -118,7 +105,6 @@
 """
 
 from diamondback.interfaces.IB import IB
-from diamondback.interfaces.IRate import IRate
 from diamondback.interfaces.IReset import IReset
 from diamondback.interfaces.IS import IS
 import math
@@ -128,7 +114,7 @@ import typing
 import warnings
 
 
-class FirFilter( IB, IRate, IReset, IS ) :
+class FirFilter( IB, IReset, IS ) :
 
     """ Finite Impulse Response ( FIR ) filter.
     """
@@ -141,7 +127,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
         _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
         @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0, rate : float = 0.0 ) -> any :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> any :
 
             """ Constructs an instance.
 
@@ -160,8 +146,6 @@ class FirFilter( IB, IRate, IReset, IS ) :
                     complement - Complement, or high pass, response condition ( bool ).
 
                     gain - Gain ( float ).
-
-                    rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
 
                 Returns :
 
@@ -236,9 +220,9 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) )
 
-            return typ( b * gain, rate = rate )
+            return typ( b * gain )
 
-    def __init__( self, b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ), rate : float = 0.0 ) -> None :
+    def __init__( self, b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ) ) -> None :
 
         """ Initialize.
 
@@ -247,8 +231,6 @@ class FirFilter( IB, IRate, IReset, IS ) :
                 b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
 
                 s - State ( array( complex | float ), list( complex | float ) ).
-
-                rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -278,8 +260,6 @@ class FirFilter( IB, IRate, IReset, IS ) :
         super( ).__init__( )
 
         self.b, self.s = numpy.array( b ), numpy.array( s, type( b[ 0 ] ) )
-
-        self.rate = rate
 
     def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ any, any ] :
 
@@ -320,7 +300,7 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
         return y, f
 
-    def filter( self, x : any, d : any = None ) -> typing.Tuple[ any, any ] :
+    def filter( self, x : any ) -> any :
 
         """ Filters an incident signal and produces a reference signal.
 
@@ -328,13 +308,9 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
                 x - Incident signal ( array( complex | float ), list( complex | float ) ).
 
-                d - Primary signal ( array( complex | float ), list( complex | float ) ).
-
             Returns :
 
                 y - Reference signal ( array( complex | float ) ).
-
-                e - Error signal ( array( complex | float ) ).
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
@@ -345,47 +321,19 @@ class FirFilter( IB, IRate, IReset, IS ) :
 
             raise ValueError( f'X = {x}' )
 
-        y, e = numpy.zeros( len( x ), type( self.b[ 0 ] ) ), None
+        y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
 
-        if ( d is None ) :
+        for ii in range( 0, len( x ) ) :
 
-            for ii in range( 0, len( x ) ) :
+            self.s[ 0 ] = x[ ii ]
 
-                self.s[ 0 ] = x[ ii ]
+            y[ ii ] = self.b.dot( self.s )
 
-                y[ ii ] = self.b.dot( self.s )
+            if ( len( self.s ) > 1 ) :
 
-                if ( len( self.s ) > 1 ) :
+                self.s[ 1 : ] = self.s[ : -1 ]
 
-                    self.s[ 1 : ] = self.s[ : -1 ]
-
-        else :
-
-            if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
-
-                d = numpy.array( list( d ) )
-
-            if ( ( len( d.shape ) != 1 ) or ( len( d ) != len( x ) ) ) :
-
-                raise ValueError( f'D = {d}' )
-
-            e = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
-
-            for ii in range( 0, len( x ) ) :
-
-                self.s[ 0 ] = x[ ii ]
-
-                y[ ii ] = self.b.dot( self.s )
-
-                e[ ii ] = d[ ii ] - y[ ii ]
-
-                self.b[ : ] += self.rate * e[ ii ] * numpy.conjugate( self.s )
-
-                if ( len( self.s ) > 1 ) :
-
-                    self.s[ 1 : ] = self.s[ : -1 ]
-
-        return y, e
+        return y
 
     def reset( self, x : any ) -> None :
 

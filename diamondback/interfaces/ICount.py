@@ -45,7 +45,7 @@ class ICount( IEqual ) :
     @property
     def count( self ) :
 
-        """ Count ( int ).
+        """ Count in [ 0, inf ) ( int ).
         """
 
         return self._count

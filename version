@@ -223,3 +223,8 @@ Version     Date            Notes
 
 1.0.75      2021-03-16      Modified Serial to use base-85 encoded gzip JSON,
                             and compact JSON separators.
+
+1.0.76      2021-03-25      Modified FirFilter and IirFilter to deprecate use
+                            of IRate.
+
+                            Modified documentation.

@@ -229,7 +229,7 @@ def test_FirFilter( ) :
 
     assert numpy.allclose( obj.s, d[ 0 ] )
 
-    y = obj.filter( d )[ 0 ]
+    y = obj.filter( d )
 
     assert numpy.allclose( y, z )
 
@@ -318,7 +318,7 @@ def test_IirFilter( ) :
 
     assert numpy.allclose( obj.s, s )
 
-    y = obj.filter( d )[ 0 ]
+    y = obj.filter( d )
 
     assert numpy.allclose( y, z )
 

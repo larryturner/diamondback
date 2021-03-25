@@ -102,7 +102,7 @@ class PidFilter( FirFilter ) :
 
             raise ValueError( f'B = {b}' )
 
-        super( ).__init__( b, numpy.zeros( len( b ) ), 0.0 )
+        super( ).__init__( b, numpy.zeros( len( b ) ) )
 
         self._limit = float( 'inf' )
 

@@ -166,21 +166,23 @@
 
 <span class="sd">            y_{n} = e^{\ j\ \pi\ \phi_{n}}</span>
 
-<span class="sd">    **Example** ::</span>
+<span class="sd">    **Example**</span>
 
-<span class="sd">        from diamondback import ComplexExponentialFilter</span>
-<span class="sd">        import numpy</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback import ComplexExponentialFilter</span>
+<span class="sd">            import numpy</span>
 
 
-<span class="sd">        # Create an instance with phase.</span>
+<span class="sd">            # Create an instance with phase.</span>
 
-<span class="sd">        obj = ComplexExponentialFilter( phase = 0.0 )</span>
+<span class="sd">            obj = ComplexExponentialFilter( phase = 0.0 )</span>
 
-<span class="sd">        # Filter an incident signal.</span>
+<span class="sd">            # Filter an incident signal.</span>
 
-<span class="sd">        x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1</span>
+<span class="sd">            x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1</span>
 
-<span class="sd">        y = obj.filter( x )</span>
+<span class="sd">            y = obj.filter( x )</span>
 
 <span class="sd">    **License**</span>
 

@@ -58,25 +58,27 @@
 
         * | 'Symmlet' is nearly symmetric, high quality, with order in [ 7 : 19 : 2 ].
 
-    **Example** ::
+    **Example**
 
-        from diamondback import WaveletTransform
-        import numpy
+        ::
+
+            from diamondback import WaveletTransform
+            import numpy
 
 
-        count = 3
+            count = 3
 
-        # Create an instance from a Factory with constraints.
+            # Create an instance from a Factory with constraints.
 
-        obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = 'Haar', order = 1 )
+            obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = 'Haar', order = 1 )
 
-        x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
+            x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
 
-        # Transform an incident signal, forward and inverse.
+            # Transform an incident signal, forward and inverse.
 
-        y = obj.transform( x, count, False )
+            y = obj.transform( x, count, False )
 
-        z = obj.transform( y, count, True )
+            z = obj.transform( y, count, True )
 
     **License**
 
@@ -334,7 +336,7 @@ class WaveletTransform( IB, IEqual ) :
 
                         firfilter[ kk ].s[ : ] = 0.0
 
-                        u = firfilter[ kk ].filter( v[ ii, 0 : cc ] )[ 0 ]
+                        u = firfilter[ kk ].filter( v[ ii, 0 : cc ] )
 
                         y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ] = u[ 1 : : 2 ]
 
@@ -348,7 +350,7 @@ class WaveletTransform( IB, IEqual ) :
 
                         firfilter[ kk ].s[ : ] = 0.0
 
-                        u = firfilter[ kk ].filter( v[ 0 : rr, jj ] )[ 0 ]
+                        u = firfilter[ kk ].filter( v[ 0 : rr, jj ] )
 
                         y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ] = u[ 1 : : 2 ]
 
@@ -384,7 +386,7 @@ class WaveletTransform( IB, IEqual ) :
 
                         firfilter[ kk ].s[ : ] = 0.0
 
-                        w += 2.0 * firfilter[ kk ].filter( u )[ 0 ]
+                        w += 2.0 * firfilter[ kk ].filter( u )
 
                     y[ 0 : rr, jj ] = w
 
@@ -402,7 +404,7 @@ class WaveletTransform( IB, IEqual ) :
 
                         firfilter[ kk ].s[ : ] = 0.0
 
-                        w += 2.0 * firfilter[ kk ].filter( u )[ 0 ]
+                        w += 2.0 * firfilter[ kk ].filter( u )
 
                     y[ ii, 0 : cc ] = w
 

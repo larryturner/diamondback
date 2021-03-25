@@ -35,19 +35,21 @@
 
             y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}
 
-    **Example** ::
+    **Example**
 
-        from diamondback import ComplexExponentialFilter, ComplexTransform
-        import numpy
+        ::
+
+            from diamondback import ComplexExponentialFilter, ComplexTransform
+            import numpy
 
 
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )
+            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )
 
-        # Transform an incident signal, forward and inverse.
+            # Transform an incident signal, forward and inverse.
 
-        y = ComplexTransform.transform( x, neutral = True )
+            y = ComplexTransform.transform( x, neutral = True )
 
-        z = ComplexTransform.transform( y, neutral = True )
+            z = ComplexTransform.transform( y, neutral = True )
 
     **License**
 

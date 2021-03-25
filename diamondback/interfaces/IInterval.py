@@ -47,7 +47,7 @@ class IInterval( IEqual ) :
     @property
     def interval( self ) :
 
-        """ Interval in seconds ( float ).
+        """ Interval in seconds in [ 0.0, inf ) ( float ).
         """
 
         return self._interval

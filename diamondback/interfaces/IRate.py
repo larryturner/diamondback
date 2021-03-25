@@ -47,7 +47,7 @@ class IRate( IEqual ) :
     @property
     def rate( self ) :
 
-        """ Rate of adaptation ( float ).
+        """ Rate of adaptation in [ 0.0, inf ) ( float ).
         """
 
         return self._rate

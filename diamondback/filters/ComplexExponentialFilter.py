@@ -16,21 +16,23 @@
 
             y_{n} = e^{\ j\ \pi\ \phi_{n}}
 
-    **Example** ::
+    **Example**
 
-        from diamondback import ComplexExponentialFilter
-        import numpy
+        ::
+
+            from diamondback import ComplexExponentialFilter
+            import numpy
 
 
-        # Create an instance with phase.
+            # Create an instance with phase.
 
-        obj = ComplexExponentialFilter( phase = 0.0 )
+            obj = ComplexExponentialFilter( phase = 0.0 )
 
-        # Filter an incident signal.
+            # Filter an incident signal.
 
-        x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
+            x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
 
-        y = obj.filter( x )
+            y = obj.filter( x )
 
     **License**
 

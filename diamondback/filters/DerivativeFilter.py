@@ -187,4 +187,4 @@ class DerivativeFilter( FirFilter ) :
                 y - Reference signal ( array( float ) ).
         """
 
-        return super( ).filter( x )[ 0 ]
+        return super( ).filter( x )

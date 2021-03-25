@@ -46,7 +46,7 @@ class ILatency( IEqual ) :
     @property
     def latency( self ) :
 
-        """ Latency in seconds ( float ).
+        """ Latency in seconds in [ 0.0, inf ) ( float ).
         """
 
         return self._latency

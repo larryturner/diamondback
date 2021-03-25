@@ -47,7 +47,7 @@ class IPeriod( IEqual ) :
     @property
     def period( self ) :
 
-        """ Period in seconds ( float ).
+        """ Period in seconds in [ 0.0, inf ) ( float ).
         """
 
         return self._period

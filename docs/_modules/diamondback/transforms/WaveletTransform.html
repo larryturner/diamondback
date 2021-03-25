@@ -208,25 +208,27 @@
 
 <span class="sd">        * | &#39;Symmlet&#39; is nearly symmetric, high quality, with order in [ 7 : 19 : 2 ].</span>
 
-<span class="sd">    **Example** ::</span>
+<span class="sd">    **Example**</span>
 
-<span class="sd">        from diamondback import WaveletTransform</span>
-<span class="sd">        import numpy</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback import WaveletTransform</span>
+<span class="sd">            import numpy</span>
 
 
-<span class="sd">        count = 3</span>
+<span class="sd">            count = 3</span>
 
-<span class="sd">        # Create an instance from a Factory with constraints.</span>
+<span class="sd">            # Create an instance from a Factory with constraints.</span>
 
-<span class="sd">        obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = &#39;Haar&#39;, order = 1 )</span>
+<span class="sd">            obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = &#39;Haar&#39;, order = 1 )</span>
 
-<span class="sd">        x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )</span>
+<span class="sd">            x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )</span>
 
-<span class="sd">        # Transform an incident signal, forward and inverse.</span>
+<span class="sd">            # Transform an incident signal, forward and inverse.</span>
 
-<span class="sd">        y = obj.transform( x, count, False )</span>
+<span class="sd">            y = obj.transform( x, count, False )</span>
 
-<span class="sd">        z = obj.transform( y, count, True )</span>
+<span class="sd">            z = obj.transform( y, count, True )</span>
 
 <span class="sd">    **License**</span>
 
@@ -484,7 +486,7 @@
 
                         <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-                        <span class="n">u</span> <span class="o">=</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">cc</span> <span class="p">]</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+                        <span class="n">u</span> <span class="o">=</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">cc</span> <span class="p">]</span> <span class="p">)</span>
 
                         <span class="n">y</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="n">kk</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cc</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">:</span> <span class="p">(</span> <span class="n">kk</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">cc</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span> <span class="mi">1</span> <span class="p">:</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">]</span>
 
@@ -498,7 +500,7 @@
 
                         <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-                        <span class="n">u</span> <span class="o">=</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">rr</span><span class="p">,</span> <span class="n">jj</span> <span class="p">]</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+                        <span class="n">u</span> <span class="o">=</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">rr</span><span class="p">,</span> <span class="n">jj</span> <span class="p">]</span> <span class="p">)</span>
 
                         <span class="n">y</span><span class="p">[</span> <span class="n">kk</span> <span class="o">*</span> <span class="p">(</span> <span class="n">rr</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">:</span> <span class="p">(</span> <span class="n">kk</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="n">rr</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">jj</span> <span class="p">]</span> <span class="o">=</span> <span class="n">u</span><span class="p">[</span> <span class="mi">1</span> <span class="p">:</span> <span class="p">:</span> <span class="mi">2</span> <span class="p">]</span>
 
@@ -534,7 +536,7 @@
 
                         <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-                        <span class="n">w</span> <span class="o">+=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">u</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+                        <span class="n">w</span> <span class="o">+=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span>
 
                     <span class="n">y</span><span class="p">[</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">rr</span><span class="p">,</span> <span class="n">jj</span> <span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
 
@@ -552,7 +554,7 @@
 
                         <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-                        <span class="n">w</span> <span class="o">+=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">u</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+                        <span class="n">w</span> <span class="o">+=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">firfilter</span><span class="p">[</span> <span class="n">kk</span> <span class="p">]</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span>
 
                     <span class="n">y</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="mi">0</span> <span class="p">:</span> <span class="n">cc</span> <span class="p">]</span> <span class="o">=</span> <span class="n">w</span>
 

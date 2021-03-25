@@ -47,7 +47,7 @@ class IResolution( IEqual ) :
     @property
     def resolution( self ) :
 
-        """ Resolution ( float ).
+        """ Resolution in ( 0.0, inf ) ( float ).
         """
 
         return self._resolution

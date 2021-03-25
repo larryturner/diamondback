@@ -187,19 +187,21 @@
 
 <span class="sd">            N = \\frac{2}{R}</span>
 
-<span class="sd">    **Example** ::</span>
+<span class="sd">    **Example**</span>
 
-<span class="sd">        from diamondback import ComplexExponentialFilter, PowerSpectrumTransform</span>
-<span class="sd">        import numpy</span>
+<span class="sd">        ::</span>
+
+<span class="sd">            from diamondback import ComplexExponentialFilter, PowerSpectrumTransform</span>
+<span class="sd">            import numpy</span>
 
 
-<span class="sd">        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]</span>
+<span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]</span>
 
-<span class="sd">        b = WindowFilter.Factory.instance( WindowFilter, &#39;Hann&#39;, 128 - 1 ).b</span>
+<span class="sd">            b = WindowFilter.Factory.instance( WindowFilter, &#39;Hann&#39;, 128 - 1 ).b</span>
 
-<span class="sd">        # Transform an incident signal.</span>
+<span class="sd">            # Transform an incident signal.</span>
 
-<span class="sd">        y, f = PowerSpectrumTransform.transform( x, b = b, index = len( b ) // 2 )</span>
+<span class="sd">            y, f = PowerSpectrumTransform.transform( x, b = b, index = len( b ) // 2 )</span>
 
 <span class="sd">    **License**</span>
 
