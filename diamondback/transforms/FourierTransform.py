@@ -81,17 +81,17 @@ class FourierTransform( object ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
-                b - Forward coefficient ( array( float ), list( float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
 
-                inverse - Inverse condition ( bool ).
+                inverse : bool.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
 
-                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).
+                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

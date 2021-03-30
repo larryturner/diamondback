@@ -46,7 +46,7 @@ class IEmulate( IEqual ) :
     @property
     def emulate( self ) :
 
-        """ Emulate ( any ).
+        """ emulate : any.
         """
 
         return self._emulate
@@ -62,11 +62,11 @@ class IEmulate( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.emulate == other.emulate ) )

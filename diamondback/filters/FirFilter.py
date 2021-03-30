@@ -133,23 +133,23 @@ class FirFilter( IB, IReset, IS ) :
 
                 Arguments :
 
-                    typ - Type derived from FirFilter ( type ).
+                    typ : type - derived from FirFilter.
 
-                    classification - Classification in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ) ( str ).
+                    classification : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
 
-                    frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).
+                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 
-                    order - Order ( int ).
+                    order : int.
 
-                    count - Count ( int ).
+                    count : int.
 
-                    complement - Complement, or high pass, response condition ( bool ).
+                    complement : bool.
 
-                    gain - Gain ( float ).
+                    gain : float.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, FirFilter ) ) ) :
@@ -228,9 +228,9 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
 
-                s - State ( array( complex | float ), list( complex | float ) ).
+                s : typing.Union[ numpy.ndarray, list ] - state.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -267,15 +267,15 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                length - Length ( int ).
+                length : int.
 
-                count - Count ( int ).
+                count : int.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
 
-                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).
+                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -306,11 +306,11 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
@@ -342,7 +342,7 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                x - Incident signal ( complex, float ).
+                x : typing.Union[ complex, float ] - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :
@@ -357,15 +357,15 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                length - Length ( int ).
+                length : int.
 
-                count - Count ( int ).
+                count : int.
 
             Returns :
 
-                y - Reference signal ( array( complex ) ).
+                y : numpy.ndarray - reference signal.
 
-                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).
+                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -388,13 +388,13 @@ class FirFilter( IB, IReset, IS ) :
 
             Arguments :
 
-                count - Count.  ( int )
+                count : int.
 
             Returns :
 
-                p - Poles ( array( complex ) ).
+                p : numpy.ndarray - poles.
 
-                z - Zeros ( array( complex ) ).
+                z : numpy.ndarray - zeros.
         """
 
         z = numpy.tile( numpy.roots( self.b ), count )

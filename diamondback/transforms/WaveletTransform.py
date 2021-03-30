@@ -198,15 +198,15 @@ class WaveletTransform( IB, IEqual ) :
 
                 Arguments :
 
-                    typ - Type derived from WaveletTransform ( type ).
+                    typ : type - derived from WaveletTransform.
 
-                    classification - Classification in ( 'Coiflet', 'Daubechies', 'Haar', 'Symmlet' ) ( str ).
+                    classification : str - in ( 'Coiflet', 'Daubechies', 'Haar', 'Symmlet' ).
 
-                    order - Order ( int ).
+                    order : int.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, WaveletTransform ) ) ) :
@@ -231,7 +231,7 @@ class WaveletTransform( IB, IEqual ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( float ), list( float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -279,15 +279,15 @@ class WaveletTransform( IB, IEqual ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
-                count - Count ( int ).
+                count : int.
 
-                inverse - Inverse condition ( bool ).
+                inverse : bool.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

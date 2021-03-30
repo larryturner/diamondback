@@ -46,7 +46,7 @@ class IWrite( IEqual ) :
     @property
     def write( self ) :
 
-        """ Write ( any ).
+        """ write : any.
         """
 
         return self._write
@@ -62,11 +62,11 @@ class IWrite( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.write == other.write ) )

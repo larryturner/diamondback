@@ -119,7 +119,7 @@ class Log( object ) :
 
             Arguments :
 
-                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... <custom> ) ( str ).
+                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
         """
 
         with ( Log._rlock ) :
@@ -139,7 +139,7 @@ class Log( object ) :
 
             Arguments :
 
-                stream - Stream ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
+                stream : ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
         """
 
         with ( Log._rlock ) :
@@ -162,9 +162,9 @@ class Log( object ) :
 
             Arguments :
 
-                level - Level in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... <custom> ) ( str ).
+                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
 
-                entry - Entry ( any ).
+                entry : any.
         """
 
         with ( Log._rlock ) :

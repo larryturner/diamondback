@@ -46,7 +46,7 @@ class IReady( IEqual ) :
     @property
     def ready( self ) :
 
-        """ Ready ( any ).
+        """ ready : any.
         """
 
         return self._ready
@@ -62,11 +62,11 @@ class IReady( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.ready == other.ready ) )

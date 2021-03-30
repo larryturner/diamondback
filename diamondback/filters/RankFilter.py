@@ -61,7 +61,7 @@ class RankFilter( FirFilter ) :
     @property
     def rank( self ) :
 
-        """ Rank in [ 0, order ] ( int ).
+        """ rank : int - in [ 0, order ].
         """
 
         return self._rank
@@ -81,11 +81,11 @@ class RankFilter( FirFilter ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.rank == other.rank ) )
@@ -96,9 +96,9 @@ class RankFilter( FirFilter ) :
 
             Arguments :
 
-                rank - Rank in [ 0, order ] ( int ).
+                rank : int - in [ 0, order ].
 
-                order - Order ( int ).
+                order : int.
         """
 
         if ( ( rank < 0 ) or ( rank > order ) ) :
@@ -115,11 +115,11 @@ class RankFilter( FirFilter ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

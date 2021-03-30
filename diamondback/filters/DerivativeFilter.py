@@ -136,15 +136,15 @@ class DerivativeFilter( FirFilter ) :
 
                 Arguments :
 
-                    typ - Type derived from DerivativeFilter ( type ).
+                    typ : type - derived from DerivativeFilter.
 
-                    derivative - Derivative in [ 1, 3 ]  ( int ).
+                    derivative : int - in [ 1, 3 ].
 
-                    order - Order ( int ).
+                    order : int.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, DerivativeFilter ) ) ) :
@@ -169,7 +169,7 @@ class DerivativeFilter( FirFilter ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
         """
 
         super( ).__init__( b )
@@ -180,11 +180,11 @@ class DerivativeFilter( FirFilter ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         return super( ).filter( x )

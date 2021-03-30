@@ -56,7 +56,7 @@ class PidFilter( FirFilter ) :
     @property
     def limit( self ) :
 
-        """ Integral limit ( float ).
+        """ limit : float.
         """
 
         return self._limit
@@ -76,11 +76,11 @@ class PidFilter( FirFilter ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.limit, other.limit ) ) )
@@ -91,7 +91,7 @@ class PidFilter( FirFilter ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -112,11 +112,11 @@ class PidFilter( FirFilter ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

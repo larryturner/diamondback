@@ -226,7 +226,7 @@
     <span class="nd">@ILive</span><span class="o">.</span><span class="n">live</span><span class="o">.</span><span class="n">getter</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Live ( bool ).</span>
+        <span class="sd">&quot;&quot;&quot; live : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span> <span class="p">:</span>
@@ -244,7 +244,7 @@
     <span class="nd">@IReady</span><span class="o">.</span><span class="n">ready</span><span class="o">.</span><span class="n">getter</span>
     <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Ready ( bool ).</span>
+        <span class="sd">&quot;&quot;&quot; ready : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span> <span class="p">:</span>
@@ -260,7 +260,7 @@
     <span class="nd">@IVersion</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">getter</span>
     <span class="k">def</span> <span class="nf">version</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Version ( str ).</span>
+        <span class="sd">&quot;&quot;&quot; version : str.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">try</span> <span class="p">:</span>
@@ -294,20 +294,19 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                method - Method ( str ) in ( &#39;delete&#39;, &#39;get&#39;, &#39;head&#39;, &#39;options&#39;, &#39;patch&#39;, &#39;post&#39;, &#39;put&#39; ).</span>
+<span class="sd">                method : str - in ( &#39;delete&#39;, &#39;get&#39;, &#39;head&#39;, &#39;options&#39;, &#39;patch&#39;, &#39;post&#39;, &#39;put&#39; ).</span>
 
-<span class="sd">                api - API, relative to the URL ( str ).</span>
+<span class="sd">                api : str - relative to the URL.</span>
 
-<span class="sd">                item - Item ( dict( str, str ) ).</span>
+<span class="sd">                item : typing.Dict[ str, str ].</span>
 
-<span class="sd">                json - JSON ( any ).</span>
+<span class="sd">                json : any.</span>
 
-<span class="sd">                data - Data ( any ).</span>
+<span class="sd">                data : any.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                value - Value ( Response ).</span>
-
+<span class="sd">                value : requests.Response.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">method</span> <span class="p">)</span> <span class="p">:</span>

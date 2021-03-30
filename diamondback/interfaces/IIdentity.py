@@ -47,7 +47,7 @@ class IIdentity( IEqual ) :
     @property
     def identity( self ) :
 
-        """ Identity ( any ).
+        """ identity : any.
         """
 
         return self._identity
@@ -63,11 +63,11 @@ class IIdentity( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.identity == other.identity ) )

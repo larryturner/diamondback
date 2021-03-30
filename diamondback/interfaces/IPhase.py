@@ -47,7 +47,7 @@ class IPhase( IEqual ) :
     @property
     def phase( self ) :
 
-        """ Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).
+        """ phase : float - relative to pi in [ -1.0, 1.0 ].
         """
 
         return self._phase
@@ -67,11 +67,11 @@ class IPhase( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )

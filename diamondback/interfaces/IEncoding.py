@@ -46,7 +46,7 @@ class IEncoding( IEqual ) :
     @property
     def encoding( self ) :
 
-        """ Encoding ( any ).
+        """ encoding : any.
         """
 
         return self._encoding
@@ -62,11 +62,11 @@ class IEncoding( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.encoding == other.encoding ) )

@@ -48,7 +48,7 @@ class IS( IEqual ) :
     @property
     def s( self ) :
 
-        """ State ( array( complex | float ) ).
+        """ s : numpy.ndarray - state.
         """
 
         return self._s
@@ -64,11 +64,11 @@ class IS( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.s, other.s ) ) )

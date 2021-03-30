@@ -233,7 +233,7 @@
     <span class="nd">@IFrequency</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</span>
+        <span class="sd">&quot;&quot;&quot; frequency : float - relative to Nyquist in [ -1.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">IFrequency</span><span class="o">.</span><span class="n">frequency</span><span class="o">.</span><span class="n">fset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">)</span>
@@ -246,9 +246,9 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</span>
+<span class="sd">                frequency : float - relative to Nyquist in [ -1.0, 1.0 ).</span>
 
-<span class="sd">                rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).</span>
+<span class="sd">                rate : float - in [ 0.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -265,15 +265,15 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                d = Primary signal ( array( complex ), list( complex ) ).</span>
+<span class="sd">                d - typing.Union[ numpy.ndarray, list ] - primary signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 
-<span class="sd">                e = Error signal ( array( complex ) ).</span>
+<span class="sd">                e : numpy.ndarray - error signal.</span>
 
-<span class="sd">                b - Forward coefficient ( array( complex ) ).</span>
+<span class="sd">                b : numpy.ndarray - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">d</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -313,7 +313,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( complex ).</span>
+<span class="sd">                x : complex - incident signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

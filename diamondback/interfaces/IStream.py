@@ -47,7 +47,7 @@ class IStream( IEqual ) :
     @property
     def stream( self ) :
 
-        """ Stream ( any ).
+        """ stream : any.
         """
 
         return self._stream
@@ -63,11 +63,11 @@ class IStream( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.stream == other.stream ) )

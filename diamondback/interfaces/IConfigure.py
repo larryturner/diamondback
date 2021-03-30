@@ -46,7 +46,7 @@ class IConfigure( IEqual ) :
     @property
     def configure( self ) :
 
-        """ Configure ( any ).
+        """ configure : any.
         """
 
         return self._configure
@@ -62,11 +62,11 @@ class IConfigure( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.configure == other.configure ) )

@@ -45,7 +45,7 @@ class IModel( IEqual ) :
     @property
     def model( self ) :
 
-        """ Model ( any ).
+        """ model : any.
         """
 
         return self._model
@@ -61,11 +61,11 @@ class IModel( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.model == other.model ) )

@@ -46,7 +46,7 @@ class ILabel( IEqual ) :
     @property
     def label( self ) :
 
-        """ Label ( any ).
+        """ label : any.
         """
 
         return self._label
@@ -62,11 +62,11 @@ class ILabel( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.label == other.label ) )

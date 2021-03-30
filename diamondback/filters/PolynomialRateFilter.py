@@ -68,7 +68,7 @@ class PolynomialRateFilter( IRate ) :
     @property
     def order( self ) :
 
-        """ Order in [ 2, inf ) ( int ).
+        """ order : int - in [ 2, inf ).
         """
 
         return self._order
@@ -85,7 +85,7 @@ class PolynomialRateFilter( IRate ) :
     @IRate.rate.setter
     def rate( self, rate : float ) :
 
-        """ Rate ratio of effective frequency in ( 0.0, inf ) ( float ).
+        """ rate : float - ratio of effective frequency in ( 0.0, inf ).
         """
 
         if ( rate <= 0.0 ) :
@@ -104,11 +104,11 @@ class PolynomialRateFilter( IRate ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) and ( self.order == other.order ) )
@@ -119,9 +119,9 @@ class PolynomialRateFilter( IRate ) :
 
             Arguments :
 
-                rate - Rate ratio of effective frequency in [ 1.0, inf ) ( float ).
+                rate : float - ratio of effective frequency in [ 1.0, inf ).
 
-                order - Order in [ 2 , inf ) ( int ).
+                order : int - in [ 2 , inf ).
         """
 
         if ( order < 2 ) :
@@ -140,11 +140,11 @@ class PolynomialRateFilter( IRate ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

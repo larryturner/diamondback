@@ -261,7 +261,7 @@ modifying a loguru handler.</p>
 <dd><p>Level.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt;custom&gt; ) ( str ).</p>
+<div><p>level : str - in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt; custom &gt; ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -271,7 +271,7 @@ modifying a loguru handler.</p>
 <dd><p>Stream.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>stream - Stream ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
+<div><p>stream : ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -283,8 +283,8 @@ specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>level - Level in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt;custom&gt; ) ( str ).</p>
-<p>entry - Entry ( any ).</p>
+<div><p>level : str - in ( ‘CRITICAL’, ‘ERROR’, ‘WARNING’, ‘SUCCESS’, ‘INFO’, ‘DEBUG’, ‘TRACE’, … &lt; custom &gt; ).</p>
+<p>entry : any.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -352,19 +352,34 @@ with a version string.</p>
 <dl class="py method">
 <dt id="diamondback.commons.RestClient.RestClient.live">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">live</span></code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.live" title="Permalink to this definition">¶</a></dt>
-<dd><p>Live ( bool ).</p>
+<dd><p>bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>live</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.commons.RestClient.RestClient.ready">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ready</span></code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.ready" title="Permalink to this definition">¶</a></dt>
-<dd><p>Ready ( bool ).</p>
+<dd><p>bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>ready</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.commons.RestClient.RestClient.version">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">version</span></code><a class="headerlink" href="#diamondback.commons.RestClient.RestClient.version" title="Permalink to this definition">¶</a></dt>
-<dd><p>Version ( str ).</p>
+<dd><p>str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>version</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -377,15 +392,15 @@ request, and a requests response containing JSON or binary data is
 returned.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>method - Method ( str ) in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>
-<p>api - API, relative to the URL ( str ).</p>
-<p>item - Item ( dict( str, str ) ).</p>
-<p>json - JSON ( any ).</p>
-<p>data - Data ( any ).</p>
+<div><p>method : str - in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).</p>
+<p>api : str - relative to the URL.</p>
+<p>item : typing.Dict[ str, str ].</p>
+<p>json : any.</p>
+<p>data : any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>value - Value ( Response ).</p>
+<div><p>value : requests.Response.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -461,12 +476,12 @@ terminated by a new line.</p>
 <dd><p>Code generation.  SHA3-256 hash.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>state - State ( str ).</p>
-<p>encoding - Encoding ( str ).</p>
+<div><p>state : str.</p>
+<p>encoding : str.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>code - Code ( str ).</p>
+<div><p>code : str.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -480,14 +495,14 @@ comments may be cleaned, though line comments must be terminated by
 a new line.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>state - State ( str ).</p>
-<p>compress - Compress ( bool ).</p>
-<p>encoding - Encoding ( str ).</p>
-<p>clean - Clean comments ( bool ).</p>
+<div><p>state : str.</p>
+<p>compress : bool.</p>
+<p>encoding : str.</p>
+<p>clean : bool - clean comments.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( any ).</p>
+<div><p>instance : any.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -499,13 +514,13 @@ an instance or collection.  Encoding may be specified if an
 alternative to UTF-8 is required.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>instance - Instance ( any ).</p>
-<p>compress - Compress ( bool ).</p>
-<p>encoding - Encoding ( str ).</p>
+<div><p>instance : any.</p>
+<p>compress : bool.</p>
+<p>encoding : str.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>state - State ( str ).</p>
+<div><p>state : str.</p>
 </div></blockquote>
 </dd></dl>
 

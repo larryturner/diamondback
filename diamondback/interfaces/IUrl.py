@@ -46,13 +46,7 @@ class IUrl( IEqual ) :
     @property
     def url( self ) :
 
-        """ Url.
-
-            Returns :
-
-            ::
-
-                url : str - URL.
+        """ url : str.
         """
 
         return self._url
@@ -61,12 +55,6 @@ class IUrl( IEqual ) :
     def url( self, url : str ) :
 
         """ Url.
-
-            Arguments :
-
-            ::
-
-                url : str - URL.
         """
 
         if ( url ) :
@@ -81,11 +69,11 @@ class IUrl( IEqual ) :
 
             Arguments :
 
-                other : any - Other.
+                other : any.
 
             Returns :
 
-                equality : bool - Equality.
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.url == other.url ) )

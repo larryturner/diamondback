@@ -113,15 +113,15 @@ class DiversityModel( IClear, IS, IEqual ) :
 
                 Arguments :
 
-                    typ - Type derived from DiversityModel ( type ).
+                    typ : type - derived from DiversityModel.
 
-                    classification - Classification in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ) ( str ).
+                    classification : str - in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
 
-                    order - Order ( int ).
+                    order : int.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, DiversityModel ) ) ) :
@@ -144,11 +144,11 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )
@@ -159,9 +159,9 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                distance - Distance ( method ).
+                distance : method.
 
-                order - Order ( int ).
+                order : int.
         """
 
         if ( ( not distance ) or ( isinstance( distance, str ) ) ) :
@@ -185,11 +185,11 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y = Diversity ( array( float ) ).
+                y : numpy.ndarray - diversity.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

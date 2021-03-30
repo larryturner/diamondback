@@ -90,17 +90,17 @@ class WindowFilter( IB, IEqual ) :
 
                 Arguments :
 
-                    typ - Type derived from WindowFilter ( type ).
+                    typ : type - derived from WindowFilter.
 
-                    classification - Classification in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ) ( str ).
+                    classification : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
 
-                    order - Order ( int ).
+                    order : int.
 
-                    normal - Normal condition ( bool ).
+                    normal : bool.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, WindowFilter ) ) ) :
@@ -137,7 +137,7 @@ class WindowFilter( IB, IEqual ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( float ) ).
+                b : numpy.ndarray - forward coefficient.
         """
 
         if ( ( numpy.isscalar( b ) ) or ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
@@ -154,11 +154,11 @@ class WindowFilter( IB, IEqual ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

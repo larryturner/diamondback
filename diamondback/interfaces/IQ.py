@@ -48,7 +48,7 @@ class IQ( IEqual ) :
     @property
     def q( self ) :
 
-        """ State derivative ( array( complex | float ) ).
+        """ q : numpy.ndarray - state derivative.
         """
 
         return self._q
@@ -64,11 +64,11 @@ class IQ( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.q, other.q ) ) )

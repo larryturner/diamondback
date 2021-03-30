@@ -129,17 +129,17 @@ class IirFilter( FirFilter, IA, IQ ) :
 
                 Arguments :
 
-                    classification - Classification in ( 'Bessel', 'Butterworth', 'Chebyshev' ) ( str ).
+                    classification : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
 
-                    frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).
+                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 
-                    order - Order ( int ).
+                    order : int.
 
                 Returns :
 
-                    a - Recursive coefficient ( array( float ) ).
+                    a : numpy.ndarray - recursive coefficient.
 
-                    b - Forward coefficient ( array( float ) ).
+                    b : numpy.ndarray - forward coefficient.
             """
 
             bilinear = True
@@ -195,23 +195,23 @@ class IirFilter( FirFilter, IA, IQ ) :
 
                 Arguments :
 
-                    typ - Type derived from IirFilter ( type ).
+                    typ : type - derived from IirFilter ( type ).
 
-                    classification - Classification in ( 'Bessel', 'Butterworth', 'Chebyshev' ) ( str ).
+                    classification : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
 
-                    frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).
+                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 
-                    order - Order ( int ).
+                    order : int.
 
-                    count - Count ( int ).
+                    count : int.
 
-                    complement - Complement, or high pass, response condition ( bool ).
+                    complement : bool.
 
-                    gain - Gain ( float ).
+                    gain : float.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, IirFilter ) ) ) :
@@ -276,11 +276,11 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).
+                a : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.
 
-                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
 
-                s - State ( array( complex | float ), list( complex | float ) ).
+                s : typing.Union[ numpy.ndarray, list ] - state.
         """
 
         if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
@@ -317,15 +317,15 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                length - Length ( int ).
+                length : int.
 
-                count - Count ( int ).
+                count : int.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
 
-                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).
+                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -356,11 +356,11 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( complex | float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
@@ -398,7 +398,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                x - Incident signal ( complex, float ).
+                x : typing.Union[ complex, float ] - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :
@@ -417,15 +417,15 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                length - Length ( int ).
+                length : int.
 
-                count - Count ( int ).
+                count : int.
 
             Returns :
 
-                y - Reference signal ( array( complex ) ).
+                y : numpy.ndarray - reference signal.
 
-                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).
+                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -452,13 +452,13 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             Arguments :
 
-                count - Count.  ( int )
+                count : int.
 
             Returns :
 
-                p - Poles ( array( complex ) ).
+                p : numpy.ndarray - poles.
 
-                z - Zeros ( array( complex ) ).
+                z : numpy.ndarray - zeros.
         """
 
         p, z = numpy.tile( numpy.roots( numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ) ), count ), numpy.tile( numpy.roots( self.b ), count )

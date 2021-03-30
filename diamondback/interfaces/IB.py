@@ -48,7 +48,7 @@ class IB( IEqual ) :
     @property
     def b( self ) :
 
-        """ Forward coefficient ( array( complex | float ) ).
+        """ b : numpy.ndarray - forward coefficient.
         """
 
         return self._b
@@ -64,11 +64,11 @@ class IB( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )

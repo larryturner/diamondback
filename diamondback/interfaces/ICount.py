@@ -45,7 +45,7 @@ class ICount( IEqual ) :
     @property
     def count( self ) :
 
-        """ Count in [ 0, inf ) ( int ).
+        """ count : int - in [ 0, inf ).
         """
 
         return self._count
@@ -65,11 +65,11 @@ class ICount( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.count == other.count ) )

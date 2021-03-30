@@ -206,7 +206,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Integral limit ( float ).</span>
+        <span class="sd">&quot;&quot;&quot; limit : float.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit</span>
@@ -226,11 +226,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other - Other ( any ).</span>
+<span class="sd">                other : any.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                equality - Equality ( bool ).</span>
+<span class="sd">                equal : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">limit</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">limit</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
@@ -241,7 +241,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -262,11 +262,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( complex | float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

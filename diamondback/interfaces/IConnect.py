@@ -46,7 +46,7 @@ class IConnect( IEqual ) :
     @property
     def connect( self ) :
 
-        """ Connect ( any ).
+        """ connect : any.
         """
 
         return self._connect
@@ -62,11 +62,11 @@ class IConnect( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.connect == other.connect ) )

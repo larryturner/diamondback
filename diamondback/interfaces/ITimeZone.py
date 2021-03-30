@@ -49,7 +49,7 @@ class ITimeZone( IEqual ) :
     @property
     def timezone( self ) :
 
-        """ Time zone ( timezone ).
+        """ timezone : datetime.timezone.
         """
 
         return self._timezone
@@ -69,11 +69,11 @@ class ITimeZone( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.timezone == other.timezone ) )

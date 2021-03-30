@@ -46,7 +46,7 @@ class IDispose( IEqual ) :
     @property
     def dispose( self ) :
 
-        """ Dispose ( any ).
+        """ dispose : any.
         """
 
         return self._dispose
@@ -62,11 +62,11 @@ class IDispose( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.dispose == other.dispose ) )

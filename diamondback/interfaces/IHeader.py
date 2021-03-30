@@ -48,7 +48,7 @@ class IHeader( IEqual ) :
     @property
     def header( self ) :
 
-        """ Header ( str ).
+        """ header : str.
         """
 
         return self._header
@@ -64,11 +64,11 @@ class IHeader( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.header == other.header ) )

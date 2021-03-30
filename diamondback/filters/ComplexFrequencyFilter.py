@@ -83,7 +83,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
     @IFrequency.frequency.setter
     def frequency( self, frequency : float) :
 
-        """ Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).
+        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
         """
 
         IFrequency.frequency.fset( self, frequency )
@@ -96,9 +96,9 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
             Arguments :
 
-                frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).
+                frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
 
-                rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).
+                rate : float - in [ 0.0, 1.0 ].
         """
 
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
@@ -115,15 +115,15 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
             Arguments :
 
-                d = Primary signal ( array( complex ), list( complex ) ).
+                d - typing.Union[ numpy.ndarray, list ] - primary signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
 
-                e = Error signal ( array( complex ) ).
+                e : numpy.ndarray - error signal.
 
-                b - Forward coefficient ( array( complex ) ).
+                b : numpy.ndarray - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
@@ -163,7 +163,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
             Arguments :
 
-                x - Incident signal ( complex ).
+                x : complex - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :

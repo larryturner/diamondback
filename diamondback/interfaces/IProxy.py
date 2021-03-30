@@ -48,7 +48,7 @@ class IProxy( IEqual ) :
     @property
     def proxy( self ) :
 
-        """ Proxy ( dict( str, str ) ).
+        """ proxy : typing.Dict[ str, str ].
         """
 
         return self._proxy
@@ -64,11 +64,11 @@ class IProxy( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.proxy == other.proxy ) )

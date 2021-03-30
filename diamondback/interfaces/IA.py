@@ -48,7 +48,7 @@ class IA( IEqual ) :
     @property
     def a( self ) :
 
-        """ Recursive coefficient ( array( complex | float ) ).
+        """ a : numpy.ndarray - recursive coefficient.
         """
 
         return self._a
@@ -64,11 +64,11 @@ class IA( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.a, other.a ) ) )

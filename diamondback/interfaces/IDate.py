@@ -48,7 +48,7 @@ class IDate( IEqual ) :
     @property
     def date( self ) :
 
-        """ Date ( datetime ).
+        """ date : datetime.datetime.
         """
 
         return self._date
@@ -72,11 +72,11 @@ class IDate( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.date == other.date ) )

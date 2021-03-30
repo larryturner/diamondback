@@ -235,19 +235,19 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                u - Recursive coefficient, s-domain ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                u : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.</span>
 
-<span class="sd">                v - Forward coefficient, s-domain ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                v : typing.Union[ numpy.ndarray, list ] - forward coefficient, s-domain.</span>
 
-<span class="sd">                frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</span>
+<span class="sd">                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</span>
 
-<span class="sd">                bilinear - Bilinear or impulse invariant condition ( bool ).</span>
+<span class="sd">                bilinear : bool.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                a - Recursive coefficient, z-domain ( array( complex | float ) ).</span>
+<span class="sd">                a : numpy.ndarray - recursive coefficient, z-domain.</span>
 
-<span class="sd">                b - Forward coefficient, z-domain ( array( complex | float ) ).</span>
+<span class="sd">                b : numpy.ndarray - forward coefficient, z-domain.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">u</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

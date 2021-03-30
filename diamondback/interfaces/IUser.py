@@ -45,7 +45,7 @@ class IUser( IEqual ) :
     @property
     def user( self ) :
 
-        """ User ( str ).
+        """ user : str.
         """
 
         try :
@@ -64,11 +64,11 @@ class IUser( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.user == other.user ) )

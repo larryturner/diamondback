@@ -47,7 +47,7 @@ class IAsset( IEqual ) :
     @property
     def asset( self ) :
 
-        """ Asset ( any ).
+        """ asset : any.
         """
 
         return self._asset
@@ -63,11 +63,11 @@ class IAsset( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.asset == other.asset ) )

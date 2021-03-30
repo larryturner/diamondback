@@ -239,8 +239,8 @@ adaptation are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
-<p>rate - Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+<div><p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).</p>
+<p>rate : float - in [ 0.0, 1.0 ].</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter">
@@ -248,13 +248,13 @@ adaptation are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>d : typing.Union[ numpy.ndarray, list ] - primary signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
-<p>e - Error signal ( array( complex | float ) ).</p>
-<p>b - Forward coefficient ( array( complex ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>e : numpy.ndarray - error signal.</p>
+<p>b : numpy.ndarray - forward coefficient.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -311,7 +311,7 @@ A normalized phase is specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>phase - Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).</p>
+<div><p>phase : float - relative to pi in [ -1.0, 1.0 ].</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter.filter">
@@ -319,11 +319,11 @@ A normalized phase is specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal, normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -393,13 +393,18 @@ normalized frequency and rate of adaptation are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
-<p>rate = Rate of adaptation in [ 0.0, 1.0 ] ( float ).</p>
+<div><p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).</p>
+<p>rate : float - in [ 0.0, 1.0 ].</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">frequency</span></code><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).</p>
+<dd><p>float - relative to Nyquist in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>frequency</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -408,13 +413,13 @@ normalized frequency and rate of adaptation are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>d = Primary signal ( array( complex ), list( complex ) ).</p>
+<div><p>d - typing.Union[ numpy.ndarray, list ] - primary signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
-<p>e = Error signal ( array( complex ) ).</p>
-<p>b - Forward coefficient ( array( complex ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>e : numpy.ndarray - error signal.</p>
+<p>b : numpy.ndarray - forward coefficient.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -425,7 +430,7 @@ normalized frequency and rate of adaptation are specified.</p>
 operation at a specified primary incident condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( complex ).</p>
+<div><p>x : complex - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -514,7 +519,7 @@ specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.filters.DerivativeFilter.DerivativeFilter.Factory">
@@ -527,13 +532,13 @@ specified.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from DerivativeFilter ( type ).</p>
-<p>derivative - Derivative in [ 1, 3 ]  ( int ).</p>
-<p>order - Order ( int ).</p>
+<div><p>typ : type - derived from DerivativeFilter.</p>
+<p>derivative : int - in [ 1, 3 ].</p>
+<p>order : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -545,11 +550,11 @@ specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -662,8 +667,8 @@ frequency response.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
-<p>s - State ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<p>s : typing.Union[ numpy.ndarray, list ] - state.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.filters.FirFilter.FirFilter.Factory">
@@ -676,17 +681,17 @@ frequency response.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from FirFilter ( type ).</p>
-<p>classification - Classification in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ) ( str ).</p>
-<p>frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</p>
-<p>order - Order ( int ).</p>
-<p>count - Count ( int ).</p>
-<p>complement - Complement, or high pass, response condition ( bool ).</p>
-<p>gain - Gain ( float ).</p>
+<div><p>typ : type - derived from FirFilter.</p>
+<p>classification : str - in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).</p>
+<p>frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</p>
+<p>order : int.</p>
+<p>count : int.</p>
+<p>complement : bool.</p>
+<p>gain : float.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -698,13 +703,13 @@ frequency response.</p>
 <dd><p>Estimates group delay and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>length - Length ( int ).</p>
-<p>count - Count ( int ).</p>
+<div><p>length : int.</p>
+<p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -714,11 +719,11 @@ frequency response.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -729,7 +734,7 @@ frequency response.</p>
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( complex, float ).</p>
+<div><p>x : typing.Union[ complex, float ] - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -739,13 +744,13 @@ operation at a specified incident signal condition.</p>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>length - Length ( int ).</p>
-<p>count - Count ( int ).</p>
+<div><p>length : int.</p>
+<p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -755,12 +760,12 @@ operation at a specified incident signal condition.</p>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>count - Count.  ( int )</p>
+<div><p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>p - Poles ( array( complex ) ).</p>
-<p>z - Zeros ( array( complex ) ).</p>
+<div><p>p : numpy.ndarray - poles.</p>
+<p>z : numpy.ndarray - zeros.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -832,8 +837,8 @@ resolution.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( float ), list( float ) ).</p>
-<p>frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).</p>
+<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.GoertzelFilter.GoertzelFilter.filter">
@@ -841,12 +846,12 @@ resolution.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
-<p>d - Primary signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<p>d : typing.Union[ numpy.ndarray, list ] - primary signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -953,9 +958,9 @@ frequency response.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).</p>
-<p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
-<p>s - State ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>a : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.</p>
+<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<p>s : typing.Union[ numpy.ndarray, list ] - state.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.filters.IirFilter.IirFilter.Factory">
@@ -968,17 +973,17 @@ frequency response.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from IirFilter ( type ).</p>
-<p>classification - Classification in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ) ( str ).</p>
-<p>frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</p>
-<p>order - Order ( int ).</p>
-<p>count - Count ( int ).</p>
-<p>complement - Complement, or high pass, response condition ( bool ).</p>
-<p>gain - Gain ( float ).</p>
+<div><p>typ : type - derived from IirFilter ( type ).</p>
+<p>classification : str - in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).</p>
+<p>frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</p>
+<p>order : int.</p>
+<p>count : int.</p>
+<p>complement : bool.</p>
+<p>gain : float.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -990,13 +995,13 @@ frequency response.</p>
 <dd><p>Estimates group delay and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>length - Length ( int ).</p>
-<p>count - Count ( int ).</p>
+<div><p>length : int.</p>
+<p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1006,11 +1011,11 @@ frequency response.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1021,7 +1026,7 @@ frequency response.</p>
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( complex, float ).</p>
+<div><p>x : typing.Union[ complex, float ] - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1031,13 +1036,13 @@ operation at a specified incident signal condition.</p>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>length - Length ( int ).</p>
-<p>count - Count ( int ).</p>
+<div><p>length : int.</p>
+<p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1047,12 +1052,12 @@ operation at a specified incident signal condition.</p>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>count - Count.  ( int )</p>
+<div><p>count : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>p - Poles ( array( complex ) ).</p>
-<p>z - Zeros ( array( complex ) ).</p>
+<div><p>p : numpy.ndarray - poles.</p>
+<p>z : numpy.ndarray - zeros.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1131,8 +1136,8 @@ and order are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).</p>
-<p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>a : typing.Union[ numpy.ndarray, list ] - recursive coefficient.</p>
+<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.filters.IntegralFilter.IntegralFilter.Factory">
@@ -1145,12 +1150,12 @@ and order are specified.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from IntegralFilter ( type ).</p>
-<p>order - Order ( int ).</p>
+<div><p>typ : type - derived from IntegralFilter.</p>
+<p>order : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1162,11 +1167,11 @@ and order are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1223,12 +1228,17 @@ control stability and latency.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.PidFilter.PidFilter.limit">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">limit</span></code><a class="headerlink" href="#diamondback.filters.PidFilter.PidFilter.limit" title="Permalink to this definition">¶</a></dt>
-<dd><p>Integral limit ( float ).</p>
+<dd><p>float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>limit</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1237,11 +1247,11 @@ control stability and latency.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1307,19 +1317,29 @@ operation or dynamic rate.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>rate - Rate ratio of effective frequency in [ 1.0, inf ) ( float ).</p>
-<p>order - Order in [ 2 , inf ) ( int ).</p>
+<div><p>rate : float - ratio of effective frequency in [ 1.0, inf ).</p>
+<p>order : int - in [ 2 , inf ).</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.order">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">order</span></code><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.order" title="Permalink to this definition">¶</a></dt>
-<dd><p>Order in [ 2, inf ) ( int ).</p>
+<dd><p>int - in [ 2, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>order</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.rate">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rate</span></code><a class="headerlink" href="#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rate of adaptation in [ 0.0, inf ) ( float ).</p>
+<dd><p>float - in [ 0.0, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1328,11 +1348,11 @@ operation or dynamic rate.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1419,18 +1439,28 @@ continuous operation.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>rate - Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).</p>
+<div><p>rate : float - ratio of effective frequency in ( 0.0, 256.0 ].</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.b">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.b" title="Permalink to this definition">¶</a></dt>
-<dd><p>Forward coefficient ( array( float ) ).</p>
+<dd><p>numpy.ndarray - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>b</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.rate">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rate</span></code><a class="headerlink" href="#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.rate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rate of adaptation in [ 0.0, inf ) ( float ).</p>
+<dd><p>float - in [ 0.0, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1439,11 +1469,11 @@ continuous operation.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1454,7 +1484,7 @@ continuous operation.</p>
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( float ).</p>
+<div><p>x : float - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1515,13 +1545,18 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>rank - Rank in [ 0, order ] ( int ).</p>
-<p>order - Order ( int ).</p>
+<div><p>rank : int - in [ 0, order ].</p>
+<p>order : int.</p>
 </div></blockquote>
 <dl class="py method">
 <dt id="diamondback.filters.RankFilter.RankFilter.rank">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">rank</span></code><a class="headerlink" href="#diamondback.filters.RankFilter.RankFilter.rank" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rank in [ 0, order ] ( int ).</p>
+<dd><p>int - in [ 0, order ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>rank</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -1530,11 +1565,11 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1617,7 +1652,7 @@ compensate for energy loss.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( float ) ).</p>
+<div><p>b : numpy.ndarray - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.filters.WindowFilter.WindowFilter.Factory">
@@ -1630,14 +1665,14 @@ compensate for energy loss.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from WindowFilter ( type ).</p>
-<p>classification - Classification in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ) ( str ).</p>
-<p>order - Order ( int ).</p>
-<p>normal - Normal condition ( bool ).</p>
+<div><p>typ : type - derived from WindowFilter.</p>
+<p>classification : str - in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).</p>
+<p>order : int.</p>
+<p>normal : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1649,11 +1684,11 @@ compensate for energy loss.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 

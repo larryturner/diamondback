@@ -47,7 +47,7 @@ class IResolution( IEqual ) :
     @property
     def resolution( self ) :
 
-        """ Resolution in ( 0.0, inf ) ( float ).
+        """ resolution : float - in ( 0.0, inf ).
         """
 
         return self._resolution
@@ -67,11 +67,11 @@ class IResolution( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.resolution, other.resolution ) ) )

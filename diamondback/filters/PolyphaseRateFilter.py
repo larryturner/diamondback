@@ -107,7 +107,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
     @IB.b.getter
     def b( self ) :
 
-        """ Forward coefficient ( array( float ) ).
+        """ b : numpy.ndarray - forward coefficient.
         """
 
         return PolyphaseRateFilter._b
@@ -115,7 +115,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
     @IRate.rate.setter
     def rate( self, rate : float ) :
 
-        """ Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).
+        """ rate - ratio of effective frequency in ( 0.0, 256.0 ].
         """
 
         count = PolyphaseRateFilter._b.shape[ 0 ]
@@ -136,11 +136,11 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) )
@@ -151,7 +151,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
             Arguments :
 
-                rate - Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).
+                rate : float - ratio of effective frequency in ( 0.0, 256.0 ].
         """
 
         super( ).__init__( )
@@ -182,11 +182,11 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
@@ -238,7 +238,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
             Arguments :
 
-                x - Incident signal ( float ).
+                x : float - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :

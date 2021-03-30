@@ -59,7 +59,7 @@ class IReset( ABC ) :
 
             Arguments :
 
-                x - Incident signal ( complex, float ).
+                x : typing.Union[ complex, float ] - incident signal.
         """
 
         pass

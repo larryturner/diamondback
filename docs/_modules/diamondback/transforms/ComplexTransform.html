@@ -238,13 +238,13 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
-<span class="sd">                neutral - Neutral or line reference condition ( bool ).</span>
+<span class="sd">                neutral : bool.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( complex | float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

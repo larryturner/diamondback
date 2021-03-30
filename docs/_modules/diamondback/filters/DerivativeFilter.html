@@ -286,15 +286,15 @@
 
 <span class="sd">                Arguments :</span>
 
-<span class="sd">                    typ - Type derived from DerivativeFilter ( type ).</span>
+<span class="sd">                    typ : type - derived from DerivativeFilter.</span>
 
-<span class="sd">                    derivative - Derivative in [ 1, 3 ]  ( int ).</span>
+<span class="sd">                    derivative : int - in [ 1, 3 ].</span>
 
-<span class="sd">                    order - Order ( int ).</span>
+<span class="sd">                    order : int.</span>
 
 <span class="sd">                Returns :</span>
 
-<span class="sd">                    instance - Instance ( typ( ) ).</span>
+<span class="sd">                    instance : typ( ).</span>
 <span class="sd">            &quot;&quot;&quot;</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">DerivativeFilter</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -319,7 +319,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
@@ -330,11 +330,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( float ), list( float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span></div></div>

@@ -214,7 +214,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                phase - Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).</span>
+<span class="sd">                phase : float - relative to pi in [ -1.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
@@ -227,11 +227,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal, normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ), list( float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( complex ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

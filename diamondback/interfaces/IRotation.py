@@ -47,7 +47,7 @@ class IRotation( IEqual ) :
     @property
     def rotation( self ) :
 
-        """ Rotation ( float ).
+        """ rotation : float.
         """
 
         return self._rotation
@@ -63,11 +63,11 @@ class IRotation( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.rotation, other.rotation ) ) )

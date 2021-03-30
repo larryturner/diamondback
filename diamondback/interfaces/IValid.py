@@ -46,7 +46,7 @@ class IValid( IEqual ) :
     @property
     def valid( self ) :
 
-        """ Valid ( any ).
+        """ valid : any.
         """
 
         return self._valid
@@ -62,11 +62,11 @@ class IValid( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.valid == other.valid ) )

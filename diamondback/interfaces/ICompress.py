@@ -46,7 +46,7 @@ class ICompress( IEqual ) :
     @property
     def compress( self ) :
 
-        """ Compress ( any ).
+        """ compress : any.
         """
 
         return self._compress
@@ -62,11 +62,11 @@ class ICompress( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.compress == other.compress ) )

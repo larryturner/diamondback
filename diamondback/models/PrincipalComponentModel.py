@@ -83,7 +83,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
     @property
     def e( self ) :
 
-        """ Eigenvalues ( array( float ) ).
+        """ e : numpy.ndarray - eigenvalues.
         """
 
         return self._e
@@ -91,7 +91,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
     @property
     def u( self ) :
 
-        """ Mean ( array( float ) ).
+        """ mean : numpy.ndarray.
         """
 
         return self._u
@@ -99,7 +99,7 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
     @property
     def v( self ) :
 
-        """ Rotation ( array( float ) ).
+        """ rotation : numpy.ndarray
         """
 
         return self._v
@@ -110,11 +110,11 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                other - other object ( object ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.u, other.u ) ) and ( numpy.isclose( self.v, other.v ) ) )
@@ -141,11 +141,11 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

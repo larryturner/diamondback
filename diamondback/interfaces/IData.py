@@ -46,7 +46,7 @@ class IData( IEqual ) :
     @property
     def data( self ) :
 
-        """ Data ( any ).
+        """ data : any.
         """
 
         return self._data
@@ -62,11 +62,11 @@ class IData( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.data == other.data ) )

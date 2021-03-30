@@ -64,7 +64,7 @@ class ComplexExponentialFilter( IPhase ) :
 
             Arguments :
 
-                phase - Normalized phase relative to pi in [ -1.0, 1.0 ] ( float ).
+                phase : float - relative to pi in [ -1.0, 1.0 ].
         """
 
         super( ).__init__( )
@@ -77,11 +77,11 @@ class ComplexExponentialFilter( IPhase ) :
 
             Arguments :
 
-                x - Incident signal, normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).
 
             Returns :
 
-                y - Reference signal ( array( complex ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

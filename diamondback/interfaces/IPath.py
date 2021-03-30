@@ -45,7 +45,7 @@ class IPath( IEqual ) :
     @property
     def path( self ) :
 
-        """ Path ( str ).
+        """ path : str.
         """
 
         return self._path
@@ -69,11 +69,11 @@ class IPath( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.path == other.path ) )

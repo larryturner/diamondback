@@ -257,8 +257,8 @@ through observation.  An instance, classification, and order are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>distance - Distance ( method ).</p>
-<p>order - Order ( int ).</p>
+<div><p>distance : method.</p>
+<p>order : int.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.models.DiversityModel.DiversityModel.Factory">
@@ -271,13 +271,13 @@ through observation.  An instance, classification, and order are specified.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from DiversityModel ( type ).</p>
-<p>classification - Classification in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ) ( str ).</p>
-<p>order - Order ( int ).</p>
+<div><p>typ : type - derived from DiversityModel.</p>
+<p>classification : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).</p>
+<p>order : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -295,11 +295,11 @@ through observation.  An instance, classification, and order are specified.</p>
 <dd><p>Models an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y = Diversity ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - diversity.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -373,19 +373,34 @@ clustering, classification, pattern recognition, and visualization.</p>
 <dl class="py method">
 <dt id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">e</span></code><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e" title="Permalink to this definition">¶</a></dt>
-<dd><p>Eigenvalues ( array( float ) ).</p>
+<dd><p>numpy.ndarray - eigenvalues.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>e</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">u</span></code><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u" title="Permalink to this definition">¶</a></dt>
-<dd><p>Mean ( array( float ) ).</p>
+<dd><p>numpy.ndarray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>mean</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">v</span></code><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rotation ( array( float ) ).</p>
+<dd><p>numpy.ndarray</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>rotation</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
@@ -400,11 +415,11 @@ clustering, classification, pattern recognition, and visualization.</p>
 <dd><p>Models an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 

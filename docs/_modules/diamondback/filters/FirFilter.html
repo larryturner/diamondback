@@ -283,23 +283,23 @@
 
 <span class="sd">                Arguments :</span>
 
-<span class="sd">                    typ - Type derived from FirFilter ( type ).</span>
+<span class="sd">                    typ : type - derived from FirFilter.</span>
 
-<span class="sd">                    classification - Classification in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ) ( str ).</span>
+<span class="sd">                    classification : str - in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
 
-<span class="sd">                    frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</span>
+<span class="sd">                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</span>
 
-<span class="sd">                    order - Order ( int ).</span>
+<span class="sd">                    order : int.</span>
 
-<span class="sd">                    count - Count ( int ).</span>
+<span class="sd">                    count : int.</span>
 
-<span class="sd">                    complement - Complement, or high pass, response condition ( bool ).</span>
+<span class="sd">                    complement : bool.</span>
 
-<span class="sd">                    gain - Gain ( float ).</span>
+<span class="sd">                    gain : float.</span>
 
 <span class="sd">                Returns :</span>
 
-<span class="sd">                    instance - Instance ( typ( ) ).</span>
+<span class="sd">                    instance : typ( ).</span>
 <span class="sd">            &quot;&quot;&quot;</span>
 
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -378,9 +378,9 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</span>
 
-<span class="sd">                s - State ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                s : typing.Union[ numpy.ndarray, list ] - state.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -417,15 +417,15 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                length - Length ( int ).</span>
+<span class="sd">                length : int.</span>
 
-<span class="sd">                count - Count ( int ).</span>
+<span class="sd">                count : int.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 
-<span class="sd">                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</span>
+<span class="sd">                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
@@ -456,11 +456,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( complex | float ), list( complex | float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( complex | float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -492,7 +492,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( complex, float ).</span>
+<span class="sd">                x : typing.Union[ complex, float ] - incident signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -507,15 +507,15 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                length - Length ( int ).</span>
+<span class="sd">                length : int.</span>
 
-<span class="sd">                count - Count ( int ).</span>
+<span class="sd">                count : int.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( complex ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 
-<span class="sd">                f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</span>
+<span class="sd">                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
@@ -538,13 +538,13 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                count - Count.  ( int )</span>
+<span class="sd">                count : int.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                p - Poles ( array( complex ) ).</span>
+<span class="sd">                p : numpy.ndarray - poles.</span>
 
-<span class="sd">                z - Zeros ( array( complex ) ).</span>
+<span class="sd">                z : numpy.ndarray - zeros.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="p">),</span> <span class="n">count</span> <span class="p">)</span>

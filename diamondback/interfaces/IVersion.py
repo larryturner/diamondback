@@ -46,7 +46,7 @@ class IVersion( IEqual ) :
     @property
     def version( self ) :
 
-        """ Version ( str ).
+        """ version : str.
         """
 
         return self._version
@@ -62,11 +62,11 @@ class IVersion( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.version == other.version ) )

@@ -233,7 +233,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">e</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Eigenvalues ( array( float ) ).</span>
+        <span class="sd">&quot;&quot;&quot; e : numpy.ndarray - eigenvalues.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_e</span>
@@ -241,7 +241,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">u</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Mean ( array( float ) ).</span>
+        <span class="sd">&quot;&quot;&quot; mean : numpy.ndarray.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_u</span>
@@ -249,7 +249,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">v</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Rotation ( array( float ) ).</span>
+        <span class="sd">&quot;&quot;&quot; rotation : numpy.ndarray</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v</span>
@@ -260,11 +260,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other - other object ( object ).</span>
+<span class="sd">                other : any.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                equality - Equality ( bool ).</span>
+<span class="sd">                equal : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">v</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">v</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
@@ -291,11 +291,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( float ), list( float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

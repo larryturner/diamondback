@@ -229,12 +229,12 @@ specified.</p>
 or three-phase reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
-<p>neutral - Neutral or line reference condition ( bool ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<p>neutral : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -309,14 +309,14 @@ condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
-<p>b - Forward coefficient ( array( float ), list( float ) ).</p>
-<p>inverse - Inverse condition ( bool ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<p>inverse : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( complex | float ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -390,14 +390,14 @@ frequency resolution.</p>
 real discrete-frequency reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( complex | float ), list( complex | float ) ).</p>
-<p>b - Forward coefficient ( array( float ), list( float ) ).</p>
-<p>index - Index ( int ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<p>index : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
-<p>f - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
+<p>f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -504,7 +504,7 @@ specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b - Forward coefficient ( array( float ), list( float ) ).</p>
+<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.Factory">
@@ -517,13 +517,13 @@ specified.</p>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>typ - Type derived from WaveletTransform ( type ).</p>
-<p>classification - Classification in ( ‘Coiflet’, ‘Daubechies’, ‘Haar’, ‘Symmlet’ ) ( str ).</p>
-<p>order - Order ( int ).</p>
+<div><p>typ : type - derived from WaveletTransform.</p>
+<p>classification : str - in ( ‘Coiflet’, ‘Daubechies’, ‘Haar’, ‘Symmlet’ ).</p>
+<p>order : int.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>instance - Instance ( typ( ) ).</p>
+<div><p>instance : typ( ).</p>
 </div></blockquote>
 </dd></dl>
 
@@ -538,13 +538,13 @@ signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x - Incident signal ( array( float ), list( float ) ).</p>
-<p>count - Count ( int ).</p>
-<p>inverse - Inverse condition ( bool ).</p>
+<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<p>count : int.</p>
+<p>inverse : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>y - Reference signal ( array( float ) ).</p>
+<div><p>y : numpy.ndarray - reference signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -621,15 +621,15 @@ or impulse invariant methods.</p>
 discrete z-domain coefficient arrays.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>u - Recursive coefficient, s-domain ( array( complex | float ), list( complex | float ) ).</p>
-<p>v - Forward coefficient, s-domain ( array( complex | float ), list( complex | float ) ).</p>
-<p>frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).</p>
-<p>bilinear - Bilinear or impulse invariant condition ( bool ).</p>
+<div><p>u : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.</p>
+<p>v : typing.Union[ numpy.ndarray, list ] - forward coefficient, s-domain.</p>
+<p>frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</p>
+<p>bilinear : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
-<div><p>a - Recursive coefficient, z-domain ( array( complex | float ) ).</p>
-<p>b - Forward coefficient, z-domain ( array( complex | float ) ).</p>
+<div><p>a : numpy.ndarray - recursive coefficient, z-domain.</p>
+<p>b : numpy.ndarray - forward coefficient, z-domain.</p>
 </div></blockquote>
 </dd></dl>
 

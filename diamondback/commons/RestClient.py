@@ -76,7 +76,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
     @ILive.live.getter
     def live( self ) :
 
-        """ Live ( bool ).
+        """ live : bool.
         """
 
         try :
@@ -94,7 +94,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
     @IReady.ready.getter
     def ready( self ) :
 
-        """ Ready ( bool ).
+        """ ready : bool.
         """
 
         try :
@@ -110,7 +110,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
     @IVersion.version.getter
     def version( self ) :
 
-        """ Version ( str ).
+        """ version : str.
         """
 
         try :
@@ -144,20 +144,19 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
             Arguments :
 
-                method - Method ( str ) in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
+                method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
 
-                api - API, relative to the URL ( str ).
+                api : str - relative to the URL.
 
-                item - Item ( dict( str, str ) ).
+                item : typing.Dict[ str, str ].
 
-                json - JSON ( any ).
+                json : any.
 
-                data - Data ( any ).
+                data : any.
 
             Returns :
 
-                value - Value ( Response ).
-
+                value : requests.Response.
         """
 
         if ( not method ) :

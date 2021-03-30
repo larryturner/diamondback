@@ -47,7 +47,7 @@ class IInterval( IEqual ) :
     @property
     def interval( self ) :
 
-        """ Interval in seconds in [ 0.0, inf ) ( float ).
+        """ interval : float - in seconds in [ 0.0, inf ).
         """
 
         return self._interval
@@ -67,11 +67,11 @@ class IInterval( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.interval, other.interval ) ) )

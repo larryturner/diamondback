@@ -47,7 +47,7 @@ class IRate( IEqual ) :
     @property
     def rate( self ) :
 
-        """ Rate of adaptation in [ 0.0, inf ) ( float ).
+        """ rate : float - in [ 0.0, inf ).
         """
 
         return self._rate
@@ -67,11 +67,11 @@ class IRate( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.rate, other.rate ) ) )

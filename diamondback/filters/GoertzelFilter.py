@@ -86,11 +86,11 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self._index == other._index ) and ( numpy.allclose( self._w, other._w ) ) )
@@ -101,9 +101,9 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
             Arguments :
 
-                b - Forward coefficient ( array( float ), list( float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
 
-                frequency - Normalized frequency relative to Nyquist in [ -1.0, 1.0 ) ( float ).
+                frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -130,13 +130,13 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
             Arguments :
 
-                x - Incident signal ( array( complex | float ), list( complex | float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
-                d - Primary signal ( array( complex | float ), list( complex | float ) ).
+                d : typing.Union[ numpy.ndarray, list ] - primary signal.
 
             Returns :
 
-                y - Reference signal ( array( complex ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

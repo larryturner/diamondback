@@ -111,13 +111,13 @@ class IntegralFilter( IirFilter ) :
 
                 Arguments :
 
-                    typ - Type derived from IntegralFilter ( type ).
+                    typ : type - derived from IntegralFilter.
 
-                    order - Order ( int ).
+                    order : int.
 
                 Returns :
 
-                    instance - Instance ( typ( ) ).
+                    instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, IntegralFilter ) ) ) :
@@ -136,9 +136,9 @@ class IntegralFilter( IirFilter ) :
 
             Arguments :
 
-                a - Recursive coefficient ( array( complex | float ), list( complex | float ) ).
+                a : typing.Union[ numpy.ndarray, list ] - recursive coefficient.
 
-                b - Forward coefficient ( array( complex | float ), list( complex | float ) ).
+                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
         """
 
         super( ).__init__( a, b )
@@ -149,11 +149,11 @@ class IntegralFilter( IirFilter ) :
 
             Arguments :
 
-                x - Incident signal ( array( float ), list( float ) ).
+                x : typing.Union[ numpy.ndarray, list ] - incident signal.
 
             Returns :
 
-                y - Reference signal ( array( float ) ).
+                y : numpy.ndarray - reference signal.
         """
 
         return super( ).filter( x )

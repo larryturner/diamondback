@@ -46,7 +46,7 @@ class ITimeOut( IEqual ) :
     @property
     def timeout( self ) :
 
-        """ Time out ( any ).
+        """ timeout : any.
         """
 
         return self._timeout
@@ -62,11 +62,11 @@ class ITimeOut( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.timeout == other.timeout ) )

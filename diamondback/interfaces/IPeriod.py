@@ -47,7 +47,7 @@ class IPeriod( IEqual ) :
     @property
     def period( self ) :
 
-        """ Period in seconds in [ 0.0, inf ) ( float ).
+        """ period : float - in seconds in [ 0.0, inf ).
         """
 
         return self._period
@@ -67,11 +67,11 @@ class IPeriod( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.period, other.period ) ) )

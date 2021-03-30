@@ -46,7 +46,7 @@ class ICache( IEqual ) :
     @property
     def cache( self ) :
 
-        """ Cache ( any ).
+        """ cache : any.
         """
 
         return self._cache
@@ -62,11 +62,11 @@ class ICache( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.cache == other.cache ) )

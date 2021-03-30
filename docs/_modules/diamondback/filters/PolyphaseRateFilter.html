@@ -257,7 +257,7 @@
     <span class="nd">@IB</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">getter</span>
     <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Forward coefficient ( array( float ) ).</span>
+        <span class="sd">&quot;&quot;&quot; b : numpy.ndarray - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span>
@@ -265,7 +265,7 @@
     <span class="nd">@IRate</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).</span>
+        <span class="sd">&quot;&quot;&quot; rate - ratio of effective frequency in ( 0.0, 256.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">count</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
@@ -286,11 +286,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other - Other ( any ).</span>
+<span class="sd">                other : any.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                equality - Equality ( bool ).</span>
+<span class="sd">                equal : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">_index</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
@@ -301,7 +301,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                rate - Rate ratio of effective frequency in ( 0.0, 256.0 ] ( float ).</span>
+<span class="sd">                rate : float - ratio of effective frequency in ( 0.0, 256.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
@@ -332,11 +332,11 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( array( float ), list( float ) ).</span>
+<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
-<span class="sd">                y - Reference signal ( array( float ) ).</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -388,7 +388,7 @@
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x - Incident signal ( float ).</span>
+<span class="sd">                x : float - incident signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

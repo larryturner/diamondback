@@ -47,7 +47,7 @@ class IDuration( IEqual ) :
     @property
     def duration( self ) :
 
-        """ Duration in seconds in [ 0.0, inf ) ( float ).
+        """ duration : float - in seconds in [ 0.0, inf ).
         """
 
         return self._duration
@@ -67,11 +67,11 @@ class IDuration( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.duration, other.duration ) ) )

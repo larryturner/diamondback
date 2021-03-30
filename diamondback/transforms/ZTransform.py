@@ -85,19 +85,19 @@ class ZTransform( object ) :
 
             Arguments :
 
-                u - Recursive coefficient, s-domain ( array( complex | float ), list( complex | float ) ).
+                u : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.
 
-                v - Forward coefficient, s-domain ( array( complex | float ), list( complex | float ) ).
+                v : typing.Union[ numpy.ndarray, list ] - forward coefficient, s-domain.
 
-                frequency - Normalized frequency relative to Nyquist in ( 0.0, 1.0 ) ( float ).
+                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 
-                bilinear - Bilinear or impulse invariant condition ( bool ).
+                bilinear : bool.
 
             Returns :
 
-                a - Recursive coefficient, z-domain ( array( complex | float ) ).
+                a : numpy.ndarray - recursive coefficient, z-domain.
 
-                b - Forward coefficient, z-domain ( array( complex | float ) ).
+                b : numpy.ndarray - forward coefficient, z-domain.
         """
 
         if ( ( not numpy.isscalar( u ) ) and ( not isinstance( u, numpy.ndarray ) ) ) :

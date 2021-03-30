@@ -46,7 +46,7 @@ class ILatency( IEqual ) :
     @property
     def latency( self ) :
 
-        """ Latency in seconds in [ 0.0, inf ) ( float ).
+        """ latency : float - in seconds in [ 0.0, inf ).
         """
 
         return self._latency
@@ -66,11 +66,11 @@ class ILatency( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.latency, other.latency ) ) )

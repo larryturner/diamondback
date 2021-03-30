@@ -87,13 +87,13 @@ class Serial( object ) :
 
             Arguments :
 
-                state - State ( str ).
+                state : str.
 
-                encoding - Encoding ( str ).
+                encoding : str.
 
             Returns :
 
-                code - Code ( str ).
+                code : str.
         """
 
         if ( not state ) :
@@ -117,17 +117,17 @@ class Serial( object ) :
 
             Arguments :
 
-                state - State ( str ).
+                state : str.
 
-                compress - Compress ( bool ).
+                compress : bool.
 
-                encoding - Encoding ( str ).
+                encoding : str.
 
-                clean - Clean comments ( bool ).
+                clean : bool - clean comments.
 
             Returns :
 
-                instance - Instance ( any ).
+                instance : any.
         """
 
         if ( not state ) :
@@ -157,15 +157,15 @@ class Serial( object ) :
 
             Arguments :
 
-                instance - Instance ( any ).
+                instance : any.
 
-                compress - Compress ( bool ).
+                compress : bool.
 
-                encoding - Encoding ( str ).
+                encoding : str.
 
             Returns :
 
-                state - State ( str ).
+                state : str.
         """
 
         if ( not encoding ) :

@@ -47,7 +47,7 @@ class IFrequency( IEqual ) :
     @property
     def frequency( self ) :
 
-        """ Normalized frequency relative to Nyquist in [ -1.0, 1.0 ] ( float ).
+        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
         """
 
         return self._frequency
@@ -67,11 +67,11 @@ class IFrequency( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.frequency, other.frequency ) ) )

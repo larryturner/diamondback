@@ -46,7 +46,7 @@ class ILive( IEqual ) :
     @property
     def live( self ) :
 
-        """ Live ( any ).
+        """ live : any.
         """
 
         return self._live
@@ -62,11 +62,11 @@ class ILive( IEqual ) :
 
             Arguments :
 
-                other - Other ( any ).
+                other : any.
 
             Returns :
 
-                equality - Equality ( bool ).
+                equal : bool.
         """
 
         return ( ( super( ).__eq__( other ) ) and ( self.live == other.live ) )
