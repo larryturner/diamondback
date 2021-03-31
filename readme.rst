@@ -59,8 +59,10 @@ Diamondback is defined in subpackages :
 
 -   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
     singleton instance which encodes and decodes an instance or collection
-    with JSON, or base-85 encoded gzip JSON binary format using the jsonpickle
-    packages.
+    with JSON or BSON, base-85 encoded gzip JSON, format using the
+    jsonpickle package.  An instance may be an object or a collection,
+    referenced by abstract or concrete types, and the instance will be
+    correctly encoded and decoded without custom encoding definition.
 
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -1,13 +1,14 @@
 """ **Description**
 
         A serial instance encodes and decodes an instance or collection with
-        JSON, or base-85 encoded gzip JSON binary format using the jsonpickle
+        JSON or BSON, base-85 encoded gzip JSON, format using the jsonpickle
         package.
 
         An instance may be an object or a collection, referenced by abstract or
-        concrete types, and the instance will be correctly encoded and decoded.
-        JSON binary format is selected by electing to compress.  Encoding may
-        be specified if an alternative to UTF-8 is required.
+        concrete types, and the instance will be correctly encoded and decoded
+        without custom encoding definition.  BSON binary format is selected by
+        electing to compress.  Encoding may be specified if an alternative to
+        UTF-8 is required.
 
         Comments may be filtered from JSON by electing to clean.  Python style
         docstring and line comments are supported, though line comments must be
@@ -40,9 +41,9 @@
 
             # Encode and decode a pandas data frame in gzip JSON.
 
-            model = pandas.DataFrame( { 'Fruit' : [ 'Orange', 'Apple', 'Kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
+            model = pandas.DataFrame( { 'fruit' : [ 'orange', 'apple', 'kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
 
-            z = Serial.decode( Serial.encode( x ) )
+            z = Serial.decode( Serial.encode( model ) )
 
             # Decode a dictionary instance from JSON.
 
@@ -73,7 +74,7 @@ import re
 
 class Serial( object ) :
 
-    """ Serial service, with JSON or base-85 encoded gzip JSON binary format.
+    """ Serial service, with JSON or BSON, base-85 encoded gzip JSON, format.
     """
 
     jsonpickle.ext.numpy.register_handlers( )
@@ -109,8 +110,8 @@ class Serial( object ) :
     @staticmethod
     def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :
 
-        """ Decodes an instance or collection from JSON, or base-85 encoded
-            gzip JSON binary format state.  Encoding may be specified if an
+        """ Decodes an instance or collection from JSON or BSON, base-85
+            encoded gzip JSON, state.  Encoding may be specified if an
             alternative to UTF-8 is required.  Python style docstring and line
             comments may be cleaned, though line comments must be terminated by
             a new line.
@@ -151,8 +152,8 @@ class Serial( object ) :
     @staticmethod
     def encode( instance : any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
-        """ Encodes JSON, or base-85 encoded gzip JSON binary format state from
-            an instance or collection.  Encoding may be specified if an
+        """ Encodes JSON or BSON, base-85 encoded gzip JSON, state from an
+            instance or collection.  Encoding may be specified if an
             alternative to UTF-8 is required.
 
             Arguments :

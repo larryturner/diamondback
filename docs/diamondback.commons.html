@@ -412,12 +412,13 @@ returned.</p>
 <p><strong>Description</strong></p>
 <blockquote>
 <div><p>A serial instance encodes and decodes an instance or collection with
-JSON, or base-85 encoded gzip JSON binary format using the jsonpickle
+JSON or BSON, base-85 encoded gzip JSON, format using the jsonpickle
 package.</p>
 <p>An instance may be an object or a collection, referenced by abstract or
-concrete types, and the instance will be correctly encoded and decoded.
-JSON binary format is selected by electing to compress.  Encoding may
-be specified if an alternative to UTF-8 is required.</p>
+concrete types, and the instance will be correctly encoded and decoded
+without custom encoding definition.  BSON binary format is selected by
+electing to compress.  Encoding may be specified if an alternative to
+UTF-8 is required.</p>
 <p>Comments may be filtered from JSON by electing to clean.  Python style
 docstring and line comments are supported, though line comments must be
 terminated by a new line.</p>
@@ -445,9 +446,9 @@ terminated by a new line.</p>
 
 <span class="c1"># Encode and decode a pandas data frame in gzip JSON.</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;Fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;Orange&#39;</span><span class="p">,</span> <span class="s1">&#39;Apple&#39;</span><span class="p">,</span> <span class="s1">&#39;Kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span> <span class="p">)</span>
 
 <span class="c1"># Decode a dictionary instance from JSON.</span>
 
@@ -469,7 +470,7 @@ terminated by a new line.</p>
 <dt id="diamondback.commons.Serial.Serial">
 <em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.commons.Serial.</span></code><code class="sig-name descname"><span class="pre">Serial</span></code><a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Serial service, with JSON or base-85 encoded gzip JSON binary format.</p>
+<p>Serial service, with JSON or BSON, base-85 encoded gzip JSON, format.</p>
 <dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.code">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">code</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.code" title="Permalink to this definition">¶</a></dt>
@@ -488,8 +489,8 @@ terminated by a new line.</p>
 <dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.decode">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">decode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.decode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Decodes an instance or collection from JSON, or base-85 encoded
-gzip JSON binary format state.  Encoding may be specified if an
+<dd><p>Decodes an instance or collection from JSON or BSON, base-85
+encoded gzip JSON, state.  Encoding may be specified if an
 alternative to UTF-8 is required.  Python style docstring and line
 comments may be cleaned, though line comments must be terminated by
 a new line.</p>
@@ -509,8 +510,8 @@ a new line.</p>
 <dl class="py method">
 <dt id="diamondback.commons.Serial.Serial.encode">
 <em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">encode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">str</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">str</span><a class="reference internal" href="_modules/diamondback/commons/Serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.commons.Serial.Serial.encode" title="Permalink to this definition">¶</a></dt>
-<dd><p>Encodes JSON, or base-85 encoded gzip JSON binary format state from
-an instance or collection.  Encoding may be specified if an
+<dd><p>Encodes JSON or BSON, base-85 encoded gzip JSON, state from an
+instance or collection.  Encoding may be specified if an
 alternative to UTF-8 is required.</p>
 <p>Arguments :</p>
 <blockquote>
