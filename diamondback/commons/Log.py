@@ -30,23 +30,19 @@
 
             try :
 
-                # Default - Log level is 'INFO'.
-
-                # Set Log level to 'INFO'.
+                # Set Log level to 'INFO', the default level.
 
                 Log.level( 'INFO' )
 
-                # Write an 'INFO' entry.
+                Log.write( 'INFO', 'Test Log write.' )
 
-                Log.write( 'INFO', 'Hello World.' )
-
-                # Set Log stream to sys.stdout, and write an 'INFO' entry.
+                # Set Log stream to sys.stdout.
 
                 Log.stream( sys.stdout )
 
                 Log.write( 'INFO', f'Valid = {True}' )
 
-                # Set Log stream to a memory stream, write an 'INFO' entry, and read and reset the stream.
+                # Set Log stream to a memory stream.
 
                 stream = io.StringIO( )
 
@@ -56,11 +52,13 @@
 
                 Log.write( 'INFO', f'X = {x}' )
 
+                # Read and reset memory stream.
+
                 value = stream.getvalue( )
 
                 _, _ = stream.truncate( 0 ), stream.seek( 0 )
 
-                # Set Log stream to a file and write a 'WARNING' entry.
+                # Set Log stream to a file.
 
                 with open( 'log.000.txt', 'w' ) as fout :
 
@@ -71,8 +69,6 @@
                     Log.write( 'WARNING', f'X = {x}' )
 
             except Exception as ex :
-
-                # Write an 'ERROR' entry on Exception.
 
                 Log.write( 'ERROR', ex )
 

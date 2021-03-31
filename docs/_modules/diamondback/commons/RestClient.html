@@ -171,6 +171,7 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            from diamondback import RestClient</span>
+<span class="sd">            import numpy</span>
 <span class="sd">            import typing</span>
 
 
@@ -182,9 +183,9 @@
 
 <span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
 
-<span class="sd">                def add( self, item : typing.Dict[ str, float ] ) -&gt; float :</span>
+<span class="sd">                def add( self, json : typing.Union[ numpy.ndarray, typing.List[ float ] ] ) -&gt; float :</span>
 
-<span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, item = item )</span>
+<span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, json = json ).json( )</span>
 
 <span class="sd">            client = TestClient( )</span>
 
@@ -192,7 +193,7 @@
 
 <span class="sd">            client.timeout = ( 10.0, 60.0 )  # connect, read</span>
 
-<span class="sd">            client.add( { &#39;x&#39;, 2.71827, &#39;y&#39; : 3.14159 } )</span>
+<span class="sd">            client.add( [ 2.71827, 3.14159 ] )</span>
 
 <span class="sd">    **License**</span>
 

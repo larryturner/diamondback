@@ -33,17 +33,23 @@
 
             z = Serial.decode( Serial.encode( x ) )
 
-            # Encode and decode a dictionary instance in gzip JSON.
+            # Encode and decode a dictionary instance in BSON.
 
             y = Serial.encode( x, compress = True )
 
             z = Serial.decode( y, compress = True )
 
-            # Encode and decode a pandas data frame in gzip JSON.
+            # Encode and decode a pandas data frame in BSON.
 
             model = pandas.DataFrame( { 'fruit' : [ 'orange', 'apple', 'kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
 
-            z = Serial.decode( Serial.encode( model ) )
+            y = Serial.encode( model )
+
+            # Generate SHA3-256 code for an encoded model.
+
+            code = Serial.code( y )
+
+            z = Serial.decode( y )
 
             # Decode a dictionary instance from JSON.
 

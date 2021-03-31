@@ -180,23 +180,19 @@
 
 <span class="sd">            try :</span>
 
-<span class="sd">                # Default - Log level is &#39;INFO&#39;.</span>
-
-<span class="sd">                # Set Log level to &#39;INFO&#39;.</span>
+<span class="sd">                # Set Log level to &#39;INFO&#39;, the default level.</span>
 
 <span class="sd">                Log.level( &#39;INFO&#39; )</span>
 
-<span class="sd">                # Write an &#39;INFO&#39; entry.</span>
+<span class="sd">                Log.write( &#39;INFO&#39;, &#39;Test Log write.&#39; )</span>
 
-<span class="sd">                Log.write( &#39;INFO&#39;, &#39;Hello World.&#39; )</span>
-
-<span class="sd">                # Set Log stream to sys.stdout, and write an &#39;INFO&#39; entry.</span>
+<span class="sd">                # Set Log stream to sys.stdout.</span>
 
 <span class="sd">                Log.stream( sys.stdout )</span>
 
 <span class="sd">                Log.write( &#39;INFO&#39;, f&#39;Valid = {True}&#39; )</span>
 
-<span class="sd">                # Set Log stream to a memory stream, write an &#39;INFO&#39; entry, and read and reset the stream.</span>
+<span class="sd">                # Set Log stream to a memory stream.</span>
 
 <span class="sd">                stream = io.StringIO( )</span>
 
@@ -206,11 +202,13 @@
 
 <span class="sd">                Log.write( &#39;INFO&#39;, f&#39;X = {x}&#39; )</span>
 
+<span class="sd">                # Read and reset memory stream.</span>
+
 <span class="sd">                value = stream.getvalue( )</span>
 
 <span class="sd">                _, _ = stream.truncate( 0 ), stream.seek( 0 )</span>
 
-<span class="sd">                # Set Log stream to a file and write a &#39;WARNING&#39; entry.</span>
+<span class="sd">                # Set Log stream to a file.</span>
 
 <span class="sd">                with open( &#39;log.000.txt&#39;, &#39;w&#39; ) as fout :</span>
 
@@ -221,8 +219,6 @@
 <span class="sd">                    Log.write( &#39;WARNING&#39;, f&#39;X = {x}&#39; )</span>
 
 <span class="sd">            except Exception as ex :</span>
-
-<span class="sd">                # Write an &#39;ERROR&#39; entry on Exception.</span>
 
 <span class="sd">                Log.write( &#39;ERROR&#39;, ex )</span>
 

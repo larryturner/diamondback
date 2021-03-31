@@ -21,6 +21,7 @@
         ::
 
             from diamondback import RestClient
+            import numpy
             import typing
 
 
@@ -32,9 +33,9 @@
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
-                def add( self, item : typing.Dict[ str, float ] ) -> float :
+                def add( self, json : typing.Union[ numpy.ndarray, typing.List[ float ] ] ) -> float :
 
-                    return self.request( 'get', 'test/add', item = item )
+                    return self.request( 'get', 'test/add', json = json ).json( )
 
             client = TestClient( )
 
@@ -42,7 +43,7 @@
 
             client.timeout = ( 10.0, 60.0 )  # connect, read
 
-            client.add( { 'x', 2.71827, 'y' : 3.14159 } )
+            client.add( [ 2.71827, 3.14159 ] )
 
     **License**
 

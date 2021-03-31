@@ -192,23 +192,19 @@ modifying a loguru handler.</p>
 
 <span class="k">try</span> <span class="p">:</span>
 
-    <span class="c1"># Default - Log level is &#39;INFO&#39;.</span>
-
-    <span class="c1"># Set Log level to &#39;INFO&#39;.</span>
+    <span class="c1"># Set Log level to &#39;INFO&#39;, the default level.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span> <span class="p">)</span>
 
-    <span class="c1"># Write an &#39;INFO&#39; entry.</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Log write.&#39;</span> <span class="p">)</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="s1">&#39;Hello World.&#39;</span> <span class="p">)</span>
-
-    <span class="c1"># Set Log stream to sys.stdout, and write an &#39;INFO&#39; entry.</span>
+    <span class="c1"># Set Log stream to sys.stdout.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span><span class="kc">True</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
-    <span class="c1"># Set Log stream to a memory stream, write an &#39;INFO&#39; entry, and read and reset the stream.</span>
+    <span class="c1"># Set Log stream to a memory stream.</span>
 
     <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="p">)</span>
 
@@ -218,11 +214,13 @@ modifying a loguru handler.</p>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
+    <span class="c1"># Read and reset memory stream.</span>
+
     <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
 
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span> <span class="mi">0</span> <span class="p">),</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
 
-    <span class="c1"># Set Log stream to a file and write a &#39;WARNING&#39; entry.</span>
+    <span class="c1"># Set Log stream to a file.</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log.000.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
 
@@ -233,8 +231,6 @@ modifying a loguru handler.</p>
         <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;WARNING&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
-
-    <span class="c1"># Write an &#39;ERROR&#39; entry on Exception.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;ERROR&#39;</span><span class="p">,</span> <span class="n">ex</span> <span class="p">)</span>
 </pre></div>
@@ -308,6 +304,7 @@ with a version string.</p>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RestClient</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">typing</span>
 
 
@@ -319,9 +316,9 @@ with a version string.</p>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
 
-    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">[</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="p">:</span>
 
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">item</span> <span class="o">=</span> <span class="n">item</span> <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
 
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
 
@@ -329,7 +326,7 @@ with a version string.</p>
 
 <span class="n">client</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>  <span class="c1"># connect, read</span>
 
-<span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mf">2.71827</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="mf">3.14159</span> <span class="p">}</span> <span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="p">[</span> <span class="mf">2.71827</span><span class="p">,</span> <span class="mf">3.14159</span> <span class="p">]</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -438,17 +435,23 @@ terminated by a new line.</p>
 
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
-<span class="c1"># Encode and decode a dictionary instance in gzip JSON.</span>
+<span class="c1"># Encode and decode a dictionary instance in BSON.</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
-<span class="c1"># Encode and decode a pandas data frame in gzip JSON.</span>
+<span class="c1"># Encode and decode a pandas data frame in BSON.</span>
 
 <span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span>
+
+<span class="c1"># Generate SHA3-256 code for an encoded model.</span>
+
+<span class="n">code</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">code</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
+
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
 
 <span class="c1"># Decode a dictionary instance from JSON.</span>
 
