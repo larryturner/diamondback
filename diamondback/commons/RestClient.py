@@ -3,8 +3,8 @@
     REST client instances define a client for simple REST service requests
     using the requests package.  An API and an elective dictionary of parameter
     strings are encoded to build a URL, elective JSON or binary data are
-    defined in the body of a request, and requests response containing JSON or
-    binary data response is returned.
+    defined in the body of a request, and a requests response containing JSON,
+    text, or binary data is returned.
 
     Proxy, timeout, and URL definition are supported.
 
@@ -140,8 +140,8 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective JSON or binary data are defined in the body of a
-            request, and a requests response containing JSON or binary data is
-            returned.
+            request, and a requests response containing JSON, text, or binary
+            data is returned.
 
             Arguments :
 

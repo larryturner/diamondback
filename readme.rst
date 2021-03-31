@@ -54,8 +54,8 @@ Diamondback is defined in subpackages :
     instances define a client for simple REST service requests using the
     requests package.  An API and an elective dictionary of parameter strings
     are encoded to build a URL, elective JSON or binary data are defined in the
-    body of a request, and a requests response containing JSON or binary data
-    is returned.  Proxy, timeout, and URL definition are supported.
+    body of a request, and a requests response containing JSON, text, or binary
+    data is returned.  Proxy, timeout, and URL definition are supported.
 
 -   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
     singleton instance which encodes and decodes an instance or collection
