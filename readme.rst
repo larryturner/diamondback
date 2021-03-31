@@ -62,7 +62,7 @@ Diamondback is defined in subpackages :
     with JSON or BSON, base-85 encoded gzip JSON, format using the
     jsonpickle package.  An instance may be an object or a collection,
     referenced by abstract or concrete types, and the instance will be
-    correctly encoded and decoded without custom encoding definition.
+    correctly encoded and decoded, without custom encoding definitions.
 
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

@@ -5,8 +5,8 @@
         package.
 
         An instance may be an object or a collection, referenced by abstract or
-        concrete types, and the instance will be correctly encoded and decoded
-        without custom encoding definition.  BSON binary format is selected by
+        concrete types, and the instance will be correctly encoded and decoded,
+        without custom encoding definitions.  BSON binary format is selected by
         electing to compress.  Encoding may be specified if an alternative to
         UTF-8 is required.
 
