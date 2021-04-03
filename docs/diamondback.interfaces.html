@@ -129,7 +129,6 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUser">diamondback.interfaces.IUser module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IValid">diamondback.interfaces.IValid module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IVersion">diamondback.interfaces.IVersion module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IWrite">diamondback.interfaces.IWrite module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
 </ul>
 </li>
@@ -1165,7 +1164,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IHeader.IHeader.header">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">header</span></code><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader.header" title="Permalink to this definition">¶</a></dt>
-<dd><p>str.</p>
+<dd><p>typing.Dict[ str, str ].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>header</p>
@@ -2541,61 +2540,6 @@ operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>version</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IWrite">
-<span id="diamondback-interfaces-iwrite-module"></span><h2>diamondback.interfaces.IWrite module<a class="headerlink" href="#module-diamondback.interfaces.IWrite" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Write interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IWrite</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IWrite</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">write</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>Copyright (c) 2020, Larry Turner, Schneider Electric.  All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IWrite.IWrite">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IWrite.</span></code><code class="sig-name descname"><span class="pre">IWrite</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IWrite.html#IWrite"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IWrite.IWrite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Write interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IWrite.IWrite.write">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">write</span></code><a class="headerlink" href="#diamondback.interfaces.IWrite.IWrite.write" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>write</p>
 </dd>
 </dl>
 </dd></dl>

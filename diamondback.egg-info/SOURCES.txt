@@ -66,7 +66,6 @@ diamondback/interfaces/IUrl.py
 diamondback/interfaces/IUser.py
 diamondback/interfaces/IValid.py
 diamondback/interfaces/IVersion.py
-diamondback/interfaces/IWrite.py
 diamondback/interfaces/__init__.py
 diamondback/models/DiversityModel.py
 diamondback/models/PrincipalComponentModel.py

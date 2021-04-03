@@ -232,3 +232,5 @@ Version     Date            Notes
 1.0.77      2021-03-25      Modified IirFilter filter.
 
 1.0.78      2021-03-30      Modified documentation.
+
+1.0.79      2021-04-01      Modified interface initializations.

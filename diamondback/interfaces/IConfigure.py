@@ -78,4 +78,4 @@ class IConfigure( IEqual ) :
 
         super( ).__init__( )
 
-        self._configure = [ ]
+        self._configure = None

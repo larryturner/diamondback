@@ -78,4 +78,4 @@ class ILabel( IEqual ) :
 
         super( ).__init__( )
 
-        self._label = [ ]
+        self._label = None

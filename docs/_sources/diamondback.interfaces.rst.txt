@@ -348,14 +348,6 @@ diamondback.interfaces.IVersion module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.IWrite module
-------------------------------------
-
-.. automodule:: diamondback.interfaces.IWrite
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 Module contents
 ---------------
 

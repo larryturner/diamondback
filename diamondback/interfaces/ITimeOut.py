@@ -78,4 +78,4 @@ class ITimeOut( IEqual ) :
 
         super( ).__init__( )
 
-        self._timeout = [ ]
+        self._timeout = None

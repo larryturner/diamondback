@@ -78,4 +78,4 @@ class IVersion( IEqual ) :
 
         super( ).__init__( )
 
-        self._version = [ ]
+        self._version = None

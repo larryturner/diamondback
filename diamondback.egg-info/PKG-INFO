@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.78
+Version: 1.0.79
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -193,9 +193,8 @@ Description: Description
             `IUrl <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl>`__,
             `IUser <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUser>`__,
             `IValid <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid>`__,
-            `IVersion <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion>`__,
             and
-            `IWrite <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IWrite>`__
+            `IVersion <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion>`__,
             interfaces facilitate mix-in design.
         
         `models <https://larryturner.github.io/diamondback/diamondback.models>`__
@@ -366,7 +365,7 @@ Description: Description
         .. |GitHub| image:: ./images/github.png
            :target: https://larryturner.github.io/diamondback/
         
-Keywords: DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,REST,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,rate,serial,transform,wavelet
+Keywords: BSON,DSP,FFT,FIR,GZIP,IIR,JSON,PCA,PID,PSD,REST,adaptive,complex,derivative,diversity,exponential,filter,fourier,frequency,goertzel,integral,log,model,polynomial,polyphase,power,rate,serial,transform,wavelet
 Platform: UNKNOWN
 Classifier: Operating System :: OS Independent
 Classifier: Programming Language :: Python :: 3

@@ -48,7 +48,7 @@ class IHeader( IEqual ) :
     @property
     def header( self ) :
 
-        """ header : str.
+        """ header : typing.Dict[ str, str ].
         """
 
         return self._header

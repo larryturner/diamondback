@@ -78,4 +78,4 @@ class IValid( IEqual ) :
 
         super( ).__init__( )
 
-        self._valid = [ ]
+        self._valid = None

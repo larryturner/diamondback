@@ -80,4 +80,4 @@ class IS( IEqual ) :
 
         super( ).__init__( )
 
-        self._s = [ ]
+        self._s = None

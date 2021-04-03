@@ -78,4 +78,4 @@ class IEmulate( IEqual ) :
 
         super( ).__init__( )
 
-        self._emulate = [ ]
+        self._emulate = None

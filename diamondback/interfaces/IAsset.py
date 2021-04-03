@@ -79,4 +79,4 @@ class IAsset( IEqual ) :
 
         super( ).__init__( )
 
-        self._asset = [ ]
+        self._asset = None

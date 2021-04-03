@@ -78,4 +78,4 @@ class IData( IEqual ) :
 
         super( ).__init__( )
 
-        self._data = [ ]
+        self._data = None

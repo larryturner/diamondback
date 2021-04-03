@@ -80,4 +80,4 @@ class IA( IEqual ) :
 
         super( ).__init__( )
 
-        self._a = [ ]
+        self._a = None

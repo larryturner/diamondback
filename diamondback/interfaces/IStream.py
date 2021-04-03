@@ -79,4 +79,4 @@ class IStream( IEqual ) :
 
         super( ).__init__( )
 
-        self._stream = [ ]
+        self._stream = None

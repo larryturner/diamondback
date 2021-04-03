@@ -78,4 +78,4 @@ class ICache( IEqual ) :
 
         super( ).__init__( )
 
-        self._cache = [ ]
+        self._cache = None

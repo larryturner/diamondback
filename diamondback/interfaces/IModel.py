@@ -77,4 +77,4 @@ class IModel( IEqual ) :
 
         super( ).__init__( )
 
-        self._model = [ ]
+        self._model = None

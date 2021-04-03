@@ -185,9 +185,8 @@ Diamondback is defined in subpackages :
     `IUrl <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl>`__,
     `IUser <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUser>`__,
     `IValid <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid>`__,
-    `IVersion <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion>`__,
     and
-    `IWrite <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IWrite>`__
+    `IVersion <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion>`__,
     interfaces facilitate mix-in design.
 
 `models <https://larryturner.github.io/diamondback/diamondback.models>`__

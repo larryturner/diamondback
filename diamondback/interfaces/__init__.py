@@ -41,4 +41,3 @@ from .IUrl import IUrl
 from .IUser import IUser
 from .IValid import IValid
 from .IVersion import IVersion
-from .IWrite import IWrite

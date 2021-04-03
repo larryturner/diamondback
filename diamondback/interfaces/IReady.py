@@ -78,4 +78,4 @@ class IReady( IEqual ) :
 
         super( ).__init__( )
 
-        self._ready = [ ]
+        self._ready = None

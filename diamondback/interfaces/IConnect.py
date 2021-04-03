@@ -78,4 +78,4 @@ class IConnect( IEqual ) :
 
         super( ).__init__( )
 
-        self._connect = [ ]
+        self._connect = None

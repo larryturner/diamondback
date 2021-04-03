@@ -78,4 +78,4 @@ class IDispose( IEqual ) :
 
         super( ).__init__( )
 
-        self._dispose = [ ]
+        self._dispose = None

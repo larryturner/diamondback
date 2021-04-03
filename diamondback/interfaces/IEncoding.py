@@ -78,4 +78,4 @@ class IEncoding( IEqual ) :
 
         super( ).__init__( )
 
-        self._encoding = [ ]
+        self._encoding = None

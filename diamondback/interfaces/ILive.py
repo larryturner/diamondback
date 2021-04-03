@@ -78,4 +78,4 @@ class ILive( IEqual ) :
 
         super( ).__init__( )
 
-        self._live = [ ]
+        self._live = None

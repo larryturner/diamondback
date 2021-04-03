@@ -78,4 +78,4 @@ class ICompress( IEqual ) :
 
         super( ).__init__( )
 
-        self._compress = [ ]
+        self._compress = None
