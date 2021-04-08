@@ -317,6 +317,16 @@ Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
 
+Tests
+~~~~~
+
+A pytest solution is provided to exercise and verify diamondback
+components.
+
+::
+
+    pytest --capture=no --verbose
+
 Documentation
 ~~~~~~~~~~~~~
 
@@ -324,16 +334,6 @@ Diamondback documentation is generated from the source, indexed, and searchable
 from GitHub.
 
 |GitHub|
-
-Tests
-~~~~~
-
-A simple pytest solution is provided to exercise and verify diamondback
-components.
-
-::
-
-    pytest --capture=no --verbose
 
 Author
 ~~~~~~

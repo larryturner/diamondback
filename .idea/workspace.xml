@@ -6,6 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.79-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.79-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.79.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.79.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +50,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cottonmouth-client" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -231,7 +235,11 @@
       <workItem from="1616698669210" duration="1174000" />
       <workItem from="1617047837090" duration="1241000" />
       <workItem from="1617052632783" duration="25399000" />
-      <workItem from="1617406868205" duration="2769000" />
+      <workItem from="1617406868205" duration="3366000" />
+      <workItem from="1617645964483" duration="3010000" />
+      <workItem from="1617737848097" duration="86000" />
+      <workItem from="1617819866938" duration="42000" />
+      <workItem from="1617820030918" duration="25000" />
     </task>
     <servers />
   </component>
