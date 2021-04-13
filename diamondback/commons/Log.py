@@ -7,14 +7,16 @@
 
         Log uses lazy initialization to coexist with loguru, and removes or
         creates loguru handlers only on explicit stream assignment or write.
-        In lazy initialization an existing default loguru handler with a stream
-        assignment of sys.stdout is removed, and a new loguru handler with a
-        stream assignment of sys.stdout and a level of 'INFO' is created.
+        In lazy initialization an existing default loguru handler, with an
+        identity equal to 0, and a stream assignment of sys.stdout is removed,
+        and a new loguru handler with a stream assignment of sys.stdout and a
+        level of 'INFO' is created.
 
-        In stream assignment subsequent to initialization, only a loguru
-        handler previously created by Log will be removed, as the design
-        pattern does not define multicast.  The ability to create and modify
-        externally defined loguru handlers, and multicast, is supported.
+        In stream assignments subsequent to initialization, only loguru
+        handlers previously created by Log will be removed, as the design
+        pattern does not support multicast.  The ability to create and modify
+        externally defined loguru handlers, multicast, and utilize any native
+        loguru functionality is supported.
 
         Levels defined by loguru are supported, including custom definitions.
         The level may be dynamically modified without creating, deleting, or

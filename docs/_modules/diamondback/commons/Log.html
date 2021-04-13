@@ -157,14 +157,16 @@
 
 <span class="sd">        Log uses lazy initialization to coexist with loguru, and removes or</span>
 <span class="sd">        creates loguru handlers only on explicit stream assignment or write.</span>
-<span class="sd">        In lazy initialization an existing default loguru handler with a stream</span>
-<span class="sd">        assignment of sys.stdout is removed, and a new loguru handler with a</span>
-<span class="sd">        stream assignment of sys.stdout and a level of &#39;INFO&#39; is created.</span>
+<span class="sd">        In lazy initialization an existing default loguru handler, with an</span>
+<span class="sd">        identity equal to 0, and a stream assignment of sys.stdout is removed,</span>
+<span class="sd">        and a new loguru handler with a stream assignment of sys.stdout and a</span>
+<span class="sd">        level of &#39;INFO&#39; is created.</span>
 
-<span class="sd">        In stream assignment subsequent to initialization, only a loguru</span>
-<span class="sd">        handler previously created by Log will be removed, as the design</span>
-<span class="sd">        pattern does not define multicast.  The ability to create and modify</span>
-<span class="sd">        externally defined loguru handlers, and multicast, is supported.</span>
+<span class="sd">        In stream assignments subsequent to initialization, only loguru</span>
+<span class="sd">        handlers previously created by Log will be removed, as the design</span>
+<span class="sd">        pattern does not support multicast.  The ability to create and modify</span>
+<span class="sd">        externally defined loguru handlers, multicast, and utilize any native</span>
+<span class="sd">        loguru functionality is supported.</span>
 
 <span class="sd">        Levels defined by loguru are supported, including custom definitions.</span>
 <span class="sd">        The level may be dynamically modified without creating, deleting, or</span>
