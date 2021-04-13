@@ -102,7 +102,7 @@ class Log( object ) :
 
     logger.remove( 0 )
 
-    _identity = logger.add( sys.stdout, level = 'TRACE', format = '{time:YYYY-MM-DDTHH:mm:ss.SSZ} {level} {message}' )
+    _identity = logger.add( sys.stdout, level = 'TRACE', format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     _level = logger.level( 'INFO' )
 

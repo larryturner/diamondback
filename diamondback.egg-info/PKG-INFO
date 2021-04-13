@@ -1,6 +1,6 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.79
+Version: 1.0.80
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -328,8 +328,8 @@ Description: Description
         Tests
         ~~~~~
         
-        A pytest solution is provided to exercise and verify diamondback
-        components.
+        A test solution is provided to exercise and verify components.  A nox
+        session is defined and pytest is used to execute unit and scenario tests.
         
         ::
         

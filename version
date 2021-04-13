@@ -234,3 +234,7 @@ Version     Date            Notes
 1.0.78      2021-03-30      Modified documentation.
 
 1.0.79      2021-04-01      Modified interface initializations.
+
+1.0.80      2021-04-13      Modified Log format.
+
+                            Modified tests.

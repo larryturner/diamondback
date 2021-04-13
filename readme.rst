@@ -320,8 +320,8 @@ visualize functionality.
 Tests
 ~~~~~
 
-A pytest solution is provided to exercise and verify diamondback
-components.
+A test solution is provided to exercise and verify components.  A nox
+session is defined and pytest is used to execute unit and scenario tests.
 
 ::
 
