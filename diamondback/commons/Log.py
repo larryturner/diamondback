@@ -156,7 +156,7 @@ class Log( object ) :
 
                 pass
 
-            Log._identity = logger.add( stream, level = 10, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
+            Log._identity = logger.add( stream, level = 0, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     @classmethod
     def write( cls, level : str, entry : any ) -> None :
