@@ -235,6 +235,4 @@ Version     Date            Notes
 
 1.0.79      2021-04-01      Modified interface initializations.
 
-1.0.80      2021-04-13      Modified Log format.
-
-                            Modified tests.
+1.0.80      2021-04-13      Modified Log format and added lazy initialization.

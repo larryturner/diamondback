@@ -5,26 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_commons.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_filters.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/unit/test_transforms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/index.doctree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/commons/Log.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/noxfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/noxfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/objects.inv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/commons/test_commons.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/filters/test_filters.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/models/test_models.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/transforms/test_transforms.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/version" beforeDir="false" afterPath="$PROJECT_DIR$/version" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +238,7 @@
       <workItem from="1617737848097" duration="86000" />
       <workItem from="1617819866938" duration="42000" />
       <workItem from="1617820030918" duration="25000" />
-      <workItem from="1618325195086" duration="4040000" />
+      <workItem from="1618325195086" duration="5562000" />
     </task>
     <servers />
   </component>

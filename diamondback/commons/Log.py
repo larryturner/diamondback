@@ -100,11 +100,7 @@ class Log( object ) :
 
     numpy.set_printoptions( formatter = { 'float' : '{:.6f}'.format } )
 
-    logger.remove( 0 )
-
-    _identity = logger.add( sys.stdout, level = 'TRACE', format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
-
-    _level = logger.level( 'INFO' )
+    _identity, _level = 0, logger.level( 'INFO' )
 
     _rlock = RLock( )
 
@@ -146,8 +142,7 @@ class Log( object ) :
 
             logger.remove( Log._identity )
 
-            Log._identity = logger.add( stream, level = 'TRACE', format = '{time:YYYY-MM-DDTHH:mm:ss.SSZ} {level} {message}' )
-
+            Log._identity = logger.add( stream, level = 10, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     @classmethod
     def write( cls, level : str, entry : any ) -> None :
@@ -166,6 +161,10 @@ class Log( object ) :
         with ( Log._rlock ) :
 
             try :
+
+                if ( not Log._identity ) :
+
+                    Log.stream( sys.stdout )
 
                 level = logger.level( level.upper( ) )
 
