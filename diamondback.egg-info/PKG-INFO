@@ -55,8 +55,8 @@ Description: Description
         -   `Log <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log>`__
             singleton instance which formats and writes log entries with a specified
             level and stream using the loguru package. Log entries contain an ISO-8601
-            datetime and level.  Dynamic stream redirection and level specification
-            are supported.
+            datetime and level.  Log uses lazy initialization to coexist with loguru.
+            Dynamic stream redirection and level specification are supported.
         
         -   `RestClient <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.RestClient>`__
             instances define a client for simple REST service requests using the

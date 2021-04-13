@@ -5,10 +5,16 @@
         datetime and level.  Dynamic stream redirection and level specification
         are supported.
 
-        An internal loguru handler is created on initialization with a stream
-        redirection to sys.stdout and a level of 'INFO'.  Stream assignment
-        deletes the existing internal loguru handler and creates a new
-        instance.
+        Log uses lazy initialization to coexist with loguru, and removes or
+        creates loguru handlers only on explicit stream assignment or write.
+        In lazy initialization an existing default loguru handler with a stream
+        assignment of sys.stdout is removed, and a new loguru handler with a
+        stream assignment of sys.stdout and a level of 'INFO' is created.
+
+        In stream assignment subsequent to initialization, only a loguru
+        handler previously created by Log will be removed, as the design
+        pattern does not define multicast.  The ability to create and modify
+        externally defined loguru handlers, and multicast, is supported.
 
         Levels defined by loguru are supported, including custom definitions.
         The level may be dynamically modified without creating, deleting, or
@@ -140,7 +146,13 @@ class Log( object ) :
 
                 raise ValueError( f'Stream = {stream}' )
 
-            logger.remove( Log._identity )
+            try :
+
+                logger.remove( Log._identity )
+
+            except :
+
+                pass
 
             Log._identity = logger.add( stream, level = 10, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 

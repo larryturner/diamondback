@@ -155,10 +155,16 @@
 <span class="sd">        datetime and level.  Dynamic stream redirection and level specification</span>
 <span class="sd">        are supported.</span>
 
-<span class="sd">        An internal loguru handler is created on initialization with a stream</span>
-<span class="sd">        redirection to sys.stdout and a level of &#39;INFO&#39;.  Stream assignment</span>
-<span class="sd">        deletes the existing internal loguru handler and creates a new</span>
-<span class="sd">        instance.</span>
+<span class="sd">        Log uses lazy initialization to coexist with loguru, and removes or</span>
+<span class="sd">        creates loguru handlers only on explicit stream assignment or write.</span>
+<span class="sd">        In lazy initialization an existing default loguru handler with a stream</span>
+<span class="sd">        assignment of sys.stdout is removed, and a new loguru handler with a</span>
+<span class="sd">        stream assignment of sys.stdout and a level of &#39;INFO&#39; is created.</span>
+
+<span class="sd">        In stream assignment subsequent to initialization, only a loguru</span>
+<span class="sd">        handler previously created by Log will be removed, as the design</span>
+<span class="sd">        pattern does not define multicast.  The ability to create and modify</span>
+<span class="sd">        externally defined loguru handlers, and multicast, is supported.</span>
 
 <span class="sd">        Levels defined by loguru are supported, including custom definitions.</span>
 <span class="sd">        The level may be dynamically modified without creating, deleting, or</span>
@@ -290,7 +296,13 @@
 
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
-            <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
+            <span class="k">try</span> <span class="p">:</span>
+
+                <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
+
+            <span class="k">except</span> <span class="p">:</span>
+
+                <span class="k">pass</span>
 
             <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;blue&gt;{time:YYYY-MM-DDTHH:mm:ss.SSZ}&lt;/blue&gt; &lt;level&gt;</span><span class="si">{level}</span><span class="s1">&lt;/level&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
 
