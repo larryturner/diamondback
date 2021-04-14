@@ -350,7 +350,7 @@ Release
 
 `Version <https://github.com/larryturner/diamondback/blob/master/version>`__
 
-Copyright (c) 2018, Larry Turner, Schneider Electric. All rights reserved.
+© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 .. |Binder| image:: ./images/binder.png
    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb

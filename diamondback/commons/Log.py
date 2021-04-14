@@ -18,9 +18,10 @@
         externally defined loguru handlers, multicast, and utilize any native
         loguru functionality is supported.
 
-        Levels defined by loguru are supported, including custom definitions.
-        The level may be dynamically modified without creating, deleting, or
-        modifying a loguru handler.
+        Levels defined by loguru are supported, including custom definitions,
+        which may have an associated numerical value greater than or equal to
+        zero.  The level may be dynamically modified without creating,
+        deleting, or modifying a loguru handler.
 
         Singleton.
 
@@ -84,7 +85,7 @@
 
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
 
-        Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+        © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
 
@@ -174,11 +175,11 @@ class Log( object ) :
 
         with ( Log._rlock ) :
 
+            if ( not Log._identity ) :
+
+                Log.stream( sys.stdout )
+
             try :
-
-                if ( not Log._identity ) :
-
-                    Log.stream( sys.stdout )
 
                 level = logger.level( level.upper( ) )
 

@@ -1,11 +1,11 @@
 Metadata-Version: 1.2
 Name: diamondback
-Version: 1.0.81
+Version: 1.0.82
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
 Author-email: larry.turner@se.com
-License: BSD-3C.  Copyright (c) 2018, Larry Turner, Schneider Electric.  All rights reserved.
+License: BSD-3C.  © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 Description: Description
         ~~~~~~~~~~~
         
@@ -358,7 +358,7 @@ Description: Description
         
         `Version <https://github.com/larryturner/diamondback/blob/master/version>`__
         
-        Copyright (c) 2018, Larry Turner, Schneider Electric. All rights reserved.
+        Â© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
         
         .. |Binder| image:: ./images/binder.png
            :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
