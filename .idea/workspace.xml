@@ -281,7 +281,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/tests/unit" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -293,6 +293,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\tests\unit" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\interfaces" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback" />
       <recent name="C:\Users\sesa14073\Development\Languages\Python\diamondback\diamondback\filters" />
@@ -473,7 +474,7 @@
       <workItem from="1617820030918" duration="25000" />
       <workItem from="1618325195086" duration="11823000" />
       <workItem from="1618413476558" duration="1570000" />
-      <workItem from="1618415849037" duration="1462000" />
+      <workItem from="1618415849037" duration="1557000" />
     </task>
     <servers />
   </component>
