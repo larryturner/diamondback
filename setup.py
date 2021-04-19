@@ -78,7 +78,7 @@ setup( name = 'diamondback',
                     'serial',
                     'transform',
                     'wavelet' ],
-       packages = find_packages( ),
+       packages = find_packages( exclude = [ 'tests' ] ),
        python_requires = '>= 3.7',
        license = 'BSD-3C.  © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.' )
 
