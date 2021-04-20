@@ -1,3 +1,4 @@
+license
 setup.py
 diamondback/__init__.py
 diamondback.egg-info/PKG-INFO
