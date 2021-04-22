@@ -249,6 +249,10 @@ Dependencies
 
 Diamondback depends upon external packages :
 
+::
+
+    pip install diamondback
+
 -   `dateutil <https://github.com/dateutil/dateutil>`__
 
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
@@ -263,7 +267,14 @@ Diamondback depends upon external packages :
 
 -   `scipy <https://github.com/scipy/scipy>`__
 
-Diamondback jupyter notebook depends upon additional external packages :
+Diamondback elective documentation, test, and visualization functionality
+depends upon additional external packages :
+
+::
+
+    pip install diamondback[ full ]
+
+    pip install --requirement requirements.txt
 
 -   `ipython <https://github.com/ipython/ipython>`__
 
@@ -273,7 +284,17 @@ Diamondback jupyter notebook depends upon additional external packages :
 
 -   `matplotlib <https://github.com/matplotlib/matplotlib>`__
 
+-   `nox <https://github.com/theacodes/nox>`__
+
 -   `pillow <https://github.com/python-pillow/pillow>`__
+
+-   `pytest <https://github.com/pytest-dev/pytest>`__
+
+-   `sphinx <https://github.com/sphinx-doc/sphinx>`__
+
+-   `sphinx-pydantic <https://github.com/zsailer/sphinx-pydantic>`__
+
+-   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`__
 
 Installation
 ~~~~~~~~~~~~
@@ -348,7 +369,7 @@ License
 Release
 ~~~~~~~
 
-`Version <https://github.com/larryturner/diamondback/blob/master/version>`__
+`Release <https://github.com/larryturner/diamondback/blob/master/release.rst>`__
 
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 

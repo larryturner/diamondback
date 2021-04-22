@@ -5,3 +5,15 @@ pandas>=1.2.4
 python-dateutil>=2.8.1
 requests>=2.25.1
 scipy>=1.6.2
+
+[full]
+ipython>=7.22.0
+ipywidgets>=7.6.3
+jupyter>=1.0.0
+matplotlib>=3.4.1
+nox>=2020.12.31
+pillow>=8.2.0
+pytest>=6.2.3
+sphinx>=3.5.4
+sphinx-pydantic>=0.1.1
+sphinx-rtd-theme>=0.5.2
