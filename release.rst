@@ -427,3 +427,8 @@ Release
 -------------------
 
 -   Modified documentation.
+
+1.0.83 - 2021-04-23
+-------------------
+
+-   Modified requirements.
