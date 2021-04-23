@@ -272,7 +272,7 @@
 
         <span class="n">_classification</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Bessel&#39;</span><span class="p">,</span> <span class="s1">&#39;Butterworth&#39;</span><span class="p">,</span> <span class="s1">&#39;Chebyshev&#39;</span> <span class="p">)</span>
 
-        <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="IirFilter.Factory._evaluate"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.Factory._evaluate">[docs]</a>        <span class="nd">@staticmethod</span>
         <span class="k">def</span> <span class="nf">_evaluate</span><span class="p">(</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
 
             <span class="sd">&quot;&quot;&quot; Evaluates coefficients.</span>
@@ -336,7 +336,7 @@
 
             <span class="n">b</span> <span class="o">*=</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">a</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
 
-            <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+            <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span></div>
 
 <div class="viewcode-block" id="IirFilter.Factory.instance"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.IirFilter.IirFilter.Factory.instance">[docs]</a>        <span class="nd">@classmethod</span>
         <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">typ</span> <span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">count</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">complement</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">gain</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
