@@ -1,4 +1,3 @@
-.env
 noxfile.py
 .nox/
 .pytest_cache/
