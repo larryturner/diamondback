@@ -242,6 +242,8 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
 
+            a, b = [ ], [ ]
+
             for ii in range( 0, index ) :
 
                 u, v = IirFilter.Factory._evaluate( classification, zeta * frequency, order )
