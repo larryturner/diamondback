@@ -324,7 +324,7 @@ repository, or installed from GitHub and run on a local system.
 
 **Remote**
 
-.. image:: https://img.shields.io/badge/binder-lightblue
+.. image:: https://img.shields.io/badge/binder-blue
     :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
 
 **Local**
@@ -359,7 +359,7 @@ Documentation
 Diamondback documentation is generated from the source, indexed, and searchable
 from GitHub pages.
 
-.. image:: https://img.shields.io/badge/github-lightblue
+.. image:: https://img.shields.io/badge/github-blue
     :target: https://larryturner.github.io/diamondback/
 
 Author

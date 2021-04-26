@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.83-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.83-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.83.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.83.tar.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/_modules/noxfile.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/noxfile.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/binder.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/images/github.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -249,7 +243,7 @@
       <workItem from="1618415849037" duration="9085000" />
       <workItem from="1619117332272" duration="5724000" />
       <workItem from="1619130566408" duration="13930000" />
-      <workItem from="1619223739272" duration="11699000" />
+      <workItem from="1619223739272" duration="12338000" />
     </task>
     <servers />
   </component>
