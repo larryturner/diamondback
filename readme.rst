@@ -3,8 +3,6 @@
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=version
     :target: https://pypi.org/larryturner/diamondback
 .. image:: https://img.shields.io/badge/license-BSD-black
-.. image:: https://img.shields.io/github/license/larryturner/diamondback.svg
-    :target: https://github.com/larryturner/diamondback/blob/master/license
 .. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi
     :target: https://pypi.org/project/diamondback/
 
