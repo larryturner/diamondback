@@ -324,7 +324,8 @@ repository, or installed from GitHub and run on a local system.
 
 **Remote**
 
-|Binder|
+.. image:: https://img.shields.io/badge/binder-lightblue
+    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
 
 **Local**
 
@@ -356,9 +357,10 @@ Documentation
 ~~~~~~~~~~~~~
 
 Diamondback documentation is generated from the source, indexed, and searchable
-from GitHub.
+from GitHub pages.
 
-|GitHub|
+.. image:: https://img.shields.io/badge/github-lightblue
+    :target: https://larryturner.github.io/diamondback/
 
 Author
 ~~~~~~
@@ -376,8 +378,3 @@ Release
 `Release <https://github.com/larryturner/diamondback/blob/master/changelog.rst>`__
 
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
-
-.. |Binder| image:: ./images/binder.png
-   :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
-.. |GitHub| image:: ./images/github.png
-   :target: https://larryturner.github.io/diamondback/
