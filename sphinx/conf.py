@@ -1,6 +1,6 @@
 """ **Description**
 
-        Diamondback sphinx documentation generation.
+        Diamondback sphinx documentation configuration.
 
     **License**
 

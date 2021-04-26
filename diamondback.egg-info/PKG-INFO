@@ -6,26 +6,31 @@ Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
 Author-email: larry.turner@se.com
 License: BSD-3C.  © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
-Description: Description
+Description: .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg
+            :target: https://github.com/larryturner/diamondback
+        .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=version
+            :target: https://pypi.org/larryturner/diamondback
+        .. image:: https://img.shields.io/badge/license-BSD-black
+        .. image:: https://img.shields.io/github/license/larryturner/diamondback.svg
+            :target: https://github.com/larryturner/diamondback/blob/master/license
+        .. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi
+            :target: https://pypi.org/project/diamondback/
+        
+        Description
         ~~~~~~~~~~~
         
         Diamondback is a package which provides Digital Signal Processing
         ( DSP ) solutions, organized in the form of commons, filters,
         interfaces, models, and transforms.
         
-        Diamondback was designed to complement Artificial Intelligence ( AI )
-        frameworks, by defining components which analyze, filter, extract,
-        model, and transform data into forms which are useful in applications
-        including pattern recognition, feature extraction, and optimization.
+        Diamondback complements Artificial Intelligence ( AI ) frameworks, by
+        defining components which analyze, filter, extract, model, and transform
+        data into forms which are useful in applications including pattern
+        recognition, feature extraction, and optimization.
         
-        Diamondback was also designed to provide utility in the context of
-        classical signal processing solutions including communications,
-        modeling, signal identification and extraction, and noise cancellation.
-        
-        Documentation is provided in HTML form, extracted from docstrings in the
-        diamondback package source, and a jupyter notebook is provided to
-        dynamically construct and exercise diamondback components to facilitate
-        experimentation and visualization.
+        Diamondback also facilitates classical signal processing solutions
+        including communications, modeling, signal identification and extraction,
+        and noise cancellation.
         
         Details
         ~~~~~~~
@@ -377,7 +382,7 @@ Description: Description
         Release
         ~~~~~~~
         
-        `Release <https://github.com/larryturner/diamondback/blob/master/release.rst>`__
+        `Release <https://github.com/larryturner/diamondback/blob/master/changelog.rst>`__
         
         Â© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
         
