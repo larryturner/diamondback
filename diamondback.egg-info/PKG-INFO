@@ -10,10 +10,10 @@ Description: .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg
             :target: https://github.com/larryturner/diamondback
         .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=version
             :target: https://pypi.org/larryturner/diamondback
-        .. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi%20downloads&color=brightgreen
-            :target: https://pypi.org/project/diamondback/
-        .. image:: https://img.shields.io/badge/license-BSD%203C-black
+        .. image:: https://img.shields.io/badge/license-BSD%203C-lightgray
             :target: https://github.com/larryturner/diamondback/blob/master/license
+        .. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi%20downloads&color=lightgray
+            :target: https://pypi.org/project/diamondback/
         
         Description
         ~~~~~~~~~~~
