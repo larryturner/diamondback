@@ -2,9 +2,10 @@
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=version
     :target: https://pypi.org/larryturner/diamondback
-.. image:: https://img.shields.io/badge/license-BSD-black
-.. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi
+.. image:: https://img.shields.io/pypi/dm/diamondback.svg?label=pypi%20downloads&color=brightgreen
     :target: https://pypi.org/project/diamondback/
+.. image:: https://img.shields.io/badge/license-BSD%203C-black
+    :target: https://github.com/larryturner/diamondback/blob/master/license
 
 Description
 ~~~~~~~~~~~
