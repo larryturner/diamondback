@@ -86,7 +86,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
             value = True
 
-        except :
+        except Exception :
 
             value = False
 
@@ -102,7 +102,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
             value = requests.request( method = 'get', url = self.url + '/ready', proxies = self.proxy, timeout = self.timeout ).json( )
 
-        except :
+        except Exception :
 
             value = False
 
@@ -118,7 +118,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
             value = requests.request( method = 'get', url = self.url + '/version', proxies = self.proxy, timeout = self.timeout ).json( )
 
-        except :
+        except Exception :
 
             value = ''
 

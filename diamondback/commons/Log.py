@@ -129,7 +129,7 @@ class Log( object ) :
 
                 Log._level = logger.level( level.upper( ) )
 
-            except :
+            except Exception :
 
                 raise ValueError( f'Level = {level}' )
 
@@ -153,7 +153,7 @@ class Log( object ) :
 
                 logger.remove( Log._identity )
 
-            except :
+            except Exception :
 
                 pass
 
@@ -183,7 +183,7 @@ class Log( object ) :
 
                 level = logger.level( level.upper( ) )
 
-            except :
+            except Exception :
 
                 raise ValueError( f'Level = {level}' )
 
@@ -205,6 +205,6 @@ class Log( object ) :
 
                     logger.log( level.name, entry )
 
-                except :
+                except Exception :
 
                     pass

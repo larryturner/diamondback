@@ -52,7 +52,7 @@ class IUser( IEqual ) :
 
             value = getpass.getuser( )
 
-        except :
+        except Exception :
 
             value = ''
 

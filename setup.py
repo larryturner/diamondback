@@ -26,7 +26,7 @@ try :
 
         _readme = fin.read( )
 
-except :
+except Exception :
 
     _readme = ''
 

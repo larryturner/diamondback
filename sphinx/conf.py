@@ -13,7 +13,7 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-22.
 
     **Definition**
-    
+
 """
 
 import os
