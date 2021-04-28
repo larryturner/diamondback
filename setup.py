@@ -17,10 +17,15 @@
 """
 
 from setuptools import find_packages, setup
-import diamondback
+import os
+import re
 
 
 try :
+
+    with open( 'kalatoa' + os.path.sep + '__init__.py' ) as fin :
+
+        _version = re.findall( r'\d{1,4}.\d{1,4}.\d{1,4}', fin.read( ) )[ 0 ]
 
     with open( 'readme.rst', 'r' ) as fin :
 
@@ -32,7 +37,7 @@ except Exception :
 
 
 setup( name = 'diamondback',
-       version = diamondback.__version__,
+       version = _version,
        author = 'Larry Turner',
        author_email = 'larry.turner@se.com',
        url = 'https://github.com/larryturner/diamondback',
@@ -58,6 +63,7 @@ setup( name = 'diamondback',
                                      'nox >= 2020.12.31',
                                      'pillow >= 8.2.0',
                                      'pytest >= 6.2.3',
+                                     'regex >= 2021.4.4',
                                      'sphinx >= 3.5.4',
                                      'sphinx-pydantic >= 0.1.1',
                                      'sphinx-rtd-theme >= 0.5.2' ] },
@@ -95,7 +101,7 @@ setup( name = 'diamondback',
                     'serial',
                     'transform',
                     'wavelet' ],
-       packages = find_packages( exclude = [ 'tests' ] ),
+       packages = find_packages( exclude = [ 'tests', 'tests.*' ] ),
        python_requires = '>= 3.6',
        license = 'BSD-3C.  © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.' )
 
