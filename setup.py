@@ -23,7 +23,7 @@ import re
 
 try :
 
-    with open( 'kalatoa' + os.path.sep + '__init__.py' ) as fin :
+    with open( 'diamondback' + os.path.sep + '__init__.py' ) as fin :
 
         _version = re.findall( r'\d{1,4}.\d{1,4}.\d{1,4}', fin.read( ) )[ 0 ]
 
