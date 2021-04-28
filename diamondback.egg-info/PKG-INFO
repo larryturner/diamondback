@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: diamondback
-Version: 1.0.83
+Version: 1.0.84
 Summary: Diamondback digital signal processing package.
 Home-page: https://github.com/larryturner/diamondback
 Author: Larry Turner
@@ -264,8 +264,6 @@ Description: .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?c
         ::
         
             pip install diamondback
-        
-        -   `dateutil <https://github.com/dateutil/dateutil>`__
         
         -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
         

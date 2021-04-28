@@ -257,8 +257,6 @@ Diamondback depends upon external packages :
 
     pip install diamondback
 
--   `dateutil <https://github.com/dateutil/dateutil>`__
-
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`__
 
 -   `loguru <https://github.com/delgan/loguru>`__

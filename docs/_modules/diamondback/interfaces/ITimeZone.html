@@ -156,9 +156,9 @@
 
 <span class="sd">        ::</span>
 
-<span class="sd">            from dateutil import tz</span>
 <span class="sd">            from diamondback import ITimeZone</span>
 <span class="sd">            import datetime</span>
+<span class="sd">            import pytz</span>
 
 
 <span class="sd">            class Test( ITimeZone ) :</span>
@@ -171,7 +171,7 @@
 
 <span class="sd">            test = Test( )</span>
 
-<span class="sd">            test.timezone = tz.gettz( &#39;US/Eastern&#39; )</span>
+<span class="sd">            test.timezone = pytz.timezone( &#39;US/Eastern&#39; )</span>
 
 <span class="sd">    **License**</span>
 

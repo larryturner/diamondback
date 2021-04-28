@@ -6,9 +6,9 @@
 
         ::
 
-            from dateutil import tz
             from diamondback import ITimeZone
             import datetime
+            import pytz
 
 
             class Test( ITimeZone ) :
@@ -21,7 +21,7 @@
 
             test = Test( )
 
-            test.timezone = tz.gettz( 'US/Eastern' )
+            test.timezone = pytz.timezone( 'US/Eastern' )
 
     **License**
 

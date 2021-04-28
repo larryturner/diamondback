@@ -432,3 +432,8 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified requirements.
+
+1.0.84 - 2021-04-28
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified requirements to remove dateutil.
