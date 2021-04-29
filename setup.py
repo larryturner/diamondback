@@ -25,7 +25,7 @@ try :
 
     with open( 'diamondback' + os.path.sep + '__init__.py' ) as fin :
 
-        _version = re.findall( r'\d{1,4}.\d{1,4}.\d{1,4}', fin.read( ) )[ 0 ]
+        _version = re.findall( r'\d{1,3}.\d{1,3}.\d{1,3}', fin.read( ) )[ 0 ]
 
     with open( 'readme.rst', 'r' ) as fin :
 
