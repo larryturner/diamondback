@@ -29,7 +29,9 @@ try :
 
     with open( 'readme.rst', 'r' ) as fin :
 
-        _readme = fin.read( )
+        x = fin.read( )
+
+        _readme = x[ x.index( 'Diamondback' ) : x.index( 'Details' ) ]
 
 except Exception :
 
