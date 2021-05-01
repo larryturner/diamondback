@@ -438,7 +438,7 @@ Release
 
 -   Modified requirements to remove dateutil.
 
-1.0.85 - 2021-05-02
+1.0.85 - 2021-05-01
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified typing and cleaned declarations.
