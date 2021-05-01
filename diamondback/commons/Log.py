@@ -100,6 +100,7 @@ from threading import RLock
 import numpy
 import os
 import sys
+import typing
 
 
 class Log( object ) :
@@ -134,13 +135,13 @@ class Log( object ) :
                 raise ValueError( f'Level = {level}' )
 
     @classmethod
-    def stream( cls, stream : any ) -> None :
+    def stream( cls, stream : typing.Any ) -> None :
 
         """ Stream.
 
             Arguments :
 
-                stream : ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
+                stream : typing.Any, hasattr( 'write' ) - in ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
         """
 
         with ( Log._rlock ) :
@@ -160,7 +161,7 @@ class Log( object ) :
             Log._identity = logger.add( stream, level = 0, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     @classmethod
-    def write( cls, level : str, entry : any ) -> None :
+    def write( cls, level : str, entry : typing.Any ) -> None :
 
         """ Formats and writes log entries using the loguru package with a
             specified level and stream.  Log entries contain an ISO-8601
@@ -170,7 +171,7 @@ class Log( object ) :
 
                 level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
 
-                entry : any.
+                entry : typing.Any.
         """
 
         with ( Log._rlock ) :

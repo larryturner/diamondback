@@ -39,6 +39,7 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import datetime
+import typing
 
 
 class ITimeZone( IEqual ) :
@@ -63,13 +64,13 @@ class ITimeZone( IEqual ) :
 
         self._timezone = timezone
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

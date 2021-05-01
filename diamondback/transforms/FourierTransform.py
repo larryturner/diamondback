@@ -14,7 +14,7 @@
 
         .. math::
 
-            x_{n} = \\frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\\frac{\ j\ \pi\ k \ n}{N}} = \\frac{N}{b_{n}}\ ifft(\ y_{k}\ )
+            x_{n} = \\frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\\frac{\ j\ \pi\ k \ n}{N}} = \\frac{N}{b_{n}}\ ifft(\ y_{k}\ )  # noqa: W605
 
         A Fourier transform is normalized by incident signal length and forms
         a contiguous sequence corresponding to a linear and increasing
@@ -22,7 +22,7 @@
 
         .. math::
 
-            f_{k} = -1\ + \ 2\ \\frac{k}{N}
+            f_{k} = -1\ + \ 2\ \\frac{k}{N}  # noqa: W605
 
         An incident signal length is inversely proportional to a normalized
         frequency resolution.
@@ -71,7 +71,7 @@ class FourierTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : any, b : any, inverse : bool = False ) -> typing.Tuple[ any, any ] :
+    def transform( x : typing.Union[ typing.List, numpy.ndarray ], b : typing.Union[ typing.List, numpy.ndarray ], inverse : bool = False ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             complex discrete-frequency reference signal, or performs an
@@ -81,9 +81,9 @@ class FourierTransform( object ) :
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
 
                 inverse : bool.
 

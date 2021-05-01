@@ -8,11 +8,12 @@
 
             from diamondback import IReset, IS
             import numpy
+            import typing
 
 
             class Test( IReset, IS ) :
 
-                def reset( self, x : any ) -> None :
+                def reset( self, x : typing.Any ) -> None :
 
                     self.s[ : ] = x
 
@@ -37,6 +38,7 @@
 """
 
 from abc import ABC, abstractmethod
+import typing
 
 
 class IReset( ABC ) :
@@ -44,7 +46,7 @@ class IReset( ABC ) :
     """ Reset interface.
     """
 
-    def __init__( self ) -> any :
+    def __init__( self ) -> None :
 
         """ Initialize.
         """
@@ -52,7 +54,7 @@ class IReset( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def reset( self, x : any ) -> None :
+    def reset( self, x : typing.Any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

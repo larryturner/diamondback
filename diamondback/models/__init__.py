@@ -1,2 +1,2 @@
-from .DiversityModel import DiversityModel
-from .PrincipalComponentModel import PrincipalComponentModel
+from .DiversityModel import DiversityModel  # noqa: F401
+from .PrincipalComponentModel import PrincipalComponentModel  # noqa: F401

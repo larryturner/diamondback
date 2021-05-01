@@ -16,7 +16,7 @@
 
         .. math::
 
-            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }
+            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }  # noqa: W605
 
         .. math::
 
@@ -28,7 +28,7 @@
 
         .. math::
 
-            f_{k} = -1\ + \ 2\ \\frac{k}{N}
+            f_{k} = -1\ + \ 2\ \\frac{k}{N}  # noqa: W605
 
         An incident signal length is inversely proportional to a normalized
         frequency resolution.
@@ -78,16 +78,16 @@ class PowerSpectrumTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : any, b : any, index : int ) -> typing.Tuple[ any, any ] :
+    def transform( x : typing.Union[ typing.List, numpy.ndarray ], b : typing.Union[ typing.List, numpy.ndarray ], index : int ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             real discrete-frequency reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
 
                 index : int.
 

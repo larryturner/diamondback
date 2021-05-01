@@ -37,6 +37,7 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import numpy
+import typing
 
 
 class IResolution( IEqual ) :
@@ -61,13 +62,13 @@ class IResolution( IEqual ) :
 
         self._resolution = resolution
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

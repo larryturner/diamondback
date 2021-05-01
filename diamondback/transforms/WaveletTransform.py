@@ -19,11 +19,11 @@
 
         .. math::
 
-            y_{i,0:\\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) & y_{i,\\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
+            y_{i,0:\\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) & y_{i,\\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) & i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605
 
         .. math::
 
-            y_{0:\\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) & y_{\\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
+            y_{0:\\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) & y_{\\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) & j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605
 
         Synthesis reconstructs an incident signal from a specified operation
         count, scaling and upsampling alternate samples, applying complementary
@@ -37,11 +37,11 @@
 
         .. math::
 
-            x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{0:\\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{\\frac{R}{2}:R-1,j},\ 2\ ) )\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
+            x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{0:\\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{\\frac{R}{2}:R-1,j},\ 2\ ) )\ ) & j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605
 
         .. math::
 
-            x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{i,0:\\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{i,\\frac{C}{2}:C-1},\ 2\ )\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
+            x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{i,0:\\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{i,\\frac{C}{2}:C-1},\ 2\ )\ ) & i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605
 
         A factory is defined to facilitate construction of an instance, defining an
         analysis filter set and a synthesis filter set of a specified order, to
@@ -98,6 +98,7 @@ from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IEqual import IEqual
 import numpy
+import typing
 
 
 class WaveletTransform( IB, IEqual ) :
@@ -192,7 +193,7 @@ class WaveletTransform( IB, IEqual ) :
                                                  -0.00080435893437, 0.00459317358270, 0.00005703608433, -0.00045932942045 ] ) } }
 
         @classmethod
-        def instance( cls, typ : type, classification : str, order : int ) -> any :
+        def instance( cls, typ : type, classification : str, order : int ) -> typing.Any :
 
             """ Constructs an instance.
 
@@ -225,13 +226,13 @@ class WaveletTransform( IB, IEqual ) :
 
             return typ( b[ order ] )
 
-    def __init__( self, b : any ) -> None :
+    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -270,7 +271,7 @@ class WaveletTransform( IB, IEqual ) :
 
                 self.b[ kk ][ 1 ][ : ] = numpy.flip( self.b[ kk ][ 1 ], 0 )
 
-    def transform( self, x : any, count : int, inverse : bool = False ) -> any :
+    def transform( self, x : typing.Union[ typing.List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
 
         """ Transforms an incident signal and produces a reference signal,
             performing analysis or synthesis operations.  Incident and reference
@@ -279,7 +280,7 @@ class WaveletTransform( IB, IEqual ) :
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
                 count : int.
 

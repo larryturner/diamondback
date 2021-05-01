@@ -33,7 +33,7 @@
 
         .. math::
 
-            y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}
+            y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}  # noqa: W605
 
     **Example**
 
@@ -67,6 +67,7 @@
 
 import math
 import numpy
+import typing
 
 
 class ComplexTransform( object ) :
@@ -81,14 +82,14 @@ class ComplexTransform( object ) :
     _gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
-    def transform( cls, x : any, neutral : bool = True ) -> any :
+    def transform( cls, x : typing.Union[ typing.List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
 
         """ Transforms a real three-phase or complex incident signal into a complex
             or three-phase reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
                 neutral : bool.
 

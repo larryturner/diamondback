@@ -38,6 +38,7 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import numpy
+import typing
 
 
 class IB( IEqual ) :
@@ -48,23 +49,23 @@ class IB( IEqual ) :
     @property
     def b( self ) :
 
-        """ b : numpy.ndarray - forward coefficient.
+        """ b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
         """
 
         return self._b
 
     @b.setter
-    def b( self, b : any ) :
+    def b( self, b : typing.Union[ typing.List, numpy.ndarray ] ) :
 
         self._b = b
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

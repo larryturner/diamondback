@@ -46,6 +46,7 @@
 
 from diamondback.filters.FirFilter import FirFilter
 import numpy
+import typing
 
 
 class PidFilter( FirFilter ) :
@@ -70,13 +71,13 @@ class PidFilter( FirFilter ) :
 
         self._limit = limit
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -85,13 +86,13 @@ class PidFilter( FirFilter ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.limit, other.limit ) ) )
 
-    def __init__( self, b : any ) -> None :
+    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -106,13 +107,13 @@ class PidFilter( FirFilter ) :
 
         self._limit = float( 'inf' )
 
-    def filter( self, x : any, d : any = None ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

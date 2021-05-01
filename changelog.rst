@@ -437,3 +437,10 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified requirements to remove dateutil.
+
+1.0.85 - 2021-05-02
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified typing and cleaned declarations.
+
+-   Removed IUser.

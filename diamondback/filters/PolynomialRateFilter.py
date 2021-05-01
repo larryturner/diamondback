@@ -58,6 +58,7 @@
 
 from diamondback.interfaces.IRate import IRate
 import numpy
+import typing
 
 
 class PolynomialRateFilter( IRate ) :
@@ -98,13 +99,13 @@ class PolynomialRateFilter( IRate ) :
 
         IRate.rate.fset( self, rate )
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -134,13 +135,13 @@ class PolynomialRateFilter( IRate ) :
 
         self.rate = rate
 
-    def filter( self, x : any ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

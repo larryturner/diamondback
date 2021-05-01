@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IConnect( IEqual ) :
@@ -46,23 +47,23 @@ class IConnect( IEqual ) :
     @property
     def connect( self ) :
 
-        """ connect : any.
+        """ connect : typing.Any.
         """
 
         return self._connect
 
     @connect.setter
-    def connect( self, connect : any ) :
+    def connect( self, connect : typing.Any ) :
 
         self._connect = connect
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

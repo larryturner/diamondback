@@ -36,6 +36,7 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import numpy
+import typing
 
 
 class ILatency( IEqual ) :
@@ -60,13 +61,13 @@ class ILatency( IEqual ) :
 
         self._latency = latency
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

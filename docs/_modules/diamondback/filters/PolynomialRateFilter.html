@@ -208,6 +208,7 @@
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="kn">import</span> <span class="n">IRate</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">typing</span>
 
 
 <div class="viewcode-block" id="PolynomialRateFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter">[docs]</a><span class="k">class</span> <span class="nc">PolynomialRateFilter</span><span class="p">(</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
@@ -248,13 +249,13 @@
 
         <span class="n">IRate</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">fset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="PolynomialRateFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolynomialRateFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : any.</span>
+<span class="sd">                other : typing.Any.</span>
 
 <span class="sd">            Returns :</span>
 
@@ -284,13 +285,13 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
 
-<div class="viewcode-block" id="PolynomialRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolynomialRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolynomialRateFilter.PolynomialRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
+<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 

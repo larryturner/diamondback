@@ -36,6 +36,8 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import os
+import typing
+
 
 class IPath( IEqual ) :
 
@@ -63,13 +65,13 @@ class IPath( IEqual ) :
 
         self._path = path
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

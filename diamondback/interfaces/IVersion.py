@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IVersion( IEqual ) :
@@ -56,13 +57,13 @@ class IVersion( IEqual ) :
 
         self._version = version
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

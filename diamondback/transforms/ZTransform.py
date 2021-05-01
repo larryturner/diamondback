@@ -9,18 +9,18 @@
 
         .. math::
 
-            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
+            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0  # noqa: W605
 
         A frequency response is expressed as a function of a recursive coefficient
         array and a forward coefficient array, in s-domain and z-domain.
 
         .. math::
 
-            H_{s,n} = \\frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}
+            H_{s,n} = \\frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}  # noqa: W605
 
         .. math::
 
-            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
+            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}  # noqa: W605
 
     **Example**
 
@@ -78,16 +78,16 @@ class ZTransform( object ) :
     """
 
     @staticmethod
-    def transform( u : any, v : any, frequency : float, bilinear : bool = True ) -> typing.Tuple[ any, any ] :
+    def transform( u : typing.Union[ typing.List, numpy.ndarray ], v : typing.Union[ typing.List, numpy.ndarray ], frequency : float, bilinear : bool = True ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms continuous s-domain coefficient arrays and produces
             discrete z-domain coefficient arrays.
 
             Arguments :
 
-                u : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.
+                u : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.
 
-                v : typing.Union[ numpy.ndarray, list ] - forward coefficient, s-domain.
+                v : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient, s-domain.
 
                 frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 

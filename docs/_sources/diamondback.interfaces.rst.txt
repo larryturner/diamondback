@@ -324,14 +324,6 @@ diamondback.interfaces.IUrl module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.IUser module
------------------------------------
-
-.. automodule:: diamondback.interfaces.IUser
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 diamondback.interfaces.IValid module
 ------------------------------------
 

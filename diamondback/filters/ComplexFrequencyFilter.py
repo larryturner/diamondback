@@ -109,13 +109,15 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
+    def filter( self, d : typing.Union[ typing.List, numpy.ndarray ], x : typing.Union[ typing.List, numpy.ndarray ] = None ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                d - typing.Union[ numpy.ndarray, list ] - primary signal.
+                d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.
+
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 
@@ -156,7 +158,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         return y, e, b
 
-    def reset( self, x : any ) -> None :
+    def reset( self, x : typing.Any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified primary incident condition.

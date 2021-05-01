@@ -35,6 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IModel( IEqual ) :
@@ -45,23 +46,23 @@ class IModel( IEqual ) :
     @property
     def model( self ) :
 
-        """ model : any.
+        """ model : typing.Any.
         """
 
         return self._model
 
     @model.setter
-    def model( self, model : any ) :
+    def model( self, model : typing.Any ) :
 
         self._model = model
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

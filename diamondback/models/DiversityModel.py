@@ -107,7 +107,7 @@ class DiversityModel( IClear, IS, IEqual ) :
                       'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
 
         @classmethod
-        def instance( cls, typ : type, classification : str, order : int ) -> any :
+        def instance( cls, typ : type, classification : str, order : int ) -> typing.Any :
 
             """ Constructs an instance.
 
@@ -138,13 +138,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             return typ( DiversityModel.Factory._distance[ classification ], order )
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -153,13 +153,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )
 
-    def __init__( self, distance : typing.Callable[ [ any, any ], any ], order : int ) -> None :
+    def __init__( self, distance : typing.Callable[ [ typing.Any, typing.Any ], typing.Any ], order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                distance : method.
+                distance : typing.Callable[ [ typing.Any, typing.Any ], typing.Any ].
 
                 order : int.
         """
@@ -179,13 +179,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         self._diversity, self._s = 0.0, numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
 
-    def model( self, x : any ) -> any :
+    def model( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Models an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

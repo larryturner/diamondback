@@ -38,6 +38,7 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import numpy
+import typing
 
 
 class IQ( IEqual ) :
@@ -48,23 +49,23 @@ class IQ( IEqual ) :
     @property
     def q( self ) :
 
-        """ q : numpy.ndarray - state derivative.
+        """ q : typing.Union[ typing.List, numpy.ndarray ] - state derivative.
         """
 
         return self._q
 
     @q.setter
-    def q( self, q : any ) :
+    def q( self, q : typing.Union[ typing.List, numpy.ndarray ] ) :
 
         self._q = q
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

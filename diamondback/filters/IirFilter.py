@@ -123,7 +123,7 @@ class IirFilter( FirFilter, IA, IQ ) :
         _classification = ( 'Bessel', 'Butterworth', 'Chebyshev' )
 
         @staticmethod
-        def _evaluate( classification : str, frequency : float, order : int ) -> typing.Tuple[ any, any ] :
+        def _evaluate( classification : str, frequency : float, order : int ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
             """ Evaluates coefficients.
 
@@ -189,13 +189,13 @@ class IirFilter( FirFilter, IA, IQ ) :
             return a, b
 
         @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> any :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> typing.Any :
 
             """ Constructs an instance.
 
                 Arguments :
 
-                    typ : type - derived from IirFilter ( type ).
+                    typ : type - derived from IirFilter.
 
                     classification : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
 
@@ -272,17 +272,17 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             return typ( a, b * gain )
 
-    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ) ) -> None :
+    def __init__( self, a : typing.Union[ typing.List, numpy.ndarray ] = numpy.zeros( 1 ), b : typing.Union[ typing.List, numpy.ndarray ] = numpy.ones( 1 ), s : typing.Union[ typing.List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                a : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.
+                a : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
 
-                s : typing.Union[ numpy.ndarray, list ] - state.
+                s : typing.Union[ typing.List, numpy.ndarray ] - state.
         """
 
         if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
@@ -313,7 +313,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         self.a, self.q = numpy.array( a ), numpy.array( self.s )
 
-    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ any, any ] :
+    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -352,13 +352,13 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def filter( self, x : any ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 
@@ -393,7 +393,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y
 
-    def reset( self, x : any ) -> None :
+    def reset( self, x : typing.Any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
@@ -413,7 +413,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
             self.s.fill( x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( ) )
 
-    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ any, any ] :
+    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -448,7 +448,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y, f
 
-    def roots( self, count = 1 ) -> typing.Tuple[ any, any ] :
+    def roots( self, count = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 

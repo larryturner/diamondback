@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IReady( IEqual ) :
@@ -46,23 +47,23 @@ class IReady( IEqual ) :
     @property
     def ready( self ) :
 
-        """ ready : any.
+        """ ready : typing.Any.
         """
 
         return self._ready
 
     @ready.setter
-    def ready( self, ready : any ) :
+    def ready( self, ready : typing.Any ) :
 
         self._ready = ready
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

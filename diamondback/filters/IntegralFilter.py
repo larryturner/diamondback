@@ -86,6 +86,7 @@
 
 from diamondback.filters.IirFilter import IirFilter
 import numpy
+import typing
 
 
 class IntegralFilter( IirFilter ) :
@@ -105,7 +106,7 @@ class IntegralFilter( IirFilter ) :
                numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
 
         @classmethod
-        def instance( cls, typ : type, order : int ) -> any :
+        def instance( cls, typ : type, order : int ) -> typing.Any :
 
             """ Constructs an instance.
 
@@ -130,26 +131,26 @@ class IntegralFilter( IirFilter ) :
 
             return typ( numpy.array( [ 0.0, 1.0 ] ), IntegralFilter.Factory._b[ order ] )
 
-    def __init__( self, a : any = numpy.zeros( 1 ), b : any = numpy.ones( 1 ) ) -> None :
+    def __init__( self, a : typing.Union[ typing.List, numpy.ndarray ] = numpy.zeros( 1 ), b : typing.Union[ typing.List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                a : typing.Union[ numpy.ndarray, list ] - recursive coefficient.
+                a : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient.
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
         """
 
         super( ).__init__( a, b )
 
-    def filter( self, x : any, d : any = None ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

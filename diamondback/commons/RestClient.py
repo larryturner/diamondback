@@ -135,7 +135,7 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
         self.url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : any = None, data : any = None ) -> requests.Response :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : typing.Any = None, data : typing.Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -151,9 +151,9 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
 
                 item : typing.Dict[ str, str ].
 
-                json : any.
+                json : typing.Any.
 
-                data : any.
+                data : typing.Any.
 
             Returns :
 

@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class ICompress( IEqual ) :
@@ -46,23 +47,23 @@ class ICompress( IEqual ) :
     @property
     def compress( self ) :
 
-        """ compress : any.
+        """ compress : typing.Any.
         """
 
         return self._compress
 
     @compress.setter
-    def compress( self, compress : any ) :
+    def compress( self, compress : typing.Any ) :
 
         self._compress = compress
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

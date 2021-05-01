@@ -51,6 +51,7 @@
 from diamondback.interfaces.IPhase import IPhase
 import math
 import numpy
+import typing
 
 
 class ComplexExponentialFilter( IPhase ) :
@@ -71,13 +72,13 @@ class ComplexExponentialFilter( IPhase ) :
 
         self.phase = phase
 
-    def filter( self, x : any ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).
 
             Returns :
 

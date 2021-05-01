@@ -58,13 +58,13 @@ class IProxy( IEqual ) :
 
         self._proxy = proxy
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

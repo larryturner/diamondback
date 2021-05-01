@@ -564,4 +564,3 @@ def test_WindowFilter( ) :
     obj = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( b ) - 1, True )
 
     assert numpy.allclose( obj.b, b * len( b ) / sum( abs( b ) ) )
-

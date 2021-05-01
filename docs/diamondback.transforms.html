@@ -189,7 +189,7 @@ specified.</p>
 <div class="math notranslate nohighlight">
 \[\overline{\scriptsize{Neutral}}\ \qquad\longrightarrow\qquad x_{n} = \frac{x_{n}}{\alpha}\]</div>
 <div class="math notranslate nohighlight">
-\[y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) &amp; imag(\ x_{n}\ ) &amp; 0 }\ ]^{T}}}^{T}\]</div>
+\[y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) &amp; imag(\ x_{n}\ ) &amp; 0 }\ ]^{T}}}^{T}  # noqa: W605\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
@@ -224,12 +224,12 @@ specified.</p>
 <p>Complex transform.</p>
 <dl class="py method">
 <dt id="diamondback.transforms.ComplexTransform.ComplexTransform.transform">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/transforms/ComplexTransform.html#ComplexTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.ComplexTransform.ComplexTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="_modules/diamondback/transforms/ComplexTransform.html#ComplexTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.ComplexTransform.ComplexTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real three-phase or complex incident signal into a complex
 or three-phase reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
 <p>neutral : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -254,12 +254,12 @@ forward coefficient array is specified to define a window filter.</p>
 <div class="math notranslate nohighlight">
 \[y_{k} = \frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n} e^{\frac{\ -j\ \pi\ k \ n}{N}} = \frac{1}{N}\ fft(\ x_{n}\ )\]</div>
 <div class="math notranslate nohighlight">
-\[x_{n} = \frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\frac{\ j\ \pi\ k \ n}{N}} = \frac{N}{b_{n}}\ ifft(\ y_{k}\ )\]</div>
+\[x_{n} = \frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\frac{\ j\ \pi\ k \ n}{N}} = \frac{N}{b_{n}}\ ifft(\ y_{k}\ )  # noqa: W605\]</div>
 <p>A Fourier transform is normalized by incident signal length and forms
 a contiguous sequence corresponding to a linear and increasing
 normalized frequency.</p>
 <div class="math notranslate nohighlight">
-\[f_{k} = -1\ + \ 2\ \frac{k}{N}\]</div>
+\[f_{k} = -1\ + \ 2\ \frac{k}{N}  # noqa: W605\]</div>
 <p>An incident signal length is inversely proportional to a normalized
 frequency resolution.</p>
 <blockquote>
@@ -301,7 +301,7 @@ frequency resolution.</p>
 <p>Fourier transform.</p>
 <dl class="py method">
 <dt id="diamondback.transforms.FourierTransform.FourierTransform.transform">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/FourierTransform.html#FourierTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.FourierTransform.FourierTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/FourierTransform.html#FourierTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.FourierTransform.FourierTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 complex discrete-frequency reference signal, or performs an
 inverse transform.  Indices definition depends upon an inverse
@@ -309,8 +309,8 @@ condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
-<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
 <p>inverse : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -339,14 +339,14 @@ sliding window defined by a forward coefficient array which defines a
 window filter.  An index specifies a sample interval, or a
 non-overlapping stride, between successive operations.</p>
 <div class="math notranslate nohighlight">
-\[v_{i,k} = \frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \frac{\ -j\ \pi\ k \ n}{N} }\]</div>
+\[v_{i,k} = \frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \frac{\ -j\ \pi\ k \ n}{N} }  # noqa: W605\]</div>
 <div class="math notranslate nohighlight">
 \[y_{k} = \frac{1}{C}\ \sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}\]</div>
 <p>A power spectrum transform is normalized by incident signal length and
 forms a contiguous sequence corresponding to a linear and increasing
 normalized frequency.</p>
 <div class="math notranslate nohighlight">
-\[f_{k} = -1\ + \ 2\ \frac{k}{N}\]</div>
+\[f_{k} = -1\ + \ 2\ \frac{k}{N}  # noqa: W605\]</div>
 <p>An incident signal length is inversely proportional to a normalized
 frequency resolution.</p>
 <div class="math notranslate nohighlight">
@@ -385,13 +385,13 @@ frequency resolution.</p>
 <p>Power spectrum transform.</p>
 <dl class="py method">
 <dt id="diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/PowerSpectrumTransform.html#PowerSpectrumTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/PowerSpectrumTransform.html#PowerSpectrumTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 real discrete-frequency reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
-<p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
 <p>index : int.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -424,9 +424,9 @@ resolution, and a specific spatial frequency range.  An incident signal
 has one or two dimensions, and a length in each dimension which is
 unity or an integral multiple of 2**count.</p>
 <div class="math notranslate nohighlight">
-\[y_{i,0:\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) &amp; y_{i,\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) &amp; i \in \scriptsize{[\ 0,\ R\ )}}\]</div>
+\[y_{i,0:\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) &amp; y_{i,\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) &amp; i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605\]</div>
 <div class="math notranslate nohighlight">
-\[y_{0:\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) &amp; y_{\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) &amp; j \in \scriptsize{[\ 0,\ C\ )}}\]</div>
+\[y_{0:\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) &amp; y_{\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) &amp; j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605\]</div>
 <p>Synthesis reconstructs an incident signal from a specified operation
 count, scaling and upsampling alternate samples, applying complementary
 low pass and high pass synthesis filters to a reference signal, and
@@ -437,9 +437,9 @@ specific spatial frequency range.  A reference signal has one or two
 dimensions, and a length in each dimension which is unity or an integral
 multiple of 2**count.</p>
 <div class="math notranslate nohighlight">
-\[x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \uparrow(\ y_{0:\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \uparrow(\ y_{\frac{R}{2}:R-1,j},\ 2\ ) )\ ) &amp; j \in \scriptsize{[\ 0,\ C\ )}}\]</div>
+\[x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \uparrow(\ y_{0:\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \uparrow(\ y_{\frac{R}{2}:R-1,j},\ 2\ ) )\ ) &amp; j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605\]</div>
 <div class="math notranslate nohighlight">
-\[x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \uparrow(\ y_{i,0:\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \uparrow(\ y_{i,\frac{C}{2}:C-1},\ 2\ )\ ) &amp; i \in \scriptsize{[\ 0,\ R\ )}}\]</div>
+\[x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \uparrow(\ y_{i,0:\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \uparrow(\ y_{i,\frac{C}{2}:C-1},\ 2\ )\ ) &amp; i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605\]</div>
 <p>A factory is defined to facilitate construction of an instance, defining an
 analysis filter set and a synthesis filter set of a specified order, to
 satisfy specified constraints.  An instance, classification, and order are
@@ -498,13 +498,13 @@ specified.</p>
 <p><strong>Definition</strong></p>
 <dl class="py class">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.transforms.WaveletTransform.</span></code><code class="sig-name descname"><span class="pre">WaveletTransform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.transforms.WaveletTransform.</span></code><code class="sig-name descname"><span class="pre">WaveletTransform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IB.IB" title="diamondback.interfaces.IB.IB"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IB.IB</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
 <p>Wavelet transform.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</p>
+<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.Factory">
@@ -513,7 +513,7 @@ specified.</p>
 <p>Factory.</p>
 <dl class="py method">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance">
-<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><span class="pre">type</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">classification</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.Factory.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">classmethod</span> </em><code class="sig-name descname"><span class="pre">instance</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><span class="pre">type</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">classification</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.Factory.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.Factory.instance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an instance.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -531,14 +531,14 @@ specified.</p>
 
 <dl class="py method">
 <dt id="diamondback.transforms.WaveletTransform.WaveletTransform.transform">
-<code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.transform" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">inverse</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><a class="reference internal" href="_modules/diamondback/transforms/WaveletTransform.html#WaveletTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.WaveletTransform.WaveletTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms an incident signal and produces a reference signal,
 performing analysis or synthesis operations.  Incident and reference
 signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ numpy.ndarray, list ] - incident signal.</p>
+<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
 <p>count : int.</p>
 <p>inverse : bool.</p>
 </div></blockquote>
@@ -561,13 +561,13 @@ coefficient array and a forward coefficient array of a specified order.
 A normalized frequency and bilinear condition are specified.</p>
 <p>Singleton.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0\]</div>
+\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0  # noqa: W605\]</div>
 <p>A frequency response is expressed as a function of a recursive coefficient
 array and a forward coefficient array, in s-domain and z-domain.</p>
 <div class="math notranslate nohighlight">
-\[H_{s,n} = \frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}\]</div>
+\[H_{s,n} = \frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}  # noqa: W605\]</div>
 <div class="math notranslate nohighlight">
-\[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
+\[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}  # noqa: W605\]</div>
 </div></blockquote>
 <p><strong>Example</strong></p>
 <blockquote>
@@ -616,13 +616,13 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 or impulse invariant methods.</p>
 <dl class="py method">
 <dt id="diamondback.transforms.ZTransform.ZTransform.transform">
-<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bilinear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">any</span><span class="p"><span class="pre">,</span> </span><span class="pre">any</span><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/ZTransform.html#ZTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.ZTransform.ZTransform.transform" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span> </em><code class="sig-name descname"><span class="pre">transform</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">bilinear</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> &#x2192; <span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.20)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span><a class="reference internal" href="_modules/diamondback/transforms/ZTransform.html#ZTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.transforms.ZTransform.ZTransform.transform" title="Permalink to this definition">¶</a></dt>
 <dd><p>Transforms continuous s-domain coefficient arrays and produces
 discrete z-domain coefficient arrays.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>u : typing.Union[ numpy.ndarray, list ] - recursive coefficient, s-domain.</p>
-<p>v : typing.Union[ numpy.ndarray, list ] - forward coefficient, s-domain.</p>
+<div><p>u : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.</p>
+<p>v : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient, s-domain.</p>
 <p>frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</p>
 <p>bilinear : bool.</p>
 </div></blockquote>

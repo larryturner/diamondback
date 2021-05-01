@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IDispose( IEqual ) :
@@ -46,23 +47,23 @@ class IDispose( IEqual ) :
     @property
     def dispose( self ) :
 
-        """ dispose : any.
+        """ dispose : typing.Any.
         """
 
         return self._dispose
 
     @dispose.setter
-    def dispose( self, dispose : any ) :
+    def dispose( self, dispose : typing.Any ) :
 
         self._dispose = dispose
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

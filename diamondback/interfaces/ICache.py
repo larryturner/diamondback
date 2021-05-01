@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class ICache( IEqual ) :
@@ -46,23 +47,23 @@ class ICache( IEqual ) :
     @property
     def cache( self ) :
 
-        """ cache : any.
+        """ cache : typing.Any.
         """
 
         return self._cache
 
     @cache.setter
-    def cache( self, cache : any ) :
+    def cache( self, cache : typing.Any ) :
 
         self._cache = cache
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

@@ -73,7 +73,7 @@ from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
 import numpy
-
+import typing
 
 class PrincipalComponentModel( IClear, IS, IEqual ) :
 
@@ -104,13 +104,13 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         return self._v
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -135,13 +135,13 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
 
         self._e, self._s, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
 
-    def model( self, x : any ) -> any :
+    def model( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Models an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IEmulate( IEqual ) :
@@ -46,23 +47,23 @@ class IEmulate( IEqual ) :
     @property
     def emulate( self ) :
 
-        """ emulate : any.
+        """ emulate : typing.Any.
         """
 
         return self._emulate
 
     @emulate.setter
-    def emulate( self, emulate : any ) :
+    def emulate( self, emulate : typing.Any ) :
 
         self._emulate = emulate
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

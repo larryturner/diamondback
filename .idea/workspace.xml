@@ -6,11 +6,91 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.84-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.84-py3-none-any.whl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.84.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.84.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changelog.rst" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Log.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Log.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/RestClient.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/RestClient.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/Serial.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/Serial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/commons/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/commons/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexBandPassFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexBandPassFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexExponentialFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexExponentialFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/ComplexFrequencyFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/ComplexFrequencyFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/DerivativeFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/DerivativeFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/FirFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/GoertzelFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/IirFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/IirFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/IntegralFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PidFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PidFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolynomialRateFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/PolyphaseRateFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/RankFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/RankFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/WindowFilter.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/filters/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/filters/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IA.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IAsset.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IAsset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IB.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IB.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ICache.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ICache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IClear.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IClear.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ICompress.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ICompress.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IConfigure.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IConfigure.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IConnect.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IConnect.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ICount.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ICount.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IData.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IData.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDispose.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDispose.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IDuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IDuration.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IEmulate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IEmulate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IEncoding.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IEncoding.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IEqual.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IEqual.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IFrequency.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IHeader.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IHeader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IIdentity.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IIdentity.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IInterval.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IInterval.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ILabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ILabel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ILatency.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ILatency.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ILive.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ILive.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPath.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPath.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPeriod.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPeriod.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPhase.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPhase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IProxy.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IProxy.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IRate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IRate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IReady.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IReady.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IReset.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IReset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IResolution.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IResolution.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IRotation.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IRotation.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IS.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IStream.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IStream.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ITimeOut.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ITimeOut.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ITimeZone.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ITimeZone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IUpdate.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IUpdate.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IUrl.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IUrl.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IUser.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IValid.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IValid.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IVersion.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IVersion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/DiversityModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/models/PrincipalComponentModel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/PrincipalComponentModel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/models/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/models/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/transforms/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.doctrees/diamondback.transforms.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/diamondback.transforms.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ComplexTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ComplexTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/FourierTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/FourierTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/PowerSpectrumTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/WaveletTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ZTransform.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/_modules/diamondback/transforms/ZTransform.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/diamondback.transforms.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/diamondback.transforms.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jupyter/diamondback.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/jupyter/diamondback.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/unit/test_filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/tests/unit/test_filters.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -251,7 +331,8 @@
       <workItem from="1619531143814" duration="2863000" />
       <workItem from="1619546388185" duration="12827000" />
       <workItem from="1619655339911" duration="24000" />
-      <workItem from="1619723397253" duration="4326000" />
+      <workItem from="1619723397253" duration="6155000" />
+      <workItem from="1619793880445" duration="10074000" />
     </task>
     <servers />
   </component>
@@ -290,6 +371,16 @@
           <url>file://$PROJECT_DIR$/../mamba-core/setup.py</url>
           <line>16</line>
           <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diamondback/filters/WindowFilter.py</url>
+          <line>67</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/diamondback/interfaces/IQ.py</url>
+          <line>38</line>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class ILabel( IEqual ) :
@@ -46,23 +47,23 @@ class ILabel( IEqual ) :
     @property
     def label( self ) :
 
-        """ label : any.
+        """ label : typing.Any.
         """
 
         return self._label
 
     @label.setter
-    def label( self, label : any ) :
+    def label( self, label : typing.Any ) :
 
         self._label = label
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

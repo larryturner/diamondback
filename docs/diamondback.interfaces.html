@@ -126,7 +126,6 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUpdate">diamondback.interfaces.IUpdate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUrl">diamondback.interfaces.IUrl module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IUser">diamondback.interfaces.IUser module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IValid">diamondback.interfaces.IValid module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IVersion">diamondback.interfaces.IVersion module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces">Module contents</a></li>
@@ -249,7 +248,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IA.IA.a">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">a</span></code><a class="headerlink" href="#diamondback.interfaces.IA.IA.a" title="Permalink to this definition">¶</a></dt>
-<dd><p>numpy.ndarray - recursive coefficient.</p>
+<dd><p>typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>a</p>
@@ -259,11 +258,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IA.IA.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IA.html#IA.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IA.IA.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IA.html#IA.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IA.IA.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -319,7 +318,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IAsset.IAsset.asset">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">asset</span></code><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset.asset" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>asset</p>
@@ -329,11 +328,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IAsset.IAsset.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IAsset.html#IAsset.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IAsset.html#IAsset.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -389,7 +388,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IB.IB.b">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">b</span></code><a class="headerlink" href="#diamondback.interfaces.IB.IB.b" title="Permalink to this definition">¶</a></dt>
-<dd><p>numpy.ndarray - forward coefficient.</p>
+<dd><p>typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>b</p>
@@ -399,11 +398,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IB.IB.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IB.html#IB.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IB.IB.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IB.html#IB.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IB.IB.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -458,7 +457,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ICache.ICache.cache">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cache</span></code><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>cache</p>
@@ -468,11 +467,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ICache.ICache.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -524,7 +523,7 @@
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IClear.IClear.clear">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears an instance.</p>
 </dd></dl>
 
@@ -575,7 +574,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ICompress.ICompress.compress">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">compress</span></code><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.compress" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>compress</p>
@@ -585,11 +584,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ICompress.ICompress.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICompress.html#ICompress.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICompress.html#ICompress.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -644,7 +643,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IConfigure.IConfigure.configure">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">configure</span></code><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>configure</p>
@@ -654,11 +653,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IConfigure.IConfigure.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConfigure.html#IConfigure.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConfigure.html#IConfigure.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -713,7 +712,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IConnect.IConnect.connect">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect</span></code><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>connect</p>
@@ -723,11 +722,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IConnect.IConnect.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConnect.html#IConnect.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConnect.html#IConnect.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -792,11 +791,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ICount.ICount.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICount.html#ICount.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICount.ICount.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICount.html#ICount.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICount.ICount.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -851,7 +850,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IData.IData.data">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">data</span></code><a class="headerlink" href="#diamondback.interfaces.IData.IData.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>data</p>
@@ -861,11 +860,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IData.IData.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IData.html#IData.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IData.IData.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IData.html#IData.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IData.IData.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -931,11 +930,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IDate.IDate.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDate.html#IDate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDate.IDate.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDate.html#IDate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDate.IDate.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -990,7 +989,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IDispose.IDispose.dispose">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dispose</span></code><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose.dispose" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dispose</p>
@@ -1000,11 +999,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IDispose.IDispose.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDispose.html#IDispose.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDispose.html#IDispose.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1069,11 +1068,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IDuration.IDuration.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDuration.html#IDuration.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDuration.html#IDuration.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1128,7 +1127,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IEmulate.IEmulate.emulate">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">emulate</span></code><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.emulate" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>emulate</p>
@@ -1138,11 +1137,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IEmulate.IEmulate.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEmulate.html#IEmulate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEmulate.html#IEmulate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1197,7 +1196,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IEncoding.IEncoding.encoding">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoding</span></code><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>encoding</p>
@@ -1207,11 +1206,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IEncoding.IEncoding.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1231,11 +1230,12 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span>
+<span class="kn">import</span> <span class="nn">typing</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">phase</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
@@ -1259,11 +1259,11 @@
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IEqual.IEqual.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1273,11 +1273,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IEqual.IEqual.__ne__">
-<code class="sig-name descname"><span class="pre">__ne__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual.__ne__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual.__ne__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__ne__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEqual.html#IEqual.__ne__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEqual.IEqual.__ne__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Not equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1342,11 +1342,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IFrequency.IFrequency.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IFrequency.html#IFrequency.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IFrequency.html#IFrequency.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IFrequency.IFrequency.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1412,11 +1412,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IHeader.IHeader.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IHeader.html#IHeader.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IHeader.html#IHeader.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1472,7 +1472,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IIdentity.IIdentity.identity">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">identity</span></code><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity.identity" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>identity</p>
@@ -1482,11 +1482,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IIdentity.IIdentity.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IIdentity.html#IIdentity.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IIdentity.html#IIdentity.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1551,11 +1551,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IInterval.IInterval.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IInterval.html#IInterval.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IInterval.html#IInterval.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IInterval.IInterval.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1610,7 +1610,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ILabel.ILabel.label">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">label</span></code><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>label</p>
@@ -1620,11 +1620,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ILabel.ILabel.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILabel.html#ILabel.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILabel.html#ILabel.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1689,11 +1689,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ILatency.ILatency.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILatency.html#ILatency.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILatency.html#ILatency.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILatency.ILatency.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1748,7 +1748,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ILive.ILive.live">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">live</span></code><a class="headerlink" href="#diamondback.interfaces.ILive.ILive.live" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>live</p>
@@ -1758,11 +1758,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ILive.ILive.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILive.html#ILive.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILive.ILive.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ILive.html#ILive.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ILive.ILive.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1816,7 +1816,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IModel.IModel.model">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">model</span></code><a class="headerlink" href="#diamondback.interfaces.IModel.IModel.model" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>model</p>
@@ -1826,11 +1826,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IModel.IModel.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IModel.html#IModel.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IModel.IModel.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IModel.html#IModel.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IModel.IModel.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1894,11 +1894,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IPath.IPath.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPath.html#IPath.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPath.IPath.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPath.html#IPath.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPath.IPath.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1963,11 +1963,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IPeriod.IPeriod.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPeriod.html#IPeriod.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPeriod.html#IPeriod.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2032,11 +2032,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IPhase.IPhase.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPhase.html#IPhase.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IPhase.html#IPhase.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPhase.IPhase.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2102,11 +2102,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IProxy.IProxy.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IProxy.html#IProxy.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IProxy.html#IProxy.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2162,7 +2162,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IQ.IQ.q">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">q</span></code><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.q" title="Permalink to this definition">¶</a></dt>
-<dd><p>numpy.ndarray - state derivative.</p>
+<dd><p>typing.Union[ typing.List, numpy.ndarray ] - state derivative.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>q</p>
@@ -2172,11 +2172,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IQ.IQ.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IQ.html#IQ.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IQ.html#IQ.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2241,11 +2241,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IRate.IRate.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IRate.html#IRate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IRate.IRate.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IRate.html#IRate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IRate.IRate.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2300,7 +2300,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IReady.IReady.ready">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ready</span></code><a class="headerlink" href="#diamondback.interfaces.IReady.IReady.ready" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>ready</p>
@@ -2310,11 +2310,11 @@
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IReady.IReady.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReady.html#IReady.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReady.IReady.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReady.html#IReady.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReady.IReady.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2335,11 +2335,12 @@
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">typing</span>
 
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
@@ -2369,7 +2370,7 @@
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IReset.IReset.reset">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
@@ -2435,11 +2436,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IResolution.IResolution.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IResolution.html#IResolution.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IResolution.html#IResolution.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IResolution.IResolution.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2504,11 +2505,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IRotation.IRotation.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IRotation.html#IRotation.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IRotation.html#IRotation.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IRotation.IRotation.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2564,7 +2565,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IS.IS.s">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">s</span></code><a class="headerlink" href="#diamondback.interfaces.IS.IS.s" title="Permalink to this definition">¶</a></dt>
-<dd><p>numpy.ndarray - state.</p>
+<dd><p>typing.Union[ typing.List, numpy.ndarray ] - state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>s</p>
@@ -2574,11 +2575,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IS.IS.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IS.html#IS.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IS.IS.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IS.html#IS.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IS.IS.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2634,7 +2635,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IStream.IStream.stream">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">stream</span></code><a class="headerlink" href="#diamondback.interfaces.IStream.IStream.stream" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>stream</p>
@@ -2644,11 +2645,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IStream.IStream.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IStream.html#IStream.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IStream.IStream.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IStream.html#IStream.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IStream.IStream.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2703,7 +2704,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.ITimeOut.ITimeOut.timeout">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">timeout</span></code><a class="headerlink" href="#diamondback.interfaces.ITimeOut.ITimeOut.timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>timeout</p>
@@ -2713,11 +2714,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ITimeOut.ITimeOut.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ITimeOut.html#ITimeOut.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ITimeOut.ITimeOut.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ITimeOut.html#ITimeOut.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ITimeOut.ITimeOut.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2784,11 +2785,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.ITimeZone.ITimeZone.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ITimeZone.html#ITimeZone.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ITimeZone.html#ITimeZone.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ITimeZone.ITimeZone.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2840,7 +2841,7 @@ operation at a specified incident signal condition.</p>
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IUpdate.IUpdate.update">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">any</span><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update.</p>
 </dd></dl>
 
@@ -2901,78 +2902,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IUrl.IUrl.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IUrl.html#IUrl.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IUrl.html#IUrl.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUrl.IUrl.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IUser">
-<span id="diamondback-interfaces-iuser-module"></span><h2>diamondback.interfaces.IUser module<a class="headerlink" href="#module-diamondback.interfaces.IUser" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>User interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IUser</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUser</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span> <span class="n">test</span><span class="o">.</span><span class="n">user</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-11-02.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IUser.IUser">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IUser.</span></code><code class="sig-name descname"><span class="pre">IUser</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IUser.html#IUser"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUser.IUser" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>User interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IUser.IUser.user">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">user</span></code><a class="headerlink" href="#diamondback.interfaces.IUser.IUser.user" title="Permalink to this definition">¶</a></dt>
-<dd><p>str.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>user</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IUser.IUser.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IUser.html#IUser.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUser.IUser.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -3027,7 +2961,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IValid.IValid.valid">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">valid</span></code><a class="headerlink" href="#diamondback.interfaces.IValid.IValid.valid" title="Permalink to this definition">¶</a></dt>
-<dd><p>any.</p>
+<dd><p>typing.Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>valid</p>
@@ -3037,11 +2971,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IValid.IValid.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IValid.html#IValid.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IValid.IValid.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IValid.html#IValid.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IValid.IValid.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -3106,11 +3040,11 @@ operation at a specified incident signal condition.</p>
 
 <dl class="py method">
 <dt id="diamondback.interfaces.IVersion.IVersion.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IVersion.html#IVersion.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IVersion.IVersion.__eq__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IVersion.html#IVersion.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IVersion.IVersion.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : any.</p>
+<div><p>other : typing.Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>

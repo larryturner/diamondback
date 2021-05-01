@@ -259,13 +259,15 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span>
 
-<div class="viewcode-block" id="ComplexFrequencyFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="nb">any</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
+<div class="viewcode-block" id="ComplexFrequencyFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                d - typing.Union[ numpy.ndarray, list ] - primary signal.</span>
+<span class="sd">                d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.</span>
+
+<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
@@ -306,7 +308,7 @@
 
         <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span></div>
 
-<div class="viewcode-block" id="ComplexFrequencyFilter.reset"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+<div class="viewcode-block" id="ComplexFrequencyFilter.reset"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Modifies a state to minimize edge effects by assuming persistent</span>
 <span class="sd">            operation at a specified primary incident condition.</span>

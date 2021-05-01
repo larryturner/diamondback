@@ -51,6 +51,7 @@
 
 from diamondback.filters.FirFilter import FirFilter
 import numpy
+import typing
 
 
 class RankFilter( FirFilter ) :
@@ -75,13 +76,13 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -109,13 +110,13 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def filter( self, x : any, d : any = None ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

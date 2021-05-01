@@ -64,7 +64,6 @@ diamondback/interfaces/ITimeOut.py
 diamondback/interfaces/ITimeZone.py
 diamondback/interfaces/IUpdate.py
 diamondback/interfaces/IUrl.py
-diamondback/interfaces/IUser.py
 diamondback/interfaces/IValid.py
 diamondback/interfaces/IVersion.py
 diamondback/interfaces/__init__.py

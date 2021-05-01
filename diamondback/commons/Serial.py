@@ -76,6 +76,7 @@ import jsonpickle
 import jsonpickle.ext.numpy
 import jsonpickle.ext.pandas
 import re
+import typing
 
 
 class Serial( object ) :
@@ -114,7 +115,7 @@ class Serial( object ) :
         return hashlib.sha3_256( bytes( state, encoding ) ).hexdigest( )
 
     @staticmethod
-    def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> any :
+    def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> typing.Any :
 
         """ Decodes an instance or collection from JSON or BSON, base-85
             encoded gzip JSON, state.  Encoding may be specified if an
@@ -134,7 +135,7 @@ class Serial( object ) :
 
             Returns :
 
-                instance : any.
+                instance : typing.Any.
         """
 
         if ( not state ) :
@@ -156,7 +157,7 @@ class Serial( object ) :
         return jsonpickle.decode( state )
 
     @staticmethod
-    def encode( instance : any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
+    def encode( instance : typing.Any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
         """ Encodes JSON or BSON, base-85 encoded gzip JSON, state from an
             instance or collection.  Encoding may be specified if an
@@ -164,7 +165,7 @@ class Serial( object ) :
 
             Arguments :
 
-                instance : any.
+                instance : typing.Any.
 
                 compress : bool.
 

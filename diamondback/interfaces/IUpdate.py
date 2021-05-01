@@ -34,6 +34,7 @@
 """
 
 from abc import ABC, abstractmethod
+import typing
 
 
 class IUpdate( ABC ) :
@@ -49,7 +50,7 @@ class IUpdate( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def update( self ) -> any :
+    def update( self ) -> typing.Any :
 
         """ Update.
         """

@@ -36,6 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+import typing
 
 
 class IEncoding( IEqual ) :
@@ -46,23 +47,23 @@ class IEncoding( IEqual ) :
     @property
     def encoding( self ) :
 
-        """ encoding : any.
+        """ encoding : typing.Any.
         """
 
         return self._encoding
 
     @encoding.setter
-    def encoding( self, encoding : any ) :
+    def encoding( self, encoding : typing.Any ) :
 
         self._encoding = encoding
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 

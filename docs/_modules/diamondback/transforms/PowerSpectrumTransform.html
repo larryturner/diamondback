@@ -166,7 +166,7 @@
 
 <span class="sd">        .. math::</span>
 
-<span class="sd">            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }</span>
+<span class="sd">            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }  # noqa: W605</span>
 
 <span class="sd">        .. math::</span>
 
@@ -178,7 +178,7 @@
 
 <span class="sd">        .. math::</span>
 
-<span class="sd">            f_{k} = -1\ + \ 2\ \\frac{k}{N}</span>
+<span class="sd">            f_{k} = -1\ + \ 2\ \\frac{k}{N}  # noqa: W605</span>
 
 <span class="sd">        An incident signal length is inversely proportional to a normalized</span>
 <span class="sd">        frequency resolution.</span>
@@ -228,16 +228,16 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
 <div class="viewcode-block" id="PowerSpectrumTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.transforms.PowerSpectrumTransform.PowerSpectrumTransform.transform">[docs]</a>    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">any</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="nb">any</span><span class="p">,</span> <span class="n">index</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="nb">any</span><span class="p">,</span> <span class="nb">any</span> <span class="p">]</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">b</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">index</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Transforms a real or complex discrete-time incident signal to a</span>
 <span class="sd">            real discrete-frequency reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x : typing.Union[ numpy.ndarray, list ] - incident signal.</span>
+<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
 
-<span class="sd">                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.</span>
+<span class="sd">                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</span>
 
 <span class="sd">                index : int.</span>
 

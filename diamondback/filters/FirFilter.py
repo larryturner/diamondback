@@ -127,7 +127,7 @@ class FirFilter( IB, IReset, IS ) :
         _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
         @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> any :
+        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> typing.Any :
 
             """ Constructs an instance.
 
@@ -222,15 +222,15 @@ class FirFilter( IB, IReset, IS ) :
 
             return typ( b * gain )
 
-    def __init__( self, b : any = numpy.ones( 1 ), s : any = numpy.zeros( 1 ) ) -> None :
+    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] = numpy.ones( 1 ), s : typing.Union[ typing.List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
 
-                s : typing.Union[ numpy.ndarray, list ] - state.
+                s : typing.Union[ typing.List, numpy.ndarray ] - state.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -261,7 +261,7 @@ class FirFilter( IB, IReset, IS ) :
 
         self.b, self.s = numpy.array( b ), numpy.array( s, type( b[ 0 ] ) )
 
-    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ any, any ] :
+    def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -300,13 +300,13 @@ class FirFilter( IB, IReset, IS ) :
 
         return y, f
 
-    def filter( self, x : any ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 
@@ -335,7 +335,7 @@ class FirFilter( IB, IReset, IS ) :
 
         return y
 
-    def reset( self, x : any ) -> None :
+    def reset( self, x : typing.Any ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
@@ -351,7 +351,7 @@ class FirFilter( IB, IReset, IS ) :
 
         self.s.fill( x )
 
-    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ any, any ] :
+    def response( self, length = 8192, count = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -382,7 +382,7 @@ class FirFilter( IB, IReset, IS ) :
 
         return y, f
 
-    def roots( self, count = 1 ) -> typing.Tuple[ any, any ] :
+    def roots( self, count = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 

@@ -73,6 +73,7 @@ from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.filters.IirFilter import IirFilter
 import math
 import numpy
+import typing
 
 
 class GoertzelFilter( IirFilter, IFrequency ) :
@@ -80,13 +81,13 @@ class GoertzelFilter( IirFilter, IFrequency ) :
     """ Goertzel filter.
     """
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -95,13 +96,13 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._index == other._index ) and ( numpy.allclose( self._w, other._w ) ) )
 
-    def __init__( self, b : any, frequency : float ) -> None :
+    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ], frequency : float ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ numpy.ndarray, list ] - forward coefficient.
+                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
 
                 frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
         """
@@ -124,15 +125,13 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         self.frequency = frequency
 
-    def filter( self, x : any, d : any = None ) -> any :
+    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ numpy.ndarray, list ] - incident signal.
-
-                d : typing.Union[ numpy.ndarray, list ] - primary signal.
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 

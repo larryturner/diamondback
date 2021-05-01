@@ -79,13 +79,13 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
     """ Complex band pass filter.
     """
 
-    def __eq__( self, other : any ) -> bool :
+    def __eq__( self, other : typing.Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : any.
+                other : typing.Any.
 
             Returns :
 
@@ -115,13 +115,15 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : any, x : any = None ) -> typing.Tuple[ any, any, any ] :
+    def filter( self, d : typing.Union[ typing.List, numpy.ndarray ], x : typing.Union[ typing.List, numpy.ndarray ] = None ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                d : typing.Union[ numpy.ndarray, list ] - primary signal.
+                d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.
+
+                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
 
             Returns :
 
