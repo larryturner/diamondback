@@ -47,13 +47,13 @@ class ILive( IEqual ) :
     @property
     def live( self ) :
 
-        """ live : typing.Any.
+        """ live : bool.
         """
 
         return self._live
 
     @live.setter
-    def live( self, live : typing.Any ) :
+    def live( self, live : bool ) :
 
         self._live = live
 
@@ -79,4 +79,4 @@ class ILive( IEqual ) :
 
         super( ).__init__( )
 
-        self._live = None
+        self._live = False

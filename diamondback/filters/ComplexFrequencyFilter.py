@@ -158,7 +158,7 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         return y, e, b
 
-    def reset( self, x : typing.Any ) -> None :
+    def reset( self, x : complex ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified primary incident condition.

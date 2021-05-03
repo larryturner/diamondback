@@ -47,13 +47,13 @@ class IDispose( IEqual ) :
     @property
     def dispose( self ) :
 
-        """ dispose : typing.Any.
+        """ dispose : bool.
         """
 
         return self._dispose
 
     @dispose.setter
-    def dispose( self, dispose : typing.Any ) :
+    def dispose( self, dispose : bool ) :
 
         self._dispose = dispose
 
@@ -79,4 +79,4 @@ class IDispose( IEqual ) :
 
         super( ).__init__( )
 
-        self._dispose = None
+        self._dispose = False

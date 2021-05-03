@@ -47,13 +47,13 @@ class IReady( IEqual ) :
     @property
     def ready( self ) :
 
-        """ ready : typing.Any.
+        """ ready : bool.
         """
 
         return self._ready
 
     @ready.setter
-    def ready( self, ready : typing.Any ) :
+    def ready( self, ready : bool ) :
 
         self._ready = ready
 
@@ -79,4 +79,4 @@ class IReady( IEqual ) :
 
         super( ).__init__( )
 
-        self._ready = None
+        self._ready = False

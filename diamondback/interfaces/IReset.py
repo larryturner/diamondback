@@ -13,7 +13,7 @@
 
             class Test( IReset, IS ) :
 
-                def reset( self, x : typing.Any ) -> None :
+                def reset( self, x : typing.Union[ complex, float ] ) -> None :
 
                     self.s[ : ] = x
 
@@ -54,7 +54,7 @@ class IReset( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def reset( self, x : typing.Any ) -> None :
+    def reset( self, x : typing.Union[ complex, float ] ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

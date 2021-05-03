@@ -197,13 +197,13 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">dispose</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; dispose : typing.Any.</span>
+        <span class="sd">&quot;&quot;&quot; dispose : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dispose</span>
 
     <span class="nd">@dispose</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">dispose</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">dispose</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">dispose</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">dispose</span> <span class="p">:</span> <span class="nb">bool</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_dispose</span> <span class="o">=</span> <span class="n">dispose</span>
 
@@ -229,7 +229,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_dispose</span> <span class="o">=</span> <span class="kc">None</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_dispose</span> <span class="o">=</span> <span class="kc">False</span></div>
 </pre></div>
 
            </div>

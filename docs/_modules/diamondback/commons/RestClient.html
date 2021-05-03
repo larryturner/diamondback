@@ -160,12 +160,6 @@
 
 <span class="sd">    Live makes a head request to a URL and detects a live service.</span>
 
-<span class="sd">    Ready makes a get request to a ready API and a service may respond with</span>
-<span class="sd">    an indication that it is in a condition which supports normal function.</span>
-
-<span class="sd">    Version makes a get request to a version API and a service may respond</span>
-<span class="sd">    with a version string.</span>
-
 <span class="sd">    **Example**</span>
 
 <span class="sd">        ::</span>
@@ -183,7 +177,7 @@
 
 <span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
 
-<span class="sd">                def add( self, json : typing.Union[ numpy.ndarray, typing.List[ float ] ] ) -&gt; float :</span>
+<span class="sd">                def add( self, json : typing.Dict[ str, numpy.ndarray ] ) -&gt; numpy.ndarray :</span>
 
 <span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, json = json ).json( )</span>
 
@@ -193,7 +187,7 @@
 
 <span class="sd">            client.timeout = ( 10.0, 60.0 )  # connect, read</span>
 
-<span class="sd">            client.add( [ 2.71827, 3.14159 ] )</span>
+<span class="sd">            value = client.add( { &#39;x&#39; : numpy.random.rand( 3 ), &#39;y&#39; : numpy.random.rand( 3 ) } )</span>
 
 <span class="sd">    **License**</span>
 
@@ -211,15 +205,13 @@
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.ILive</span> <span class="kn">import</span> <span class="n">ILive</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IReady</span> <span class="kn">import</span> <span class="n">IReady</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeOut</span> <span class="kn">import</span> <span class="n">ITimeOut</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IVersion</span> <span class="kn">import</span> <span class="n">IVersion</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">typing</span>
 
 
-<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">ILive</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">IReady</span><span class="p">,</span> <span class="n">ITimeOut</span><span class="p">,</span> <span class="n">IUrl</span><span class="p">,</span> <span class="n">IVersion</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">ILive</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">ITimeOut</span><span class="p">,</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; REST client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -239,38 +231,6 @@
         <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
 
             <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">return</span> <span class="n">value</span>
-
-    <span class="nd">@IReady</span><span class="o">.</span><span class="n">ready</span><span class="o">.</span><span class="n">getter</span>
-    <span class="k">def</span> <span class="nf">ready</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="sd">&quot;&quot;&quot; ready : bool.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">try</span> <span class="p">:</span>
-
-            <span class="n">value</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/ready&#39;</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
-
-            <span class="n">value</span> <span class="o">=</span> <span class="kc">False</span>
-
-        <span class="k">return</span> <span class="n">value</span>
-
-    <span class="nd">@IVersion</span><span class="o">.</span><span class="n">version</span><span class="o">.</span><span class="n">getter</span>
-    <span class="k">def</span> <span class="nf">version</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="sd">&quot;&quot;&quot; version : str.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">try</span> <span class="p">:</span>
-
-            <span class="n">value</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">+</span> <span class="s1">&#39;/version&#39;</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
-
-            <span class="n">value</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
 
         <span class="k">return</span> <span class="n">value</span>
 

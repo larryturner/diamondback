@@ -47,13 +47,13 @@ class ILabel( IEqual ) :
     @property
     def label( self ) :
 
-        """ label : typing.Any.
+        """ label : str.
         """
 
         return self._label
 
     @label.setter
-    def label( self, label : typing.Any ) :
+    def label( self, label : str ) :
 
         self._label = label
 

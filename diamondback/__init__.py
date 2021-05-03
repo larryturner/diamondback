@@ -5,4 +5,4 @@ from .models import *  # noqa: F401
 from .transforms import *  # noqa: F401
 
 
-__version__ = '1.0.85'
+__version__ = '1.0.86'

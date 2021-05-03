@@ -48,13 +48,13 @@ class IIdentity( IEqual ) :
     @property
     def identity( self ) :
 
-        """ identity : typing.Any.
+        """ identity : str.
         """
 
         return self._identity
 
     @identity.setter
-    def identity( self, identity : typing.Any ) :
+    def identity( self, identity : str ) :
 
         self._identity = identity
 

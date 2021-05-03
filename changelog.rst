@@ -444,3 +444,15 @@ Release
 -   Modified typing and cleaned declarations.
 
 -   Removed IUser.
+
+1.0.86 - 2021-05-03
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified typing.
+
+-   Removed IAsset, ICache, ICompress, IConnect, IEmulate, IEncoding, IHeader,
+    and IUpdate.
+
+-   Modified IirFilter to remove IQ.
+
+-   Modified RestClient to remove IReady and IVersion.

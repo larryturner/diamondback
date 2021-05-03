@@ -10,12 +10,6 @@
 
     Live makes a head request to a URL and detects a live service.
 
-    Ready makes a get request to a ready API and a service may respond with
-    an indication that it is in a condition which supports normal function.
-
-    Version makes a get request to a version API and a service may respond
-    with a version string.
-
     **Example**
 
         ::
@@ -33,7 +27,7 @@
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
-                def add( self, json : typing.Union[ numpy.ndarray, typing.List[ float ] ] ) -> float :
+                def add( self, json : typing.Dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
 
                     return self.request( 'get', 'test/add', json = json ).json( )
 
@@ -43,7 +37,7 @@
 
             client.timeout = ( 10.0, 60.0 )  # connect, read
 
-            client.add( [ 2.71827, 3.14159 ] )
+            value = client.add( { 'x' : numpy.random.rand( 3 ), 'y' : numpy.random.rand( 3 ) } )
 
     **License**
 
@@ -61,15 +55,13 @@
 
 from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
-from diamondback.interfaces.IReady import IReady
 from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
-from diamondback.interfaces.IVersion import IVersion
 import requests
 import typing
 
 
-class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
+class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
     """ REST client.
     """
@@ -89,38 +81,6 @@ class RestClient( ILive, IProxy, IReady, ITimeOut, IUrl, IVersion ) :
         except Exception :
 
             value = False
-
-        return value
-
-    @IReady.ready.getter
-    def ready( self ) :
-
-        """ ready : bool.
-        """
-
-        try :
-
-            value = requests.request( method = 'get', url = self.url + '/ready', proxies = self.proxy, timeout = self.timeout ).json( )
-
-        except Exception :
-
-            value = False
-
-        return value
-
-    @IVersion.version.getter
-    def version( self ) :
-
-        """ version : str.
-        """
-
-        try :
-
-            value = requests.request( method = 'get', url = self.url + '/version', proxies = self.proxy, timeout = self.timeout ).json( )
-
-        except Exception :
-
-            value = ''
 
         return value
 

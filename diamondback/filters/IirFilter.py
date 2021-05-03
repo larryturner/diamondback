@@ -101,7 +101,6 @@
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IA import IA
-from diamondback.interfaces.IQ import IQ
 from diamondback.transforms.ZTransform import ZTransform
 import math
 import numpy
@@ -110,7 +109,7 @@ import typing
 import warnings
 
 
-class IirFilter( FirFilter, IA, IQ ) :
+class IirFilter( FirFilter, IA ) :
 
     """ Infinite Impulse Response ( IIR ) filter.
     """
@@ -311,7 +310,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         super( ).__init__( b, s )
 
-        self.a, self.q = numpy.array( a ), numpy.array( self.s )
+        self.a = numpy.array( a )
 
     def delay( self, length : int = 8192, count : int = 1 ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
 
@@ -393,7 +392,7 @@ class IirFilter( FirFilter, IA, IQ ) :
 
         return y
 
-    def reset( self, x : typing.Any ) -> None :
+    def reset( self, x : typing.Union[ complex, float ] ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
@@ -408,8 +407,6 @@ class IirFilter( FirFilter, IA, IQ ) :
             raise ValueError( f'X = {x}' )
 
         if ( len( self.s ) > 1 ) :
-
-            self.q.fill( 0.0 )
 
             self.s.fill( x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( ) )
 

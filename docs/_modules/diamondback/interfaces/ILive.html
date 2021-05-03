@@ -197,13 +197,13 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; live : typing.Any.</span>
+        <span class="sd">&quot;&quot;&quot; live : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_live</span>
 
     <span class="nd">@live</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">live</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">live</span> <span class="p">:</span> <span class="nb">bool</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_live</span> <span class="o">=</span> <span class="n">live</span>
 
@@ -229,7 +229,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_live</span> <span class="o">=</span> <span class="kc">None</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_live</span> <span class="o">=</span> <span class="kc">False</span></div>
 </pre></div>
 
            </div>

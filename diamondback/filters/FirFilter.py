@@ -335,7 +335,7 @@ class FirFilter( IB, IReset, IS ) :
 
         return y
 
-    def reset( self, x : typing.Any ) -> None :
+    def reset( self, x : typing.Union[ complex, float ] ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.

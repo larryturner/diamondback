@@ -87,23 +87,16 @@
 <li><a class="reference internal" href="#">diamondback.interfaces package</a><ul>
 <li><a class="reference internal" href="#submodules">Submodules</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IA">diamondback.interfaces.IA module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IAsset">diamondback.interfaces.IAsset module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IB">diamondback.interfaces.IB module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.ICache">diamondback.interfaces.ICache module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IClear">diamondback.interfaces.IClear module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.ICompress">diamondback.interfaces.ICompress module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IConfigure">diamondback.interfaces.IConfigure module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IConnect">diamondback.interfaces.IConnect module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ICount">diamondback.interfaces.ICount module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IData">diamondback.interfaces.IData module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDate">diamondback.interfaces.IDate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDispose">diamondback.interfaces.IDispose module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IDuration">diamondback.interfaces.IDuration module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IEmulate">diamondback.interfaces.IEmulate module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IEncoding">diamondback.interfaces.IEncoding module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IEqual">diamondback.interfaces.IEqual module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IFrequency">diamondback.interfaces.IFrequency module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IHeader">diamondback.interfaces.IHeader module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IIdentity">diamondback.interfaces.IIdentity module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IInterval">diamondback.interfaces.IInterval module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILabel">diamondback.interfaces.ILabel module</a></li>
@@ -124,7 +117,6 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.IStream">diamondback.interfaces.IStream module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeOut">diamondback.interfaces.ITimeOut module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.ITimeZone">diamondback.interfaces.ITimeZone module</a></li>
-<li><a class="reference internal" href="#module-diamondback.interfaces.IUpdate">diamondback.interfaces.IUpdate module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IUrl">diamondback.interfaces.IUrl module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IValid">diamondback.interfaces.IValid module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IVersion">diamondback.interfaces.IVersion module</a></li>
@@ -273,76 +265,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-diamondback.interfaces.IAsset">
-<span id="diamondback-interfaces-iasset-module"></span><h2>diamondback.interfaces.IAsset module<a class="headerlink" href="#module-diamondback.interfaces.IAsset" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Asset interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IAsset</span>
-<span class="kn">import</span> <span class="nn">uuid</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IAsset</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">asset</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">asset</span> <span class="o">=</span> <span class="s1">&#39;&lt;Country-Region-City-Corporation-Site&gt;-&#39;</span> <span class="o">+</span> <span class="n">test</span><span class="o">.</span><span class="n">asset</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2021-02-01.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IAsset.IAsset">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IAsset.</span></code><code class="sig-name descname"><span class="pre">IAsset</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IAsset.html#IAsset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Asset interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IAsset.IAsset.asset">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">asset</span></code><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset.asset" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>asset</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IAsset.IAsset.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IAsset.html#IAsset.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IAsset.IAsset.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-diamondback.interfaces.IB">
 <span id="diamondback-interfaces-ib-module"></span><h2>diamondback.interfaces.IB module<a class="headerlink" href="#module-diamondback.interfaces.IB" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -413,75 +335,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-diamondback.interfaces.ICache">
-<span id="diamondback-interfaces-icache-module"></span><h2>diamondback.interfaces.ICache module<a class="headerlink" href="#module-diamondback.interfaces.ICache" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Cache interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ICache</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICache</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.ICache.ICache">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.ICache.</span></code><code class="sig-name descname"><span class="pre">ICache</span></code><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Cache interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.ICache.ICache.cache">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">cache</span></code><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.cache" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>cache</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.ICache.ICache.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICache.html#ICache.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICache.ICache.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-diamondback.interfaces.IClear">
 <span id="diamondback-interfaces-iclear-module"></span><h2>diamondback.interfaces.IClear module<a class="headerlink" href="#module-diamondback.interfaces.IClear" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -525,75 +378,6 @@
 <dt id="diamondback.interfaces.IClear.IClear.clear">
 <em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">clear</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IClear.html#IClear.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IClear.IClear.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>Clears an instance.</p>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.ICompress">
-<span id="diamondback-interfaces-icompress-module"></span><h2>diamondback.interfaces.ICompress module<a class="headerlink" href="#module-diamondback.interfaces.ICompress" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Compress interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ICompress</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICompress</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">compress</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-22.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.ICompress.ICompress">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.ICompress.</span></code><code class="sig-name descname"><span class="pre">ICompress</span></code><a class="reference internal" href="_modules/diamondback/interfaces/ICompress.html#ICompress"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Compress interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.ICompress.ICompress.compress">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">compress</span></code><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.compress" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>compress</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.ICompress.ICompress.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/ICompress.html#ICompress.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.ICompress.ICompress.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
 </dd></dl>
 
 </dd></dl>
@@ -654,75 +438,6 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IConfigure.IConfigure.__eq__">
 <code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConfigure.html#IConfigure.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IConnect">
-<span id="diamondback-interfaces-iconnect-module"></span><h2>diamondback.interfaces.IConnect module<a class="headerlink" href="#module-diamondback.interfaces.IConnect" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Connect interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IConnect</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IConnect</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">connect</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">connect</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;proxy.net:8080&#39;</span> <span class="p">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IConnect.IConnect">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IConnect.</span></code><code class="sig-name descname"><span class="pre">IConnect</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IConnect.html#IConnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Connect interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IConnect.IConnect.connect">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">connect</span></code><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.connect" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>connect</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IConnect.IConnect.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IConnect.html#IConnect.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IConnect.IConnect.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -989,7 +704,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IDispose.IDispose.dispose">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">dispose</span></code><a class="headerlink" href="#diamondback.interfaces.IDispose.IDispose.dispose" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>bool.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dispose</p>
@@ -1069,144 +784,6 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IDuration.IDuration.__eq__">
 <code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IDuration.html#IDuration.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IDuration.IDuration.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IEmulate">
-<span id="diamondback-interfaces-iemulate-module"></span><h2>diamondback.interfaces.IEmulate module<a class="headerlink" href="#module-diamondback.interfaces.IEmulate" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Emulate interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEmulate</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEmulate</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">emulate</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">emulate</span> <span class="o">=</span> <span class="kc">True</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-10-15.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IEmulate.IEmulate">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IEmulate.</span></code><code class="sig-name descname"><span class="pre">IEmulate</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IEmulate.html#IEmulate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Emulate interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IEmulate.IEmulate.emulate">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">emulate</span></code><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.emulate" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>emulate</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IEmulate.IEmulate.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEmulate.html#IEmulate.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEmulate.IEmulate.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IEncoding">
-<span id="diamondback-interfaces-iencoding-module"></span><h2>diamondback.interfaces.IEncoding module<a class="headerlink" href="#module-diamondback.interfaces.IEncoding" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Encoding interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEncoding</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEncoding</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-8&#39;</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">encoding</span> <span class="o">=</span> <span class="s1">&#39;utf-16&#39;</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2019-10-09.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IEncoding.IEncoding">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IEncoding.</span></code><code class="sig-name descname"><span class="pre">IEncoding</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Encoding interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IEncoding.IEncoding.encoding">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">encoding</span></code><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.encoding" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>encoding</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IEncoding.IEncoding.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IEncoding.html#IEncoding.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IEncoding.IEncoding.__eq__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
@@ -1357,76 +934,6 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-diamondback.interfaces.IHeader">
-<span id="diamondback-interfaces-iheader-module"></span><h2>diamondback.interfaces.IHeader module<a class="headerlink" href="#module-diamondback.interfaces.IHeader" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Header interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IHeader</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IHeader</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="p">{</span> <span class="p">}</span>
-
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">header</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;content-encoding&#39;</span> <span class="p">:</span> <span class="s1">&#39;gzip&#39;</span><span class="p">,</span> <span class="s1">&#39;content-type&#39;</span> <span class="p">:</span> <span class="s1">&#39;application/json&#39;</span> <span class="p">}</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-09-25.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IHeader.IHeader">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IHeader.</span></code><code class="sig-name descname"><span class="pre">IHeader</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IHeader.html#IHeader"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="#diamondback.interfaces.IEqual.IEqual" title="diamondback.interfaces.IEqual.IEqual"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IEqual.IEqual</span></code></a></p>
-<p>Header interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IHeader.IHeader.header">
-<em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">header</span></code><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader.header" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Dict[ str, str ].</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>header</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt id="diamondback.interfaces.IHeader.IHeader.__eq__">
-<code class="sig-name descname"><span class="pre">__eq__</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.9)"><span class="pre">bool</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IHeader.html#IHeader.__eq__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IHeader.IHeader.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Equal.</p>
-<p>Arguments :</p>
-<blockquote>
-<div><p>other : typing.Any.</p>
-</div></blockquote>
-<p>Returns :</p>
-<blockquote>
-<div><p>equal : bool.</p>
-</div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
 <div class="section" id="module-diamondback.interfaces.IIdentity">
 <span id="diamondback-interfaces-iidentity-module"></span><h2>diamondback.interfaces.IIdentity module<a class="headerlink" href="#module-diamondback.interfaces.IIdentity" title="Permalink to this headline">¶</a></h2>
 <p><strong>Description</strong></p>
@@ -1472,7 +979,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IIdentity.IIdentity.identity">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">identity</span></code><a class="headerlink" href="#diamondback.interfaces.IIdentity.IIdentity.identity" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>identity</p>
@@ -1610,7 +1117,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ILabel.ILabel.label">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">label</span></code><a class="headerlink" href="#diamondback.interfaces.ILabel.ILabel.label" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>str.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>label</p>
@@ -1748,7 +1255,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.ILive.ILive.live">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">live</span></code><a class="headerlink" href="#diamondback.interfaces.ILive.ILive.live" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>bool.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>live</p>
@@ -2300,7 +1807,7 @@
 <dl class="py method">
 <dt id="diamondback.interfaces.IReady.IReady.ready">
 <em class="property"><span class="pre">property</span> </em><code class="sig-name descname"><span class="pre">ready</span></code><a class="headerlink" href="#diamondback.interfaces.IReady.IReady.ready" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>bool.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>ready</p>
@@ -2340,7 +1847,7 @@
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
@@ -2370,7 +1877,7 @@
 <p>Initialize.</p>
 <dl class="py method">
 <dt id="diamondback.interfaces.IReset.IReset.reset">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">reset</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/functions.html#complex" title="(in Python v3.9)"><span class="pre">complex</span></a><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.9)"><span class="pre">float</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a><a class="reference internal" href="_modules/diamondback/interfaces/IReset.html#IReset.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IReset.IReset.reset" title="Permalink to this definition">¶</a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
@@ -2795,54 +2302,6 @@ operation at a specified incident signal condition.</p>
 <blockquote>
 <div><p>equal : bool.</p>
 </div></blockquote>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-<div class="section" id="module-diamondback.interfaces.IUpdate">
-<span id="diamondback-interfaces-iupdate-module"></span><h2>diamondback.interfaces.IUpdate module<a class="headerlink" href="#module-diamondback.interfaces.IUpdate" title="Permalink to this headline">¶</a></h2>
-<p><strong>Description</strong></p>
-<blockquote>
-<div><p>Update interface.</p>
-</div></blockquote>
-<p><strong>Example</strong></p>
-<blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IUpdate</span>
-
-
-<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span><span class="p">,</span> <span class="n">IUpdate</span> <span class="p">)</span> <span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">update</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">+=</span> <span class="mf">1.0</span>
-
-<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="n">test</span><span class="o">.</span><span class="n">update</span><span class="p">(</span> <span class="p">)</span>
-</pre></div>
-</div>
-</div></blockquote>
-<p><strong>License</strong></p>
-<blockquote>
-<div><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a></p>
-<p>© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
-</div></blockquote>
-<p><strong>Author</strong></p>
-<blockquote>
-<div><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-23.</p>
-</div></blockquote>
-<p><strong>Definition</strong></p>
-<dl class="py class">
-<dt id="diamondback.interfaces.IUpdate.IUpdate">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IUpdate.</span></code><code class="sig-name descname"><span class="pre">IUpdate</span></code><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABC" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
-<p>Update interface.</p>
-<p>Initialize.</p>
-<dl class="py method">
-<dt id="diamondback.interfaces.IUpdate.IUpdate.update">
-<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">update</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <span class="pre">Any</span><a class="reference internal" href="_modules/diamondback/interfaces/IUpdate.html#IUpdate.update"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IUpdate.IUpdate.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update.</p>
 </dd></dl>
 
 </dd></dl>

@@ -12,26 +12,10 @@ diamondback.interfaces.IA module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.IAsset module
-------------------------------------
-
-.. automodule:: diamondback.interfaces.IAsset
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 diamondback.interfaces.IB module
 --------------------------------
 
 .. automodule:: diamondback.interfaces.IB
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.ICache module
-------------------------------------
-
-.. automodule:: diamondback.interfaces.ICache
    :members:
    :undoc-members:
    :show-inheritance:
@@ -44,26 +28,10 @@ diamondback.interfaces.IClear module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.ICompress module
----------------------------------------
-
-.. automodule:: diamondback.interfaces.ICompress
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 diamondback.interfaces.IConfigure module
 ----------------------------------------
 
 .. automodule:: diamondback.interfaces.IConfigure
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.IConnect module
---------------------------------------
-
-.. automodule:: diamondback.interfaces.IConnect
    :members:
    :undoc-members:
    :show-inheritance:
@@ -108,22 +76,6 @@ diamondback.interfaces.IDuration module
    :undoc-members:
    :show-inheritance:
 
-diamondback.interfaces.IEmulate module
---------------------------------------
-
-.. automodule:: diamondback.interfaces.IEmulate
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.IEncoding module
----------------------------------------
-
-.. automodule:: diamondback.interfaces.IEncoding
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 diamondback.interfaces.IEqual module
 ------------------------------------
 
@@ -136,14 +88,6 @@ diamondback.interfaces.IFrequency module
 ----------------------------------------
 
 .. automodule:: diamondback.interfaces.IFrequency
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.IHeader module
--------------------------------------
-
-.. automodule:: diamondback.interfaces.IHeader
    :members:
    :undoc-members:
    :show-inheritance:
@@ -304,14 +248,6 @@ diamondback.interfaces.ITimeZone module
 ---------------------------------------
 
 .. automodule:: diamondback.interfaces.ITimeZone
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.interfaces.IUpdate module
--------------------------------------
-
-.. automodule:: diamondback.interfaces.IUpdate
    :members:
    :undoc-members:
    :show-inheritance:
