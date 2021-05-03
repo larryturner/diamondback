@@ -19,11 +19,11 @@
 
         .. math::
 
-            y_{i,0:\\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) & y_{i,\\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) & i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605
+            y_{i,0:\\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) & y_{i,\\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
 
         .. math::
 
-            y_{0:\\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) & y_{\\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) & j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605
+            y_{0:\\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) & y_{\\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
 
         Synthesis reconstructs an incident signal from a specified operation
         count, scaling and upsampling alternate samples, applying complementary
@@ -37,11 +37,11 @@
 
         .. math::
 
-            x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{0:\\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{\\frac{R}{2}:R-1,j},\ 2\ ) )\ ) & j \in \scriptsize{[\ 0,\ C\ )}}  # noqa: W605
+            x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{0:\\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{\\frac{R}{2}:R-1,j},\ 2\ ) )\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
 
         .. math::
 
-            x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{i,0:\\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{i,\\frac{C}{2}:C-1},\ 2\ )\ ) & i \in \scriptsize{[\ 0,\ R\ )}}  # noqa: W605
+            x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{i,0:\\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{i,\\frac{C}{2}:C-1},\ 2\ )\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
 
         A factory is defined to facilitate construction of an instance, defining an
         analysis filter set and a synthesis filter set of a specified order, to

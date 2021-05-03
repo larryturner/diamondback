@@ -16,7 +16,7 @@
 
         .. math::
 
-            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }  # noqa: W605
+            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }
 
         .. math::
 
@@ -28,7 +28,7 @@
 
         .. math::
 
-            f_{k} = -1\ + \ 2\ \\frac{k}{N}  # noqa: W605
+            f_{k} = -1\ + \ 2\ \\frac{k}{N}
 
         An incident signal length is inversely proportional to a normalized
         frequency resolution.
