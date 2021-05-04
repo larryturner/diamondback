@@ -6,11 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ComplexTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/FourierTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/PowerSpectrumTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/WaveletTransform.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/transforms/ZTransform.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -254,6 +250,7 @@
       <workItem from="1619723397253" duration="6155000" />
       <workItem from="1619793880445" duration="21320000" />
       <workItem from="1620083754223" duration="239000" />
+      <workItem from="1620137807338" duration="74000" />
     </task>
     <servers />
   </component>
