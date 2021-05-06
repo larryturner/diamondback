@@ -463,3 +463,8 @@ Release
 -   Modified requirements.
 
 -   Modified RestClient request.
+
+1.0.88 - 2021-05-07
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified tests.

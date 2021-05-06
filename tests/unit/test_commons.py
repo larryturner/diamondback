@@ -1,6 +1,6 @@
 """ **Description**
 
-        Test commons.
+        Test unit commons.
 
     **Example**
 
@@ -23,128 +23,115 @@
 """
 
 from diamondback import IirFilter
-from diamondback import Log, Serial
+from diamondback import Log, RestClient, Serial
+import io
 import numpy
-import os
+import sys
 
 
-def test_Log( count = 2, path = 'test_Log.3.14159.txt' ) :
+class Test( object ) :
 
-    """ Test Log.
+    """ Test.
     """
 
-    try :
+    def test_Log( self ) :
 
-        start, error, end = 'Log Test - Start', 'Log Test - Error', 'Log Test - End'
+        """ Test Log.
+        """
 
-        with open( path, 'w' ) as fout :
+        x = [ str( x ) for x in numpy.random.rand( 3 ) ]
 
-            Log.stream( fout )
+        fio = io.StringIO( )
 
-            Log.level( 'ERROR' )
+        Log.stream( fio )
 
-            Log.write( 'DEBUG', error )
+        Log.level( 'CRITICAL' )
 
-            Log.level( 'DEBUG' )
+        Log.write( 'DEBUG', f'{numpy.random.rand( 3 ) + 1.0}' )
 
-            Log.write( 'DEBUG', start )
+        Log.level( 'DEBUG' )
 
-            Log.write( 'INFO', f'X = {numpy.random.rand( count, count )}' )
+        Log.write( 'INFO', x[ 0 ] )
 
-            Log.write( 'WARNING', f'Y = {list( numpy.random.rand( count, count ) )}' )
+        Log.level( 'ERROR' )
 
-            Log.write( 'CRITICAL', f'Z = {set( numpy.random.rand( count ) )}' )
+        Log.write( 'WARNING', f'{numpy.random.rand( 3 ) + 1.0}' )
 
-            Log.write( 'ERROR', ValueError( end ) )
+        Log.write( 'CRITICAL', x[ 1 ] )
 
-        with open( path, 'r' ) as fin :
+        Log.write( 'ERROR', x[ 2 ] )
 
-            x = fin.read( )
+        value = fio.getvalue( )
 
-            assert x
+        Log.stream( sys.stdout )
 
-            assert x.find( start ) >= 0
+        Log.level( 'INFO' )
 
-            assert x.find( error ) < 0
+        assert value
 
-            assert x.find( end ) >= 0
+        assert value.find( x[ 0 ] ) > 0
 
-            assert ( ( x.find( 'CRITICAL' ) >= 0 ) and ( x.find( 'ERROR' ) >= 0 ) and ( x.find( 'WARNING' ) >= 0 ) and ( x.find( 'INFO' ) >= 0 ) and ( x.find( 'DEBUG' ) >= 0 ) )
+        assert value.find( x[ 1 ] ) > value.find( x[ 0 ] )
 
-    except Exception as ex :
+        assert value.find( x[ 2 ] ) > value.find( x[ 1 ] )
 
-        assert False
+    def test_RestClient( self ) :
 
-    finally :
+        """ Test RestClient.
+        """
 
-        os.remove( path )
+        client = RestClient( )
 
+        client.url = 'http://en.wikipedia.org'
 
-def test_Serial( count = 2 ) :
+        assert client.live
 
-    """ Test Serial.
-    """
+        assert client.request( 'get','/wiki/Marines' ).content
 
-    obj = IirFilter.Factory.instance( IirFilter, 'Butterworth', 0.1, 4, 1 )
+    def test_Serial( self ) :
 
-    index = Serial.decode( Serial.encode( obj, False ), False )
+        """ Test Serial.
+        """
 
-    assert obj == index
+        x = IirFilter.Factory.instance( IirFilter, 'Butterworth', 0.1, 4, 1 )
 
-    index = Serial.decode( Serial.encode( obj, True ), True )
+        for ii in range( 0, 2 ) :
 
-    assert obj == index
+            y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
 
-    x = { 'array' : numpy.random.rand( count ),
-          'list' : list( numpy.random.rand( count ) ),
-          'set' : set( numpy.random.rand( count ) ),
-          'tuple' : ( list( numpy.random.rand( count ) ) ) }
+            assert x == y
 
-    y = Serial.decode( Serial.encode( x, False ), False )
+            assert Serial.code( Serial.encode( x, compress = False ) ) == Serial.code( Serial.encode( y, compress = False ) )
 
-    assert ( numpy.allclose( x[ 'array' ], y[ 'array' ] ) )
+            try :
 
-    assert ( numpy.allclose( x[ 'list' ], y[ 'list' ] ) )
+                Serial.decode( Serial.encode( x, ii != 0 ), ii == 0 )
 
-    assert ( numpy.allclose( sorted( x[ 'set' ] ), sorted( y[ 'set' ] ) ) )
+                assert False
 
-    assert ( numpy.allclose( x[ 'tuple' ], y[ 'tuple' ] ) )
+            except Exception :
 
-    y = Serial.decode( Serial.encode( x, True ), True )
+                pass
 
-    assert ( numpy.allclose( x[ 'array' ], y[ 'array' ] ) )
+        x = { 'x' : numpy.random.rand( 30, 50 ), 'y' : numpy.random.rand( 50, 30 ) }
 
-    assert ( numpy.allclose( x[ 'list' ], y[ 'list' ] ) )
+        for ii in range( 0, 2 ) :
 
-    assert ( numpy.allclose( sorted( x[ 'set' ] ), sorted( y[ 'set' ] ) ) )
+            y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
 
-    assert ( numpy.allclose( x[ 'tuple' ], y[ 'tuple' ] ) )
+            assert Serial.encode( x, compress = False ) == Serial.encode( y, compress = False )
 
-    x = '{ "service" : { "clear" : false, \
-                         "datetime" : "2019-09-01T15:10:00Z", \
-                         "duration" : 28800.0, \
-                         "emulate" : true, \
-                         "interval" : 3600.0, \
-                         "latency" : 0.0, \
-                         "level" : "info", \
-                         "name" : { "one" : 1.0, "two" : 2.0, "three" : 3.14159 }, \
-                         "optimalstart" : true, \
-                         "optimalstop" : true, \
-                         "period" : 600.0, \
-                         "persistence" : 14400.0, \
-                         "write" : false, \
-                         "comment" : "JSON instance." } }'
+            assert all( [ u in x for u in list( y.keys( ) ) ] )
 
-    u = Serial.decode( x, False )
+        x = '\"\"\" Docstring. \"\"\"\n \
+                    { "serial" : { "datetime" : "2019-09-01T15:10:00Z", # Comment.\n \
+                                   "duration" : 28800.0,\n \
+                                   "period" : 123.4 } }\n'
 
-    assert u
+        y = Serial.decode( x, compress = False, clean = True )
 
-    v = Serial.decode( Serial.encode( u, False ), False )
+        assert 'serial' in y
 
-    assert len( u ) == len( v )
+        assert all( [ u in y[ 'serial' ] for u in ( 'datetime', 'duration', 'period' ) ] )
 
-    key = list( u.keys( ) )[ 0 ]
-
-    assert ( ( key in u ) and ( key in v ) )
-
-    assert u[ key ] == v[ key ]
+        assert numpy.isclose( y[ 'serial' ][ 'period' ], 123.4 )
