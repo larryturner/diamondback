@@ -16,37 +16,30 @@
 
 """
 
+from diamondback import __version__
 from setuptools import find_packages, setup
-import os
-import re
 
 
 try :
-
-    with open( 'diamondback' + os.path.sep + '__init__.py' ) as fin :
-
-        _label, _value = r'__version__\s{0,4}=\s{0,4}', r'\d{1,3}\.\d{1,3}\.\d{1,3}'
-
-        _version = re.findall( _value, re.findall( _label + '\W' + _value + '\W', fin.read( ) )[ 0 ] )[ 0 ]
 
     with open( 'readme.rst', 'r' ) as fin :
 
         x = fin.read( )
 
-        _readme = x[ x.index( 'Diamondback' ) : x.index( 'Details' ) ]
+        description = x[ x.index( 'Diamondback' ) : x.index( 'Details' ) ]
 
 except Exception :
 
-    _readme = ''
+    description = ''
 
 
 setup( name = 'diamondback',
-       version = _version,
+       version = __version__,
        author = 'Larry Turner',
        author_email = 'larry.turner@se.com',
        url = 'https://github.com/larryturner/diamondback',
        description = 'Diamondback digital signal processing package.',
-       long_description = _readme,
+       long_description = description,
        classifiers = [ 'Operating System :: OS Independent',
                        'Programming Language :: Python :: 3',
                        'Programming Language :: Python :: 3.6',
@@ -67,7 +60,7 @@ setup( name = 'diamondback',
                                      'nox >= 2020.12.31',
                                      'pillow >= 8.2.0',
                                      'pytest >= 6.2.3',
-                                     'regex >= 2021.4.4',
+                                     'setuptools >= 56.0.0',
                                      'sphinx >= 3.5.4',
                                      'sphinx-pydantic >= 0.1.1',
                                      'sphinx-rtd-theme >= 0.5.2' ] },

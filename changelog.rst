@@ -456,3 +456,10 @@ Release
 -   Modified IirFilter to remove IQ.
 
 -   Modified RestClient to remove IReady and IVersion.
+
+1.0.87 - 2021-05-06
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified requirements.
+
+-   Modified RestClient request.

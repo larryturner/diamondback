@@ -2,7 +2,7 @@
 
     REST client instances define a client for simple REST service requests
     using the requests package.  An API and an elective dictionary of parameter
-    strings are encoded to build a URL, elective JSON or binary data are
+    strings are encoded to build a URL, elective binary or JSON data are
     defined in the body of a request, and a requests response containing JSON,
     text, or binary data is returned.
 
@@ -95,11 +95,11 @@ class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
         self.url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, json : typing.Any = None, data : typing.Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : typing.Any = None, json : typing.Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
-            URL, elective JSON or binary data are defined in the body of a
+            URL, elective binary or JSON data are defined in the body of a
             request, and a requests response containing JSON, text, or binary
             data is returned.
 
@@ -111,9 +111,9 @@ class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
                 item : typing.Dict[ str, str ].
 
-                json : typing.Any.
-
                 data : typing.Any.
+
+                json : typing.Any.
 
             Returns :
 

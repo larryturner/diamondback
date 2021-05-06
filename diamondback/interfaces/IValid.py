@@ -47,13 +47,13 @@ class IValid( IEqual ) :
     @property
     def valid( self ) :
 
-        """ valid : typing.Any.
+        """ valid : bool.
         """
 
         return self._valid
 
     @valid.setter
-    def valid( self, valid : typing.Any ) :
+    def valid( self, valid : bool ) :
 
         self._valid = valid
 

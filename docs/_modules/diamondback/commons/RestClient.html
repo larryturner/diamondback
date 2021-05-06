@@ -152,7 +152,7 @@
 
 <span class="sd">    REST client instances define a client for simple REST service requests</span>
 <span class="sd">    using the requests package.  An API and an elective dictionary of parameter</span>
-<span class="sd">    strings are encoded to build a URL, elective JSON or binary data are</span>
+<span class="sd">    strings are encoded to build a URL, elective binary or JSON data are</span>
 <span class="sd">    defined in the body of a request, and a requests response containing JSON,</span>
 <span class="sd">    text, or binary data is returned.</span>
 
@@ -245,11 +245,11 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
 
-<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
 <span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
-<span class="sd">            URL, elective JSON or binary data are defined in the body of a</span>
+<span class="sd">            URL, elective binary or JSON data are defined in the body of a</span>
 <span class="sd">            request, and a requests response containing JSON, text, or binary</span>
 <span class="sd">            data is returned.</span>
 
@@ -261,9 +261,9 @@
 
 <span class="sd">                item : typing.Dict[ str, str ].</span>
 
-<span class="sd">                json : typing.Any.</span>
-
 <span class="sd">                data : typing.Any.</span>
+
+<span class="sd">                json : typing.Any.</span>
 
 <span class="sd">            Returns :</span>
 

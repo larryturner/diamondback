@@ -161,7 +161,7 @@ class Log( object ) :
             Log._identity = logger.add( stream, level = 0, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     @classmethod
-    def write( cls, level : str, entry : typing.Any ) -> None :
+    def write( cls, level : str, entry : typing.Union[ str, Exception ] ) -> None :
 
         """ Formats and writes log entries using the loguru package with a
             specified level and stream.  Log entries contain an ISO-8601
@@ -171,7 +171,7 @@ class Log( object ) :
 
                 level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
 
-                entry : typing.Any.
+                entry : typing.Union[ str, Exception ].
         """
 
         with ( Log._rlock ) :
