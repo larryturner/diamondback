@@ -1,8 +1,11 @@
 """ **Description**
 
-        A serial instance encodes and decodes an instance or collection with
-        JSON or BSON, base-85 encoded gzip JSON, format using the jsonpickle
+        A serial instance encodes and decodes an instance or collection in
+        BSON or JSON, and generates SHA3-256 codes, using the jsonpickle
         package.
+
+        BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code
+        will not be consistent or useful for validation.
 
         An instance may be an object or a collection, referenced by abstract or
         concrete types, and the instance will be correctly encoded and decoded,
@@ -81,7 +84,7 @@ import typing
 
 class Serial( object ) :
 
-    """ Serial service, with JSON or BSON, base-85 encoded gzip JSON, format.
+    """ Serial.
     """
 
     jsonpickle.ext.numpy.register_handlers( )
@@ -117,11 +120,10 @@ class Serial( object ) :
     @staticmethod
     def decode( state : str, compress : bool = False, encoding : str = 'utf_8', clean : bool = False ) -> typing.Any :
 
-        """ Decodes an instance or collection from JSON or BSON, base-85
-            encoded gzip JSON, state.  Encoding may be specified if an
-            alternative to UTF-8 is required.  Python style docstring and line
-            comments may be cleaned, though line comments must be terminated by
-            a new line.
+        """ Decodes an instance or collection from a BSON or JSON state.
+            Encoding may be specified if an alternative to UTF-8 is required.
+            Python style docstring and line comments may be cleaned, though
+            line comments must be terminated by a new line.
 
             Arguments :
 
@@ -159,9 +161,8 @@ class Serial( object ) :
     @staticmethod
     def encode( instance : typing.Any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
 
-        """ Encodes JSON or BSON, base-85 encoded gzip JSON, state from an
-            instance or collection.  Encoding may be specified if an
-            alternative to UTF-8 is required.
+        """ Encodes BSON or JSON.  Encoding may be specified if an alternative
+            to UTF-8 is required.
 
             Arguments :
 

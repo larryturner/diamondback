@@ -391,7 +391,7 @@ Release
 1.0.75 - 2021-03-16
 ^^^^^^^^^^^^^^^^^^^
 
--   Modified Serial to use base-85 encoded gzip JSON, and compact separators.
+-   Modified Serial to use Base-85 encoded gzip JSON, and compact separators.
 
 1.0.76 - 2021-03-25
 ^^^^^^^^^^^^^^^^^^^

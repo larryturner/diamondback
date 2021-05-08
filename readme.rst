@@ -64,11 +64,11 @@ Diamondback is defined in subpackages :
     data is returned.  Proxy, timeout, and URL definition are supported.
 
 -   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`__
-    singleton instance which encodes and decodes an instance or collection
-    with JSON or BSON, base-85 encoded gzip JSON, format using the
-    jsonpickle package.  An instance may be an object or a collection,
-    referenced by abstract or concrete types, and the instance will be
-    correctly encoded and decoded, without custom encoding definitions.
+    singleton instance which encodes and decodes an instance or collection in
+    BSON or JSON, and generates SHA3-256 codes, using the jsonpickle package.
+    An instance may be an object or a collection, referenced by abstract or
+    concrete types, and the instance will be correctly encoded and decoded,
+    without custom encoding definitions.
 
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`__
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

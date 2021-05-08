@@ -150,9 +150,12 @@
   <h1>Source code for diamondback.commons.Serial</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 
-<span class="sd">        A serial instance encodes and decodes an instance or collection with</span>
-<span class="sd">        JSON or BSON, base-85 encoded gzip JSON, format using the jsonpickle</span>
+<span class="sd">        A serial instance encodes and decodes an instance or collection in</span>
+<span class="sd">        BSON or JSON, and generates SHA3-256 codes, using the jsonpickle</span>
 <span class="sd">        package.</span>
+
+<span class="sd">        BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code</span>
+<span class="sd">        will not be consistent or useful for validation.</span>
 
 <span class="sd">        An instance may be an object or a collection, referenced by abstract or</span>
 <span class="sd">        concrete types, and the instance will be correctly encoded and decoded,</span>
@@ -231,7 +234,7 @@
 
 <div class="viewcode-block" id="Serial"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial">[docs]</a><span class="k">class</span> <span class="nc">Serial</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Serial service, with JSON or BSON, base-85 encoded gzip JSON, format.</span>
+    <span class="sd">&quot;&quot;&quot; Serial.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
@@ -267,11 +270,10 @@
 <div class="viewcode-block" id="Serial.decode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.decode">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">clean</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Decodes an instance or collection from JSON or BSON, base-85</span>
-<span class="sd">            encoded gzip JSON, state.  Encoding may be specified if an</span>
-<span class="sd">            alternative to UTF-8 is required.  Python style docstring and line</span>
-<span class="sd">            comments may be cleaned, though line comments must be terminated by</span>
-<span class="sd">            a new line.</span>
+        <span class="sd">&quot;&quot;&quot; Decodes an instance or collection from a BSON or JSON state.</span>
+<span class="sd">            Encoding may be specified if an alternative to UTF-8 is required.</span>
+<span class="sd">            Python style docstring and line comments may be cleaned, though</span>
+<span class="sd">            line comments must be terminated by a new line.</span>
 
 <span class="sd">            Arguments :</span>
 
@@ -309,9 +311,8 @@
 <div class="viewcode-block" id="Serial.encode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.Serial.Serial.encode">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Encodes JSON or BSON, base-85 encoded gzip JSON, state from an</span>
-<span class="sd">            instance or collection.  Encoding may be specified if an</span>
-<span class="sd">            alternative to UTF-8 is required.</span>
+        <span class="sd">&quot;&quot;&quot; Encodes BSON or JSON.  Encoding may be specified if an alternative</span>
+<span class="sd">            to UTF-8 is required.</span>
 
 <span class="sd">            Arguments :</span>
 

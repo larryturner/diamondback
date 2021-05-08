@@ -105,7 +105,7 @@ import typing
 
 class Log( object ) :
 
-    """ Log service.
+    """ Log.
     """
 
     numpy.set_printoptions( formatter = { 'float' : '{:.6f}'.format } )

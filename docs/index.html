@@ -226,11 +226,11 @@ are encoded to build a URL, elective binary or JSON data are defined in the
 body of a request, and a requests response containing JSON, text, or binary
 data is returned.  Proxy, timeout, and URL definition are supported.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial">Serial</a>
-singleton instance which encodes and decodes an instance or collection
-with JSON or BSON, base-85 encoded gzip JSON, format using the
-jsonpickle package.  An instance may be an object or a collection,
-referenced by abstract or concrete types, and the instance will be
-correctly encoded and decoded, without custom encoding definitions.</p></li>
+singleton instance which encodes and decodes an instance or collection in
+BSON or JSON, and generates SHA3-256 codes, using the jsonpickle package.
+An instance may be an object or a collection, referenced by abstract or
+concrete types, and the instance will be correctly encoded and decoded,
+without custom encoding definitions.</p></li>
 </ul>
 </div>
 <div class="section" id="filters">
