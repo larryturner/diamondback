@@ -58,7 +58,7 @@ autosummary_generate = True
 
 intersphinx_mapping = { 'python' : ( 'https://docs.python.org/3', None ),
                         'pandas' : ( 'https://pandas.pydata.org/docs/', None ),
-                        'numpy' : ( 'https://docs.scipy.org/doc/numpy/', None ),
+                        'numpy' : ( 'https://numpy.org/doc/stable/', None ),
                         'plotly' : ( 'https://plotly.com/python-api-reference/', None ) }
 
 napoleon_google_docstring = True
