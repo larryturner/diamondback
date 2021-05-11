@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/changelog.rst" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.rst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.89-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.89-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.89.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.89.tar.gz" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -258,7 +258,7 @@
       <workItem from="1620334475377" duration="15020000" />
       <workItem from="1620676572453" duration="10000" />
       <workItem from="1620705423909" duration="80000" />
-      <workItem from="1620751109004" duration="608000" />
+      <workItem from="1620751109004" duration="2023000" />
     </task>
     <servers />
   </component>

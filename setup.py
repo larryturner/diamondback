@@ -16,18 +16,10 @@
 
 """
 
+from diamondback import __version__
 from setuptools import find_packages, setup
-import os
-import re
-
 
 try :
-
-    with open( 'diamondback' + os.path.sep + '__init__.py' ) as fin :
-
-        label, value = r'__version__\s{0,4}=\s{0,4}', r'\d{1,3}\.\d{1,3}\.\d{1,3}'
-
-        version = re.findall( value, re.findall( label + '\W' + value + '\W', fin.read( ) )[ 0 ] )[ 0 ]
 
     with open( 'readme.rst', 'r' ) as fin :
 
@@ -41,7 +33,7 @@ except Exception :
 
 
 setup( name = 'diamondback',
-       version = version,
+       version = __version__,
        author = 'Larry Turner',
        author_email = 'larry.turner@se.com',
        url = 'https://github.com/larryturner/diamondback',
