@@ -1,6 +1,6 @@
 """ **Description**
 
-        Initialize imports.
+        Initialize.
 
     **License**
 
