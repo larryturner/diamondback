@@ -16,7 +16,7 @@
 
 """
 
-from diamondback import __version__
+from diamondback.versions import __version__
 from setuptools import find_packages, setup
 
 try :

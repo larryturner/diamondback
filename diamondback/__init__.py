@@ -1,3 +1,21 @@
+""" **Description**
+
+        Initialize imports.
+
+    **License**
+
+        `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
+
+        © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+
+    **Author**
+
+        Larry Turner, Schneider Electric, Analytics & AI, 2018-03-22.
+
+    **Definition**
+
+"""
+
 from .commons import Log  # noqa: F401
 from .commons import RestClient  # noqa: F401
 from .commons import Serial  # noqa: F401
@@ -55,6 +73,4 @@ from .transforms import FourierTransform  # noqa: F401
 from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
-
-
-__version__ = '1.0.89'
+from .versions import __version__
