@@ -34,7 +34,7 @@ project = 'diamondback'
 
 # Configuration.
 
-exclude_patterns = [ 'build' ]
+exclude_patterns = [ 'build', 'modules.rst', 'noxfile.rst', 'setup.rst' ]
 
 extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.autosummary',

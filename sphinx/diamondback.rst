@@ -12,7 +12,6 @@ Subpackages
    diamondback.interfaces
    diamondback.models
    diamondback.transforms
-   diamondback.versions
 
 Module contents
 ---------------

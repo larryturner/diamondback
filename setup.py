@@ -16,8 +16,8 @@
 
 """
 
-from diamondback.versions import __version__
 from setuptools import find_packages, setup
+from diamondback.__metadata__ import __version__
 
 try :
 
