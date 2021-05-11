@@ -5,8 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/changelog.rst" beforeDir="false" afterPath="$PROJECT_DIR$/changelog.rst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/SOURCES.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -252,7 +255,10 @@
       <workItem from="1620083754223" duration="239000" />
       <workItem from="1620137807338" duration="149000" />
       <workItem from="1620223423387" duration="7150000" />
-      <workItem from="1620334475377" duration="11726000" />
+      <workItem from="1620334475377" duration="15020000" />
+      <workItem from="1620676572453" duration="10000" />
+      <workItem from="1620705423909" duration="80000" />
+      <workItem from="1620751109004" duration="608000" />
     </task>
     <servers />
   </component>

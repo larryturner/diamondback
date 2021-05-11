@@ -468,3 +468,8 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified tests.
+
+1.0.89 - 2021-05-11
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified imports.

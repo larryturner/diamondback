@@ -1,8 +1,10 @@
+.coverage
 .mypy_cache/
 .nox/
 .pytest_cache/
+.tox/
 __pycache__/
+*.egg-info/
 build/
-reports/
 venv/
 noxfile.py
