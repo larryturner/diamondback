@@ -477,6 +477,4 @@ Release
 1.0.90 - 2021-05-11
 ^^^^^^^^^^^^^^^^^^^
 
--   Added __metadata.py to import metadata without dependencies.
-
 -   Modified setup.

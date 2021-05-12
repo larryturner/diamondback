@@ -16,7 +16,6 @@
 
 """
 
-from .__metadata__ import __version__  # noqa: F401
 from .commons import Log  # noqa: F401
 from .commons import RestClient  # noqa: F401
 from .commons import Serial  # noqa: F401
@@ -74,3 +73,5 @@ from .transforms import FourierTransform  # noqa: F401
 from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
+
+__version__ = '1.0.90'

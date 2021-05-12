@@ -14,7 +14,6 @@ setup.py
 .idea/codeStyles/codeStyleConfig.xml
 .idea/inspectionProfiles/Project_Default.xml
 diamondback/__init__.py
-diamondback/__metadata__.py
 diamondback.egg-info/PKG-INFO
 diamondback.egg-info/SOURCES.txt
 diamondback.egg-info/dependency_links.txt
