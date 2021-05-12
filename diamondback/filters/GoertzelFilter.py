@@ -40,7 +40,6 @@
             from diamondback import ComplexExponentialFilter, GoertzelFilter
             import numpy
 
-
             b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 ).b
 
             frequency = 0.1
@@ -74,7 +73,6 @@ from diamondback.filters.IirFilter import IirFilter
 import math
 import numpy
 import typing
-
 
 class GoertzelFilter( IirFilter, IFrequency ) :
 

@@ -57,7 +57,6 @@
 
             from diamondback import DiversityModel
 
-
             # Create an instance from a Factory with constraints.
 
             obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = 'Euclidean', order = 4 )
@@ -89,7 +88,6 @@ from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
 import numpy
 import typing
-
 
 class DiversityModel( IClear, IS, IEqual ) :
 

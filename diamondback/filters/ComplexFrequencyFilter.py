@@ -36,7 +36,6 @@
             from diamondback import ComplexExponentialFilter
             import numpy
 
-
             x = numpy.linspace( 0.0, 0.1, 128 )
 
             # Create a primary signal.
@@ -73,7 +72,6 @@ from diamondback.interfaces.IRate import IRate
 import math
 import numpy
 import typing
-
 
 class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 

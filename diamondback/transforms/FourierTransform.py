@@ -36,7 +36,6 @@
             from diamondback import ComplexExponentialFilter, FourierTransform
             import numpy
 
-
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]
 
             b = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( x ) - 1 ).b
@@ -63,7 +62,6 @@
 
 import numpy
 import typing
-
 
 class FourierTransform( object ) :
 

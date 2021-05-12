@@ -36,7 +36,6 @@
             import numpy
             import sys
 
-
             try :
 
                 # Set Log level to 'INFO', the default level.
@@ -101,7 +100,6 @@ import numpy
 import os
 import sys
 import typing
-
 
 class Log( object ) :
 

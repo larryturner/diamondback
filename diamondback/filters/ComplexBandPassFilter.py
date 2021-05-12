@@ -33,7 +33,6 @@
             from diamondback import ComplexBandPassFilter, ComplexExponentialFilter
             import numpy
 
-
             frequency = 0.1
 
             x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency
@@ -72,7 +71,6 @@ from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.interfaces.IRate import IRate
 import numpy
 import typing
-
 
 class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 

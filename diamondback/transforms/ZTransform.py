@@ -30,7 +30,6 @@
             import math
             import numpy
 
-
             frequency, order, ripple = 0.1, 2, 0.125
 
             u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )

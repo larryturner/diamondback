@@ -60,7 +60,6 @@
             from diamondback import IirFilter
             import numpy
 
-
             # Create an instance from a Factory with constraints.
 
             obj = IirFilter.Factory.instance( typ = IirFilter, classification = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
@@ -107,7 +106,6 @@ import numpy
 import scipy.signal
 import typing
 import warnings
-
 
 class IirFilter( FirFilter, IA ) :
 

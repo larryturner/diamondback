@@ -59,7 +59,6 @@
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 
-
             # Create an instance from a Factory with constraints.
 
             obj = IntegralFilter.Factory.instance( typ = IntegralFilter, order = 2 )
@@ -87,7 +86,6 @@
 from diamondback.filters.IirFilter import IirFilter
 import numpy
 import typing
-
 
 class IntegralFilter( IirFilter ) :
 

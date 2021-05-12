@@ -42,7 +42,6 @@
 
             from diamondback import PrincipalComponentModel
 
-
             # Create an instance.
 
             obj = PrincipalComponentModel( )

@@ -40,7 +40,6 @@
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
-
             # Create an instance from a Factory with constraints.
 
             obj = WindowFilter.Factory.instance( typ = WindowFilter, classification = 'Hann', order = 15, normal = True )
@@ -70,7 +69,6 @@ from diamondback.interfaces.IEqual import IEqual
 import numpy
 import scipy.signal
 import typing
-
 
 class WindowFilter( IB, IEqual ) :
 

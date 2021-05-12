@@ -9,7 +9,6 @@
             from diamondback import IIdentity
             import uuid
 
-
             class Test( IIdentity ) :
 
                 def __init__( self ) -> None :
@@ -38,7 +37,6 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import typing
-
 
 class IIdentity( IEqual ) :
 

@@ -38,7 +38,6 @@ from diamondback.interfaces.IEqual import IEqual
 import os
 import typing
 
-
 class IPath( IEqual ) :
 
     """ Path interface.

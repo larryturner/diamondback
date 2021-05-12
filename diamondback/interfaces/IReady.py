@@ -38,7 +38,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import typing
 
-
 class IReady( IEqual ) :
 
     """ Ready interface.

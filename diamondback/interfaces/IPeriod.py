@@ -8,7 +8,6 @@
 
             from diamondback import IPeriod
 
-
             class Test( IPeriod ) :
 
                 def __init__( self ) -> None :
@@ -38,7 +37,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class IPeriod( IEqual ) :
 

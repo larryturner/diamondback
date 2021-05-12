@@ -19,7 +19,6 @@
             from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 
-
             # Create an instance with coefficients.
 
             obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
@@ -47,7 +46,6 @@
 from diamondback.filters.FirFilter import FirFilter
 import numpy
 import typing
-
 
 class PidFilter( FirFilter ) :
 

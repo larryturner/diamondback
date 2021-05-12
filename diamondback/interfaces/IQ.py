@@ -9,7 +9,6 @@
             from diamondback import IQ
             import numpy
 
-
             class Test( IQ ) :
 
                 def __init__( self ) -> None :
@@ -39,7 +38,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class IQ( IEqual ) :
 

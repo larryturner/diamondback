@@ -8,7 +8,6 @@
 
             from diamondback import ILatency
 
-
             class Test( ILatency ) :
 
                 def __init__( self ) -> None :
@@ -37,7 +36,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class ILatency( IEqual ) :
 

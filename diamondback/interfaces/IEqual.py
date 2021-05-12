@@ -9,7 +9,6 @@
             from diamondback import IEqual, IPhase
             import typing
 
-
             class Test( IEqual, IPhase ) :
 
                 def __eq__( self, other : typing.Any ) -> bool :
@@ -31,7 +30,6 @@
 """
 
 import typing
-
 
 class IEqual( object ) :
 

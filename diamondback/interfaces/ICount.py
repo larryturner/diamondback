@@ -8,7 +8,6 @@
 
             from diamondback import ICount
 
-
             class Test( ICount ) :
 
                 def __init__( self ) -> None :
@@ -36,7 +35,6 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import typing
-
 
 class ICount( IEqual ) :
 

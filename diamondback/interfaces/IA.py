@@ -9,7 +9,6 @@
             from diamondback import IA
             import numpy
 
-
             class Test( IA ) :
 
                 def __init__( self ) -> None :
@@ -39,7 +38,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class IA( IEqual ) :
 

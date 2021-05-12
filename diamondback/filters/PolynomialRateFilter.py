@@ -31,7 +31,6 @@
             import math
             import numpy
 
-
             # Create an instance with rate and order.
 
             obj = PolynomialRateFilter( rate = math.pi, order = 3 )
@@ -59,7 +58,6 @@
 from diamondback.interfaces.IRate import IRate
 import numpy
 import typing
-
 
 class PolynomialRateFilter( IRate ) :
 

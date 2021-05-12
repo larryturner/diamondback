@@ -62,7 +62,6 @@
             import math
             import numpy
 
-
             # Create an instance with rate.
 
             obj = PolyphaseRateFilter( rate = 1.0 / math.pi )
@@ -96,7 +95,6 @@ from diamondback.interfaces.IReset import IReset
 from diamondback.interfaces.IS import IS
 import numpy
 import typing
-
 
 class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 

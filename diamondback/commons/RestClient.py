@@ -18,7 +18,6 @@
             import numpy
             import typing
 
-
             class TestClient( RestClient ) :
 
                 def __init__( self ) -> None :
@@ -59,7 +58,6 @@ from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
 import requests
 import typing
-
 
 class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 

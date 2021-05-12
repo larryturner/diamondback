@@ -22,7 +22,6 @@
             from diamondback import RankFilter
             import numpy
 
-
             # Create an instance with rank and order.
 
             obj = RankFilter( rank = 4, order = 4 )
@@ -52,7 +51,6 @@
 from diamondback.filters.FirFilter import FirFilter
 import numpy
 import typing
-
 
 class RankFilter( FirFilter ) :
 

@@ -25,7 +25,6 @@
 from diamondback import DiversityModel, PrincipalComponentModel
 import numpy
 
-
 class Test( object ) :
 
     """ Test.

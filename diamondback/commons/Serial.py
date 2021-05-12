@@ -29,7 +29,6 @@
             import numpy
             import pandas
 
-
             # Encode and decode a dictionary instance in JSON.
 
             x = { 'a' : numpy.random.rand( count ), 'b' : list( numpy.random.rand( count ) ) }
@@ -80,7 +79,6 @@ import jsonpickle.ext.numpy
 import jsonpickle.ext.pandas
 import re
 import typing
-
 
 class Serial( object ) :
 

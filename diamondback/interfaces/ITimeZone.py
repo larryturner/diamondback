@@ -10,7 +10,6 @@
             import datetime
             import pytz
 
-
             class Test( ITimeZone ) :
 
                 def __init__( self ) -> None :
@@ -40,7 +39,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import datetime
 import typing
-
 
 class ITimeZone( IEqual ) :
 

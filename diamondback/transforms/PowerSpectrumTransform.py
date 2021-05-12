@@ -44,7 +44,6 @@
             from diamondback import ComplexExponentialFilter, PowerSpectrumTransform
             import numpy
 
-
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
 
             b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 - 1 ).b
@@ -70,7 +69,6 @@
 from diamondback.transforms.FourierTransform import FourierTransform
 import numpy
 import typing
-
 
 class PowerSpectrumTransform( object ) :
 

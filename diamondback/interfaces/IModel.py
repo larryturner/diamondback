@@ -37,7 +37,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import typing
 
-
 class IModel( IEqual ) :
 
     """ Model interface.

@@ -65,7 +65,6 @@
             from diamondback import FirFilter
             import numpy
 
-
             # Create an instance from a Factory with constraints.
 
             obj = FirFilter.Factory.instance( typ = FirFilter, classification = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
@@ -112,7 +111,6 @@ import numpy
 import scipy.signal
 import typing
 import warnings
-
 
 class FirFilter( IB, IReset, IS ) :
 

@@ -28,7 +28,6 @@ from diamondback import ZTransform
 import math
 import numpy
 
-
 class Test( object ) :
 
     """ Test.

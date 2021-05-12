@@ -65,7 +65,6 @@
             from diamondback import WaveletTransform
             import numpy
 
-
             count = 3
 
             # Create an instance from a Factory with constraints.
@@ -99,7 +98,6 @@ from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class WaveletTransform( IB, IEqual ) :
 

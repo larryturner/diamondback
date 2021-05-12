@@ -8,7 +8,6 @@
 
             from diamondback import IClear, IPhase
 
-
             class Test( IClear, IPhase ) :
 
                 def clear( self ) -> None :
@@ -34,7 +33,6 @@
 """
 
 from abc import ABC, abstractmethod
-
 
 class IClear( ABC ) :
 

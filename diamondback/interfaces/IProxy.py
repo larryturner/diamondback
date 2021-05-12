@@ -8,7 +8,6 @@
 
             from diamondback import IProxy
 
-
             class Test( IProxy ) :
 
                 def __init__( self ) -> None :
@@ -38,7 +37,6 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import typing
-
 
 class IProxy( IEqual ) :
 

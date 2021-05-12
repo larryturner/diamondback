@@ -8,7 +8,6 @@
 
             from diamondback import IRate
 
-
             class Test( IRate ) :
 
                 def __init__( self ) -> None :
@@ -38,7 +37,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class IRate( IEqual ) :
 

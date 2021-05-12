@@ -28,7 +28,6 @@ import io
 import numpy
 import sys
 
-
 class Test( object ) :
 
     """ Test.

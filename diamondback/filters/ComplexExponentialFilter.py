@@ -23,7 +23,6 @@
             from diamondback import ComplexExponentialFilter
             import numpy
 
-
             # Create an instance with phase.
 
             obj = ComplexExponentialFilter( phase = 0.0 )
@@ -52,7 +51,6 @@ from diamondback.interfaces.IPhase import IPhase
 import math
 import numpy
 import typing
-
 
 class ComplexExponentialFilter( IPhase ) :
 

@@ -20,7 +20,6 @@ from setuptools import find_packages, setup
 import os
 import re
 
-
 try :
 
     with open( 'diamondback' + os.path.sep + '__init__.py', 'r' ) as fin :
@@ -38,7 +37,6 @@ try :
 except Exception :
 
     description = ''
-
 
 setup( name = 'diamondback',
        version = version,

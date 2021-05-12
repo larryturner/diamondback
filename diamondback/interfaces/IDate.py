@@ -9,7 +9,6 @@
             from diamondback import IDate
             import datetime
 
-
             class Test( IDate ) :
 
                 def __init__( self ) -> None :
@@ -39,7 +38,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import datetime
 import typing
-
 
 class IDate( IEqual ) :
 

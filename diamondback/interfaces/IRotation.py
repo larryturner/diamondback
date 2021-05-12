@@ -8,7 +8,6 @@
 
             from diamondback import IRotation
 
-
             class Test( IRotation ) :
 
                 def __init__( self ) -> None :
@@ -38,7 +37,6 @@
 from diamondback.interfaces.IEqual import IEqual
 import numpy
 import typing
-
 
 class IRotation( IEqual ) :
 

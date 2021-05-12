@@ -8,7 +8,6 @@
 
             from diamondback import IValid
 
-
             class Test( IValid ) :
 
                 def __init__( self ) -> None :
@@ -37,7 +36,6 @@
 
 from diamondback.interfaces.IEqual import IEqual
 import typing
-
 
 class IValid( IEqual ) :
 

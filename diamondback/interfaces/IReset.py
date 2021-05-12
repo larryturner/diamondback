@@ -40,7 +40,6 @@
 from abc import ABC, abstractmethod
 import typing
 
-
 class IReset( ABC ) :
 
     """ Reset interface.
