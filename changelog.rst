@@ -487,4 +487,4 @@ Release
 1.0.92 - 2021-05-13
 ^^^^^^^^^^^^^^^^^^^
 
--   Modified setup and nox.
+-   Modified setup, nox, and documentation.

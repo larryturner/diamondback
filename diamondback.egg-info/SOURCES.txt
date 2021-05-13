@@ -91,10 +91,13 @@ docs/diamondback.models.html
 docs/diamondback.transforms.html
 docs/genindex.html
 docs/index.html
+docs/modules.html
+docs/noxfile.html
 docs/objects.inv
 docs/py-modindex.html
 docs/search.html
 docs/searchindex.js
+docs/setup.html
 docs/.doctrees/diamondback.commons.doctree
 docs/.doctrees/diamondback.doctree
 docs/.doctrees/diamondback.filters.doctree
@@ -103,6 +106,9 @@ docs/.doctrees/diamondback.models.doctree
 docs/.doctrees/diamondback.transforms.doctree
 docs/.doctrees/environment.pickle
 docs/.doctrees/index.doctree
+docs/.doctrees/modules.doctree
+docs/.doctrees/noxfile.doctree
+docs/.doctrees/setup.doctree
 docs/_modules/index.html
 docs/_modules/diamondback/commons/Log.html
 docs/_modules/diamondback/commons/RestClient.html
@@ -168,6 +174,9 @@ docs/_sources/diamondback.models.rst.txt
 docs/_sources/diamondback.rst.txt
 docs/_sources/diamondback.transforms.rst.txt
 docs/_sources/index.rst.txt
+docs/_sources/modules.rst.txt
+docs/_sources/noxfile.rst.txt
+docs/_sources/setup.rst.txt
 docs/_static/basic.css
 docs/_static/doctools.js
 docs/_static/documentation_options.js
