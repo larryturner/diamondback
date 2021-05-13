@@ -10,7 +10,6 @@
             import numpy
             import typing
 
-
             class Test( IReset, IS ) :
 
                 def reset( self, x : typing.Union[ complex, float ] ) -> None :

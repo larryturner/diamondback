@@ -69,7 +69,6 @@ import numpy
 import scipy.signal
 import typing
 
-
 class ZTransform( object ) :
 
     """ Z transform realizes continuous s-domain to discrete z-domain transformation, through application of bilinear

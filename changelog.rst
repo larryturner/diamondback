@@ -482,4 +482,9 @@ Release
 1.0.91 - 2021-05-12
 ^^^^^^^^^^^^^^^^^^^
 
--   Modified format.
+-   Modified documentation.
+
+1.0.92 - 2021-05-13
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified setup and nox.

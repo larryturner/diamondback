@@ -68,7 +68,6 @@ import math
 import numpy
 import typing
 
-
 class ComplexTransform( object ) :
 
     """ Complex transform.
