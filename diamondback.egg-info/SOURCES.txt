@@ -81,8 +81,6 @@ diamondback/transforms/PowerSpectrumTransform.py
 diamondback/transforms/WaveletTransform.py
 diamondback/transforms/ZTransform.py
 diamondback/transforms/__init__.py
-dist/diamondback-1.0.92-py3-none-any.whl
-dist/diamondback-1.0.92.tar.gz
 docs/.buildinfo
 docs/.nojekyll
 docs/diamondback.commons.html

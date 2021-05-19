@@ -33,7 +33,7 @@ project = 'diamondback'
 
 # Configuration.
 
-exclude_patterns = [ 'build', 'setup', 'test' ]
+exclude_patterns = [ 'build', 'setup', 'tests' ]
 
 extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.autosummary',
