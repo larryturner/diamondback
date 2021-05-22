@@ -30,9 +30,7 @@ except Exception :
 
     description = ''
 
-name = os.getcwd( ).split( os.path.sep )[ -1 ].split( '-' )
-
-name = name[ max( len( name ) - 2, 0 ) ]
+name = 'diamondback'
 
 with open( name + os.path.sep + '__init__.py', 'r' ) as fin :
 
