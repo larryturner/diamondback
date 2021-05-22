@@ -1,6 +1,6 @@
 """ **Description**
 
-        Diamondback sphinx documentation configuration.
+        Sphinx documentation configuration.
 
     **License**
 
@@ -29,7 +29,7 @@ author = 'Larry Turner'
 
 copyright = '© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.'
 
-project = 'diamondback'
+project = os.getcwd( ).split( os.path.sep )[ -2 ]
 
 # Configuration.
 
