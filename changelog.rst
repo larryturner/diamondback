@@ -488,3 +488,8 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified setup, nox, and documentation.
+
+1.0.93 - 2021-05-21
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified setup and nox.
