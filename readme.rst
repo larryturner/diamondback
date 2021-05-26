@@ -265,6 +265,8 @@ depends upon additional external packages :
 
     pip install diamondback[ full ]
 
+    or
+
     pip install --requirement requirements.txt
 
 -   `ipython <https://github.com/ipython/ipython>`__
