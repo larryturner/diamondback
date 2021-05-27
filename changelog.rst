@@ -494,7 +494,12 @@ Release
 
 -   Modified setup and nox.
 
-1.0.94 - 2021-05-27
+1.0.95 - 2021-05-27
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified requirements.
+
+1.0.95 - 2021-05-27
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified requirements.

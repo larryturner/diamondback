@@ -6,7 +6,7 @@ requests>=2.25.1
 scipy>=1.6.3
 
 [full]
-ipython>=7.32.1
+ipython>=7.23.1
 ipywidgets>=7.6.3
 jupyter>=1.0.0
 matplotlib>=3.4.2
