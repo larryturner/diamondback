@@ -14,7 +14,7 @@
 #
 #   Definition
 
-ipython >= 7.22.0
+ipython >= 7.32.1
 
 ipywidgets >= 7.6.3
 
@@ -24,25 +24,25 @@ jupyter >= 1.0.0
 
 loguru >= 0.5.3
 
-matplotlib >= 3.4.1
+matplotlib >= 3.4.2
 
 nox >= 2020.12.31
 
-numpy >= 1.20.2
+numpy >= 1.20.3
 
 pandas >= 1.2.4
 
 pillow >= 8.2.0
 
-pytest >= 6.2.3
+pytest >= 6.2.4
 
 requests >= 2.25.1
 
 scipy >= 1.6.3
 
-setuptools >= 56.0.0
+setuptools >= 57.0.0
 
-sphinx >= 3.5.4
+sphinx >= 4.0.2
 
 sphinx-pydantic >= 0.1.1
 

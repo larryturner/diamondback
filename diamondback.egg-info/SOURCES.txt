@@ -188,7 +188,6 @@ docs/_static/minus.png
 docs/_static/plus.png
 docs/_static/pygments.css
 docs/_static/searchtools.js
-docs/_static/underscore-1.12.0.js
 docs/_static/underscore.js
 docs/_static/css/badge_only.css
 docs/_static/css/theme.css
