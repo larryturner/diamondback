@@ -188,7 +188,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
-<span class="kn">import</span> <span class="nn">typing</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <div class="viewcode-block" id="IData"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IData.IData">[docs]</a><span class="k">class</span> <span class="nc">IData</span><span class="p">(</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -198,23 +198,23 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">data</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; data : typing.Any.</span>
+        <span class="sd">&quot;&quot;&quot; data : Any.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
 
     <span class="nd">@data</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">data</span>
 
-<div class="viewcode-block" id="IData.__eq__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IData.IData.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="IData.__eq__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IData.IData.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : typing.Any.</span>
+<span class="sd">                other : Any.</span>
 
 <span class="sd">            Returns :</span>
 

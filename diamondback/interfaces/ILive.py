@@ -35,7 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class ILive( IEqual ) :
 
@@ -55,13 +55,13 @@ class ILive( IEqual ) :
 
         self._live = live
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

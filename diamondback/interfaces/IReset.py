@@ -7,12 +7,12 @@
         ::
 
             from diamondback import IReset, IS
+            from typing import Union
             import numpy
-            import typing
 
             class Test( IReset, IS ) :
 
-                def reset( self, x : typing.Union[ complex, float ] ) -> None :
+                def reset( self, x : Union[ complex, float ] ) -> None :
 
                     self.s[ : ] = x
 
@@ -37,7 +37,7 @@
 """
 
 from abc import ABC, abstractmethod
-import typing
+from typing import Union
 
 class IReset( ABC ) :
 
@@ -52,14 +52,14 @@ class IReset( ABC ) :
         super( ).__init__( )
 
     @abstractmethod
-    def reset( self, x : typing.Union[ complex, float ] ) -> None :
+    def reset( self, x : Union[ complex, float ] ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
 
             Arguments :
 
-                x : typing.Union[ complex, float ] - incident signal.
+                x : Union[ complex, float ] - incident signal.
         """
 
         pass

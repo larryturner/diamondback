@@ -160,11 +160,11 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            from diamondback import IEqual, IPhase</span>
-<span class="sd">            import typing</span>
+<span class="sd">            from typing import Any</span>
 
 <span class="sd">            class Test( IEqual, IPhase ) :</span>
 
-<span class="sd">                def __eq__( self, other : typing.Any ) -&gt; bool :</span>
+<span class="sd">                def __eq__( self, other : Any ) -&gt; bool :</span>
 
 <span class="sd">                    return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )</span>
 
@@ -182,20 +182,20 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">import</span> <span class="nn">typing</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <div class="viewcode-block" id="IEqual"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual">[docs]</a><span class="k">class</span> <span class="nc">IEqual</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Equal interface.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="IEqual.__eq__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="IEqual.__eq__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : typing.Any.</span>
+<span class="sd">                other : Any.</span>
 
 <span class="sd">            Returns :</span>
 
@@ -211,13 +211,13 @@
 
         <span class="k">pass</span>
 
-<div class="viewcode-block" id="IEqual.__ne__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual.__ne__">[docs]</a>    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="IEqual.__ne__"><a class="viewcode-back" href="../../../diamondback.interfaces.html#diamondback.interfaces.IEqual.IEqual.__ne__">[docs]</a>    <span class="k">def</span> <span class="fm">__ne__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Not equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : typing.Any.</span>
+<span class="sd">                other : Any.</span>
 
 <span class="sd">            Returns :</span>
 

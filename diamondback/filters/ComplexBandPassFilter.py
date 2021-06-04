@@ -69,21 +69,21 @@ from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilte
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.interfaces.IRate import IRate
+from typing import Any, List, Tuple, Union
 import numpy
-import typing
 
 class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
     """ Complex band pass filter.
     """
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -113,15 +113,15 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : typing.Union[ typing.List, numpy.ndarray ], x : typing.Union[ typing.List, numpy.ndarray ] = None ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ], x : Union[ List, numpy.ndarray ] = None ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.
+                d : Union[ List, numpy.ndarray ] - primary signal.
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

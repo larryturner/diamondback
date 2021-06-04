@@ -60,8 +60,8 @@
 
 """
 
+from typing import List, Tuple, Union
 import numpy
-import typing
 
 class FourierTransform( object ) :
 
@@ -69,7 +69,7 @@ class FourierTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : typing.Union[ typing.List, numpy.ndarray ], b : typing.Union[ typing.List, numpy.ndarray ], inverse : bool = False ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], inverse : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             complex discrete-frequency reference signal, or performs an
@@ -79,9 +79,9 @@ class FourierTransform( object ) :
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
 
                 inverse : bool.
 

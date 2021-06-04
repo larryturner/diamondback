@@ -35,8 +35,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any
 import numpy
-import typing
 
 class IPhase( IEqual ) :
 
@@ -60,13 +60,13 @@ class IPhase( IEqual ) :
 
         self._phase = phase
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

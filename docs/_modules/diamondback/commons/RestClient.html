@@ -168,8 +168,8 @@
 <span class="sd">        ::</span>
 
 <span class="sd">            from diamondback import RestClient</span>
+<span class="sd">            from typing import Dict</span>
 <span class="sd">            import numpy</span>
-<span class="sd">            import typing</span>
 
 <span class="sd">            class TestClient( RestClient ) :</span>
 
@@ -179,7 +179,7 @@
 
 <span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
 
-<span class="sd">                def add( self, json : typing.Dict[ str, numpy.ndarray ] ) -&gt; numpy.ndarray :</span>
+<span class="sd">                def add( self, json : Dict[ str, numpy.ndarray ] ) -&gt; numpy.ndarray :</span>
 
 <span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, json = json ).json( )</span>
 
@@ -209,8 +209,8 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IProxy</span> <span class="kn">import</span> <span class="n">IProxy</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.ITimeOut</span> <span class="kn">import</span> <span class="n">ITimeOut</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IUrl</span> <span class="kn">import</span> <span class="n">IUrl</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 <span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">typing</span>
 
 <div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="n">ILive</span><span class="p">,</span> <span class="n">IProxy</span><span class="p">,</span> <span class="n">ITimeOut</span><span class="p">,</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -246,7 +246,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
 
-<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.commons.RestClient.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
 <span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
@@ -260,11 +260,11 @@
 
 <span class="sd">                api : str - relative to the URL.</span>
 
-<span class="sd">                item : typing.Dict[ str, str ].</span>
+<span class="sd">                item : Dict[ str, str ].</span>
 
-<span class="sd">                data : typing.Any.</span>
+<span class="sd">                data : Any.</span>
 
-<span class="sd">                json : typing.Any.</span>
+<span class="sd">                json : Any.</span>
 
 <span class="sd">            Returns :</span>
 

@@ -242,7 +242,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IA.IA.a">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">a</span></span><a class="headerlink" href="#diamondback.interfaces.IA.IA.a" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient.</p>
+<dd><p>Union[ List, numpy.ndarray ] - recursive coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>a</p>
@@ -256,7 +256,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -311,7 +311,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IB.IB.b">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">b</span></span><a class="headerlink" href="#diamondback.interfaces.IB.IB.b" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<dd><p>Union[ List, numpy.ndarray ] - forward coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>b</p>
@@ -325,7 +325,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -426,7 +426,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IConfigure.IConfigure.configure">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">configure</span></span><a class="headerlink" href="#diamondback.interfaces.IConfigure.IConfigure.configure" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>configure</p>
@@ -440,7 +440,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -508,7 +508,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -562,7 +562,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IData.IData.data">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">data</span></span><a class="headerlink" href="#diamondback.interfaces.IData.IData.data" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>data</p>
@@ -576,7 +576,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -645,7 +645,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -713,7 +713,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -781,7 +781,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -801,11 +801,11 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span>
-<span class="kn">import</span> <span class="nn">typing</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IEqual</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="k">return</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__eq__</span><span class="p">(</span> <span class="n">other</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span><span class="p">,</span> <span class="n">other</span><span class="o">.</span><span class="n">phase</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
@@ -833,7 +833,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -847,7 +847,7 @@
 <dd><p>Not equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -915,7 +915,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -984,7 +984,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1052,7 +1052,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1120,7 +1120,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1188,7 +1188,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1256,7 +1256,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1310,7 +1310,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IModel.IModel.model">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">model</span></span><a class="headerlink" href="#diamondback.interfaces.IModel.IModel.model" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>model</p>
@@ -1324,7 +1324,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1392,7 +1392,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1460,7 +1460,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1528,7 +1528,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1583,7 +1583,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IProxy.IProxy.proxy">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">proxy</span></span><a class="headerlink" href="#diamondback.interfaces.IProxy.IProxy.proxy" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Dict[ str, str ].</p>
+<dd><p>Dict[ str, str ].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>proxy</p>
@@ -1597,7 +1597,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1652,7 +1652,7 @@
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IQ.IQ.q">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">q</span></span><a class="headerlink" href="#diamondback.interfaces.IQ.IQ.q" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Union[ typing.List, numpy.ndarray ] - state derivative.</p>
+<dd><p>Union[ List, numpy.ndarray ] - state derivative.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>q</p>
@@ -1666,7 +1666,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1734,7 +1734,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1803,7 +1803,7 @@
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1823,12 +1823,12 @@
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">typing</span>
 
 <span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
 
@@ -1863,7 +1863,7 @@
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ complex, float ] - incident signal.</p>
+<div><p>x : Union[ complex, float ] - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1927,7 +1927,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1995,7 +1995,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2050,7 +2050,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IS.IS.s">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#diamondback.interfaces.IS.IS.s" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Union[ typing.List, numpy.ndarray ] - state.</p>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>s</p>
@@ -2064,7 +2064,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2119,7 +2119,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.IStream.IStream.stream">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">stream</span></span><a class="headerlink" href="#diamondback.interfaces.IStream.IStream.stream" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>stream</p>
@@ -2133,7 +2133,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2187,7 +2187,7 @@ operation at a specified incident signal condition.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.interfaces.ITimeOut.ITimeOut.timeout">
 <em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">timeout</span></span><a class="headerlink" href="#diamondback.interfaces.ITimeOut.ITimeOut.timeout" title="Permalink to this definition">¶</a></dt>
-<dd><p>typing.Any.</p>
+<dd><p>Any.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>timeout</p>
@@ -2201,7 +2201,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2271,7 +2271,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2339,7 +2339,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2407,7 +2407,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -2475,7 +2475,7 @@ operation at a specified incident signal condition.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>

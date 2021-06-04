@@ -35,8 +35,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any
 import numpy
-import typing
 
 class IPeriod( IEqual ) :
 
@@ -60,13 +60,13 @@ class IPeriod( IEqual ) :
 
         self._period = period
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

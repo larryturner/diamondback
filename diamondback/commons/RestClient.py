@@ -15,8 +15,8 @@
         ::
 
             from diamondback import RestClient
+            from typing import Dict
             import numpy
-            import typing
 
             class TestClient( RestClient ) :
 
@@ -26,7 +26,7 @@
 
                     self.proxy = { 'http' : '', 'https' : '' }
 
-                def add( self, json : typing.Dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
+                def add( self, json : Dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
 
                     return self.request( 'get', 'test/add', json = json ).json( )
 
@@ -56,8 +56,8 @@ from diamondback.interfaces.ILive import ILive
 from diamondback.interfaces.IProxy import IProxy
 from diamondback.interfaces.ITimeOut import ITimeOut
 from diamondback.interfaces.IUrl import IUrl
+from typing import Any, Dict
 import requests
-import typing
 
 class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
@@ -93,7 +93,7 @@ class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
         self.url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : typing.Dict[ str, str ] = None, data : typing.Any = None, json : typing.Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -107,11 +107,11 @@ class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
 
                 api : str - relative to the URL.
 
-                item : typing.Dict[ str, str ].
+                item : Dict[ str, str ].
 
-                data : typing.Any.
+                data : Any.
 
-                json : typing.Any.
+                json : Any.
 
             Returns :
 

@@ -66,9 +66,9 @@
 
 from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any, List, Union
 import numpy
 import scipy.signal
-import typing
 
 class WindowFilter( IB, IEqual ) :
 
@@ -83,7 +83,7 @@ class WindowFilter( IB, IEqual ) :
         _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
         @classmethod
-        def instance( cls, typ : type, classification : str, order : int, normal : bool = True ) -> typing.Any :
+        def instance( cls, typ : type, classification : str, order : int, normal : bool = True ) -> Any :
 
             """ Constructs an instance.
 
@@ -130,13 +130,13 @@ class WindowFilter( IB, IEqual ) :
 
             return typ( b )
 
-    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
+    def __init__( self, b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( numpy.isscalar( b ) ) or ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
@@ -147,13 +147,13 @@ class WindowFilter( IB, IEqual ) :
 
         self.b = numpy.array( b )
 
-    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

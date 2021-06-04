@@ -35,7 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class IConfigure( IEqual ) :
 
@@ -45,23 +45,23 @@ class IConfigure( IEqual ) :
     @property
     def configure( self ) :
 
-        """ configure : typing.Any.
+        """ configure : Any.
         """
 
         return self._configure
 
     @configure.setter
-    def configure( self, configure : typing.Any ) :
+    def configure( self, configure : Any ) :
 
         self._configure = configure
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

@@ -93,8 +93,8 @@ from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IRate import IRate
 from diamondback.interfaces.IReset import IReset
 from diamondback.interfaces.IS import IS
+from typing import Any, List, Union
 import numpy
-import typing
 
 class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
@@ -129,13 +129,13 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         IRate.rate.fset( self, rate )
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -175,13 +175,13 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         
         self.rate = rate
 
-    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

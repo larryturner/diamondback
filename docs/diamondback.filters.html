@@ -250,7 +250,7 @@ adaptation are specified.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -264,8 +264,8 @@ adaptation are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.</p>
-<p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>d : Union[ List, numpy.ndarray ] - primary signal.</p>
+<p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -335,7 +335,7 @@ A normalized phase is specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -428,8 +428,8 @@ normalized frequency and rate of adaptation are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.</p>
-<p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>d : Union[ List, numpy.ndarray ] - primary signal.</p>
+<p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -534,7 +534,7 @@ specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.filters.DerivativeFilter.DerivativeFilter.Factory">
@@ -565,7 +565,7 @@ specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -681,8 +681,8 @@ frequency response.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
-<p>s : typing.Union[ typing.List, numpy.ndarray ] - state.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
+<p>s : Union[ List, numpy.ndarray ] - state.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.filters.FirFilter.FirFilter.Factory">
@@ -733,7 +733,7 @@ frequency response.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -748,7 +748,7 @@ frequency response.</p>
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ complex, float ] - incident signal.</p>
+<div><p>x : Union[ complex, float ] - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -850,7 +850,7 @@ resolution.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 <p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).</p>
 </div></blockquote>
 <dl class="py method">
@@ -859,7 +859,7 @@ resolution.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -873,7 +873,7 @@ resolution.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -983,9 +983,9 @@ frequency response.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>a : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.</p>
-<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
-<p>s : typing.Union[ typing.List, numpy.ndarray ] - state.</p>
+<div><p>a : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.</p>
+<p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
+<p>s : Union[ List, numpy.ndarray ] - state.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.filters.IirFilter.IirFilter.Factory">
@@ -1053,7 +1053,7 @@ frequency response.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1068,7 +1068,7 @@ frequency response.</p>
 operation at a specified incident signal condition.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ complex, float ] - incident signal.</p>
+<div><p>x : Union[ complex, float ] - incident signal.</p>
 </div></blockquote>
 </dd></dl>
 
@@ -1177,8 +1177,8 @@ and order are specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>a : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient.</p>
-<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>a : Union[ List, numpy.ndarray ] - recursive coefficient.</p>
+<p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.filters.IntegralFilter.IntegralFilter.Factory">
@@ -1208,7 +1208,7 @@ and order are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1268,7 +1268,7 @@ control stability and latency.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.filters.PidFilter.PidFilter.limit">
@@ -1287,7 +1287,7 @@ control stability and latency.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1301,7 +1301,7 @@ control stability and latency.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1390,7 +1390,7 @@ operation or dynamic rate.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1415,7 +1415,7 @@ operation or dynamic rate.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1524,7 +1524,7 @@ continuous operation.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1549,7 +1549,7 @@ continuous operation.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1644,7 +1644,7 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <dd><p>Equal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>other : typing.Any.</p>
+<div><p>other : Any.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1658,7 +1658,7 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>
@@ -1744,7 +1744,7 @@ compensate for energy loss.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.filters.WindowFilter.WindowFilter.Factory">
@@ -1776,7 +1776,7 @@ compensate for energy loss.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </div></blockquote>
 <p>Returns :</p>
 <blockquote>

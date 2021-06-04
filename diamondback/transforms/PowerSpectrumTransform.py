@@ -67,8 +67,8 @@
 """
 
 from diamondback.transforms.FourierTransform import FourierTransform
+from typing import List, Tuple, Union
 import numpy
-import typing
 
 class PowerSpectrumTransform( object ) :
 
@@ -76,16 +76,16 @@ class PowerSpectrumTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : typing.Union[ typing.List, numpy.ndarray ], b : typing.Union[ typing.List, numpy.ndarray ], index : int ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], index : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             real discrete-frequency reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
 
                 index : int.
 

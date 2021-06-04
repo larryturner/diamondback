@@ -64,9 +64,9 @@
 
 """
 
+from typing import List, Union
 import math
 import numpy
-import typing
 
 class ComplexTransform( object ) :
 
@@ -80,14 +80,14 @@ class ComplexTransform( object ) :
     _gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
-    def transform( cls, x : typing.Union[ typing.List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
+    def transform( cls, x : Union[ List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
 
         """ Transforms a real three-phase or complex incident signal into a complex
             or three-phase reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
                 neutral : bool.
 

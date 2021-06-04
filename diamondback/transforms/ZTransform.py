@@ -64,10 +64,10 @@
 
 """
 
+from typing import List, Tuple, Union
 import math
 import numpy
 import scipy.signal
-import typing
 
 class ZTransform( object ) :
 
@@ -76,16 +76,16 @@ class ZTransform( object ) :
     """
 
     @staticmethod
-    def transform( u : typing.Union[ typing.List, numpy.ndarray ], v : typing.Union[ typing.List, numpy.ndarray ], frequency : float, bilinear : bool = True ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( u : Union[ List, numpy.ndarray ], v : Union[ List, numpy.ndarray ], frequency : float, bilinear : bool = True ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms continuous s-domain coefficient arrays and produces
             discrete z-domain coefficient arrays.
 
             Arguments :
 
-                u : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.
+                u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
 
-                v : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient, s-domain.
+                v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.
 
                 frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
 

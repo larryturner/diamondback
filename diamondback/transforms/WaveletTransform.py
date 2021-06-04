@@ -96,8 +96,8 @@
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any, List, Union
 import numpy
-import typing
 
 class WaveletTransform( IB, IEqual ) :
 
@@ -191,7 +191,7 @@ class WaveletTransform( IB, IEqual ) :
                                                  -0.00080435893437, 0.00459317358270, 0.00005703608433, -0.00045932942045 ] ) } }
 
         @classmethod
-        def instance( cls, typ : type, classification : str, order : int ) -> typing.Any :
+        def instance( cls, typ : type, classification : str, order : int ) -> Any :
 
             """ Constructs an instance.
 
@@ -224,13 +224,13 @@ class WaveletTransform( IB, IEqual ) :
 
             return typ( b[ order ] )
 
-    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] ) -> None :
+    def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -269,7 +269,7 @@ class WaveletTransform( IB, IEqual ) :
 
                 self.b[ kk ][ 1 ][ : ] = numpy.flip( self.b[ kk ][ 1 ], 0 )
 
-    def transform( self, x : typing.Union[ typing.List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
+    def transform( self, x : Union[ List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
 
         """ Transforms an incident signal and produces a reference signal,
             performing analysis or synthesis operations.  Incident and reference
@@ -278,7 +278,7 @@ class WaveletTransform( IB, IEqual ) :
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
                 count : int.
 

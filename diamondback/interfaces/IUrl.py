@@ -35,7 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class IUrl( IEqual ) :
 
@@ -62,13 +62,13 @@ class IUrl( IEqual ) :
 
         self._url = url
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

@@ -36,7 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class IStream( IEqual ) :
 
@@ -46,23 +46,23 @@ class IStream( IEqual ) :
     @property
     def stream( self ) :
 
-        """ stream : typing.Any.
+        """ stream : Any.
         """
 
         return self._stream
 
     @stream.setter
-    def stream( self, stream : typing.Any ) :
+    def stream( self, stream : Any ) :
 
         self._stream = stream
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

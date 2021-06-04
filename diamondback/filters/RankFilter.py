@@ -49,8 +49,8 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
+from typing import Any, List, Union
 import numpy
-import typing
 
 class RankFilter( FirFilter ) :
 
@@ -74,13 +74,13 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -108,13 +108,13 @@ class RankFilter( FirFilter ) :
 
         self._rank = rank
 
-    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

@@ -494,7 +494,7 @@ Release
 
 -   Modified setup and nox.
 
-1.0.95 - 2021-05-27
+1.0.94 - 2021-05-27
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified requirements.
@@ -508,3 +508,8 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified license format, no change in terms.
+
+1.0.97 - 2021-06-04
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified typing imports and declarations.

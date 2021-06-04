@@ -219,9 +219,9 @@
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IB</span> <span class="kn">import</span> <span class="n">IB</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IEqual</span> <span class="kn">import</span> <span class="n">IEqual</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span>
-<span class="kn">import</span> <span class="nn">typing</span>
 
 <div class="viewcode-block" id="WindowFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter">[docs]</a><span class="k">class</span> <span class="nc">WindowFilter</span><span class="p">(</span> <span class="n">IB</span><span class="p">,</span> <span class="n">IEqual</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -236,7 +236,7 @@
         <span class="n">_classification</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="WindowFilter.Factory.instance"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter.Factory.instance">[docs]</a>        <span class="nd">@classmethod</span>
-        <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">typ</span> <span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">:</span>
+        <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">typ</span> <span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span> <span class="p">:</span>
 
             <span class="sd">&quot;&quot;&quot; Constructs an instance.</span>
 
@@ -283,13 +283,13 @@
 
             <span class="k">return</span> <span class="n">typ</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span></div></div>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initialize.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</span>
+<span class="sd">                b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -300,13 +300,13 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="WindowFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="WindowFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
+<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 

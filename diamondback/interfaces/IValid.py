@@ -35,7 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class IValid( IEqual ) :
 
@@ -55,13 +55,13 @@ class IValid( IEqual ) :
 
         self._valid = valid
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -77,4 +77,4 @@ class IValid( IEqual ) :
 
         super( ).__init__( )
 
-        self._valid = None
+        self._valid = False

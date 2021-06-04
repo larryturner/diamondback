@@ -104,8 +104,8 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
+from typing import Any, List, Union
 import numpy
-import typing
 
 class DerivativeFilter( FirFilter ) :
 
@@ -129,7 +129,7 @@ class DerivativeFilter( FirFilter ) :
                      8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
 
         @classmethod
-        def instance( cls, typ : type, derivative : int, order : int ) -> typing.Any :
+        def instance( cls, typ : type, derivative : int, order : int ) -> Any :
 
             """ Constructs an instance.
 
@@ -162,24 +162,24 @@ class DerivativeFilter( FirFilter ) :
 
             return typ( b[ order ] )
 
-    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
+    def __init__( self, b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
         super( ).__init__( b )
 
-    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

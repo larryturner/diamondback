@@ -86,8 +86,8 @@
 from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
+from typing import Any, Callable, List, Union
 import numpy
-import typing
 
 class DiversityModel( IClear, IS, IEqual ) :
 
@@ -105,7 +105,7 @@ class DiversityModel( IClear, IS, IEqual ) :
                       'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
 
         @classmethod
-        def instance( cls, typ : type, classification : str, order : int ) -> typing.Any :
+        def instance( cls, typ : type, classification : str, order : int ) -> Any :
 
             """ Constructs an instance.
 
@@ -136,13 +136,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
             return typ( DiversityModel.Factory._distance[ classification ], order )
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -151,13 +151,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )
 
-    def __init__( self, distance : typing.Callable[ [ typing.Any, typing.Any ], typing.Any ], order : int ) -> None :
+    def __init__( self, distance : Callable[ [ Any, Any ], Any ], order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                distance : typing.Callable[ [ typing.Any, typing.Any ], typing.Any ].
+                distance : Callable[ [ Any, Any ], Any ].
 
                 order : int.
         """
@@ -177,13 +177,13 @@ class DiversityModel( IClear, IS, IEqual ) :
 
         self._diversity, self._s = 0.0, numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
 
-    def model( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Models an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

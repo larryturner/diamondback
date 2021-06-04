@@ -36,8 +36,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any
 import datetime
-import typing
 
 class IDate( IEqual ) :
 
@@ -65,13 +65,13 @@ class IDate( IEqual ) :
 
         self._date = date.replace( microsecond = 0 )
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

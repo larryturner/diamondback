@@ -202,8 +202,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">diamondback.filters.FirFilter</span> <span class="kn">import</span> <span class="n">FirFilter</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">typing</span>
 
 <div class="viewcode-block" id="RankFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.RankFilter.RankFilter">[docs]</a><span class="k">class</span> <span class="nc">RankFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -227,13 +227,13 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">=</span> <span class="n">rank</span>
 
-<div class="viewcode-block" id="RankFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.RankFilter.RankFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="RankFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.RankFilter.RankFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : typing.Any.</span>
+<span class="sd">                other : Any.</span>
 
 <span class="sd">            Returns :</span>
 
@@ -261,13 +261,13 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_rank</span> <span class="o">=</span> <span class="n">rank</span>
 
-<div class="viewcode-block" id="RankFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.RankFilter.RankFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="RankFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.RankFilter.RankFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
+<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 

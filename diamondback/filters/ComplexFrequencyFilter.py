@@ -69,9 +69,9 @@
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.interfaces.IRate import IRate
+from typing import List, Tuple, Union
 import math
 import numpy
-import typing
 
 class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
@@ -107,15 +107,15 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : typing.Union[ typing.List, numpy.ndarray ], x : typing.Union[ typing.List, numpy.ndarray ] = None ) -> typing.Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ], x : Union[ List, numpy.ndarray ] = None ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                d : typing.Union[ typing.List, numpy.ndarray ] - primary signal.
+                d : Union[ List, numpy.ndarray ] - primary signal.
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

@@ -44,8 +44,8 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
+from typing import Any, List, Union
 import numpy
-import typing
 
 class PidFilter( FirFilter ) :
 
@@ -69,13 +69,13 @@ class PidFilter( FirFilter ) :
 
         self._limit = limit
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -84,13 +84,13 @@ class PidFilter( FirFilter ) :
 
         return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.limit, other.limit ) ) )
 
-    def __init__( self, b : typing.Union[ typing.List, numpy.ndarray ] ) -> None :
+    def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :
 
         """ Initialize.
 
             Arguments :
 
-                b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
@@ -105,13 +105,13 @@ class PidFilter( FirFilter ) :
 
         self._limit = float( 'inf' )
 
-    def filter( self, x : typing.Union[ typing.List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
 
-                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.
+                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
 

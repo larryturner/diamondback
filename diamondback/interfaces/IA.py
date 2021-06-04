@@ -36,8 +36,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any, List, Union
 import numpy
-import typing
 
 class IA( IEqual ) :
 
@@ -47,23 +47,23 @@ class IA( IEqual ) :
     @property
     def a( self ) :
 
-        """ a : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient.
+        """ a : Union[ List, numpy.ndarray ] - recursive coefficient.
         """
 
         return self._a
 
     @a.setter
-    def a( self, a : typing.Union[ typing.List, numpy.ndarray ] ) :
+    def a( self, a : Union[ List, numpy.ndarray ] ) :
 
         self._a = a
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

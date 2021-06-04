@@ -35,8 +35,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any
 import numpy
-import typing
 
 class IRotation( IEqual ) :
 
@@ -56,13 +56,13 @@ class IRotation( IEqual ) :
 
         self._rotation = rotation
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

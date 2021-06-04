@@ -36,8 +36,8 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
+from typing import Any, List, Union
 import numpy
-import typing
 
 class IS( IEqual ) :
 
@@ -47,23 +47,23 @@ class IS( IEqual ) :
     @property
     def s( self ) :
 
-        """ s : typing.Union[ typing.List, numpy.ndarray ] - state.
+        """ s : Union[ List, numpy.ndarray ] - state.
         """
 
         return self._s
 
     @s.setter
-    def s( self, s : typing.Union[ typing.List, numpy.ndarray ] ) :
+    def s( self, s : Union[ List, numpy.ndarray ] ) :
 
         self._s = s
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

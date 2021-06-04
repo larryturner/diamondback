@@ -35,7 +35,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class ITimeOut( IEqual ) :
 
@@ -45,23 +45,23 @@ class ITimeOut( IEqual ) :
     @property
     def timeout( self ) :
 
-        """ timeout : typing.Any.
+        """ timeout : Any.
         """
 
         return self._timeout
 
     @timeout.setter
-    def timeout( self, timeout : typing.Any ) :
+    def timeout( self, timeout : Any ) :
 
         self._timeout = timeout
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

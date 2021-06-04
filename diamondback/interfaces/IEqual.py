@@ -7,11 +7,11 @@
         ::
 
             from diamondback import IEqual, IPhase
-            import typing
+            from typing import Any
 
             class Test( IEqual, IPhase ) :
 
-                def __eq__( self, other : typing.Any ) -> bool :
+                def __eq__( self, other : Any ) -> bool :
 
                     return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )
 
@@ -29,20 +29,20 @@
 
 """
 
-import typing
+from typing import Any
 
 class IEqual( object ) :
 
     """ Equal interface.
     """
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 
@@ -58,13 +58,13 @@ class IEqual( object ) :
 
         pass
 
-    def __ne__( self, other : typing.Any ) -> bool :
+    def __ne__( self, other : Any ) -> bool :
 
         """ Not equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

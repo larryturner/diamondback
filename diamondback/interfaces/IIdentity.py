@@ -36,7 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any
 
 class IIdentity( IEqual ) :
 
@@ -56,13 +56,13 @@ class IIdentity( IEqual ) :
 
         self._identity = identity
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

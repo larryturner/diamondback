@@ -36,7 +36,7 @@
 """
 
 from diamondback.interfaces.IEqual import IEqual
-import typing
+from typing import Any, Dict
 
 class IProxy( IEqual ) :
 
@@ -46,23 +46,23 @@ class IProxy( IEqual ) :
     @property
     def proxy( self ) :
 
-        """ proxy : typing.Dict[ str, str ].
+        """ proxy : Dict[ str, str ].
         """
 
         return self._proxy
 
     @proxy.setter
-    def proxy( self, proxy : typing.Dict[ str, str ] ) :
+    def proxy( self, proxy : Dict[ str, str ] ) :
 
         self._proxy = proxy
 
-    def __eq__( self, other : typing.Any ) -> bool :
+    def __eq__( self, other : Any ) -> bool :
 
         """ Equal.
 
             Arguments :
 
-                other : typing.Any.
+                other : Any.
 
             Returns :
 

@@ -231,7 +231,7 @@ specified.</p>
 or three-phase reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 <p>neutral : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -310,8 +310,8 @@ condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
-<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
+<p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 <p>inverse : bool.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -390,8 +390,8 @@ frequency resolution.</p>
 real discrete-frequency reference signal.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
-<p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
+<p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 <p>index : int.</p>
 </div></blockquote>
 <p>Returns :</p>
@@ -503,7 +503,7 @@ specified.</p>
 <p>Initialize.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>b : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient.</p>
+<div><p>b : Union[ List, numpy.ndarray ] - forward coefficient.</p>
 </div></blockquote>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.transforms.WaveletTransform.WaveletTransform.Factory">
@@ -537,7 +537,7 @@ signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</p>
+<div><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 <p>count : int.</p>
 <p>inverse : bool.</p>
 </div></blockquote>
@@ -619,8 +619,8 @@ or impulse invariant methods.</p>
 discrete z-domain coefficient arrays.</p>
 <p>Arguments :</p>
 <blockquote>
-<div><p>u : typing.Union[ typing.List, numpy.ndarray ] - recursive coefficient, s-domain.</p>
-<p>v : typing.Union[ typing.List, numpy.ndarray ] - forward coefficient, s-domain.</p>
+<div><p>u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.</p>
+<p>v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.</p>
 <p>frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</p>
 <p>bilinear : bool.</p>
 </div></blockquote>

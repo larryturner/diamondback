@@ -246,8 +246,8 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="kn">import</span> <span class="n">IRate</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="kn">import</span> <span class="n">IReset</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="kn">import</span> <span class="n">IS</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
-<span class="kn">import</span> <span class="nn">typing</span>
 
 <div class="viewcode-block" id="PolyphaseRateFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter">[docs]</a><span class="k">class</span> <span class="nc">PolyphaseRateFilter</span><span class="p">(</span> <span class="n">IB</span><span class="p">,</span> <span class="n">IRate</span><span class="p">,</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -282,13 +282,13 @@
 
         <span class="n">IRate</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">fset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="PolyphaseRateFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolyphaseRateFilter.__eq__"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.__eq__">[docs]</a>    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">other</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Equal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                other : typing.Any.</span>
+<span class="sd">                other : Any.</span>
 
 <span class="sd">            Returns :</span>
 
@@ -328,13 +328,13 @@
         
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
 
-<div class="viewcode-block" id="PolyphaseRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">typing</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span> <span class="n">typing</span><span class="o">.</span><span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolyphaseRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
 
-<span class="sd">                x : typing.Union[ typing.List, numpy.ndarray ] - incident signal.</span>
+<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 
