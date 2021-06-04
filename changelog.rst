@@ -503,3 +503,8 @@ Release
 ^^^^^^^^^^^^^^^^^^^
 
 -   Modified requirements.
+
+1.0.96 - 2021-06-04
+^^^^^^^^^^^^^^^^^^^
+
+-   Modified license format, no change in terms.
