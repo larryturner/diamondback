@@ -6,14 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IA.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IB.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IB.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IIdentity.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IIdentity.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/ILabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/ILabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IPath.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IPath.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IQ.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IS.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diamondback/interfaces/IVersion.py" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback/interfaces/IVersion.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,7 +269,7 @@
       <workItem from="1622841312318" duration="3780000" />
       <workItem from="1623425318608" duration="611000" />
       <workItem from="1623450452129" duration="285000" />
-      <workItem from="1624043202157" duration="496000" />
+      <workItem from="1624043202157" duration="1089000" />
     </task>
     <servers />
   </component>
