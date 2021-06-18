@@ -86,4 +86,4 @@ class IPath( IEqual ) :
 
         super( ).__init__( )
 
-        self._path = None
+        self._path = ''

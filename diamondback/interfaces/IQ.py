@@ -79,4 +79,4 @@ class IQ( IEqual ) :
 
         super( ).__init__( )
 
-        self._q = None
+        self._q = [ ]

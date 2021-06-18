@@ -79,4 +79,4 @@ class IB( IEqual ) :
 
         super( ).__init__( )
 
-        self._b = None
+        self._b = [ ]

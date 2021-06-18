@@ -78,4 +78,4 @@ class IIdentity( IEqual ) :
 
         super( ).__init__( )
 
-        self._identity = None
+        self._identity = ''
