@@ -29,7 +29,6 @@ from diamondback import WindowFilter
 import math
 import numpy
 
-
 class Test( object ) :
 
     """ Test.

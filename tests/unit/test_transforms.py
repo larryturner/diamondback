@@ -60,7 +60,6 @@ class Test( object ) :
 
             assert numpy.allclose( z, x )
 
-
     def test_FourierTransform( self ) :
 
         """ Test FourierTransform.
@@ -104,7 +103,6 @@ class Test( object ) :
 
             assert numpy.allclose( z[ 1 : -1 ], x[ 1 : -1 ] )
 
-
     def test_PowerSpectrumTransform( self ) :
 
         """ Test PowerSpectrumTransform.
@@ -135,7 +133,6 @@ class Test( object ) :
             h = numpy.argmax( y[ len( b ) // 2 : ] )
 
             assert ( h >= numpy.argmin( abs( f[ count // 2 : ] - frequency[ 0 ] ) ) ) and ( h <= numpy.argmin( abs( f[ count // 2 : ] - frequency[ 1 ] ) ) )
-
 
     def test_WaveletTransform( self ) :
 
@@ -212,7 +209,6 @@ class Test( object ) :
         z = obj.transform( obj.transform( x, count, False ), count, True )
 
         assert numpy.allclose( z, x )
-
 
     def test_ZTransform( self ) :
 

@@ -66,7 +66,6 @@ class Test( object ) :
 
         assert numpy.allclose( s, obj.s )
 
-
     def test_PrincipalComponentModel( self ) :
 
         """ Test PrincipalComponentModel.
