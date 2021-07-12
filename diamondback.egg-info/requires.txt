@@ -15,5 +15,4 @@ pillow>=8.3.0
 pytest>=6.2.4
 setuptools>=57.0.0
 sphinx>=4.0.2
-sphinx-pydantic>=0.1.1
 sphinx-rtd-theme>=0.5.2

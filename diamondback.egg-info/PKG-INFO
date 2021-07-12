@@ -306,8 +306,6 @@ depends upon additional external packages :
 
 -   `sphinx <https://github.com/sphinx-doc/sphinx>`__
 
--   `sphinx-pydantic <https://github.com/zsailer/sphinx-pydantic>`__
-
 -   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`__
 
 Installation

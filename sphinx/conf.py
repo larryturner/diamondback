@@ -4,13 +4,11 @@
 
     **License**
 
-        `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
-        © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2019 - 2021 Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
 
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-03-22.
+        Larry Turner, Schneider Electric, Analytics & AI, 2019-03-22.
 
     **Definition**
 
@@ -27,23 +25,20 @@ sys.path.insert( 0, os.path.abspath( '../' ) )
 
 author = 'Larry Turner'
 
-copyright = '© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.'
+copyright = '© 2019 - 2021 Schneider Electric Industries SAS. All rights reserved.'
 
 project = os.getcwd( ).split( os.path.sep )[ -2 ]
 
 # Configuration.
 
-exclude_patterns = [ 'build', 'setup', 'tests' ]
+exclude_patterns = [ 'build', 'tests' ]
 
 extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.autosummary',
                'sphinx.ext.githubpages',
                'sphinx.ext.intersphinx',
                'sphinx.ext.napoleon',
-               'sphinx.ext.viewcode',
-               'sphinx-pydantic' ]
-
-templates_path = [ 'templates' ]
+               'sphinx.ext.viewcode' ]
 
 # Extensions.
 
@@ -55,10 +50,14 @@ autodoc_member_order = 'bysource'
 
 autosummary_generate = True
 
+html_theme = 'sphinx_rtd_theme'
+
 intersphinx_mapping = { 'python' : ( 'https://docs.python.org/3', None ),
                         'pandas' : ( 'https://pandas.pydata.org/docs/', None ),
                         'numpy' : ( 'https://numpy.org/doc/stable/', None ),
                         'plotly' : ( 'https://plotly.com/python-api-reference/', None ) }
+
+master_doc = 'index'
 
 napoleon_google_docstring = True
 
@@ -73,11 +72,3 @@ napolean_use_admonition_for_examples = True
 napolean_use_admonition_for_notes = True
 
 napolean_use_rtype = False
-
-# Theme.
-
-html_theme = 'sphinx_rtd_theme'
-
-# Help.
-
-htmlhelp_basename = project + 'doc'
