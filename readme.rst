@@ -18,7 +18,7 @@ data into forms which are useful in pattern recognition, feature extraction,
 and optimization.
 
 Diamondback also facilitates signal processing applications including
-compression, encoding, cancellation, identification, extraction, modulation,
+compression, encoding, cancellation, extraction, identification, modulation,
 and rate adaptation.
 
 Details
