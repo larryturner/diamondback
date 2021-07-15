@@ -19,7 +19,7 @@ and optimization.
 
 Diamondback also facilitates signal processing applications including
 compression, encoding, cancellation, extraction, identification, modulation,
-and rate adaptation.
+rate adaptation, and serialization.
 
 Details
 ~~~~~~~
