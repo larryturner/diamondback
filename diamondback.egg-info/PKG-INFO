@@ -35,12 +35,12 @@ interfaces, models, and transforms.
 
 Diamondback complements Artificial Intelligence ( AI ) frameworks, by
 defining components which analyze, filter, extract, model, and transform
-data into forms which are useful in applications including pattern
-recognition, feature extraction, and optimization.
+data into forms which are useful in pattern recognition, feature extraction,
+and optimization.
 
-Diamondback also facilitates classical signal processing solutions
-including communications, modeling, signal identification and extraction,
-and noise cancellation.
+Diamondback also facilitates signal processing applications including
+compression, encoding, cancellation, extraction, identification, modulation,
+rate adaptation, and serialization.
 
 Details
 ~~~~~~~
