@@ -6,7 +6,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0bf1b502-12d6-4d07-9b76-6e92e343a30b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" beforeDir="false" afterPath="$PROJECT_DIR$/diamondback.egg-info/PKG-INFO" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.98-py3-none-any.whl" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.98-py3-none-any.whl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/diamondback-1.0.98.tar.gz" beforeDir="false" afterPath="$PROJECT_DIR$/dist/diamondback-1.0.98.tar.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/environment.pickle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/.doctrees/index.doctree" beforeDir="false" afterPath="$PROJECT_DIR$/docs/.doctrees/index.doctree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/docs/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/searchindex.js" beforeDir="false" afterPath="$PROJECT_DIR$/docs/searchindex.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/readme.rst" beforeDir="false" afterPath="$PROJECT_DIR$/readme.rst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../kalatoa-ws" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.idesettings.debugger.python" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -277,7 +284,10 @@
       <workItem from="1625099326805" duration="924000" />
       <workItem from="1625716723193" duration="681000" />
       <workItem from="1626115949785" duration="2443000" />
-      <workItem from="1626358910229" duration="8421000" />
+      <workItem from="1626358910229" duration="12653000" />
+      <workItem from="1626996979812" duration="69000" />
+      <workItem from="1627067954373" duration="188000" />
+      <workItem from="1627068455352" duration="201000" />
     </task>
     <servers />
   </component>

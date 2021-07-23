@@ -17,9 +17,9 @@ defining components which analyze, filter, extract, model, and transform
 data into forms which are useful in pattern recognition, feature extraction,
 and optimization.
 
-Diamondback also facilitates signal processing applications including
-compression, encoding, cancellation, extraction, identification, modulation,
-rate adaptation, and serialization.
+Diamondback also supports applications including compression, encoding,
+cancellation, extraction, identification, modulation, differentiation,
+integration, rate adaptation, transformation, clustering, and serialization.
 
 Details
 ~~~~~~~
