@@ -38,7 +38,7 @@ defining components which filter, model, and transform data into forms which
 are useful in pattern recognition and feature extraction.
 
 Diamondback also supports applications including compression, cancellation,
-identification, modulation, differentiation, integration, rate adaptation,
+identification, optimization, differentiation, integration, rate adaptation,
 clustering, and serialization.
 
 Details
