@@ -1,10 +1,12 @@
 .coverage
 .github/
+.coverage/
 .idea/
 .mypy_cache/
 .nox/
 .pytest_cache/
 .venv/
+.vscode/
 __pycache__/
 *.egg-info/
 build/
