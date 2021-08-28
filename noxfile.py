@@ -25,6 +25,7 @@
 import glob
 import nox
 import os
+import requests
 import shutil
 import time
 
@@ -160,13 +161,25 @@ def push( session ) -> None :
 
             try :
 
-                url = 'https://github.schneider-electric.com/' + value + '/' + repository + '.git'
+                url = 'https://github.schneider-electric.com'
 
-                session.run( 'git', 'push', '--mirror', url )
+                requests.request( method = 'head', url = url, timeout = 2 )
+
+                session.run( 'git', 'push', '--mirror', url + '/' + value + '/' + repository + '.git' )                
 
             except Exception :
 
                 pass
+
+#            try :
+
+#                url = 'https://github.schneider-electric.com/' + value + '/' + repository + '.git'
+
+#                session.run( 'git', 'push', '--mirror', url )
+
+#            except Exception :
+
+#                pass
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
