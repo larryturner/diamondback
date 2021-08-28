@@ -161,7 +161,7 @@ def push( session ) -> None :
 
             requests.request( method = 'head', url = url, timeout = 2 )
 
-            value = input( '[ ' + repository + ' ] account : ' )
+            value = input( '[ ' + repository + ' ] mirror : ' )
 
             if ( value ) :
 
