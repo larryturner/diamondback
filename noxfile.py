@@ -161,7 +161,7 @@ def push( session ) -> None :
 
             requests.request( method = 'head', url = url, timeout = 2 )
 
-            value = input( '[ ' + repository + ' ] mirror : ' )
+            value = input( '[ ' + repository + ' ] account : ' )
 
             if ( value ) :
 
@@ -170,16 +170,6 @@ def push( session ) -> None :
         except Exception :
 
             pass
-
-#            try :
-
-#                url = 'https://github.schneider-electric.com/' + value + '/' + repository + '.git'
-
-#                session.run( 'git', 'push', '--mirror', url )
-
-#            except Exception :
-
-#                pass
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
