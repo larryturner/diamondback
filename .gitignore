@@ -10,5 +10,4 @@
 __pycache__/
 *.egg-info/
 build/
-noxfile
 
