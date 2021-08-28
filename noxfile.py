@@ -155,21 +155,21 @@ def push( session ) -> None :
 
                 pass
 
-        value = input( '[ ' + repository + ' ] mirror : ' )
+        try :
 
-        if ( value ) :
+            url = 'https://github.schneider-electric.com'
 
-            try :
+            requests.request( method = 'head', url = url, timeout = 2 )
 
-                url = 'https://github.schneider-electric.com'
+            value = input( '[ ' + repository + ' ] mirror : ' )
 
-                requests.request( method = 'head', url = url, timeout = 2 )
+            if ( value ) :
 
                 session.run( 'git', 'push', '--mirror', url + '/' + value + '/' + repository + '.git' )                
 
-            except Exception :
+        except Exception :
 
-                pass
+            pass
 
 #            try :
 
