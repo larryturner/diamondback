@@ -57,6 +57,10 @@ def dist( session ) -> None :
 
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel', 'build' )
 
+        if ( os.path.exists( 'service' ) ) :
+
+            session.install( glob.glob( 'dist/*.whl' )[ 0 ] )
+
         session.run( 'git', 'add', './dist/*' )
 
 @nox.session( venv_backend = 'none' )
@@ -67,6 +71,8 @@ def docs( session ) -> None :
 
     if ( os.path.exists( 'sphinx' ) ) :
 
+        dist( session )
+        
         shutil.rmtree( 'docs', ignore_errors = True )
 
         os.makedirs( 'docs' )
@@ -127,15 +133,15 @@ def push( session ) -> None :
 
         package = package[ max( len( package ) - 2, 0 ) ]
 
-        if ( os.path.exists( './' + package ) ) :
+        if ( os.path.exists( package ) ) :
 
             session.run( 'git', 'add', './' + package + '/*' )
 
-        if ( os.path.exists( './service' ) ) :
+        if ( os.path.exists( 'service' ) ) :
 
             session.run( 'git', 'add', './service/*' )
 
-        if ( os.path.exists( './tests' ) ) :
+        if ( os.path.exists( 'tests' ) ) :
 
             session.run( 'git', 'add', './tests/*' )
 
