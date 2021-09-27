@@ -21,13 +21,9 @@
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-09-23.
 
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class IVersion( IEqual ) :
+class IVersion( object ) :
 
     """ Version interface.
     """
@@ -44,19 +40,6 @@ class IVersion( IEqual ) :
     def version( self, version : str ) :
 
         self._version = version
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.version == other.version ) )
 
     def __init__( self ) -> None :
 

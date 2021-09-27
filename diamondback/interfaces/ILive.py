@@ -20,14 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2021-01-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class ILive( IEqual ) :
+class ILive( object ) :
 
     """ Live interface.
     """
@@ -44,19 +39,6 @@ class ILive( IEqual ) :
     def live( self, live : bool ) :
 
         self._live = live
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.live == other.live ) )
 
     def __init__( self ) -> None :
 

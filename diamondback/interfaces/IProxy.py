@@ -20,14 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-09-25.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any, Dict
+from typing import Dict
 
-class IProxy( IEqual ) :
+class IProxy( object ) :
 
     """ Proxy interface.
     """
@@ -44,19 +41,6 @@ class IProxy( IEqual ) :
     def proxy( self, proxy : Dict[ str, str ] ) :
 
         self._proxy = proxy
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.proxy == other.proxy ) )
 
     def __init__( self ) -> None :
 

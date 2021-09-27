@@ -21,15 +21,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
 import datetime
 
-class IDate( IEqual ) :
+class IDate( object ) :
 
     """ Date interface.
     """
@@ -50,19 +46,6 @@ class IDate( IEqual ) :
         if ( not date.tzinfo ) :
             date = date.replace( tzinfo = datetime.timezone.utc )
         self._date = date.replace( microsecond = 0 )
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.date == other.date ) )
 
     def __init__( self ) -> None :
 

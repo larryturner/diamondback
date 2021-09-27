@@ -69,8 +69,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-19.
-
-    **Definition**
 """
 
 from diamondback.filters.FirFilter import FirFilter
@@ -78,7 +76,7 @@ from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IRate import IRate
 from diamondback.interfaces.IReset import IReset
 from diamondback.interfaces.IS import IS
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
@@ -108,19 +106,6 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
         IRate.rate.fset( self, rate )
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) )
 
     def __init__( self, rate : float ) -> None :
 

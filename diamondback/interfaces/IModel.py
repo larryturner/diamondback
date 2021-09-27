@@ -20,14 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any
 
-class IModel( IEqual ) :
+class IModel( object ) :
 
     """ Model interface.
     """
@@ -44,19 +41,6 @@ class IModel( IEqual ) :
     def model( self, model : Any ) :
 
         self._model = model
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.model == other.model ) )
 
     def __init__( self ) -> None :
 

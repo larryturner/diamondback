@@ -21,14 +21,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2021-01-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class IReady( IEqual ) :
+class IReady( object ) :
 
     """ Ready interface.
     """
@@ -45,19 +40,6 @@ class IReady( IEqual ) :
     def ready( self, ready : bool ) :
 
         self._ready = ready
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.ready == other.ready ) )
 
     def __init__( self ) -> None :
 

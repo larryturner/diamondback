@@ -30,12 +30,10 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class PidFilter( FirFilter ) :
@@ -57,19 +55,6 @@ class PidFilter( FirFilter ) :
         if ( limit < 0.0 ) :
             raise ValueError( f'Limit = {limit}' )
         self._limit = limit
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.limit, other.limit ) ) )
 
     def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :
 

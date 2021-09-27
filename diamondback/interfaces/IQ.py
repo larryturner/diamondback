@@ -21,15 +21,12 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
-class IQ( IEqual ) :
+class IQ( object ) :
 
     """ State derivative interface.
     """
@@ -46,19 +43,6 @@ class IQ( IEqual ) :
     def q( self, q : Union[ List, numpy.ndarray ] ) :
 
         self._q = q
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.q, other.q ) ) )
 
     def __init__( self ) -> None :
 

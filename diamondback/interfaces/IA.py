@@ -21,15 +21,12 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any, List, Union
 import numpy
 
-class IA( IEqual ) :
+class IA( object ) :
 
     """ Recursive coefficient interface.
     """
@@ -46,19 +43,6 @@ class IA( IEqual ) :
     def a( self, a : Union[ List, numpy.ndarray ] ) :
 
         self._a = a
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.a, other.a ) ) )
 
     def __init__( self ) -> None :
 

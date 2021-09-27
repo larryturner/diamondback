@@ -43,12 +43,10 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-19.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IRate import IRate
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class PolynomialRateFilter( IRate ) :
@@ -82,19 +80,6 @@ class PolynomialRateFilter( IRate ) :
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
         IRate.rate.fset( self, rate )
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self._index, other._index ) ) and ( self.order == other.order ) )
 
     def __init__( self, rate : float, order : int = 3 ) -> None :
 

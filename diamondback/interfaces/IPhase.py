@@ -20,15 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-import numpy
-
-class IPhase( IEqual ) :
+class IPhase( object ) :
 
     """ Phase interface.
     """
@@ -47,19 +41,6 @@ class IPhase( IEqual ) :
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
             raise ValueError( f'Phase = {phase}' )
         self._phase = phase
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )
 
     def __init__( self ) -> None :
 

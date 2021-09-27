@@ -22,8 +22,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-12.
-
-    **Definition**
 """
 
 from abc import ABC, abstractmethod

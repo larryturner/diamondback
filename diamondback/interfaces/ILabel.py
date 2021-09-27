@@ -20,14 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2021-03-15.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class ILabel( IEqual ) :
+class ILabel( object ) :
 
     """ Label interface.
     """
@@ -44,19 +39,6 @@ class ILabel( IEqual ) :
     def label( self, label : str ) :
 
         self._label = label
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.label == other.label ) )
 
     def __init__( self ) -> None :
 

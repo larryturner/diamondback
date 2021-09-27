@@ -56,8 +56,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-13.
-
-    **Definition**
 """
 
 from typing import Any

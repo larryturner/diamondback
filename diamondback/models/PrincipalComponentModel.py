@@ -51,17 +51,14 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2019-01-25.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IClear import IClear
-from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
-class PrincipalComponentModel( IClear, IS, IEqual ) :
+class PrincipalComponentModel( IClear, IS ) :
 
     """ Principal component model.
     """
@@ -89,19 +86,6 @@ class PrincipalComponentModel( IClear, IS, IEqual ) :
         """
 
         return self._v
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.u, other.u ) ) and ( numpy.isclose( self.v, other.v ) ) )
 
     def __init__( self ) -> None :
 

@@ -37,7 +37,8 @@
             # Define zeros and normalize gain.
 
             b = numpy.poly( -numpy.ones( order ) )
-            b *= ( 1.0 - sum( a ) ) / sum( b )
+            b = b * ( 1.0 - sum( a ) ) / sum( b )
+
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -45,8 +46,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-26.
-
-    **Definition**
 """
 
 from typing import List, Tuple, Union

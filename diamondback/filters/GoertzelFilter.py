@@ -50,13 +50,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-16.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.filters.IirFilter import IirFilter
-from typing import Any, List, Union
+from typing import List, Union
 import math
 import numpy
 
@@ -64,19 +62,6 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
     """ Goertzel filter.
     """
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self._index == other._index ) and ( numpy.allclose( self._w, other._w ) ) )
 
     def __init__( self, b : Union[ List, numpy.ndarray ], frequency : float ) -> None :
 

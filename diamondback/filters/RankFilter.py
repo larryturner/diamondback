@@ -34,12 +34,10 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class RankFilter( FirFilter ) :
@@ -61,19 +59,6 @@ class RankFilter( FirFilter ) :
         if ( ( rank < 0 ) or ( rank > ( len( self.s ) - 1 ) ) ) :
             raise ValueError( f'Rank = {rank}' )
         self._rank = rank
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.rank == other.rank ) )
 
     def __init__( self, rank : int, order : int ) -> None :
 

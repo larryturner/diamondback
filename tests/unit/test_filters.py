@@ -11,9 +11,6 @@
    
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-03.
-   
-    **Definition**
-
 """
 
 from diamondback import FirFilter, IirFilter, ComplexBandPassFilter, ComplexExponentialFilter

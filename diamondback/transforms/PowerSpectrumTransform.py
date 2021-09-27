@@ -50,8 +50,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-13.
-
-    **Definition**
 """
 
 from diamondback.transforms.FourierTransform import FourierTransform

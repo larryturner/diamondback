@@ -20,14 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2019-10-09.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any
 
-class ITimeOut( IEqual ) :
+class ITimeOut( object ) :
 
     """ Time out interface.
     """
@@ -44,19 +41,6 @@ class ITimeOut( IEqual ) :
     def timeout( self, timeout : Any ) :
 
         self._timeout = timeout
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.timeout == other.timeout ) )
 
     def __init__( self ) -> None :
 

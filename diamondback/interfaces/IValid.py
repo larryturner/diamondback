@@ -20,14 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class IValid( IEqual ) :
+class IValid( object ) :
 
     """ Valid interface.
     """
@@ -44,19 +39,6 @@ class IValid( IEqual ) :
     def valid( self, valid : bool ) :
 
         self._valid = valid
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.valid == other.valid ) )
 
     def __init__( self ) -> None :
 

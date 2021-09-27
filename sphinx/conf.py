@@ -6,8 +6,6 @@
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2019-03-22.
-    
-    **Definition**
 """
 
 import os

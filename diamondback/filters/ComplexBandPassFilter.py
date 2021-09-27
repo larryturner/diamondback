@@ -47,34 +47,19 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
 from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.interfaces.IRate import IRate
-from typing import Any, List, Tuple, Union
+from typing import List, Tuple, Union
 import numpy
 
 class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
     """ Complex band pass filter.
     """
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self._complexexponentialfilter == other._complexexponentialfilter ) )
 
     def __init__( self, frequency : float, rate : float ) -> None :
 

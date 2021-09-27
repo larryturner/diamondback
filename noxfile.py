@@ -11,8 +11,6 @@
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-12.
-    
-    **Definition**
 """
 
 import glob

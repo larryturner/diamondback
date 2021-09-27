@@ -11,8 +11,6 @@
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-03.
-    
-    **Definition**
 """
 
 from diamondback import IirFilter
@@ -68,7 +66,7 @@ class Test( object ) :
         x = IirFilter.Factory.instance( IirFilter, 'Butterworth', 0.1, 4, 1 )
         for ii in range( 0, 2 ) :
             y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
-            assert x == y
+            assert ( ( numpy.allclose( x.a, y.a ) ) and ( numpy.allclose( x.b, y.b ) ) and ( numpy.allclose( x.s, y.s ) ) )
             assert Serial.code( Serial.encode( x, compress = False ) ) == Serial.code( Serial.encode( y, compress = False ) )
             try :
                 Serial.decode( Serial.encode( x, ii != 0 ), ii == 0 )

@@ -20,15 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-01-09.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
 import os
 
-class IPath( IEqual ) :
+class IPath( object ) :
 
     """ Path interface.
     """
@@ -49,19 +45,6 @@ class IPath( IEqual ) :
             if ( not os.path.exists( path ) ) :
                 raise FileNotFoundError( f'Path = {path}' )
         self._path = path
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.path == other.path ) )
 
     def __init__( self ) -> None :
 

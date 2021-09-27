@@ -50,17 +50,14 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-13.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IB import IB
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any, List, Union
 import numpy
 import scipy.signal
 
-class WindowFilter( IB, IEqual ) :
+class WindowFilter( IB ) :
 
     """ Window filter.
     """

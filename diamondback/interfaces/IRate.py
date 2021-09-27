@@ -19,15 +19,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-import numpy
-
-class IRate( IEqual ) :
+class IRate( object ) :
 
     """ Rate interface.
     """
@@ -46,19 +40,6 @@ class IRate( IEqual ) :
         if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate}' )
         self._rate = rate
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.rate, other.rate ) ) )
 
     def __init__( self ) -> None :
 

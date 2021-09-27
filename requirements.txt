@@ -7,8 +7,6 @@
 #
 #   Author
 #       Larry Turner, Schneider Electric, Analytics & AI, 2019-09-08.
-#
-#   Definition
 
 ipython >= 7.26.0, <= 8.26.0
 ipywidgets >= 7.6.5, <= 8.6.5

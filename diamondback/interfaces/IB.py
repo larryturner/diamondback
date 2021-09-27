@@ -21,15 +21,12 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any, List, Union
 import numpy
 
-class IB( IEqual ) :
+class IB( object ) :
 
     """ Forward coefficient interface.
     """
@@ -46,19 +43,6 @@ class IB( IEqual ) :
     def b( self, b : Union[ List, numpy.ndarray ] ) :
 
         self._b = b
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.allclose( self.b, other.b ) ) )
 
     def __init__( self ) -> None :
 

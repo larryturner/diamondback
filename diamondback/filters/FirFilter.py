@@ -84,8 +84,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IB import IB

@@ -20,14 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any
 
-class IData( IEqual ) :
+class IData( object ) :
 
     """ Data interface.
     """
@@ -44,19 +41,6 @@ class IData( IEqual ) :
     def data( self, data : Any ) :
 
         self._data = data
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.data == other.data ) )
 
     def __init__( self ) -> None :
 

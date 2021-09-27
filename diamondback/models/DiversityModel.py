@@ -64,17 +64,14 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-08.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IClear import IClear
-from diamondback.interfaces.IEqual import IEqual
 from diamondback.interfaces.IS import IS
 from typing import Any, Callable, List, Union
 import numpy
 
-class DiversityModel( IClear, IS, IEqual ) :
+class DiversityModel( IClear, IS ) :
 
     """ Diversity model.
     """
@@ -110,19 +107,6 @@ class DiversityModel( IClear, IS, IEqual ) :
             if ( order <= 0 ) :
                 raise ValueError( f'Order = {order}' )
             return typ( DiversityModel.Factory._distance[ classification ], order )
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self._distance == other._distance ) and ( numpy.isclose( self._diversity, other._diversity ) ) )
 
     def __init__( self, distance : Callable[ [ Any, Any ], Any ], order : int ) -> None :
 

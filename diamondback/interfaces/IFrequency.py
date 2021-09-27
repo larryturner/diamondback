@@ -20,15 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-import numpy
-
-class IFrequency( IEqual ) :
+class IFrequency( object ) :
 
     """ Frequency interface.
     """
@@ -47,19 +41,6 @@ class IFrequency( IEqual ) :
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency}' )
         self._frequency = frequency
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.frequency, other.frequency ) ) )
 
     def __init__( self ) -> None :
 

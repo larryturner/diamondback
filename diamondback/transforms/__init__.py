@@ -7,8 +7,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-22.
-
-    **Definition**
 """
 
 from .ComplexTransform import ComplexTransform  # noqa: F401

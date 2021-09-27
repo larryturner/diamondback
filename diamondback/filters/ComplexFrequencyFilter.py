@@ -48,8 +48,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-01.
-    
-    **Definition**
 """
 
 from diamondback.filters.FirFilter import FirFilter

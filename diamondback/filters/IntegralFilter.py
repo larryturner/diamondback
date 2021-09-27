@@ -62,8 +62,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-06.
-
-    **Definition**
 """
 
 from diamondback.filters.IirFilter import IirFilter

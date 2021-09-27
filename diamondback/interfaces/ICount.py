@@ -20,14 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2021-01-08.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class ICount( IEqual ) :
+class ICount( object ) :
 
     """ Count interface.
     """
@@ -46,19 +41,6 @@ class ICount( IEqual ) :
         if ( count < 0 ) :
             raise ValueError( f'Count = {count}' )
         self._count = count
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.count == other.count ) )
 
     def __init__( self ) -> None :
 

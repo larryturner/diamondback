@@ -22,15 +22,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
 import datetime
 
-class ITimeZone( IEqual ) :
+class ITimeZone( object ) :
 
     """ Time zone interface.
     """
@@ -49,19 +45,6 @@ class ITimeZone( IEqual ) :
         if ( not timezone ) :
             raise ValueError( f'TimeZone = {timezone}' )
         self._timezone = timezone
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.timezone == other.timezone ) )
 
     def __init__( self ) -> None :
 

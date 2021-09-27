@@ -76,17 +76,14 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-06.
-
-    **Definition**
 """
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IB import IB
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any, List, Union
 import numpy
 
-class WaveletTransform( IB, IEqual ) :
+class WaveletTransform( IB ) :
 
     """ Wavelet transform.
     """

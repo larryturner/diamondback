@@ -1,6 +1,8 @@
-1.1.0 - 2021-09-27
+2.0.0 - 2021-09-27
 ^^^^^^^^^^^^^^^^^^^
--   Modified documentation and formatting.
+-   Removed several interfaces, including IEqual.
+-   Removed equality definitions.
+-   Modified documentation and format.
 
 1.0.99 - 2021-09-21
 ^^^^^^^^^^^^^^^^^^^

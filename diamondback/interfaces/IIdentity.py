@@ -21,14 +21,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-09-23.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class IIdentity( IEqual ) :
+class IIdentity( object ) :
 
     """ Identity interface.
     """
@@ -45,19 +40,6 @@ class IIdentity( IEqual ) :
     def identity( self, identity : str ) :
 
         self._identity = identity
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.identity == other.identity ) )
 
     def __init__( self ) -> None :
 

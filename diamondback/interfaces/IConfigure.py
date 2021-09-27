@@ -20,14 +20,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-27.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any
 
-class IConfigure( IEqual ) :
+class IConfigure( object ) :
 
     """ Configure interface.
     """
@@ -44,19 +41,6 @@ class IConfigure( IEqual ) :
     def configure( self, configure : Any ) :
 
         self._configure = configure
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.configure == other.configure ) )
 
     def __init__( self ) -> None :
 

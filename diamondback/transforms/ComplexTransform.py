@@ -46,8 +46,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-26.
-
-    **Definition**
 """
 
 from typing import List, Union

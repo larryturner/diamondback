@@ -21,14 +21,11 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
 from typing import Any
 
-class IStream( IEqual ) :
+class IStream( object ) :
 
     """ Stream interface.
     """
@@ -45,19 +42,6 @@ class IStream( IEqual ) :
     def stream( self, stream : Any ) :
 
         self._stream = stream
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.stream == other.stream ) )
 
     def __init__( self ) -> None :
 

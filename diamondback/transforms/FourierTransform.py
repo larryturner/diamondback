@@ -44,8 +44,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-12.
-
-    **Definition**
 """
 
 from typing import List, Tuple, Union

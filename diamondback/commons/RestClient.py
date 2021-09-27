@@ -35,7 +35,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
-    **Definition**
 """
 
 from diamondback.interfaces.ILive import ILive

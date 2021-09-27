@@ -32,8 +32,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
-
-    **Definition**
 """
 
 from diamondback.interfaces.IPhase import IPhase

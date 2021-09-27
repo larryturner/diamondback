@@ -20,14 +20,9 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-09-25.
-
-    **Definition**
 """
 
-from diamondback.interfaces.IEqual import IEqual
-from typing import Any
-
-class IUrl( IEqual ) :
+class IUrl( object ) :
 
     """ Url interface.
     """
@@ -49,19 +44,6 @@ class IUrl( IEqual ) :
         if ( url ) :
             url = url.strip( '/' )
         self._url = url
-
-    def __eq__( self, other : Any ) -> bool :
-
-        """ Equal.
-
-            Arguments :
-                other : Any.
-
-            Returns :
-                equal : bool.
-        """
-
-        return ( ( super( ).__eq__( other ) ) and ( self.url == other.url ) )
 
     def __init__( self ) -> None :
 

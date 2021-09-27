@@ -7,8 +7,6 @@
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
-    
-    **Definition**
 """
 
 from setuptools import find_packages, setup

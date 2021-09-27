@@ -7,8 +7,6 @@
 
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-22.
-
-    **Definition**
 """
 
 from .commons import Log  # noqa: F401
@@ -34,26 +32,18 @@ from .interfaces import IConfigure  # noqa: F401
 from .interfaces import ICount  # noqa: F401
 from .interfaces import IData  # noqa: F401
 from .interfaces import IDate  # noqa: F401
-from .interfaces import IDispose  # noqa: F401
-from .interfaces import IDuration  # noqa: F401
-from .interfaces import IEqual  # noqa: F401
 from .interfaces import IFrequency  # noqa: F401
 from .interfaces import IIdentity  # noqa: F401
-from .interfaces import IInterval  # noqa: F401
 from .interfaces import ILabel  # noqa: F401
-from .interfaces import ILatency  # noqa: F401
 from .interfaces import ILive  # noqa: F401
 from .interfaces import IModel  # noqa: F401
 from .interfaces import IPath  # noqa: F401
-from .interfaces import IPeriod  # noqa: F401
 from .interfaces import IPhase  # noqa: F401
 from .interfaces import IProxy  # noqa: F401
 from .interfaces import IQ  # noqa: F401
 from .interfaces import IRate  # noqa: F401
 from .interfaces import IReady  # noqa: F401
 from .interfaces import IReset  # noqa: F401
-from .interfaces import IResolution  # noqa: F401
-from .interfaces import IRotation  # noqa: F401
 from .interfaces import IS  # noqa: F401
 from .interfaces import IStream  # noqa: F401
 from .interfaces import ITimeOut  # noqa: F401
@@ -69,4 +59,4 @@ from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
 
-__version__ = '1.1.0'
+__version__ = '2.0.0'
