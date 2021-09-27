@@ -1,38 +1,28 @@
 """ **Description**
-
         Recursive coefficient interface.
 
     **Example**
-
         ::
-
             from diamondback import IA
             import numpy
 
             class Test( IA ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.a = numpy.array( [ 0.0, 0.1 ] )
 
             test = Test( )
-
             test.a[ : ] = 0.0
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -62,11 +52,9 @@ class IA( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -78,5 +66,4 @@ class IA( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._a = [ ]

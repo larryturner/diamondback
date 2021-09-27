@@ -1,37 +1,27 @@
 """ **Description**
-
         Time out interface.
 
     **Example**
-
         ::
-
             from diamondback import ITimeOut
 
             class Test( ITimeOut ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.timeout = ( 10.0, 60.0 )
 
             test = Test( )
-
             test.timeout = ( 15.0, 120.0 )
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2019-10-09.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -60,11 +50,9 @@ class ITimeOut( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -76,5 +64,4 @@ class ITimeOut( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._timeout = None

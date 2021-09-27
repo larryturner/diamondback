@@ -1,38 +1,28 @@
 """ **Description**
-
         State derivative interface.
 
     **Example**
-
         ::
-
             from diamondback import IQ
             import numpy
 
             class Test( IQ ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.q = numpy.array( [ 0.0, 0.1 ] )
 
             test = Test( )
-
             test.q[ : ] = 0.1
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -62,11 +52,9 @@ class IQ( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -78,5 +66,4 @@ class IQ( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._q = [ ]

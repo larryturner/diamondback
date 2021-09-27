@@ -1,5 +1,4 @@
 """ **Description**
-
         A wavelet transform realizes a temporal spatial frequency
         transformation in the form of analysis and synthesis filters with a
         complementary frequency response, combined with downsampling and
@@ -18,11 +17,9 @@
         unity or an integral multiple of 2**count.
 
         .. math::
-
             y_{i,0:\\frac{C}{2}-1} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{i,0:C-1}\ ),\ 2\ ) & y_{i,\\frac{C}{2}:C-1} = \downarrow(\ filter_{b_{A,H}}(\ x_{i,0:C-1}\ ),\ 2\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
 
         .. math::
-
             y_{0:\\frac{R}{2}-1,j} = \matrix{\downarrow(\ filter_{b_{A,L}}(\ x_{0:R-1,j}\ ),\ 2\ ) & y_{\\frac{R}{2}:R-1,j} = \downarrow(\ filter_{b_{A,H}}(\ x_{0:R-1,j}\ ),\ 2\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
 
         Synthesis reconstructs an incident signal from a specified operation
@@ -36,11 +33,9 @@
         multiple of 2**count.
 
         .. math::
-
             x_{0:R-1,j} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{0:\\frac{R}{2}-1,j},\ 2\ )\ ) ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{\\frac{R}{2}:R-1,j},\ 2\ ) )\ ) & j \in \scriptsize{[\ 0,\ C\ )}}
 
         .. math::
-
             x_{i,0:C-1} = \matrix{filter_{b_{S,L}}(\ 2\ \\uparrow(\ y_{i,0:\\frac{C}{2}-1},\ 2\ )\ ) + filter_{b_{S,H}}(\ 2\ \\uparrow(\ y_{i,\\frac{C}{2}:C-1},\ 2\ )\ ) & i \in \scriptsize{[\ 0,\ R\ )}}
 
         A factory is defined to facilitate construction of an instance, defining an
@@ -59,9 +54,7 @@
         * | 'Symmlet' is nearly symmetric, high quality, with order in [ 7 : 19 : 2 ].
 
     **Example**
-
         ::
-
             from diamondback import WaveletTransform
             import numpy
 
@@ -70,27 +63,21 @@
             # Create an instance from a Factory with constraints.
 
             obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = 'Haar', order = 1 )
-
             x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
 
             # Transform an incident signal, forward and inverse.
 
             y = obj.transform( x, count, False )
-
             z = obj.transform( y, count, True )
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-06.
 
     **Definition**
-
 """
 
 from diamondback.filters.FirFilter import FirFilter
@@ -196,32 +183,21 @@ class WaveletTransform( IB, IEqual ) :
             """ Constructs an instance.
 
                 Arguments :
-
                     typ : type - derived from WaveletTransform.
-
                     classification : str - in ( 'Coiflet', 'Daubechies', 'Haar', 'Symmlet' ).
-
                     order : int.
 
                 Returns :
-
                     instance : typ( ).
             """
 
             if ( ( not typ ) or ( not issubclass( typ, WaveletTransform ) ) ) :
-
                 raise ValueError( f'Type = {typ}' )
-
             if ( classification not in WaveletTransform.Factory._b ) :
-
                 raise ValueError( f'Classification = {classification}' )
-
             b = WaveletTransform.Factory._b[ classification ]
-
             if ( order not in b ) :
-
                 raise ValueError( f'Order = {order}' )
-
             return typ( b[ order ] )
 
     def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :
@@ -229,44 +205,26 @@ class WaveletTransform( IB, IEqual ) :
         """ Initialize.
 
             Arguments :
-
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
-
             b = numpy.array( list( b ) )
-
         if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) ) :
-
             raise ValueError( f'B = {b}' )
-
         super( ).__init__( )
-
         n = len( b ) - 1
-
         b = b / sum( b )
-
         v = numpy.flip( b, 0 )
-
         ii = [ 1, 1 ]
-
         if ( n & 1 ) :
-
             ii[ 1 ] = 0
-
         elif ( ( ( n & 3 ) == 2 ) & ( b[ : ( n // 2 ) + 1 ] == v[ : ( n // 2 ) + 1 ] ) ) :
-
             ii[ 0 ] = 0
-
         self.b = ( ( b, numpy.array( b ) ), ( v, numpy.array( v ) ) )
-
         for kk in range( 0, 2 ) :
-
             self.b[ kk ][ 1 ][ ii[ kk ] : : 2 ] *= -1.0
-
             if ( n != 1 ) :
-
                 self.b[ kk ][ 1 ][ : ] = numpy.flip( self.b[ kk ][ 1 ], 0 )
 
     def transform( self, x : Union[ List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
@@ -277,138 +235,73 @@ class WaveletTransform( IB, IEqual ) :
             an integral multiple of 2**count.
 
             Arguments :
-
                 x : Union[ List, numpy.ndarray ] - incident signal.
-
                 count : int.
-
                 inverse : bool.
 
             Returns :
-
                 y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-
             x = numpy.array( list( x ) )
-
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
-
             raise ValueError( f'X = {x}' )
-
         if ( len( x.shape ) == 2 ) :
-
             v = numpy.array( x )
-
         else :
-
             v = numpy.array( [ x ] )
-
         rows, cols = v.shape
-
         if ( count <= 0 ) :
-
             raise ValueError( f'Count = {count}' )
-
         if ( ( ( rows != 1 ) and ( rows % ( 2 ** count ) ) ) or ( ( cols != 1 ) and ( cols % ( 2 ** count ) ) ) ) :
-
             raise ValueError( f'Rows = {rows} Columns = {cols}' )
-
         rr = max( ( rows // ( 2 ** count ) ) * ( 2 ** count ), 1 )
-
         cc = max( ( cols // ( 2 ** count ) ) * ( 2 ** count ), 1 )
-
         y = numpy.array( v )
-
         b = self.b[ inverse ]
-
         firfilter = ( FirFilter( b[ 0 ] ), FirFilter( b[ 1 ] ) )
-
         if ( not inverse ) :
-
             if ( cc > 1 ) :
-
                 for ii in range( 0, rr ) :
-
                     for kk in range( 0, 2 ) :
-
                         firfilter[ kk ].s[ : ] = 0.0
-
                         u = firfilter[ kk ].filter( v[ ii, 0 : cc ] )
-
                         y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ] = u[ 1 : : 2 ]
-
                 v[ 0 : rr, 0 : cc ] = y[ 0 : rr, 0 : cc ]
-
             if ( rr > 1 ) :
-
                 for jj in range( 0, cc ) :
-
                     for kk in range( 0, 2 ) :
-
                         firfilter[ kk ].s[ : ] = 0.0
-
                         u = firfilter[ kk ].filter( v[ 0 : rr, jj ] )
-
                         y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ] = u[ 1 : : 2 ]
-
             if ( count > 1 ) :
-
                 ii = max( rr // 2, 1 )
-
                 jj = max( cc // 2, 1 )
-
                 y[ 0 : ii, 0 : jj ] = self.transform( y[ 0 : ii, 0 : jj ], count - 1, inverse )
-
         else :
-
             if ( count > 1 ) :
-
                 ii = max( rr // 2, 1 )
-
                 jj = max( cc // 2, 1 )
-
                 y[ 0 : ii, 0 : jj ] = self.transform( y[ 0 : ii, 0 : jj ], count - 1, inverse )
-
             if ( rr > 1 ) :
-
                 u = numpy.zeros( rr )
-
                 for jj in range( 0, cc ) :
-
                     w = numpy.zeros( rr )
-
                     for kk in range( 0, 2 ) :
-
                         u[ : : 2 ] = y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ]
-
                         firfilter[ kk ].s[ : ] = 0.0
-
                         w += 2.0 * firfilter[ kk ].filter( u )
-
                     y[ 0 : rr, jj ] = w
-
             if ( cc > 1 ) :
-
                 u = numpy.zeros( cc )
-
                 for ii in range( 0, rr ) :
-
                     w = numpy.zeros( cc )
-
                     for kk in range( 0, 2 ) :
-
                         u[ : : 2 ] = y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ]
-
                         firfilter[ kk ].s[ : ] = 0.0
-
                         w += 2.0 * firfilter[ kk ].filter( u )
-
                     y[ ii, 0 : cc ] = w
-
         if ( len( x.shape ) == 1 ) :
-
             y = y[ 0 ]
-
         return y

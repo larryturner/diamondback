@@ -1,33 +1,24 @@
 """ **Description**
-
         Latency interface.
 
     **Example**
-
         ::
-
             from diamondback import ILatency
 
             class Test( ILatency ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.latency = 0.0
 
             test = Test( )
-
             test.latency = 600.0
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
@@ -54,9 +45,7 @@ class ILatency( IEqual ) :
     def latency( self, latency : float ) :
 
         if ( latency < 0.0 ) :
-
             raise ValueError( f'Latency = {latency}' )
-
         self._latency = latency
 
     def __eq__( self, other : Any ) -> bool :
@@ -64,11 +53,9 @@ class ILatency( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -80,5 +67,4 @@ class ILatency( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._latency = 0.0

@@ -1,37 +1,27 @@
 """ **Description**
-
         Path interface.
 
     **Example**
-
         ::
-
             from diamondback import IPath
 
             class Test( IPath ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.path = ''
 
             test = Test( )
-
             test.path = '.\data'
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2020-01-09.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -55,13 +45,9 @@ class IPath( IEqual ) :
     def path( self, path : str ) :
 
         if ( path ) :
-
             path = path.replace( '/', os.path.sep ).replace( '\\', os.path.sep )
-
             if ( not os.path.exists( path ) ) :
-
                 raise FileNotFoundError( f'Path = {path}' )
-
         self._path = path
 
     def __eq__( self, other : Any ) -> bool :
@@ -69,11 +55,9 @@ class IPath( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -85,5 +69,4 @@ class IPath( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._path = ''

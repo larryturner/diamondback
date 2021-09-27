@@ -1,32 +1,24 @@
 """ **Description**
-
         Equal interface.
 
     **Example**
-
         ::
-
             from diamondback import IEqual, IPhase
             from typing import Any
 
             class Test( IEqual, IPhase ) :
 
                 def __eq__( self, other : Any ) -> bool :
-
                     return ( ( super( ).__eq__( other ) ) and ( numpy.isclose( self.phase, other.phase ) ) )
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
 
     **Definition**
-
 """
 
 from typing import Any
@@ -41,11 +33,9 @@ class IEqual( object ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -63,11 +53,9 @@ class IEqual( object ) :
         """ Not equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 notequal : bool.
         """
 

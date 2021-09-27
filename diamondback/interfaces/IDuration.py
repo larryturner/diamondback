@@ -1,37 +1,27 @@
 """ **Description**
-
         Duration interface.
 
     **Example**
-
         ::
-
             from diamondback import IDuration
 
             class Test( IDuration ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.duration = 0.0
 
             test = Test( )
-
             test.duration = 3600.0
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -55,9 +45,7 @@ class IDuration( IEqual ) :
     def duration( self, duration : float ) :
 
         if ( duration < 0.0 ) :
-
             raise ValueError( f'Duration = {duration}' )
-
         self._duration = duration
 
     def __eq__( self, other : Any ) -> bool :
@@ -65,11 +53,9 @@ class IDuration( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -81,5 +67,4 @@ class IDuration( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._duration = 0.0

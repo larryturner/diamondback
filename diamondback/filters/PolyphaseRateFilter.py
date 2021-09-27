@@ -1,5 +1,4 @@
 """ **Description**
-
         A polyphase rate filter produces a reference signal which approximates
         an incident signal evaluated at an effective frequency equal to the
         product of an incident sample frequency and a specified rate.
@@ -14,15 +13,12 @@
         ratio.
 
         .. math::
-
             b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]
 
         .. math::
-
             y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}
 
         .. math::
-
             s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}
 
         A specified rate must be greater than zero, and less than or equal to
@@ -34,15 +30,12 @@
         may be addressed by latency compensation.
 
         .. math::
-
             \phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \\frac{K}{\scriptsize{Rate}}
 
         .. math::
-
             \phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K
 
         .. math::
-
             k_{n+1} = \mod(\ \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor,\ M\ )
 
         A reset may minimize edge effects at a discontinuity by assuming
@@ -55,9 +48,7 @@
         continuous operation.
 
     **Example**
-
         ::
-
             from diamondback import ComplexExponentialFilter, PolyphaseRateFilter
             import math
             import numpy
@@ -69,23 +60,17 @@
             # Filter an incident signal.
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-
             obj.reset( x[ 0 ] )
-
             y = obj.filter( x )
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-19.
 
     **Definition**
-
 """
 
 from diamondback.filters.FirFilter import FirFilter
@@ -118,15 +103,10 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """
 
         count = PolyphaseRateFilter._b.shape[ 0 ]
-
         if ( ( rate <= 0.0 ) or ( rate > count ) ) :
-
             raise ValueError( f'Rate = {rate}' )
-
         if ( not numpy.isclose( self.rate, rate ) ) :
-
             self._index = 0.0
-
         IRate.rate.fset( self, rate )
 
     def __eq__( self, other : Any ) -> bool :
@@ -134,11 +114,9 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -149,30 +127,19 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """ Initialize.
 
             Arguments :
-
                 rate : float - ratio of effective frequency in ( 0.0, 256.0 ].
         """
 
         super( ).__init__( )
-
         b = PolyphaseRateFilter._b
-
         rr, cc = b.shape
-
         if ( not b.any( ) ) :
-
             firfilter = FirFilter.Factory.instance( FirFilter, 'Hann', 0.85 / rr, cc * rr - 1 )
-
             b = numpy.reshape( firfilter.b, ( rr, cc ), 'F' )
-
             for ii in range( 0, rr ) :
-
                 b[ ii, : ] /= sum( b[ ii, : ] )
-
             PolyphaseRateFilter._b = b
-
         self._index, self.s = 0.0, numpy.zeros( cc )
-        
         self.rate = rate
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
@@ -180,54 +147,32 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-
                 x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
-
                 y : numpy.ndarray - reference signal.
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-
             x = numpy.array( list( x ) )
-
         if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
-
             raise ValueError( f'X = {x}' )
-
         y = numpy.zeros( int( numpy.ceil( len( x ) * self.rate ) ) )
-
         b = PolyphaseRateFilter._b
-
         rr = b.shape[ 0 ]
-
         ii, jj = 0, 0
-
         while ( ( ii < len( x ) ) and ( jj < len( y ) ) ) :
-
             if ( self._index < rr ) :
-
                 kk = min( int( numpy.round( self._index ) ), rr - 1 )
-
                 self._index += rr / self.rate
-
                 self.s[ 0 ] = x[ ii ]
-
                 y[ jj ] = b[ kk, : ].dot( self.s )
-
                 jj += 1
-
             while ( ( ii < len( x ) ) and ( self._index >= rr ) ) :
-
                 self.s[ 0 ] = x[ ii ]
-
                 self.s[ 1 : ] = self.s[ : -1 ]
-
                 self._index -= rr
-
                 ii += 1
-
         return y[ 0 : min( jj, len( y ) ) ]
 
     def reset( self, x : float ) -> None :
@@ -236,14 +181,10 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
             operation at a specified incident signal condition.
 
             Arguments :
-
                 x : float - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :
-
             raise ValueError( f'X = {x}' )
-
         if ( len( self.s ) > 1 ) :
-
             self.s.fill( x )

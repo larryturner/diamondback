@@ -1,37 +1,27 @@
 """ **Description**
-
         Resolution interface.
 
     **Example**
-
         ::
-
             from diamondback import IResolution
 
             class Test( IResolution ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.resolution = 0.5
 
             test = Test( )
-
             test.resolution = 0.1
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -55,9 +45,7 @@ class IResolution( IEqual ) :
     def resolution( self, resolution : float ) :
 
         if ( resolution <= 0.0 ) :
-
             raise ValueError( f'Resolution = {resolution}' )
-
         self._resolution = resolution
 
     def __eq__( self, other : Any ) -> bool :
@@ -65,11 +53,9 @@ class IResolution( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -81,5 +67,4 @@ class IResolution( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._resolution = 1.0

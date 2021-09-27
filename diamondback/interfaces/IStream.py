@@ -1,38 +1,28 @@
 """ **Description**
-
         Stream interface.
 
     **Example**
-
         ::
-
             from diamondback import IStream
             import sys
 
             class Test( IStream ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.stream = sys.stdout
 
             test = Test( )
-
             test.stream = sys.stderr
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-15.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -61,11 +51,9 @@ class IStream( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -77,5 +65,4 @@ class IStream( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._stream = None

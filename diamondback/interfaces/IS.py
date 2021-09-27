@@ -1,38 +1,28 @@
 """ **Description**
-
         State interface.
 
     **Example**
-
         ::
-
             from diamondback import IS
             import numpy
 
             class Test( IS ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.s = numpy.array( [ 0.0, 0.1 ] )
 
             test = Test( )
-
             test.s[ : ] = 0.0
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -62,11 +52,9 @@ class IS( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -78,5 +66,4 @@ class IS( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._s = [ ]

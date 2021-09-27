@@ -1,37 +1,27 @@
 """ **Description**
-
         Label interface.
 
     **Example**
-
         ::
-
             from diamondback import ILabel
 
             class Test( ILabel ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.label = ''
 
             test = Test( )
-
             test.label = 'label'
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2021-03-15.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -60,11 +50,9 @@ class ILabel( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -76,5 +64,4 @@ class ILabel( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._label = ''

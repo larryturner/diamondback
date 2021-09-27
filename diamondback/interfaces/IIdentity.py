@@ -1,38 +1,28 @@
 """ **Description**
-
         Identity interface.
 
     **Example**
-
         ::
-
             from diamondback import IIdentity
             import uuid
 
             class Test( IIdentity ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.identity = str( uuid.uuid4( ) )
 
             test = Test( )
-
             test.identity
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2020-09-23.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -61,11 +51,9 @@ class IIdentity( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -77,5 +65,4 @@ class IIdentity( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._identity = ''

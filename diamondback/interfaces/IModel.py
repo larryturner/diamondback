@@ -1,37 +1,27 @@
 """ **Description**
-
         Model interface.
 
     **Example**
-
         ::
-
             from diamondback import IModel, Serial
 
             class Test( IModel ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.model = [ ]
 
             test = Test( )
-
             test.model = Serial.encode( { 'a' : 0.0, 'b' : 1.0 } )
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -60,11 +50,9 @@ class IModel( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -76,5 +64,4 @@ class IModel( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._model = None

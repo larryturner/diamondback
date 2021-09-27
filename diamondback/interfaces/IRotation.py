@@ -1,37 +1,27 @@
 """ **Description**
-
         Rotation interface.
 
     **Example**
-
         ::
-
             from diamondback import IRotation
 
             class Test( IRotation ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.rotation = 0.0
 
             test = Test( )
-
             test.rotation = 90.0
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2019-10-09.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -61,11 +51,9 @@ class IRotation( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -77,5 +65,4 @@ class IRotation( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._rotation = 0.0

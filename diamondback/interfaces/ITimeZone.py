@@ -1,11 +1,8 @@
 """" **Description**
-
         Time zone interface.
 
     **Example**
-
         ::
-
             from diamondback import ITimeZone
             import datetime
             import pytz
@@ -13,27 +10,20 @@
             class Test( ITimeZone ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.timezone = datetime.timezone.utc
 
             test = Test( )
-
             test.timezone = pytz.timezone( 'US/Eastern' )
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -57,9 +47,7 @@ class ITimeZone( IEqual ) :
     def timezone( self, timezone : datetime.timezone ) :
 
         if ( not timezone ) :
-
             raise ValueError( f'TimeZone = {timezone}' )
-
         self._timezone = timezone
 
     def __eq__( self, other : Any ) -> bool :
@@ -67,11 +55,9 @@ class ITimeZone( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -83,5 +69,4 @@ class ITimeZone( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._timezone = datetime.timezone.utc

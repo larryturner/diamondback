@@ -1,37 +1,27 @@
 """ **Description**
-
         Frequency interface.
 
     **Example**
-
         ::
-
             from diamondback import IFrequency
 
             class Test( IFrequency ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.frequency = 1.0
 
             test = Test( )
-
             test.frequency = 0.5
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -55,9 +45,7 @@ class IFrequency( IEqual ) :
     def frequency( self, frequency : float ) :
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
-
             raise ValueError( f'Frequency = {frequency}' )
-
         self._frequency = frequency
 
     def __eq__( self, other : Any ) -> bool :
@@ -65,11 +53,9 @@ class IFrequency( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -81,5 +67,4 @@ class IFrequency( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._frequency = 0.0

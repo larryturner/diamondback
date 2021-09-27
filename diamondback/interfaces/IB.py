@@ -1,38 +1,28 @@
 """ **Description**
-
         Forward coefficient interface.
 
     **Example**
-
         ::
-
             from diamondback import IB
             import numpy
 
             class Test( IB ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.b = numpy.array( [ 0.75, 0.25 ] )
 
             test = Test( )
-
             test.b[ : ] = 0.5
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -62,11 +52,9 @@ class IB( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -78,5 +66,4 @@ class IB( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._b = [ ]

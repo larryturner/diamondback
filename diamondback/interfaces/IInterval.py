@@ -1,37 +1,27 @@
 """ **Description**
-
         Interval interface.
 
     **Example**
-
         ::
-
             from diamondback import IInterval
 
             class Test( IInterval ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.interval = 0.0
 
             test = Test( )
-
             test.interval = 7200.0
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-07-12.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -55,9 +45,7 @@ class IInterval( IEqual ) :
     def interval( self, interval : float ) :
 
         if ( interval < 0.0 ) :
-
             raise ValueError( f'Interval = {interval}' )
-
         self._interval = interval
 
     def __eq__( self, other : Any ) -> bool :
@@ -65,11 +53,9 @@ class IInterval( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -81,5 +67,4 @@ class IInterval( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._interval = 0.0

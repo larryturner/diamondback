@@ -1,25 +1,18 @@
 """ **Description**
-
         Test unit models.
 
     **Example**
-
         ::
-
             pytest --capture=no --verbose
 
     **License**
-
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
-
+    
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-03.
-
+    
     **Definition**
-
 """
 
 from diamondback import DiversityModel, PrincipalComponentModel
@@ -36,11 +29,8 @@ class Test( object ) :
         """
 
         ii = [ 11, 1, 2, 3, 10 ]
-
         obj = DiversityModel.Factory.instance( DiversityModel, 'Euclidean', len( ii ) - 1 )
-
         assert obj.s.shape == ( 0, len( ii ) )
-
         x = numpy.transpose( numpy.array( [ [ 0.929263623187228, 0.349983765984809 ],
                                             [ 0.232958886794845, 0.323811130703304 ],
                                             [ 0.688771948873912, 0.618743394357275 ],
@@ -53,17 +43,12 @@ class Test( object ) :
                                             [ 0.858070280281700, 1.433712684647466 ],
                                             [ 1.297647047865546, 0.857178935746457 ],
                                             [ 0.968823660872193, 1.269390641058206 ] ] ) )
-
         y = obj.model( x )
-
         v = numpy.array( [ 0.000000, 0.000000, 0.000000, 0.000000,
                            0.000000, 0.344252, 0.411389, 0.411389,
                            0.411389, 0.411389, 0.463343, 0.486953 ] )
-
         s = x[ :, ii ]
-
         assert numpy.allclose( y, v )
-
         assert numpy.allclose( s, obj.s )
 
     def test_PrincipalComponentModel( self ) :
@@ -72,7 +57,6 @@ class Test( object ) :
         """
 
         obj = PrincipalComponentModel( )
-
         x = numpy.array( [ [  0.92982611,  1.15628026,  1.32456014,  1.54128238,
                               1.74483926,  1.96410142,  2.1236406,   2.33322998,
                               2.54608544,  2.72938233,  2.94649129,  3.12654834,
@@ -97,11 +81,8 @@ class Test( object ) :
                              -3.08695416, -3.17924651, -3.41005082,  3.27276207,
                               3.62380914,  3.97015509,  1.17915077,  1.19028501,
                               0.85939319,  1.07123524,  0.8553237,   0.95840126 ] ] )
-
         y = obj.model( x )
-
         assert x.shape == y.shape
-
         z = numpy.array( [ [ -1.45997195e+00, -1.32375611e+00, -1.04601052e+00, -8.28882785e-01,
                              -5.99805998e-01, -2.42945473e-01, -5.01485839e-01, -2.40198010e-02,
                              -1.14995160e-01,  2.31258393e-01,  4.62542402e-01,  4.11252232e-01,
@@ -126,15 +107,10 @@ class Test( object ) :
                              -1.83046498e+00,  3.73130777e-01, -8.63022097e-01,  6.90929543e-01,
                               3.89264228e-03, -1.80509749e-01,  9.32165457e-01, -2.02262041e+00,
                               7.97045750e-01, -3.42833551e-01, -6.97909272e-01, -8.03929143e-01 ] ] )
-
         assert numpy.allclose( y, z )
-
         e = numpy.array( [ 1.97348626, 0.03358314, 0.99293059 ] )
-
         v = numpy.array( [ [  0.70495169,  0.08639378, -0.70397389 ],
                            [  0.70751261, -0.01612183,  0.7065168 ],
                            [ -0.04968931,  0.99613061,  0.0724898 ] ] )
-
         assert numpy.allclose( e, obj.e )
-
         assert numpy.allclose( v, obj.v )

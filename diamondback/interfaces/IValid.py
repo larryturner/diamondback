@@ -1,37 +1,27 @@
 """ **Description**
-
         Valid interface.
 
     **Example**
-
         ::
-
             from diamondback import IValid
 
             class Test( IValid ) :
 
                 def __init__( self ) -> None :
-
                     super( ).__init__( )
-
                     self.valid = False
 
             test = Test( )
-
             test.valid = True
 
     **License**
-
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-
         © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
 
     **Definition**
-
 """
 
 from diamondback.interfaces.IEqual import IEqual
@@ -60,11 +50,9 @@ class IValid( IEqual ) :
         """ Equal.
 
             Arguments :
-
                 other : Any.
 
             Returns :
-
                 equal : bool.
         """
 
@@ -76,5 +64,4 @@ class IValid( IEqual ) :
         """
 
         super( ).__init__( )
-
         self._valid = False
