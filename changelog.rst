@@ -1,3 +1,7 @@
+1.1.0 - 2021-09-27
+^^^^^^^^^^^^^^^^^^^
+-   Modified documentation and formatting.
+
 1.0.99 - 2021-09-21
 ^^^^^^^^^^^^^^^^^^^
 -   Modified requirements.
