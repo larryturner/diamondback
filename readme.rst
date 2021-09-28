@@ -272,7 +272,6 @@ Installation
 Diamondback is a public repository hosted at PyPI and GitHub.
 
 ::
-
     pip install diamondback
 
     or
@@ -302,7 +301,6 @@ repository, or installed from GitHub and run on a local system.
 **Local**
 
 ::
-
     git clone https://github.com/larryturner/diamondback.git
 
     cd diamondback
@@ -322,7 +320,6 @@ A test solution is provided to exercise and verify components, pytest is
 used to execute unit and scenario tests.
 
 ::
-
     pytest --capture=no --verbose
 
 Documentation
