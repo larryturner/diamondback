@@ -235,8 +235,6 @@ Diamondback depends upon external packages :
 
 ::
 
-    pip install diamondback
-
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`_
 
 -   `loguru <https://github.com/delgan/loguru>`_
@@ -253,12 +251,6 @@ Diamondback elective documentation, test, and visualization functionality
 depends upon additional external packages :
 
 ::
-
-    pip install diamondback[ full ]
-
-    or
-
-    pip install --requirement requirements.txt
 
 -   `ipython <https://github.com/ipython/ipython>`_
 
@@ -286,6 +278,12 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 ::
 
     pip install diamondback
+
+    or
+
+    pip install diamondback[ full ]
+
+    or
 
     pip install git+https://github.com/larryturner/diamondback.git
 
