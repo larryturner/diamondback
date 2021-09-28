@@ -233,8 +233,6 @@ Dependencies
 
 Diamondback depends upon external packages :
 
-::
-
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`_
 
 -   `loguru <https://github.com/delgan/loguru>`_
@@ -249,8 +247,6 @@ Diamondback depends upon external packages :
 
 Diamondback elective documentation, test, and visualization functionality
 depends upon additional external packages :
-
-::
 
 -   `ipython <https://github.com/ipython/ipython>`_
 
