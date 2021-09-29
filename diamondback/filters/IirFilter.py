@@ -49,7 +49,9 @@
         frequency response.
 
     **Example**
+       
         ::
+        
             from diamondback import IirFilter
             import numpy
 

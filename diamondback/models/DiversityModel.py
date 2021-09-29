@@ -45,7 +45,9 @@
             d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )\ }
 
     **Example**
+      
         ::
+        
             from diamondback import DiversityModel
 
             # Create an instance from a Factory with constraints.

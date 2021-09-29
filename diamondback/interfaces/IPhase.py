@@ -2,7 +2,9 @@
         Phase interface.
 
     **Example**
+        
         ::
+        
             from diamondback import IPhase
 
             class Test( IPhase ) :

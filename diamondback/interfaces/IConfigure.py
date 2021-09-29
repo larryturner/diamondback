@@ -2,7 +2,9 @@
         Configure interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IConfigure
 
             class Test( IConfigure ) :

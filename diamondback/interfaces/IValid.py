@@ -2,7 +2,9 @@
         Valid interface.
 
     **Example**
+   
         ::
+        
             from diamondback import IValid
 
             class Test( IValid ) :

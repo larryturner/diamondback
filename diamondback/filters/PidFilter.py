@@ -11,7 +11,9 @@
             y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \\frac{d}{dn}(\ x_{n}\ )
 
     **Example**
+        
         ::
+        
             from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 

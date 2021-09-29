@@ -2,7 +2,9 @@
         Ready interface.
 
     **Example**
+      
         ::
+        
             from diamondback import IReady
 
 

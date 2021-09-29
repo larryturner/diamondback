@@ -2,7 +2,9 @@
         Nox project management.
 
     **Example**
+        
         ::
+        
             nox --list
             nox --sessions clean dist docs image notebook push status tag tests
     

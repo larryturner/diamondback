@@ -100,25 +100,27 @@
 </div>
 <div class="section" id="module-diamondback.interfaces.IA">
 <span id="diamondback-interfaces-ia-module"></span><h2>diamondback.interfaces.IA module<a class="headerlink" href="#module-diamondback.interfaces.IA" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Recursive coefficient interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IA
-import numpy</p>
-<p>class Test( IA ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.a = numpy.array( [ 0.0, 0.1 ] )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IA</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IA</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">a</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.a[ : ] = 0.0</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -147,25 +149,27 @@ test.a[ : ] = 0.0</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IB">
 <span id="diamondback-interfaces-ib-module"></span><h2>diamondback.interfaces.IB module<a class="headerlink" href="#module-diamondback.interfaces.IB" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Forward coefficient interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IB
-import numpy</p>
-<p>class Test( IB ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.b = numpy.array( [ 0.75, 0.25 ] )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IB</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IB</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.75</span><span class="p">,</span> <span class="mf">0.25</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.b[ : ] = 0.5</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -194,23 +198,25 @@ test.b[ : ] = 0.5</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IClear">
 <span id="diamondback-interfaces-iclear-module"></span><h2>diamondback.interfaces.IClear module<a class="headerlink" href="#module-diamondback.interfaces.IClear" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Clear interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IClear, IPhase</p>
-<p>class Test( IClear, IPhase ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def clear( self ) -&gt; None :</dt><dd><p>self.phase = 0.0</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">clear</span><span class="p">(</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.clear( )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -234,24 +240,26 @@ test.clear( )</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IConfigure">
 <span id="diamondback-interfaces-iconfigure-module"></span><h2>diamondback.interfaces.IConfigure module<a class="headerlink" href="#module-diamondback.interfaces.IConfigure" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Configure interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IConfigure</p>
-<p>class Test( IConfigure ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.configure = [ ]</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IConfigure</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IConfigure</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">configure</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">configure</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.configure = { ‘a’ : 0.0, ‘b’ : 1.0 }</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -280,24 +288,26 @@ test.configure = { ‘a’ : 0.0, ‘b’ : 1.0 }</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ICount">
 <span id="diamondback-interfaces-icount-module"></span><h2>diamondback.interfaces.ICount module<a class="headerlink" href="#module-diamondback.interfaces.ICount" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Count interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ICount</p>
-<p>class Test( ICount ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.count = 0</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ICount</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ICount</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">3</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.count = 3</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -326,24 +336,26 @@ test.count = 3</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IData">
 <span id="diamondback-interfaces-idata-module"></span><h2>diamondback.interfaces.IData module<a class="headerlink" href="#module-diamondback.interfaces.IData" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Data interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IData</p>
-<p>class Test( IData ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.data = [ ]</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IData</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IData</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.data = { ‘a’ : 0.0, ‘b’ : 1.0 }</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -372,25 +384,27 @@ test.data = { ‘a’ : 0.0, ‘b’ : 1.0 }</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IDate">
 <span id="diamondback-interfaces-idate-module"></span><h2>diamondback.interfaces.IDate module<a class="headerlink" href="#module-diamondback.interfaces.IDate" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt>” <strong>Description</strong></dt><dd><p>Date interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IDate
-import datetime</p>
-<p>class Test( IDate ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.date = datetime.datetime.utcnow( ).replace( microsecond = 0, tzinfo = datetime.timezone.utc )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IDate</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IDate</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">date</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span> <span class="n">microsecond</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">date</span> <span class="o">+=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timedelta</span><span class="p">(</span> <span class="n">hours</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.date += datetime.timedelta( hours = 4 )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -419,24 +433,26 @@ test.date += datetime.timedelta( hours = 4 )</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IFrequency">
 <span id="diamondback-interfaces-ifrequency-module"></span><h2>diamondback.interfaces.IFrequency module<a class="headerlink" href="#module-diamondback.interfaces.IFrequency" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Frequency interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IFrequency</p>
-<p>class Test( IFrequency ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.frequency = 1.0</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IFrequency</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IFrequency</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">1.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.frequency = 0.5</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -465,25 +481,27 @@ test.frequency = 0.5</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IIdentity">
 <span id="diamondback-interfaces-iidentity-module"></span><h2>diamondback.interfaces.IIdentity module<a class="headerlink" href="#module-diamondback.interfaces.IIdentity" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Identity interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IIdentity
-import uuid</p>
-<p>class Test( IIdentity ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.identity = str( uuid.uuid4( ) )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IIdentity</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IIdentity</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">identity</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">identity</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.identity</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -512,24 +530,26 @@ test.identity</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ILabel">
 <span id="diamondback-interfaces-ilabel-module"></span><h2>diamondback.interfaces.ILabel module<a class="headerlink" href="#module-diamondback.interfaces.ILabel" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Label interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ILabel</p>
-<p>class Test( ILabel ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.label = ‘’</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ILabel</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILabel</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">label</span> <span class="o">=</span> <span class="s1">&#39;label&#39;</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.label = ‘label’</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -558,24 +578,26 @@ test.label = ‘label’</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ILive">
 <span id="diamondback-interfaces-ilive-module"></span><h2>diamondback.interfaces.ILive module<a class="headerlink" href="#module-diamondback.interfaces.ILive" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Live interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ILive</p>
-<p>class Test( ILive ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.live = False</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ILive</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ILive</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">live</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">live</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.live = True</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -604,24 +626,26 @@ test.live = True</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IModel">
 <span id="diamondback-interfaces-imodel-module"></span><h2>diamondback.interfaces.IModel module<a class="headerlink" href="#module-diamondback.interfaces.IModel" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Model interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IModel, Serial</p>
-<p>class Test( IModel ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.model = [ ]</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IModel</span><span class="p">,</span> <span class="n">Serial</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IModel</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="mf">0.0</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="mf">1.0</span> <span class="p">}</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.model = Serial.encode( { ‘a’ : 0.0, ‘b’ : 1.0 } )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -650,24 +674,26 @@ test.model = Serial.encode( { ‘a’ : 0.0, ‘b’ : 1.0 } )</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IPath">
 <span id="diamondback-interfaces-ipath-module"></span><h2>diamondback.interfaces.IPath module<a class="headerlink" href="#module-diamondback.interfaces.IPath" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Path interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IPath</p>
-<p>class Test( IPath ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.path = ‘’</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPath</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPath</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;.\data&#39;</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.path = ‘.data’</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -696,24 +722,26 @@ test.path = ‘.data’</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IPhase">
 <span id="diamondback-interfaces-iphase-module"></span><h2>diamondback.interfaces.IPhase module<a class="headerlink" href="#module-diamondback.interfaces.IPhase" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Phase interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IPhase</p>
-<p>class Test( IPhase ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.phase = 0.0</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPhase</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPhase</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.phase = 0.5</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -742,24 +770,26 @@ test.phase = 0.5</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IProxy">
 <span id="diamondback-interfaces-iproxy-module"></span><h2>diamondback.interfaces.IProxy module<a class="headerlink" href="#module-diamondback.interfaces.IProxy" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Proxy interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IProxy</p>
-<p>class Test( IProxy ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.proxy = { ‘http’ : ‘<a class="reference external" href="http://proxy.net:9480">http://proxy.net:9480</a>’, ‘https’ : ‘<a class="reference external" href="https://proxy.net:8080">https://proxy.net:8080</a>’ }</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IProxy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IProxy</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;http://proxy.net:9480&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;https://proxy.net:8080&#39;</span> <span class="p">}</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">proxy</span><span class="p">[</span> <span class="s1">&#39;http&#39;</span> <span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;http://proxy.net:80&#39;</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.proxy[ ‘http’ ] = ‘<a class="reference external" href="http://proxy.net:80">http://proxy.net:80</a>’</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -788,25 +818,27 @@ test.proxy[ ‘http’ ] = ‘<a class="reference external" href="http://proxy.n
 </div>
 <div class="section" id="module-diamondback.interfaces.IQ">
 <span id="diamondback-interfaces-iq-module"></span><h2>diamondback.interfaces.IQ module<a class="headerlink" href="#module-diamondback.interfaces.IQ" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>State derivative interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IQ
-import numpy</p>
-<p>class Test( IQ ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.q = numpy.array( [ 0.0, 0.1 ] )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IQ</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IQ</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">q</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.q[ : ] = 0.1</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -835,24 +867,25 @@ test.q[ : ] = 0.1</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IRate">
 <span id="diamondback-interfaces-irate-module"></span><h2>diamondback.interfaces.IRate module<a class="headerlink" href="#module-diamondback.interfaces.IRate" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Rate interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IRate</p>
+</dl>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IRate</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0e-3</span>
+</pre></div>
+</div>
+</div></blockquote>
 <dl class="simple">
-<dt>class Test( IRate ) :</dt><dd><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.rate = 5.0e-2</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p>test = Test( )
-test.rate = 1.0e-3</p>
-</dd>
-</dl>
-</dd>
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -881,24 +914,27 @@ test.rate = 1.0e-3</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IReady">
 <span id="diamondback-interfaces-iready-module"></span><h2>diamondback.interfaces.IReady module<a class="headerlink" href="#module-diamondback.interfaces.IReady" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Ready interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IReady</p>
-<p>class Test( IReady ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.ready = False</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReady</span>
+
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReady</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">ready</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.ready = True</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -927,26 +963,28 @@ test.ready = True</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IReset">
 <span id="diamondback-interfaces-ireset-module"></span><h2>diamondback.interfaces.IReset module<a class="headerlink" href="#module-diamondback.interfaces.IReset" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Reset interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IReset, IS
-from typing import Union
-import numpy</p>
-<p>class Test( IReset, IS ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def reset( self, x<span class="classifier">Union[ complex, float ] ) -&gt; None :</span></dt><dd><p>self.s[ : ] = x</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IReset</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">complex</span><span class="p">,</span> <span class="nb">float</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="mf">0.5</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.s = numpy.array( [ 0.0, 1.0 ] )
-test.reset( 0.5 )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -975,25 +1013,27 @@ operation at a specified incident signal condition.</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IS">
 <span id="diamondback-interfaces-is-module"></span><h2>diamondback.interfaces.IS module<a class="headerlink" href="#module-diamondback.interfaces.IS" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>State interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IS
-import numpy</p>
-<p>class Test( IS ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.s = numpy.array( [ 0.0, 0.1 ] )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IS</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span> <span class="p">]</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.s[ : ] = 0.0</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1022,25 +1062,27 @@ test.s[ : ] = 0.0</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IStream">
 <span id="diamondback-interfaces-istream-module"></span><h2>diamondback.interfaces.IStream module<a class="headerlink" href="#module-diamondback.interfaces.IStream" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Stream interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IStream
-import sys</p>
-<p>class Test( IStream ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.stream = sys.stdout</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IStream</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IStream</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">stream</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">stderr</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.stream = sys.stderr</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1069,24 +1111,26 @@ test.stream = sys.stderr</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ITimeOut">
 <span id="diamondback-interfaces-itimeout-module"></span><h2>diamondback.interfaces.ITimeOut module<a class="headerlink" href="#module-diamondback.interfaces.ITimeOut" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Time out interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ITimeOut</p>
-<p>class Test( ITimeOut ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.timeout = ( 10.0, 60.0 )</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ITimeOut</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ITimeOut</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">15.0</span><span class="p">,</span> <span class="mf">120.0</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.timeout = ( 15.0, 120.0 )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1115,26 +1159,28 @@ test.timeout = ( 15.0, 120.0 )</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.ITimeZone">
 <span id="diamondback-interfaces-itimezone-module"></span><h2>diamondback.interfaces.ITimeZone module<a class="headerlink" href="#module-diamondback.interfaces.ITimeZone" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt>” <strong>Description</strong></dt><dd><p>Time zone interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ITimeZone
-import datetime
-import pytz</p>
-<p>class Test( ITimeZone ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.timezone = datetime.timezone.utc</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ITimeZone</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">ITimeZone</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">timezone</span> <span class="o">=</span> <span class="n">pytz</span><span class="o">.</span><span class="n">timezone</span><span class="p">(</span> <span class="s1">&#39;US/Eastern&#39;</span> <span class="p">)</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.timezone = pytz.timezone( ‘US/Eastern’ )</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1163,24 +1209,26 @@ test.timezone = pytz.timezone( ‘US/Eastern’ )</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IUrl">
 <span id="diamondback-interfaces-iurl-module"></span><h2>diamondback.interfaces.IUrl module<a class="headerlink" href="#module-diamondback.interfaces.IUrl" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Url interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IUrl</p>
-<p>class Test( IUrl ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.url = ‘<a class="reference external" href="http://127.0.0.1:8080/service">http://127.0.0.1:8080/service</a>’</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IUrl</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IUrl</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080/service&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://10.0.0.1:8080/service&#39;</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.url = ‘<a class="reference external" href="http://10.0.0.1:8080/service">http://10.0.0.1:8080/service</a>’</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1209,24 +1257,26 @@ test.url = ‘<a class="reference external" href="http://10.0.0.1:8080/service">
 </div>
 <div class="section" id="module-diamondback.interfaces.IValid">
 <span id="diamondback-interfaces-ivalid-module"></span><h2>diamondback.interfaces.IValid module<a class="headerlink" href="#module-diamondback.interfaces.IValid" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Valid interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IValid</p>
-<p>class Test( IValid ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.valid = False</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IValid</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IValid</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">valid</span> <span class="o">=</span> <span class="kc">True</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.valid = True</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1255,24 +1305,26 @@ test.valid = True</p>
 </div>
 <div class="section" id="module-diamondback.interfaces.IVersion">
 <span id="diamondback-interfaces-iversion-module"></span><h2>diamondback.interfaces.IVersion module<a class="headerlink" href="#module-diamondback.interfaces.IVersion" title="Permalink to this headline"></a></h2>
-<dl>
+<dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Version interface.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IVersion</p>
-<p>class Test( IVersion ) :</p>
+</dl>
+<p><strong>Example</strong></p>
 <blockquote>
-<div><dl class="simple">
-<dt>def __init__( self ) -&gt; None :</dt><dd><p>super( ).__init__( )
-self.version = ‘1.0.1’</p>
-</dd>
-</dl>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IVersion</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IVersion</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.1&#39;</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="s1">&#39;1.0.2&#39;</span>
+</pre></div>
+</div>
 </div></blockquote>
-<p>test = Test( )
-test.version = ‘1.0.2’</p>
-</dd>
-</dl>
-</dd>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>

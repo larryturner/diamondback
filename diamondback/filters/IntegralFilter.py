@@ -43,7 +43,9 @@
             \matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,4} = \scriptsize{ [ \matrix{ 7 & 32 & 12 & 32 & 7 } ]\ \\frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }
 
     **Example**
+       
         ::
+        
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 

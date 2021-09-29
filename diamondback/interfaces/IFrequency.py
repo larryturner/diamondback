@@ -2,7 +2,9 @@
         Frequency interface.
 
     **Example**
+      
         ::
+        
             from diamondback import IFrequency
 
             class Test( IFrequency ) :

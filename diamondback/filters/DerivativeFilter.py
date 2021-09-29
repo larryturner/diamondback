@@ -56,7 +56,9 @@
             b_{3,8} = \scriptsize{ [ \matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 } ]\ \\frac{1}{48} }
 
     **Example**
+        
         ::
+        
             from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy
 

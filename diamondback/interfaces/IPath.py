@@ -2,7 +2,9 @@
         Path interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IPath
 
             class Test( IPath ) :

@@ -105,21 +105,31 @@ adaptation are specified.</p>
 <div class="math notranslate nohighlight">
 \[b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexBandPassFilter, ComplexExponentialFilter
-import numpy</p>
-<p>frequency = 0.1
-x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency</p>
-<p># Create a primary signal.</p>
-<p>d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )</p>
-<p># Create an instance with frequency and rate.</p>
-<p>obj = ComplexBandPassFilter( frequency = frequency, rate = 5.0e-2 )</p>
-<p># Filter a primary signal.</p>
-<p>obj.reset( d[ 0 ] )
-y, e, b = obj.filter( d )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexBandPassFilter</span><span class="p">,</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="n">frequency</span>
+
+<span class="c1"># Create a primary signal.</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with frequency and rate.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexBandPassFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span> <span class="p">)</span>
+
+<span class="c1"># Filter a primary signal.</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -168,17 +178,24 @@ A normalized phase is specified.</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter
-import numpy</p>
-<p># Create an instance with phase.</p>
-<p>obj = ComplexExponentialFilter( phase = 0.0 )</p>
-<p># Filter an incident signal.</p>
-<p>x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance with phase.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -230,20 +247,30 @@ normalized frequency and rate of adaptation are specified.</p>
 <div class="math notranslate nohighlight">
 \[b_{n} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter
-import numpy</p>
-<p>x = numpy.linspace( 0.0, 0.1, 128 )</p>
-<p># Create a primary signal.</p>
-<p>d = ComplexExponentialFilter( 0.0 ).filter( x )</p>
-<p># Create an instance with frequency and rate.</p>
-<p>obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )</p>
-<p># Filter a primary signal.</p>
-<p>obj.reset( d[ 0 ] )
-y, e, b = obj.filter( d )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span>
+
+<span class="c1"># Create a primary signal.</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with frequency and rate.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexFrequencyFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="c1"># Filter a primary signal.</span>
+
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -345,18 +372,25 @@ specified.</p>
 <div class="math notranslate nohighlight">
 \[b_{3,8} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 2 &amp; -24 &amp; 0 &amp; 24 &amp; -2 &amp; -8 &amp; 1 } ]\ \frac{1}{48} }\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, DerivativeFilter
-import numpy</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = DerivativeFilter.Factory.instance( typ = DerivativeFilter, derivative = 1, order = 2 )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-obj.reset( x[ 0 ] )
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">DerivativeFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="p">,</span> <span class="n">derivative</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -464,24 +498,35 @@ form an aggregate frequency response in cascade form.</p>
 <p>Complement effectively constructs a mirror image of a specified
 frequency response.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import FirFilter
-import numpy</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = FirFilter.Factory.instance( typ = FirFilter, classification = ‘Kaiser’, frequency = 0.1, order = 32, count = 1 )</p>
-<p># Create an instance with coefficients.</p>
-<p>obj = FirFilter( b = obj.b )</p>
-<p># Estimate frequency response, group delay, and roots.</p>
-<p>y, f = obj.response( length = 8192, count = 1 )
-y, f = obj.delay( length = 8192, count = 1 )
-p, z = obj.roots( count = 1 )</p>
-<p># Filter an incident signal.</p>
-<p>x = numpy.random.rand( 128 ) * 2.0 - 1.0
-obj.reset( x[ 0 ] )
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">FirFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Kaiser&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+
+<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -615,19 +660,27 @@ resolution.</p>
 <div class="math notranslate nohighlight">
 \[N = \frac{2}{R}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, GoertzelFilter
-import numpy</p>
-<p>b = WindowFilter.Factory.instance( WindowFilter, ‘Hann’, 128 ).b
-frequency = 0.1</p>
-<p># Create an instance from coefficients and frequency.</p>
-<p>obj = GoertzelFilter( b = b, frequency = frequency )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 0 ]
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">GoertzelFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
+<span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="c1"># Create an instance from coefficients and frequency.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">GoertzelFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1024</span> <span class="p">)</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -709,24 +762,35 @@ form an aggregate frequency response in cascade form.</p>
 <p>Complement effectively constructs a mirror image of a specified
 frequency response.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import IirFilter
-import numpy</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = IirFilter.Factory.instance( typ = IirFilter, classification = ‘Chebyshev’, frequency = 0.1, order = 8, count = 1 )</p>
-<p># Create an instance with coefficients.</p>
-<p>obj = IirFilter( a = obj.a, b = obj.b )</p>
-<p># Estimate frequency response, group delay, and roots.</p>
-<p>y, f = obj.response( length = 8192, count = 1 )
-y, f = obj.delay( length = 8192, count = 1 )
-p, z = obj.roots( count = 1 )</p>
-<p># Filter an incident signal.</p>
-<p>x = numpy.random.rand( 128 ) * 2.0 - 1.0
-obj.reset( x[ 0 ] )
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IirFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+
+<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -887,17 +951,24 @@ and order are specified.</p>
 <div class="math notranslate nohighlight">
 \[\matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \scriptsize{ [ \matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\ \frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, IntegralFilter
-import numpy</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = IntegralFilter.Factory.instance( typ = IntegralFilter, order = 2 )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">IntegralFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -963,17 +1034,24 @@ control stability and latency.</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \frac{d}{dn}(\ x_{n}\ )\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, PidFilter
-import numpy</p>
-<p># Create an instance with coefficients.</p>
-<p>obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PidFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance with coefficients.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PidFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">5.0e-2</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1037,18 +1115,25 @@ applications which require fractional decimation and interpolation and
 benefit from minimization of edge effects due to discontinuous
 operation or dynamic rate.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, PolynomialRateFilter
-import math
-import numpy</p>
-<p># Create an instance with rate and order.</p>
-<p>obj = PolynomialRateFilter( rate = math.pi, order = 3 )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolynomialRateFilter</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance with rate and order.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1143,19 +1228,26 @@ applications which require fractional decimation and interpolation and
 are not highly sensitive to minimization of edge effects or have
 continuous operation.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, PolyphaseRateFilter
-import math
-import numpy</p>
-<p># Create an instance with rate.</p>
-<p>obj = PolyphaseRateFilter( rate = 1.0 / math.pi )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-obj.reset( x[ 0 ] )
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolyphaseRateFilter</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance with rate.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1235,18 +1327,25 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ i\ ]\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import RankFilter
-import numpy</p>
-<p># Create an instance with rank and order.</p>
-<p>obj = RankFilter( rank = 4, order = 4 )</p>
-<p># Filter an incident signal.</p>
-<p>x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )
-obj.reset( x[ 0 ] )
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RankFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance with rank and order.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">RankFilter</span><span class="p">(</span> <span class="n">rank</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">10</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">4</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">5</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">6</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -1329,17 +1428,24 @@ compensate for energy loss.</p>
 <div class="math notranslate nohighlight">
 \[b_{n} = b_{n}\ \frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, WindowFilter
-import numpy</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = WindowFilter.Factory.instance( typ = WindowFilter, classification = ‘Hann’, order = 15, normal = True )</p>
-<p># Filter an incident signal.</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( len( obj.b ) ) * 0.1 ).real
-y = obj.filter( x )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">WindowFilter</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normal</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+
+<span class="c1"># Filter an incident signal.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>

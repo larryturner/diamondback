@@ -2,7 +2,9 @@
         Clear interface.
 
     **Example**
+        
         ::
+        
             from diamondback import IClear, IPhase
 
             class Test( IClear, IPhase ) :

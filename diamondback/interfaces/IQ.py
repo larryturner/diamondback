@@ -2,7 +2,9 @@
         State derivative interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IQ
             import numpy
 

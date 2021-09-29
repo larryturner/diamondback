@@ -2,7 +2,9 @@
         Forward coefficient interface.
 
     **Example**
+        
         ::
+        
             from diamondback import IB
             import numpy
 

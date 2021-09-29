@@ -2,7 +2,9 @@
         Data interface.
 
     **Example**
+        
         ::
+        
             from diamondback import IData
 
             class Test( IData ) :

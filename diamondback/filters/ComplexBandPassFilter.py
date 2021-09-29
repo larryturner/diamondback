@@ -21,7 +21,9 @@
             b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}
 
     **Example**
+        
         ::
+        
             from diamondback import ComplexBandPassFilter, ComplexExponentialFilter
             import numpy
 

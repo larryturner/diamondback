@@ -2,7 +2,9 @@
         Model interface.
 
     **Example**
+      
         ::
+        
             from diamondback import IModel, Serial
 
             class Test( IModel ) :

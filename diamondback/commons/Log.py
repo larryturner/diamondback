@@ -27,7 +27,9 @@
         Thread safe.
 
     **Example**
+    
         ::
+        
             from diamondback import Log
             import io
             import numpy

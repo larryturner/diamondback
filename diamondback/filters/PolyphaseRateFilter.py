@@ -48,7 +48,9 @@
         continuous operation.
 
     **Example**
+       
         ::
+        
             from diamondback import ComplexExponentialFilter, PolyphaseRateFilter
             import math
             import numpy

@@ -2,7 +2,9 @@
         Identity interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IIdentity
             import uuid
 

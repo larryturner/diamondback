@@ -130,17 +130,24 @@ through observation.  An instance, classification, and order are specified.</p>
 <div class="math notranslate nohighlight">
 \[d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\ }\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import DiversityModel</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = ‘Euclidean’, order = 4 )</p>
-<p># Model an incident signal and extract a state.</p>
-<p>x = numpy.random.rand( 2, 32 )
-y = obj.model( x )
-s = obj.s</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">DiversityModel</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+
+<span class="c1"># Model an incident signal and extract a state.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">model</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -228,17 +235,24 @@ while preserving significant and often sufficient information.</p>
 <p>Principal component analysis and dimension reduction has application in
 clustering, classification, pattern recognition, and visualization.</p>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import PrincipalComponentModel</p>
-<p># Create an instance.</p>
-<p>obj = PrincipalComponentModel( )</p>
-<p># Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.</p>
-<p>x = numpy.random.rand( 3, 32 )
-y = obj.model( x )
-e, s, u, v = obj.e, obj.s, obj.u, obj.v</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">PrincipalComponentModel</span>
+
+<span class="c1"># Create an instance.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PrincipalComponentModel</span><span class="p">(</span> <span class="p">)</span>
+
+<span class="c1"># Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">model</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">e</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">v</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>

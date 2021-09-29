@@ -2,7 +2,9 @@
         Live interface.
 
     **Example**
+       
         ::
+        
             from diamondback import ILive
 
             class Test( ILive ) :

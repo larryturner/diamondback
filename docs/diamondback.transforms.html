@@ -101,16 +101,22 @@ specified.</p>
 <div class="math notranslate nohighlight">
 \[y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) &amp; imag(\ x_{n}\ ) &amp; 0 }\ ]^{T}}}^{T}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, ComplexTransform
-import numpy</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )</p>
-<p># Transform an incident signal, forward and inverse.</p>
-<p>y = ComplexTransform.transform( x, neutral = True )
-z = ComplexTransform.transform( y, neutral = True )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">ComplexTransform</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span> <span class="p">)</span>
+
+<span class="c1"># Transform an incident signal, forward and inverse.</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">ComplexTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">neutral</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">ComplexTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">neutral</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -163,17 +169,23 @@ frequency resolution.</p>
 <div><p>N = frac{2}{R}</p>
 </div></blockquote>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, FourierTransform
-import numpy</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]
-b = WindowFilter.Factory.instance( WindowFilter, ‘Hann’, len( x ) - 1 ).b</p>
-<p># Transform an incident signal, forward and inverse.</p>
-<p>y, f = FourierTransform.transform( x, b = b, inverse = False )
-z = FourierTransform.transform( y, b = b, inverse = True )[ 0 ]</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">FourierTransform</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
+
+<span class="c1"># Transform an incident signal, forward and inverse.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">FourierTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">FourierTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">inverse</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -235,16 +247,22 @@ frequency resolution.</p>
 <div class="math notranslate nohighlight">
 \[N = \frac{2}{R}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ComplexExponentialFilter, PowerSpectrumTransform
-import numpy</p>
-<p>x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
-b = WindowFilter.Factory.instance( WindowFilter, ‘Hann’, 128 - 1 ).b</p>
-<p># Transform an incident signal.</p>
-<p>y, f = PowerSpectrumTransform.transform( x, b = b, index = len( b ) // 2 )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PowerSpectrumTransform</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.23</span><span class="p">,</span> <span class="mi">1024</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">WindowFilter</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mi">128</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
+
+<span class="c1"># Transform an incident signal.</span>
+
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">PowerSpectrumTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -334,19 +352,27 @@ specified.</p>
 </li>
 </ul>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import WaveletTransform
-import numpy</p>
-<p>count = 3</p>
-<p># Create an instance from a Factory with constraints.</p>
-<p>obj = WaveletTransform.Factory.instance( typ = WaveletTransform, classification = ‘Haar’, order = 1 )
-x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )</p>
-<p># Transform an incident signal, forward and inverse.</p>
-<p>y = obj.transform( x, count, False )
-z = obj.transform( y, count, True )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">WaveletTransform</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">count</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># Create an instance from a Factory with constraints.</span>
+
+<span class="n">obj</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Haar&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">3</span> <span class="p">),</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span> <span class="n">count</span> <span class="o">+</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">)</span>
+
+<span class="c1"># Transform an incident signal, forward and inverse.</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="kc">False</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">count</span><span class="p">,</span> <span class="kc">True</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
@@ -421,23 +447,31 @@ array and a forward coefficient array, in s-domain and z-domain.</p>
 <div class="math notranslate nohighlight">
 \[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
 </dd>
-<dt><strong>Example</strong></dt><dd><dl>
-<dt>::</dt><dd><p>from diamondback import ZTransform
-import math
-import numpy</p>
-<p>frequency, order, ripple = 0.1, 2, 0.125
-u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
-v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
-a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
-a /= a[ -1 ]</p>
-<p># Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.</p>
-<p>a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )</p>
-<p># Define zeros and normalize gain.</p>
-<p>b = numpy.poly( -numpy.ones( order ) )
-b = b * ( 1.0 - sum( a ) ) / sum( b )</p>
-</dd>
 </dl>
-</dd>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ZTransform</span>
+<span class="kn">import</span> <span class="nn">math</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">frequency</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">ripple</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.125</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">order</span> <span class="p">)</span> <span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">order</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">asinh</span><span class="p">(</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span> <span class="p">(</span> <span class="mf">10.0</span> <span class="o">**</span> <span class="p">(</span> <span class="mf">0.1</span> <span class="o">*</span> <span class="n">ripple</span> <span class="p">)</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="n">order</span>
+<span class="n">a</span> <span class="o">=</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span> <span class="p">(</span> <span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">sinh</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">imag</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="o">*</span> <span class="n">u</span><span class="o">.</span><span class="n">real</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">a</span> <span class="o">/=</span> <span class="n">a</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
+
+<span class="c1"># Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.</span>
+
+<span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">ZTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.0</span> <span class="p">],</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">bilinear</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+
+<span class="c1"># Define zeros and normalize gain.</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="n">order</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">b</span> <span class="o">*</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">a</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
 © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>

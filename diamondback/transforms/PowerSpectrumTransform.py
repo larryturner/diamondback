@@ -33,7 +33,9 @@
             N = \\frac{2}{R}
 
     **Example**
+       
         ::
+        
             from diamondback import ComplexExponentialFilter, PowerSpectrumTransform
             import numpy
 

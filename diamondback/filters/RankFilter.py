@@ -14,7 +14,9 @@
             y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ i\ ]
 
     **Example**
+       
         ::
+        
             from diamondback import RankFilter
             import numpy
 

@@ -2,7 +2,9 @@
         Stream interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IStream
             import sys
 

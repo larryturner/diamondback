@@ -31,7 +31,9 @@
             b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}
 
     **Example**
+     
         ::
+        
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 

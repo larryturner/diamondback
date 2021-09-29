@@ -54,7 +54,9 @@
         * | 'Symmlet' is nearly symmetric, high quality, with order in [ 7 : 19 : 2 ].
 
     **Example**
+     
         ::
+        
             from diamondback import WaveletTransform
             import numpy
 

@@ -13,7 +13,9 @@
             y_{n} = e^{\ j\ \pi\ \phi_{n}}
 
     **Example**
+      
         ::
+        
             from diamondback import ComplexExponentialFilter
             import numpy
 

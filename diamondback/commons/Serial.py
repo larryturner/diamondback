@@ -21,7 +21,9 @@
         Thread safe.
 
     **Example**
+       
         ::
+        
             from diamondback import Serial
             import numpy
             import pandas

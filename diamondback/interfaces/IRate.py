@@ -2,7 +2,9 @@
         Rate interface.
 
     **Example**
+      
         ::
+        
             from diamondback import IRate
 
             class Test( IRate ) :

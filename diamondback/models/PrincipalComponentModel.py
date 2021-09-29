@@ -32,7 +32,9 @@
         clustering, classification, pattern recognition, and visualization.
 
     **Example**
+       
         ::
+        
             from diamondback import PrincipalComponentModel
 
             # Create an instance.

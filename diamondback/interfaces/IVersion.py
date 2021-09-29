@@ -2,7 +2,9 @@
         Version interface.
 
     **Example**
+     
         ::
+        
             from diamondback import IVersion
 
             class Test( IVersion ) :

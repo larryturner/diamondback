@@ -10,7 +10,9 @@
         Live makes a head request to a URL and detects a live service.
 
     **Example**
+        
         ::
+        
             from diamondback import RestClient
             from typing import Dict
             import numpy

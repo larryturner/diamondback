@@ -19,7 +19,9 @@
             H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
 
     **Example**
+      
         ::
+        
             from diamondback import ZTransform
             import math
             import numpy

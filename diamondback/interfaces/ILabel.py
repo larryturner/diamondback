@@ -2,7 +2,9 @@
         Label interface.
 
     **Example**
+      
         ::
+        
             from diamondback import ILabel
 
             class Test( ILabel ) :

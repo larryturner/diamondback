@@ -2,7 +2,9 @@
         Reset interface.
 
     **Example**
+       
         ::
+        
             from diamondback import IReset, IS
             from typing import Union
             import numpy

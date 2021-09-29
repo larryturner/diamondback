@@ -29,7 +29,9 @@
             y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}
 
     **Example**
+       
         ::
+        
             from diamondback import ComplexExponentialFilter, ComplexTransform
             import numpy
 

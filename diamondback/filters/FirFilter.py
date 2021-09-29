@@ -54,7 +54,9 @@
         frequency response.
 
     **Example**
+        
         ::
+        
             from diamondback import FirFilter
             import numpy
 

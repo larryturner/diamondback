@@ -23,7 +23,9 @@
             b_{n} = b_{n} + \mu e_{n} x_{n}^{*}
 
     **Example**
+       
         ::
+        
             from diamondback import ComplexExponentialFilter
             import numpy
 

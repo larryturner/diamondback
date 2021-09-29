@@ -2,7 +2,9 @@
         Recursive coefficient interface.
 
     **Example**
+        
         ::
+        
             from diamondback import IA
             import numpy
 

@@ -2,7 +2,9 @@
         Date interface.
 
     **Example**
+     
         ::
+        
             from diamondback import IDate
             import datetime
 

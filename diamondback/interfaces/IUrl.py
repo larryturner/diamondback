@@ -2,7 +2,9 @@
         Url interface.
 
     **Example**
+      
         ::
+        
             from diamondback import IUrl
 
             class Test( IUrl ) :

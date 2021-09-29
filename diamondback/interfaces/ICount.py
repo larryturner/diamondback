@@ -2,7 +2,9 @@
         Count interface.
 
     **Example**
+     
         ::
+        
             from diamondback import ICount
 
             class Test( ICount ) :

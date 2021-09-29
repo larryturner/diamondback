@@ -26,7 +26,9 @@
             N = \\frac{2}{R}
 
     **Example**
+    
         ::
+        
             from diamondback import ComplexExponentialFilter, FourierTransform
             import numpy
 

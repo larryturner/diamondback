@@ -2,7 +2,9 @@
         Time out interface.
 
     **Example**
+     
         ::
+        
             from diamondback import ITimeOut
 
             class Test( ITimeOut ) :

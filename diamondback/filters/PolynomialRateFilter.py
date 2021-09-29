@@ -23,7 +23,9 @@
         operation or dynamic rate.
 
     **Example**
+     
         ::
+        
             from diamondback import ComplexExponentialFilter, PolynomialRateFilter
             import math
             import numpy

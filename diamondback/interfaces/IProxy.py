@@ -2,7 +2,9 @@
         Proxy interface.
 
     **Example**
+     
         ::
+        
             from diamondback import IProxy
 
             class Test( IProxy ) :

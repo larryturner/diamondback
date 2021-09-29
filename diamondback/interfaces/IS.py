@@ -2,7 +2,9 @@
         State interface.
 
     **Example**
+    
         ::
+        
             from diamondback import IS
             import numpy
 
