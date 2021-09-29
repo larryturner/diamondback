@@ -157,6 +157,7 @@ Diamondback is defined in subpackages :
     `ILive <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive>`_,
     `IModel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel>`_,
     `IPath <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath>`_,
+    `IPeriod <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod>`_,
     `IPhase <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPhase>`_,
     `IProxy <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IProxy>`_,
     `IQ <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ>`_,

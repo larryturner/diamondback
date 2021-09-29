@@ -22,6 +22,7 @@ from .ILabel import ILabel  # noqa: F401
 from .ILive import ILive  # noqa: F401
 from .IModel import IModel  # noqa: F401
 from .IPath import IPath  # noqa: F401
+from .IPeriod import IPeriod  # noqa: F401
 from .IPhase import IPhase  # noqa: F401
 from .IProxy import IProxy  # noqa: F401
 from .IQ import IQ  # noqa: F401

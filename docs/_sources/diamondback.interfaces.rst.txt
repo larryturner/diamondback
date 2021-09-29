@@ -108,6 +108,14 @@ diamondback.interfaces.IPath module
    :undoc-members:
    :show-inheritance:
 
+diamondback.interfaces.IPeriod module
+-------------------------------------
+
+.. automodule:: diamondback.interfaces.IPeriod
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 diamondback.interfaces.IPhase module
 ------------------------------------
 

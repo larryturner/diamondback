@@ -1,3 +1,7 @@
+2.0.1 - 2021-09-29
+^^^^^^^^^^^^^^^^^^^
+-   Restored IPeriod.
+
 2.0.0 - 2021-09-27
 ^^^^^^^^^^^^^^^^^^^
 -   Removed several interfaces, including IEqual.

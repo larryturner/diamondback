@@ -51,6 +51,7 @@
 <li><a class="reference internal" href="#module-diamondback.interfaces.ILive">diamondback.interfaces.ILive module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IModel">diamondback.interfaces.IModel module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPath">diamondback.interfaces.IPath module</a></li>
+<li><a class="reference internal" href="#module-diamondback.interfaces.IPeriod">diamondback.interfaces.IPeriod module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IPhase">diamondback.interfaces.IPhase module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IProxy">diamondback.interfaces.IProxy module</a></li>
 <li><a class="reference internal" href="#module-diamondback.interfaces.IQ">diamondback.interfaces.IQ module</a></li>
@@ -713,6 +714,54 @@
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>path</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-diamondback.interfaces.IPeriod">
+<span id="diamondback-interfaces-iperiod-module"></span><h2>diamondback.interfaces.IPeriod module<a class="headerlink" href="#module-diamondback.interfaces.IPeriod" title="Permalink to this headline"></a></h2>
+<dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Period interface.</p>
+</dd>
+</dl>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IPeriod</span>
+
+<span class="k">class</span> <span class="nc">Test</span><span class="p">(</span> <span class="n">IPeriod</span> <span class="p">)</span> <span class="p">:</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+<span class="n">test</span> <span class="o">=</span> <span class="n">Test</span><span class="p">(</span> <span class="p">)</span>
+<span class="n">test</span><span class="o">.</span><span class="n">period</span> <span class="o">=</span> <span class="mf">60.0</span><span class="n">s</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
+© 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2020-01-09.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py" id="diamondback.interfaces.IPeriod.IPeriod">
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">diamondback.interfaces.IPeriod.</span></span><span class="sig-name descname"><span class="pre">IPeriod</span></span><a class="reference internal" href="_modules/diamondback/interfaces/IPeriod.html#IPeriod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Period interface.</p>
+<p>Initialize.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.interfaces.IPeriod.IPeriod.period">
+<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">period</span></span><a class="headerlink" href="#diamondback.interfaces.IPeriod.IPeriod.period" title="Permalink to this definition"></a></dt>
+<dd><p>float - in [ 0.0, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>period</p>
 </dd>
 </dl>
 </dd></dl>

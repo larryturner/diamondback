@@ -37,6 +37,7 @@ from .interfaces import IIdentity  # noqa: F401
 from .interfaces import ILabel  # noqa: F401
 from .interfaces import ILive  # noqa: F401
 from .interfaces import IModel  # noqa: F401
+from .interfaces import IPeriod # noqa: F401
 from .interfaces import IPath  # noqa: F401
 from .interfaces import IPhase  # noqa: F401
 from .interfaces import IProxy  # noqa: F401
@@ -59,4 +60,4 @@ from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
 
-__version__ = '2.0.0'
+__version__ = '2.0.1'
