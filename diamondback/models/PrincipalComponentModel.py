@@ -95,14 +95,16 @@ class PrincipalComponentModel( IClear, IS ) :
         """
 
         super( ).__init__( )
-        self._e, self._s, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
+        self._e, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
+        self.s = numpy.array( [ ] )
 
     def clear( self ) -> None :
 
         """ Clears an instance.
         """
 
-        self._e, self._s, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
+        self._e, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
+        self.s = numpy.array( [ ] )
 
     def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -117,10 +119,11 @@ class PrincipalComponentModel( IClear, IS ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 2 ) or ( len( x ) == 0 ) ) :
+        if ( ( len( x.shape ) != 2 ) or ( not len( x ) ) ) :
             raise ValueError( f'X = {x}' )
         if ( not len( self.s ) ) :
-            self._s, self._u = x.std( 1 ), x.mean( 1 )
+            self._u = x.mean( 1 )
+            self.s = x.std( 1 )
             z = ( ( x.T - self.u ) / self.s ).T
             self._e, self._v = numpy.linalg.eig( numpy.matmul( z, z.T ) / z.shape[ 1 ] )
             self._v = self._v.T

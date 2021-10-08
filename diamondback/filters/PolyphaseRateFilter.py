@@ -55,7 +55,7 @@
             import math
             import numpy
 
-            # Create an instance with rate.
+            # Create an instance.
 
             obj = PolyphaseRateFilter( rate = 1.0 / math.pi )
 
@@ -86,7 +86,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
     """ Polyphase rate filter.
     """
 
-    _b = numpy.zeros( ( 256, 15 ) )
+    __b = numpy.zeros( ( 256, 15 ) )
 
     @IB.b.getter
     def b( self ) :
@@ -94,7 +94,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """ b : numpy.ndarray - forward coefficient.
         """
 
-        return PolyphaseRateFilter._b
+        return PolyphaseRateFilter.__b
 
     @IRate.rate.setter
     def rate( self, rate : float ) :
@@ -102,7 +102,7 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """ rate : float - ratio of effective frequency in ( 0.0, 256.0 ].
         """
 
-        count = PolyphaseRateFilter._b.shape[ 0 ]
+        count = PolyphaseRateFilter.__b.shape[ 0 ]
         if ( ( rate <= 0.0 ) or ( rate > count ) ) :
             raise ValueError( f'Rate = {rate}' )
         if ( not numpy.isclose( self.rate, rate ) ) :
@@ -118,14 +118,14 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
         """
 
         super( ).__init__( )
-        b = PolyphaseRateFilter._b
+        b = PolyphaseRateFilter.__b
         rr, cc = b.shape
         if ( not b.any( ) ) :
-            firfilter = FirFilter.Factory.instance( FirFilter, 'Hann', 0.85 / rr, cc * rr - 1 )
+            firfilter = FirFilter( style = 'Hann', frequency = 0.85 / rr, order = cc * rr - 1 )
             b = numpy.reshape( firfilter.b, ( rr, cc ), 'F' )
             for ii in range( 0, rr ) :
                 b[ ii, : ] /= sum( b[ ii, : ] )
-            PolyphaseRateFilter._b = b
+            PolyphaseRateFilter.__b = b
         self._index, self.s = 0.0, numpy.zeros( cc )
         self.rate = rate
 
@@ -142,10 +142,10 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( int( numpy.ceil( len( x ) * self.rate ) ) )
-        b = PolyphaseRateFilter._b
+        b = PolyphaseRateFilter.__b
         rr = b.shape[ 0 ]
         ii, jj = 0, 0
         while ( ( ii < len( x ) ) and ( jj < len( y ) ) ) :

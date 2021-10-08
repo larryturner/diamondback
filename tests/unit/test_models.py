@@ -29,7 +29,7 @@ class Test( object ) :
         """
 
         ii = [ 11, 1, 2, 3, 10 ]
-        obj = DiversityModel.Factory.instance( DiversityModel, 'Euclidean', len( ii ) - 1 )
+        obj = DiversityModel( 'Euclidean', len( ii ) - 1 )
         assert obj.s.shape == ( 0, len( ii ) )
         x = numpy.transpose( numpy.array( [ [ 0.929263623187228, 0.349983765984809 ],
                                             [ 0.232958886794845, 0.323811130703304 ],

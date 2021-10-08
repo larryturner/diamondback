@@ -24,7 +24,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -50,7 +50,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">diamondback</a>
       </nav>
@@ -81,7 +81,7 @@
 <dt><strong>Description</strong></dt><dd><p>A diversity model realizes the selection and retention of a state as a
 finite collection of observations extracted from an incident signal, to
 maximize a minimum distance between any members of a state, according to
-a specified classification or distance metric.</p>
+a specified style or distance metric.</p>
 <div class="math notranslate nohighlight">
 \[d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \in [\ 0,\ M\ ),\ u \neq v\]</div>
 <div class="math notranslate nohighlight">
@@ -89,10 +89,9 @@ a specified classification or distance metric.</p>
 <p>A diversity model is an opportunistic unsupervised learning model which
 typically improves condition and numerical accuracy and reduces storage
 relative to alternative approaches including generalized linear inverse.</p>
-<p>A factory is defined to facilitate construction of an instance, defining
-a state array of a specified order.  A stationary dimension is inferred
-through observation.  An instance, classification, and order are specified.</p>
-<p>Classification is in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).</p>
+<p>A state array of a specified order is defined.  A stationary dimension is
+inferred.  A style and order are specified.</p>
+<p>Style is in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).</p>
 <ul>
 <li><div class="line-block">
 <div class="line">‘Chebyshev’ distance is an L-infinity norm, a maximum absolute difference</div>
@@ -135,9 +134,9 @@ through observation.  An instance, classification, and order are specified.</p>
 <blockquote>
 <div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">DiversityModel</span>
 
-<span class="c1"># Create an instance from a Factory with constraints.</span>
+<span class="c1"># Create an instance.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">typ</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">,</span> <span class="n">classification</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
 
 <span class="c1"># Model an incident signal and extract a state.</span>
 
@@ -156,39 +155,18 @@ through observation.  An instance, classification, and order are specified.</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">diamondback.models.DiversityModel.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">distance</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">diamondback.models.DiversityModel.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>distance : Callable[ [ Any, Any ], Any ].
+<dt>Arguments :</dt><dd><p>style : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).
 order : int.</p>
 </dd>
 </dl>
-<dl class="py class">
-<dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.Factory">
-<em class="property"><span class="pre">class</span> </em><span class="sig-name descname"><span class="pre">Factory</span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.Factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.Factory" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.9)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
-<p>Factory.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.Factory.instance">
-<em class="property"><span class="pre">classmethod</span> </em><span class="sig-name descname"><span class="pre">instance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">typ</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.9)"><span class="pre">type</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">classification</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.9)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.9)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.Factory.instance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.Factory.instance" title="Permalink to this definition"></a></dt>
-<dd><p>Constructs an instance.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>typ : type - derived from DiversityModel.
-classification : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).
-order : int.</p>
-</dd>
-<dt>Returns :</dt><dd><p>instance : typ( ).</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.clear" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.clear" title="Permalink to this definition"></a></dt>
 <dd><p>Clears an instance.</p>
 </dd></dl>
 
@@ -300,7 +278,7 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.clear">
-<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.9)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.clear" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.clear" title="Permalink to this definition"></a></dt>
 <dd><p>Clears an instance.</p>
 </dd></dl>
 

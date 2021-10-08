@@ -2,7 +2,7 @@
         A diversity model realizes the selection and retention of a state as a
         finite collection of observations extracted from an incident signal, to
         maximize a minimum distance between any members of a state, according to
-        a specified classification or distance metric.
+        a specified style or distance metric.
 
         .. math::
             d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \\in [\ 0,\ M\ ),\ u \\neq v
@@ -14,11 +14,10 @@
         typically improves condition and numerical accuracy and reduces storage
         relative to alternative approaches including generalized linear inverse.
 
-        A factory is defined to facilitate construction of an instance, defining
-        a state array of a specified order.  A stationary dimension is inferred
-        through observation.  An instance, classification, and order are specified.
+        A state array of a specified order is defined.  A stationary dimension is
+        inferred.  A style and order are specified.
 
-        Classification is in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
+        Style is in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
 
         * | 'Chebyshev' distance is an L-infinity norm, a maximum absolute difference
           | in any dimension.
@@ -50,9 +49,9 @@
         
             from diamondback import DiversityModel
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance.
 
-            obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = 'Euclidean', order = 4 )
+            obj = DiversityModel( style = 'Euclidean', order = 4 )
 
             # Model an incident signal and extract a state.
 
@@ -70,7 +69,7 @@
 
 from diamondback.interfaces.IClear import IClear
 from diamondback.interfaces.IS import IS
-from typing import Any, Callable, List, Union
+from typing import List, Union
 import numpy
 
 class DiversityModel( IClear, IS ) :
@@ -78,58 +77,36 @@ class DiversityModel( IClear, IS ) :
     """ Diversity model.
     """
 
-    class Factory( object ) :
+    __distance = { 'Chebyshev' : lambda x, y : max( abs( x - y ) ),
+                   'Euclidean' : lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
+                   'Geometric' : lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
+                   'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
 
-        """ Factory.
-        """
-
-        _distance = { 'Chebyshev' : lambda x, y : max( abs( x - y ) ),
-                      'Euclidean' : lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
-                      'Geometric' : lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
-                      'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
-
-        @classmethod
-        def instance( cls, typ : type, classification : str, order : int ) -> Any :
-
-            """ Constructs an instance.
-
-                Arguments :
-                    typ : type - derived from DiversityModel.
-                    classification : str - in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
-                    order : int.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, DiversityModel ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( ( not classification ) or ( classification not in DiversityModel.Factory._distance ) ) :
-                raise ValueError( f'Classification = {classification}' )
-            if ( order <= 0 ) :
-                raise ValueError( f'Order = {order}' )
-            return typ( DiversityModel.Factory._distance[ classification ], order )
-
-    def __init__( self, distance : Callable[ [ Any, Any ], Any ], order : int ) -> None :
+    def __init__( self, style : str, order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
-                distance : Callable[ [ Any, Any ], Any ].
+                style : str - in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
                 order : int.
         """
 
-        if ( ( not distance ) or ( isinstance( distance, str ) ) ) :
-            raise ValueError( f'Distance = {distance}' )
+        if ( ( not style ) or ( style not in DiversityModel.__distance ) ) :
+            raise ValueError( f'style = {style}' )
+        if ( order <= 0 ) :
+            raise ValueError( f'Order = {order}' )
         super( ).__init__( )
-        self._distance, self._diversity, self._s = distance, 0.0, numpy.zeros( ( 0, order + 1 ) )
+        self._distance = DiversityModel.__distance[ style ]
+        self._diversity = 0.0
+        self.s = numpy.zeros( ( 0, order + 1 ) )
 
     def clear( self ) -> None :
 
         """ Clears an instance.
         """
 
-        self._diversity, self._s = 0.0, numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
+        self._diversity = 0.0
+        self.s = numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
 
     def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -144,14 +121,14 @@ class DiversityModel( IClear, IS ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
+        if ( ( len( x.shape ) > 2 ) or ( not len( x ) ) ) :
             raise ValueError( f'X = {x}' )
         if ( len( x.shape ) < 2 ) :
             rows, cols = 1, x.shape[ 0 ]
         else :
             rows, cols = x.shape
         if ( not self.s.shape[ 0 ] ) :
-            self._s = numpy.zeros( ( rows, self.s.shape[ 1 ] ) ) + numpy.finfo( float ).max
+            self.s = numpy.zeros( ( rows, self.s.shape[ 1 ] ) ) + numpy.finfo( float ).max
         if ( ( rows != self.s.shape[ 0 ] ) or ( cols <= 0 ) ) :
             raise ValueError( f'Rows = {rows} Colums = {cols}' )
         cc = 0

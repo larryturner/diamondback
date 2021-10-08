@@ -22,16 +22,16 @@
         .. math::
             H_{z,n} = \sum_{i = 0}^{N} b_{i,n} z^{-i}
 
-        A factory is defined to facilitate construction of an instance,
-        defining a forward coefficient array, and a state array of a
-        specified order, to realize specified constraints.  An instance,
-        classification, frequency, order, count, complement, and gain
-        are specified.
+        A forward coefficient array and state array of a specified order are
+        defined to realize specified constraints.  A style, frequency,
+        order, count, complement, and gain are electively specified.
+        Alternatively, a forward coefficient array and state array may be explicitly
+        defined to ignore constraints.
 
         Frequency corresponds to a -3 dB frequency response normalized relative
         to Nyquist.
 
-        Classification is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+        Style is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
 
         * | 'Blackman' filters demonstrate low resolution and spectral leakage
           | with improved rate of attenuation.
@@ -60,9 +60,9 @@
             from diamondback import FirFilter
             import numpy
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance with constraints.
 
-            obj = FirFilter.Factory.instance( typ = FirFilter, classification = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
+            obj = FirFilter( style = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
 
             # Create an instance with coefficients.
 
@@ -91,7 +91,7 @@
 from diamondback.interfaces.IB import IB
 from diamondback.interfaces.IReset import IReset
 from diamondback.interfaces.IS import IS
-from typing import Any, List, Tuple, Union
+from typing import List, Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -102,35 +102,34 @@ class FirFilter( IB, IReset, IS ) :
     """ Finite Impulse Response ( FIR ) filter.
     """
 
-    class Factory( object ) :
+    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
-        """ Factory.
+    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
+                  b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
+
+        """ Initialize.
+
+            Specify constraints including style, frequency, and order.
+            Alternatively, a forward coefficient array may be explicitly defined
+            to ignore constraints.
+
+            Labels should be used to avoid ambiguity between constraints and
+            coefficients.
+
+            Arguments :
+                style : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                order : int.
+                count : int.
+                complement : bool.
+                gain : float.
+                b : Union[ List, numpy.ndarray ].
+                s : Union[ List, numpy.ndarray ].
         """
 
-        _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
-
-        @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> Any :
-
-            """ Constructs an instance.
-
-                Arguments :
-                    typ : type - derived from FirFilter.
-                    classification : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
-                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                    order : int.
-                    count : int.
-                    complement : bool.
-                    gain : float.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, FirFilter ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( ( not classification ) or ( classification not in FirFilter.Factory._classification ) ) :
-                raise ValueError( f'Classification = {classification}' )
+        if ( not len( b ) ) :
+            if ( ( not style ) or ( style not in FirFilter.__style ) ) :
+                raise ValueError( f'style = {style}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency}' )
             if ( order < 0 ) :
@@ -139,13 +138,13 @@ class FirFilter( IB, IReset, IS ) :
                 raise ValueError( f'Count = {count}' )
             if ( complement ) :
                 frequency = 1.0 - frequency
-            if ( classification == 'Kaiser' ) :
-                window = ( classification.lower( ), 7.0 )
+            if ( style == 'Kaiser' ) :
+                window = ( style.lower( ), 7.0 )
             else :
-                window = classification.lower( )
+                window = style.lower( )
             beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
             index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
-            for ii in range( 0, index ) :
+            for _ in range( 0, index ) :
                 with warnings.catch_warnings( ) :
                     warnings.simplefilter( 'ignore' )
                     v = scipy.signal.firwin( order + 1, zeta * frequency, None, window, True, True, 1.0 )
@@ -161,24 +160,14 @@ class FirFilter( IB, IReset, IS ) :
             if ( complement ) :
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) )
-            return typ( b * gain )
-
-    def __init__( self, b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ), s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
-
-        """ Initialize.
-
-            Arguments :
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
-                s : Union[ List, numpy.ndarray ] - state.
-        """
-
+            b *= gain
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) ) :
+        if ( not len( b ) ) :
             raise ValueError( f'B = {b}' )
         if ( ( not numpy.isscalar( s ) ) and ( not isinstance( s, numpy.ndarray ) ) ) :
             s = numpy.array( list( s ) )
-        if ( ( len( s.shape ) != 1 ) or ( len( s ) == 0 ) ) :
+        if ( not len( s ) ) :
             raise ValueError( f'S = {s}' )
         if ( len( b ) < len( s ) ) :
             b = numpy.concatenate( ( b, numpy.zeros( len( s ) - len( b ) ) ) )
@@ -225,7 +214,7 @@ class FirFilter( IB, IReset, IS ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :

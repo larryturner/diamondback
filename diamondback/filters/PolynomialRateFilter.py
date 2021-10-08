@@ -30,7 +30,7 @@
             import math
             import numpy
 
-            # Create an instance with rate and order.
+            # Create an instance.
 
             obj = PolynomialRateFilter( rate = math.pi, order = 3 )
 

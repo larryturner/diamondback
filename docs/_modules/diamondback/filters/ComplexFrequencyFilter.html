@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="../../../index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -98,7 +98,7 @@
 
 <span class="sd">            d = ComplexExponentialFilter( 0.0 ).filter( x )</span>
 
-<span class="sd">            # Create an instance with frequency and rate.</span>
+<span class="sd">            # Create an instance.</span>
 
 <span class="sd">            obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )</span>
 
@@ -121,6 +121,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
+<span class="kn">import</span> <span class="nn">scipy</span>
 
 <div class="viewcode-block" id="ComplexFrequencyFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter">[docs]</a><span class="k">class</span> <span class="nc">ComplexFrequencyFilter</span><span class="p">(</span> <span class="n">FirFilter</span><span class="p">,</span> <span class="n">IFrequency</span><span class="p">,</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
 
@@ -147,16 +148,17 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span> <span class="p">),</span> <span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span> <span class="p">)</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span>
 
-<div class="viewcode-block" id="ComplexFrequencyFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
+<div class="viewcode-block" id="ComplexFrequencyFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
-<span class="sd">            </span>
+        <span class="sd">&quot;&quot;&quot; Filters a primary signal and produces a reference signal.</span>
+
+<span class="sd">            Signals are Hilbert transformed to complex as necessary.</span>
+
 <span class="sd">            Arguments :</span>
 <span class="sd">                d : Union[ List, numpy.ndarray ] - primary signal.</span>
-<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
@@ -166,8 +168,10 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">d</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">d</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">d</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">],</span> <span class="nb">complex</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;D = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">hilbert</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
         <span class="n">x</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="n">x</span>

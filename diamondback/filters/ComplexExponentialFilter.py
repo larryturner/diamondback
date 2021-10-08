@@ -19,7 +19,7 @@
             from diamondback import ComplexExponentialFilter
             import numpy
 
-            # Create an instance with phase.
+            # Create an instance.
 
             obj = ComplexExponentialFilter( phase = 0.0 )
 
@@ -70,7 +70,7 @@ class ComplexExponentialFilter( IPhase ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) or ( abs( x ) > 1.0 ).any( ) ) :
+        if ( ( numpy.iscomplex( x ).any( ) ) or ( not len( x ) ) or ( abs( x ) > 1.0 ).any( ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), complex )
         phase = self.phase

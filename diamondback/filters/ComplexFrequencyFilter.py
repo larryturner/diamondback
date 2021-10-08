@@ -35,7 +35,7 @@
 
             d = ComplexExponentialFilter( 0.0 ).filter( x )
 
-            # Create an instance with frequency and rate.
+            # Create an instance.
 
             obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
 
@@ -58,6 +58,7 @@ from diamondback.interfaces.IRate import IRate
 from typing import List, Tuple, Union
 import math
 import numpy
+import scipy
 
 class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
@@ -84,16 +85,17 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate}' )
-        super( ).__init__( numpy.ones( 1, complex ), numpy.ones( 1, complex ) )
+        super( ).__init__( b = numpy.ones( 1, complex ), s = numpy.ones( 1, complex ) )
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ], x : Union[ List, numpy.ndarray ] = None ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
-        """ Filters an incident signal and produces a reference signal.
-            
+        """ Filters a primary signal and produces a reference signal.
+
+            Signals are Hilbert transformed to complex as necessary.
+
             Arguments :
                 d : Union[ List, numpy.ndarray ] - primary signal.
-                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.
@@ -103,8 +105,10 @@ class ComplexFrequencyFilter( FirFilter, IFrequency, IRate ) :
 
         if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
             d = numpy.array( list( d ) )
-        if ( ( len( d.shape ) != 1 ) or ( len( d ) == 0 ) or ( not isinstance( d[ 0 ], complex ) ) ) :
+        if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
+        if ( not numpy.iscomplex( d ).any( ) ) :
+            d = scipy.signal.hilbert( d )
         x = abs( d )
         x[ numpy.isclose( x, 0.0 ) ] = 1.0
         x = d / x

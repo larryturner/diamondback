@@ -20,7 +20,7 @@
             from diamondback import RankFilter
             import numpy
 
-            # Create an instance with rank and order.
+            # Create an instance.
 
             obj = RankFilter( rank = 4, order = 4 )
 
@@ -73,7 +73,7 @@ class RankFilter( FirFilter ) :
 
         if ( ( rank < 0 ) or ( rank > order ) ) :
             raise ValueError( f'Rank = {rank} Order = {order}' )
-        super( ).__init__( numpy.ones( order + 1 ) / ( order + 1 ) )
+        super( ).__init__( b = numpy.ones( order + 1 ) / ( order + 1 ) )
         self._rank = rank
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
@@ -89,7 +89,7 @@ class RankFilter( FirFilter ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( x[ 0 ] ) )
         for ii in range( 0, len( x ) ) :

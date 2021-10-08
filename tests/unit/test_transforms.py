@@ -35,10 +35,10 @@ class Test( object ) :
         frequency = 0.1
         x = ComplexExponentialFilter( 0.5 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, count ) + frequency )
         for ii in range( 0, 2 ) :
-            y = ComplexTransform.transform( x, ii == 0 )
+            y = ComplexTransform.transform( x, not ii )
             assert y.shape == ( 3, count )
             assert not isinstance( y[ 0 ], complex )
-            z = ComplexTransform.transform( y, ii == 0 )
+            z = ComplexTransform.transform( y, not ii )
             assert z.shape == ( count, )
             assert isinstance( z[ 0 ], complex )
             assert numpy.allclose( z, x )
@@ -56,7 +56,7 @@ class Test( object ) :
             if ( ii % 2 ) :
                 x = x.real
             if ( ii >= 2 ) :
-                b = WindowFilter.Factory.instance( WindowFilter, 'Hann', count - 1 ).b
+                b = WindowFilter( 'Hann', count - 1 ).b
             y, f = FourierTransform.transform( x, b )
             assert ( ( len( y ) == count ) and ( len( f ) == count ) )
             assert isinstance( y[ 0 ], complex )
@@ -75,7 +75,7 @@ class Test( object ) :
 
         count = 128
         frequency, index = ( 0.12, 0.23 ), 64
-        b = WindowFilter.Factory.instance( WindowFilter, 'Hann', count - 1 ).b
+        b = WindowFilter( 'Hann', count - 1 ).b
         for ii in range( 0, 2 ) :
             x = numpy.random.rand( ) * ComplexExponentialFilter( numpy.random.rand( ) ).filter( numpy.linspace( frequency[ 0 ], frequency[ 1 ], count * 8 ) )
             if ( ii > 0 ) :
@@ -97,7 +97,7 @@ class Test( object ) :
                            -0.060416104155198, 0.024908749868442 ] )
         g = numpy.array( [ -0.024908749868442, -0.060416104155198, 0.095467207784164,  0.325182500263116,
                            -0.570558457915722, 0.235233603892082 ] )
-        obj = WaveletTransform.Factory.instance( WaveletTransform, 'Daubechies', len( h ) - 1 )
+        obj = WaveletTransform( 'Daubechies', len( h ) - 1 )
         assert numpy.allclose( obj.b[ 0 ][ 0 ], h )
         assert numpy.allclose( obj.b[ 0 ][ 1 ], g )
         h = numpy.array( [ 0.024908749868442, -0.060416104155198, -0.095467207784164, 0.325182500263116,
@@ -108,7 +108,7 @@ class Test( object ) :
         assert numpy.allclose( obj.b[ 1 ][ 1 ], g )
         h = numpy.array( [ 0.5, 0.5 ] )
         g = numpy.array( [ 0.5, -0.5 ] )
-        obj = WaveletTransform.Factory.instance( WaveletTransform, 'Haar', len( h ) - 1 )
+        obj = WaveletTransform( 'Haar', len( h ) - 1 )
         assert numpy.allclose( obj.b[ 0 ][ 0 ], h )
         assert numpy.allclose( obj.b[ 0 ][ 1 ], g )
         h = numpy.array( [ 0.5, 0.5 ] )

@@ -22,16 +22,17 @@
         .. math::
             H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i,n} z^{-i}}}
 
-        A factory is defined to facilitate construction of an instance,
-        defining a recursive coefficient array, a forward coefficient array,
-        and a state array of a specified order, to realize specified
-        constraints.  An instance, classification, frequency, order, count,
-        complement, and gain are specified.
+        A recursive coefficient array, forward coefficient array,
+        and state array of a specified order are defined to realize specified
+        constraints.  A style, frequency, order, count, complement,
+        and gain are electively specified.  Alternatively, a recursive coefficient
+        array, forward coefficient array, and state array may be explicitly
+        defined to ignore constraints.
 
         Frequency corresponds to a -3 dB frequency response normalized relative
         to Nyquist.
 
-        Classification is in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
+        Style is in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
 
         * | 'Bessel' filters demonstrate maximally linear phase response or
           | constant group delay.
@@ -55,9 +56,9 @@
             from diamondback import IirFilter
             import numpy
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance with constraints.
 
-            obj = IirFilter.Factory.instance( typ = IirFilter, classification = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
+            obj = IirFilter( style = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
 
             # Create an instance with coefficients.
 
@@ -86,7 +87,7 @@
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.interfaces.IA import IA
 from diamondback.transforms.ZTransform import ZTransform
-from typing import Any, List, Tuple, Union
+from typing import List, Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -97,74 +98,74 @@ class IirFilter( FirFilter, IA ) :
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
-    class Factory( object ) :
+    __style = ( 'Bessel', 'Butterworth', 'Chebyshev' )
 
-        """ Factory.
+    @staticmethod
+    def _evaluate( style : str, frequency : float, order : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+
+        """ Evaluates coefficients.
+
+            Arguments :
+                style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
+                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                order : int.
+
+            Returns :
+                a : numpy.ndarray - recursive coefficient.
+                b : numpy.ndarray - forward coefficient.
         """
 
-        _classification = ( 'Bessel', 'Butterworth', 'Chebyshev' )
+        bilinear = True
+        if ( style == 'Bessel' ) :
+            bilinear = False
+            u, a = numpy.ones( 1 ), numpy.ones( 2 )
+            for ii in range( 2, order + 1 ) :
+                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
+                u, a = a, x
+        elif ( style == 'Butterworth' ) :
+            a = numpy.ones( 1 )
+            for ii in range( 1, ( order // 2 ) + 1 ) :
+                a = numpy.convolve( a, numpy.array( [ 1.0, -2.0 * math.cos( ( ( ( 2.0 * ii ) + order - 1.0 ) / ( 2.0 * order ) ) * math.pi ), 1.0 ] ) )
+            if ( order & 1 ) :
+                a = numpy.convolve( a, numpy.ones( 2 ) )
+        elif ( style == 'Chebyshev' ) :
+            ripple = 0.125
+            u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
+            v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
+            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
+        a /= a[ -1 ]
+        a, b = ZTransform.transform( a, [ 1.0 ], frequency, bilinear )
+        b = numpy.poly( -numpy.ones( order ) )
+        b *= ( 1.0 - sum( a ) ) / sum( b )
+        return a, b
 
-        @staticmethod
-        def _evaluate( classification : str, frequency : float, order : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
+                  a : Union[ List, numpy.ndarray ] = [ ], b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
 
-            """ Evaluates coefficients.
+        """ Initialize.
 
-                Arguments :
-                    classification : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
-                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                    order : int.
+            Specify constraints including style, frequency, and order.
+            Alternatively, a recursive coefficient array and forward coefficient array
+            may be explicitly defined to ignore constraints.
+            
+            Labels should be used to avoid ambiguity between constraints and
+            coefficients.
 
-                Returns :
-                    a : numpy.ndarray - recursive coefficient.
-                    b : numpy.ndarray - forward coefficient.
-            """
+            Arguments :
+                style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
+                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                order : int.
+                count : int.
+                complement : bool.
+                gain : float.
+                a : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                s : Union[ List, numpy.ndarray ] - state.
+        """
 
-            bilinear = True
-            if ( classification == 'Bessel' ) :
-                bilinear = False
-                u, a = numpy.ones( 1 ), numpy.ones( 2 )
-                for ii in range( 2, order + 1 ) :
-                    x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
-                    u, a = a, x
-            elif ( classification == 'Butterworth' ) :
-                a = numpy.ones( 1 )
-                for ii in range( 1, ( order // 2 ) + 1 ) :
-                    a = numpy.convolve( a, numpy.array( [ 1.0, -2.0 * math.cos( ( ( ( 2.0 * ii ) + order - 1.0 ) / ( 2.0 * order ) ) * math.pi ), 1.0 ] ) )
-                if ( order & 1 ) :
-                    a = numpy.convolve( a, numpy.ones( 2 ) )
-            elif ( classification == 'Chebyshev' ) :
-                ripple = 0.125
-                u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
-                v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
-                a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
-            a /= a[ -1 ]
-            a, b = ZTransform.transform( a, [ 1.0 ], frequency, bilinear )
-            b = numpy.poly( -numpy.ones( order ) )
-            b *= ( 1.0 - sum( a ) ) / sum( b )
-            return a, b
-
-        @classmethod
-        def instance( cls, typ : type, classification : str, frequency : float, order : int, count : int = 1, complement : bool = False, gain : float = 1.0 ) -> Any :
-
-            """ Constructs an instance.
-
-                Arguments :
-                    typ : type - derived from IirFilter.
-                    classification : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
-                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                    order : int.
-                    count : int.
-                    complement : bool.
-                    gain : float.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, IirFilter ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( ( not classification ) or ( classification not in IirFilter.Factory._classification ) ) :
-                raise ValueError( f'Classification = {classification}' )
+        if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
+            if ( ( not style ) or ( style not in IirFilter.__style ) ) :
+                raise ValueError( f'style = {style}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency}' )
             if ( order <= 0 ) :
@@ -176,8 +177,8 @@ class IirFilter( FirFilter, IA ) :
             beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
             index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
             a, b = [ ], [ ]
-            for ii in range( 0, index ) :
-                u, v = IirFilter.Factory._evaluate( classification, zeta * frequency, order )
+            for _ in range( 0, index ) :
+                u, v = IirFilter._evaluate( style, zeta * frequency, order )
                 x = numpy.exp( 1j * math.pi * frequency )
                 e = ( 2.0 ** ( -0.5 ) ) - ( ( abs( numpy.polyval( v, x ) / numpy.polyval( numpy.concatenate( ( [ 1.0 ], -u[ 1 : ] ) ), x ) ) ) ** count )
                 if ( abs( e ) < error ) :
@@ -189,21 +190,10 @@ class IirFilter( FirFilter, IA ) :
                 a *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] )
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )
-            return typ( a, b * gain )
-
-    def __init__( self, a : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ), b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ), s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
-
-        """ Initialize.
-
-            Arguments :
-                a : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
-                s : Union[ List, numpy.ndarray ] - state.
-        """
-
+            b *= gain
         if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
             a = numpy.array( list( a ) )
-        if ( ( len( a.shape ) != 1 ) or ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) ) :
+        if ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) :
             raise ValueError( f'A = {a}' )
         if ( len( a ) < len( b ) ) :
             a = numpy.concatenate( ( a, numpy.zeros( len( b ) - len( a ) ) ) )
@@ -213,7 +203,7 @@ class IirFilter( FirFilter, IA ) :
             a, b = numpy.array( a, complex ), numpy.array( b, complex )
         if ( a[ 0 ] != 0.0 ) :
             raise ValueError( f'A = {a}' )
-        super( ).__init__( b, s )
+        super( ).__init__( b = b, s = s )
         self.a = numpy.array( a )
 
     def delay( self, length : int = 8192, count : int = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
@@ -254,7 +244,7 @@ class IirFilter( FirFilter, IA ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :

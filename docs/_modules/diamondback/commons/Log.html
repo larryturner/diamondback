@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="../../../index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -75,8 +75,8 @@
 <span class="sd">        level of &#39;INFO&#39; is created.</span>
 
 <span class="sd">        In stream assignments subsequent to initialization, only loguru</span>
-<span class="sd">        handlers previously created by Log will be removed, as the design</span>
-<span class="sd">        pattern does not support multicast.  The ability to create and modify</span>
+<span class="sd">        handlers previously created by Log will be removed, as the Log design</span>
+<span class="sd">        pattern does not define multicast.  The ability to create and modify</span>
 <span class="sd">        externally defined loguru handlers, multicast, and utilize any native</span>
 <span class="sd">        loguru functionality is supported.</span>
 
@@ -122,7 +122,7 @@
 
 <span class="sd">                # Set Log stream to a file.</span>
 
-<span class="sd">                with open( &#39;log.000.txt&#39;, &#39;w&#39; ) as fout :</span>
+<span class="sd">                with open( &#39;log-2112.txt&#39;, &#39;w&#39; ) as fout :</span>
 <span class="sd">                    Log.stream( fout )</span>
 <span class="sd">                    x = numpy.random.rand( 2, 2 )</span>
 <span class="sd">                    Log.write( &#39;WARNING&#39;, f&#39;X = {x}&#39; )</span>

@@ -19,10 +19,9 @@
         .. math::
             H_{z} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
 
-        A factory is defined to facilitate construction of an instance, defining
-        a recursive coefficient array, a forward coefficient array, and a state
-        array of a specified order, to satisfy specified constraints.  An instance
-        and order are specified.
+        A recursive coefficient array, forward coefficient array, and state array
+        of a specified order are defined to satisfy specified constraints.  An
+        instance and order are specified.
 
         .. math::
             y_{n} = \\frac{1}{f}\ \sum_{i=0}^{N} x_{n}\quad\quad\quad\quad\scriptsize{ f = 1.0 }
@@ -49,9 +48,9 @@
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance.
 
-            obj = IntegralFilter.Factory.instance( typ = IntegralFilter, order = 2 )
+            obj = IntegralFilter( order = 2 )
 
             # Filter an incident signal.
 
@@ -67,7 +66,7 @@
 """
 
 from diamondback.filters.IirFilter import IirFilter
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class IntegralFilter( IirFilter ) :
@@ -75,46 +74,23 @@ class IntegralFilter( IirFilter ) :
     """ Integral filter.
     """
 
-    class Factory( object ) :
+    __b = ( numpy.array( [ 1.0 ] ),
+            numpy.array( [ 1.0, 1.0 ] ) * ( 1.0 / 2.0 ),
+            numpy.array( [ 1.0, 4.0, 1.0 ] ) * ( 1.0 / 6.0 ),
+            numpy.array( [ 1.0, 3.0, 3.0, 1.0 ] ) * ( 1.0 / 8.0 ),
+            numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
 
-        """ Factory.
-        """
-
-        _b = ( numpy.array( [ 1.0 ] ),
-               numpy.array( [ 1.0, 1.0 ] ) * ( 1.0 / 2.0 ),
-               numpy.array( [ 1.0, 4.0, 1.0 ] ) * ( 1.0 / 6.0 ),
-               numpy.array( [ 1.0, 3.0, 3.0, 1.0 ] ) * ( 1.0 / 8.0 ),
-               numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
-
-        @classmethod
-        def instance( cls, typ : type, order : int ) -> Any :
-
-            """ Constructs an instance.
-
-                Arguments :
-                    typ : type - derived from IntegralFilter.
-                    order : int.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, IntegralFilter ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( ( order < 0 ) or ( order >= len( IntegralFilter.Factory._b ) ) ) :
-                raise ValueError( f'Order = {order}' )
-            return typ( numpy.array( [ 0.0, 1.0 ] ), IntegralFilter.Factory._b[ order ] )
-
-    def __init__( self, a : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ), b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
+    def __init__( self, order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
-                a : Union[ List, numpy.ndarray ] - recursive coefficient.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                order : int.
         """
 
-        super( ).__init__( a, b )
+        if ( ( order < 0 ) or ( order >= len( IntegralFilter.__b ) ) ) :
+            raise ValueError( f'Order = {order}' )
+        super( ).__init__( a = numpy.array( [ 0.0, 1.0 ] ), b = IntegralFilter.__b[ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

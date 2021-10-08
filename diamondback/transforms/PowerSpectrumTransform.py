@@ -40,7 +40,7 @@
             import numpy
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
-            b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 - 1 ).b
+            b = WindowFilter( 'Hann', 128 - 1 ).b
 
             # Transform an incident signal.
 
@@ -81,11 +81,11 @@ class PowerSpectrumTransform( object ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
+        if ( ( not len( b ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
             raise ValueError( f'B = {b}' )
         if ( len( x ) < len( b ) ) :
             raise ValueError( f'X = {x}' )

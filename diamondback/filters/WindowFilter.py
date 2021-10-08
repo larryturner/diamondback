@@ -6,11 +6,10 @@
         .. math::
             y_{n} = b_{n}\ x_{n}
 
-        A factory is defined to facilitate construction of an instance,
-        defining a forward coefficient array of a specified order.  An
-        instance, classification, order, and normalization are specified.
+        A forward coefficient array of a specified order is defined.  A
+        style, order, and normalization are specified.
 
-        Classification is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+        Style is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
 
         * | 'Blackman' filters demonstrate low resolution and spectral leakage
           | with improved rate of attenuation.
@@ -37,9 +36,9 @@
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance.
 
-            obj = WindowFilter.Factory.instance( typ = WindowFilter, classification = 'Hann', order = 15, normal = True )
+            obj = WindowFilter( style = 'Hann', order = 15, normal = True )
 
             # Filter an incident signal.
 
@@ -55,7 +54,7 @@
 """
 
 from diamondback.interfaces.IB import IB
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 import scipy.signal
 
@@ -64,54 +63,30 @@ class WindowFilter( IB ) :
     """ Window filter.
     """
 
-    class Factory( object ) :
+    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
-        """ Factory.
-        """
-
-        _classification = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
-
-        @classmethod
-        def instance( cls, typ : type, classification : str, order : int, normal : bool = True ) -> Any :
-
-            """ Constructs an instance.
-
-                Arguments :
-                    typ : type - derived from WindowFilter.
-                    classification : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
-                    order : int.
-                    normal : bool.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, WindowFilter ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( ( not classification ) or ( classification not in WindowFilter.Factory._classification ) ) :
-                raise ValueError( f'Classification = {classification}' )
-            if ( order < 0 ) :
-                raise ValueError( f'Order = {order}' )
-            if ( classification == 'Kaiser' ) :
-                window = ( classification.lower( ), 7.0 )
-            else :
-                window = classification.lower( )
-            b = scipy.signal.get_window( window, order + 1, False )
-            if ( normal ) :
-                b *= ( order + 1 ) / sum( abs( b ) )
-            return typ( b )
-
-    def __init__( self, b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
+    def __init__( self, style : str, order : int, normal : bool = True  ) -> None :
 
         """ Initialize.
 
             Arguments :
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                style : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+                order : int.
+                normal : bool.
         """
 
-        if ( ( numpy.isscalar( b ) ) or ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
-            raise ValueError( f'B = {b}' )
+        if ( ( not style ) or ( style not in WindowFilter.__style ) ) :
+            raise ValueError( f'style = {style}' )
+        if ( order < 0 ) :
+            raise ValueError( f'Order = {order}' )
+        if ( style == 'Kaiser' ) :
+            window = ( style.lower( ), 7.0 )
+        else :
+            window = style.lower( )
         super( ).__init__( )
+        b = scipy.signal.get_window( window, order + 1, False )
+        if ( normal ) :
+            b *= ( order + 1 ) / sum( abs( b ) )
         self.b = numpy.array( b )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :

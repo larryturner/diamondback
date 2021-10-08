@@ -17,7 +17,7 @@
             from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 
-            # Create an instance with coefficients.
+            # Create an instance.
 
             obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
 
@@ -68,9 +68,9 @@ class PidFilter( FirFilter ) :
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b.shape ) != 1 ) or ( len( b ) != 3 ) ) :
+        if ( len( b ) != 3 ) :
             raise ValueError( f'B = {b}' )
-        super( ).__init__( b, numpy.zeros( len( b ) ) )
+        super( ).__init__( b = b, s = numpy.zeros( len( b ) ) )
         self._limit = float( 'inf' )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
@@ -86,7 +86,7 @@ class PidFilter( FirFilter ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :

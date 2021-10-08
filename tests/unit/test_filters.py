@@ -105,10 +105,10 @@ class Test( object ) :
 
         count = 1024
         b, derivative = numpy.array( [ -1.0, 8.0, 0.0, -8.0, 1.0 ] ) * ( 1.0 / 12.0 ), 1
-        obj = DerivativeFilter.Factory.instance( DerivativeFilter, derivative, len( b ) - 1 )
+        obj = DerivativeFilter( derivative, len( b ) - 1 )
         assert numpy.allclose( obj.b, b )
         b = numpy.array( [ 1.0, -1.0 ] )
-        obj = DerivativeFilter.Factory.instance( DerivativeFilter, derivative, len( b ) - 1 )
+        obj = DerivativeFilter( derivative, len( b ) - 1 )
         assert numpy.allclose( obj.b, b )
         x = numpy.random.randn( count ) / 2.0
         x[ 0 ] = 0.0
@@ -134,16 +134,16 @@ class Test( object ) :
                            -1.55646139e-03, -6.51555805e-03, -7.50679522e-03, -6.09708239e-03,
                            -3.80954037e-03, -1.76685187e-03, -5.14935918e-04, -4.86482301e-05,
                             0.00000000e+00 ] )
-        obj = FirFilter.Factory.instance( FirFilter, 'Hann', 0.1, len( b ) - 1, 1 )
+        obj = FirFilter( style = 'Hann', frequency = 0.1, order = len( b ) - 1, count = 1 )
         assert numpy.allclose( obj.b, b )
         b = numpy.array( [ -0.00549098, 0.00180547, 0.08123026, 0.24963445,
                             0.34564162, 0.24963445, 0.08123026, 0.00180547,
                            -0.00549098 ] )
-        obj = FirFilter.Factory.instance( FirFilter, 'Hamming', 0.25, len( b ) - 1, 1 )
+        obj = FirFilter( style = 'Hamming', frequency = 0.25, order = len( b ) - 1, count = 1 )
         assert numpy.allclose( obj.b, b )
-        obj = FirFilter( b, numpy.zeros( len( b ) ) )
+        obj = FirFilter( b = b, s = numpy.zeros( len( b ) ) )
         assert numpy.allclose( obj.b, b )
-        obj = FirFilter.Factory.instance( FirFilter, 'Hann', 0.2, 16, 1 )
+        obj = FirFilter( style = 'Hann', frequency = 0.2, order = 16, count = 1 )
         assert numpy.isclose( sum( obj.b ), 1.0 )
         z = numpy.array( [ 1.00000000e-01,  1.00000000e-01,  1.00421255e-01,  1.03927757e-01,
                            1.13079398e-01,  1.21006163e-01,  1.04807534e-01,  3.39511979e-02,
@@ -168,7 +168,7 @@ class Test( object ) :
 
         count = 1024
         frequency = 0.1
-        b = WindowFilter.Factory.instance( WindowFilter, 'Hann', count - 1 ).b
+        b = WindowFilter( 'Hann', count - 1 ).b
         obj = GoertzelFilter( b, frequency )
         for ii in range( 0, 4 ) :
             v = numpy.random.rand( )
@@ -188,17 +188,17 @@ class Test( object ) :
                            -0.911373838931267, 0.127325039532952 ] )
         b = numpy.array( [ 5.221934789888007e-04, 0.002610967394944, 0.005221934789888, 0.005221934789888,
                            0.002610967394944, 5.221934789888007e-04 ] )
-        obj = IirFilter.Factory.instance( IirFilter, 'Bessel', frequency, len( b ) - 1, 1 )
+        obj = IirFilter( style = 'Bessel', frequency = frequency, order = len( b ) - 1, count = 1 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
-        obj = IirFilter( a, b, numpy.zeros( len( a ) ) )
+        obj = IirFilter( a = a, b = b, s = numpy.zeros( len( a ) ) )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
         a = numpy.array( [  0.000000000000000, 5.393212484862779, -12.147425170423173, 14.623787566618699,
                            -9.923048570780237, 3.598063533891009, -0.544601067560899 ] )
         b = numpy.array( [ 0.017536549719831, 0.105219298318984, 0.263048245797461, 0.350730994396614,
                            0.263048245797462, 0.105219298318984, 0.017536549719831 ] ) * 1.0e-5
-        obj = IirFilter.Factory.instance( IirFilter, 'Butterworth', frequency * 0.5, len( b ) - 1, 1 )
+        obj = IirFilter( style = 'Butterworth', frequency = frequency * 0.5, order = len( b ) - 1, count = 1 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
         z = numpy.array( [  0.100000000000000,  0.099999928272531,  0.099999044643357,  0.099993654638322,
@@ -220,7 +220,7 @@ class Test( object ) :
         assert numpy.allclose( y, z )
         a = numpy.array( [  0.000000000000000, 3.86461185, -5.60825317,  3.6218745,  -0.878256 ] )
         b = numpy.array( [ 1.42535217, 5.70140866, 8.55211299, 5.70140866, 1.42535217 ] ) * 1.0e-6
-        obj = IirFilter.Factory.instance( IirFilter, 'Chebyshev', frequency * 0.25, len( b ) - 1, 2 )
+        obj = IirFilter( 'Chebyshev', frequency * 0.25, len( b ) - 1, 2 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
 
@@ -232,17 +232,17 @@ class Test( object ) :
         count = 128
         a = numpy.array( [ 0.0, 1.0 , 0.0, 0.0, 0.0 ] )
         b = numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 )
-        obj = IntegralFilter.Factory.instance( IntegralFilter, len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
+        obj = IntegralFilter( len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
         a = numpy.array( [ 0.0, 1.0 ] )
         b = numpy.array( [ 1.0, 1.0 ] ) * ( 1.0 / 2.0 )
-        obj = IntegralFilter.Factory.instance( IntegralFilter, len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
+        obj = IntegralFilter( len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
         a = numpy.array( [ 0.0, 1.0 ] )
         b = numpy.array( [ 1.0, 0.0 ] )
-        obj = IntegralFilter.Factory.instance( IntegralFilter, len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
+        obj = IntegralFilter( len( [ x for x in b if ( not numpy.isclose( x, 0.0 ) ) ] ) - 1 )
         assert numpy.allclose( obj.a, a )
         assert numpy.allclose( obj.b, b )
         x = numpy.random.randn( count ) / 2.0
@@ -373,7 +373,7 @@ class Test( object ) :
                            0.55226423, 0.75000000, 0.90450850, 0.98907380,
                            0.98907380, 0.90450850, 0.75000000, 0.55226423,
                            0.34549150, 0.16543470, 0.04322727, 0.00000000 ] )
-        obj = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( b ) - 1, False )
+        obj = WindowFilter( 'Hann', len( b ) - 1, False )
         assert numpy.allclose( obj.b, b )
-        obj = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( b ) - 1, True )
+        obj = WindowFilter( 'Hann', len( b ) - 1, True )
         assert numpy.allclose( obj.b, b * len( b ) / sum( abs( b ) ) )

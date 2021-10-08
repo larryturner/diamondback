@@ -33,7 +33,7 @@
             import numpy
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]
-            b = WindowFilter.Factory.instance( WindowFilter, 'Hann', len( x ) - 1 ).b
+            b = WindowFilter( 'Hann', len( x ) - 1 ).b
 
             # Transform an incident signal, forward and inverse.
 
@@ -77,11 +77,11 @@ class FourierTransform( object ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b.shape ) != 1 ) or ( len( b ) > len( x ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
+        if ( ( len( b ) > len( x ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
             raise ValueError( f'B = {b}' )
         u = numpy.array( x[ : len( b ) ] )
         v = numpy.array( b )

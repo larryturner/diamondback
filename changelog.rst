@@ -1,3 +1,10 @@
+2.1.0 - 2021-10-07
+^^^^^^^^^^^^^^^^^^^
+-   Simplified interface.
+-   Removed Factory definitions.
+-   Modified documentation and format.
+-   Modified jupyter notebook.
+
 2.0.1 - 2021-09-29
 ^^^^^^^^^^^^^^^^^^^
 -   Restored IPeriod.

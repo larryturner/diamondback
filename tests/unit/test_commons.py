@@ -65,13 +65,13 @@ class Test( object ) :
         """ Test Serial.
         """
 
-        x = IirFilter.Factory.instance( IirFilter, 'Butterworth', 0.1, 4, 1 )
+        x = IirFilter( style = 'Butterworth', frequency = 0.1, order = 4, count = 1 )
         for ii in range( 0, 2 ) :
             y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
             assert ( ( numpy.allclose( x.a, y.a ) ) and ( numpy.allclose( x.b, y.b ) ) and ( numpy.allclose( x.s, y.s ) ) )
             assert Serial.code( Serial.encode( x, compress = False ) ) == Serial.code( Serial.encode( y, compress = False ) )
             try :
-                Serial.decode( Serial.encode( x, ii != 0 ), ii == 0 )
+                Serial.decode( Serial.encode( x, bool( ii ) ), not ii )
                 assert False
             except Exception :
                 pass

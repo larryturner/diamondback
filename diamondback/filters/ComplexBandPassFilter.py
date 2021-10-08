@@ -34,7 +34,7 @@
 
             d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )
 
-            # Create an instance with frequency and rate.
+            # Create an instance.
 
             obj = ComplexBandPassFilter( frequency = frequency, rate = 5.0e-2 )
 
@@ -57,6 +57,7 @@ from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.interfaces.IRate import IRate
 from typing import List, Tuple, Union
 import numpy
+import scipy
 
 class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
@@ -74,17 +75,18 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate}' )
-        super( ).__init__( numpy.array( [ numpy.finfo( float ).eps + 0j ] ), numpy.zeros( 1, complex ) )
+        super( ).__init__( b = numpy.array( [ numpy.finfo( float ).eps + 0j ] ), s = numpy.zeros( 1, complex ) )
         self._complexexponentialfilter = ComplexExponentialFilter( )
         self.frequency, self.rate = frequency, rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ], x : Union[ List, numpy.ndarray ] = None ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 
-        """ Filters an incident signal and produces a reference signal.
+        """ Filters a primary signal and produces a reference signal.
+
+            Signals are Hilbert transformed to complex as necessary.
 
             Arguments :
                 d : Union[ List, numpy.ndarray ] - primary signal.
-                x : Union[ List, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.
@@ -94,8 +96,10 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
 
         if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
             d = numpy.array( list( d ) )
-        if ( ( len( d.shape ) != 1 ) or ( len( d ) == 0 ) ) :
+        if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
+        if ( not numpy.iscomplex( d ).any( ) ) :
+            d = scipy.signal.hilbert( d )
         x = self._complexexponentialfilter.filter( numpy.ones( len( d ) ) * self.frequency )
         y, e, b = numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex )
         for ii in range( 0, len( x ) ) :
@@ -103,6 +107,4 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
             e[ ii ] = d[ ii ] - y[ ii ]
             b[ ii ] = self.b[ 0 ]
             self.b[ 0 ] += self.rate * e[ ii ] * numpy.conjugate( x[ ii ] )
-        if ( not isinstance( d[ 0 ], complex ) ) :
-            y, e = y.real, e.real
         return y, e, b

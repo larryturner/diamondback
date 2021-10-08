@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="../../../index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -65,7 +65,7 @@
 <span class="sd">        A diversity model realizes the selection and retention of a state as a</span>
 <span class="sd">        finite collection of observations extracted from an incident signal, to</span>
 <span class="sd">        maximize a minimum distance between any members of a state, according to</span>
-<span class="sd">        a specified classification or distance metric.</span>
+<span class="sd">        a specified style or distance metric.</span>
 
 <span class="sd">        .. math::</span>
 <span class="sd">            d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \\in [\ 0,\ M\ ),\ u \\neq v</span>
@@ -77,11 +77,10 @@
 <span class="sd">        typically improves condition and numerical accuracy and reduces storage</span>
 <span class="sd">        relative to alternative approaches including generalized linear inverse.</span>
 
-<span class="sd">        A factory is defined to facilitate construction of an instance, defining</span>
-<span class="sd">        a state array of a specified order.  A stationary dimension is inferred</span>
-<span class="sd">        through observation.  An instance, classification, and order are specified.</span>
+<span class="sd">        A state array of a specified order is defined.  A stationary dimension is</span>
+<span class="sd">        inferred.  A style and order are specified.</span>
 
-<span class="sd">        Classification is in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
+<span class="sd">        Style is in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
 
 <span class="sd">        * | &#39;Chebyshev&#39; distance is an L-infinity norm, a maximum absolute difference</span>
 <span class="sd">          | in any dimension.</span>
@@ -113,9 +112,9 @@
 <span class="sd">        </span>
 <span class="sd">            from diamondback import DiversityModel</span>
 
-<span class="sd">            # Create an instance from a Factory with constraints.</span>
+<span class="sd">            # Create an instance.</span>
 
-<span class="sd">            obj = DiversityModel.Factory.instance( typ = DiversityModel, classification = &#39;Euclidean&#39;, order = 4 )</span>
+<span class="sd">            obj = DiversityModel( style = &#39;Euclidean&#39;, order = 4 )</span>
 
 <span class="sd">            # Model an incident signal and extract a state.</span>
 
@@ -133,7 +132,7 @@
 
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IClear</span> <span class="kn">import</span> <span class="n">IClear</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="kn">import</span> <span class="n">IS</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <div class="viewcode-block" id="DiversityModel"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.DiversityModel.DiversityModel">[docs]</a><span class="k">class</span> <span class="nc">DiversityModel</span><span class="p">(</span> <span class="n">IClear</span><span class="p">,</span> <span class="n">IS</span> <span class="p">)</span> <span class="p">:</span>
@@ -141,58 +140,36 @@
     <span class="sd">&quot;&quot;&quot; Diversity model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="DiversityModel.Factory"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.DiversityModel.DiversityModel.Factory">[docs]</a>    <span class="k">class</span> <span class="nc">Factory</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="n">__distance</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Chebyshev&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">max</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">),</span>
+                   <span class="s1">&#39;Euclidean&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span>
+                   <span class="s1">&#39;Geometric&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">),</span>
+                   <span class="s1">&#39;Manhattan&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">}</span>
 
-        <span class="sd">&quot;&quot;&quot; Factory.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="n">_distance</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;Chebyshev&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">max</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">),</span>
-                      <span class="s1">&#39;Euclidean&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span>
-                      <span class="s1">&#39;Geometric&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">),</span>
-                      <span class="s1">&#39;Manhattan&#39;</span> <span class="p">:</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">}</span>
-
-<div class="viewcode-block" id="DiversityModel.Factory.instance"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.DiversityModel.DiversityModel.Factory.instance">[docs]</a>        <span class="nd">@classmethod</span>
-        <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">typ</span> <span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span> <span class="p">:</span>
-
-            <span class="sd">&quot;&quot;&quot; Constructs an instance.</span>
-
-<span class="sd">                Arguments :</span>
-<span class="sd">                    typ : type - derived from DiversityModel.</span>
-<span class="sd">                    classification : str - in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
-<span class="sd">                    order : int.</span>
-
-<span class="sd">                Returns :</span>
-<span class="sd">                    instance : typ( ).</span>
-<span class="sd">            &quot;&quot;&quot;</span>
-
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">DiversityModel</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Type = </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">classification</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">classification</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_distance</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Classification = </span><span class="si">{</span><span class="n">classification</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-            <span class="k">return</span> <span class="n">typ</span><span class="p">(</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_distance</span><span class="p">[</span> <span class="n">classification</span> <span class="p">],</span> <span class="n">order</span> <span class="p">)</span></div></div>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">distance</span> <span class="p">:</span> <span class="n">Callable</span><span class="p">[</span> <span class="p">[</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Any</span> <span class="p">],</span> <span class="n">Any</span> <span class="p">],</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">style</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Initialize.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                distance : Callable[ [ Any, Any ], Any ].</span>
+<span class="sd">                style : str - in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
 <span class="sd">                order : int.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">distance</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">distance</span><span class="p">,</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">__distance</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">distance</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">__distance</span><span class="p">[</span> <span class="n">style</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="DiversityModel.clear"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.DiversityModel.DiversityModel.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Clears an instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span></div>
 
 <div class="viewcode-block" id="DiversityModel.model"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.DiversityModel.DiversityModel.model">[docs]</a>    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
@@ -207,14 +184,14 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">max</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">max</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s1"> Colums = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>

@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="../../../index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -118,7 +118,7 @@
 <span class="sd">            import math</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance with rate.</span>
+<span class="sd">            # Create an instance.</span>
 
 <span class="sd">            obj = PolyphaseRateFilter( rate = 1.0 / math.pi )</span>
 
@@ -149,7 +149,7 @@
     <span class="sd">&quot;&quot;&quot; Polyphase rate filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">_b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">15</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">__b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">15</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="nd">@IB</span><span class="o">.</span><span class="n">b</span><span class="o">.</span><span class="n">getter</span>
     <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -157,7 +157,7 @@
         <span class="sd">&quot;&quot;&quot; b : numpy.ndarray - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">return</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span>
+        <span class="k">return</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span>
 
     <span class="nd">@IRate</span><span class="o">.</span><span class="n">rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
@@ -165,7 +165,7 @@
         <span class="sd">&quot;&quot;&quot; rate : float - ratio of effective frequency in ( 0.0, 256.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">count</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -181,14 +181,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span>
         <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">b</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="n">firfilter</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">instance</span><span class="p">(</span> <span class="n">FirFilter</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mf">0.85</span> <span class="o">/</span> <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">*</span> <span class="n">rr</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span>
+            <span class="n">firfilter</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.85</span> <span class="o">/</span> <span class="n">rr</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="n">cc</span> <span class="o">*</span> <span class="n">rr</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span> <span class="n">firfilter</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="p">(</span> <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="p">),</span> <span class="s1">&#39;F&#39;</span> <span class="p">)</span>
             <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">rr</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">b</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span> <span class="o">/=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span> <span class="p">)</span>
-            <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">b</span>
+            <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span> <span class="o">=</span> <span class="n">b</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="n">cc</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">rate</span>
 
@@ -205,10 +205,10 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">int</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">_b</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span>
         <span class="n">rr</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
         <span class="n">ii</span><span class="p">,</span> <span class="n">jj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="p">(</span> <span class="p">(</span> <span class="n">ii</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">jj</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

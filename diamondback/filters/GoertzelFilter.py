@@ -34,10 +34,10 @@
             from diamondback import ComplexExponentialFilter, GoertzelFilter
             import numpy
 
-            b = WindowFilter.Factory.instance( WindowFilter, 'Hann', 128 ).b
+            b = WindowFilter( 'Hann', 128 ).b
             frequency = 0.1
 
-            # Create an instance from coefficients and frequency.
+            # Create an instance.
 
             obj = GoertzelFilter( b = b, frequency = frequency )
 
@@ -76,11 +76,11 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b.shape ) != 1 ) or ( len( b ) == 0 ) or ( not b.any( ) ) ) :
+        if ( ( not len( b ) ) or ( not b.any( ) ) ) :
             raise ValueError( f'B = {b}' )
         u = numpy.array( [ 0.0, 2.0 * math.cos( math.pi * frequency ), -1.0 ] )
         v = numpy.array( [ 1.0, -numpy.exp( -1j * math.pi * frequency ), 0.0 ] )
-        super( ).__init__( u, v )
+        super( ).__init__( a = u, b = v )
         self._index, self._w = 0, numpy.array( b )
         self.frequency = frequency
 
@@ -97,7 +97,7 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) != 1 ) or ( len( x ) == 0 ) ) :
+        if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( int( numpy.ceil( len( x ) / len( self._w ) ) ) + 1, complex )
         u = ( 1.0 + int( not isinstance( x[ 0 ], complex ) ) ) / len( self._w )

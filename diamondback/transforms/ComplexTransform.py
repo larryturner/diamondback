@@ -59,11 +59,11 @@ class ComplexTransform( object ) :
     """ Complex transform.
     """
 
-    _coefficient = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
-                                                  [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
-                                                  [ 1.0, 1.0, 1.0 ] ] )
+    __coefficient = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
+                                                   [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
+                                                   [ 1.0, 1.0, 1.0 ] ] )
 
-    _gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
+    __gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
     def transform( cls, x : Union[ List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
@@ -87,16 +87,16 @@ class ComplexTransform( object ) :
             rows, cols = 1, x.shape[ 0 ]
         else :
             rows, cols = x.shape
-        if ( ( ( rows != 1 ) and ( rows != 3 ) ) or ( cols <= 0 ) ) :
+        if ( ( rows not in ( 1, 3 ) ) or ( cols <= 0 ) ) :
             raise ValueError( f'Rows = {rows} Columns = {cols}' )
         if ( rows == 1 ) :
             v = x
             if ( not neutral ) :
-                v = x / ComplexTransform._gain
-            y = numpy.matmul( numpy.linalg.inv( ComplexTransform._coefficient ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
+                v = x / ComplexTransform.__gain
+            y = numpy.matmul( numpy.linalg.inv( ComplexTransform.__coefficient ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
         else :
-            v = numpy.matmul( ComplexTransform._coefficient, x )
+            v = numpy.matmul( ComplexTransform.__coefficient, x )
             y = v[ 0, : ] + 1j * v[ 1, : ]
             if ( not neutral ) :
-                y *= ComplexTransform._gain
+                y *= ComplexTransform.__gain
         return y

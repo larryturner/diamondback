@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="../../../index.html" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -40,7 +40,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -85,16 +85,16 @@
 <span class="sd">        .. math::</span>
 <span class="sd">            H_{z,n} = \sum_{i = 0}^{N} b_{i,n} z^{-i}</span>
 
-<span class="sd">        A factory is defined to facilitate construction of an instance,</span>
-<span class="sd">        defining a forward coefficient array, and a state array of a</span>
-<span class="sd">        specified order, to realize specified constraints.  An instance,</span>
-<span class="sd">        classification, frequency, order, count, complement, and gain</span>
-<span class="sd">        are specified.</span>
+<span class="sd">        A forward coefficient array and state array of a specified order are</span>
+<span class="sd">        defined to realize specified constraints.  A style, frequency,</span>
+<span class="sd">        order, count, complement, and gain are electively specified.</span>
+<span class="sd">        Alternatively, a forward coefficient array and state array may be explicitly</span>
+<span class="sd">        defined to ignore constraints.</span>
 
 <span class="sd">        Frequency corresponds to a -3 dB frequency response normalized relative</span>
 <span class="sd">        to Nyquist.</span>
 
-<span class="sd">        Classification is in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
+<span class="sd">        Style is in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
 
 <span class="sd">        * | &#39;Blackman&#39; filters demonstrate low resolution and spectral leakage</span>
 <span class="sd">          | with improved rate of attenuation.</span>
@@ -123,9 +123,9 @@
 <span class="sd">            from diamondback import FirFilter</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance from a Factory with constraints.</span>
+<span class="sd">            # Create an instance with constraints.</span>
 
-<span class="sd">            obj = FirFilter.Factory.instance( typ = FirFilter, classification = &#39;Kaiser&#39;, frequency = 0.1, order = 32, count = 1 )</span>
+<span class="sd">            obj = FirFilter( style = &#39;Kaiser&#39;, frequency = 0.1, order = 32, count = 1 )</span>
 
 <span class="sd">            # Create an instance with coefficients.</span>
 
@@ -154,7 +154,7 @@
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IB</span> <span class="kn">import</span> <span class="n">IB</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IReset</span> <span class="kn">import</span> <span class="n">IReset</span>
 <span class="kn">from</span> <span class="nn">diamondback.interfaces.IS</span> <span class="kn">import</span> <span class="n">IS</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span>
@@ -165,35 +165,34 @@
     <span class="sd">&quot;&quot;&quot; Finite Impulse Response ( FIR ) filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="FirFilter.Factory"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.Factory">[docs]</a>    <span class="k">class</span> <span class="nc">Factory</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+    <span class="n">__style</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
 
-        <span class="sd">&quot;&quot;&quot; Factory.</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">style</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">count</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">complement</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">gain</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+                  <span class="n">b</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="n">s</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; Initialize.</span>
+
+<span class="sd">            Specify constraints including style, frequency, and order.</span>
+<span class="sd">            Alternatively, a forward coefficient array may be explicitly defined</span>
+<span class="sd">            to ignore constraints.</span>
+
+<span class="sd">            Labels should be used to avoid ambiguity between constraints and</span>
+<span class="sd">            coefficients.</span>
+
+<span class="sd">            Arguments :</span>
+<span class="sd">                style : str - in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
+<span class="sd">                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</span>
+<span class="sd">                order : int.</span>
+<span class="sd">                count : int.</span>
+<span class="sd">                complement : bool.</span>
+<span class="sd">                gain : float.</span>
+<span class="sd">                b : Union[ List, numpy.ndarray ].</span>
+<span class="sd">                s : Union[ List, numpy.ndarray ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">_classification</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
-
-<div class="viewcode-block" id="FirFilter.Factory.instance"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.FirFilter.FirFilter.Factory.instance">[docs]</a>        <span class="nd">@classmethod</span>
-        <span class="k">def</span> <span class="nf">instance</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">typ</span> <span class="p">:</span> <span class="nb">type</span><span class="p">,</span> <span class="n">classification</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">count</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">complement</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">gain</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span> <span class="p">:</span>
-
-            <span class="sd">&quot;&quot;&quot; Constructs an instance.</span>
-
-<span class="sd">                Arguments :</span>
-<span class="sd">                    typ : type - derived from FirFilter.</span>
-<span class="sd">                    classification : str - in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
-<span class="sd">                    frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</span>
-<span class="sd">                    order : int.</span>
-<span class="sd">                    count : int.</span>
-<span class="sd">                    complement : bool.</span>
-<span class="sd">                    gain : float.</span>
-
-<span class="sd">                Returns :</span>
-<span class="sd">                    instance : typ( ).</span>
-<span class="sd">            &quot;&quot;&quot;</span>
-
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">typ</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">issubclass</span><span class="p">(</span> <span class="n">typ</span><span class="p">,</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Type = </span><span class="si">{</span><span class="n">typ</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">classification</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">classification</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">Factory</span><span class="o">.</span><span class="n">_classification</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Classification = </span><span class="si">{</span><span class="n">classification</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">__style</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;=</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
@@ -202,13 +201,13 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Count = </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="n">complement</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">frequency</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">frequency</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">classification</span> <span class="o">==</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="n">window</span> <span class="o">=</span> <span class="p">(</span> <span class="n">classification</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">),</span> <span class="mf">7.0</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="n">window</span> <span class="o">=</span> <span class="p">(</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">),</span> <span class="mf">7.0</span> <span class="p">)</span>
             <span class="k">else</span> <span class="p">:</span>
-                <span class="n">window</span> <span class="o">=</span> <span class="n">classification</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span>
+                <span class="n">window</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span>
             <span class="n">beta</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="mf">10.0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span> <span class="s1">&#39;inf&#39;</span> <span class="p">)</span>
             <span class="n">index</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span> <span class="n">count</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">),</span> <span class="mf">2.5e-2</span><span class="p">,</span> <span class="mf">1.0</span>
-            <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">index</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">(</span> <span class="p">)</span> <span class="p">:</span>
                     <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span> <span class="s1">&#39;ignore&#39;</span> <span class="p">)</span>
                     <span class="n">v</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">firwin</span><span class="p">(</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">zeta</span> <span class="o">*</span> <span class="n">frequency</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
@@ -224,24 +223,14 @@
             <span class="k">if</span> <span class="p">(</span> <span class="n">complement</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">b</span> <span class="o">*=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">(</span> <span class="p">(</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">)</span> <span class="o">**</span> <span class="n">x</span> <span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span>
                 <span class="n">b</span> <span class="o">/=</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">(</span> <span class="p">(</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">)</span> <span class="o">**</span> <span class="n">x</span> <span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
-            <span class="k">return</span> <span class="n">typ</span><span class="p">(</span> <span class="n">b</span> <span class="o">*</span> <span class="n">gain</span> <span class="p">)</span></div></div>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">s</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-
-        <span class="sd">&quot;&quot;&quot; Initialize.</span>
-
-<span class="sd">            Arguments :</span>
-<span class="sd">                b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
-<span class="sd">                s : Union[ List, numpy.ndarray ] - state.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
+            <span class="n">b</span> <span class="o">*=</span> <span class="n">gain</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">s</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;S = </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">s</span> <span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
@@ -288,7 +277,7 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">),</span> <span class="nb">type</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>

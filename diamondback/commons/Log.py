@@ -12,8 +12,8 @@
         level of 'INFO' is created.
 
         In stream assignments subsequent to initialization, only loguru
-        handlers previously created by Log will be removed, as the design
-        pattern does not support multicast.  The ability to create and modify
+        handlers previously created by Log will be removed, as the Log design
+        pattern does not define multicast.  The ability to create and modify
         externally defined loguru handlers, multicast, and utilize any native
         loguru functionality is supported.
 
@@ -59,7 +59,7 @@
 
                 # Set Log stream to a file.
 
-                with open( 'log.000.txt', 'w' ) as fout :
+                with open( 'log-2112.txt', 'w' ) as fout :
                     Log.stream( fout )
                     x = numpy.random.rand( 2, 2 )
                     Log.write( 'WARNING', f'X = {x}' )

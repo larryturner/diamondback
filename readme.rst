@@ -23,12 +23,11 @@ clustering, and serialization.
 Details
 ~~~~~~~
 
-An extensible factory design pattern is expressed in many components,
-and a mix-in design pattern is extensively employed in property
-definition. Complex or real types, in adaptive or static forms, are
-supported as appropriate. Data collections are consistently expressed in
-native types, including tuples, sets, lists, and dictionaries, with
-vector and matrix types expressed in numpy arrays.
+A mix-in design pattern is extensively employed in property definition.
+Complex or real types, in adaptive or static forms, are supported as
+appropriate. Data collections are consistently expressed in native types,
+including tuples, sets, lists, and dictionaries, with vector and matrix
+types expressed in numpy arrays.
 
 Diamondback is defined in subpackages :
 
@@ -83,15 +82,14 @@ Diamondback is defined in subpackages :
 
 -   `DerivativeFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.DerivativeFilter>`_
     instances estimate discrete derivative approximations at several
-    filter orders, through extensible factory construction.
+    filter orders.
 
 -   `FirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter>`_
     instances realize discrete difference equations of Finite Impulse
-    Response ( FIR ) form. A factory electively constructs instances based
-    on type, classification, normalized frequency, order, cascade count, and
-    complement. Filters may be readily extended to support new types and
-    functionality, while retaining factory support. Root extraction, group
-    delay, and frequency response evaluation are defined.
+    Response ( FIR ) form. Instances are defined based on style,
+    normalized frequency, order, cascade count, and complement, or
+    forward coefficients. Root extraction, group delay, and frequency
+    response evaluation are defined.
 
 -   `GoertzelFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter>`_
     instances efficiently evaluate a Discrete Fourier Transform ( DFT )
@@ -100,15 +98,14 @@ Diamondback is defined in subpackages :
 
 -   `IirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter>`_
     instances realize discrete difference equations of Infinite Impulse
-    Response ( IIR ) form. A factory electively constructs instances based
-    on type, classification, normalized frequency, order, cascade count, and
-    complement. Filters may be readily extended to support new types and
-    functionality, while retaining factory support. Root extraction, group
-    delay, and frequency response evaluation are defined.
+    Response ( IIR ) form. Instances are defined based on style,
+    normalized frequency, order, cascade count, and complement, or recursive
+    and forward coefficients. Root extraction, group delay, and frequency
+    response evaluation are defined.
 
 -   `IntegralFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter>`_
     instances estimate discrete integral approximations at several filter
-    orders, through extensible factory construction.
+    orders.
 
 -   `PidFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PidFilter>`_
     instances realize discrete difference equations of Proportional
@@ -124,7 +121,7 @@ Diamondback is defined in subpackages :
     instances approximate a signal evaluated at an effective frequency
     equal to the product of the normalized frequency and a rate greater
     than zero, supporting decimation and interpolation through
-    construction and application of a polyphase filter bank, a sequence
+    definition and application of a polyphase filter bank, a sequence
     of low pass filters with a common frequency response and a fractional
     sample difference in group delay. An appropriate stride is determined
     to realize the specified effective frequency without bias and with
@@ -138,8 +135,7 @@ Diamondback is defined in subpackages :
 
 -   `WindowFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter>`_
     instances realize discrete window functions useful in Fourier
-    analysis, based on type, classification, order, and normalization,
-    through extensible factory construction.
+    analysis, based on style, order, and normalization.
 
 `interfaces <https://larryturner.github.io/diamondback/diamondback.interfaces>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -179,10 +175,9 @@ Diamondback is defined in subpackages :
 
 -   `DiversityModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel>`_
     instances select and retain a state extracted to maximize the minimum
-    distance between state members based on classification and order,
-    through extensible factory construction. An opportunistic
-    unsupervised learning model typically improves condition and
-    numerical accuracy and reduces storage relative to alternative
+    distance between state members based on style and order. An
+    opportunistic unsupervised learning model typically improves condition
+    and numerical accuracy and reduces storage relative to alternative
     approaches including generalized linear inverse.
 
 -   `PrincipalComponentModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel>`_
@@ -217,12 +212,10 @@ Diamondback is defined in subpackages :
 
 -   `WaveletTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.WaveletTransform>`_
     instances realize a temporal spatial frequency transformation through
-    construction and application of analysis and synthesis filters with
+    defninition and application of analysis and synthesis filters with
     complementary frequency responses, combined with downsampling and
     upsampling operations, in equivalent and reversible representations.
-    A factory constructs instances based on type, classification, and
-    order. Filters may be readily extended to support new types and
-    functionality, while retaining factory support.
+    Instances are defined based on style and order.
 
 -   `ZTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ZTransform>`_
     is a singleton instance which converts continuous s-domain to

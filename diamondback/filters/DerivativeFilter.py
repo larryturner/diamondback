@@ -17,9 +17,8 @@
         .. math::
             H_{z} = \sum_{i = 0}^{N} b_{i} z^{-i}
 
-        A factory is defined to facilitate construction of an instance, defining
-        a forward coefficient array and a state array of a specified order, to
-        satisfy specified constraints.  An instance, derivative, and order are
+        A forward coefficient array and a state array of a specified order are
+        defined, to satisfy specified constraints.  A derivative, and order are
         specified.
 
         .. math::
@@ -62,9 +61,9 @@
             from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy
 
-            # Create an instance from a Factory with constraints.
+            # Create an instance.
 
-            obj = DerivativeFilter.Factory.instance( typ = DerivativeFilter, derivative = 1, order = 2 )
+            obj = DerivativeFilter( derivative = 1, order = 2 )
 
             # Filter an incident signal.
 
@@ -81,7 +80,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import Any, List, Union
+from typing import List, Union
 import numpy
 
 class DerivativeFilter( FirFilter ) :
@@ -89,54 +88,31 @@ class DerivativeFilter( FirFilter ) :
     """ Derivative filter.
     """
 
-    class Factory( object ) :
+    __b = { 1 : { 1 : numpy.array( [ 1.0, -1.0 ] ),
+                    2 : numpy.array( [ 1.0, 0.0, -1.0 ] ) * ( 1.0 / 2.0 ),
+                    4 : numpy.array( [ -1.0, 8.0, 0.0, -8.0, 1.0 ] ) * ( 1.0 / 12.0 ) },
+            2 : { 2 : numpy.array( [ 1.0, -2.0, 1.0 ] ),
+                    4 : numpy.array( [ 1.0, 0.0, -2.0, 0.0, 1.0 ] ) * ( 1.0 / 4.0 ),
+                    6 : numpy.array( [ -1.0, 8.0, 1.0, -16.0, 1.0, 8.0, -1.0 ] ) * ( 1.0 / 24.0 ),
+                    8 : numpy.array( [ 1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0 ] ) * ( 1.0 / 144.0 ) },
+            3 : { 4 : numpy.array( [ 1.0, -2.0, 0.0, 2.0, -1.0 ] ) * ( 1.0 / 2.0 ),
+                    6 : numpy.array( [ 1.0, 0.0, -3.0, 0.0, 3.0, 0.0, -1.0 ] ) * ( 1.0 / 8.0 ),
+                    8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
 
-        """ Factory.
-        """
-
-        _b = { 1 : { 1 : numpy.array( [ 1.0, -1.0 ] ),
-                     2 : numpy.array( [ 1.0, 0.0, -1.0 ] ) * ( 1.0 / 2.0 ),
-                     4 : numpy.array( [ -1.0, 8.0, 0.0, -8.0, 1.0 ] ) * ( 1.0 / 12.0 ) },
-               2 : { 2 : numpy.array( [ 1.0, -2.0, 1.0 ] ),
-                     4 : numpy.array( [ 1.0, 0.0, -2.0, 0.0, 1.0 ] ) * ( 1.0 / 4.0 ),
-                     6 : numpy.array( [ -1.0, 8.0, 1.0, -16.0, 1.0, 8.0, -1.0 ] ) * ( 1.0 / 24.0 ),
-                     8 : numpy.array( [ 1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0 ] ) * ( 1.0 / 144.0 ) },
-               3 : { 4 : numpy.array( [ 1.0, -2.0, 0.0, 2.0, -1.0 ] ) * ( 1.0 / 2.0 ),
-                     6 : numpy.array( [ 1.0, 0.0, -3.0, 0.0, 3.0, 0.0, -1.0 ] ) * ( 1.0 / 8.0 ),
-                     8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
-
-        @classmethod
-        def instance( cls, typ : type, derivative : int, order : int ) -> Any :
-
-            """ Constructs an instance.
-                
-                Arguments :
-                    typ : type - derived from DerivativeFilter.
-                    derivative : int - in [ 1, 3 ].
-                    order : int.
-
-                Returns :
-                    instance : typ( ).
-            """
-
-            if ( ( not typ ) or ( not issubclass( typ, DerivativeFilter ) ) ) :
-                raise ValueError( f'Type = {typ}' )
-            if ( derivative not in DerivativeFilter.Factory._b ) :
-                raise ValueError( f'Derivative = {derivative}' )
-            b = DerivativeFilter.Factory._b[ derivative ]
-            if ( order not in b ) :
-                raise ValueError( f'Order = {order}' )
-            return typ( b[ order ] )
-
-    def __init__( self, b : Union[ List, numpy.ndarray ] = numpy.ones( 1 ) ) -> None :
+    def __init__( self, derivative : int, order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                derivative : int - in [ 1, 3 ].
+                order : int.
         """
 
-        super( ).__init__( b )
+        if ( derivative not in DerivativeFilter.__b ) :
+            raise ValueError( f'Derivative = {derivative}' )
+        if ( order not in DerivativeFilter.__b[ derivative ] ) :
+            raise ValueError( f'Order = {order}' )
+        super( ).__init__( b = DerivativeFilter.__b[ derivative ][ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

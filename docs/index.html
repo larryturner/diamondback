@@ -23,7 +23,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
             <a href="#" class="icon icon-home"> diamondback
           </a>
 <div role="search">
@@ -58,7 +58,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="#">diamondback</a>
       </nav>
@@ -101,12 +101,11 @@ clustering, and serialization.</p>
 </div>
 <div class="section" id="details">
 <h1>Details<a class="headerlink" href="#details" title="Permalink to this headline"></a></h1>
-<p>An extensible factory design pattern is expressed in many components,
-and a mix-in design pattern is extensively employed in property
-definition. Complex or real types, in adaptive or static forms, are
-supported as appropriate. Data collections are consistently expressed in
-native types, including tuples, sets, lists, and dictionaries, with
-vector and matrix types expressed in numpy arrays.</p>
+<p>A mix-in design pattern is extensively employed in property definition.
+Complex or real types, in adaptive or static forms, are supported as
+appropriate. Data collections are consistently expressed in native types,
+including tuples, sets, lists, and dictionaries, with vector and matrix
+types expressed in numpy arrays.</p>
 <p>Diamondback is defined in subpackages :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a></p></li>
@@ -152,28 +151,26 @@ instances adaptively discriminate and estimate a normalized frequency
 of a signal.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.DerivativeFilter">DerivativeFilter</a>
 instances estimate discrete derivative approximations at several
-filter orders, through extensible factory construction.</p></li>
+filter orders.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter">FirFilter</a>
 instances realize discrete difference equations of Finite Impulse
-Response ( FIR ) form. A factory electively constructs instances based
-on type, classification, normalized frequency, order, cascade count, and
-complement. Filters may be readily extended to support new types and
-functionality, while retaining factory support. Root extraction, group
-delay, and frequency response evaluation are defined.</p></li>
+Response ( FIR ) form. Instances are defined based on style,
+normalized frequency, order, cascade count, and complement, or
+forward coefficients. Root extraction, group delay, and frequency
+response evaluation are defined.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter">GoertzelFilter</a>
 instances efficiently evaluate a Discrete Fourier Transform ( DFT )
 at a normalized frequency, based on a window filter and normalized
 frequency.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter">IirFilter</a>
 instances realize discrete difference equations of Infinite Impulse
-Response ( IIR ) form. A factory electively constructs instances based
-on type, classification, normalized frequency, order, cascade count, and
-complement. Filters may be readily extended to support new types and
-functionality, while retaining factory support. Root extraction, group
-delay, and frequency response evaluation are defined.</p></li>
+Response ( IIR ) form. Instances are defined based on style,
+normalized frequency, order, cascade count, and complement, or recursive
+and forward coefficients. Root extraction, group delay, and frequency
+response evaluation are defined.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter">IntegralFilter</a>
 instances estimate discrete integral approximations at several filter
-orders, through extensible factory construction.</p></li>
+orders.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PidFilter">PidFilter</a>
 instances realize discrete difference equations of Proportional
 Integral Derivative ( PID ) form.</p></li>
@@ -186,7 +183,7 @@ polynomial approximation with no group delay.</p></li>
 instances approximate a signal evaluated at an effective frequency
 equal to the product of the normalized frequency and a rate greater
 than zero, supporting decimation and interpolation through
-construction and application of a polyphase filter bank, a sequence
+definition and application of a polyphase filter bank, a sequence
 of low pass filters with a common frequency response and a fractional
 sample difference in group delay. An appropriate stride is determined
 to realize the specified effective frequency without bias and with
@@ -198,8 +195,7 @@ and erosion, and may be combined in sequences to support close and
 open.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter">WindowFilter</a>
 instances realize discrete window functions useful in Fourier
-analysis, based on type, classification, order, and normalization,
-through extensible factory construction.</p></li>
+analysis, based on style, order, and normalization.</p></li>
 </ul>
 </div>
 <div class="section" id="id6">
@@ -241,10 +237,9 @@ interfaces facilitate mix-in design.</p></li>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel">DiversityModel</a>
 instances select and retain a state extracted to maximize the minimum
-distance between state members based on classification and order,
-through extensible factory construction. An opportunistic
-unsupervised learning model typically improves condition and
-numerical accuracy and reduces storage relative to alternative
+distance between state members based on style and order. An
+opportunistic unsupervised learning model typically improves condition
+and numerical accuracy and reduces storage relative to alternative
 approaches including generalized linear inverse.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel">PrincipalComponentModel</a>
 instances are supervised learning models which analyze an incident
@@ -276,12 +271,10 @@ estimates a mean power density of the signal, based on a window
 filter.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.WaveletTransform">WaveletTransform</a>
 instances realize a temporal spatial frequency transformation through
-construction and application of analysis and synthesis filters with
+defninition and application of analysis and synthesis filters with
 complementary frequency responses, combined with downsampling and
 upsampling operations, in equivalent and reversible representations.
-A factory constructs instances based on type, classification, and
-order. Filters may be readily extended to support new types and
-functionality, while retaining factory support.</p></li>
+Instances are defined based on style and order.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ZTransform">ZTransform</a>
 is a singleton instance which converts continuous s-domain to
 discrete z-domain difference equations, based on a normalized
