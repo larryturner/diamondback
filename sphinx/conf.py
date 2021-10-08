@@ -50,11 +50,3 @@ napoleon_include_special_with_doc = True
 napolean_use_admonition_for_examples = True
 napolean_use_admonition_for_notes = True
 napolean_use_rtype = False
-
-#################
-
-html_theme_options = {
-    'display_version' : True,
-    'style_nav_header_background' : 'black',
-}
-
