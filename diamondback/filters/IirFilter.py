@@ -140,7 +140,7 @@ class IirFilter( FirFilter, IA ) :
         return a, b
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  a : Union[ List, numpy.ndarray ] = [ ], b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
+                  a : Union[ List, numpy.ndarray ] = [ ], b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
 
         """ Initialize.
 

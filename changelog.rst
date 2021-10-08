@@ -1,16 +1,20 @@
+2.1.1 - 2021-10-08
+^^^^^^^^^^^^^^^^^^
+-   Modified IirFilter and FirFilter.
+
 2.1.0 - 2021-10-07
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 -   Simplified interface.
 -   Removed Factory definitions.
 -   Modified documentation and format.
 -   Modified jupyter notebook.
 
 2.0.1 - 2021-09-29
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 -   Restored IPeriod.
 
 2.0.0 - 2021-09-27
-^^^^^^^^^^^^^^^^^^^
+^^^^^^^^^^^^^^^^^^
 -   Removed several interfaces, including IEqual.
 -   Removed equality definitions.
 -   Modified documentation and format.

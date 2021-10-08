@@ -105,7 +105,7 @@ class FirFilter( IB, IReset, IS ) :
     __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = numpy.zeros( 1 ) ) -> None :
+                  b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
 
         """ Initialize.
 
@@ -167,8 +167,6 @@ class FirFilter( IB, IReset, IS ) :
             raise ValueError( f'B = {b}' )
         if ( ( not numpy.isscalar( s ) ) and ( not isinstance( s, numpy.ndarray ) ) ) :
             s = numpy.array( list( s ) )
-        if ( not len( s ) ) :
-            raise ValueError( f'S = {s}' )
         if ( len( b ) < len( s ) ) :
             b = numpy.concatenate( ( b, numpy.zeros( len( s ) - len( b ) ) ) )
         if ( len( s ) < len( b ) ) :
