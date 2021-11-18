@@ -28,30 +28,12 @@ from .filters import WindowFilter  # noqa: F401
 from .interfaces import IA  # noqa: F401
 from .interfaces import IB  # noqa: F401
 from .interfaces import IClear  # noqa: F401
-from .interfaces import IConfigure  # noqa: F401
-from .interfaces import ICount  # noqa: F401
-from .interfaces import IData  # noqa: F401
-from .interfaces import IDate  # noqa: F401
 from .interfaces import IFrequency  # noqa: F401
-from .interfaces import IIdentity  # noqa: F401
-from .interfaces import ILabel  # noqa: F401
-from .interfaces import ILive  # noqa: F401
-from .interfaces import IModel  # noqa: F401
-from .interfaces import IPeriod # noqa: F401
-from .interfaces import IPath  # noqa: F401
 from .interfaces import IPhase  # noqa: F401
-from .interfaces import IProxy  # noqa: F401
 from .interfaces import IQ  # noqa: F401
 from .interfaces import IRate  # noqa: F401
-from .interfaces import IReady  # noqa: F401
 from .interfaces import IReset  # noqa: F401
 from .interfaces import IS  # noqa: F401
-from .interfaces import IStream  # noqa: F401
-from .interfaces import ITimeOut  # noqa: F401
-from .interfaces import ITimeZone  # noqa: F401
-from .interfaces import IUrl  # noqa: F401
-from .interfaces import IValid  # noqa: F401
-from .interfaces import IVersion  # noqa: F401
 from .models import DiversityModel  # noqa: F401
 from .models import PrincipalComponentModel  # noqa: F401
 from .transforms import ComplexTransform  # noqa: F401
@@ -60,4 +42,4 @@ from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
 
-__version__ = '2.1.1'
+__version__ = '3.0.0'

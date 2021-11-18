@@ -23,19 +23,16 @@ clustering, and serialization.
 Details
 ~~~~~~~
 
-A mix-in design pattern is extensively employed in property definition.
-Complex or real types, in adaptive or static forms, are supported as
-appropriate. Data collections are consistently expressed in native types,
+Data collections are consistently expressed in native types,
 including tuples, sets, lists, and dictionaries, with vector and matrix
-types expressed in numpy arrays.
+types expressed in numpy arrays.  Complex or real types are supported as
+appropriate.
 
 Diamondback is defined in subpackages :
 
 -   `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
 
 -   `filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
-
--   `interfaces <https://larryturner.github.io/diamondback/diamondback.interfaces>`_
 
 -   `models <https://larryturner.github.io/diamondback/diamondback.models>`_
 
@@ -136,39 +133,6 @@ Diamondback is defined in subpackages :
 -   `WindowFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter>`_
     instances realize discrete window functions useful in Fourier
     analysis, based on style, order, and normalization.
-
-`interfaces <https://larryturner.github.io/diamondback/diamondback.interfaces>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--   `IA <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA>`_,
-    `IB <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB>`_,
-    `IClear <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear>`_,
-    `IConfigure <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IConfigure>`_,
-    `ICount <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICount>`_,
-    `IData <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData>`_,
-    `IDate <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDate>`_,
-    `IFrequency <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency>`_,
-    `IIdentity <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity>`_,
-    `ILabel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILabel>`_,
-    `ILive <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive>`_,
-    `IModel <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel>`_,
-    `IPath <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath>`_,
-    `IPeriod <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod>`_,
-    `IPhase <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPhase>`_,
-    `IProxy <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IProxy>`_,
-    `IQ <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ>`_,
-    `IRate <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate>`_,
-    `IReady <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReady>`_,
-    `IReset <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset>`_,
-    `IS <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS>`_,
-    `IStream <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IStream>`_,
-    `ITimeOut <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeOut>`_,
-    `ITimeZone <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone>`_,
-    `IUrl <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl>`_,
-    `IValid <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid>`_,
-    and
-    `IVersion <https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion>`_,
-    interfaces facilitate mix-in design.
 
 `models <https://larryturner.github.io/diamondback/diamondback.models>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

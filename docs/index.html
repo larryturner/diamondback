@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Description &mdash; diamondback  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -40,9 +41,8 @@
 <li><a class="reference internal" href="#details">Details</a><ul>
 <li><a class="reference internal" href="#id2">commons</a></li>
 <li><a class="reference internal" href="#id4">filters</a></li>
-<li><a class="reference internal" href="#id6">interfaces</a></li>
-<li><a class="reference internal" href="#id8">models</a></li>
-<li><a class="reference internal" href="#id10">transforms</a></li>
+<li><a class="reference internal" href="#id6">models</a></li>
+<li><a class="reference internal" href="#id8">transforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
@@ -87,7 +87,7 @@
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback"><img alt="https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue" src="https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue" /></a>
 <a class="reference external image-reference" href="https://pypi.org/larryturner/diamondback"><img alt="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" src="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" /></a>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" src="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" /></a>
-<div class="section" id="description">
+<section id="description">
 <h1>Description<a class="headerlink" href="#description" title="Permalink to this headline"></a></h1>
 <p>Diamondback is a package which provides Digital Signal Processing ( DSP )
 solutions, organized in the form of commons, filters, interfaces, models,
@@ -98,23 +98,21 @@ are useful in pattern recognition and feature extraction.</p>
 <p>Diamondback also supports applications including compression, cancellation,
 identification, optimization, differentiation, integration, rate adaptation,
 clustering, and serialization.</p>
-</div>
-<div class="section" id="details">
+</section>
+<section id="details">
 <h1>Details<a class="headerlink" href="#details" title="Permalink to this headline"></a></h1>
-<p>A mix-in design pattern is extensively employed in property definition.
-Complex or real types, in adaptive or static forms, are supported as
-appropriate. Data collections are consistently expressed in native types,
+<p>Data collections are consistently expressed in native types,
 including tuples, sets, lists, and dictionaries, with vector and matrix
-types expressed in numpy arrays.</p>
+types expressed in numpy arrays.  Complex or real types are supported as
+appropriate.</p>
 <p>Diamondback is defined in subpackages :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a></p></li>
-<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a></p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a></p></li>
 </ul>
-<div class="section" id="id2">
+<section id="id2">
 <h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id2" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log">Log</a>
@@ -135,8 +133,8 @@ An instance may be an object or a collection, referenced by abstract or
 concrete types, and the instance will be correctly encoded and decoded,
 without custom encoding definitions.</p></li>
 </ul>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id4" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexBandPassFilter">ComplexBandPassFilter</a>
@@ -197,43 +195,9 @@ open.</p></li>
 instances realize discrete window functions useful in Fourier
 analysis, based on style, order, and normalization.</p></li>
 </ul>
-</div>
-<div class="section" id="id6">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces">interfaces</a><a class="headerlink" href="#id6" title="Permalink to this headline"></a></h2>
-<ul class="simple">
-<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IA">IA</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IB">IB</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IClear">IClear</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IConfigure">IConfigure</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ICount">ICount</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IData">IData</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IDate">IDate</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IFrequency">IFrequency</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IIdentity">IIdentity</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILabel">ILabel</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ILive">ILive</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IModel">IModel</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPath">IPath</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPeriod">IPeriod</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IPhase">IPhase</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IProxy">IProxy</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IQ">IQ</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IRate">IRate</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReady">IReady</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IReset">IReset</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IS">IS</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IStream">IStream</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeOut">ITimeOut</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.ITimeZone">ITimeZone</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IUrl">IUrl</a>,
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IValid">IValid</a>,
-and
-<a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.interfaces#module-diamondback.interfaces.IVersion">IVersion</a>,
-interfaces facilitate mix-in design.</p></li>
-</ul>
-</div>
-<div class="section" id="id8">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id8" title="Permalink to this headline"></a></h2>
+</section>
+<section id="id6">
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id6" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel">DiversityModel</a>
 instances select and retain a state extracted to maximize the minimum
@@ -249,9 +213,9 @@ candidate for dimension reduction, in which higher order dimensions
 are discarded, reducing the order of the reference signal, while
 preserving significant and often sufficient information.</p></li>
 </ul>
-</div>
-<div class="section" id="id10">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id10" title="Permalink to this headline"></a></h2>
+</section>
+<section id="id8">
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id8" title="Permalink to this headline"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ComplexTransform">ComplexTransform</a>
 is a singleton instance which converts a three-phase real signal to a
@@ -280,9 +244,9 @@ is a singleton instance which converts continuous s-domain to
 discrete z-domain difference equations, based on a normalized
 frequency and application of bilinear or impulse invariant methods.</p></li>
 </ul>
-</div>
-</div>
-<div class="section" id="dependencies">
+</section>
+</section>
+<section id="dependencies">
 <h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline"></a></h1>
 <p>Diamondback depends upon external packages :</p>
 <ul class="simple">
@@ -306,8 +270,8 @@ depends upon additional external packages :</p>
 <li><p><a class="reference external" href="https://github.com/sphinx-doc/sphinx">sphinx</a></p></li>
 <li><p><a class="reference external" href="https://github.com/readthedocs/sphinx_rtd_theme">sphinx-rtd-theme</a></p></li>
 </ul>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline"></a></h1>
 <p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diamondback</span>
@@ -321,8 +285,8 @@ depends upon additional external packages :</p>
 <span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">larryturner</span><span class="o">/</span><span class="n">diamondback</span><span class="o">.</span><span class="n">git</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="demonstration">
+</section>
+<section id="demonstration">
 <h1>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this headline"></a></h1>
 <p>A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
@@ -345,29 +309,29 @@ repository, or installed from GitHub and run on a local system.</p>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
-</div>
-<div class="section" id="tests">
+</section>
+<section id="tests">
 <h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline"></a></h1>
 <p>A test solution is provided to exercise and verify components, pytest is
 used to execute unit and scenario tests.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">capture</span><span class="o">=</span><span class="n">no</span> <span class="o">--</span><span class="n">verbose</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="documentation">
+</section>
+<section id="documentation">
 <h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline"></a></h1>
 <p>Diamondback documentation is generated from the source, indexed, and searchable
 from GitHub pages.</p>
 <a class="reference external image-reference" href="https://larryturner.github.io/diamondback/index.html"><img alt="https://img.shields.io/badge/github-blue" src="https://img.shields.io/badge/github-blue" /></a>
-</div>
-<div class="section" id="license">
+</section>
+<section id="license">
 <h1>License<a class="headerlink" href="#license" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C</a></p>
-</div>
-<div class="section" id="author">
+</section>
+<section id="author">
 <h1>Author<a class="headerlink" href="#author" title="Permalink to this headline"></a></h1>
 <p><a class="reference external" href="https://github.com/larryturner">Larry Turner</a></p>
-</div>
+</section>
 
 
            </div>

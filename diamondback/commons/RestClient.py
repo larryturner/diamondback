@@ -39,19 +39,15 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-22.
 """
 
-from diamondback.interfaces.ILive import ILive
-from diamondback.interfaces.IProxy import IProxy
-from diamondback.interfaces.ITimeOut import ITimeOut
-from diamondback.interfaces.IUrl import IUrl
 from typing import Any, Dict
 import requests
 
-class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
+class RestClient( object ) :
 
     """ REST client.
     """
 
-    @ILive.live.getter
+    @property
     def live( self ) :
 
         """ live : bool.
@@ -64,14 +60,64 @@ class RestClient( ILive, IProxy, ITimeOut, IUrl ) :
             value = False
         return value
 
+    @live.setter
+    def live( self, live : bool ) :
+
+        self._live = live
+
+    @property
+    def proxy( self ) :
+
+        """ proxy : Dict[ str, str ].
+        """
+
+        return self._proxy
+
+    @proxy.setter
+    def proxy( self, proxy : Dict[ str, str ] ) :
+
+        self._proxy = proxy
+
+    @property
+    def timeout( self ) :
+
+        """ timeout : Any.
+        """
+
+        return self._timeout
+
+    @timeout.setter
+    def timeout( self, timeout : Any ) :
+
+        self._timeout = timeout
+
+    @property
+    def url( self ) :
+
+        """ url : str.
+        """
+
+        return self._url
+
+    @url.setter
+    def url( self, url : str ) :
+
+        """ Url.
+        """
+
+        if ( url ) :
+            url = url.strip( '/' )
+        self._url = url
+
     def __init__( self ) -> None :
 
         """ Initialize.
         """
 
         super( ).__init__( )
-        self.proxy, self.timeout = { }, ( 10.0, 60.0 )
-        self.url = 'http://127.0.0.1:8080'
+        self._live = False
+        self._proxy, self._timeout = { }, ( 10.0, 60.0 )
+        self._url = 'http://127.0.0.1:8080'
 
     def request( self, method : str, api : str, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 

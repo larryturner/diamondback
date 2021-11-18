@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.models package &mdash; diamondback  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +15,7 @@
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -70,12 +71,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="diamondback-models-package">
+  <section id="diamondback-models-package">
 <h1>diamondback.models package<a class="headerlink" href="#diamondback-models-package" title="Permalink to this headline"></a></h1>
-<div class="section" id="submodules">
+<section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
-</div>
-<div class="section" id="module-diamondback.models.DiversityModel">
+</section>
+<section id="module-diamondback.models.DiversityModel">
 <span id="diamondback-models-diversitymodel-module"></span><h2>diamondback.models.DiversityModel module<a class="headerlink" href="#module-diamondback.models.DiversityModel" title="Permalink to this headline"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A diversity model realizes the selection and retention of a state as a
@@ -155,7 +156,7 @@ inferred.  A style and order are specified.</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">diamondback.models.DiversityModel.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.DiversityModel.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
@@ -172,7 +173,7 @@ order : int.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.model">
-<span class="sig-name descname"><span class="pre">model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.model" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.model" title="Permalink to this definition"></a></dt>
 <dd><p>Models an incident signal and produces a reference signal.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
@@ -184,8 +185,8 @@ order : int.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-diamondback.models.PrincipalComponentModel">
+</section>
+<section id="module-diamondback.models.PrincipalComponentModel">
 <span id="diamondback-models-principalcomponentmodel-module"></span><h2>diamondback.models.PrincipalComponentModel module<a class="headerlink" href="#module-diamondback.models.PrincipalComponentModel" title="Permalink to this headline"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A principal component model analyzes an incident signal to define
@@ -239,13 +240,13 @@ clustering, classification, pattern recognition, and visualization.</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel">
-<em class="property"><span class="pre">class</span> </em><span class="sig-prename descclassname"><span class="pre">diamondback.models.PrincipalComponentModel.</span></span><span class="sig-name descname"><span class="pre">PrincipalComponentModel</span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.PrincipalComponentModel.</span></span><span class="sig-name descname"><span class="pre">PrincipalComponentModel</span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel" title="Permalink to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
 <p>Principal component model.</p>
 <p>Initialize.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">e</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">e</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e" title="Permalink to this definition"></a></dt>
 <dd><p>numpy.ndarray - eigenvalues.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -256,7 +257,7 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u" title="Permalink to this definition"></a></dt>
 <dd><p>numpy.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -267,7 +268,7 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v">
-<em class="property"><span class="pre">property</span> </em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v" title="Permalink to this definition"></a></dt>
 <dd><p>numpy.ndarray</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -284,7 +285,7 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.model">
-<span class="sig-name descname"><span class="pre">model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel.model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.model" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.21)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel.model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.model" title="Permalink to this definition"></a></dt>
 <dd><p>Models an incident signal and produces a reference signal.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
@@ -296,8 +297,8 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 </dd></dl>
 
-</div>
-<div class="section" id="module-diamondback.models">
+</section>
+<section id="module-diamondback.models">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diamondback.models" title="Permalink to this headline"></a></h2>
 <dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Initialize.</p>
@@ -308,8 +309,8 @@ clustering, classification, pattern recognition, and visualization.</p>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-22.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
