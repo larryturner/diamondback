@@ -1,6 +1,6 @@
 3.0.0 - 2021-11-18
 ^^^^^^^^^^^^^^^^^^
--   Modified interface.
+-   Removed several interfaces.
 -   Modified documentation.
 
 2.1.1 - 2021-10-08
@@ -9,7 +9,7 @@
 
 2.1.0 - 2021-10-07
 ^^^^^^^^^^^^^^^^^^
--   Modified interface.
+-   Modified interfaces.
 -   Removed Factory definitions.
 -   Modified documentation and format.
 -   Modified jupyter notebook.
