@@ -1,6 +1,7 @@
 3.0.0 - 2021-11-19
 ^^^^^^^^^^^^^^^^^^
 -   Removed interfaces.
+-   Modified RankFilter.
 -   Modified documentation.
 
 2.1.1 - 2021-10-08
