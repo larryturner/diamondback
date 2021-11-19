@@ -76,8 +76,8 @@ class ComplexFrequencyFilter( FirFilter ) :
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency}' )
+        self.b[ 0 ] = numpy.exp( 1j * math.pi * frequency )
         self._frequency = frequency
-        self.b[ 0 ] = numpy.exp( 1j * math.pi * self.frequency )
 
     @property
     def rate( self ) :
