@@ -54,16 +54,30 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-16.
 """
 
-from diamondback.interfaces.IFrequency import IFrequency
 from diamondback.filters.IirFilter import IirFilter
 from typing import List, Union
 import math
 import numpy
 
-class GoertzelFilter( IirFilter, IFrequency ) :
+class GoertzelFilter( IirFilter ) :
 
     """ Goertzel filter.
     """
+
+    @property
+    def frequency( self ) :
+
+        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
+        """
+
+        return self._frequency
+
+    @frequency.setter
+    def frequency( self, frequency : float ) :
+
+        if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
+            raise ValueError( f'Frequency = {frequency}' )
+        self._frequency = frequency
 
     def __init__( self, b : Union[ List, numpy.ndarray ], frequency : float ) -> None :
 
@@ -71,18 +85,20 @@ class GoertzelFilter( IirFilter, IFrequency ) :
 
             Arguments :
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
-                frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
+                frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
         if ( ( not len( b ) ) or ( not b.any( ) ) ) :
             raise ValueError( f'B = {b}' )
+        if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
+            raise ValueError( f'Frequency = {frequency}' )
         u = numpy.array( [ 0.0, 2.0 * math.cos( math.pi * frequency ), -1.0 ] )
         v = numpy.array( [ 1.0, -numpy.exp( -1j * math.pi * frequency ), 0.0 ] )
         super( ).__init__( a = u, b = v )
         self._index, self._w = 0, numpy.array( b )
-        self.frequency = frequency
+        self._frequency = frequency
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

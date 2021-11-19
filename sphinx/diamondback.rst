@@ -9,7 +9,6 @@ Subpackages
 
    diamondback.commons
    diamondback.filters
-   diamondback.interfaces
    diamondback.models
    diamondback.transforms
 

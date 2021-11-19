@@ -53,16 +53,44 @@
 
 from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
 from diamondback.filters.FirFilter import FirFilter
-from diamondback.interfaces.IFrequency import IFrequency
-from diamondback.interfaces.IRate import IRate
 from typing import List, Tuple, Union
 import numpy
 import scipy
 
-class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
+class ComplexBandPassFilter( FirFilter ) :
 
     """ Complex band pass filter.
     """
+
+    @property
+    def frequency( self ) :
+
+        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
+        """
+
+        return self._frequency
+
+    @frequency.setter
+    def frequency( self, frequency : float ) :
+
+        if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
+            raise ValueError( f'Frequency = {frequency}' )
+        self._frequency = frequency
+
+    @property
+    def rate( self ) :
+
+        """ rate : float - in [ 0.0, 1.0 ].
+        """
+
+        return self._rate
+
+    @rate.setter
+    def rate( self, rate : float ) :
+
+        if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
+            raise ValueError( f'Rate = {rate}' )
+        self._rate = rate
 
     def __init__( self, frequency : float, rate : float ) -> None :
 
@@ -73,11 +101,13 @@ class ComplexBandPassFilter( FirFilter, IFrequency, IRate ) :
                 rate : float - in [ 0.0, 1.0 ].
         """
 
+        if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
+            raise ValueError( f'Frequency = {frequency}' )
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate}' )
         super( ).__init__( b = numpy.array( [ numpy.finfo( float ).eps + 0j ] ), s = numpy.zeros( 1, complex ) )
         self._complexexponentialfilter = ComplexExponentialFilter( )
-        self.frequency, self.rate = frequency, rate
+        self._frequency, self._rate = frequency, rate
 
     def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
 

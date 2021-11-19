@@ -36,15 +36,29 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-31.
 """
 
-from diamondback.interfaces.IPhase import IPhase
 from typing import List, Union
 import math
 import numpy
 
-class ComplexExponentialFilter( IPhase ) :
+class ComplexExponentialFilter( object ) :
 
     """ Complex exponential filter.
     """
+
+    @property
+    def phase( self ) :
+
+        """ phase : float - relative to pi in [ -1.0, 1.0 ].
+        """
+
+        return self._phase
+
+    @phase.setter
+    def phase( self, phase : float ) :
+
+        if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
+            raise ValueError( f'Phase = {phase}' )
+        self._phase = phase
 
     def __init__( self, phase : float = 0.0 ) -> None :
 
@@ -54,8 +68,10 @@ class ComplexExponentialFilter( IPhase ) :
                 phase : float - relative to pi in [ -1.0, 1.0 ].
         """
 
+        if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
+            raise ValueError( f'Phase = {phase}' )
         super( ).__init__( )
-        self.phase = phase
+        self._phase = phase
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

@@ -47,11 +47,10 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-03-19.
 """
 
-from diamondback.interfaces.IRate import IRate
 from typing import List, Union
 import numpy
 
-class PolynomialRateFilter( IRate ) :
+class PolynomialRateFilter( object ) :
 
     """ Polynomial rate filter.
     """
@@ -71,32 +70,39 @@ class PolynomialRateFilter( IRate ) :
             raise ValueError( f'Order = {order}' )
         self._order = order
 
-    @IRate.rate.setter
-    def rate( self, rate : float ) :
+    @property
+    def rate( self ) :
 
-        """ rate : float - ratio of effective frequency in ( 0.0, inf ).
+        """ rate : float - in [ 0.0, inf ).
         """
 
-        if ( rate <= 0.0 ) :
+        return self._rate
+
+    @rate.setter
+    def rate( self, rate : float ) :
+
+        if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate}' )
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
-        IRate.rate.fset( self, rate )
+        self._rate = rate
 
     def __init__( self, rate : float, order : int = 3 ) -> None :
 
         """ Initialize.
 
             Arguments :
-                rate : float - ratio of effective frequency in [ 1.0, inf ).
+                rate : float - ratio of effective frequency in [ 0.0, inf ).
                 order : int - in [ 2 , inf ).
         """
 
+        if ( rate < 0.0 ) :
+            raise ValueError( f'Rate = {rate}' )
         if ( order < 2 ) :
             raise ValueError( f'Order = {order}' )
         super( ).__init__( )
         self._index, self._order = 0.0, order
-        self.rate = rate
+        self._rate = rate
         
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

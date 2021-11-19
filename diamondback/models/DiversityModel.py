@@ -67,12 +67,10 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-02-08.
 """
 
-from diamondback.interfaces.IClear import IClear
-from diamondback.interfaces.IS import IS
 from typing import List, Union
 import numpy
 
-class DiversityModel( IClear, IS ) :
+class DiversityModel( object ) :
 
     """ Diversity model.
     """
@@ -81,6 +79,19 @@ class DiversityModel( IClear, IS ) :
                    'Euclidean' : lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
                    'Geometric' : lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
                    'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
+
+    @property
+    def s( self ) :
+
+        """ s : Union[ List, numpy.ndarray ] - state.
+        """
+
+        return self._s
+
+    @s.setter
+    def s( self, s : Union[ List, numpy.ndarray ] ) :
+
+        self._s = s
 
     def __init__( self, style : str, order : int ) -> None :
 
@@ -98,7 +109,7 @@ class DiversityModel( IClear, IS ) :
         super( ).__init__( )
         self._distance = DiversityModel.__distance[ style ]
         self._diversity = 0.0
-        self.s = numpy.zeros( ( 0, order + 1 ) )
+        self._s = numpy.zeros( ( 0, order + 1 ) )
 
     def clear( self ) -> None :
 

@@ -157,7 +157,7 @@ inferred.  A style and order are specified.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.DiversityModel.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><span class="pre">str</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
 <dl class="simple">
@@ -165,6 +165,17 @@ inferred.  A style and order are specified.</p>
 order : int.</p>
 </dd>
 </dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.s">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.s" title="Permalink to this definition"></a></dt>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>s</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.clear" title="Permalink to this definition"></a></dt>
@@ -223,11 +234,11 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <span class="n">obj</span> <span class="o">=</span> <span class="n">PrincipalComponentModel</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="c1"># Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.</span>
+<span class="c1"># Model an incident signal and extract eigenvalue, mean, deviation, and rotation arrays.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">model</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-<span class="n">e</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">e</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">u</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">v</span>
+<span class="n">eigenvalue</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">eigenvalue</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">deviation</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">rotation</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -241,23 +252,34 @@ clustering, classification, pattern recognition, and visualization.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.PrincipalComponentModel.</span></span><span class="sig-name descname"><span class="pre">PrincipalComponentModel</span></span><a class="reference internal" href="_modules/diamondback/models/PrincipalComponentModel.html#PrincipalComponentModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel" title="Permalink to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IClear.IClear" title="diamondback.interfaces.IClear.IClear"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IClear.IClear</span></code></a>, <a class="reference internal" href="diamondback.interfaces.html#diamondback.interfaces.IS.IS" title="diamondback.interfaces.IS.IS"><code class="xref py py-class docutils literal notranslate"><span class="pre">diamondback.interfaces.IS.IS</span></code></a></p>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Principal component model.</p>
 <p>Initialize.</p>
 <dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">e</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.e" title="Permalink to this definition"></a></dt>
-<dd><p>numpy.ndarray - eigenvalues.</p>
+<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.deviation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">deviation</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.deviation" title="Permalink to this definition"></a></dt>
+<dd><p>numpy.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>e</p>
+<dd class="field-odd"><p>deviation</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">u</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.u" title="Permalink to this definition"></a></dt>
+<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.eigenvalue">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eigenvalue</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.eigenvalue" title="Permalink to this definition"></a></dt>
+<dd><p>numpy.ndarray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>eigenvalue</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.mean">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.mean" title="Permalink to this definition"></a></dt>
 <dd><p>numpy.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
@@ -267,9 +289,9 @@ clustering, classification, pattern recognition, and visualization.</p>
 </dd></dl>
 
 <dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">v</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.v" title="Permalink to this definition"></a></dt>
-<dd><p>numpy.ndarray</p>
+<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.rotation">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.rotation" title="Permalink to this definition"></a></dt>
+<dd><p>numpy.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>rotation</p>

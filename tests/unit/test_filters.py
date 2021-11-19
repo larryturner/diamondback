@@ -353,9 +353,9 @@ class Test( object ) :
         """ Test RankFilter.
         """
 
-        rank, order = 4, 4
-        obj = RankFilter( rank, order )
-        assert obj.rank == rank
+        index, order = 4, 4
+        obj = RankFilter( index, order )
+        assert obj.index == index
         assert len( obj.s ) == order + 1
         x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 15 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )
         obj.reset( x[ 0 ] )

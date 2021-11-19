@@ -41,11 +41,11 @@
 
             obj = PrincipalComponentModel( )
 
-            # Model an incident signal and extract eigenvalue, standard deviation, means, and rotation arrays.
+            # Model an incident signal and extract eigenvalue, mean, deviation, and rotation arrays.
 
             x = numpy.random.rand( 3, 32 )
             y = obj.model( x )
-            e, s, u, v = obj.e, obj.s, obj.u, obj.v
+            eigenvalue, mean, deviation, rotation, s = obj.eigenvalue, obj.mean, obj.deviation, obj.rotation
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -55,39 +55,45 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2019-01-25.
 """
 
-from diamondback.interfaces.IClear import IClear
-from diamondback.interfaces.IS import IS
 from typing import List, Union
 import numpy
 
-class PrincipalComponentModel( IClear, IS ) :
+class PrincipalComponentModel( object ) :
 
     """ Principal component model.
     """
 
     @property
-    def e( self ) :
+    def deviation( self ) :
 
-        """ e : numpy.ndarray - eigenvalues.
+        """ deviation : numpy.ndarray.
         """
 
-        return self._e
+        return self._deviation
 
     @property
-    def u( self ) :
+    def eigenvalue( self ) :
+
+        """ eigenvalue : numpy.ndarray.
+        """
+
+        return self._eigenvalue
+
+    @property
+    def mean( self ) :
 
         """ mean : numpy.ndarray.
         """
 
-        return self._u
+        return self._mean
 
     @property
-    def v( self ) :
+    def rotation( self ) :
 
-        """ rotation : numpy.ndarray
+        """ rotation : numpy.ndarray.
         """
 
-        return self._v
+        return self._rotation
 
     def __init__( self ) -> None :
 
@@ -95,16 +101,16 @@ class PrincipalComponentModel( IClear, IS ) :
         """
 
         super( ).__init__( )
-        self._e, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
-        self.s = numpy.array( [ ] )
+        self._deviation, self._eigenvalue = numpy.array( [ ] ), numpy.array( [ ] )
+        self._mean, self._rotation = numpy.array( [ ] ), numpy.array( [ ] )
 
     def clear( self ) -> None :
 
         """ Clears an instance.
         """
 
-        self._e, self._u, self._v = numpy.array( [ ] ), numpy.array( [ ] ), numpy.array( [ ] )
-        self.s = numpy.array( [ ] )
+        self._deviation, self._eigenvalue = numpy.array( [ ] ), numpy.array( [ ] )
+        self._mean, self._rotation = numpy.array( [ ] ), numpy.array( [ ] )
 
     def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -121,15 +127,15 @@ class PrincipalComponentModel( IClear, IS ) :
             x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 2 ) or ( not len( x ) ) ) :
             raise ValueError( f'X = {x}' )
-        if ( not len( self.s ) ) :
-            self._u = x.mean( 1 )
-            self.s = x.std( 1 )
-            z = ( ( x.T - self.u ) / self.s ).T
-            self._e, self._v = numpy.linalg.eig( numpy.matmul( z, z.T ) / z.shape[ 1 ] )
-            self._v = self._v.T
+        if ( not len( self._deviation ) ) :
+            self._mean = x.mean( 1 )
+            self._deviation = x.std( 1 )
+            z = ( ( x.T - self._mean ) / self._deviation ).T
+            self._eigenvalue, self._rotation = numpy.linalg.eig( numpy.matmul( z, z.T ) / z.shape[ 1 ] )
+            self._rotation = self._rotation.T
         else :
-            z = ( ( x.T - self.u ) / self.s ).T
+            z = ( ( x.T - self._mean ) / self._deviation ).T
         rows, cols = x.shape
-        if ( ( rows != len( self._u ) ) or ( ( rows, rows ) != self._v.shape ) or ( cols <= 0 ) ):
+        if ( ( rows != len( self._mean ) ) or ( ( rows, rows ) != self._rotation.shape ) or ( cols <= 0 ) ):
             raise ValueError( f'Rows = {rows} Columns = {cols}' )
-        return numpy.matmul( self.v, z )
+        return numpy.matmul( self._rotation, z )

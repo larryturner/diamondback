@@ -79,11 +79,10 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from diamondback.interfaces.IB import IB
 from typing import List, Union
 import numpy
 
-class WaveletTransform( IB ) :
+class WaveletTransform( object ) :
 
     """ Wavelet transform.
     """
@@ -169,6 +168,14 @@ class WaveletTransform( IB ) :
                                                -0.03199005682142, 0.04999497206861, 0.00576491204434, -0.02035493979965,
                                                -0.00080435893437, 0.00459317358270, 0.00005703608433, -0.00045932942045 ] ) } }
 
+    @property
+    def b( self ) :
+
+        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
+        """
+
+        return self._b
+
     def __init__( self, style : str, order : int ) -> None :
 
         """ Initialize.
@@ -192,11 +199,11 @@ class WaveletTransform( IB ) :
             ii[ 1 ] = 0
         elif ( ( ( n & 3 ) == 2 ) & ( b[ : ( n // 2 ) + 1 ] == v[ : ( n // 2 ) + 1 ] ) ) :
             ii[ 0 ] = 0
-        self.b = ( ( b, numpy.array( b ) ), ( v, numpy.array( v ) ) )
+        self._b = ( ( b, numpy.array( b ) ), ( v, numpy.array( v ) ) )
         for kk in range( 0, 2 ) :
-            self.b[ kk ][ 1 ][ ii[ kk ] : : 2 ] *= -1.0
+            self._b[ kk ][ 1 ][ ii[ kk ] : : 2 ] *= -1.0
             if ( n != 1 ) :
-                self.b[ kk ][ 1 ][ : ] = numpy.flip( self.b[ kk ][ 1 ], 0 )
+                self._b[ kk ][ 1 ][ : ] = numpy.flip( self._b[ kk ][ 1 ], 0 )
 
     def transform( self, x : Union[ List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
 

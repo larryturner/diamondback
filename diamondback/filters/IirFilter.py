@@ -85,7 +85,6 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from diamondback.interfaces.IA import IA
 from diamondback.transforms.ZTransform import ZTransform
 from typing import List, Tuple, Union
 import math
@@ -93,51 +92,25 @@ import numpy
 import scipy.signal
 import warnings
 
-class IirFilter( FirFilter, IA ) :
+class IirFilter( FirFilter ) :
 
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
     __style = ( 'Bessel', 'Butterworth', 'Chebyshev' )
 
-    @staticmethod
-    def _evaluate( style : str, frequency : float, order : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    @property
+    def a( self ) :
 
-        """ Evaluates coefficients.
-
-            Arguments :
-                style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
-                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                order : int.
-
-            Returns :
-                a : numpy.ndarray - recursive coefficient.
-                b : numpy.ndarray - forward coefficient.
+        """ a : Union[ List, numpy.ndarray ] - recursive coefficient.
         """
 
-        bilinear = True
-        if ( style == 'Bessel' ) :
-            bilinear = False
-            u, a = numpy.ones( 1 ), numpy.ones( 2 )
-            for ii in range( 2, order + 1 ) :
-                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
-                u, a = a, x
-        elif ( style == 'Butterworth' ) :
-            a = numpy.ones( 1 )
-            for ii in range( 1, ( order // 2 ) + 1 ) :
-                a = numpy.convolve( a, numpy.array( [ 1.0, -2.0 * math.cos( ( ( ( 2.0 * ii ) + order - 1.0 ) / ( 2.0 * order ) ) * math.pi ), 1.0 ] ) )
-            if ( order & 1 ) :
-                a = numpy.convolve( a, numpy.ones( 2 ) )
-        elif ( style == 'Chebyshev' ) :
-            ripple = 0.125
-            u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
-            v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
-            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
-        a /= a[ -1 ]
-        a, b = ZTransform.transform( a, [ 1.0 ], frequency, bilinear )
-        b = numpy.poly( -numpy.ones( order ) )
-        b *= ( 1.0 - sum( a ) ) / sum( b )
-        return a, b
+        return self._a
+
+    @a.setter
+    def a( self, a : Union[ List, numpy.ndarray ] ) :
+
+        self._a = a
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
                   a : Union[ List, numpy.ndarray ] = [ ], b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
@@ -204,7 +177,46 @@ class IirFilter( FirFilter, IA ) :
         if ( a[ 0 ] != 0.0 ) :
             raise ValueError( f'A = {a}' )
         super( ).__init__( b = b, s = s )
-        self.a = numpy.array( a )
+        self._a = numpy.array( a )
+
+    @staticmethod
+    def _evaluate( style : str, frequency : float, order : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+
+        """ Evaluates coefficients.
+
+            Arguments :
+                style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
+                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                order : int.
+
+            Returns :
+                a : numpy.ndarray - recursive coefficient.
+                b : numpy.ndarray - forward coefficient.
+        """
+
+        bilinear = True
+        if ( style == 'Bessel' ) :
+            bilinear = False
+            u, a = numpy.ones( 1 ), numpy.ones( 2 )
+            for ii in range( 2, order + 1 ) :
+                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
+                u, a = a, x
+        elif ( style == 'Butterworth' ) :
+            a = numpy.ones( 1 )
+            for ii in range( 1, ( order // 2 ) + 1 ) :
+                a = numpy.convolve( a, numpy.array( [ 1.0, -2.0 * math.cos( ( ( ( 2.0 * ii ) + order - 1.0 ) / ( 2.0 * order ) ) * math.pi ), 1.0 ] ) )
+            if ( order & 1 ) :
+                a = numpy.convolve( a, numpy.ones( 2 ) )
+        elif ( style == 'Chebyshev' ) :
+            ripple = 0.125
+            u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
+            v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
+            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
+        a /= a[ -1 ]
+        a, b = ZTransform.transform( a, [ 1.0 ], frequency, bilinear )
+        b = numpy.poly( -numpy.ones( order ) )
+        b *= ( 1.0 - sum( a ) ) / sum( b )
+        return a, b
 
     def delay( self, length : int = 8192, count : int = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 

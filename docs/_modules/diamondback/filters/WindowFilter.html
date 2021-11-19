@@ -116,17 +116,24 @@
 <span class="sd">        Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-04-13.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IB</span> <span class="kn">import</span> <span class="n">IB</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span>
 
-<div class="viewcode-block" id="WindowFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter">[docs]</a><span class="k">class</span> <span class="nc">WindowFilter</span><span class="p">(</span> <span class="n">IB</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="WindowFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter">[docs]</a><span class="k">class</span> <span class="nc">WindowFilter</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Window filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">__style</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">style</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">normal</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>  <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -150,7 +157,7 @@
         <span class="n">b</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">get_window</span><span class="p">(</span> <span class="n">window</span><span class="p">,</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">normal</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">b</span> <span class="o">*=</span> <span class="p">(</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="WindowFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.WindowFilter.WindowFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 

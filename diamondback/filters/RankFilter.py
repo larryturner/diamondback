@@ -48,33 +48,33 @@ class RankFilter( FirFilter ) :
     """
 
     @property
-    def rank( self ) :
+    def index( self ) :
 
-        """ rank : int - in [ 0, order ].
+        """ index : int - in [ 0, order ].
         """
 
-        return self._rank
+        return self._index
 
-    @rank.setter
-    def rank( self, rank : int ) :
+    @index.setter
+    def index( self, index : int ) :
 
-        if ( ( rank < 0 ) or ( rank > ( len( self.s ) - 1 ) ) ) :
-            raise ValueError( f'Rank = {rank}' )
-        self._rank = rank
+        if ( ( index < 0 ) or ( index > ( len( self.s ) - 1 ) ) ) :
+            raise ValueError( f'Index = {index}' )
+        self._index = index
 
-    def __init__( self, rank : int, order : int ) -> None :
+    def __init__( self, index : int, order : int ) -> None :
 
         """ Initialize.
 
             Arguments :
-                rank : int - in [ 0, order ].
+                index : int - in [ 0, order ].
                 order : int.
         """
 
-        if ( ( rank < 0 ) or ( rank > order ) ) :
-            raise ValueError( f'Rank = {rank} Order = {order}' )
+        if ( ( index < 0 ) or ( index > order ) ) :
+            raise ValueError( f'Index = {index} Order = {order}' )
         super( ).__init__( b = numpy.ones( order + 1 ) / ( order + 1 ) )
-        self._rank = rank
+        self._index = index
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -94,7 +94,7 @@ class RankFilter( FirFilter ) :
         y = numpy.zeros( len( x ), type( x[ 0 ] ) )
         for ii in range( 0, len( x ) ) :
             self.s[ 0 ] = x[ ii ]
-            y[ ii ] = self.s[ numpy.argsort( abs( self.s ) ) ][ self.rank ]
+            y[ ii ] = self.s[ numpy.argsort( abs( self.s ) ) ][ self.index ]
             if ( len( self.s ) > 1 ) :
                 self.s[ 1 : ] = self.s[ : -1 ]
         return y

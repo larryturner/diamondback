@@ -74,21 +74,17 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from diamondback.interfaces.IB import IB
-from diamondback.interfaces.IRate import IRate
-from diamondback.interfaces.IReset import IReset
-from diamondback.interfaces.IS import IS
 from typing import List, Union
 import numpy
 
-class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
+class PolyphaseRateFilter( object ) :
 
     """ Polyphase rate filter.
     """
 
     __b = numpy.zeros( ( 256, 15 ) )
 
-    @IB.b.getter
+    @property
     def b( self ) :
 
         """ b : numpy.ndarray - forward coefficient.
@@ -96,27 +92,46 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
 
         return PolyphaseRateFilter.__b
 
-    @IRate.rate.setter
-    def rate( self, rate : float ) :
+    @property
+    def rate( self ) :
 
-        """ rate : float - ratio of effective frequency in ( 0.0, 256.0 ].
+        """ rate : float - in [ 0.0, b.shape[ 0 ] ].
         """
 
-        count = PolyphaseRateFilter.__b.shape[ 0 ]
-        if ( ( rate <= 0.0 ) or ( rate > count ) ) :
+        return self._rate
+
+    @rate.setter
+    def rate( self, rate : float ) :
+
+        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
             raise ValueError( f'Rate = {rate}' )
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
-        IRate.rate.fset( self, rate )
+        self._rate = rate
+
+    @property
+    def s( self ) :
+
+        """ s : Union[ List, numpy.ndarray ] - state.
+        """
+
+        return self._s
+
+    @s.setter
+    def s( self, s : Union[ List, numpy.ndarray ] ) :
+
+        self._s = s
 
     def __init__( self, rate : float ) -> None :
 
         """ Initialize.
 
             Arguments :
-                rate : float - ratio of effective frequency in ( 0.0, 256.0 ].
+                rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].
         """
 
+        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
+            raise ValueError( f'Rate = {rate}' )
         super( ).__init__( )
         b = PolyphaseRateFilter.__b
         rr, cc = b.shape
@@ -126,8 +141,8 @@ class PolyphaseRateFilter( IB, IRate, IReset, IS ) :
             for ii in range( 0, rr ) :
                 b[ ii, : ] /= sum( b[ ii, : ] )
             PolyphaseRateFilter.__b = b
-        self._index, self.s = 0.0, numpy.zeros( cc )
-        self.rate = rate
+        self._index, self._s = 0.0, numpy.zeros( cc )
+        self._rate = rate
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

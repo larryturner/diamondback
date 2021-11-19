@@ -53,17 +53,24 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-04-13.
 """
 
-from diamondback.interfaces.IB import IB
 from typing import List, Union
 import numpy
 import scipy.signal
 
-class WindowFilter( IB ) :
+class WindowFilter( object ) :
 
     """ Window filter.
     """
 
     __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+
+    @property
+    def b( self ) :
+
+        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
+        """
+
+        return self._b
 
     def __init__( self, style : str, order : int, normal : bool = True  ) -> None :
 
@@ -87,7 +94,7 @@ class WindowFilter( IB ) :
         b = scipy.signal.get_window( window, order + 1, False )
         if ( normal ) :
             b *= ( order + 1 ) / sum( abs( b ) )
-        self.b = numpy.array( b )
+        self._b = numpy.array( b )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

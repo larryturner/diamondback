@@ -88,21 +88,44 @@
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
 """
 
-from diamondback.interfaces.IB import IB
-from diamondback.interfaces.IReset import IReset
-from diamondback.interfaces.IS import IS
 from typing import List, Tuple, Union
 import math
 import numpy
 import scipy.signal
 import warnings
 
-class FirFilter( IB, IReset, IS ) :
+class FirFilter( object ) :
 
     """ Finite Impulse Response ( FIR ) filter.
     """
 
     __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+
+    @property
+    def b( self ) :
+
+        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
+        """
+
+        return self._b
+
+    @b.setter
+    def b( self, b : Union[ List, numpy.ndarray ] ) :
+
+        self._b = b
+
+    @property
+    def s( self ) :
+
+        """ s : Union[ List, numpy.ndarray ] - state.
+        """
+
+        return self._s
+
+    @s.setter
+    def s( self, s : Union[ List, numpy.ndarray ] ) :
+
+        self._s = s
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
                   b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
@@ -172,7 +195,7 @@ class FirFilter( IB, IReset, IS ) :
         if ( len( s ) < len( b ) ) :
             s = numpy.concatenate( ( s, numpy.zeros( len( b ) - len( s ) ) ) )
         super( ).__init__( )
-        self.b, self.s = numpy.array( b ), numpy.array( s, type( b[ 0 ] ) )
+        self._b, self._s = numpy.array( b ), numpy.array( s, type( b[ 0 ] ) )
 
     def delay( self, length : int = 8192, count : int = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 

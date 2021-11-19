@@ -116,16 +116,44 @@
 
 <span class="kn">from</span> <span class="nn">diamondback.filters.ComplexExponentialFilter</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">from</span> <span class="nn">diamondback.filters.FirFilter</span> <span class="kn">import</span> <span class="n">FirFilter</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IFrequency</span> <span class="kn">import</span> <span class="n">IFrequency</span>
-<span class="kn">from</span> <span class="nn">diamondback.interfaces.IRate</span> <span class="kn">import</span> <span class="n">IRate</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy</span>
 
-<div class="viewcode-block" id="ComplexBandPassFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter">[docs]</a><span class="k">class</span> <span class="nc">ComplexBandPassFilter</span><span class="p">(</span> <span class="n">FirFilter</span><span class="p">,</span> <span class="n">IFrequency</span><span class="p">,</span> <span class="n">IRate</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="ComplexBandPassFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter">[docs]</a><span class="k">class</span> <span class="nc">ComplexBandPassFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Complex band pass filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; frequency : float - relative to Nyquist in [ -1.0, 1.0 ].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span>
+
+    <span class="nd">@frequency</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span> <span class="o">=</span> <span class="n">frequency</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; rate : float - in [ 0.0, 1.0 ].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
+
+    <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -136,11 +164,13 @@
 <span class="sd">                rate : float - in [ 0.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span> <span class="p">]</span> <span class="p">),</span> <span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span> <span class="p">)</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_complexexponentialfilter</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span>
 
 <div class="viewcode-block" id="ComplexBandPassFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 

@@ -25,15 +25,6 @@ from .filters import PolynomialRateFilter  # noqa: F401
 from .filters import PolyphaseRateFilter  # noqa: F401
 from .filters import RankFilter  # noqa: F401
 from .filters import WindowFilter  # noqa: F401
-from .interfaces import IA  # noqa: F401
-from .interfaces import IB  # noqa: F401
-from .interfaces import IClear  # noqa: F401
-from .interfaces import IFrequency  # noqa: F401
-from .interfaces import IPhase  # noqa: F401
-from .interfaces import IQ  # noqa: F401
-from .interfaces import IRate  # noqa: F401
-from .interfaces import IReset  # noqa: F401
-from .interfaces import IS  # noqa: F401
 from .models import DiversityModel  # noqa: F401
 from .models import PrincipalComponentModel  # noqa: F401
 from .transforms import ComplexTransform  # noqa: F401

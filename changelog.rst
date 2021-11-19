@@ -1,6 +1,6 @@
-3.0.0 - 2021-11-18
+3.0.0 - 2021-11-19
 ^^^^^^^^^^^^^^^^^^
--   Removed several interfaces.
+-   Removed interfaces.
 -   Modified documentation.
 
 2.1.1 - 2021-10-08
