@@ -234,11 +234,11 @@ clustering, classification, pattern recognition, and visualization.</p>
 
 <span class="n">obj</span> <span class="o">=</span> <span class="n">PrincipalComponentModel</span><span class="p">(</span> <span class="p">)</span>
 
-<span class="c1"># Model an incident signal and extract eigenvalue, mean, deviation, and rotation arrays.</span>
+<span class="c1"># Model an incident signal and extract eigenvalue, eigenvector, mean, and deviation arrays.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">model</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-<span class="n">eigenvalue</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">deviation</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">eigenvalue</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">deviation</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">rotation</span>
+<span class="n">eigenvalue</span><span class="p">,</span> <span class="n">eigenvector</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">deviation</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">eigenvalue</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">eigenvector</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="n">obj</span><span class="o">.</span><span class="n">deviation</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -278,23 +278,23 @@ clustering, classification, pattern recognition, and visualization.</p>
 </dd></dl>
 
 <dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.eigenvector">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">eigenvector</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.eigenvector" title="Permalink to this definition"></a></dt>
+<dd><p>numpy.ndarray.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>eigenvector</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
 <dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.mean">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mean</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.mean" title="Permalink to this definition"></a></dt>
 <dd><p>numpy.ndarray.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>mean</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.PrincipalComponentModel.PrincipalComponentModel.rotation">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rotation</span></span><a class="headerlink" href="#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.rotation" title="Permalink to this definition"></a></dt>
-<dd><p>numpy.ndarray.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>rotation</p>
 </dd>
 </dl>
 </dd></dl>

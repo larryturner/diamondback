@@ -109,8 +109,8 @@ class Test( object ) :
                               7.97045750e-01, -3.42833551e-01, -6.97909272e-01, -8.03929143e-01 ] ] )
         assert numpy.allclose( y, z )
         eigenvalue = numpy.array( [ 1.97348626, 0.03358314, 0.99293059 ] )
-        rotation = numpy.array( [ [  0.70495169,  0.08639378, -0.70397389 ],
-                           [  0.70751261, -0.01612183,  0.7065168 ],
-                           [ -0.04968931,  0.99613061,  0.0724898 ] ] )
+        eigenvector = numpy.array( [ [  0.70495169,  0.08639378, -0.70397389 ],
+                                     [  0.70751261, -0.01612183,  0.7065168 ],
+                                     [ -0.04968931,  0.99613061,  0.0724898 ] ] )
         assert numpy.allclose( eigenvalue, obj.eigenvalue )
-        assert numpy.allclose( rotation, obj.rotation )
+        assert numpy.allclose( eigenvector, obj.eigenvector )

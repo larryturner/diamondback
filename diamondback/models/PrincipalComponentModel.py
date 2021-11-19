@@ -41,11 +41,11 @@
 
             obj = PrincipalComponentModel( )
 
-            # Model an incident signal and extract eigenvalue, mean, deviation, and rotation arrays.
+            # Model an incident signal and extract eigenvalue, eigenvector, mean, and deviation arrays.
 
             x = numpy.random.rand( 3, 32 )
             y = obj.model( x )
-            eigenvalue, mean, deviation, rotation, s = obj.eigenvalue, obj.mean, obj.deviation, obj.rotation
+            eigenvalue, eigenvector, mean, deviation = obj.eigenvalue, obj.eigenvector, obj.mean, obj.deviation
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -80,20 +80,20 @@ class PrincipalComponentModel( object ) :
         return self._eigenvalue
 
     @property
+    def eigenvector( self ) :
+
+        """ eigenvector : numpy.ndarray.
+        """
+
+        return self._eigenvector
+
+    @property
     def mean( self ) :
 
         """ mean : numpy.ndarray.
         """
 
         return self._mean
-
-    @property
-    def rotation( self ) :
-
-        """ rotation : numpy.ndarray.
-        """
-
-        return self._rotation
 
     def __init__( self ) -> None :
 
@@ -102,7 +102,7 @@ class PrincipalComponentModel( object ) :
 
         super( ).__init__( )
         self._deviation, self._eigenvalue = numpy.array( [ ] ), numpy.array( [ ] )
-        self._mean, self._rotation = numpy.array( [ ] ), numpy.array( [ ] )
+        self._eigenvector, self._mean = numpy.array( [ ] ), numpy.array( [ ] )
 
     def clear( self ) -> None :
 
@@ -110,7 +110,7 @@ class PrincipalComponentModel( object ) :
         """
 
         self._deviation, self._eigenvalue = numpy.array( [ ] ), numpy.array( [ ] )
-        self._mean, self._rotation = numpy.array( [ ] ), numpy.array( [ ] )
+        self._eigenvector, self._mean = numpy.array( [ ] ), numpy.array( [ ] )
 
     def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -131,11 +131,11 @@ class PrincipalComponentModel( object ) :
             self._mean = x.mean( 1 )
             self._deviation = x.std( 1 )
             z = ( ( x.T - self._mean ) / self._deviation ).T
-            self._eigenvalue, self._rotation = numpy.linalg.eig( numpy.matmul( z, z.T ) / z.shape[ 1 ] )
-            self._rotation = self._rotation.T
+            self._eigenvalue, self._eigenvector = numpy.linalg.eig( numpy.matmul( z, z.T ) / z.shape[ 1 ] )
+            self._eigenvector = self._eigenvector.T
         else :
             z = ( ( x.T - self._mean ) / self._deviation ).T
         rows, cols = x.shape
-        if ( ( rows != len( self._mean ) ) or ( ( rows, rows ) != self._rotation.shape ) or ( cols <= 0 ) ):
+        if ( ( rows != len( self._mean ) ) or ( ( rows, rows ) != self._eigenvector.shape ) or ( cols <= 0 ) ):
             raise ValueError( f'Rows = {rows} Columns = {cols}' )
-        return numpy.matmul( self._rotation, z )
+        return numpy.matmul( self._eigenvector, z )

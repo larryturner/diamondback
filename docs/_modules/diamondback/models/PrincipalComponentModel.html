@@ -104,11 +104,11 @@
 
 <span class="sd">            obj = PrincipalComponentModel( )</span>
 
-<span class="sd">            # Model an incident signal and extract eigenvalue, mean, deviation, and rotation arrays.</span>
+<span class="sd">            # Model an incident signal and extract eigenvalue, eigenvector, mean, and deviation arrays.</span>
 
 <span class="sd">            x = numpy.random.rand( 3, 32 )</span>
 <span class="sd">            y = obj.model( x )</span>
-<span class="sd">            eigenvalue, mean, deviation, rotation, s = obj.eigenvalue, obj.mean, obj.deviation, obj.rotation</span>
+<span class="sd">            eigenvalue, eigenvector, mean, deviation = obj.eigenvalue, obj.eigenvector, obj.mean, obj.deviation</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -143,20 +143,20 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalue</span>
 
     <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">eigenvector</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+        <span class="sd">&quot;&quot;&quot; eigenvector : numpy.ndarray.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span>
+
+    <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">mean</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; mean : numpy.ndarray.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span>
-
-    <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">rotation</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="sd">&quot;&quot;&quot; rotation : numpy.ndarray.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -165,7 +165,7 @@
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_deviation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalue</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="PrincipalComponentModel.clear"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
@@ -173,7 +173,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_deviation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalue</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="p">]</span> <span class="p">)</span></div>
 
 <div class="viewcode-block" id="PrincipalComponentModel.model"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.models.PrincipalComponentModel.PrincipalComponentModel.model">[docs]</a>    <span class="k">def</span> <span class="nf">model</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
@@ -194,14 +194,14 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_deviation</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
             <span class="n">z</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviation</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span><span class="o">.</span><span class="n">T</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvalue</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">eig</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="n">z</span><span class="p">,</span> <span class="n">z</span><span class="o">.</span><span class="n">T</span> <span class="p">)</span> <span class="o">/</span> <span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span><span class="o">.</span><span class="n">T</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">z</span> <span class="o">=</span> <span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">_deviation</span> <span class="p">)</span><span class="o">.</span><span class="n">T</span>
         <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">rows</span> <span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_mean</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span><span class="p">,</span> <span class="n">rows</span> <span class="p">)</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s1"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rotation</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span></div></div>
+        <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">_eigenvector</span><span class="p">,</span> <span class="n">z</span> <span class="p">)</span></div></div>
 </pre></div>
 
            </div>
