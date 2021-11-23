@@ -75,10 +75,10 @@ class DiversityModel( object ) :
     """ Diversity model.
     """
 
-    __distance = { 'Chebyshev' : lambda x, y : max( abs( x - y ) ),
-                   'Euclidean' : lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
-                   'Geometric' : lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
-                   'Manhattan' : lambda x, y : sum( abs( x - y ) ) }
+    __distance = dict( Chebyshev = lambda x, y : max( abs( x - y ) ),
+                       Euclidean = lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
+                       Geometric = lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
+                       Manhattan = lambda x, y : sum( abs( x - y ) ) )
 
     @property
     def s( self ) :

@@ -21,7 +21,7 @@
 
                 def __init__( self ) -> None :
                     super( ).__init__( )
-                    self.proxy = { 'http' : '', 'https' : '' }
+                    self.proxy = dict( http = '', https = '' )
 
                 def add( self, json : Dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
                     return self.request( 'get', 'test/add', json = json ).json( )
@@ -29,7 +29,7 @@
             client = TestClient( )
             client.url = 'http://127.0.0.1:8080'
             client.timeout = ( 10.0, 60.0 )  # connect, read
-            value = client.add( { 'x' : numpy.random.rand( 3 ), 'y' : numpy.random.rand( 3 ) } )
+            value = client.add( dict( x = numpy.random.rand( 3 ), y = numpy.random.rand( 3 ) ) )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

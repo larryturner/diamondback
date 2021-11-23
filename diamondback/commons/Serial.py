@@ -30,7 +30,7 @@
 
             # Encode and decode a dictionary instance in JSON.
 
-            x = { 'a' : numpy.random.rand( count ), 'b' : list( numpy.random.rand( count ) ) }
+            x = dict( a = numpy.random.rand( count ), b = list( numpy.random.rand( count ) ) )
             z = Serial.decode( Serial.encode( x ) )
 
             # Encode and decode a dictionary instance in BSON.
@@ -40,7 +40,7 @@
 
             # Encode and decode a pandas data frame in BSON.
 
-            model = pandas.DataFrame( { 'fruit' : [ 'orange', 'apple', 'kiwi' ], 'Cost' : [ 1.25, 1.5, 0.30 ] } )
+            model = pandas.DataFrame( dict( fruit = [ 'orange', 'apple', 'kiwi' ], cost = [ 1.25, 1.5, 0.30 ] ) )
             y = Serial.encode( model )
 
             # Generate SHA3-256 code for an encoded model.

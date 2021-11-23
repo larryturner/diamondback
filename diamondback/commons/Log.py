@@ -86,7 +86,7 @@ class Log( object ) :
     """ Log.
     """
 
-    numpy.set_printoptions( formatter = { 'float' : '{:.6f}'.format } )
+    numpy.set_printoptions( formatter = dict( float = '{:.6f}'.format ) )
     _identity, _level = 0, logger.level( 'INFO' )
     _rlock = RLock( )
 

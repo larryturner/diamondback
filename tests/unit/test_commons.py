@@ -75,7 +75,7 @@ class Test( object ) :
                 assert False
             except Exception :
                 pass
-        x = { 'x' : numpy.random.rand( 30, 50 ), 'y' : numpy.random.rand( 50, 30 ) }
+        x = dict( x = numpy.random.rand( 30, 50 ), y = numpy.random.rand( 50, 30 ) )
         for ii in range( 0, 2 ) :
             y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
             assert Serial.encode( x, compress = False ) == Serial.encode( y, compress = False )

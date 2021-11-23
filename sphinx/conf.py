@@ -34,14 +34,14 @@ extensions = [ 'sphinx.ext.autodoc',
 # Extensions.
 
 autoclass_content = 'both'
-autodoc_default_options = { 'members' : True }
+autodoc_default_options = dict( members = True )
 autodoc_member_order = 'bysource'
 autosummary_generate = True
 html_theme = 'sphinx_rtd_theme'
-intersphinx_mapping = { 'python' : ( 'https://docs.python.org/3', None ),
-                        'pandas' : ( 'https://pandas.pydata.org/docs/', None ),
-                        'numpy' : ( 'https://numpy.org/doc/stable/', None ),
-                        'plotly' : ( 'https://plotly.com/python-api-reference/', None ) }
+intersphinx_mapping = dict( python = ( 'https://docs.python.org/3', None ),
+                            pandas = ( 'https://pandas.pydata.org/docs/', None ),
+                            numpy = ( 'https://numpy.org/doc/stable/', None ),
+                            plotly = ( 'https://plotly.com/python-api-reference/', None ) )
 master_doc = 'index'
 napoleon_google_docstring = True
 napoleon_include_init_with_doc = False
