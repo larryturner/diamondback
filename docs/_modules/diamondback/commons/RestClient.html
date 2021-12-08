@@ -84,7 +84,7 @@
 
 <span class="sd">                def __init__( self ) -&gt; None :</span>
 <span class="sd">                    super( ).__init__( )</span>
-<span class="sd">                    self.proxy = { &#39;http&#39; : &#39;&#39;, &#39;https&#39; : &#39;&#39; }</span>
+<span class="sd">                    self.proxy = dict( http = &#39;&#39;, https = &#39;&#39; )</span>
 
 <span class="sd">                def add( self, json : Dict[ str, numpy.ndarray ] ) -&gt; numpy.ndarray :</span>
 <span class="sd">                    return self.request( &#39;get&#39;, &#39;test/add&#39;, json = json ).json( )</span>
@@ -92,7 +92,7 @@
 <span class="sd">            client = TestClient( )</span>
 <span class="sd">            client.url = &#39;http://127.0.0.1:8080&#39;</span>
 <span class="sd">            client.timeout = ( 10.0, 60.0 )  # connect, read</span>
-<span class="sd">            value = client.add( { &#39;x&#39; : numpy.random.rand( 3 ), &#39;y&#39; : numpy.random.rand( 3 ) } )</span>
+<span class="sd">            value = client.add( dict( x = numpy.random.rand( 3 ), y = numpy.random.rand( 3 ) ) )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>

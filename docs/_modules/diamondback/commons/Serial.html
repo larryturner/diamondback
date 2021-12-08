@@ -93,7 +93,7 @@
 
 <span class="sd">            # Encode and decode a dictionary instance in JSON.</span>
 
-<span class="sd">            x = { &#39;a&#39; : numpy.random.rand( count ), &#39;b&#39; : list( numpy.random.rand( count ) ) }</span>
+<span class="sd">            x = dict( a = numpy.random.rand( count ), b = list( numpy.random.rand( count ) ) )</span>
 <span class="sd">            z = Serial.decode( Serial.encode( x ) )</span>
 
 <span class="sd">            # Encode and decode a dictionary instance in BSON.</span>
@@ -103,7 +103,7 @@
 
 <span class="sd">            # Encode and decode a pandas data frame in BSON.</span>
 
-<span class="sd">            model = pandas.DataFrame( { &#39;fruit&#39; : [ &#39;orange&#39;, &#39;apple&#39;, &#39;kiwi&#39; ], &#39;Cost&#39; : [ 1.25, 1.5, 0.30 ] } )</span>
+<span class="sd">            model = pandas.DataFrame( dict( fruit = [ &#39;orange&#39;, &#39;apple&#39;, &#39;kiwi&#39; ], cost = [ 1.25, 1.5, 0.30 ] ) )</span>
 <span class="sd">            y = Serial.encode( model )</span>
 
 <span class="sd">            # Generate SHA3-256 code for an encoded model.</span>

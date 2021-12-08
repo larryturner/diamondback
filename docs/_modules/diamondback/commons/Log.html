@@ -149,7 +149,7 @@
     <span class="sd">&quot;&quot;&quot; Log.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;float&#39;</span> <span class="p">:</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">}</span> <span class="p">)</span>
+    <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">float</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">)</span> <span class="p">)</span>
     <span class="n">_identity</span><span class="p">,</span> <span class="n">_level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span> <span class="p">)</span>
     <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
 

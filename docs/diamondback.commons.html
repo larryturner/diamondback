@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.commons package &mdash; diamondback  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -71,12 +70,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="diamondback-commons-package">
+  <div class="section" id="diamondback-commons-package">
 <h1>diamondback.commons package<a class="headerlink" href="#diamondback-commons-package" title="Permalink to this headline"></a></h1>
-<section id="submodules">
+<div class="section" id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline"></a></h2>
-</section>
-<section id="module-diamondback.commons.Log">
+</div>
+<div class="section" id="module-diamondback.commons.Log">
 <span id="diamondback-commons-log-module"></span><h2>diamondback.commons.Log module<a class="headerlink" href="#module-diamondback.commons.Log" title="Permalink to this headline"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A log instance formats and writes log entries with a specified level
@@ -189,8 +188,8 @@ entry : Union[ str, Exception ].</p>
 
 </dd></dl>
 
-</section>
-<section id="module-diamondback.commons.RestClient">
+</div>
+<div class="section" id="module-diamondback.commons.RestClient">
 <span id="diamondback-commons-restclient-module"></span><h2>diamondback.commons.RestClient module<a class="headerlink" href="#module-diamondback.commons.RestClient" title="Permalink to this headline"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>REST client instances define a client for simple REST service requests
@@ -212,7 +211,7 @@ text, or binary data is returned.</p>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;http&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;https&#39;</span> <span class="p">:</span> <span class="s1">&#39;&#39;</span> <span class="p">}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">http</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">https</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
@@ -220,7 +219,7 @@ text, or binary data is returned.</p>
 <span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
 <span class="n">client</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
 <span class="n">client</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>  <span class="c1"># connect, read</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;x&#39;</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">),</span> <span class="s1">&#39;y&#39;</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">}</span> <span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -303,8 +302,8 @@ json : Any.</p>
 
 </dd></dl>
 
-</section>
-<section id="module-diamondback.commons.Serial">
+</div>
+<div class="section" id="module-diamondback.commons.Serial">
 <span id="diamondback-commons-serial-module"></span><h2>diamondback.commons.Serial module<a class="headerlink" href="#module-diamondback.commons.Serial" title="Permalink to this headline"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A serial instance encodes and decodes an instance or collection in
@@ -332,7 +331,7 @@ terminated by a new line.</p>
 
 <span class="c1"># Encode and decode a dictionary instance in JSON.</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="p">{</span> <span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">),</span> <span class="s1">&#39;b&#39;</span> <span class="p">:</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">}</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
 
 <span class="c1"># Encode and decode a dictionary instance in BSON.</span>
@@ -342,7 +341,7 @@ terminated by a new line.</p>
 
 <span class="c1"># Encode and decode a pandas data frame in BSON.</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="p">{</span> <span class="s1">&#39;fruit&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="s1">&#39;Cost&#39;</span> <span class="p">:</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">}</span> <span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="n">cost</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span>
 
 <span class="c1"># Generate SHA3-256 code for an encoded model.</span>
@@ -416,8 +415,8 @@ encoding : str.</p>
 
 </dd></dl>
 
-</section>
-<section id="module-diamondback.commons">
+</div>
+<div class="section" id="module-diamondback.commons">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-diamondback.commons" title="Permalink to this headline"></a></h2>
 <dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Initialize.</p>
@@ -428,8 +427,8 @@ encoding : str.</p>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, Analytics &amp; AI, 2018-03-22.</p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
