@@ -2,7 +2,7 @@
         Sphinx documentation configuration.
     
     **License**
-        © 2019 - 2021 Schneider Electric Industries SAS. All rights reserved.
+        © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2019-03-22.
@@ -18,7 +18,7 @@ sys.path.insert( 0, os.path.abspath( '../' ) )
 # Project.
 
 author = 'Larry Turner'
-copyright = '© 2019 - 2021 Schneider Electric Industries SAS. All rights reserved.'
+copyright = '© 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.'
 project = os.getcwd( ).split( os.path.sep )[ -2 ]
 
 # Configuration.

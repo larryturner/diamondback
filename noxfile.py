@@ -9,7 +9,7 @@
             nox --sessions clean dist docs image notebook push status tag tests
     
     **License**
-        © 2020 - 2021 Schneider Electric Industries SAS. All rights reserved.
+        © 2020 - 2022 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2020-10-12.

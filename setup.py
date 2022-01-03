@@ -3,7 +3,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
         Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
@@ -88,6 +88,6 @@ setup( name = name,
                     'wavelet' ],
        packages = find_packages( exclude = [ 'tests', 'tests.*' ] ),
        python_requires = '>= 3.6',
-       license = 'BSD-3C.  © 2018 - 2021 Larry Turner, Schneider Electric Industries SAS. All rights reserved.' )
+       license = 'BSD-3C.  © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.' )
 
 
