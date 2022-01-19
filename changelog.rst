@@ -1,3 +1,8 @@
+3.0.1 - 2022-01-19
+^^^^^^^^^^^^^^^^^^
+-   Modified documentation.
+-   Modified requirements.
+
 3.0.0 - 2021-11-19
 ^^^^^^^^^^^^^^^^^^
 -   Removed interfaces.
@@ -154,7 +159,7 @@
 
 1.0.69 - 2021-03-05
 ^^^^^^^^^^^^^^^^^^^
--   Modified strings to F-strings.
+-   Modified strings to f-strings.
 
 1.0.68 - 2021-03-03
 ^^^^^^^^^^^^^^^^^^^
