@@ -38,10 +38,10 @@ autodoc_default_options = dict( members = True )
 autodoc_member_order = 'bysource'
 autosummary_generate = True
 html_theme = 'sphinx_rtd_theme'
-intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable/', None ),
-                            pandas = ( 'https://pandas.pydata.org/docs/', None ),
+intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable', None ),
+                            pandas = ( 'https://pandas.pydata.org/docs', None ),
                             python = ( 'https://docs.python.org', None ),
-                            request = ( 'https://docs.python-requests.org', None ) )
+                            request = ( 'https://requests.readthedocs.io/en/master', None ) )
 master_doc = 'index'
 napoleon_google_docstring = True
 napoleon_include_init_with_doc = False
