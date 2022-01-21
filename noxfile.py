@@ -22,6 +22,8 @@ import requests
 import shutil
 import time
 
+nox.options.sessions = [ 'dist', 'docs', 'tests', 'push' ]
+
 repository = os.getcwd( ).split( os.path.sep )[ -1 ]
 
 @nox.session( venv_backend = 'none' )
