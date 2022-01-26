@@ -1,6 +1,6 @@
 3.0.3 - 2022-01-26
 ^^^^^^^^^^^^^^^^^^
-- Modified requirements for pillow.
+- Modified requirements.
 
 3.0.2 - 2022-01-20
 ^^^^^^^^^^^^^^^^^^
