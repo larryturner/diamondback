@@ -88,7 +88,7 @@ setup( name = name,
                     'transform',
                     'wavelet' ],
        packages = find_packages( exclude = [ 'tests', 'tests.*' ] ),
-       python_requires = '>= 3.6',
+       python_requires = '>= 3.7',
        license = 'BSD-3C.  © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.' )
 
 
