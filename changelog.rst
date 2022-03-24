@@ -1,10 +1,18 @@
+4.0.0 - 2022-03-24
+^^^^^^^^^^^^^^^^^^
+-   Added GaussianModel and GaussianMixtureModel.
+-   Removed PrincipalComponentModel.
+-   Modified DiversityModel.
+-   Modified jupyter notebook.
+-   Modified requirements.
+
 3.0.3 - 2022-01-26
 ^^^^^^^^^^^^^^^^^^
-- Modified requirements.
+-   Modified requirements.
 
 3.0.2 - 2022-01-20
 ^^^^^^^^^^^^^^^^^^
-- Modified setup.
+-   Modified setup.
 
 3.0.1 - 2022-01-19
 ^^^^^^^^^^^^^^^^^^

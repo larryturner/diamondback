@@ -143,13 +143,18 @@ Diamondback is defined in subpackages :
     and numerical accuracy and reduces storage relative to alternative
     approaches including generalized linear inverse.
 
--   `PrincipalComponentModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel>`_
-    instances are supervised learning models which analyze an incident
-    signal to learn a mean vector, standard deviation vector, and a
-    collection of eigenvectors, and produce a reference signal which is a
-    candidate for dimension reduction, in which higher order dimensions
-    are discarded, reducing the order of the reference signal, while
-    preserving significant and often sufficient information.
+-   `GaussianModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianModel>`_
+    is a supervised learning probabilistic model instance which uses
+    maximum likelihood estimation and regularization to maximize posterior
+    probability and classify an incident signal.  Learns one distribution
+    instance per class.
+
+-   `GaussianMixtureModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianMixtureModel>`_
+    is a semi-supervised learning probabilistic model instance which uses
+    maximum likelihood estimation, regularization, and expectation
+    maximization to maximize posterior probability and classify an incident
+    signal.  Learns model instances of a specified order per class, where
+    intra-class models capture mixture distributions. 
 
 `transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -199,6 +204,8 @@ Diamondback depends upon external packages :
 -   `pandas <https://github.com/pandas-dev/pandas>`_
 
 -   `requests <https://github.com/psf/requests>`_
+
+-   `scikit-learn <https://github.com/scikit-learn/scikit-learn>`_
 
 -   `scipy <https://github.com/scipy/scipy>`_
 

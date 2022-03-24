@@ -26,11 +26,12 @@ from .filters import PolyphaseRateFilter  # noqa: F401
 from .filters import RankFilter  # noqa: F401
 from .filters import WindowFilter  # noqa: F401
 from .models import DiversityModel  # noqa: F401
-from .models import PrincipalComponentModel  # noqa: F401
+from .models import GaussianModel # noqa: F401
+from .models import GaussianMixtureModel # noqa: F401
 from .transforms import ComplexTransform  # noqa: F401
 from .transforms import FourierTransform  # noqa: F401
 from .transforms import PowerSpectrumTransform  # noqa: F401
 from .transforms import WaveletTransform  # noqa: F401
 from .transforms import ZTransform  # noqa: F401
 
-__version__ = '3.0.3'
+__version__ = '4.0.0'

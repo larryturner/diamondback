@@ -12,10 +12,18 @@ diamondback.models.DiversityModel module
    :undoc-members:
    :show-inheritance:
 
-diamondback.models.PrincipalComponentModel module
--------------------------------------------------
+diamondback.models.GaussianMixtureModel module
+----------------------------------------------
 
-.. automodule:: diamondback.models.PrincipalComponentModel
+.. automodule:: diamondback.models.GaussianMixtureModel
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.models.GaussianModel module
+---------------------------------------
+
+.. automodule:: diamondback.models.GaussianModel
    :members:
    :undoc-members:
    :show-inheritance:

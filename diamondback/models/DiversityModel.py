@@ -53,10 +53,10 @@
 
             obj = DiversityModel( style = 'Euclidean', order = 4 )
 
-            # Model an incident signal and extract a state.
+            # Learn an incident signal and extract a state.
 
-            x = numpy.random.rand( 2, 32 )
-            y = obj.model( x )
+            x = numpy.random.rand( 32, 2 )
+            y = obj.learn( x )
             s = obj.s
 
     **License**
@@ -109,7 +109,7 @@ class DiversityModel( object ) :
         super( ).__init__( )
         self._distance = DiversityModel.__distance[ style ]
         self._diversity = 0.0
-        self._s = numpy.zeros( ( 0, order + 1 ) )
+        self._s = numpy.zeros( ( order + 1, 0 ) )
 
     def clear( self ) -> None :
 
@@ -117,11 +117,11 @@ class DiversityModel( object ) :
         """
 
         self._diversity = 0.0
-        self.s = numpy.zeros( ( 0, self.s.shape[ 1 ] ) )
+        self.s = numpy.zeros( ( self.s.shape[ 1 ], 0 ) )
 
-    def model( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def learn( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
-        """ Models an incident signal and produces a reference signal.
+        """ Learns an incident signal and produces a reference signal.
 
             Arguments :
                 x : Union[ List, numpy.ndarray ] - incident signal.
@@ -132,39 +132,35 @@ class DiversityModel( object ) :
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
             x = numpy.array( list( x ) )
-        if ( ( len( x.shape ) > 2 ) or ( not len( x ) ) ) :
+        if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
             raise ValueError( f'X = {x}' )
-        if ( len( x.shape ) < 2 ) :
-            rows, cols = 1, x.shape[ 0 ]
-        else :
-            rows, cols = x.shape
-        if ( not self.s.shape[ 0 ] ) :
-            self.s = numpy.zeros( ( rows, self.s.shape[ 1 ] ) ) + numpy.finfo( float ).max
-        if ( ( rows != self.s.shape[ 0 ] ) or ( cols <= 0 ) ) :
-            raise ValueError( f'Rows = {rows} Colums = {cols}' )
+        if ( not self.s.shape[ 1 ] ) :
+            self.s = numpy.zeros( ( self.s.shape[ 0 ], x.shape[ 1 ] ) ) + numpy.finfo( float ).max
+        if ( x.shape[ 1 ] != self.s.shape[ 1 ] ) :
+            raise ValueError( f'X = {x.shape} S = {s.shape}' )
         cc = 0
-        for jj in range( 0, self.s.shape[ 1 ] ) :
-            if ( numpy.isclose( self.s[ 0, jj ], numpy.finfo( float ).max ) ) :
+        for ii in range( 0, self.s.shape[ 0 ] ) :
+            if ( numpy.isclose( self.s[ ii, 0 ], numpy.finfo( float ).max ) ) :
                 break
             cc += 1
-        y = numpy.zeros( cols )
-        for jj in range( 0, cols ) :
-            if ( cc < self.s.shape[ 1 ] ) :
-                self.s[ :, cc ] = x[ :, jj ]
+        y = numpy.zeros( x.shape[ 0 ] )
+        for ii in range( 0, x.shape[ 0 ] ) :
+            if ( cc < self.s.shape[ 0 ] ) :
+                self.s[ cc, : ] = x[ ii, : ]
                 cc += 1
             else :
-                v, ii = self._diversity, -1
+                v, jj = self._diversity, -1
                 for kk in range( 0, cc ) :
                     u, s = float( 'inf' ), numpy.array( self.s )
-                    s[ :, kk ] = x[ :, jj ]
+                    s[ kk, : ] = x[ ii, : ]
                     for uu in range( 0, cc - 1 ) :
                         for vv in range( uu + 1, cc ) :
-                            d = self._distance( s[ :, uu ], s[ :, vv ] )
+                            d = self._distance( s[ uu, : ], s[ vv, : ] )
                             if ( d < u ) :
                                 u = d
                     if ( u > v ) :
-                        v, ii = u, kk
+                        v, jj = u, kk
                 if ( v > self._diversity ) :
-                    self._diversity, self.s[ :, ii ] = v, x[ :, jj ]
-            y[ jj ] = self._diversity
+                    self._diversity, self.s[ jj, : ] = v, x[ ii, : ]
+            y[ ii ] = self._diversity
         return y

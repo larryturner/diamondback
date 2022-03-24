@@ -204,13 +204,17 @@ distance between state members based on style and order. An
 opportunistic unsupervised learning model typically improves condition
 and numerical accuracy and reduces storage relative to alternative
 approaches including generalized linear inverse.</p></li>
-<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.PrincipalComponentModel">PrincipalComponentModel</a>
-instances are supervised learning models which analyze an incident
-signal to learn a mean vector, standard deviation vector, and a
-collection of eigenvectors, and produce a reference signal which is a
-candidate for dimension reduction, in which higher order dimensions
-are discarded, reducing the order of the reference signal, while
-preserving significant and often sufficient information.</p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianModel">GaussianModel</a>
+is a supervised learning probabilistic model instance which uses
+maximum likelihood estimation and regularization to maximize posterior
+probability and classify an incident signal.  Learns one distribution
+instance per class.</p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianMixtureModel">GaussianMixtureModel</a>
+is a semi-supervised learning probabilistic model instance which uses
+maximum likelihood estimation, regularization, and expectation
+maximization to maximize posterior probability and classify an incident
+signal.  Learns model instances of a specified order per class, where
+intra-class models capture mixture distributions.</p></li>
 </ul>
 </section>
 <section id="id8">
@@ -254,6 +258,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://github.com/numpy/numpy">numpy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
 <li><p><a class="reference external" href="https://github.com/psf/requests">requests</a></p></li>
+<li><p><a class="reference external" href="https://github.com/scikit-learn/scikit-learn">scikit-learn</a></p></li>
 <li><p><a class="reference external" href="https://github.com/scipy/scipy">scipy</a></p></li>
 </ul>
 <p>Diamondback elective documentation, test, and visualization functionality
