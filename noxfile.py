@@ -47,7 +47,7 @@ def dist( session ) -> None :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel', 'build' )
         if ( os.path.exists( 'service' ) ) :
-            session.install( glob.glob( 'dist/*.whl' )[ 0 ] )
+            session.run( 'pip', 'install', glob.glob( 'dist/*.whl' )[ 0 ] )
         session.run( 'git', 'add', './dist/*' )
 
 @nox.session( venv_backend = 'none' )
