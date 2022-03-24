@@ -1,3 +1,7 @@
+4.0.1 - 2022-03-24
+^^^^^^^^^^^^^^^^^^
+-   Modified requirements.
+
 4.0.0 - 2022-03-24
 ^^^^^^^^^^^^^^^^^^
 -   Added GaussianModel and GaussianMixtureModel.
