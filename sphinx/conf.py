@@ -44,6 +44,7 @@ intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable', None ),
                             request = ( 'https://requests.readthedocs.io/en/master', None ) )
 master_doc = 'index'
 napoleon_google_docstring = True
+napoleon_include_init_with_doc = False
 napoleon_include_private_with_doc = True
 napoleon_include_special_with_doc = True
 napolean_use_admonition_for_examples = True
