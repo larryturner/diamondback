@@ -6,7 +6,7 @@
         © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-23.
+        Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
 from setuptools import find_packages, setup
@@ -50,7 +50,7 @@ setup( name = name,
                                        'nox >= 2022.1.7, < 2024.1.7',
                                        'pillow >= 9.0.1, < 10.0.0',
                                        'pytest >= 7.1.1, < 8.0.0',
-                                       'setuptools >= 61.0.0, < 62.0.0',
+                                       'setuptools >= 61.2.0, < 62.0.0',
                                        'sphinx >= 4.4.0, < 5.0.0',
                                        'sphinx-rtd-theme >= 1.0.0, < 2.0.0' ] ),
        keywords = [ 'BSON',

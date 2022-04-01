@@ -47,7 +47,7 @@
         © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
-        Larry Turner, Schneider Electric, Analytics & AI, 2018-01-26.
+        Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
 from typing import List, Union

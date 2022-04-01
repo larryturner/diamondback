@@ -5,7 +5,7 @@
         © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
-        Larry Turner, Schneider Electric, Analytics & AI, 2019-03-22.
+        Larry Turner, Schneider Electric, AI Hub, 2019-03-22.
 """
 
 import os

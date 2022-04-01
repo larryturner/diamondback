@@ -12,7 +12,7 @@
         © 2020 - 2022 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
-        Larry Turner, Schneider Electric, Analytics & AI, 2020-10-12.
+        Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
 """
 
 import glob
