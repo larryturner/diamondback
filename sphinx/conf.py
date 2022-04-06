@@ -20,10 +20,10 @@ sys.path.insert( 0, os.path.abspath( '../' ) )
 author = 'Larry Turner'
 copyright = '© 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.'
 project = os.getcwd( ).split( os.path.sep )[ -2 ]
+title = 'Diamondback DSP'
 
-# Configuration.
+# Extensions.
 
-exclude_patterns = [ 'build', 'tests' ]
 extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.autosummary',
                'sphinx.ext.githubpages',
@@ -31,17 +31,22 @@ extensions = [ 'sphinx.ext.autodoc',
                'sphinx.ext.napoleon',
                'sphinx.ext.viewcode' ]
 
-# Extensions.
+# Configuration.
 
 autoclass_content = 'both'
 autodoc_default_options = dict( members = True )
 autodoc_member_order = 'bysource'
 autosummary_generate = True
+autosummary_imported_members = True
+autosummary_ignore_module_all = False
+exclude_patterns = [ 'build', 'tests' ]
 html_theme = 'sphinx_rtd_theme'
+html_title = title
 intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable', None ),
                             pandas = ( 'https://pandas.pydata.org/docs', None ),
                             python = ( 'https://docs.python.org', None ),
-                            request = ( 'https://requests.readthedocs.io/en/master', None ) )
+                            request = ( 'https://requests.readthedocs.io/en/master', None ),
+                            sklearn = ( 'https://scikit-learn.org/stable', None ) )
 master_doc = 'index'
 napoleon_google_docstring = True
 napoleon_include_init_with_doc = False

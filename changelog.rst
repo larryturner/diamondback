@@ -1,3 +1,7 @@
+4.0.2 - 2022-04-05
+^^^^^^^^^^^^^^^^^^
+-   Modified documentation.
+
 4.0.1 - 2022-03-24
 ^^^^^^^^^^^^^^^^^^
 -   Modified requirements.

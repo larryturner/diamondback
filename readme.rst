@@ -27,93 +27,86 @@ including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
 appropriate.
 
-Diamondback is defined in subpackages :
+Diamondback is defined in subpackages of commons, filters, models, and
+transforms.
 
--   `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
+`commons <diamondback.commons.html>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
-
--   `models <https://larryturner.github.io/diamondback/diamondback.models>`_
-
--   `transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
-
-`commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
--   `Log <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log>`_
+-   `Log <diamondback.commons.html#module-diamondback.commons.Log>`_
     singleton instance which formats and writes log entries with a specified
     level and stream using the loguru package. Log entries contain an ISO-8601
     datetime and level.  Log uses lazy initialization to coexist with loguru.
     Dynamic stream redirection and level specification are supported.
 
--   `RestClient <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.RestClient>`_
+-   `RestClient <diamondback.commons.html#module-diamondback.commons.RestClient>`_
     instances define a client for simple REST service requests using the
     requests package.  An API and an elective dictionary of parameter strings
     are encoded to build a URL, elective binary or JSON data are defined in the
     body of a request, and a requests response containing JSON, text, or binary
     data is returned.  Proxy, timeout, and URL definition are supported.
 
--   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`_
+-   `Serial <diamondback.commons.html#module-diamondback.commons.Serial>`_
     singleton instance which encodes and decodes an instance or collection in
     BSON or JSON, and generates SHA3-256 codes, using the jsonpickle package.
     An instance may be an object or a collection, referenced by abstract or
     concrete types, and the instance will be correctly encoded and decoded,
     without custom encoding definitions.
 
-`filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`filters <diamondback.filters.html>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `ComplexBandPassFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexBandPassFilter>`_
+-   `ComplexBandPassFilter <diamondback.filters.html#module-diamondback.filters.ComplexBandPassFilter>`_
     instances adaptively extract or reject signals at a normalized
     frequency of interest, and may be employed to dynamically track
     magnitude and phase or demodulate signals.
 
--   `ComplexExponentialFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexExponentialFilter>`_
+-   `ComplexExponentialFilter <diamondback.filters.html#module-diamondback.filters.ComplexExponentialFilter>`_
     instances synthesize complex exponential signals at normalized
     frequencies of interest with contiguous phase.
 
--   `ComplexFrequencyFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.ComplexFrequencyFilter>`_
+-   `ComplexFrequencyFilter <diamondback.filters.html#module-diamondback.filters.ComplexFrequencyFilter>`_
     instances adaptively discriminate and estimate a normalized frequency
     of a signal.
 
--   `DerivativeFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.DerivativeFilter>`_
+-   `DerivativeFilter <diamondback.filters.html#module-diamondback.filters.DerivativeFilter>`_
     instances estimate discrete derivative approximations at several
     filter orders.
 
--   `FirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.FirFilter>`_
+-   `FirFilter <diamondback.filters.html#module-diamondback.filters.FirFilter>`_
     instances realize discrete difference equations of Finite Impulse
     Response ( FIR ) form. Instances are defined based on style,
     normalized frequency, order, cascade count, and complement, or
     forward coefficients. Root extraction, group delay, and frequency
     response evaluation are defined.
 
--   `GoertzelFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.GoertzelFilter>`_
+-   `GoertzelFilter <diamondback.filters.html#module-diamondback.filters.GoertzelFilter>`_
     instances efficiently evaluate a Discrete Fourier Transform ( DFT )
     at a normalized frequency, based on a window filter and normalized
     frequency.
 
--   `IirFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IirFilter>`_
+-   `IirFilter <diamondback.filters.html#module-diamondback.filters.IirFilter>`_
     instances realize discrete difference equations of Infinite Impulse
     Response ( IIR ) form. Instances are defined based on style,
     normalized frequency, order, cascade count, and complement, or recursive
     and forward coefficients. Root extraction, group delay, and frequency
     response evaluation are defined.
 
--   `IntegralFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.IntegralFilter>`_
+-   `IntegralFilter <diamondback.filters.html#module-diamondback.filters.IntegralFilter>`_
     instances estimate discrete integral approximations at several filter
     orders.
 
--   `PidFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PidFilter>`_
+-   `PidFilter <diamondback.filters.html#module-diamondback.filters.PidFilter>`_
     instances realize discrete difference equations of Proportional
     Integral Derivative ( PID ) form.
 
--   `PolynomialRateFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolynomialRateFilter>`_
+-   `PolynomialRateFilter <diamondback.filters.html#module-diamondback.filters.PolynomialRateFilter>`_
     instances approximate a signal evaluated at an effective frequency
     equal to the product of the normalized frequency and a rate greater
     than zero, supporting decimation and interpolation through localized
     polynomial approximation with no group delay.
 
--   `PolyphaseRateFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.PolyphaseRateFilter>`_
+-   `PolyphaseRateFilter <diamondback.filters.html#module-diamondback.filters.PolyphaseRateFilter>`_
     instances approximate a signal evaluated at an effective frequency
     equal to the product of the normalized frequency and a rate greater
     than zero, supporting decimation and interpolation through
@@ -123,69 +116,69 @@ Diamondback is defined in subpackages :
     to realize the specified effective frequency without bias and with
     group delay based on order.
 
--   `RankFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.RankFilter>`_
+-   `RankFilter <diamondback.filters.html#module-diamondback.filters.RankFilter>`_
     instances define nonlinear morphological operators, which define
     functionality based on rank and order, including dilation, median,
     and erosion, and may be combined in sequences to support close and
     open.
 
--   `WindowFilter <https://larryturner.github.io/diamondback/diamondback.filters#module-diamondback.filters.WindowFilter>`_
+-   `WindowFilter <diamondback.filters.html#module-diamondback.filters.WindowFilter>`_
     instances realize discrete window functions useful in Fourier
     analysis, based on style, order, and normalization.
 
-`models <https://larryturner.github.io/diamondback/diamondback.models>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`models <diamondback.models.html>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `DiversityModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.DiversityModel>`_
+-   `DiversityModel <diamondback.models.html#module-diamondback.models.DiversityModel>`_
     instances select and retain a state extracted to maximize the minimum
     distance between state members based on style and order. An
     opportunistic unsupervised learning model typically improves condition
     and numerical accuracy and reduces storage relative to alternative
     approaches including generalized linear inverse.
 
--   `GaussianModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianModel>`_
+-   `GaussianModel <diamondback.models.html#module-diamondback.models.GaussianModel>`_
     is a supervised learning probabilistic model instance which uses
     maximum likelihood estimation and regularization to maximize posterior
     probability and classify an incident signal.  Learns one distribution
     instance per class.
 
--   `GaussianMixtureModel <https://larryturner.github.io/diamondback/diamondback.models#module-diamondback.models.GaussianMixtureModel>`_
+-   `GaussianMixtureModel <diamondback.models.html#module-diamondback.models.GaussianMixtureModel>`_
     is a semi-supervised learning probabilistic model instance which uses
     maximum likelihood estimation, regularization, and expectation
     maximization to maximize posterior probability and classify an incident
     signal.  Learns model instances of a specified order per class, where
     intra-class models capture mixture distributions. 
 
-`transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`transforms <diamondback.transforms.html>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `ComplexTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ComplexTransform>`_
+-   `ComplexTransform <diamondback.transforms.html#module-diamondback.transforms.ComplexTransform>`_
     is a singleton instance which converts a three-phase real signal to a
     complex signal, or a complex signal to a three-phase real signal, in
     equivalent and reversible representations, based on a neutral
     condition.
 
--   `FourierTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.FourierTransform>`_
+-   `FourierTransform <diamondback.transforms.html#module-diamondback.transforms.FourierTransform>`_
     is a singleton instance which converts a real or complex
     discrete-time signal to a complex discrete-frequency signal, or a
     complex discrete-frequency signal to a real or complex discrete-time
     signal, in equivalent and reversible representations, based on a
     window filter and inverse.
 
--   `PowerSpectrumTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.PowerSpectrumTransform>`_
+-   `PowerSpectrumTransform <diamondback.transforms.html#module-diamondback.transforms.PowerSpectrumTransform>`_
     is a singleton instance which converts a real or complex
     discrete-time signal to a real discrete-frequency signal which
     estimates a mean power density of the signal, based on a window
     filter.
 
--   `WaveletTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.WaveletTransform>`_
+-   `WaveletTransform <diamondback.transforms.html#module-diamondback.transforms.WaveletTransform>`_
     instances realize a temporal spatial frequency transformation through
     defninition and application of analysis and synthesis filters with
     complementary frequency responses, combined with downsampling and
     upsampling operations, in equivalent and reversible representations.
     Instances are defined based on style and order.
 
--   `ZTransform <https://larryturner.github.io/diamondback/diamondback.transforms#module-diamondback.transforms.ZTransform>`_
+-   `ZTransform <diamondback.transforms.html#module-diamondback.transforms.ZTransform>`_
     is a singleton instance which converts continuous s-domain to
     discrete z-domain difference equations, based on a normalized
     frequency and application of bilinear or impulse invariant methods.
@@ -296,7 +289,7 @@ Diamondback documentation is generated from the source, indexed, and searchable
 from GitHub pages.
 
 .. image:: https://img.shields.io/badge/github-blue
-    :target: https://larryturner.github.io/diamondback/index.html
+    :target: index.html
 
 License
 ~~~~~~~
