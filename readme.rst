@@ -27,7 +27,7 @@ including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
 appropriate.
 
-Diamondback is defined in subpackages of commons, filters, models, and
+Diamondback is defined in subpackages commons, filters, models, and
 transforms.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
@@ -276,7 +276,7 @@ Tests
 ~~~~~
 
 A test solution is provided to exercise and verify components, pytest is
-used to execute unit and scenario tests.
+used to execute unit and integration tests.
 
 ::
 

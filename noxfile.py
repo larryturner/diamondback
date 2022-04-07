@@ -35,8 +35,8 @@ def build( session ) -> None :
     if ( os.path.exists( 'setup.py' ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', '-m', 'build', '-s', '-w' )
-        session.run( 'git', 'add', './dist/*' )
         shutil.rmtree( 'build', ignore_errors = True )
+        session.run( 'git', 'add', './dist/*' )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -56,7 +56,7 @@ def docs( session ) -> None :
     """
 
     if ( os.path.exists( 'sphinx' ) ) :
-        build( session )
+        session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
         shutil.rmtree( 'docs', ignore_errors = True )
         os.makedirs( 'docs' )
         session.run( 'sphinx-apidoc', '--force', '--output', './sphinx', '.', 'tests' )

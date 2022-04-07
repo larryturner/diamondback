@@ -1,14 +1,9 @@
-*.code-workspace
-.coverage
+.eggs/
 .github/
-.coverage/
-.idea/
-.mypy_cache/
 .nox/
 .pytest_cache/
 .venv/
 .vscode/
 __pycache__/
-*.egg-info/
 build/
-jupyter/.ipynb_checkpoints/diamondback-checkpoint.ipynb
+*.egg-info/

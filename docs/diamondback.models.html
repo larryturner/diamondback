@@ -166,17 +166,6 @@ inferred.  A style and order are specified.</p>
 order : int.</p>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.s">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.s" title="Permalink to this definition"></a></dt>
-<dd><p>Union[ List, numpy.ndarray ] - state.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type</dt>
-<dd class="field-odd"><p>s</p>
-</dd>
-</dl>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.clear">
 <span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/DiversityModel.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.clear" title="Permalink to this definition"></a></dt>
@@ -191,6 +180,17 @@ order : int.</p>
 <dt>Arguments :</dt><dd><p>x : Union[ List, numpy.ndarray ] - incident signal.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.DiversityModel.DiversityModel.s">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span><a class="headerlink" href="#diamondback.models.DiversityModel.DiversityModel.s" title="Permalink to this definition"></a></dt>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>s</p>
 </dd>
 </dl>
 </dd></dl>
@@ -250,21 +250,6 @@ regularize : float - regularize.</p>
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.index" title="Permalink to this definition"></a></dt>
 <dd></dd></dl>
 
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.order">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.order" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.regularize">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.regularize" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.shape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.shape" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.learn">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianMixtureModel.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.learn" title="Permalink to this definition"></a></dt>
@@ -277,6 +262,11 @@ y : numpy.ndarray ( batch ) - truth.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.order">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.order" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.predict">
@@ -293,6 +283,16 @@ probability, and the initial prediction is the most likely class.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.regularize">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.regularize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -340,16 +340,6 @@ distribution instance per class.</p>
 <dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.regularize">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.regularize" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py property">
-<dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.shape">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.shape" title="Permalink to this definition"></a></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.learn">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianModel.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.learn" title="Permalink to this definition"></a></dt>
@@ -377,6 +367,16 @@ probability, and the initial prediction is the most likely class.</p>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.regularize">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.regularize" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.shape">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.shape" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

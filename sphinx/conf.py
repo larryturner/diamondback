@@ -24,8 +24,7 @@ title = 'Diamondback DSP'
 
 # Extensions.
 
-extensions = [ 'sphinx.ext.autodoc',
-               'sphinx.ext.autosummary',
+extensions = [ 'sphinx.ext.autosummary',
                'sphinx.ext.githubpages',
                'sphinx.ext.intersphinx',
                'sphinx.ext.napoleon',
@@ -34,8 +33,6 @@ extensions = [ 'sphinx.ext.autodoc',
 # Configuration.
 
 autoclass_content = 'both'
-autodoc_default_options = dict( members = True )
-autodoc_member_order = 'bysource'
 autosummary_generate = True
 autosummary_imported_members = True
 autosummary_ignore_module_all = False
