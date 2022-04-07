@@ -34,9 +34,7 @@ def build( session ) -> None :
 
     if ( os.path.exists( 'setup.py' ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
-        session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel', 'build' )
-        if ( os.path.exists( 'service' ) ) :
-            session.run( 'pip', 'install', glob.glob( 'dist/*.whl' )[ 0 ] )
+        session.run( 'python', '-m', 'build', '-s', '-w' )
         session.run( 'git', 'add', './dist/*' )
         shutil.rmtree( 'build', ignore_errors = True )
 
@@ -169,6 +167,7 @@ def tests( session ) -> None :
                 except Exception :
                     pass
             try :
+                session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
                 session.run( 'pytest', '--capture=no', '--verbose' )
                 shutil.rmtree( '.pytest_cache', ignore_errors = True )
             except Exception :
