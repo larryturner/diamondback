@@ -6,7 +6,7 @@
         ::
         
             nox --list
-            nox --sessions clean dist docs image notebook push status tag tests
+            nox --sessions build clean docs image notebook push status tag tests
     
     **License**
         © 2020 - 2022 Schneider Electric Industries SAS. All rights reserved.
@@ -22,9 +22,23 @@ import requests
 import shutil
 import time
 
-nox.options.sessions = [ 'dist', 'docs', 'tests', 'push' ]
+nox.options.sessions = [ 'build', 'docs', 'tests', 'push' ]
 
 repository = os.getcwd( ).split( os.path.sep )[ -1 ]
+
+@nox.session( venv_backend = 'none' )
+def build( session ) -> None :
+
+    """ Build distribution.
+    """
+
+    if ( os.path.exists( 'setup.py' ) ) :
+        shutil.rmtree( 'dist', ignore_errors = True )
+        session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel', 'build' )
+        if ( os.path.exists( 'service' ) ) :
+            session.run( 'pip', 'install', glob.glob( 'dist/*.whl' )[ 0 ] )
+        session.run( 'git', 'add', './dist/*' )
+        shutil.rmtree( 'build', ignore_errors = True )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -38,26 +52,13 @@ def clean( session ) -> None :
         shutil.rmtree( x, ignore_errors = True )
 
 @nox.session( venv_backend = 'none' )
-def dist( session ) -> None :
-
-    """ Build distribution.
-    """
-
-    if ( os.path.exists( 'setup.py' ) ) :
-        shutil.rmtree( 'dist', ignore_errors = True )
-        session.run( 'python', 'setup.py', 'sdist', 'bdist_wheel', 'build' )
-        if ( os.path.exists( 'service' ) ) :
-            session.run( 'pip', 'install', glob.glob( 'dist/*.whl' )[ 0 ] )
-        session.run( 'git', 'add', './dist/*' )
-
-@nox.session( venv_backend = 'none' )
 def docs( session ) -> None :
 
     """ Build documentation.
     """
 
     if ( os.path.exists( 'sphinx' ) ) :
-        dist( session )
+        build( session )
         shutil.rmtree( 'docs', ignore_errors = True )
         os.makedirs( 'docs' )
         session.run( 'sphinx-apidoc', '--force', '--output', './sphinx', '.', 'tests' )
@@ -72,7 +73,7 @@ def image( session ) -> None :
     """
 
     if ( os.path.exists( 'dockerfile' ) ) :
-        dist( session )
+        build( session )
         try :
             session.run( 'az', 'acr', 'login', '--name', 'ecaregistry' )
         except Exception :
