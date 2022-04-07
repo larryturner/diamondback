@@ -276,7 +276,7 @@ Tests
 ~~~~~
 
 A test solution is provided to exercise and verify components, pytest is
-used to execute unit and scenario tests.
+used to execute unit and integration tests.
 
 ::
 
