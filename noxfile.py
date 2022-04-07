@@ -56,7 +56,6 @@ def docs( session ) -> None :
     """
 
     if ( os.path.exists( 'sphinx' ) ) :
-        session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
         shutil.rmtree( 'docs', ignore_errors = True )
         os.makedirs( 'docs' )
         session.run( 'sphinx-apidoc', '--force', '--output', './sphinx', '.', 'tests' )
