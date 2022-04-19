@@ -141,13 +141,13 @@ class FirFilter( object ) :
 
             Arguments :
                 style : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
-                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                order : int.
-                count : int.
-                complement : bool.
-                gain : float.
-                b : Union[ List, numpy.ndarray ].
-                s : Union[ List, numpy.ndarray ].
+                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+                order : int - order per instance.
+                count : int - instances per cascade.
+                complement : bool - complement response.
+                gain : float - gain.
+                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                s : Union[ List, numpy.ndarray ] - state.
         """
 
         if ( not len( b ) ) :
@@ -207,7 +207,7 @@ class FirFilter( object ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -268,7 +268,7 @@ class FirFilter( object ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :

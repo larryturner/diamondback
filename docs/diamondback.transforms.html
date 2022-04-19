@@ -212,7 +212,7 @@ b : Union[ List, numpy.ndarray ] - forward coefficient.
 inverse : bool.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -286,7 +286,7 @@ b : Union[ List, numpy.ndarray ] - forward coefficient.
 index : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -482,7 +482,7 @@ discrete z-domain coefficient arrays.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
 v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.
-frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
 bilinear : bool.</p>
 </dd>
 <dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient, z-domain.

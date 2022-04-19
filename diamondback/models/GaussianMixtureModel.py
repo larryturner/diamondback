@@ -91,13 +91,13 @@ class GaussianMixtureModel( object ) :
 
     def learn( self, x : numpy.ndarray, y : numpy.ndarray ) -> None :
 
-        """ Learns an incident signal with ground truth and estimates inverse
+        """ Learns an incident signal with ground truth label and estimates inverse
             covariance and mean matrices to learn mixed distribution instances
             for each class.
         
             Arguments :
                 x : numpy.ndarray ( batch, count ) - incident.
-                y : numpy.ndarray ( batch ) - truth.
+                y : numpy.ndarray ( batch ) - label.
         """
 
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
@@ -116,8 +116,8 @@ class GaussianMixtureModel( object ) :
 
     def predict( self, x : numpy.ndarray ) -> numpy.ndarray :
 
-        """ Predicts an estimate of ground truth from an incident signal and
-            maximizes posterior probability of weighted intra-class mixed
+        """ Predicts an estimate of ground truth label from an incident signal
+            and maximizes posterior probability of weighted intra-class mixed
             distributions.
 
             Predictions for each class are ranked and ordered by decending

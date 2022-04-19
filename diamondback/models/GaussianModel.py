@@ -66,13 +66,13 @@ class GaussianModel( object ) :
 
     def learn( self, x : numpy.ndarray, y : numpy.ndarray ) -> None :
 
-        """ Learns an incident signal with ground truth and estimates inverse
+        """ Learns an incident signal with ground truth label and estimates inverse
             covariance and mean matrices to learn a distribution instance for
             each class.
         
             Arguments :
                 x : numpy.ndarray ( batch, count ) - incident.
-                y : numpy.ndarray ( batch ) - truth.
+                y : numpy.ndarray ( batch ) - label.
         """
 
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
@@ -92,8 +92,8 @@ class GaussianModel( object ) :
 
     def predict( self, x : numpy.ndarray ) -> numpy.ndarray :
 
-        """ Predicts an estimate of ground truth from an incident signal and
-            maximizes posterior probability.
+        """ Predicts an estimate of ground truth label from an incident signal
+            and maximizes posterior probability.
             
             Predictions for each class are ranked and ordered by decending
             probability, and the initial prediction is the most likely class.
