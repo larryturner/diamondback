@@ -36,7 +36,7 @@ def build( session ) -> None :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', '-m', 'build', '-s', '-w' )
         shutil.rmtree( 'build', ignore_errors = True )
-        session.run( 'git', 'add', './dist/*' )
+        session.run( 'git', 'add', f'.{os.path.sep}dist{os.path.sep}*' )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -46,7 +46,7 @@ def clean( session ) -> None :
 
     for x in ( '.mypy_cache', '.nox', '.pytest_cache', 'build', 'dist', 'docs' ) :
         shutil.rmtree( x, ignore_errors = True )
-    for x in [ x for x in glob.glob( '**/', recursive = True ) if ( '__pycache__' in x ) ] :
+    for x in [ x for x in glob.glob( f'**{os.path.sep}', recursive = True ) if ( '__pycache__' in x ) ] :
         shutil.rmtree( x, ignore_errors = True )
 
 @nox.session( venv_backend = 'none' )
@@ -58,10 +58,10 @@ def docs( session ) -> None :
     if ( os.path.exists( 'sphinx' ) ) :
         shutil.rmtree( 'docs', ignore_errors = True )
         os.makedirs( 'docs' )
-        session.run( 'sphinx-apidoc', '--force', '--output', './sphinx', '.', 'tests' )
-        session.run( 'sphinx-build', './sphinx', './docs' )
-        session.run( 'git', 'add', './docs/*' )
-        session.run( 'git', 'add', './sphinx/*' )
+        session.run( 'sphinx-apidoc', '--force', '--output', f'.{os.path.sep}sphinx', '.', 'tests' )
+        session.run( 'sphinx-build', f'.{os.path.sep}sphinx', f'.{os.path.sep}docs' )
+        session.run( 'git', 'add', f'.{os.path.sep}docs{os.path.sep}*' )
+        session.run( 'git', 'add', f'.{os.path.sep}sphinx{os.path.sep}*' )
 
 @nox.session( venv_backend = 'none' )
 def image( session ) -> None :
@@ -72,7 +72,7 @@ def image( session ) -> None :
     if ( os.path.exists( 'dockerfile' ) ) :
         build( session )
         try :
-            session.run( 'az', 'acr', 'login', '--name', 'ecaregistry' )
+            session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
         except Exception :
             pass
         session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'FEED_LOGIN', '--build-arg', 'FEED_PASSWORD', '.' )
@@ -99,11 +99,11 @@ def push( session ) -> None :
         package = repository.split( '-' )
         package = package[ max( len( package ) - 2, 0 ) ]
         if ( os.path.exists( package ) ) :
-            session.run( 'git', 'add', './' + package + '/*' )
+            session.run( 'git', 'add', f'.{os.path.sep}{package}{os.path.sep}*' )
         if ( os.path.exists( 'service' ) ) :
-            session.run( 'git', 'add', './service/*' )
+            session.run( 'git', 'add', f'.{os.path.sep}service{os.path.sep}*' )
         if ( os.path.exists( 'tests' ) ) :
-            session.run( 'git', 'add', './tests/*' )
+            session.run( 'git', 'add', f'.{os.path.sep}tests{os.path.sep}*' )
         status( session )
         value = input( '[ ' + repository + ' ] message : ' )
         if ( value ) :
@@ -157,7 +157,7 @@ def tests( session ) -> None :
         if ( os.listdir( 'tests' ) ) :
             if ( os.path.exists( 'docker-compose.yml' ) ) :
                 try :
-                    session.run( 'az', 'acr', 'login', '--name', 'ecaregistry' )
+                    session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
                 except Exception :
                     pass
                 try :
