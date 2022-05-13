@@ -78,7 +78,7 @@ class ComplexExponentialFilter( object ) :
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).
+                x : Union[ List, numpy.ndarray ] - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).
 
             Returns :
                 y : numpy.ndarray - reference signal.

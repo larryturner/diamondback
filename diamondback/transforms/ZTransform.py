@@ -70,7 +70,7 @@ class ZTransform( object ) :
             Arguments :
                 u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
                 v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.
-                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
                 bilinear : bool.
 
             Returns :

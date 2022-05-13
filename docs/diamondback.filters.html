@@ -144,7 +144,7 @@ adaptation are specified.</p>
 <p>Complex band pass filter.</p>
 <p>Initialize.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
+<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
 rate : float - in [ 0.0, 1.0 ].</p>
 </dd>
 </dl>
@@ -166,7 +166,7 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.frequency">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#diamondback.filters.ComplexBandPassFilter.ComplexBandPassFilter.frequency" title="Permalink to this definition"></a></dt>
-<dd><p>float - relative to Nyquist in [ -1.0, 1.0 ].</p>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>frequency</p>
@@ -240,7 +240,7 @@ A normalized phase is specified.</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><span class="pre">Union</span></a><span class="p"><span class="pre">[</span></span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.List" title="(in Python v3.10)"><span class="pre">List</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/filters/ComplexExponentialFilter.html#ComplexExponentialFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.filters.ComplexExponentialFilter.ComplexExponentialFilter.filter" title="Permalink to this definition"></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>x : Union[ List, numpy.ndarray ] - incident signal frequency relative to Nyquist in [ -1.0, 1.0 ).</p>
+<dt>Arguments :</dt><dd><p>x : Union[ List, numpy.ndarray ] - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
 </dd>
@@ -318,7 +318,7 @@ normalized frequency and rate of adaptation are specified.</p>
 <p>Complex frequency filter.</p>
 <p>Initialize.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
+<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
 rate : float - in [ 0.0, 1.0 ].</p>
 </dd>
 </dl>
@@ -340,7 +340,7 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#diamondback.filters.ComplexFrequencyFilter.ComplexFrequencyFilter.frequency" title="Permalink to this definition"></a></dt>
-<dd><p>float - relative to Nyquist in [ -1.0, 1.0 ].</p>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>frequency</p>
@@ -570,13 +570,13 @@ to ignore constraints.</p>
 coefficients.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>style : str - in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).
-frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-order : int.
-count : int.
-complement : bool.
-gain : float.
-b : Union[ List, numpy.ndarray ].
-s : Union[ List, numpy.ndarray ].</p>
+frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+order : int - order per instance.
+count : int - instances per cascade.
+complement : bool - complement response.
+gain : float - gain.
+b : Union[ List, numpy.ndarray ] - forward coefficient.
+s : Union[ List, numpy.ndarray ] - state.</p>
 </dd>
 </dl>
 <dl class="py property">
@@ -599,7 +599,7 @@ s : Union[ List, numpy.ndarray ].</p>
 count : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -636,7 +636,7 @@ operation at a specified incident signal condition.</p>
 count : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -727,7 +727,7 @@ resolution.</p>
 <p>Initialize.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>b : Union[ List, numpy.ndarray ] - forward coefficient.
-frequency : float - relative to Nyquist in [ -1.0, 1.0 ].</p>
+frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -745,7 +745,7 @@ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="diamondback.filters.GoertzelFilter.GoertzelFilter.frequency">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span><a class="headerlink" href="#diamondback.filters.GoertzelFilter.GoertzelFilter.frequency" title="Permalink to this definition"></a></dt>
-<dd><p>float - relative to Nyquist in [ -1.0, 1.0 ].</p>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>frequency</p>
@@ -854,12 +854,12 @@ may be explicitly defined to ignore constraints.</p>
 coefficients.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>style : str - in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).
-frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-order : int.
-count : int.
-complement : bool.
-gain : float.
-a : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
+frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+order : int - order per instance.
+count : int - instances per cascade.
+complement : bool - complement response.
+gain : float - gain.
+a : Union[ List, numpy.ndarray ] - recursive coefficient.
 b : Union[ List, numpy.ndarray ] - forward coefficient.
 s : Union[ List, numpy.ndarray ] - state.</p>
 </dd>
@@ -870,7 +870,7 @@ s : Union[ List, numpy.ndarray ] - state.</p>
 <dd><p>Evaluates coefficients.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>style : str - in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).
-frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
 order : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient.
@@ -899,7 +899,7 @@ b : numpy.ndarray - forward coefficient.</p>
 count : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -936,7 +936,7 @@ operation at a specified incident signal condition.</p>
 count : int.</p>
 </dd>
 <dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</p>
+f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 </dd>
 </dl>
 </dd></dl>

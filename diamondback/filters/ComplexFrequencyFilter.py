@@ -66,7 +66,7 @@ class ComplexFrequencyFilter( FirFilter ) :
     @property
     def frequency( self ) :
 
-        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
+        """ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
         """
 
         return self._frequency
@@ -99,7 +99,7 @@ class ComplexFrequencyFilter( FirFilter ) :
         """ Initialize.
 
             Arguments :
-                frequency : float - relative to Nyquist in [ -1.0, 1.0 ).
+                frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
                 rate : float - in [ 0.0, 1.0 ].
         """
 

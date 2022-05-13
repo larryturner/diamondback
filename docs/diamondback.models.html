@@ -253,12 +253,12 @@ regularize : float - regularize.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.learn">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianMixtureModel.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.learn" title="Permalink to this definition"></a></dt>
-<dd><p>Learns an incident signal with ground truth and estimates inverse
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - truth.</p>
+y : numpy.ndarray ( batch ) - label.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -271,8 +271,8 @@ y : numpy.ndarray ( batch ) - truth.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianMixtureModel.GaussianMixtureModel.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianMixtureModel.html#GaussianMixtureModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianMixtureModel.GaussianMixtureModel.predict" title="Permalink to this definition"></a></dt>
-<dd><p>Predicts an estimate of ground truth from an incident signal and
-maximizes posterior probability of weighted intra-class mixed
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
@@ -343,12 +343,12 @@ distribution instance per class.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.learn">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.10)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianModel.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.learn" title="Permalink to this definition"></a></dt>
-<dd><p>Learns an incident signal with ground truth and estimates inverse
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - truth.</p>
+y : numpy.ndarray ( batch ) - label.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -356,8 +356,8 @@ y : numpy.ndarray ( batch ) - truth.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diamondback.models.GaussianModel.GaussianModel.predict">
 <span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v1.22)"><span class="pre">numpy.ndarray</span></a></span></span><a class="reference internal" href="_modules/diamondback/models/GaussianModel.html#GaussianModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diamondback.models.GaussianModel.GaussianModel.predict" title="Permalink to this definition"></a></dt>
-<dd><p>Predicts an estimate of ground truth from an incident signal and
-maximizes posterior probability.</p>
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
 <dl class="simple">

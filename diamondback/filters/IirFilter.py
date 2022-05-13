@@ -126,12 +126,12 @@ class IirFilter( FirFilter ) :
 
             Arguments :
                 style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
-                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
-                order : int.
-                count : int.
-                complement : bool.
-                gain : float.
-                a : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
+                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+                order : int - order per instance.
+                count : int - instances per cascade.
+                complement : bool - complement response.
+                gain : float - gain.
+                a : Union[ List, numpy.ndarray ] - recursive coefficient.
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
                 s : Union[ List, numpy.ndarray ] - state.
         """
@@ -186,7 +186,7 @@ class IirFilter( FirFilter ) :
 
             Arguments :
                 style : str - in ( 'Bessel', 'Butterworth', 'Chebyshev' ).
-                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).
+                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
                 order : int.
 
             Returns :
@@ -228,7 +228,7 @@ class IirFilter( FirFilter ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :
@@ -293,7 +293,7 @@ class IirFilter( FirFilter ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( length <= 0 ) :

@@ -67,7 +67,7 @@ class GoertzelFilter( IirFilter ) :
     @property
     def frequency( self ) :
 
-        """ frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
+        """ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
         """
 
         return self._frequency
@@ -85,7 +85,7 @@ class GoertzelFilter( IirFilter ) :
 
             Arguments :
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
-                frequency : float - relative to Nyquist in [ -1.0, 1.0 ].
+                frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
         """
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :

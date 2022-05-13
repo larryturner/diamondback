@@ -72,7 +72,7 @@ class FourierTransform( object ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
         if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :

@@ -204,13 +204,13 @@
 
 <span class="sd">            Arguments :</span>
 <span class="sd">                style : str - in ( &#39;Blackman&#39;, &#39;Hamming&#39;, &#39;Hann&#39;, &#39;Kaiser&#39; ).</span>
-<span class="sd">                frequency : float - relative to Nyquist in ( 0.0, 1.0 ).</span>
-<span class="sd">                order : int.</span>
-<span class="sd">                count : int.</span>
-<span class="sd">                complement : bool.</span>
-<span class="sd">                gain : float.</span>
-<span class="sd">                b : Union[ List, numpy.ndarray ].</span>
-<span class="sd">                s : Union[ List, numpy.ndarray ].</span>
+<span class="sd">                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).</span>
+<span class="sd">                order : int - order per instance.</span>
+<span class="sd">                count : int - instances per cascade.</span>
+<span class="sd">                complement : bool - complement response.</span>
+<span class="sd">                gain : float - gain.</span>
+<span class="sd">                b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
+<span class="sd">                s : Union[ List, numpy.ndarray ] - state.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -270,7 +270,7 @@
 
 <span class="sd">            Returns :</span>
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
-<span class="sd">                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</span>
+<span class="sd">                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
@@ -331,7 +331,7 @@
 
 <span class="sd">            Returns :</span>
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
-<span class="sd">                f : numpy.ndarray - relative to Nyquist in [ -1.0, 1.0 ).</span>
+<span class="sd">                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
