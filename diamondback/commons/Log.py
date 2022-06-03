@@ -119,7 +119,7 @@ class Log( object ) :
                 raise ValueError( f'Stream = {stream}' )
             try :
                 logger.remove( Log._identity )
-            except Exception :
+            except ValueError :
                 pass
             Log._identity = logger.add( stream, level = 0, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
@@ -143,13 +143,10 @@ class Log( object ) :
             except Exception :
                 raise ValueError( f'Level = {level}' )
             if ( level.no >= Log._level.no ) :
-                try :
-                    if ( isinstance( entry, Exception ) ) :
-                        entry = f'Exception = {type( entry ).__name__} {entry}'
-                        info = sys.exc_info( )[ -1 ]
-                        while ( info ) :
-                            entry += f' @ File = {info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ]} Line = {info.tb_lineno}'
-                            info = info.tb_next
-                    logger.log( level.name, entry )
-                except Exception :
-                    pass
+                if ( isinstance( entry, Exception ) ) :
+                    entry = f'Exception = {type( entry ).__name__} {entry}'
+                    info = sys.exc_info( )[ -1 ]
+                    while ( info ) :
+                        entry += f' @ File = {info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ]} Line = {info.tb_lineno}'
+                        info = info.tb_next
+                logger.log( level.name, entry )

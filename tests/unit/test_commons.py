@@ -19,6 +19,7 @@ from diamondback import IirFilter
 from diamondback import Log, RestClient, Serial
 import io
 import numpy
+import pytest
 import sys
 
 class Test( object ) :
@@ -70,11 +71,8 @@ class Test( object ) :
             y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )
             assert ( ( numpy.allclose( x.a, y.a ) ) and ( numpy.allclose( x.b, y.b ) ) and ( numpy.allclose( x.s, y.s ) ) )
             assert Serial.code( Serial.encode( x, compress = False ) ) == Serial.code( Serial.encode( y, compress = False ) )
-            try :
+            with pytest.raises( ValueError ) :
                 Serial.decode( Serial.encode( x, bool( ii ) ), not ii )
-                assert False
-            except Exception :
-                pass
         x = dict( x = numpy.random.rand( 30, 50 ), y = numpy.random.rand( 50, 30 ) )
         for ii in range( 0, 2 ) :
             y = Serial.decode( Serial.encode( x, ii != 0 ), ii != 0 )

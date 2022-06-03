@@ -107,11 +107,8 @@ def push( session ) -> None :
         status( session )
         value = input( '[ ' + repository + ' ] message : ' )
         if ( value ) :
-            try :
-                if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
-                    session.run( 'git', 'push', 'origin', 'master' )
-            except Exception :
-                pass
+            if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
+                session.run( 'git', 'push', 'origin', 'master' )
         try :
             url = 'https://github.schneider-electric.com'
             requests.request( method = 'head', url = url, timeout = 2 )
@@ -142,10 +139,7 @@ def tag( session ) -> None :
         value = input( '[ ' + repository + ' ] annotate : ' )
         if ( value ) :
             session.run( 'git', 'tag', '--annotate', value, '--force', '--message', '.' )
-            try :
-                session.run( 'git', 'push', '--force', '--tags' )
-            except Exception :
-                pass
+            session.run( 'git', 'push', '--force', '--tags' )
 
 @nox.session( venv_backend = 'none' )
 def tests( session ) -> None :
