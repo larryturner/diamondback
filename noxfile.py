@@ -160,19 +160,10 @@ def tests( session ) -> None :
                     session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
                 except Exception :
                     pass
-                try :
-                    session.run( 'docker', 'compose', 'up', '--detach' )
-                    time.sleep( 10.0 )
-                except Exception :
-                    pass
-            try :
-                session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
-                session.run( 'pytest', '--capture=no', '--verbose' )
-                shutil.rmtree( '.pytest_cache', ignore_errors = True )
-            except Exception :
-                pass
+                session.run( 'docker', 'compose', 'up', '--detach' )
+                time.sleep( 10.0 )
+            session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
+            session.run( 'pytest', '--capture=no', '--verbose' )
+            shutil.rmtree( '.pytest_cache', ignore_errors = True )
             if ( os.path.exists( 'docker-compose.yml' ) ) :
-                try :
-                    session.run( 'docker', 'compose', 'down' )
-                except Exception :
-                    pass
+                session.run( 'docker', 'compose', 'down' )
