@@ -96,7 +96,7 @@ class Log( object ) :
         """ Level.
 
             Arguments :
-                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
+                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', < custom > ).
         """
 
         with ( Log._rlock ) :
@@ -131,7 +131,7 @@ class Log( object ) :
             datetime and level.
 
             Arguments :
-                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', ... < custom > ).
+                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', < custom > ).
                 entry : Union[ str, Exception ].
         """
 
