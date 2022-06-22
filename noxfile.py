@@ -75,7 +75,7 @@ def image( session ) -> None :
             session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
         except Exception :
             pass
-        session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'FEED_LOGIN', '--build-arg', 'FEED_PASSWORD', '.' )
+        session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
 
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
