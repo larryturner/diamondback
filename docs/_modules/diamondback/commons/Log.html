@@ -13,6 +13,7 @@
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/jquery.js"></script>
         <script src="../../../_static/underscore.js"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -159,7 +160,7 @@
         <span class="sd">&quot;&quot;&quot; Level.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, ... &lt; custom &gt; ).</span>
+<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, &lt; custom &gt; ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
@@ -182,7 +183,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
-            <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="p">:</span>
                 <span class="k">pass</span>
             <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;blue&gt;{time:YYYY-MM-DDTHH:mm:ss.SSZ}&lt;/blue&gt; &lt;level&gt;</span><span class="si">{level}</span><span class="s1">&lt;/level&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
 
@@ -194,7 +195,7 @@
 <span class="sd">            datetime and level.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, ... &lt; custom &gt; ).</span>
+<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, &lt; custom &gt; ).</span>
 <span class="sd">                entry : Union[ str, Exception ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -206,16 +207,13 @@
             <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">no</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span><span class="o">.</span><span class="n">no</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">try</span> <span class="p">:</span>
-                    <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                        <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Exception = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s1">&#39;</span>
-                        <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
-                        <span class="k">while</span> <span class="p">(</span> <span class="n">info</span> <span class="p">)</span> <span class="p">:</span>
-                            <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="si">}</span><span class="s1"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s1">&#39;</span>
-                            <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
-                    <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span> <span class="p">)</span>
-                <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
-                    <span class="k">pass</span></div></div>
+                <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Exception = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span> <span class="n">entry</span> <span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
+                    <span class="k">while</span> <span class="p">(</span> <span class="n">info</span> <span class="p">)</span> <span class="p">:</span>
+                        <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span><span class="si">}</span><span class="s1"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s1">&#39;</span>
+                        <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span> <span class="p">)</span></div></div>
 </pre></div>
 
            </div>

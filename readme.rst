@@ -30,23 +30,23 @@ appropriate.
 Diamondback is defined in subpackages commons, filters, models, and
 transforms.
 
-`commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+`commons <docs/diamondback.commons.html>`_
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `Log <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Log>`_
+-   `Log <docs/diamondback.commons.html#module-diamondback.commons.Log>`_
     singleton instance which formats and writes log entries with a specified
     level and stream using the loguru package. Log entries contain an ISO-8601
     datetime and level.  Log uses lazy initialization to coexist with loguru.
     Dynamic stream redirection and level specification are supported.
 
--   `RestClient <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.RestClient>`_
+-   `RestClient <docs/diamondback.commons.html#module-diamondback.commons.RestClient>`_
     instances define a client for simple REST service requests using the
     requests package.  An API and an elective dictionary of parameter strings
     are encoded to build a URL, elective binary or JSON data are defined in the
     body of a request, and a requests response containing JSON, text, or binary
     data is returned.  Proxy, timeout, and URL definition are supported.
 
--   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#module-diamondback.commons.Serial>`_
+-   `Serial <docs/diamondback.commons.html#module-diamondback.commons.Serial>`_
     singleton instance which encodes and decodes an instance or collection in
     BSON or JSON, and generates SHA3-256 codes, using the jsonpickle package.
     An instance may be an object or a collection, referenced by abstract or
