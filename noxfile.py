@@ -6,10 +6,10 @@
         ::
         
             nox --list
-            nox --sessions build clean docs image notebook push status tag tests
+            nox --sessions build clean docs image login notebook push status tag tests
     
     **License**
-        © 2020 - 2022 Schneider Electric Industries SAS. All rights reserved.
+        © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
@@ -32,7 +32,7 @@ def build( session ) -> None :
     """ Build distribution.
     """
 
-    if ( os.path.exists( 'setup.py' ) ) :
+    if ( os.path.isfile( 'setup.py' ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', '-m', 'build', '-s', '-w' )
         shutil.rmtree( 'build', ignore_errors = True )
@@ -55,7 +55,7 @@ def docs( session ) -> None :
     """ Build documentation.
     """
 
-    if ( os.path.exists( 'sphinx' ) ) :
+    if ( os.path.isdir( 'sphinx' ) ) :
         shutil.rmtree( 'docs', ignore_errors = True )
         os.makedirs( 'docs' )
         session.run( 'sphinx-apidoc', '--force', '--output', f'.{os.path.sep}sphinx', '.', 'tests' )
@@ -69,13 +69,22 @@ def image( session ) -> None :
     """ Build image.
     """
 
-    if ( os.path.exists( 'dockerfile' ) ) :
+    if ( os.path.isfile( 'dockerfile' ) ) :
         build( session )
+        login( session )
+        session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
+
+@nox.session( venv_backend = 'none' )
+def login( session ) -> None :
+
+    """ Login.
+    """
+
+    if ( os.path.isfile( 'dockerfile' ) ) :
         try :
             session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
         except Exception :
             pass
-        session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
 
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
@@ -83,7 +92,7 @@ def notebook( session ) -> None :
     """ Run jupyter notebook.
     """
 
-    if ( os.path.exists( 'jupyter' ) ) :
+    if ( os.path.isdir( 'jupyter' ) ) :
         os.chdir( 'jupyter' )
         value = [ x for x in glob.glob( '*.ipynb', recursive = True ) ]
         if ( value ) :
@@ -95,14 +104,14 @@ def push( session ) -> None :
     """ Push repository.
     """
 
-    if ( os.path.exists( '.git' ) ) :
+    if ( os.path.isdir( '.git' ) ) :
         package = repository.split( '-' )
         package = package[ max( len( package ) - 2, 0 ) ]
-        if ( os.path.exists( package ) ) :
+        if ( os.path.isdir( package ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}{package}{os.path.sep}*' )
-        if ( os.path.exists( 'service' ) ) :
+        if ( os.path.isdir( 'service' ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}service{os.path.sep}*' )
-        if ( os.path.exists( 'tests' ) ) :
+        if ( os.path.isdir( 'tests' ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}tests{os.path.sep}*' )
         status( session )
         value = input( '[ ' + repository + ' ] message : ' )
@@ -124,7 +133,7 @@ def status( session ) -> None :
     """ Check status.
     """
 
-    if ( os.path.exists( '.git' ) ) :
+    if ( os.path.isdir( '.git' ) ) :
         print( '[ ' + repository + ' ]' )
         session.run( 'git', 'status', '--short' )
 
@@ -134,7 +143,7 @@ def tag( session ) -> None :
     """ Push tag.
     """
 
-    if ( os.path.exists( '.git' ) ) :
+    if ( os.path.isdir( '.git' ) ) :
         session.run( 'git', 'tag', '--list' )
         value = input( '[ ' + repository + ' ] annotate : ' )
         if ( value ) :
@@ -147,17 +156,14 @@ def tests( session ) -> None :
     """ Run tests.
     """
 
-    if ( os.path.exists( 'tests' ) ) :
+    if ( os.path.isdir( 'tests' ) ) :
         if ( os.listdir( 'tests' ) ) :
-            if ( os.path.exists( 'docker-compose.yml' ) ) :
-                try :
-                    session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
-                except Exception :
-                    pass
+            if ( os.path.isfile( 'docker-compose.yml' ) ) :
+                login( session )
                 session.run( 'docker', 'compose', 'up', '--detach' )
                 time.sleep( 10.0 )
             session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
             session.run( 'pytest', '--capture=no', '--verbose' )
             shutil.rmtree( '.pytest_cache', ignore_errors = True )
-            if ( os.path.exists( 'docker-compose.yml' ) ) :
+            if ( os.path.isfile( 'docker-compose.yml' ) ) :
                 session.run( 'docker', 'compose', 'down' )
