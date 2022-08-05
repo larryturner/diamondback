@@ -164,7 +164,7 @@ def tests( session ) -> None :
                     session.run( 'docker', 'compose', 'up', '--detach' )
                     time.sleep( 10.0 )
                 session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
-                session.run( 'pytest', '--capture=no', '--verbose' )
+                session.run( 'pytest', '--capture=no', '--verbose', '-s' )
                 shutil.rmtree( '.pytest_cache', ignore_errors = True )
             finally :
                 if ( os.path.isfile( 'docker-compose.yml' ) ) :
