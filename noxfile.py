@@ -158,12 +158,14 @@ def tests( session ) -> None :
 
     if ( os.path.isdir( 'tests' ) ) :
         if ( os.listdir( 'tests' ) ) :
-            if ( os.path.isfile( 'docker-compose.yml' ) ) :
-                login( session )
-                session.run( 'docker', 'compose', 'up', '--detach' )
-                time.sleep( 10.0 )
-            session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
-            session.run( 'pytest', '--capture=no', '--verbose' )
-            shutil.rmtree( '.pytest_cache', ignore_errors = True )
-            if ( os.path.isfile( 'docker-compose.yml' ) ) :
-                session.run( 'docker', 'compose', 'down' )
+            try :
+                if ( os.path.isfile( 'docker-compose.yml' ) ) :
+                    login( session )
+                    session.run( 'docker', 'compose', 'up', '--detach' )
+                    time.sleep( 10.0 )
+                session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
+                session.run( 'pytest', '--capture=no', '--verbose' )
+                shutil.rmtree( '.pytest_cache', ignore_errors = True )
+            finally :
+                if ( os.path.isfile( 'docker-compose.yml' ) ) :
+                    session.run( 'docker', 'compose', 'down' )
