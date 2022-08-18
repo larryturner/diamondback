@@ -9,6 +9,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
-from .DiversityModel import DiversityModel  # noqa: F401
-from .GaussianModel import GaussianModel  # noqa: F401
-from .GaussianMixtureModel import GaussianMixtureModel  # noqa: F401
+from .DiversityModel import DiversityModel
+from .GaussianModel import GaussianModel
+from .GaussianMixtureModel import GaussianMixtureModel
+
+__all__ = [ 'DiversityModel', 'GaussianModel', 'GaussianMixtureModel' ]

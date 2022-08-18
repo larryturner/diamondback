@@ -9,29 +9,19 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
-from .commons import Log  # noqa: F401
-from .commons import RestClient  # noqa: F401
-from .commons import Serial  # noqa: F401
-from .filters import FirFilter  # noqa: F401
-from .filters import IirFilter  # noqa: F401
-from .filters import ComplexBandPassFilter  # noqa: F401
-from .filters import ComplexExponentialFilter  # noqa: F401
-from .filters import ComplexFrequencyFilter  # noqa: F401
-from .filters import DerivativeFilter  # noqa: F401
-from .filters import GoertzelFilter  # noqa: F401
-from .filters import IntegralFilter  # noqa: F401
-from .filters import PidFilter  # noqa: F401
-from .filters import PolynomialRateFilter  # noqa: F401
-from .filters import PolyphaseRateFilter  # noqa: F401
-from .filters import RankFilter  # noqa: F401
-from .filters import WindowFilter  # noqa: F401
-from .models import DiversityModel  # noqa: F401
-from .models import GaussianModel # noqa: F401
-from .models import GaussianMixtureModel # noqa: F401
-from .transforms import ComplexTransform  # noqa: F401
-from .transforms import FourierTransform  # noqa: F401
-from .transforms import PowerSpectrumTransform  # noqa: F401
-from .transforms import WaveletTransform  # noqa: F401
-from .transforms import ZTransform  # noqa: F401
+from .commons import Log, RestClient, Serial
+from .filters import FirFilter, IirFilter, ComplexBandPassFilter, ComplexExponentialFilter
+from .filters import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, IntegralFilter
+from .filters import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
+from .filters import WindowFilter
+from .models import DiversityModel, GaussianModel, GaussianMixtureModel
+from .transforms import ComplexTransform, FourierTransform, PowerSpectrumTransform, WaveletTransform
+from .transforms import ZTransform
 
+__all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
+            'IirFilter', 'ComplexBandPassFilter', 'ComplexExponentialFilter', 'ComplexFrequencyFilter',
+            'DerivativeFilter', 'GoertzelFilter', 'IntegralFilter', 'PidFilter',
+            'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
+            'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
+            'FourierTransform', 'PowerSpectrumTransform', 'WaveletTransform', 'ZTransform' ]
 __version__ = '4.0.2'

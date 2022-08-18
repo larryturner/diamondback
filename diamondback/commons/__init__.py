@@ -9,6 +9,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
-from .Log import Log  # noqa: F401
-from .RestClient import RestClient  # noqa: F401
-from .Serial import Serial  # noqa: F401
+from .Log import Log
+from .RestClient import RestClient
+from .Serial import Serial
+
+__all__ = [ 'Log', 'RestClient', 'Serial' ]
