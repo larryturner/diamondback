@@ -18,13 +18,14 @@
 import glob
 import nox
 import os
+import pathlib
 import requests
 import shutil
 import time
 
 nox.options.sessions = [ 'build', 'docs', 'tests', 'push' ]
 
-repository = os.getcwd( ).split( os.path.sep )[ -1 ]
+repository = pathlib.Path.cwd( ).name
 
 @nox.session( venv_backend = 'none' )
 def build( session ) -> None :
@@ -32,11 +33,11 @@ def build( session ) -> None :
     """ Build distribution.
     """
 
-    if ( os.path.isfile( 'setup.py' ) ) :
+    if ( pathlib.Path( 'setup.py' ).is_file( ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', '-m', 'build', '-s', '-w' )
         shutil.rmtree( 'build', ignore_errors = True )
-        session.run( 'git', 'add', f'.{os.path.sep}dist{os.path.sep}*' )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'dist' / '*' ) )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -46,7 +47,7 @@ def clean( session ) -> None :
 
     for x in ( '.mypy_cache', '.nox', '.pytest_cache', 'build', 'dist', 'docs' ) :
         shutil.rmtree( x, ignore_errors = True )
-    for x in [ x for x in glob.glob( f'**{os.path.sep}', recursive = True ) if ( '__pycache__' in x ) ] :
+    for x in [ x for x in glob.glob( f'**{str( pathlib.Path( "/" ) )}', recursive = True ) if ( '__pycache__' in x ) ] :
         shutil.rmtree( x, ignore_errors = True )
 
 @nox.session( venv_backend = 'none' )
@@ -55,13 +56,13 @@ def docs( session ) -> None :
     """ Build documentation.
     """
 
-    if ( os.path.isdir( 'sphinx' ) ) :
+    if ( pathlib.Path( 'sphinx' ).is_dir( ) ) :
         shutil.rmtree( 'docs', ignore_errors = True )
-        os.makedirs( 'docs' )
-        session.run( 'sphinx-apidoc', '--force', '--output', f'.{os.path.sep}sphinx', '.', 'tests' )
-        session.run( 'sphinx-build', f'.{os.path.sep}sphinx', f'.{os.path.sep}docs' )
-        session.run( 'git', 'add', f'.{os.path.sep}docs{os.path.sep}*' )
-        session.run( 'git', 'add', f'.{os.path.sep}sphinx{os.path.sep}*' )
+        ( pathlib.Path.cwd( ) / 'docs' ).mkdir( )
+        session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'sphinx' ), '.', 'tests' )
+        session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'sphinx' ), str( pathlib.Path.cwd( ) / 'docs' ) )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ) )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'sphinx' / '*' ) )
 
 @nox.session( venv_backend = 'none' )
 def image( session ) -> None :
@@ -69,7 +70,7 @@ def image( session ) -> None :
     """ Build image.
     """
 
-    if ( os.path.isfile( 'dockerfile' ) ) :
+    if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         build( session )
         login( session )
         session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
@@ -80,7 +81,7 @@ def login( session ) -> None :
     """ Login.
     """
 
-    if ( os.path.isfile( 'dockerfile' ) ) :
+    if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         try :
             session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
         except Exception :
@@ -92,7 +93,7 @@ def notebook( session ) -> None :
     """ Run jupyter notebook.
     """
 
-    if ( os.path.isdir( 'jupyter' ) ) :
+    if ( pathlib.Path( 'jupyter' ).is_dir( ) ) :
         os.chdir( 'jupyter' )
         value = [ x for x in glob.glob( '*.ipynb', recursive = True ) ]
         if ( value ) :
@@ -104,14 +105,14 @@ def push( session ) -> None :
     """ Push repository.
     """
 
-    if ( os.path.isdir( '.git' ) ) :
+    if ( pathlib.Path( '.git' ).is_dir( ) ) :
         package = repository.split( '-' )
         package = package[ max( len( package ) - 2, 0 ) ]
-        if ( os.path.isdir( package ) ) :
+        if ( pathlib.Path( package ).is_dir( ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}{package}{os.path.sep}*' )
-        if ( os.path.isdir( 'service' ) ) :
+        if ( pathlib.Path( 'service' ).is_dir( ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}service{os.path.sep}*' )
-        if ( os.path.isdir( 'tests' ) ) :
+        if ( pathlib.Path( 'tests' ).is_dir( ) ) :
             session.run( 'git', 'add', f'.{os.path.sep}tests{os.path.sep}*' )
         status( session )
         value = input( '[ ' + repository + ' ] message : ' )
@@ -133,7 +134,7 @@ def status( session ) -> None :
     """ Check status.
     """
 
-    if ( os.path.isdir( '.git' ) ) :
+    if ( pathlib.Path( '.git' ).is_dir( ) ) :
         print( '[ ' + repository + ' ]' )
         session.run( 'git', 'status', '--short' )
 
@@ -143,7 +144,7 @@ def tag( session ) -> None :
     """ Push tag.
     """
 
-    if ( os.path.isdir( '.git' ) ) :
+    if ( pathlib.Path( '.git' ).is_dir( ) ) :
         session.run( 'git', 'tag', '--list' )
         value = input( '[ ' + repository + ' ] annotate : ' )
         if ( value ) :
@@ -156,10 +157,10 @@ def tests( session ) -> None :
     """ Run tests.
     """
 
-    if ( os.path.isdir( 'tests' ) ) :
-        if ( os.listdir( 'tests' ) ) :
+    if ( pathlib.Path( 'tests' ).is_dir( ) ) :
+        if ( [ u for u in pathlib.Path( 'tests' ).iterdir( ) ] ) :
             try :
-                if ( os.path.isfile( 'docker-compose.yml' ) ) :
+                if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
                     login( session )
                     session.run( 'docker', 'compose', 'up', '--detach' )
                     time.sleep( 10.0 )
@@ -167,5 +168,5 @@ def tests( session ) -> None :
                 session.run( 'pytest', '--capture=no', '--verbose', '-s' )
                 shutil.rmtree( '.pytest_cache', ignore_errors = True )
             finally :
-                if ( os.path.isfile( 'docker-compose.yml' ) ) :
+                if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
                     session.run( 'docker', 'compose', 'down' )
