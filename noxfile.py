@@ -109,11 +109,11 @@ def push( session ) -> None :
         package = repository.split( '-' )
         package = package[ max( len( package ) - 2, 0 ) ]
         if ( pathlib.Path( package ).is_dir( ) ) :
-            session.run( 'git', 'add', f'.{os.path.sep}{package}{os.path.sep}*' )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / package / '*' ) )
         if ( pathlib.Path( 'service' ).is_dir( ) ) :
-            session.run( 'git', 'add', f'.{os.path.sep}service{os.path.sep}*' )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'service' / '*' ) )
         if ( pathlib.Path( 'tests' ).is_dir( ) ) :
-            session.run( 'git', 'add', f'.{os.path.sep}tests{os.path.sep}*' )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'tests' / '*' ) )
         status( session )
         value = input( '[ ' + repository + ' ] message : ' )
         if ( value ) :
