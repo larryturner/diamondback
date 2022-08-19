@@ -234,10 +234,6 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 
     or
 
-    pip install diamondback[ full ]
-
-    or
-
     pip install git+https://github.com/larryturner/diamondback.git
 
 Demonstration
