@@ -1,3 +1,9 @@
+4.0.3 - 2022-08-18
+^^^^^^^^^^^^^^^^^^
+-   Modified documentation.
+-   Modified nox.
+-   Modified setup.
+
 4.0.2 - 2022-04-07
 ^^^^^^^^^^^^^^^^^^
 -   Modified documentation.

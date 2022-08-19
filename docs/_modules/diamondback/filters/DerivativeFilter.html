@@ -147,7 +147,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="DerivativeFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.DerivativeFilter.DerivativeFilter">[docs]</a><span class="k">class</span> <span class="nc">DerivativeFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="DerivativeFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.DerivativeFilter">[docs]</a><span class="k">class</span> <span class="nc">DerivativeFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Derivative filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -178,7 +178,7 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="o">.</span><span class="n">__b</span><span class="p">[</span> <span class="n">derivative</span> <span class="p">][</span> <span class="n">order</span> <span class="p">]</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="DerivativeFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.DerivativeFilter.DerivativeFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="DerivativeFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.DerivativeFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 

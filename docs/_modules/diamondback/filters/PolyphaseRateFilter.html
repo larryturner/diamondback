@@ -141,7 +141,7 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="PolyphaseRateFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter">[docs]</a><span class="k">class</span> <span class="nc">PolyphaseRateFilter</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolyphaseRateFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolyphaseRateFilter">[docs]</a><span class="k">class</span> <span class="nc">PolyphaseRateFilter</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Polyphase rate filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -208,7 +208,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="n">cc</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
 
-<div class="viewcode-block" id="PolyphaseRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolyphaseRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolyphaseRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
@@ -241,7 +241,7 @@
                 <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">y</span><span class="p">[</span> <span class="mi">0</span> <span class="p">:</span> <span class="nb">min</span><span class="p">(</span> <span class="n">jj</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">]</span></div>
 
-<div class="viewcode-block" id="PolyphaseRateFilter.reset"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.filters.PolyphaseRateFilter.PolyphaseRateFilter.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolyphaseRateFilter.reset"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolyphaseRateFilter.reset">[docs]</a>    <span class="k">def</span> <span class="nf">reset</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Modifies a state to minimize edge effects by assuming persistent</span>
 <span class="sd">            operation at a specified incident signal condition.</span>

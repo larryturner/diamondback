@@ -115,12 +115,12 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="FourierTransform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.transforms.FourierTransform.FourierTransform">[docs]</a><span class="k">class</span> <span class="nc">FourierTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="FourierTransform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.FourierTransform">[docs]</a><span class="k">class</span> <span class="nc">FourierTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
     <span class="sd">&quot;&quot;&quot; Fourier transform.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="FourierTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.transforms.FourierTransform.FourierTransform.transform">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="FourierTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.FourierTransform.transform">[docs]</a>    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">inverse</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
         <span class="sd">&quot;&quot;&quot; Transforms a real or complex discrete-time incident signal to a</span>
