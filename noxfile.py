@@ -59,7 +59,12 @@ def docs( session ) -> None :
     if ( pathlib.Path( 'sphinx' ).is_dir( ) ) :
         shutil.rmtree( 'docs', ignore_errors = True )
         ( pathlib.Path.cwd( ) / 'docs' ).mkdir( )
-        # session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'sphinx' ), '.', 'tests' )
+        session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'sphinx' ), '.', 'tests' )
+        for x in glob.glob( str( pathlib.Path.cwd( ) / 'sphinx' / '*.rst' ) ) :
+            with open( x, 'r' ) as fin :
+                y = fin.read( ).replace( '   :members:', '   :members:\n   :noindex:' )
+            with open( x, 'w' ) as fout :
+                fout.write( y )
         session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'sphinx' ), str( pathlib.Path.cwd( ) / 'docs' ) )
         session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ) )
         session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'sphinx' / '*' ) )
