@@ -8,18 +8,13 @@
         Larry Turner, Schneider Electric, AI Hub, 2019-03-22.
 """
 
-import os
-import sys
-
-# Path.
-
-sys.path.insert( 0, os.path.abspath( '..' ) )
+import pathlib
 
 # Project.
 
 author = 'Larry Turner'
 copyright = '© 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.'
-project = os.getcwd( ).split( os.path.sep )[ -2 ]
+project = pathlib.Path.cwd( ).parent.name
 title = 'Diamondback DSP'
 
 # Extensions.
