@@ -194,8 +194,6 @@ Diamondback depends upon external packages :
 
 -   `numpy <https://github.com/numpy/numpy>`_
 
--   `pandas <https://github.com/pandas-dev/pandas>`_
-
 -   `requests <https://github.com/psf/requests>`_
 
 -   `scikit-learn <https://github.com/scikit-learn/scikit-learn>`_
