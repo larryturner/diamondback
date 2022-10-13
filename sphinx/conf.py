@@ -35,7 +35,6 @@ exclude_patterns = [ 'build', 'tests' ]
 html_theme = 'sphinx_rtd_theme'
 html_title = title
 intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable', None ),
-                            pandas = ( 'https://pandas.pydata.org/docs', None ),
                             python = ( 'https://docs.python.org/3', None ),
                             request = ( 'https://requests.readthedocs.io/en/latest', None ),
                             sklearn = ( 'https://scikit-learn.org/stable', None ) )
