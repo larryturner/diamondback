@@ -15,6 +15,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -108,8 +109,8 @@
 
 <span class="sd">        A polyphase rate filter may be the most appropriate option in</span>
 <span class="sd">        applications which require fractional decimation and interpolation and</span>
-<span class="sd">        are not highly sensitive to minimization of edge effects or have</span>
-<span class="sd">        continuous operation.</span>
+<span class="sd">        are not highly sensitive to minimization of edge effects or latency due</span>
+<span class="sd">        to continuous operation.</span>
 
 <span class="sd">    **Example**</span>
 <span class="sd">       </span>
@@ -168,7 +169,7 @@
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span><span class="si">}</span><span class="s1"> ]&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">rate</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -195,7 +196,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&gt;</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span><span class="si">}</span><span class="s1"> ]&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">__b</span>
         <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>

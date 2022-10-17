@@ -186,9 +186,9 @@ class WaveletTransform( object ) :
         """
 
         if ( style not in WaveletTransform.__b ) :
-            raise ValueError( f'style = {style}' )
+            raise ValueError( f'style = {style} Expected Style in {tuple( WaveletTransform.__b.keys( ) )}' )
         if ( order not in WaveletTransform.__b[ style ] ) :
-            raise ValueError( f'Order = {order}' )
+            raise ValueError( f'Order = {order} Expected Order in {tuple( WaveletTransform.__b[ style ].keys( ) )}' )
         super( ).__init__( )
         b = WaveletTransform.__b[ style ][ order ]
         n = len( b ) - 1
@@ -227,10 +227,10 @@ class WaveletTransform( object ) :
             raise ValueError( f'X = {x}' )
         v = numpy.array( x ) if ( len( x.shape ) == 2 ) else numpy.array( [ x ] )
         rows, cols = v.shape
-        if ( count <= 0 ) :
-            raise ValueError( f'Count = {count}' )
+        if ( count < 1 ) :
+            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
         if ( ( ( rows != 1 ) and ( rows % ( 2 ** count ) ) ) or ( ( cols != 1 ) and ( cols % ( 2 ** count ) ) ) ) :
-            raise ValueError( f'Rows = {rows} Columns = {cols}' )
+            raise ValueError( f'Rows = {rows} Columns = {cols} Expected Rows % {2 ** count} and Columns % {2 ** count}' )
         rr = max( ( rows // ( 2 ** count ) ) * ( 2 ** count ), 1 )
         cc = max( ( cols // ( 2 ** count ) ) * ( 2 ** count ), 1 )
         y = numpy.array( v )

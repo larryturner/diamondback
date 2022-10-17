@@ -56,18 +56,26 @@ def docs( session ) -> None :
     """ Build documentation.
     """
 
-    if ( pathlib.Path( 'sphinx' ).is_dir( ) ) :
+    if ( pathlib.Path( 'templates' ).is_dir( ) ) :
         shutil.rmtree( 'docs', ignore_errors = True )
         ( pathlib.Path.cwd( ) / 'docs' ).mkdir( )
-        session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'sphinx' ), '.', 'tests' )
-        for x in glob.glob( str( pathlib.Path.cwd( ) / 'sphinx' / '*.rst' ) ) :
+        session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'templates' ), '.', 'tests' )
+        for x in glob.glob( str( pathlib.Path.cwd( ) / 'templates' / '*.rst' ) ) :
             with open( x, 'r' ) as fin :
                 y = fin.read( ).replace( '   :members:', '   :members:\n   :noindex:' )
             with open( x, 'w' ) as fout :
                 fout.write( y )
-        session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'sphinx' ), str( pathlib.Path.cwd( ) / 'docs' ) )
+        for x in glob.glob( str( pathlib.Path.cwd( ) / 'templates' / 'modules.rst' ) ) :
+            with open( x, 'r' ) as fin :
+                y = fin.read( ).replace( 'noxfile', '' ).replace( 'setup', '' )
+            with open( x, 'w' ) as fout :
+                fout.write( y )
+        for x in ( 'noxfile.rst', 'setup.rst' ) :
+            if ( ( pathlib.Path.cwd( ) / 'templates' / x ).is_file( ) ) :
+                os.remove( str( pathlib.Path.cwd( ) / 'templates' / x ) )
+        session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'templates' ), str( pathlib.Path.cwd( ) / 'docs' ) )
         session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ) )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'sphinx' / '*' ) )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'templates' / '*' ) )
 
 @nox.session( venv_backend = 'none' )
 def image( session ) -> None :
@@ -95,11 +103,11 @@ def login( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
 
-    """ Run jupyter notebook.
+    """ Run notebook.
     """
 
-    if ( pathlib.Path( 'jupyter' ).is_dir( ) ) :
-        os.chdir( 'jupyter' )
+    if ( pathlib.Path( 'notebooks' ).is_dir( ) ) :
+        os.chdir( 'notebooks' )
         value = [ x for x in glob.glob( '*.ipynb', recursive = True ) ]
         if ( value ) :
             session.run( 'jupyter', 'notebook', value[ 0 ] )

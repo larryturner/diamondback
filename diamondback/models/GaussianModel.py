@@ -43,7 +43,7 @@ class GaussianModel( object ) :
     @regularize.setter
     def regularize( self, regularize : float ) :
         if ( regularize < 0.0 ) :
-            raise ValueError( f'Regularize = {regularize} Expected Regularize >= 0.0' )
+            raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._regularize = regularize
 
     @property
@@ -59,7 +59,7 @@ class GaussianModel( object ) :
         """
 
         if ( regularize < 0.0 ) :
-            raise ValueError( f'Regularize = {regularize} Expected Regularize >= 0.0' )
+            raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._data = [ ]
         self._regularize = regularize
         self._shape = ( )

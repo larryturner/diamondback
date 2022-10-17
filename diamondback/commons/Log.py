@@ -103,7 +103,7 @@ class Log( object ) :
             try :
                 Log._level = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level}' )
+                raise ValueError( f'Level = {level} Expected Level in ( "CRITICAL", "ERROR"", "WARNING", "SUCCESS", "INFO", "DEBUG", "TRACE", < custom > )' )
 
     @classmethod
     def stream( cls, stream : Any ) -> None :
@@ -141,7 +141,7 @@ class Log( object ) :
             try :
                 level = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level}' )
+                raise ValueError( f'Level = {level} Expected Level in ( "CRITICAL", "ERROR"", "WARNING", "SUCCESS", "INFO", "DEBUG", "TRACE", < custom > )' )
             if ( level.no >= Log._level.no ) :
                 if ( isinstance( entry, Exception ) ) :
                     entry = f'Exception = {type( entry ).__name__} {entry}'

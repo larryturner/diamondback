@@ -59,7 +59,7 @@ class RankFilter( FirFilter ) :
     def index( self, index : int ) :
 
         if ( ( index < 0 ) or ( index > ( len( self.s ) - 1 ) ) ) :
-            raise ValueError( f'Index = {index}' )
+            raise ValueError( f'Index = {index} Expected Index in [ 0, {len( self.s ) - 1} ]' )
         self._index = index
 
     def __init__( self, index : int, order : int ) -> None :
@@ -72,7 +72,7 @@ class RankFilter( FirFilter ) :
         """
 
         if ( ( index < 0 ) or ( index > order ) ) :
-            raise ValueError( f'Index = {index} Order = {order}' )
+            raise ValueError( f'Index = {index} Order = {order} Expected Index in [ 0, {order} ]' )
         super( ).__init__( b = numpy.ones( order + 1 ) / ( order + 1 ) )
         self._index = index
 

@@ -89,7 +89,7 @@ class IntegralFilter( IirFilter ) :
         """
 
         if ( ( order < 0 ) or ( order >= len( IntegralFilter.__b ) ) ) :
-            raise ValueError( f'Order = {order}' )
+            raise ValueError( f'Order = {order} Expected Order in [ 0, {len( IntegralFilter.__b )} )' )
         super( ).__init__( a = numpy.array( [ 0.0, 1.0 ] ), b = IntegralFilter.__b[ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :

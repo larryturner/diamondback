@@ -15,6 +15,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -109,8 +110,8 @@
 
     <span class="nd">@index</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">index</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">index</span> <span class="p">)</span> <span class="p">:</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1"> Expected Index &gt; 0&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1"> Expected Index in [ 1, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
 
     <span class="nd">@property</span>
@@ -124,7 +125,7 @@
     <span class="nd">@regularize</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">regularize</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">regularize</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">regularize</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Regularize = </span><span class="si">{</span><span class="n">regularize</span><span class="si">}</span><span class="s1"> Expected Regularize &gt;= 0.0&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Regularize = </span><span class="si">{</span><span class="n">regularize</span><span class="si">}</span><span class="s1"> Expected Regularize in [ 0.0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_regularize</span> <span class="o">=</span> <span class="n">regularize</span>
 
     <span class="nd">@property</span>
@@ -141,12 +142,12 @@
 <span class="sd">                regularize : float - regularize.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order &gt; 0&#39;</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">index</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1"> Expected Index &gt; 0&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s1"> Expected Index in [ 1, inf )&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">regularize</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Regularize = </span><span class="si">{</span><span class="n">regularize</span><span class="si">}</span><span class="s1"> Expected Regularize &gt;= 0.0&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Regularize = </span><span class="si">{</span><span class="n">regularize</span><span class="si">}</span><span class="s1"> Expected Regularize in [ 0.0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>

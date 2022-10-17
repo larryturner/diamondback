@@ -16,6 +16,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -1127,6 +1128,10 @@ signal, effectively modifying the sampling rate by a specified rate
 ratio.</p>
 <p>A specified rate must be greater than zero, supporting decimation and
 interpolation.</p>
+<p>A specified order defines the polynomial order employed to locally fit
+data.  Unity order implies simple and efficient linear interpolation
+over two adjacent samples.  Higher order implies a more complex
+polynomial fit over a sequence of four samples.</p>
 <p>Latency compensation is not necessary, as no group delay is introduced.</p>
 <p>Edge effects are internally mitigated by linear extension of an
 incident signal.</p>
@@ -1144,7 +1149,7 @@ operation or dynamic rate.</p>
 
 <span class="c1"># Create an instance.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">)</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 
 <span class="c1"># Filter an incident signal.</span>
 
@@ -1162,13 +1167,13 @@ operation or dynamic rate.</p>
 </dl>
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.filters.PolynomialRateFilter.</span></span><span class="sig-name descname"><span class="pre">PolynomialRateFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.filters.PolynomialRateFilter.</span></span><span class="sig-name descname"><span class="pre">PolynomialRateFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Polynomial rate filter.</p>
 <p>Initialize.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in [ 0.0, inf ).
-order : int - in [ 2 , inf ).</p>
+order : int - in [ 1 , inf ).</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -1186,7 +1191,7 @@ order : int - in [ 2 , inf ).</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
-<dd><p>int - in [ 2, inf ).</p>
+<dd><p>int - in [ 1, inf ).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>order</p>
@@ -1245,8 +1250,8 @@ persistent operation at a specified incident signal condition.  Edge
 extension may also be applied to an incident signal.</p>
 <p>A polyphase rate filter may be the most appropriate option in
 applications which require fractional decimation and interpolation and
-are not highly sensitive to minimization of edge effects or have
-continuous operation.</p>
+are not highly sensitive to minimization of edge effects or latency due
+to continuous operation.</p>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -2024,13 +2029,13 @@ z : numpy.ndarray - zeros.</p>
 
 <dl class="py class">
 <dt class="sig sig-object py">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.filters.</span></span><span class="sig-name descname"><span class="pre">PolynomialRateFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.filters.</span></span><span class="sig-name descname"><span class="pre">PolynomialRateFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#float" title="(in Python v3.10)"><span class="pre">float</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><span class="pre">int</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/PolynomialRateFilter.html#PolynomialRateFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.10)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Polynomial rate filter.</p>
 <p>Initialize.</p>
 <dl class="simple">
 <dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in [ 0.0, inf ).
-order : int - in [ 2 , inf ).</p>
+order : int - in [ 1 , inf ).</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -2048,7 +2053,7 @@ order : int - in [ 2 , inf ).</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
-<dd><p>int - in [ 2, inf ).</p>
+<dd><p>int - in [ 1, inf ).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>order</p>

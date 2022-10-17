@@ -74,7 +74,7 @@ class ComplexBandPassFilter( FirFilter ) :
     def frequency( self, frequency : float ) :
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
-            raise ValueError( f'Frequency = {frequency}' )
+            raise ValueError( f'Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]' )
         self._frequency = frequency
 
     @property
@@ -89,7 +89,7 @@ class ComplexBandPassFilter( FirFilter ) :
     def rate( self, rate : float ) :
 
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
-            raise ValueError( f'Rate = {rate}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         self._rate = rate
 
     def __init__( self, frequency : float, rate : float ) -> None :
@@ -102,9 +102,9 @@ class ComplexBandPassFilter( FirFilter ) :
         """
 
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
-            raise ValueError( f'Frequency = {frequency}' )
+            raise ValueError( f'Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]' )
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
-            raise ValueError( f'Rate = {rate}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         super( ).__init__( b = numpy.array( [ numpy.finfo( float ).eps + 0j ] ), s = numpy.zeros( 1, complex ) )
         self._complexexponentialfilter = ComplexExponentialFilter( )
         self._frequency, self._rate = frequency, rate

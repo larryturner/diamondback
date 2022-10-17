@@ -15,6 +15,7 @@
         <script src="../../../_static/underscore.js"></script>
         <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -134,7 +135,7 @@
 <span class="sd">            Arguments :</span>
 <span class="sd">                u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.</span>
 <span class="sd">                v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.</span>
-<span class="sd">                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).</span>
+<span class="sd">                frequency : float - frequency in ( 0.0, inf ).</span>
 <span class="sd">                bilinear : bool.</span>
 
 <span class="sd">            Returns :</span>
@@ -151,7 +152,7 @@
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">v</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;V = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1"> Expected Frequency in ( 0.0, inf )&#39;</span> <span class="p">)</span>
         <span class="k">while</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">u</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span> <span class="n">u</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
         <span class="k">while</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">v</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>

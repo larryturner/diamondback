@@ -87,8 +87,8 @@ class ComplexTransform( object ) :
             rows, cols = 1, x.shape[ 0 ]
         else :
             rows, cols = x.shape
-        if ( ( rows not in ( 1, 3 ) ) or ( cols <= 0 ) ) :
-            raise ValueError( f'Rows = {rows} Columns = {cols}' )
+        if ( ( rows not in ( 1, 3 ) ) or ( cols < 1 ) ) :
+            raise ValueError( f'Rows = {rows} Columns = {cols} Expected Rows in ( 1, 3 ) and Columns in [ 1, inf )' )
         if ( rows == 1 ) :
             v = x
             if ( not neutral ) :

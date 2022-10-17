@@ -44,8 +44,8 @@
 
         A polyphase rate filter may be the most appropriate option in
         applications which require fractional decimation and interpolation and
-        are not highly sensitive to minimization of edge effects or have
-        continuous operation.
+        are not highly sensitive to minimization of edge effects or latency due
+        to continuous operation.
 
     **Example**
        
@@ -104,7 +104,7 @@ class PolyphaseRateFilter( object ) :
     def rate( self, rate : float ) :
 
         if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
-            raise ValueError( f'Rate = {rate}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.__b.shape[ 0 ]} ]' )
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
         self._rate = rate
@@ -131,7 +131,7 @@ class PolyphaseRateFilter( object ) :
         """
 
         if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
-            raise ValueError( f'Rate = {rate}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.__b.shape[ 0 ]} ]' )
         super( ).__init__( )
         b = PolyphaseRateFilter.__b
         rr, cc = b.shape

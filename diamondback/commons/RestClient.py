@@ -47,6 +47,8 @@ class RestClient( object ) :
     """ REST client.
     """
 
+    __method = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
+
     @property
     def live( self ) :
 
@@ -139,12 +141,12 @@ class RestClient( object ) :
         """
 
         if ( not method ) :
-            raise ValueError( f'Method = {method}' )
+            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method}' )
         method = method.lower( )
-        if ( method not in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ) ) :
-            raise ValueError( f'Method = {method}' )
+        if ( method not in RestClient.__method ) :
+            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method}' )
         if ( ( data ) and ( json ) ) :
-            raise ValueError( f'Data = {data} JSON = {json}' )
+            raise ValueError( f'Data = {data} JSON = {json} Expected Data or JSON' )
         api = api.strip( '/' )
         url = self.url
         if ( api ) :
