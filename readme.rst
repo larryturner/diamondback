@@ -248,7 +248,7 @@ repository, or installed from GitHub and run on a local system.
 **Remote**
 
 .. image:: https://img.shields.io/badge/binder-blue
-    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?filepath=jupyter%2Fdiamondback.ipynb
+    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?labpath=notebooks%2Fdiamondback.ipynb
 
 **Local**
 
