@@ -138,13 +138,13 @@ class IirFilter( FirFilter ) :
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
             if ( ( not style ) or ( style not in IirFilter.__style ) ) :
-                raise ValueError( f'style = {style}' )
+                raise ValueError( f'style = {style} Expected Style in {IirFilter.__style}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
-                raise ValueError( f'Frequency = {frequency}' )
-            if ( order <= 0 ) :
-                raise ValueError( f'Order = {order}' )
-            if ( count <= 0 ) :
-                raise ValueError( f'Count = {count}' )
+                raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
+            if ( order < 1 ) :
+                raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
+            if ( count < 1 ) :
+                raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
             beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
@@ -231,16 +231,19 @@ class IirFilter( FirFilter ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length <= 0 ) :
-            raise ValueError( f'Length = {length}' )
-        if ( count <= 0 ) :
-            raise ValueError( f'Count = {count}' )
+        if ( length < 1 ) :
+            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
+        if ( count < 1 ) :
+            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ) ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
             y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) )
-        if ( length > 2 ) :
-            y[ 0 ] = y[ 1 ] * 2.0 - y[ 2 ]
+        if ( length > 6 ) :
+            if ( max( abs( y[ : 6 ] ) ) > min( abs( y[ : 6 ] ) ) * 10.0 ) :
+                y[ : 6 ] = numpy.sign( y[ : 6 ] ) * min( abs( y[ : 6 ] ) )
+            if ( max( abs( y[ -6 : ] ) ) > min( abs( y[ -6 : ] ) ) * 10.0 ) :
+                y[ -6 : ] = numpy.sign( y[ -6 : ] ) * min( abs( y[ -6 : ] ) )
         return y, f
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
@@ -296,10 +299,10 @@ class IirFilter( FirFilter ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length <= 0 ) :
-            raise ValueError( f'Length = {length}' )
-        if ( count <= 0 ) :
-            raise ValueError( f'Count = {count}' )
+        if ( length < 1 ) :
+            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
+        if ( count < 1 ) :
+            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.freqz( self.b, numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )

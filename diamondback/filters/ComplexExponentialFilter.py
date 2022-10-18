@@ -57,7 +57,7 @@ class ComplexExponentialFilter( object ) :
     def phase( self, phase : float ) :
 
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
-            raise ValueError( f'Phase = {phase}' )
+            raise ValueError( f'Phase = {phase} Expected Phase in [ -1.0, 1.0 ]' )
         self._phase = phase
 
     def __init__( self, phase : float = 0.0 ) -> None :
@@ -69,7 +69,7 @@ class ComplexExponentialFilter( object ) :
         """
 
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
-            raise ValueError( f'Phase = {phase}' )
+            raise ValueError( f'Phase = {phase} Expected Phase in [ -1.0, 1.0 ]' )
         super( ).__init__( )
         self._phase = phase
 

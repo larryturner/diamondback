@@ -109,9 +109,9 @@ class DerivativeFilter( FirFilter ) :
         """
 
         if ( derivative not in DerivativeFilter.__b ) :
-            raise ValueError( f'Derivative = {derivative}' )
+            raise ValueError( f'Derivative = {derivative} Expected Derivative in {tuple( DerivativeFilter.__b.keys( ) )}' )
         if ( order not in DerivativeFilter.__b[ derivative ] ) :
-            raise ValueError( f'Order = {order}' )
+            raise ValueError( f'Order = {order} Expected Order in {tuple( DerivativeFilter.__b[ derivative ].keys( ) )}' )
         super( ).__init__( b = DerivativeFilter.__b[ derivative ][ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :

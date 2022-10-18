@@ -83,9 +83,9 @@ class WindowFilter( object ) :
         """
 
         if ( ( not style ) or ( style not in WindowFilter.__style ) ) :
-            raise ValueError( f'style = {style}' )
+            raise ValueError( f'style = {style} Expected Style in {WindowFilter.__style}' )
         if ( order < 0 ) :
-            raise ValueError( f'Order = {order}' )
+            raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         if ( style == 'Kaiser' ) :
             window = ( style.lower( ), 7.0 )
         else :

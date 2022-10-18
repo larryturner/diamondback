@@ -1,3 +1,9 @@
+4.1.0 - 2022-10-17
+^^^^^^^^^^^^^^^^^^
+-   Modified documentation.
+-   Modified IirFilter and PolynomialRateFilter.
+-   Modified requirements.
+
 4.0.3 - 2022-08-18
 ^^^^^^^^^^^^^^^^^^
 -   Modified documentation.

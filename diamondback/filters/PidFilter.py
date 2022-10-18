@@ -55,7 +55,7 @@ class PidFilter( FirFilter ) :
     def limit( self, limit : float ) :
 
         if ( limit < 0.0 ) :
-            raise ValueError( f'Limit = {limit}' )
+            raise ValueError( f'Limit = {limit} Expected Limit in ( 0.0, inf )' )
         self._limit = limit
 
     def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :

@@ -70,7 +70,7 @@ class ZTransform( object ) :
             Arguments :
                 u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.
                 v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.
-                frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+                frequency : float - frequency in ( 0.0, inf ).
                 bilinear : bool.
 
             Returns :
@@ -87,7 +87,7 @@ class ZTransform( object ) :
         if ( ( not len( v ) ) or ( not v.any( ) ) ) :
             raise ValueError( f'V = {v}' )
         if ( frequency <= 0.0 ) :
-            raise ValueError( f'Frequency = {frequency}' )
+            raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, inf )' )
         while ( not u[ 0 ] ) :
             u = numpy.delete( u, 0 )
         while ( not v[ 0 ] ) :

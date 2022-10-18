@@ -152,13 +152,13 @@ class FirFilter( object ) :
 
         if ( not len( b ) ) :
             if ( ( not style ) or ( style not in FirFilter.__style ) ) :
-                raise ValueError( f'style = {style}' )
+                raise ValueError( f'style = {style} Expected Style in {FirFilter.__style}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
-                raise ValueError( f'Frequency = {frequency}' )
+                raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
             if ( order < 0 ) :
-                raise ValueError( f'Order = {order}' )
-            if ( count <= 0 ) :
-                raise ValueError( f'Count = {count}' )
+                raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
+            if ( count < 1 ) :
+                raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
             if ( style == 'Kaiser' ) :
@@ -210,10 +210,10 @@ class FirFilter( object ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length <= 0 ) :
-            raise ValueError( f'Length = {length}' )
-        if ( count <= 0 ) :
-            raise ValueError( f'Count = {count}' )
+        if ( length < 1 ) :
+            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
+        if ( count < 1 ) :
+            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, [ 1.0 ] ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
@@ -271,10 +271,10 @@ class FirFilter( object ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length <= 0 ) :
-            raise ValueError( f'Length = {length}' )
-        if ( count <= 0 ) :
-            raise ValueError( f'Count = {count}' )
+        if ( length < 1 ) :
+            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
+        if ( count < 1 ) :
+            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
         y, f = scipy.signal.freqz( self.b, [ 1.0, 0.0 ], length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
         y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) ** count
         return y, f

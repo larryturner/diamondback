@@ -12,6 +12,11 @@
         A specified rate must be greater than zero, supporting decimation and
         interpolation.
 
+        A specified order defines the polynomial order employed to locally fit
+        data.  Unity order implies simple and efficient linear interpolation
+        over two adjacent samples.  Higher order implies a more complex
+        polynomial fit over a sequence of four samples.
+
         Latency compensation is not necessary, as no group delay is introduced.
 
         Edge effects are internally mitigated by linear extension of an
@@ -32,7 +37,7 @@
 
             # Create an instance.
 
-            obj = PolynomialRateFilter( rate = math.pi, order = 3 )
+            obj = PolynomialRateFilter( rate = math.pi, order = 1 )
 
             # Filter an incident signal.
 
@@ -58,7 +63,7 @@ class PolynomialRateFilter( object ) :
     @property
     def order( self ) :
 
-        """ order : int - in [ 2, inf ).
+        """ order : int - in [ 1, inf ).
         """
 
         return self._order
@@ -66,8 +71,8 @@ class PolynomialRateFilter( object ) :
     @order.setter
     def order( self, order : int ) :
 
-        if ( order < 2 ) :
-            raise ValueError( f'Order = {order}' )
+        if ( order < 1 ) :
+            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
         self._order = order
 
     @property
@@ -82,24 +87,24 @@ class PolynomialRateFilter( object ) :
     def rate( self, rate : float ) :
 
         if ( rate < 0.0 ) :
-            raise ValueError( f'Rate = {rate}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
         self._rate = rate
 
-    def __init__( self, rate : float, order : int = 3 ) -> None :
+    def __init__( self, rate : float, order : int = 1 ) -> None :
 
         """ Initialize.
 
             Arguments :
                 rate : float - ratio of effective frequency in [ 0.0, inf ).
-                order : int - in [ 2 , inf ).
+                order : int - in [ 1 , inf ).
         """
 
         if ( rate < 0.0 ) :
-            raise ValueError( f'Rate = {rate}' )
-        if ( order < 2 ) :
-            raise ValueError( f'Order = {order}' )
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
+        if ( order < 1 ) :
+            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
         super( ).__init__( )
         self._index, self._order = 0.0, order
         self._rate = rate
@@ -120,17 +125,29 @@ class PolynomialRateFilter( object ) :
         if ( ( len( x.shape ) != 1 ) or ( len( x ) < 2 ) ) :
             raise ValueError( f'X = {x}' )
         cc = len( x )
-        x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
         y = numpy.zeros( int( numpy.ceil( cc * self.rate ) ) )
-        eps, u, v = numpy.finfo( float ).eps, numpy.linspace( -1.0, 2.0, 4 ), 1.0 / self.rate
+        eps = numpy.finfo( float ).eps
+        u, v = numpy.linspace( -1.0, 2.0, 4 ), 1.0 / self.rate
         ii, jj = 0, 0
-        while ( ii < cc ) :
-            if ( self._index < ( 1.0 - eps ) ) :
-                b = numpy.polyfit( u, x[ ii : ii + 4 ], self.order )
-                while ( ( self._index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
-                    y[ jj ] = numpy.polyval( b, self._index )
-                    self._index += v
-                    jj += 1
-            self._index -= 1.0
-            ii += 1
+        if ( self.order == 1 ) :
+            x = numpy.concatenate( ( x, [ 2.0 * x[ -1 ] - x[ -2 ] ] ) )
+            while ( ii < cc ) :
+                if ( self._index < ( 1.0 - eps ) ) :
+                    while ( ( self._index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
+                        y[ jj ] = x[ ii ] + ( x[ ii + 1 ] - x[ ii ] ) * self._index
+                        self._index += v
+                        jj += 1
+                self._index -= 1.0
+                ii += 1
+        else :
+            x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
+            while ( ii < cc ) :
+                if ( self._index < ( 1.0 - eps ) ) :
+                    b = numpy.polyfit( u, x[ ii : ii + 4 ], self.order )
+                    while ( ( self._index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
+                        y[ jj ] = numpy.polyval( b, self._index )
+                        self._index += v
+                        jj += 1
+                self._index -= 1.0
+                ii += 1
         return y[ 0 : min( jj, len( y ) ) ]
