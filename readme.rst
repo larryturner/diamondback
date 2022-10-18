@@ -243,7 +243,9 @@ of diamondback capabilities.
 
 A jupyter notebook may be run on a remote server without installation with
 Binder, which dynamically builds and deploys a docker container from a GitHub
-repository, or installed from GitHub and run on a local system.
+repository, or installed from GitHub and run on a local system.  Binder may
+not be operational, as package dependencies on that service are very old and
+may no longer be maintained.
 
 **Remote**
 
