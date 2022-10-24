@@ -90,7 +90,7 @@ class GoertzelFilter( IirFilter ) :
 
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( not len( b ) ) or ( not b.any( ) ) ) :
+        if ( ( not len( b ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency} Expected Frequency in [ 1.0, 1.0 ]' )

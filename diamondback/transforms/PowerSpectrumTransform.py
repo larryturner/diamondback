@@ -85,7 +85,7 @@ class PowerSpectrumTransform( object ) :
             raise ValueError( f'X = {x}' )
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( not len( b ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
+        if ( ( not len( b ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )
         if ( len( x ) < len( b ) ) :
             raise ValueError( f'X = {x}' )

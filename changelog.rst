@@ -1,3 +1,7 @@
+4.1.1 - 2022-10-24
+^^^^^^^^^^^^^^^^^^
+-   Modified GoertzelFilter, FourierTransform, and PowerSpectrumTransform.
+
 4.1.0 - 2022-10-17
 ^^^^^^^^^^^^^^^^^^
 -   Modified documentation.
