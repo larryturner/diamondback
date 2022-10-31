@@ -81,7 +81,7 @@ class FourierTransform( object ) :
             raise ValueError( f'X = {x}' )
         if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
             b = numpy.array( list( b ) )
-        if ( ( len( b ) > len( x ) ) or ( numpy.isclose( b[ 1 : -1 ], 0.0 ).any( ) ) ) :
+        if ( ( len( b ) > len( x ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )
         u = numpy.array( x[ : len( b ) ] )
         v = numpy.array( b )

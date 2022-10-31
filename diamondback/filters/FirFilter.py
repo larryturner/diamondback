@@ -217,7 +217,7 @@ class FirFilter( object ) :
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, [ 1.0 ] ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
-            y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) )
+            y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) * count
         if ( length > 2 ) :
             y[ 0 ] = y[ 1 ] * 2.0 - y[ 2 ]
         return y, f
