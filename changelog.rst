@@ -1,3 +1,7 @@
+4.1.2 - 2022-10-30
+^^^^^^^^^^^^^^^^^^
+-   Modified FirFilter and IirFilter delay.
+
 4.1.1 - 2022-10-24
 ^^^^^^^^^^^^^^^^^^
 -   Modified GoertzelFilter, FourierTransform, and PowerSpectrumTransform.

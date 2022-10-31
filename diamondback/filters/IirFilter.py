@@ -238,7 +238,7 @@ class IirFilter( FirFilter ) :
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ) ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
-            y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) )
+            y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) * count
         if ( length > 6 ) :
             if ( max( abs( y[ : 6 ] ) ) > min( abs( y[ : 6 ] ) ) * 10.0 ) :
                 y[ : 6 ] = numpy.sign( y[ : 6 ] ) * min( abs( y[ : 6 ] ) )
