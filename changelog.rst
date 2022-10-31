@@ -1,6 +1,7 @@
-4.1.2 - 2022-10-30
+4.1.2 - 2022-10-31
 ^^^^^^^^^^^^^^^^^^
--   Modified FirFilter and IirFilter delay.
+-   Modified FirFilter and IirFilter.
+-   Modified PolynomialRateFilter.
 
 4.1.1 - 2022-10-24
 ^^^^^^^^^^^^^^^^^^
