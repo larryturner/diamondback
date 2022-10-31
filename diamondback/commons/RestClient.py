@@ -62,11 +62,6 @@ class RestClient( object ) :
             value = False
         return value
 
-    @live.setter
-    def live( self, live : bool ) :
-
-        self._live = live
-
     @property
     def proxy( self ) :
 
@@ -117,7 +112,6 @@ class RestClient( object ) :
         """
 
         super( ).__init__( )
-        self._live = False
         self._proxy, self._timeout = { }, ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
