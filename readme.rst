@@ -169,7 +169,7 @@ transforms.
     is a singleton instance which converts a real or complex
     discrete-time signal to a real discrete-frequency signal which
     estimates a mean power density of the signal, based on a window
-    filter, index, and spectrogram.  A spectrogram time constructs a
+    filter, index, and spectrogram.  A spectrogram constructs a time
     frequency representation.
 
 -   `WaveletTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-wavelettransform-module>`_
