@@ -80,7 +80,7 @@ class Test( object ) :
             x = numpy.random.rand( ) * ComplexExponentialFilter( numpy.random.rand( ) ).filter( numpy.linspace( frequency[ 0 ], frequency[ 1 ], count * 8 ) )
             if ( ii > 0 ) :
                 x = x.real
-            y, f = PowerSpectrumTransform.transform( x, b, index )
+            y, f = PowerSpectrumTransform.transform( x, b, index, False )
             assert ( ( len( y ) == count ) and ( len( f ) == count ) )
             assert not isinstance( y[ 0 ], complex )
             assert numpy.isclose( f[ 0 ], -1.0 ) and numpy.isclose( f[ -1 ], 1.0 - 2.0 / count )

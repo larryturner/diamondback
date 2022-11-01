@@ -1,9 +1,9 @@
 """ **Description**
         A power spectrum transform converts a real or complex discrete-time
         incident signal to a real discrete-frequency reference signal, which
-        estimates a mean power density in the incident signal relative to
-        frequency.  A forward coefficient array is specified to define a window
-        filter.
+        estimates a mean power density of the incident signal relative to
+        frequency.  A forward coefficient array is specified to define a
+        window filter.
 
         Singleton.
 
@@ -18,6 +18,10 @@
 
         .. math::
             y_{k} = \\frac{1}{C}\ \sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}
+
+        A spectrogram may be electively defined such that the collection of
+        Fourier transforms is preserved to construct a time frequency
+        representation of the power spectrum.
 
         A power spectrum transform is normalized by incident signal length and
         forms a contiguous sequence corresponding to a linear and increasing
@@ -64,7 +68,7 @@ class PowerSpectrumTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], index : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], index : int, spectrogram : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             real discrete-frequency reference signal.
@@ -73,6 +77,7 @@ class PowerSpectrumTransform( object ) :
                 x : Union[ List, numpy.ndarray ] - incident signal.
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
                 index : int.
+                spectrogram : bool.
 
             Returns :
                 y : numpy.ndarray - reference signal.
@@ -89,11 +94,9 @@ class PowerSpectrumTransform( object ) :
             raise ValueError( f'B = {b}' )
         if ( len( x ) < len( b ) ) :
             raise ValueError( f'X = {x}' )
-        y, f = numpy.zeros( len( b ) ), None
-        jj = 0
+        y, f = [ ], None
         for ii in range( 0, len( x ) - len( b ) + 1, index ) :
             v, f = FourierTransform.transform( x[ ii : ii + len( b ) ], b )
-            y += abs( v * numpy.conjugate( v ) )
-            jj += 1
-        y /= jj
+            y.append( abs( v * numpy.conjugate( v ) ) )
+        y = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y )
         return y, f

@@ -1,3 +1,7 @@
+4.1.3 - 2022-11-01
+^^^^^^^^^^^^^^^^^^
+-   Modified PowerSpectrumTransform.
+
 4.1.2 - 2022-10-31
 ^^^^^^^^^^^^^^^^^^
 -   Modified FirFilter and IirFilter.
