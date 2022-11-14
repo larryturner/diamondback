@@ -1,3 +1,7 @@
+4.1.4 - 2022-11-13
+^^^^^^^^^^^^^^^^^^
+-   Modified PowerSpectrumTransform.
+
 4.1.3 - 2022-11-01
 ^^^^^^^^^^^^^^^^^^
 -   Modified PowerSpectrumTransform.
