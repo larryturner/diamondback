@@ -282,8 +282,7 @@ used to execute unit and integration tests.
 Documentation
 ~~~~~~~~~~~~~
 
-Diamondback documentation is generated from the source, indexed, and searchable
-from GitHub pages.
+Diamondback documentation is available on GitHub pages.
 
 .. image:: https://img.shields.io/badge/GitHub-blue
     :target: https://larryturner.github.io/diamondback/index.html
