@@ -250,7 +250,7 @@ may no longer be maintained.
 
 **Remote**
 
-.. image:: https://img.shields.io/badge/binder-blue
+.. image:: https://img.shields.io/badge/Binder-blue
     :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?labpath=notebooks%2Fdiamondback.ipynb
 
 **Local**
@@ -285,7 +285,7 @@ Documentation
 Diamondback documentation is generated from the source, indexed, and searchable
 from GitHub pages.
 
-.. image:: https://img.shields.io/badge/github-blue
+.. image:: https://img.shields.io/badge/GitHub-blue
     :target: https://larryturner.github.io/diamondback/index.html
 
 License
