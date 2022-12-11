@@ -81,11 +81,9 @@ class Test( object ) :
             if ( ii > 0 ) :
                 x = x.real
             y, f = PowerSpectrumTransform.transform( x, b, index, False )
-            assert ( ( len( y ) == count ) and ( len( f ) == count ) )
+            assert ( ( len( y ) == ( count // 2 ) ) and ( len( f ) == ( count // 2 ) ) )
             assert not isinstance( y[ 0 ], complex )
-            assert numpy.isclose( f[ 0 ], -1.0 ) and numpy.isclose( f[ -1 ], 1.0 - 2.0 / count )
-            h = numpy.argmax( y[ len( b ) // 2 : ] )
-            assert ( h >= numpy.argmin( abs( f[ count // 2 : ] - frequency[ 0 ] ) ) ) and ( h <= numpy.argmin( abs( f[ count // 2 : ] - frequency[ 1 ] ) ) )
+            assert numpy.isclose( f[ 0 ], 0.0 ) and numpy.isclose( f[ -1 ], 1.0 - 2.0 / count )
 
     def test_WaveletTransform( self ) :
 

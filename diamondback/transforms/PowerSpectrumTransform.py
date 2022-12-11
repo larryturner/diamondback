@@ -28,7 +28,7 @@
         normalized frequency.
 
         .. math::
-            f_{k} = -1\ + \ 2\ \\frac{k}{N}
+            f_{k} = \ 2\ \\frac{k}{N}
 
         An incident signal length is inversely proportional to a normalized
         frequency resolution.
@@ -95,8 +95,9 @@ class PowerSpectrumTransform( object ) :
         if ( len( x ) < len( b ) ) :
             raise ValueError( f'X = {x}' )
         y, f = [ ], None
+        jj = len( b ) // 2
         for ii in range( 0, len( x ) - len( b ) + 1, index ) :
             v, f = FourierTransform.transform( x[ ii : ii + len( b ) ], b )
-            y.append( abs( v * numpy.conjugate( v ) ) )
-        y = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y )
+            y.append( abs( v[ jj : ] * numpy.conjugate( v[ jj : ] ) ) )
+        y, f = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y ), f[ jj : ]
         return y, f

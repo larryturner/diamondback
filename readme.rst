@@ -169,7 +169,7 @@ transforms.
     is a singleton instance which converts a real or complex
     discrete-time signal to a real discrete-frequency signal which
     estimates a mean power density of the signal, based on a window
-    filter, index, and spectrogram.  A spectrogram time constructs a
+    filter, index, and spectrogram.  A spectrogram constructs a time
     frequency representation.
 
 -   `WaveletTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-wavelettransform-module>`_
@@ -214,6 +214,8 @@ depends upon additional external packages :
 
 -   `nox <https://github.com/theacodes/nox>`_
 
+-   `pandas <https://github.com/pandas-dev/pandas>`
+
 -   `pillow <https://github.com/python-pillow/pillow>`_
 
 -   `pytest <https://github.com/pytest-dev/pytest>`_
@@ -250,7 +252,7 @@ may no longer be maintained.
 
 **Remote**
 
-.. image:: https://img.shields.io/badge/binder-blue
+.. image:: https://img.shields.io/badge/Binder-blue
     :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?labpath=notebooks%2Fdiamondback.ipynb
 
 **Local**
@@ -282,10 +284,9 @@ used to execute unit and integration tests.
 Documentation
 ~~~~~~~~~~~~~
 
-Diamondback documentation is generated from the source, indexed, and searchable
-from GitHub pages.
+Diamondback documentation is available on GitHub pages.
 
-.. image:: https://img.shields.io/badge/github-blue
+.. image:: https://img.shields.io/badge/GitHub-blue
     :target: https://larryturner.github.io/diamondback/index.html
 
 License
