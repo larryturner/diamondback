@@ -1,3 +1,8 @@
+4.1.6 - 2023-01-11
+^^^^^^^^^^^^^^^^^^
+-   Modified requirements.
+-   Modified documentation.
+
 4.1.5 - 2022-12-09
 ^^^^^^^^^^^^^^^^^^
 -   Modified requirements.
