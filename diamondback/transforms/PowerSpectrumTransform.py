@@ -98,6 +98,6 @@ class PowerSpectrumTransform( object ) :
         jj = len( b ) // 2
         for ii in range( 0, len( x ) - len( b ) + 1, index ) :
             v, f = FourierTransform.transform( x[ ii : ii + len( b ) ], b )
-            y.append( abs( v[ jj : ] * numpy.conjugate( v[ jj : ] ) ) )
+            y.append( abs( v[ jj : ] ) ** 2 )
         y, f = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y ), f[ jj : ]
         return y, f
