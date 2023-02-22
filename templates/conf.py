@@ -2,7 +2,7 @@
         Sphinx documentation configuration.
     
     **License**
-        © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.
+        © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.
     
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2019-03-22.
@@ -13,7 +13,7 @@ import pathlib
 # Project.
 
 author = 'Larry Turner'
-copyright = '© 2019 - 2022 Schneider Electric Industries SAS. All rights reserved.'
+copyright = '© 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.'
 project = pathlib.Path.cwd( ).parent.name
 title = 'Diamondback DSP'
 
