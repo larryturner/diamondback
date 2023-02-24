@@ -1,5 +1,4 @@
 .eggs/
-*.egg-info/
 .github/
 .nox/
 .pytest_cache/
@@ -7,4 +6,5 @@
 .vscode/
 __pycache__/
 build/
-jupyter/.ipynb_checkpoints/
+notebooks/.ipynb_checkpoints/
+*.egg-info/
