@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diamondback.transforms.PowerSpectrumTransform &mdash; Diamondback DSP</title>
+      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+        <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            diamondback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">diamondback.transforms.PowerSpectrumTransform</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for diamondback.transforms.PowerSpectrumTransform</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+<span class="sd">        A power spectrum transform converts a real or complex discrete-time</span>
+<span class="sd">        incident signal to a real discrete-frequency reference signal, which</span>
+<span class="sd">        estimates a mean power density of the incident signal relative to</span>
+<span class="sd">        frequency.  A forward coefficient array is specified to define a</span>
+<span class="sd">        window filter.</span>
+
+<span class="sd">        Singleton.</span>
+
+<span class="sd">        A power spectrum transform is constructed by estimating a mean power</span>
+<span class="sd">        from a collection of Fourier transforms of an incident signal, over a</span>
+<span class="sd">        sliding window defined by a forward coefficient array which defines a</span>
+<span class="sd">        window filter.  An index specifies a sample interval, or a</span>
+<span class="sd">        non-overlapping stride, between successive operations.</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            v_{i,k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n+i\ I} e^{ \\frac{\ -j\ \pi\ k \ n}{N} }</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            y_{k} = \\frac{1}{C}\ \sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}</span>
+
+<span class="sd">        A spectrogram may be electively defined such that the collection of</span>
+<span class="sd">        Fourier transforms is preserved to construct a time frequency</span>
+<span class="sd">        representation of the power spectrum.</span>
+
+<span class="sd">        A power spectrum transform is normalized by incident signal length and</span>
+<span class="sd">        forms a contiguous sequence corresponding to a linear and increasing</span>
+<span class="sd">        normalized frequency.</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            f_{k} = \ 2\ \\frac{k}{N}</span>
+
+<span class="sd">        An incident signal length is inversely proportional to a normalized</span>
+<span class="sd">        frequency resolution.</span>
+
+<span class="sd">        .. math::</span>
+<span class="sd">            N = \\frac{2}{R}</span>
+
+<span class="sd">    **Example**</span>
+<span class="sd">       </span>
+<span class="sd">        ::</span>
+<span class="sd">        </span>
+<span class="sd">            from diamondback import ComplexExponentialFilter, PowerSpectrumTransform</span>
+<span class="sd">            import numpy</span>
+
+<span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]</span>
+<span class="sd">            b = WindowFilter( &#39;Hann&#39;, 128 - 1 ).b</span>
+
+<span class="sd">            # Transform an incident signal.</span>
+
+<span class="sd">            y, f = PowerSpectrumTransform.transform( x, b = b, index = len( b ) // 2 )</span>
+
+<span class="sd">    **License**</span>
+<span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+<span class="sd">        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+<span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-04-13.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span> <span class="nn">diamondback.transforms.FourierTransform</span> <span class="kn">import</span> <span class="n">FourierTransform</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">import</span> <span class="nn">numpy</span>
+
+<div class="viewcode-block" id="PowerSpectrumTransform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.PowerSpectrumTransform">[docs]</a><span class="k">class</span> <span class="nc">PowerSpectrumTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Power spectrum transform.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="PowerSpectrumTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.PowerSpectrumTransform.transform">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">b</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">index</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">spectrogram</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Transforms a real or complex discrete-time incident signal to a</span>
+<span class="sd">            real discrete-frequency reference signal.</span>
+
+<span class="sd">            Arguments :</span>
+<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
+<span class="sd">                b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
+<span class="sd">                index : int.</span>
+<span class="sd">                spectrogram : bool.</span>
+
+<span class="sd">            Returns :</span>
+<span class="sd">                y : numpy.ndarray - reference signal.</span>
+<span class="sd">                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="p">[</span> <span class="p">],</span> <span class="kc">None</span>
+        <span class="n">jj</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">index</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">v</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">FourierTransform</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span> <span class="p">:</span> <span class="n">ii</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">],</span> <span class="n">b</span> <span class="p">)</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">v</span><span class="p">[</span> <span class="n">jj</span> <span class="p">:</span> <span class="p">]</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span> <span class="k">if</span> <span class="p">(</span> <span class="n">spectrogram</span> <span class="p">)</span> <span class="k">else</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span> <span class="n">y</span> <span class="p">),</span> <span class="n">f</span><span class="p">[</span> <span class="n">jj</span> <span class="p">:</span> <span class="p">]</span>
+        <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">f</span></div></div>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
