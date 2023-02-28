@@ -52,7 +52,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
@@ -98,6 +98,6 @@ class PowerSpectrumTransform( object ) :
         jj = len( b ) // 2
         for ii in range( 0, len( x ) - len( b ) + 1, index ) :
             v, f = FourierTransform.transform( x[ ii : ii + len( b ) ], b )
-            y.append( abs( v[ jj : ] * numpy.conjugate( v[ jj : ] ) ) )
+            y.append( abs( v[ jj : ] ) ** 2 )
         y, f = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y ), f[ jj : ]
         return y, f

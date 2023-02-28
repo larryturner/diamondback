@@ -33,7 +33,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
@@ -115,7 +115,7 @@ class RestClient( object ) :
         self._proxy, self._timeout = { }, ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, auth : Any = None, header : Dict[ str, str ] = None, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -126,10 +126,12 @@ class RestClient( object ) :
             Arguments :
                 method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
                 api : str - relative to the URL.
+                auth : Any.
+                header : Dict[ str, str ].
                 item : Dict[ str, str ].
                 data : Any.
                 json : Any.
-            
+
             Returns :
                 value : requests.Response.
         """
@@ -145,6 +147,6 @@ class RestClient( object ) :
         url = self.url
         if ( api ) :
             url += '/' + api
-        with requests.request( method = method, url = url, params = item, data = data, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
+        with requests.request( method = method, url = url, params = item, data = data, headers = header, auth = auth, json = json, proxies = self.proxy, timeout = self.timeout ) as value :
             value.raise_for_status( )
         return value

@@ -10,11 +10,10 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -25,11 +24,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> diamondback
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            diamondback
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -50,9 +53,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>diamondback.transforms.WaveletTransform</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">diamondback.transforms.WaveletTransform</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -136,7 +139,7 @@
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">        © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 <span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-02-06.</span>
@@ -148,7 +151,7 @@
 
 <div class="viewcode-block" id="WaveletTransform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.WaveletTransform">[docs]</a><span class="k">class</span> <span class="nc">WaveletTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Wavelet transform.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Wavelet transform.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">__b</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">Coiflet</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="o">-</span><span class="mf">0.07269889797984</span><span class="p">,</span> <span class="mf">0.33788487810742</span><span class="p">,</span> <span class="mf">0.85255707635042</span><span class="p">,</span> <span class="mf">0.38485416611448</span><span class="p">,</span>
@@ -235,14 +238,14 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; b : Union[ List, numpy.ndarray ] - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">style</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Initialize.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize.</span>
 
 <span class="sd">            Arguments :</span>
 <span class="sd">                style : str - in ( &#39;Coiflet&#39;, &#39;Daubechies&#39;, &#39;Haar&#39;, &#39;Symmlet&#39; ).</span>
@@ -250,9 +253,9 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="w"> </span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="p">[</span> <span class="n">style</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="p">[</span> <span class="n">style</span> <span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="w"> </span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="p">[</span><span class="w"> </span><span class="n">style</span><span class="w"> </span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">__b</span><span class="p">[</span> <span class="n">style</span> <span class="p">][</span> <span class="n">order</span> <span class="p">]</span>
         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -271,7 +274,7 @@
 
 <div class="viewcode-block" id="WaveletTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.WaveletTransform.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">count</span> <span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inverse</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Transforms an incident signal and produces a reference signal,</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Transforms an incident signal and produces a reference signal,</span>
 <span class="sd">            performing analysis or synthesis operations.  Incident and reference</span>
 <span class="sd">            signals have two dimensions.  Dimension lengths must be unity or</span>
 <span class="sd">            an integral multiple of 2**count.</span>
@@ -294,7 +297,7 @@
         <span class="k">if</span> <span class="p">(</span> <span class="n">count</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Count = </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1"> Expected Count in [ 1, inf )&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">%</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">%</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s1"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s1"> Expected Rows % </span><span class="si">{</span><span class="mi">2</span> <span class="o">**</span> <span class="n">count</span><span class="si">}</span><span class="s1"> and Columns % </span><span class="si">{</span><span class="mi">2</span> <span class="o">**</span> <span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s1"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s1"> Expected Rows % </span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">count</span><span class="si">}</span><span class="s1"> and Columns % </span><span class="si">{</span><span class="mi">2</span><span class="w"> </span><span class="o">**</span><span class="w"> </span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">rr</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="p">(</span> <span class="n">rows</span> <span class="o">//</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">),</span> <span class="mi">1</span> <span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span> <span class="p">(</span> <span class="n">cols</span> <span class="o">//</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="p">(</span> <span class="mi">2</span> <span class="o">**</span> <span class="n">count</span> <span class="p">),</span> <span class="mi">1</span> <span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span>
@@ -353,7 +356,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

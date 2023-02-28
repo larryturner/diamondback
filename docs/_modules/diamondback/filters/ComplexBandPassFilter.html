@@ -10,11 +10,10 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/jquery.js"></script>
-        <script src="../../../_static/underscore.js"></script>
-        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../../_static/doctools.js"></script>
+        <script src="../../../_static/sphinx_highlight.js"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -25,11 +24,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../../../index.html" class="icon icon-home"> diamondback
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            diamondback
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -50,9 +53,9 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../../index.html">Module code</a> &raquo;</li>
-      <li>diamondback.filters.ComplexBandPassFilter</li>
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">diamondback.filters.ComplexBandPassFilter</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -109,7 +112,7 @@
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">        © 2018 - 2022 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 <span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-01-31.</span>
@@ -123,13 +126,13 @@
 
 <div class="viewcode-block" id="ComplexBandPassFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.ComplexBandPassFilter">[docs]</a><span class="k">class</span> <span class="nc">ComplexBandPassFilter</span><span class="p">(</span> <span class="n">FirFilter</span> <span class="p">)</span> <span class="p">:</span>
 
-    <span class="sd">&quot;&quot;&quot; Complex band pass filter.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Complex band pass filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span>
@@ -144,7 +147,7 @@
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; rate : float - in [ 0.0, 1.0 ].</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; rate : float - in [ 0.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
@@ -158,7 +161,7 @@
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Initialize.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize.</span>
 
 <span class="sd">            Arguments :</span>
 <span class="sd">                frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
@@ -175,7 +178,7 @@
 
 <div class="viewcode-block" id="ComplexBandPassFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.ComplexBandPassFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">d</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
-        <span class="sd">&quot;&quot;&quot; Filters a primary signal and produces a reference signal.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Filters a primary signal and produces a reference signal.</span>
 
 <span class="sd">            Signals are Hilbert transformed to complex as necessary.</span>
 
@@ -211,7 +214,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2019 - 2022 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
