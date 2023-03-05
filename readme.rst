@@ -214,7 +214,7 @@ depends upon additional external packages :
 
 -   `nox <https://github.com/theacodes/nox>`_
 
--   `pandas <https://github.com/pandas-dev/pandas>`
+-   `pandas <https://github.com/pandas-dev/pandas>`_
 
 -   `pillow <https://github.com/python-pillow/pillow>`_
 

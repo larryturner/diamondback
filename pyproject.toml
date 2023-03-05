@@ -3,10 +3,10 @@ authors = [ { name = 'Larry Turner', email = 'larry.turner@se.com' } ]
 classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Operating System :: OS Independent',
                 'Programming Language :: Python :: 3',
-                'Programming Language :: Python :: 3.7',
                 'Programming Language :: Python :: 3.8',
                 'Programming Language :: Python :: 3.9',
                 'Programming Language :: Python :: 3.10',
+                'Programming Language :: Python :: 3.11',
                 'License :: OSI Approved :: BSD License' ]
 dependencies = [ 'jsonpickle >= 3.0.1, < 4.0.0',
                  'loguru >= 0.6.0, < 1.0.0',
@@ -44,7 +44,7 @@ keywords = [ 'BSON',
 license = { file = 'license' }
 name = 'diamondback'
 readme = 'readme.rst'
-requires-python = '>= 3.7, < 3.11'
+requires-python = '>= 3.8, < 3.12'
 version = '4.1.7'
 
 [ project.optional-dependencies ]
