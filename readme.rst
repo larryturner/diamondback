@@ -287,7 +287,7 @@ Documentation
 Diamondback documentation is available on GitHub pages.
 
 .. image:: https://img.shields.io/badge/GitHub-blue
-    :target: https://larryturner.github.io/diamondback/index.html
+    :target: https://larryturner.github.io/diamondback/
 
 License
 ~~~~~~~
