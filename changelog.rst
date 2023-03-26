@@ -1,3 +1,7 @@
+4.1.8 - 2023-03-26
+^^^^^^^^^^^^^^^^^^
+-   Modified Serial encode indent.
+
 4.1.7 - 2023-02-22
 ^^^^^^^^^^^^^^^^^^
 -   Modified RestClient for header and authorization.

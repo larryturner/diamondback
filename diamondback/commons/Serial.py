@@ -125,7 +125,7 @@ class Serial( object ) :
         return jsonpickle.decode( state )
 
     @staticmethod
-    def encode( instance : Any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
+    def encode( instance : Any, compress : bool = False, encoding : str = 'utf_8', indent : bool = False ) -> str :
 
         """ Encodes BSON or JSON.  Encoding may be specified if an alternative
             to UTF-8 is required.
@@ -134,6 +134,7 @@ class Serial( object ) :
                 instance : Any.
                 compress : bool.
                 encoding : str.
+                indent : bool.
             
             Returns :
                 state : str.
@@ -141,7 +142,7 @@ class Serial( object ) :
 
         if ( not encoding ) :
             raise ValueError( f'Encoding = {encoding}' )
-        state = jsonpickle.encode( instance, separators = ( ',', ':' ) )
+        state = jsonpickle.encode( instance, indent = '    ' if ( indent ) else None, separators = ( ',', ':' ) )
         if ( compress ) :
             state = str( base64.b85encode( gzip.compress( bytes( state, encoding ) ) ), encoding )
         return state
