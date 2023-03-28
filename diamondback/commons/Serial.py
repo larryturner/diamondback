@@ -30,8 +30,9 @@
 
             # Encode and decode a dictionary instance in JSON.
 
-            x = dict( a = numpy.random.rand( count ), b = list( numpy.random.rand( count ) ) )
-            z = Serial.decode( Serial.encode( x ) )
+            ii = numpy.random.randint( 1, 10 )
+            x = dict( a = numpy.random.rand( ii ), b = list( numpy.random.rand( ii ) ) )
+            z = Serial.decode( Serial.encode( x, indent = True ) )
 
             # Encode and decode a dictionary instance in BSON.
 
@@ -48,9 +49,11 @@
             code = Serial.code( y )
             z = Serial.decode( y )
 
-            # Decode a dictionary instance from JSON.
+            # Decode instances from JSON.
 
             z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }' )
+
+            z = Serial.decode( '[ 1.0, 2.0, 3.0 ]' )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
