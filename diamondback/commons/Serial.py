@@ -30,8 +30,9 @@
 
             # Encode and decode a dictionary instance in JSON.
 
-            x = dict( a = numpy.random.rand( count ), b = list( numpy.random.rand( count ) ) )
-            z = Serial.decode( Serial.encode( x ) )
+            ii = numpy.random.randint( 1, 10 )
+            x = dict( a = numpy.random.rand( ii ), b = list( numpy.random.rand( ii ) ) )
+            z = Serial.decode( Serial.encode( x, indent = True ) )
 
             # Encode and decode a dictionary instance in BSON.
 
@@ -48,9 +49,11 @@
             code = Serial.code( y )
             z = Serial.decode( y )
 
-            # Decode a dictionary instance from JSON.
+            # Decode instances from JSON.
 
             z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }' )
+
+            z = Serial.decode( '[ 1.0, 2.0, 3.0 ]' )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -125,7 +128,7 @@ class Serial( object ) :
         return jsonpickle.decode( state )
 
     @staticmethod
-    def encode( instance : Any, compress : bool = False, encoding : str = 'utf_8' ) -> str :
+    def encode( instance : Any, compress : bool = False, encoding : str = 'utf_8', indent : bool = False ) -> str :
 
         """ Encodes BSON or JSON.  Encoding may be specified if an alternative
             to UTF-8 is required.
@@ -134,6 +137,7 @@ class Serial( object ) :
                 instance : Any.
                 compress : bool.
                 encoding : str.
+                indent : bool.
             
             Returns :
                 state : str.
@@ -141,7 +145,7 @@ class Serial( object ) :
 
         if ( not encoding ) :
             raise ValueError( f'Encoding = {encoding}' )
-        state = jsonpickle.encode( instance, separators = ( ',', ':' ) )
+        state = jsonpickle.encode( instance, indent = '    ' if ( indent ) else None, separators = ( ',', ':' ) )
         if ( compress ) :
             state = str( base64.b85encode( gzip.compress( bytes( state, encoding ) ) ), encoding )
         return state
