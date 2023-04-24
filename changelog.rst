@@ -1,3 +1,7 @@
+4.1.9 - 2023-04-24
+^^^^^^^^^^^^^^^^^^
+-   Modified requirements.
+
 4.1.8 - 2023-03-26
 ^^^^^^^^^^^^^^^^^^
 -   Modified Serial encode indent.
