@@ -10,7 +10,6 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -97,8 +96,9 @@
 
 <span class="sd">            # Encode and decode a dictionary instance in JSON.</span>
 
-<span class="sd">            x = dict( a = numpy.random.rand( count ), b = list( numpy.random.rand( count ) ) )</span>
-<span class="sd">            z = Serial.decode( Serial.encode( x ) )</span>
+<span class="sd">            ii = numpy.random.randint( 1, 10 )</span>
+<span class="sd">            x = dict( a = numpy.random.rand( ii ), b = list( numpy.random.rand( ii ) ) )</span>
+<span class="sd">            z = Serial.decode( Serial.encode( x, indent = True ) )</span>
 
 <span class="sd">            # Encode and decode a dictionary instance in BSON.</span>
 
@@ -115,9 +115,11 @@
 <span class="sd">            code = Serial.code( y )</span>
 <span class="sd">            z = Serial.decode( y )</span>
 
-<span class="sd">            # Decode a dictionary instance from JSON.</span>
+<span class="sd">            # Decode instances from JSON.</span>
 
 <span class="sd">            z = Serial.decode( &#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39; )</span>
+
+<span class="sd">            z = Serial.decode( &#39;[ 1.0, 2.0, 3.0 ]&#39; )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
