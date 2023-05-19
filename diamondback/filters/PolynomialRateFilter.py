@@ -144,5 +144,5 @@ class PolynomialRateFilter( object ) :
                         jj += 1
                 self._index -= 1.0
                 ii += 1
-            y = y[ 0 : min( jj, len( y ) ) ]
+            y = y[ : min( jj, len( y ) ) ]
         return y
