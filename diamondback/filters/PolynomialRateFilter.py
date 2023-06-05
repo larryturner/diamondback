@@ -127,7 +127,6 @@ class PolynomialRateFilter( object ) :
             v = numpy.linspace( 0, int( len( x ) * self.rate + 0.5 ) - 1, int( len( x ) * self.rate + 0.5 ) ) / self.rate
             y = numpy.interp( x = v, xp = u, fp = x )
         else :
-            eps = numpy.finfo( float ).eps
             cc = len( x )
             y = numpy.zeros( int( numpy.ceil( cc * self.rate ) ) )
             x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
@@ -135,9 +134,9 @@ class PolynomialRateFilter( object ) :
             ii, jj = 0, 0
             index = 0.0
             while ( ii < cc ) :
-                if ( index < ( 1.0 - eps ) ) :
+                if ( index < 1.0 ) :
                     b = numpy.polyfit( u, x[ ii : ii + 4 ], self.order )
-                    while ( ( index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
+                    while ( ( index < 1.0 ) and ( jj < len( y ) ) ) :
                         y[ jj ] = numpy.polyval( b, index )
                         index += v
                         jj += 1
