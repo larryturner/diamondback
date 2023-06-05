@@ -88,8 +88,6 @@ class PolynomialRateFilter( object ) :
 
         if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
-        if ( not numpy.isclose( self.rate, rate ) ) :
-            self._index = 0.0
         self._rate = rate
 
     def __init__( self, rate : float, order : int = 1 ) -> None :
@@ -106,7 +104,7 @@ class PolynomialRateFilter( object ) :
         if ( order < 1 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
         super( ).__init__( )
-        self._index, self._order = 0.0, order
+        self._order = order
         self._rate = rate
         
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
@@ -135,14 +133,15 @@ class PolynomialRateFilter( object ) :
             x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
             u, v = numpy.linspace( -1.0, 2.0, 4 ), 1.0 / self.rate
             ii, jj = 0, 0
+            index = 0.0
             while ( ii < cc ) :
-                if ( self._index < ( 1.0 - eps ) ) :
+                if ( index < ( 1.0 - eps ) ) :
                     b = numpy.polyfit( u, x[ ii : ii + 4 ], self.order )
-                    while ( ( self._index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
-                        y[ jj ] = numpy.polyval( b, self._index )
-                        self._index += v
+                    while ( ( index < ( 1.0 - eps ) ) and ( jj < len( y ) ) ) :
+                        y[ jj ] = numpy.polyval( b, index )
+                        index += v
                         jj += 1
-                self._index -= 1.0
+                index -= 1.0
                 ii += 1
             y = y[ : min( jj, len( y ) ) ]
         return y
