@@ -1,6 +1,6 @@
-4.1.12 - 2023-06-06
+4.1.13 - 2023-06-06
 ^^^^^^^^^^^^^^^^^^^
--   Modified PolynomialRateFilter.
+-   Modified PolynomialRateFilter and PolyphaseRateFilter.
 
 4.1.11 - 2023-06-05
 ^^^^^^^^^^^^^^^^^^^
