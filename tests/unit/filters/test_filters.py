@@ -273,9 +273,9 @@ class Test( object ) :
         y = obj.filter( x )
         assert len( y ) == count
 
-    def test_PolynomialFilter( self ) :
+    def test_PolynomialRateFilter( self ) :
 
-        """ Test PolynomialFilter.
+        """ Test PolynomialRateFilter.
         """
 
         count = 32
@@ -316,9 +316,9 @@ class Test( object ) :
                             5.31017840e-01 ] )
         assert numpy.allclose( y, z )
 
-    def test_PolyphaseFilter( self ) :
+    def test_PolyphaseRateFilter( self ) :
 
-        """ Test PolyphaseFilter.
+        """ Test PolyphaseRateFilter.
         """
 
         count = 128
