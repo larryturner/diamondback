@@ -175,7 +175,7 @@ class PolyphaseRateFilter( object ) :
                 self.s[ 1 : ] = self.s[ : -1 ]
                 self._index -= rr
                 ii += 1
-        return y[ 0 : min( jj, len( y ) ) ]
+        return y[ : min( jj, len( y ) ) ]
 
     def reset( self, x : float ) -> None :
 

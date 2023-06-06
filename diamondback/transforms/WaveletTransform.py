@@ -243,22 +243,22 @@ class WaveletTransform( object ) :
                         firfilter[ kk ].s[ : ] = 0.0
                         u = firfilter[ kk ].filter( v[ ii, 0 : cc ] )
                         y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ] = u[ 1 : : 2 ]
-                v[ 0 : rr, 0 : cc ] = y[ 0 : rr, 0 : cc ]
+                v[ : rr, 0 : cc ] = y[ : rr, 0 : cc ]
             if ( rr > 1 ) :
                 for jj in range( 0, cc ) :
                     for kk in range( 0, 2 ) :
                         firfilter[ kk ].s[ : ] = 0.0
-                        u = firfilter[ kk ].filter( v[ 0 : rr, jj ] )
+                        u = firfilter[ kk ].filter( v[ : rr, jj ] )
                         y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ] = u[ 1 : : 2 ]
             if ( count > 1 ) :
                 ii = max( rr // 2, 1 )
                 jj = max( cc // 2, 1 )
-                y[ 0 : ii, 0 : jj ] = self.transform( y[ 0 : ii, 0 : jj ], count - 1, inverse )
+                y[ : ii, 0 : jj ] = self.transform( y[ : ii, 0 : jj ], count - 1, inverse )
         else :
             if ( count > 1 ) :
                 ii = max( rr // 2, 1 )
                 jj = max( cc // 2, 1 )
-                y[ 0 : ii, 0 : jj ] = self.transform( y[ 0 : ii, 0 : jj ], count - 1, inverse )
+                y[ : ii, 0 : jj ] = self.transform( y[ : ii, 0 : jj ], count - 1, inverse )
             if ( rr > 1 ) :
                 u = numpy.zeros( rr )
                 for jj in range( 0, cc ) :
@@ -267,7 +267,7 @@ class WaveletTransform( object ) :
                         u[ : : 2 ] = y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ]
                         firfilter[ kk ].s[ : ] = 0.0
                         w += 2.0 * firfilter[ kk ].filter( u )
-                    y[ 0 : rr, jj ] = w
+                    y[ : rr, jj ] = w
             if ( cc > 1 ) :
                 u = numpy.zeros( cc )
                 for ii in range( 0, rr ) :
