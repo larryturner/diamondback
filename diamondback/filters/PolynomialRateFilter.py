@@ -122,13 +122,15 @@ class PolynomialRateFilter( object ) :
             x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 1 ) or ( len( x ) < 2 ) ) :
             raise ValueError( f'X = {x}' )
+        cc = len( x )
+        jj = int( numpy.round( cc * self.rate ) )
         if ( self.order == 1 ) :
+            x = numpy.concatenate( ( x, [ 2.0 * x[ -1 ] - x[ -2 ] ] ) )
             u = numpy.linspace( 0, len( x ) - 1, len( x ) )
             v = numpy.linspace( 0, int( len( x ) * self.rate + 0.5 ) - 1, int( len( x ) * self.rate + 0.5 ) ) / self.rate
             y = numpy.interp( x = v, xp = u, fp = x )
         else :
-            cc = len( x )
-            y = numpy.zeros( int( numpy.ceil( cc * self.rate ) ) )
+            y = numpy.zeros( jj )
             x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
             u, v = numpy.linspace( -1.0, 2.0, 4 ), 1.0 / self.rate
             ii, jj = 0, 0
@@ -142,5 +144,5 @@ class PolynomialRateFilter( object ) :
                         jj += 1
                 index -= 1.0
                 ii += 1
-            y = y[ : min( jj, len( y ) ) ]
+        y = y[ : min( jj, len( y ) ) ]
         return y

@@ -159,7 +159,7 @@ class PolyphaseRateFilter( object ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
-        y = numpy.zeros( int( numpy.ceil( len( x ) * self.rate ) ) )
+        y = numpy.zeros( int( numpy.round( len( x ) * self.rate ) ) )
         b = PolyphaseRateFilter.__b
         rr = b.shape[ 0 ]
         ii, jj = 0, 0
