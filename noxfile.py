@@ -86,7 +86,10 @@ def image( session ) -> None :
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         build( session )
         login( session )
-        session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
+        if ( os.getenv( 'JFROG_USER' ) ) :
+            session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
+        else :
+            session.run( 'docker', 'build', '--tag', repository, '.' )
 
 @nox.session( venv_backend = 'none' )
 def login( session ) -> None :
@@ -95,10 +98,8 @@ def login( session ) -> None :
     """
 
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
-        try :
+        if ( os.getenv( 'JFROG_USER' ) ) :
             session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
-        except Exception :
-            pass
 
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
