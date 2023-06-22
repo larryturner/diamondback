@@ -6,7 +6,7 @@
         ::
         
             nox --list
-            nox --sessions build clean docs image login notebook push status tag tests
+            nox --sessions build clean docs image notebook push status tag tests
     
     **License**
         © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.
@@ -23,7 +23,7 @@ import requests
 import shutil
 import time
 
-nox.options.sessions = [ 'build', 'docs', 'tests', 'push' ]
+nox.options.sessions = [ 'build', 'image', 'docs', 'tests', 'push' ]
 
 repository = pathlib.Path.cwd( ).name
 
@@ -85,21 +85,7 @@ def image( session ) -> None :
 
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         build( session )
-        login( session )
-        if ( os.getenv( 'JFROG_USER' ) ) :
-            session.run( 'docker', 'build', '--tag', repository, '--build-arg', 'JFROG_USER', '--build-arg', 'JFROG_PASSWD', '.' )
-        else :
-            session.run( 'docker', 'build', '--tag', repository, '.' )
-
-@nox.session( venv_backend = 'none' )
-def login( session ) -> None :
-
-    """ Login.
-    """
-
-    if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
-        if ( os.getenv( 'JFROG_USER' ) ) :
-            session.run( 'docker', 'login', 'global-artifacts.se.com', '-u', os.getenv( 'JFROG_USER' ), '-p', os.getenv( 'JFROG_PASSWD' ), external = True  )
+        session.run( 'docker', 'build', '--tag', repository, '.' )
 
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
@@ -175,7 +161,6 @@ def tests( session ) -> None :
         if ( [ u for u in pathlib.Path( 'tests' ).iterdir( ) ] ) :
             try :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
-                    login( session )
                     session.run( 'docker', 'compose', 'up', '--detach' )
                     time.sleep( 10.0 )
                 session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
