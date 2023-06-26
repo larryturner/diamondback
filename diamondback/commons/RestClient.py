@@ -47,7 +47,7 @@ class RestClient( object ) :
     """ REST client.
     """
 
-    __method____ = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
+    __method__ = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
 
     @property
     def live( self ) :
