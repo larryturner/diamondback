@@ -62,7 +62,7 @@ class WindowFilter( object ) :
     """ Window filter.
     """
 
-    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    __style__ = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
@@ -82,8 +82,8 @@ class WindowFilter( object ) :
                 normal : bool.
         """
 
-        if ( ( not style ) or ( style not in WindowFilter.__style ) ) :
-            raise ValueError( f'style = {style} Expected Style in {WindowFilter.__style}' )
+        if ( ( not style ) or ( style not in WindowFilter.__style__ ) ) :
+            raise ValueError( f'style = {style} Expected Style in {WindowFilter.__style__}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         if ( style == 'Kaiser' ) :

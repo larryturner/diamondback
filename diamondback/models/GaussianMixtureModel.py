@@ -41,30 +41,48 @@ class GaussianMixtureModel( object ) :
 
     @property
     def index( self ) :
+
+        """ index : int.
+        """
+
         return self._index
 
     @index.setter
     def index( self, index ) :
+
         if ( index < 1 ) :
             raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
         self._index = index
 
     @property
     def order( self ) :
+
+        """ order : int.
+        """
+
         return self._order
 
     @property
     def regularize( self ) :
+
+        """ regularize : float.
+        """
+
         return self._regularize
 
     @regularize.setter
     def regularize( self, regularize : float ) :
+        
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._regularize = regularize
 
     @property
     def shape( self ) :
+        
+        """ shape : Tuple[ Any ].
+        """
+
         return self._shape
 
     def __init__( self, order : int = 10, index : int = 100, regularize : float = 1.0e-1 ) -> None :

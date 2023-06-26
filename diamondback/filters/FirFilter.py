@@ -99,7 +99,7 @@ class FirFilter( object ) :
     """ Finite Impulse Response ( FIR ) filter.
     """
 
-    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    __style__ = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
@@ -151,8 +151,8 @@ class FirFilter( object ) :
         """
 
         if ( not len( b ) ) :
-            if ( ( not style ) or ( style not in FirFilter.__style ) ) :
-                raise ValueError( f'style = {style} Expected Style in {FirFilter.__style}' )
+            if ( ( not style ) or ( style not in FirFilter.__style__ ) ) :
+                raise ValueError( f'style = {style} Expected Style in {FirFilter.__style__}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
             if ( order < 0 ) :

@@ -38,16 +38,25 @@ class GaussianModel( object ) :
 
     @property
     def regularize( self ) :
+
+        """ regularize : float.
+        """
+
         return self._regularize
 
     @regularize.setter
     def regularize( self, regularize : float ) :
+
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._regularize = regularize
 
     @property
     def shape( self ) :
+
+        """ shape : Tuple[ Any ].
+        """
+
         return self._shape
         
     def __init__( self, regularize : float = 1.0e-1 ) -> None :

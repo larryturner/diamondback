@@ -87,8 +87,9 @@ class Log( object ) :
     """
 
     numpy.set_printoptions( formatter = dict( float = '{:.6f}'.format ) )
+    __rlock__ = RLock( )
+
     _identity, _level = 0, logger.level( 'INFO' )
-    _rlock = RLock( )
 
     @classmethod
     def level( cls, level : str ) -> None :
@@ -99,7 +100,7 @@ class Log( object ) :
                 level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', < custom > ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log.__rlock__ ) :
             try :
                 Log._level = logger.level( level.upper( ) )
             except Exception :
@@ -114,7 +115,7 @@ class Log( object ) :
                 stream : Any, hasattr( 'write' ) - in ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
         """
 
-        with ( Log._rlock ) :
+        with ( Log.__rlock__ ) :
             if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
                 raise ValueError( f'Stream = {stream}' )
             try :
@@ -135,7 +136,7 @@ class Log( object ) :
                 entry : Union[ str, Exception ].
         """
 
-        with ( Log._rlock ) :
+        with ( Log.__rlock__ ) :
             if ( not Log._identity ) :
                 Log.stream( sys.stdout )
             try :
