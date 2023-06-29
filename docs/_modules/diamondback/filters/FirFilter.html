@@ -10,6 +10,7 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -165,7 +166,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Finite Impulse Response ( FIR ) filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">__style__</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
+    <span class="n">__style</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -217,8 +218,8 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">__style__</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="n">FirFilter</span><span class="o">.</span><span class="n">__style__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">__style</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="n">FirFilter</span><span class="o">.</span><span class="n">__style</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;=</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;=</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1"> Expected Frequency in ( 0.0, 1.0 )&#39;</span> <span class="p">)</span>
             <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>

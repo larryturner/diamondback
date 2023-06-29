@@ -10,6 +10,7 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -113,7 +114,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; REST client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">__method__</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span>
+    <span class="n">__method</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -203,10 +204,10 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">method</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RestClient</span><span class="o">.</span><span class="n">__method__</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Data = </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1"> JSON = </span><span class="si">{</span><span class="n">json</span><span class="si">}</span><span class="s1"> Expected Data or JSON&#39;</span> <span class="p">)</span>
         <span class="n">api</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
