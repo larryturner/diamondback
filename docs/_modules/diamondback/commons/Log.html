@@ -10,7 +10,6 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
         <script src="../../../_static/doctools.js"></script>
         <script src="../../../_static/sphinx_highlight.js"></script>
@@ -154,8 +153,9 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">float</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">__rlock__</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
+
     <span class="n">_identity</span><span class="p">,</span> <span class="n">_level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span> <span class="p">)</span>
-    <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
 
 <div class="viewcode-block" id="Log.level"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.level">[docs]</a>    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">level</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
@@ -166,7 +166,7 @@
 <span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, &lt; custom &gt; ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">__rlock__</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">try</span> <span class="p">:</span>
                 <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
@@ -181,7 +181,7 @@
 <span class="sd">                stream : Any, hasattr( &#39;write&#39; ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, &#39;w&#39; or &#39;a&#39; ) ).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">__rlock__</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
@@ -202,7 +202,7 @@
 <span class="sd">                entry : Union[ str, Exception ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">__rlock__</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
