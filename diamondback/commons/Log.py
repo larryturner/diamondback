@@ -9,7 +9,7 @@
         In lazy initialization an existing default loguru handler, with an
         identity equal to 0, and a stream assignment of sys.stdout is removed,
         and a new loguru handler with a stream assignment of sys.stdout and a
-        level of 'INFO' is created.
+        level of 'Info' is created.
 
         In stream assignments subsequent to initialization, only loguru
         handlers previously created by Log will be removed, as the Log design
@@ -19,8 +19,9 @@
 
         Levels defined by loguru are supported, including custom definitions,
         which may have an associated numerical value greater than or equal to
-        zero.  The level may be dynamically modified without creating,
-        deleting, or modifying a loguru handler.
+        zero.  Levels may be dynamically modified without creating, deleting,
+        or modifying a loguru handler.  Levels are case insensitive on
+        assignment, though loguru uses upper case.
 
         Singleton.
 
@@ -36,22 +37,22 @@
             import sys
 
             try :
-                # Set Log level to 'INFO', the default level.
+                # Set Log level to 'Info', the default level.
 
-                Log.level( 'INFO' )
-                Log.write( 'INFO', 'Test Log write.' )
+                Log.level( 'Info' )
+                Log.write( 'Info', 'Test Log write.' )
 
                 # Set Log stream to sys.stdout.
 
                 Log.stream( sys.stdout )
-                Log.write( 'INFO', f'Valid = {True}' )
+                Log.write( 'Info', f'Valid = {True}' )
 
                 # Set Log stream to a memory stream.
 
                 stream = io.StringIO( )
                 Log.stream( stream )
                 x = numpy.random.rand( 2, 2 )
-                Log.write( 'INFO', f'X = {x}' )
+                Log.write( 'Info', f'X = {x}' )
 
                 # Read and reset memory stream.
                 value = stream.getvalue( )
@@ -62,9 +63,9 @@
                 with open( 'log-2112.txt', 'w' ) as fout :
                     Log.stream( fout )
                     x = numpy.random.rand( 2, 2 )
-                    Log.write( 'WARNING', f'X = {x}' )
+                    Log.write( 'Warning', f'X = {x}' )
             except Exception as ex :
-                Log.write( 'ERROR', ex )
+                Log.write( 'Error', ex )
 
     **License**
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -87,9 +88,11 @@ class Log( object ) :
     """
 
     numpy.set_printoptions( formatter = dict( float = '{:.6f}'.format ) )
+
+    __level__ = ( 'Critical', 'Error', 'Warning', 'Success', 'Info', 'Debug', 'Trace' )
     __rlock__ = RLock( )
 
-    _identity, _level = 0, logger.level( 'INFO' )
+    _identity, _level = 0, logger.level( 'Info'.upper( ) )
 
     @classmethod
     def level( cls, level : str ) -> None :
@@ -97,14 +100,14 @@ class Log( object ) :
         """ Level.
 
             Arguments :
-                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', < custom > ).
+                level : str - in __level__.
         """
 
         with ( Log.__rlock__ ) :
             try :
                 Log._level = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level} Expected Level in ( "CRITICAL", "ERROR"", "WARNING", "SUCCESS", "INFO", "DEBUG", "TRACE", < custom > )' )
+                raise ValueError( f'Level = {level} Expected Level in {Log.__level__}' )
 
     @classmethod
     def stream( cls, stream : Any ) -> None :
@@ -132,7 +135,7 @@ class Log( object ) :
             datetime and level.
 
             Arguments :
-                level : str - in ( 'CRITICAL', 'ERROR', 'WARNING', 'SUCCESS', 'INFO', 'DEBUG', 'TRACE', < custom > ).
+                level : str - in __level__.
                 entry : Union[ str, Exception ].
         """
 
@@ -142,7 +145,7 @@ class Log( object ) :
             try :
                 level = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level} Expected Level in ( "CRITICAL", "ERROR"", "WARNING", "SUCCESS", "INFO", "DEBUG", "TRACE", < custom > )' )
+                raise ValueError( f'Level = {level} Expected Level in {Log.__level__}' )
             if ( level.no >= Log._level.no ) :
                 if ( isinstance( entry, Exception ) ) :
                     entry = f'Exception = {type( entry ).__name__} {entry}'
