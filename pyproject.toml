@@ -72,3 +72,6 @@ requires = [ 'build >= 0.10.0, < 1.0.0',
 
 [ tool.setuptools.packages.find ]
 include = [ 'diamondback*' ]
+
+[ tool.mypy ]
+ignore_missing_imports = true

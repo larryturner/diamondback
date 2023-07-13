@@ -6,7 +6,7 @@
         ::
         
             nox --list
-            nox --sessions build clean docs image notebook push status tag tests
+            nox --sessions build clean docs image notebook push status tag tests typing
     
     **License**
         © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.
@@ -23,9 +23,11 @@ import requests
 import shutil
 import time
 
-nox.options.sessions = [ 'build', 'image', 'docs', 'tests', 'push' ]
+nox.options.sessions = [ 'build', 'image', 'docs', 'tests' ]
 
 repository = pathlib.Path.cwd( ).name
+x = repository.split( '-' )
+source = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]
 
 @nox.session( venv_backend = 'none' )
 def build( session ) -> None :
@@ -169,3 +171,11 @@ def tests( session ) -> None :
             finally :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
                     session.run( 'docker', 'compose', 'down' )
+
+@nox.session( venv_backend = 'none' )
+def typing( session ) -> None :
+
+    """ Run typing.
+    """
+
+    session.run( 'mypy', source )
