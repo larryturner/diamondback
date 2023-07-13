@@ -9,6 +9,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
+# isort: skip_file
+
 from .ComplexTransform import ComplexTransform
 from .FourierTransform import FourierTransform
 from .PowerSpectrumTransform import PowerSpectrumTransform

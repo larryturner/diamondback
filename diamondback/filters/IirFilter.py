@@ -147,7 +147,7 @@ class IirFilter( FirFilter ) :
                 raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
-            beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
+            beta, eps, error = 10.0, numpy.finfo( float ).eps, numpy.inf
             index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
             a, b = [ ], [ ]
             for _ in range( 0, index ) :

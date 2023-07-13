@@ -9,6 +9,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
+# isort: skip_file
+
 from .commons import Log, RestClient, Serial
 from .filters import FirFilter, IirFilter, ComplexBandPassFilter, ComplexExponentialFilter
 from .filters import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, IntegralFilter

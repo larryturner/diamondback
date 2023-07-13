@@ -71,7 +71,7 @@ class PidFilter( FirFilter ) :
         if ( len( b ) != 3 ) :
             raise ValueError( f'B = {b}' )
         super( ).__init__( b = b, s = numpy.zeros( len( b ) ) )
-        self._limit = float( 'inf' )
+        self._limit = numpy.inf
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

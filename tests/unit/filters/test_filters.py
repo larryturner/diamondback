@@ -267,8 +267,8 @@ class Test( object ) :
         assert numpy.allclose( obj.b, b )
         obj.limit = limit
         assert numpy.isclose( obj.limit, limit )
-        obj.limit = float( 'inf' )
-        assert numpy.isclose( obj.limit, float( 'inf' ) )
+        obj.limit = numpy.inf
+        assert numpy.isclose( obj.limit, numpy.inf )
         x = numpy.random.randn( count )
         y = obj.filter( x )
         assert len( y ) == count

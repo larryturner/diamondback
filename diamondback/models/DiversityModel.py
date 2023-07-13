@@ -151,7 +151,7 @@ class DiversityModel( object ) :
             else :
                 v, jj = self._diversity, -1
                 for kk in range( 0, cc ) :
-                    u, s = float( 'inf' ), numpy.array( self.s )
+                    u, s = numpy.inf, numpy.array( self.s )
                     s[ kk, : ] = x[ ii, : ]
                     for uu in range( 0, cc - 1 ) :
                         for vv in range( uu + 1, cc ) :
