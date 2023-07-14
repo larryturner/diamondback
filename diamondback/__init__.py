@@ -26,4 +26,4 @@ __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
             'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
             'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
             'FourierTransform', 'PowerSpectrumTransform', 'WaveletTransform', 'ZTransform' ]
-__version__ = '4.1.13'
+__version__ = '4.1.14'

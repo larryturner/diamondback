@@ -84,8 +84,7 @@ class ComplexExponentialFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( ( numpy.iscomplex( x ).any( ) ) or ( not len( x ) ) or ( abs( x ) > 1.0 ).any( ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), complex )

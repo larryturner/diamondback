@@ -130,14 +130,13 @@ class DiversityModel( object ) :
                 y : numpy.ndarray - diversity.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
             raise ValueError( f'X = {x}' )
         if ( not self.s.shape[ 1 ] ) :
             self.s = numpy.zeros( ( self.s.shape[ 0 ], x.shape[ 1 ] ) ) + numpy.finfo( float ).max
         if ( x.shape[ 1 ] != self.s.shape[ 1 ] ) :
-            raise ValueError( f'X = {x.shape} S = {s.shape}' )
+            raise ValueError( f'X = {x.shape} S = {self.s.shape}' )
         cc = 0
         for ii in range( 0, self.s.shape[ 0 ] ) :
             if ( numpy.isclose( self.s[ ii, 0 ], numpy.finfo( float ).max ) ) :

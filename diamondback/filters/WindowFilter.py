@@ -89,7 +89,7 @@ class WindowFilter( object ) :
         if ( style == 'Kaiser' ) :
             window = ( style.lower( ), 7.0 )
         else :
-            window = style.lower( )
+            window = style.lower( )  # type: ignore
         super( ).__init__( )
         b = scipy.signal.get_window( window, order + 1, False )
         if ( normal ) :
@@ -107,8 +107,7 @@ class WindowFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 1 ) or ( len( x ) != len( self.b ) ) ) :
             raise ValueError( f'X = {x}' )
         return self.b * x

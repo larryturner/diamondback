@@ -31,6 +31,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
+from typing import List
 import numpy
 import sklearn.mixture
 
@@ -101,7 +102,7 @@ class GaussianMixtureModel( object ) :
             raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
-        self._data = [ ]
+        self._data : List[ sklearn.mixture.GaussianMixture ] = [ ]
         self._index = index
         self._order = order
         self._regularize = regularize

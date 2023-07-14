@@ -109,7 +109,7 @@ class ComplexBandPassFilter( FirFilter ) :
         self._complexexponentialfilter = ComplexExponentialFilter( )
         self._frequency, self._rate = frequency, rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
 
         """ Filters a primary signal and produces a reference signal.
 
@@ -124,8 +124,7 @@ class ComplexBandPassFilter( FirFilter ) :
                 b : numpy.ndarray - forward coefficient.
         """
 
-        if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
-            d = numpy.array( list( d ) )
+        d = numpy.array( list( d ) )
         if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
         if ( not numpy.iscomplex( d ).any( ) ) :

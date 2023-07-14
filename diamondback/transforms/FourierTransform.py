@@ -75,12 +75,10 @@ class FourierTransform( object ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
-        if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
-            b = numpy.array( list( b ) )
+        b = numpy.array( list( b ) )
         if ( ( len( b ) > len( x ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )
         u = numpy.array( x[ : len( b ) ] )

@@ -88,8 +88,7 @@ class GoertzelFilter( IirFilter ) :
                 frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
         """
 
-        if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
-            b = numpy.array( list( b ) )
+        b = numpy.array( list( b ) )
         if ( ( not len( b ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
@@ -111,8 +110,7 @@ class GoertzelFilter( IirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( int( numpy.ceil( len( x ) / len( self._w ) ) ) + 1, complex )

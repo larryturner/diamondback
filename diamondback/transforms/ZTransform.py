@@ -78,12 +78,10 @@ class ZTransform( object ) :
                 b : numpy.ndarray - forward coefficient, z-domain.
         """
 
-        if ( ( not numpy.isscalar( u ) ) and ( not isinstance( u, numpy.ndarray ) ) ) :
-            u = numpy.array( list( u ) )
+        u = numpy.array( list( u ) )
         if ( ( not len( u ) ) or ( not u.any( ) ) ) :
             raise ValueError( f'U = {u}' )
-        if ( ( not numpy.isscalar( v ) ) and ( not isinstance( v, numpy.ndarray ) ) ) :
-            v = numpy.array( list( v ) )
+        v = numpy.array( list( v ) )
         if ( ( not len( v ) ) or ( not v.any( ) ) ) :
             raise ValueError( f'V = {v}' )
         if ( frequency <= 0.0 ) :
@@ -105,7 +103,7 @@ class ZTransform( object ) :
             a, b = numpy.poly( p ).real, numpy.poly( z ).real
         else :
             r, p, k = scipy.signal.residue( v, u )
-            a, b = numpy.ones( 1 ) + 0j, 0j
+            a, b = numpy.ones( 1 ) + 0j, 0j  # type: ignore
             for ii in range( 0, len( r ) ) :
                 a = numpy.convolve( a, numpy.array( [ 1.0, -numpy.exp( p[ ii ] / t ) ] ) )
                 q = numpy.ones( 1 )

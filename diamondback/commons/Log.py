@@ -92,7 +92,8 @@ class Log( object ) :
     __level__ = ( 'Critical', 'Error', 'Warning', 'Success', 'Info', 'Debug', 'Trace' )
     __rlock__ = RLock( )
 
-    _identity, _level = 0, logger.level( 'Info'.upper( ) )
+    _identity = 0
+    _level = logger.level( 'Info'.upper( ) )
 
     @classmethod
     def level( cls, level : str ) -> None :
@@ -143,14 +144,14 @@ class Log( object ) :
             if ( not Log._identity ) :
                 Log.stream( sys.stdout )
             try :
-                level = logger.level( level.upper( ) )
+                v = logger.level( level.upper( ) )
             except Exception :
                 raise ValueError( f'Level = {level} Expected Level in {Log.__level__}' )
-            if ( level.no >= Log._level.no ) :
+            if ( v.no >= Log._level.no ) :
                 if ( isinstance( entry, Exception ) ) :
                     entry = f'Exception = {type( entry ).__name__} {entry}'
                     info = sys.exc_info( )[ -1 ]
                     while ( info ) :
                         entry += f' @ File = {info.tb_frame.f_code.co_filename.split( os.sep )[ -1 ]} Line = {info.tb_lineno}'
                         info = info.tb_next
-                logger.log( level.name, entry )
+                logger.log( v.name, entry )

@@ -97,7 +97,7 @@ class IirFilter( FirFilter ) :
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
-    __style__ = ( 'Bessel', 'Butterworth', 'Chebyshev' )
+    __style__ : Tuple[ str, str, str ] = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
 
     @property
     def a( self ) :
@@ -147,25 +147,24 @@ class IirFilter( FirFilter ) :
                 raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
-            beta, eps, error = 10.0, numpy.finfo( float ).eps, numpy.inf
-            index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
-            a, b = [ ], [ ]
+            beta, eps, error = 10.0, float( numpy.finfo( float ).eps ), numpy.inf
+            index, rate, scale = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
+            a, b = numpy.ndarray( ( 0 ) ), numpy.ndarray( ( 0 ) )
             for _ in range( 0, index ) :
-                u, v = IirFilter._evaluate( style, zeta * frequency, order )
+                u, v = IirFilter._evaluate( style, scale * frequency, order )
                 x = numpy.exp( 1j * math.pi * frequency )
-                e = ( 2.0 ** ( -0.5 ) ) - ( ( abs( numpy.polyval( v, x ) / numpy.polyval( numpy.concatenate( ( [ 1.0 ], -u[ 1 : ] ) ), x ) ) ) ** count )
+                e = ( 2.0 ** ( -0.5 ) ) - ( ( abs( numpy.polyval( v, x ) / numpy.polyval( numpy.concatenate( ( [ 1.0 ], -u[ 1 : ] ) ), x ) ) ) ** count )  # type: ignore
                 if ( abs( e ) < error ) :
                     a, b, error = u, v, abs( e )
                     if ( error < ( 10.0 * eps ) ) :
                         break
-                zeta = max( zeta + mu * math.tanh( beta * e ), eps )
+                scale = max( scale + rate * math.tanh( beta * e ), eps )
             if ( complement ) :
                 a *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] )
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
-                b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )
+                b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )  # type: ignore
             b *= gain
-        if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
-            a = numpy.array( list( a ) )
+        a = numpy.array( list( a ) )
         if ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) :
             raise ValueError( f'A = {a}' )
         if ( len( a ) < len( b ) ) :
@@ -199,7 +198,7 @@ class IirFilter( FirFilter ) :
             bilinear = False
             u, a = numpy.ones( 1 ), numpy.ones( 2 )
             for ii in range( 2, order + 1 ) :
-                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
+                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )  # type: ignore
                 u, a = a, x
         elif ( style == 'Butterworth' ) :
             a = numpy.ones( 1 )
@@ -257,8 +256,7 @@ class IirFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )

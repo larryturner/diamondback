@@ -39,7 +39,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, Union
 import requests
 
 class RestClient( object ) :
@@ -115,7 +115,7 @@ class RestClient( object ) :
         self._proxy, self._timeout = { }, ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, auth : Any = None, header : Dict[ str, str ] = None, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, auth : Any = None, header : Union[ Dict[ str, str ], None ] = None, item : Union[ Dict[ str, str ], None ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a

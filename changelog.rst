@@ -1,3 +1,8 @@
+4.1.14 - 2023-07-14
+^^^^^^^^^^^^^^^^^^^
+-   Modified for type checking compliance.
+-   Modified nox.
+
 4.1.13 - 2023-06-06
 ^^^^^^^^^^^^^^^^^^^
 -   Modified PolynomialRateFilter and PolyphaseRateFilter.

@@ -164,13 +164,13 @@ class FirFilter( object ) :
             if ( style == 'Kaiser' ) :
                 window = ( style.lower( ), 7.0 )
             else :
-                window = style.lower( )
-            beta, eps, error = 10.0, numpy.finfo( float ).eps, numpy.inf
-            index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
+                window = style.lower( )  # type: ignore
+            beta, eps, error = 10.0, float( numpy.finfo( float ).eps ), numpy.inf
+            index, rate, scale = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
             for _ in range( 0, index ) :
                 with warnings.catch_warnings( ) :
                     warnings.simplefilter( 'ignore' )
-                    v = scipy.signal.firwin( order + 1, zeta * frequency, None, window, True, True, 1.0 )
+                    v = scipy.signal.firwin( order + 1, scale * frequency, None, window, True, True, 1.0 )
                     if ( numpy.isnan( v ).any( ) ) :
                         raise ValueError( f'V = {v}' )
                     x = numpy.exp( 1j * math.pi * frequency )
@@ -179,17 +179,15 @@ class FirFilter( object ) :
                         b, error = v, abs( e )
                         if ( error < ( 10.0 * eps ) ) :
                             break
-                    zeta = numpy.maximum( zeta + mu * math.tanh( beta * e ), eps )
+                    scale = numpy.maximum( scale + rate * math.tanh( beta * e ), eps )
             if ( complement ) :
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) )
-            b *= gain
-        if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
-            b = numpy.array( list( b ) )
+            b *= gain  # type: ignore
+        b = numpy.array( list( b ) )
         if ( not len( b ) ) :
             raise ValueError( f'B = {b}' )
-        if ( ( not numpy.isscalar( s ) ) and ( not isinstance( s, numpy.ndarray ) ) ) :
-            s = numpy.array( list( s ) )
+        s = numpy.array( list( s ) )
         if ( len( b ) < len( s ) ) :
             b = numpy.concatenate( ( b, numpy.zeros( len( s ) - len( b ) ) ) )
         if ( len( s ) < len( b ) ) :
@@ -233,8 +231,7 @@ class FirFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )

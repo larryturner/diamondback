@@ -110,7 +110,7 @@ class ComplexFrequencyFilter( FirFilter ) :
         super( ).__init__( b = numpy.ones( 1, complex ), s = numpy.ones( 1, complex ) )
         self._frequency, self._rate = frequency, rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
 
         """ Filters a primary signal and produces a reference signal.
 
@@ -125,13 +125,12 @@ class ComplexFrequencyFilter( FirFilter ) :
                 b : numpy.ndarray - forward coefficient.
         """
 
-        if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
-            d = numpy.array( list( d ) )
+        d = numpy.array( list( d ) )
         if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
         if ( not numpy.iscomplex( d ).any( ) ) :
             d = scipy.signal.hilbert( d )
-        x = abs( d )
+        x = abs( d )  # type: ignore
         x[ numpy.isclose( x, 0.0 ) ] = 1.0
         x = d / x
         y, e, b = numpy.zeros( len( x ) ), numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex )
@@ -157,4 +156,4 @@ class ComplexFrequencyFilter( FirFilter ) :
         if ( numpy.isclose( x, 0.0 ) ) :
             self.s[ 0 ] = 1.0
         else :
-            self.s[ 0 ] = x / abs( x )
+            self.s[ 0 ] = x / abs( x )  # type: ignore

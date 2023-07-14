@@ -78,8 +78,7 @@ class ComplexTransform( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
-            x = numpy.array( list( x ) )
+        x = numpy.array( list( x ) )
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
             raise ValueError( f'X = {x}' )
         if ( len( x.shape ) < 2 ) :
