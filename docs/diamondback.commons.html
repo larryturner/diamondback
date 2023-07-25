@@ -158,12 +158,17 @@ assignment, though loguru uses upper case.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.commons.Log.</span></span><span class="sig-name descname"><span class="pre">Log</span></span><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Log.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in __level__.</p>
+<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -185,7 +190,7 @@ assignment, though loguru uses upper case.</p>
 specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in __level__.
+<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
 entry : Union[ str, Exception ].</p>
 </dd>
 </dl>
@@ -241,6 +246,11 @@ text, or binary data is returned.</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>REST client.</p>
 <p>Initialize.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('delete',</span> <span class="pre">'get',</span> <span class="pre">'head',</span> <span class="pre">'options',</span> <span class="pre">'patch',</span> <span class="pre">'post',</span> <span class="pre">'put')</span></em></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span></dt>
@@ -443,12 +453,17 @@ indent : bool.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.commons.</span></span><span class="sig-name descname"><span class="pre">Log</span></span><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>Log.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<dd></dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.11)"><span class="pre">str</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.11)"><span class="pre">None</span></a></span></span><a class="reference internal" href="_modules/diamondback/commons/Log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in __level__.</p>
+<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -470,7 +485,7 @@ indent : bool.</p>
 specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
 <dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in __level__.
+<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
 entry : Union[ str, Exception ].</p>
 </dd>
 </dl>
@@ -484,6 +499,11 @@ entry : Union[ str, Exception ].</p>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.11)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
 <p>REST client.</p>
 <p>Initialize.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('delete',</span> <span class="pre">'get',</span> <span class="pre">'head',</span> <span class="pre">'options',</span> <span class="pre">'patch',</span> <span class="pre">'post',</span> <span class="pre">'put')</span></em></dt>
+<dd></dd></dl>
+
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span></dt>

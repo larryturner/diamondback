@@ -96,9 +96,9 @@
 <span class="sd">            b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}</span>
 
 <span class="sd">    **Example**</span>
-<span class="sd">     </span>
+
 <span class="sd">        ::</span>
-<span class="sd">        </span>
+
 <span class="sd">            from diamondback import ComplexExponentialFilter, WindowFilter</span>
 <span class="sd">            import numpy</span>
 
@@ -128,7 +128,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Window filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">__style__</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
+    <span class="n">STYLE</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Blackman&#39;</span><span class="p">,</span> <span class="s1">&#39;Hamming&#39;</span><span class="p">,</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">b</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -148,8 +148,8 @@
 <span class="sd">                normal : bool.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">__style__</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="n">WindowFilter</span><span class="o">.</span><span class="n">__style__</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WindowFilter</span><span class="o">.</span><span class="n">STYLE</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="n">WindowFilter</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 0, inf )&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">style</span> <span class="o">==</span> <span class="s1">&#39;Kaiser&#39;</span> <span class="p">)</span> <span class="p">:</span>
