@@ -50,9 +50,9 @@
         frequency response.
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import IirFilter
             import numpy
 
@@ -97,7 +97,7 @@ class IirFilter( FirFilter ) :
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
-    __style__ : Tuple[ str, str, str ] = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
+    STYLE : Tuple[ str, str, str ] = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
 
     @property
     def a( self ) :
@@ -120,7 +120,7 @@ class IirFilter( FirFilter ) :
             Specify constraints including style, frequency, and order.
             Alternatively, a recursive coefficient array and forward coefficient array
             may be explicitly defined to ignore constraints.
-            
+
             Labels should be used to avoid ambiguity between constraints and
             coefficients.
 
@@ -137,8 +137,8 @@ class IirFilter( FirFilter ) :
         """
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
-            if ( ( not style ) or ( style not in IirFilter.__style__ ) ) :
-                raise ValueError( f'style = {style} Expected Style in {IirFilter.__style__}' )
+            if ( ( not style ) or ( style not in IirFilter.STYLE ) ) :
+                raise ValueError( f'style = {style} Expected Style in {IirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
             if ( order < 1 ) :

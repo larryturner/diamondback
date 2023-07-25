@@ -54,9 +54,9 @@
         frequency response.
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import FirFilter
             import numpy
 
@@ -99,7 +99,7 @@ class FirFilter( object ) :
     """ Finite Impulse Response ( FIR ) filter.
     """
 
-    __style__ = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    STYLE = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
@@ -151,8 +151,8 @@ class FirFilter( object ) :
         """
 
         if ( not len( b ) ) :
-            if ( ( not style ) or ( style not in FirFilter.__style__ ) ) :
-                raise ValueError( f'style = {style} Expected Style in {FirFilter.__style__}' )
+            if ( ( not style ) or ( style not in FirFilter.STYLE ) ) :
+                raise ValueError( f'style = {style} Expected Style in {FirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
             if ( order < 0 ) :

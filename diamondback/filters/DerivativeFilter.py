@@ -55,9 +55,9 @@
             b_{3,8} = \scriptsize{ [ \matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 } ]\ \\frac{1}{48} }
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy
 
@@ -88,16 +88,16 @@ class DerivativeFilter( FirFilter ) :
     """ Derivative filter.
     """
 
-    __b__ = { 1 : { 1 : numpy.array( [ 1.0, -1.0 ] ),
-                    2 : numpy.array( [ 1.0, 0.0, -1.0 ] ) * ( 1.0 / 2.0 ),
-                    4 : numpy.array( [ -1.0, 8.0, 0.0, -8.0, 1.0 ] ) * ( 1.0 / 12.0 ) },
-              2 : { 2 : numpy.array( [ 1.0, -2.0, 1.0 ] ),
-                    4 : numpy.array( [ 1.0, 0.0, -2.0, 0.0, 1.0 ] ) * ( 1.0 / 4.0 ),
-                    6 : numpy.array( [ -1.0, 8.0, 1.0, -16.0, 1.0, 8.0, -1.0 ] ) * ( 1.0 / 24.0 ),
-                    8 : numpy.array( [ 1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0 ] ) * ( 1.0 / 144.0 ) },
-              3 : { 4 : numpy.array( [ 1.0, -2.0, 0.0, 2.0, -1.0 ] ) * ( 1.0 / 2.0 ),
-                    6 : numpy.array( [ 1.0, 0.0, -3.0, 0.0, 3.0, 0.0, -1.0 ] ) * ( 1.0 / 8.0 ),
-                    8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
+    B = { 1 : { 1 : numpy.array( [ 1.0, -1.0 ] ),
+                2 : numpy.array( [ 1.0, 0.0, -1.0 ] ) * ( 1.0 / 2.0 ),
+                4 : numpy.array( [ -1.0, 8.0, 0.0, -8.0, 1.0 ] ) * ( 1.0 / 12.0 ) },
+          2 : { 2 : numpy.array( [ 1.0, -2.0, 1.0 ] ),
+                4 : numpy.array( [ 1.0, 0.0, -2.0, 0.0, 1.0 ] ) * ( 1.0 / 4.0 ),
+                6 : numpy.array( [ -1.0, 8.0, 1.0, -16.0, 1.0, 8.0, -1.0 ] ) * ( 1.0 / 24.0 ),
+                8 : numpy.array( [ 1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0 ] ) * ( 1.0 / 144.0 ) },
+          3 : { 4 : numpy.array( [ 1.0, -2.0, 0.0, 2.0, -1.0 ] ) * ( 1.0 / 2.0 ),
+                6 : numpy.array( [ 1.0, 0.0, -3.0, 0.0, 3.0, 0.0, -1.0 ] ) * ( 1.0 / 8.0 ),
+                8 : numpy.array( [ -1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0 ] ) * ( 1.0 / 48.0 ) } }
 
     def __init__( self, derivative : int, order : int ) -> None :
 
@@ -108,11 +108,11 @@ class DerivativeFilter( FirFilter ) :
                 order : int.
         """
 
-        if ( derivative not in DerivativeFilter.__b__ ) :
-            raise ValueError( f'Derivative = {derivative} Expected Derivative in {tuple( DerivativeFilter.__b__.keys( ) )}' )
-        if ( order not in DerivativeFilter.__b__[ derivative ] ) :
-            raise ValueError( f'Order = {order} Expected Order in {tuple( DerivativeFilter.__b__[ derivative ].keys( ) )}' )
-        super( ).__init__( b = DerivativeFilter.__b__[ derivative ][ order ] )
+        if ( derivative not in DerivativeFilter.B ) :
+            raise ValueError( f'Derivative = {derivative} Expected Derivative in {tuple( DerivativeFilter.B.keys( ) )}' )
+        if ( order not in DerivativeFilter.B[ derivative ] ) :
+            raise ValueError( f'Order = {order} Expected Order in {tuple( DerivativeFilter.B[ derivative ].keys( ) )}' )
+        super( ).__init__( b = DerivativeFilter.B[ derivative ][ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

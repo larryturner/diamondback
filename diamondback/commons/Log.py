@@ -28,9 +28,9 @@
         Thread safe.
 
     **Example**
-    
+
         ::
-        
+
             from diamondback import Log
             import io
             import numpy
@@ -89,11 +89,11 @@ class Log( object ) :
 
     numpy.set_printoptions( formatter = dict( float = '{:.6f}'.format ) )
 
-    __level__ = ( 'Critical', 'Error', 'Warning', 'Success', 'Info', 'Debug', 'Trace' )
-    __rlock__ = RLock( )
+    LEVEL = ( 'Critical', 'Error', 'Warning', 'Success', 'Info', 'Debug', 'Trace' )
 
     _identity = 0
     _level = logger.level( 'Info'.upper( ) )
+    _rlock = RLock( )
 
     @classmethod
     def level( cls, level : str ) -> None :
@@ -101,14 +101,14 @@ class Log( object ) :
         """ Level.
 
             Arguments :
-                level : str - in __level__.
+                level : str - in LEVEL.
         """
 
-        with ( Log.__rlock__ ) :
+        with ( Log._rlock ) :
             try :
                 Log._level = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level} Expected Level in {Log.__level__}' )
+                raise ValueError( f'Level = {level} Expected Level in {Log.LEVEL}' )
 
     @classmethod
     def stream( cls, stream : Any ) -> None :
@@ -119,7 +119,7 @@ class Log( object ) :
                 stream : Any, hasattr( 'write' ) - in ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
         """
 
-        with ( Log.__rlock__ ) :
+        with ( Log._rlock ) :
             if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
                 raise ValueError( f'Stream = {stream}' )
             try :
@@ -136,17 +136,17 @@ class Log( object ) :
             datetime and level.
 
             Arguments :
-                level : str - in __level__.
+                level : str - in LEVEL.
                 entry : Union[ str, Exception ].
         """
 
-        with ( Log.__rlock__ ) :
+        with ( Log._rlock ) :
             if ( not Log._identity ) :
                 Log.stream( sys.stdout )
             try :
                 v = logger.level( level.upper( ) )
             except Exception :
-                raise ValueError( f'Level = {level} Expected Level in {Log.__level__}' )
+                raise ValueError( f'Level = {level} Expected Level in {Log.LEVEL}' )
             if ( v.no >= Log._level.no ) :
                 if ( isinstance( entry, Exception ) ) :
                     entry = f'Exception = {type( entry ).__name__} {entry}'

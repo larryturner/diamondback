@@ -29,9 +29,9 @@
             y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, ComplexTransform
             import numpy
 
@@ -59,10 +59,10 @@ class ComplexTransform( object ) :
     """ Complex transform.
     """
 
-    __coefficient__ = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
-                                                     [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
-                                                     [ 1.0, 1.0, 1.0 ] ] )
-    __gain__ = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
+    COEFFICIENT = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
+                                                 [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
+                                                 [ 1.0, 1.0, 1.0 ] ] )
+    GAIN = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
     def transform( cls, x : Union[ List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
@@ -90,11 +90,11 @@ class ComplexTransform( object ) :
         if ( rows == 1 ) :
             v = x
             if ( not neutral ) :
-                v = x / ComplexTransform.__gain__
-            y = numpy.matmul( numpy.linalg.inv( ComplexTransform.__coefficient__ ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
+                v = x / ComplexTransform.GAIN
+            y = numpy.matmul( numpy.linalg.inv( ComplexTransform.COEFFICIENT ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
         else :
-            v = numpy.matmul( ComplexTransform.__coefficient__, x )
+            v = numpy.matmul( ComplexTransform.COEFFICIENT, x )
             y = v[ 0, : ] + 1j * v[ 1, : ]
             if ( not neutral ) :
-                y *= ComplexTransform.__gain__
+                y *= ComplexTransform.GAIN
         return y

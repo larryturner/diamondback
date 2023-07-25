@@ -30,9 +30,9 @@
             b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}
 
     **Example**
-     
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
@@ -62,7 +62,7 @@ class WindowFilter( object ) :
     """ Window filter.
     """
 
-    __style__ = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    STYLE = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
@@ -82,8 +82,8 @@ class WindowFilter( object ) :
                 normal : bool.
         """
 
-        if ( ( not style ) or ( style not in WindowFilter.__style__ ) ) :
-            raise ValueError( f'style = {style} Expected Style in {WindowFilter.__style__}' )
+        if ( ( not style ) or ( style not in WindowFilter.STYLE ) ) :
+            raise ValueError( f'style = {style} Expected Style in {WindowFilter.STYLE}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         if ( style == 'Kaiser' ) :

@@ -10,9 +10,9 @@
         Live makes a head request to a URL and detects a live service.
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import RestClient
             from typing import Dict
             import numpy
@@ -47,7 +47,7 @@ class RestClient( object ) :
     """ REST client.
     """
 
-    __method__ = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
+    METHOD = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
 
     @property
     def live( self ) :
@@ -122,7 +122,7 @@ class RestClient( object ) :
             URL, elective binary or JSON data are defined in the body of a
             request, and a requests response containing JSON, text, or binary
             data is returned.
-            
+
             Arguments :
                 method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
                 api : str - relative to the URL.
@@ -137,10 +137,10 @@ class RestClient( object ) :
         """
 
         if ( not method ) :
-            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method__}' )
+            raise ValueError( f'Method = {method} Expected Method in {RestClient.METHOD}' )
         method = method.lower( )
-        if ( method not in RestClient.__method__ ) :
-            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method__}' )
+        if ( method not in RestClient.METHOD ) :
+            raise ValueError( f'Method = {method} Expected Method in {RestClient.METHOD}' )
         if ( ( data ) and ( json ) ) :
             raise ValueError( f'Data = {data} JSON = {json} Expected Data or JSON' )
         api = api.strip( '/' )

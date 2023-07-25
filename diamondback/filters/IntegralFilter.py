@@ -42,9 +42,9 @@
             \matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 & 1 } ] } & b_{1,4} = \scriptsize{ [ \matrix{ 7 & 32 & 12 & 32 & 7 } ]\ \\frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 
@@ -74,11 +74,11 @@ class IntegralFilter( IirFilter ) :
     """ Integral filter.
     """
 
-    __b__ = ( numpy.array( [ 1.0 ] ),
-              numpy.array( [ 1.0, 1.0 ] ) * ( 1.0 / 2.0 ),
-              numpy.array( [ 1.0, 4.0, 1.0 ] ) * ( 1.0 / 6.0 ),
-              numpy.array( [ 1.0, 3.0, 3.0, 1.0 ] ) * ( 1.0 / 8.0 ),
-              numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
+    B = ( numpy.array( [ 1.0 ] ),
+          numpy.array( [ 1.0, 1.0 ] ) * ( 1.0 / 2.0 ),
+          numpy.array( [ 1.0, 4.0, 1.0 ] ) * ( 1.0 / 6.0 ),
+          numpy.array( [ 1.0, 3.0, 3.0, 1.0 ] ) * ( 1.0 / 8.0 ),
+          numpy.array( [ 7.0, 32.0, 12.0, 32.0, 7.0 ] ) * ( 1.0 / 90.0 ) )
 
     def __init__( self, order : int ) -> None :
 
@@ -88,9 +88,9 @@ class IntegralFilter( IirFilter ) :
                 order : int.
         """
 
-        if ( ( order < 0 ) or ( order >= len( IntegralFilter.__b__ ) ) ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 0, {len( IntegralFilter.__b__ )} )' )
-        super( ).__init__( a = numpy.array( [ 0.0, 1.0 ] ), b = IntegralFilter.__b__[ order ] )
+        if ( ( order < 0 ) or ( order >= len( IntegralFilter.B ) ) ) :
+            raise ValueError( f'Order = {order} Expected Order in [ 0, {len( IntegralFilter.B )} )' )
+        super( ).__init__( a = numpy.array( [ 0.0, 1.0 ] ), b = IntegralFilter.B[ order ] )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

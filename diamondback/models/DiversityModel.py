@@ -44,9 +44,9 @@
             d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )\ }
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import DiversityModel
 
             # Create an instance.
@@ -75,10 +75,10 @@ class DiversityModel( object ) :
     """ Diversity model.
     """
 
-    __distance__ = dict( Chebyshev = lambda x, y : max( abs( x - y ) ),
-                         Euclidean = lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
-                         Geometric = lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
-                         Manhattan = lambda x, y : sum( abs( x - y ) ) )
+    DISTANCE = dict( Chebyshev = lambda x, y : max( abs( x - y ) ),
+                     Euclidean = lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
+                     Geometric = lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
+                     Manhattan = lambda x, y : sum( abs( x - y ) ) )
 
     @property
     def s( self ) :
@@ -102,12 +102,12 @@ class DiversityModel( object ) :
                 order : int.
         """
 
-        if ( ( not style ) or ( style not in DiversityModel.__distance__ ) ) :
-            raise ValueError( f'style = {style} Expected Style in {tuple( DiversityModel.__distance__.keys( ) )}' )
+        if ( ( not style ) or ( style not in DiversityModel.DISTANCE ) ) :
+            raise ValueError( f'style = {style} Expected Style in {tuple( DiversityModel.DISTANCE.keys( ) )}' )
         if ( order < 1 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
         super( ).__init__( )
-        self._distance = DiversityModel.__distance__[ style ]
+        self._distance = DiversityModel.DISTANCE[ style ]
         self._diversity = 0.0
         self._s = numpy.zeros( ( order + 1, 0 ) )
 
