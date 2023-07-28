@@ -20,7 +20,7 @@
             b_{0} = e^{\ j\ \pi\ f_{0}}
 
         .. math::
-            b_{n} = b_{n} + \mu e_{n} x_{n}^{*}
+            b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}
 
     **Example**
        
