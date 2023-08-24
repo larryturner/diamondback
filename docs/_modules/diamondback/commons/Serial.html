@@ -10,9 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -138,7 +140,9 @@
 <span class="kn">import</span> <span class="nn">jsonpickle.ext.pandas</span>
 <span class="kn">import</span> <span class="nn">re</span>
 
-<div class="viewcode-block" id="Serial"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial">[docs]</a><span class="k">class</span> <span class="nc">Serial</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="Serial">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial">[docs]</a>
+<span class="k">class</span> <span class="nc">Serial</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Serial.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -146,7 +150,9 @@
     <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
     <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">pandas</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">(</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="Serial.code"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.code">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="Serial.code">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.code">[docs]</a>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">code</span><span class="p">(</span> <span class="n">state</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Code generation.  SHA3-256 hash.</span>
@@ -165,7 +171,10 @@
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Encoding = </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha3_256</span><span class="p">(</span> <span class="nb">bytes</span><span class="p">(</span> <span class="n">state</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Serial.decode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.decode">[docs]</a>    <span class="nd">@staticmethod</span>
+
+<div class="viewcode-block" id="Serial.decode">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.decode">[docs]</a>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">clean</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Decodes an instance or collection from a BSON or JSON state.</span>
@@ -193,7 +202,10 @@
             <span class="n">state</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;#.*?</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span> <span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span> <span class="s1">&#39;</span><span class="se">\&quot;</span><span class="s1">&quot;&quot;.*?</span><span class="se">\&quot;</span><span class="s1">&quot;&quot;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span> <span class="p">),</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">state</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">return</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">state</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Serial.encode"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.encode">[docs]</a>    <span class="nd">@staticmethod</span>
+
+<div class="viewcode-block" id="Serial.encode">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.encode">[docs]</a>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">encode</span><span class="p">(</span> <span class="n">instance</span> <span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">compress</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;utf_8&#39;</span><span class="p">,</span> <span class="n">indent</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Encodes BSON or JSON.  Encoding may be specified if an alternative</span>
@@ -214,7 +226,9 @@
         <span class="n">state</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">instance</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="s1">&#39;    &#39;</span> <span class="k">if</span> <span class="p">(</span> <span class="n">indent</span> <span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">separators</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">compress</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">state</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span> <span class="n">base64</span><span class="o">.</span><span class="n">b85encode</span><span class="p">(</span> <span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span> <span class="nb">bytes</span><span class="p">(</span> <span class="n">state</span><span class="p">,</span> <span class="n">encoding</span> <span class="p">)</span> <span class="p">)</span> <span class="p">),</span> <span class="n">encoding</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="n">state</span></div></div>
+        <span class="k">return</span> <span class="n">state</span></div>
+</div>
+
 </pre></div>
 
            </div>

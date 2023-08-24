@@ -11,9 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -86,12 +88,12 @@
            <div itemprop="articleBody">
              
   <section id="diamondback-filters-package">
-<h1>diamondback.filters package<a class="headerlink" href="#diamondback-filters-package" title="Permalink to this heading"></a></h1>
+<h1>diamondback.filters package<a class="headerlink" href="#diamondback-filters-package" title="Link to this heading"></a></h1>
 <section id="submodules">
-<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
 <section id="diamondback-filters-complexbandpassfilter-module">
-<h2>diamondback.filters.ComplexBandPassFilter module<a class="headerlink" href="#diamondback-filters-complexbandpassfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.ComplexBandPassFilter module<a class="headerlink" href="#diamondback-filters-complexbandpassfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A complex band pass filter produces a complex exponential incident
 signal at a specified normalized frequency and adapts a forward complex
@@ -192,7 +194,7 @@ b : numpy.ndarray - forward coefficient.</p>
 
 </section>
 <section id="diamondback-filters-complexexponentialfilter-module">
-<h2>diamondback.filters.ComplexExponentialFilter module<a class="headerlink" href="#diamondback-filters-complexexponentialfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.ComplexExponentialFilter module<a class="headerlink" href="#diamondback-filters-complexexponentialfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A complex exponential filter produces a complex exponential reference
 signal from an incident signal equal to a specified normalized frequency.
@@ -265,7 +267,7 @@ A normalized phase is specified.</p>
 
 </section>
 <section id="diamondback-filters-complexfrequencyfilter-module">
-<h2>diamondback.filters.ComplexFrequencyFilter module<a class="headerlink" href="#diamondback-filters-complexfrequencyfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.ComplexFrequencyFilter module<a class="headerlink" href="#diamondback-filters-complexfrequencyfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A complex frequency filter adapts and discriminates the phase of a forward
 complex coefficient to produce a reference signal, which estimates a normalized
@@ -377,7 +379,7 @@ operation at a specified primary incident condition.</p>
 
 </section>
 <section id="diamondback-filters-derivativefilter-module">
-<h2>diamondback.filters.DerivativeFilter module<a class="headerlink" href="#diamondback-filters-derivativefilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.DerivativeFilter module<a class="headerlink" href="#diamondback-filters-derivativefilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A derivative filter realizes a discrete difference equation which
 approximates a discrete derivative as a function of a forward coefficient
@@ -476,7 +478,7 @@ order : int.</p>
 
 </section>
 <section id="diamondback-filters-firfilter-module">
-<h2>diamondback.filters.FirFilter module<a class="headerlink" href="#diamondback-filters-firfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.FirFilter module<a class="headerlink" href="#diamondback-filters-firfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A Finite Impulse Response ( FIR ) filter realizes a discrete difference
 equation as a function of a forward coefficient array and a state array
@@ -682,7 +684,7 @@ z : numpy.ndarray - zeros.</p>
 
 </section>
 <section id="diamondback-filters-goertzelfilter-module">
-<h2>diamondback.filters.GoertzelFilter module<a class="headerlink" href="#diamondback-filters-goertzelfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.GoertzelFilter module<a class="headerlink" href="#diamondback-filters-goertzelfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A Goertzel filter realizes a discrete difference equation which
 approximates a discrete Fourier transform evaluated at a specified
@@ -770,7 +772,7 @@ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 
 </section>
 <section id="diamondback-filters-iirfilter-module">
-<h2>diamondback.filters.IirFilter module<a class="headerlink" href="#diamondback-filters-iirfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.IirFilter module<a class="headerlink" href="#diamondback-filters-iirfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>An Infinite Impulse Response ( IIR ) filter realizes a discrete
 difference equation as a function of a recursive coefficient array,
@@ -976,7 +978,7 @@ z : numpy.ndarray - zeros.</p>
 
 </section>
 <section id="diamondback-filters-integralfilter-module">
-<h2>diamondback.filters.IntegralFilter module<a class="headerlink" href="#diamondback-filters-integralfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.IntegralFilter module<a class="headerlink" href="#diamondback-filters-integralfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>An integral filter realizes a discrete difference equation which
 approximates a discrete integral as a function of a recursive coefficient
@@ -1064,7 +1066,7 @@ instance and order are specified.</p>
 
 </section>
 <section id="diamondback-filters-pidfilter-module">
-<h2>diamondback.filters.PidFilter module<a class="headerlink" href="#diamondback-filters-pidfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.PidFilter module<a class="headerlink" href="#diamondback-filters-pidfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A Proportional Integral Derivative ( PID ) filter realizes a discrete
 difference equation as a function of a forward coefficient array and a
@@ -1137,7 +1139,7 @@ control stability and latency.</p>
 
 </section>
 <section id="diamondback-filters-polynomialratefilter-module">
-<h2>diamondback.filters.PolynomialRateFilter module<a class="headerlink" href="#diamondback-filters-polynomialratefilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.PolynomialRateFilter module<a class="headerlink" href="#diamondback-filters-polynomialratefilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A polynomial rate filter produces a reference signal which approximates
 an incident signal evaluated at an effective frequency equal to the
@@ -1235,7 +1237,7 @@ order : int - in [ 1 , inf ).</p>
 
 </section>
 <section id="diamondback-filters-polyphaseratefilter-module">
-<h2>diamondback.filters.PolyphaseRateFilter module<a class="headerlink" href="#diamondback-filters-polyphaseratefilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.PolyphaseRateFilter module<a class="headerlink" href="#diamondback-filters-polyphaseratefilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A polyphase rate filter produces a reference signal which approximates
 an incident signal evaluated at an effective frequency equal to the
@@ -1375,7 +1377,7 @@ operation at a specified incident signal condition.</p>
 
 </section>
 <section id="diamondback-filters-rankfilter-module">
-<h2>diamondback.filters.RankFilter module<a class="headerlink" href="#diamondback-filters-rankfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.RankFilter module<a class="headerlink" href="#diamondback-filters-rankfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A rank filter realizes a nonlinear morphological operator consuming an
 incident signal, sorting, indexing, and selecting over a sliding window
@@ -1452,7 +1454,7 @@ order : int.</p>
 
 </section>
 <section id="diamondback-filters-windowfilter-module">
-<h2>diamondback.filters.WindowFilter module<a class="headerlink" href="#diamondback-filters-windowfilter-module" title="Permalink to this heading"></a></h2>
+<h2>diamondback.filters.WindowFilter module<a class="headerlink" href="#diamondback-filters-windowfilter-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A window filter realizes a discrete difference equation as a function
 of a forward coefficient array of a specified order, consuming an
@@ -1557,7 +1559,7 @@ normal : bool.</p>
 
 </section>
 <section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Permalink to this heading"></a></h2>
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
 <dl class="simple">
 <dt><strong>Description</strong></dt><dd><p>Initialize.</p>
 </dd>
