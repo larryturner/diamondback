@@ -1,0 +1,3 @@
+.. toctree::
+    
+.. include:: ..\readme.rst
