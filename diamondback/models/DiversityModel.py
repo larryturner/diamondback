@@ -104,8 +104,8 @@ class DiversityModel( object ) :
 
         if ( ( not style ) or ( style not in DiversityModel.DISTANCE ) ) :
             raise ValueError( f'style = {style} Expected Style in {tuple( DiversityModel.DISTANCE.keys( ) )}' )
-        if ( order < 1 ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
+        if ( order < 0 ) :
+            raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         super( ).__init__( )
         self._distance = DiversityModel.DISTANCE[ style ]
         self._diversity = 0.0

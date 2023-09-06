@@ -226,8 +226,8 @@ class WaveletTransform( object ) :
             raise ValueError( f'X = {x}' )
         v = numpy.array( x ) if ( len( x.shape ) == 2 ) else numpy.array( [ x ] )
         rows, cols = v.shape
-        if ( count < 1 ) :
-            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+        if ( count <= 0 ) :
+            raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
         if ( ( ( rows != 1 ) and ( rows % ( 2 ** count ) ) ) or ( ( cols != 1 ) and ( cols % ( 2 ** count ) ) ) ) :
             raise ValueError( f'Rows = {rows} Columns = {cols} Expected Rows % {2 ** count} and Columns % {2 ** count}' )
         rr = max( ( rows // ( 2 ** count ) ) * ( 2 ** count ), 1 )

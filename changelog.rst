@@ -1,3 +1,8 @@
+4.1.15 - 2023-09-05
+^^^^^^^^^^^^^^^^^^^
+-   Modified IirFilter and DiversityModel order range.
+-   Modified exception format.
+
 4.1.14 - 2023-07-14
 ^^^^^^^^^^^^^^^^^^^
 -   Modified for type checking compliance.
@@ -479,7 +484,7 @@
 
 1.0.17 - 2020-08-06
 ^^^^^^^^^^^^^^^^^^^
--   Modified Log to improve exception formatting.
+-   Modified Log to improve exception format.
 -   Modified jupyter notebook to utilize warnings to ignore import deprecation
     warnings.
 
@@ -524,7 +529,7 @@
 
 1.0.7 - 2019-10-23
 ^^^^^^^^^^^^^^^^^^
--   Modified exception formatting.
+-   Modified exception format.
 
 1.0.6 - 2019-09-08
 ^^^^^^^^^^^^^^^^^^

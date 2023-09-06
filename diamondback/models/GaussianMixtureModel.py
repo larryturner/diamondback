@@ -51,8 +51,8 @@ class GaussianMixtureModel( object ) :
     @index.setter
     def index( self, index ) :
 
-        if ( index < 1 ) :
-            raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
+        if ( index <= 0 ) :
+            raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         self._index = index
 
     @property
@@ -96,10 +96,10 @@ class GaussianMixtureModel( object ) :
                 regularize : float - regularize.
         """
 
-        if ( order < 1 ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
-        if ( index < 1 ) :
-            raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
+        if ( order <= 0 ) :
+            raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
+        if ( index <= 0 ) :
+            raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._data : List[ sklearn.mixture.GaussianMixture ] = [ ]
