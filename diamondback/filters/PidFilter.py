@@ -53,7 +53,6 @@ class PidFilter( FirFilter ) :
 
     @limit.setter
     def limit( self, limit : float ) :
-
         if ( limit < 0.0 ) :
             raise ValueError( f'Limit = {limit} Expected Limit in ( 0.0, inf )' )
         self._limit = limit

@@ -57,7 +57,6 @@ class RankFilter( FirFilter ) :
 
     @index.setter
     def index( self, index : int ) :
-
         if ( ( index < 0 ) or ( index > ( len( self.s ) - 1 ) ) ) :
             raise ValueError( f'Index = {index} Expected Index in [ 0, {len( self.s ) - 1} ]' )
         self._index = index

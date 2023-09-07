@@ -102,7 +102,6 @@ class PolyphaseRateFilter( object ) :
 
     @rate.setter
     def rate( self, rate : float ) :
-
         if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.B.shape[ 0 ] ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[ 0 ]} ]' )
         if ( not numpy.isclose( self.rate, rate ) ) :
@@ -119,7 +118,6 @@ class PolyphaseRateFilter( object ) :
 
     @s.setter
     def s( self, s : Union[ List, numpy.ndarray ] ) :
-
         self._s = s
 
     def __init__( self, rate : float ) -> None :
@@ -141,8 +139,9 @@ class PolyphaseRateFilter( object ) :
             for ii in range( 0, rr ) :
                 b[ ii, : ] /= sum( b[ ii, : ] )
             PolyphaseRateFilter.B = b
-        self._index, self._s = 0.0, numpy.zeros( cc )
+        self._index = 0
         self._rate = rate
+        self._s = numpy.zeros( cc )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

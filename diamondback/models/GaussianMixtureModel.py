@@ -50,7 +50,6 @@ class GaussianMixtureModel( object ) :
 
     @index.setter
     def index( self, index ) :
-
         if ( index <= 0 ) :
             raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         self._index = index
@@ -73,7 +72,6 @@ class GaussianMixtureModel( object ) :
 
     @regularize.setter
     def regularize( self, regularize : float ) :
-        
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._regularize = regularize

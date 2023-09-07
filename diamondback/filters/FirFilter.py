@@ -111,7 +111,6 @@ class FirFilter( object ) :
 
     @b.setter
     def b( self, b : Union[ List, numpy.ndarray ] ) :
-
         self._b = b
 
     @property
@@ -124,7 +123,6 @@ class FirFilter( object ) :
 
     @s.setter
     def s( self, s : Union[ List, numpy.ndarray ] ) :
-
         self._s = s
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,

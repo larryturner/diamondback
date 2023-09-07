@@ -73,7 +73,6 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @frequency.setter
     def frequency( self, frequency : float ) :
-
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]' )
         self.b[ 0 ] = numpy.exp( 1j * math.pi * frequency )
@@ -89,7 +88,6 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @rate.setter
     def rate( self, rate : float ) :
-
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         self._rate = rate
@@ -108,7 +106,8 @@ class ComplexFrequencyFilter( FirFilter ) :
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         super( ).__init__( b = numpy.ones( 1, complex ), s = numpy.ones( 1, complex ) )
-        self._frequency, self._rate = frequency, rate
+        self._frequency = frequency
+        self._rate = rate
 
     def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
 

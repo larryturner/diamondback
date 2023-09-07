@@ -109,7 +109,6 @@ class IirFilter( FirFilter ) :
 
     @a.setter
     def a( self, a : Union[ List, numpy.ndarray ] ) :
-
         self._a = a
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,

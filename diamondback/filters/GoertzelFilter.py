@@ -74,7 +74,6 @@ class GoertzelFilter( IirFilter ) :
 
     @frequency.setter
     def frequency( self, frequency : float ) :
-
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency} Expected Frequency in [ 1.0, 1.0 ]' )
         self._frequency = frequency
@@ -96,8 +95,9 @@ class GoertzelFilter( IirFilter ) :
         u = numpy.array( [ 0.0, 2.0 * math.cos( math.pi * frequency ), -1.0 ] )
         v = numpy.array( [ 1.0, -numpy.exp( -1j * math.pi * frequency ), 0.0 ] )
         super( ).__init__( a = u, b = v )
-        self._index, self._w = 0, numpy.array( b )
+        self._index = 0
         self._frequency = frequency
+        self._w = numpy.array( b )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 

@@ -90,7 +90,6 @@ class DiversityModel( object ) :
 
     @s.setter
     def s( self, s : Union[ List, numpy.ndarray ] ) :
-
         self._s = s
 
     def __init__( self, style : str, order : int ) -> None :

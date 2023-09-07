@@ -55,7 +55,6 @@ class ComplexExponentialFilter( object ) :
 
     @phase.setter
     def phase( self, phase : float ) :
-
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
             raise ValueError( f'Phase = {phase} Expected Phase in [ -1.0, 1.0 ]' )
         self._phase = phase

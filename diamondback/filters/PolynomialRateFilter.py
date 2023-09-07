@@ -70,7 +70,6 @@ class PolynomialRateFilter( object ) :
 
     @order.setter
     def order( self, order : int ) :
-
         if ( order <= 0 ) :
             raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
         self._order = order
@@ -85,7 +84,6 @@ class PolynomialRateFilter( object ) :
 
     @rate.setter
     def rate( self, rate : float ) :
-
         if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
         self._rate = rate

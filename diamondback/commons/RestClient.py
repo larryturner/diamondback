@@ -72,7 +72,6 @@ class RestClient( object ) :
 
     @proxy.setter
     def proxy( self, proxy : Dict[ str, str ] ) :
-
         self._proxy = proxy
 
     @property
@@ -85,7 +84,6 @@ class RestClient( object ) :
 
     @timeout.setter
     def timeout( self, timeout : Any ) :
-
         self._timeout = timeout
 
     @property
@@ -98,10 +96,6 @@ class RestClient( object ) :
 
     @url.setter
     def url( self, url : str ) :
-
-        """ Url.
-        """
-
         if ( url ) :
             url = url.strip( '/' )
         self._url = url
@@ -112,7 +106,8 @@ class RestClient( object ) :
         """
 
         super( ).__init__( )
-        self._proxy, self._timeout = { }, ( 10.0, 60.0 )
+        self._proxy = dict( )
+        self._timeout = ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
     def request( self, method : str, api : str, auth : Any = None, header : Union[ Dict[ str, str ], None ] = None, item : Union[ Dict[ str, str ], None ] = None, data : Any = None, json : Any = None ) -> requests.Response :
