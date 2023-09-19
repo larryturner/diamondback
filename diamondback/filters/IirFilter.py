@@ -136,7 +136,8 @@ class IirFilter( FirFilter ) :
         """
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
-            if ( ( not style ) or ( style not in IirFilter.STYLE ) ) :
+            style = style.title( )
+            if ( style not in IirFilter.STYLE ) :
                 raise ValueError( f'style = {style} Expected Style in {IirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )

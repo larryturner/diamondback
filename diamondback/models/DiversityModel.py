@@ -102,7 +102,8 @@ class DiversityModel( object ) :
                 order : int.
         """
 
-        if ( ( not style ) or ( style not in DiversityModel.STYLE ) ) :
+        style = style.title( )
+        if ( style not in DiversityModel.STYLE ) :
             raise ValueError( f'style = {style} Expected Style in {DiversityModel.STYLE}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )

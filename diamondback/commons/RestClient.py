@@ -131,7 +131,8 @@ class RestClient( object ) :
                 value : requests.Response.
         """
 
-        if ( ( not method ) or ( method.title( ) not in RestClient.METHOD ) ) :
+        method = method.title( )
+        if ( method not in RestClient.METHOD ) :
             raise ValueError( f'Method = {method} Expected Method in {RestClient.METHOD}' )
         if ( ( data ) and ( json ) ) :
             raise ValueError( f'Data = {data} JSON = {json} Expected Data or JSON' )

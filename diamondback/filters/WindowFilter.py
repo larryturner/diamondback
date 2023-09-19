@@ -82,7 +82,8 @@ class WindowFilter( object ) :
                 normal : bool.
         """
 
-        if ( ( not style ) or ( style not in WindowFilter.STYLE ) ) :
+        style = style.title( )
+        if ( style not in WindowFilter.STYLE ) :
             raise ValueError( f'style = {style} Expected Style in {WindowFilter.STYLE}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )

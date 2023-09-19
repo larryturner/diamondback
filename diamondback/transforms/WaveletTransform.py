@@ -186,7 +186,8 @@ class WaveletTransform( object ) :
                 order : int.
         """
 
-        if ( ( not style ) or ( style not in WaveletTransform.B ) ) :
+        style = style.title( )
+        if ( style not in WaveletTransform.B ) :
             raise ValueError( f'style = {style} Expected Style in {WaveletTransform.STYLE}' )
         if ( order not in WaveletTransform.B[ style ] ) :
             raise ValueError( f'Order = {order} Expected Order in {tuple( WaveletTransform.B[ style ].keys( ) )}' )

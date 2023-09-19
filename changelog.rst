@@ -1,5 +1,6 @@
 4.1.15 - 2023-09-19
 ^^^^^^^^^^^^^^^^^^^
+-   Modified constant string comparisons to be case insensitive.
 -   Modified docstring latex format.
 -   Modified numpy array conversion to improve efficiency.
 -   Modified IirFilter and DiversityModel order range.
