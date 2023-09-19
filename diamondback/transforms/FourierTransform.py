@@ -8,10 +8,10 @@
         Singleton.
 
         .. math::
-            y_{k} = \\frac{1}{N}\ \sum_{n = 0}^{N-1} b_{n} x_{n} e^{\\frac{\ -j\ \pi\ k \ n}{N}} = \\frac{1}{N}\ fft(\ x_{n}\ )
+            y_{k} = \\frac{1}{N}\ \\sum_{n = 0}^{N-1} b_{n} x_{n} e^{\\frac{\ -j\ \\pi\ k \ n}{N}} = \\frac{1}{N}\ fft(\ x_{n}\ )
 
         .. math::
-            x_{n} = \\frac{N}{b_{n}}\ \sum_{k = 0}^{N-1} y_{k} e^{\\frac{\ j\ \pi\ k \ n}{N}} = \\frac{N}{b_{n}}\ ifft(\ y_{k}\ )
+            x_{n} = \\frac{N}{b_{n}}\ \\sum_{k = 0}^{N-1} y_{k} e^{\\frac{\ j\ \\pi\ k \ n}{N}} = \\frac{N}{b_{n}}\ ifft(\ y_{k}\ )
 
         A Fourier transform is normalized by incident signal length and forms
         a contiguous sequence corresponding to a linear and increasing

@@ -27,7 +27,7 @@
         compensate for energy loss.
 
         .. math::
-            b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}
+            b_{n} = b_{n}\ \\frac{ N }{ \\sum_{0}^{N-1}\ |\ b_{n}\ |}
 
     **Example**
 

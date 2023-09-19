@@ -73,20 +73,20 @@
 <span class="sd">        producing a reference signal.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0</span>
+<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}</span>
+<span class="sd">            s_{1,n+1} = \\sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \matrix{ a = \scriptsize{ [\ \matrix{ 0 &amp; 2\ \cos(\ \pi\ f\ ) &amp; -1 }\ ] } &amp; b = \scriptsize{ [\ \matrix{ 1 &amp; -e^{\ j\ \pi\ f\ } &amp; 0 } }\ ] }</span>
+<span class="sd">            \\matrix{ a = \\scriptsize{ [\ \\matrix{ 0 &amp; 2\ \\cos(\ \\pi\ f\ ) &amp; -1 }\ ] } &amp; b = \\scriptsize{ [\ \\matrix{ 1 &amp; -e^{\ j\ \\pi\ f\ } &amp; 0 } }\ ] }</span>
 
 <span class="sd">        At the terminus of each window length a reference signal is evaluated</span>
 <span class="sd">        to estimate a discrete Fourier transform at a specified normalized</span>
 <span class="sd">        frequency.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            H_{z} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
+<span class="sd">            H_{z} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
 
 <span class="sd">        A Goertzel filter is normalized by incident signal length.  An incident</span>
 <span class="sd">        signal length is is inversely proportional to a normalized frequency</span>

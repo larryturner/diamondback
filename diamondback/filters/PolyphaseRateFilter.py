@@ -30,13 +30,13 @@
         may be addressed by latency compensation.
 
         .. math::
-            \phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \\frac{K}{\scriptsize{Rate}}
+            \\phi_{n+1,Rate} = \\phi_{n,Rate}\ +\ \\frac{K}{\\scriptsize{Rate}}
 
         .. math::
-            \phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K
+            \\phi_{n+1,Rate}\ \\geq\ K\\qquad\\longrightarrow\qquad \\phi_{n+1,Rate} = \\phi_{n+1,Rate}\ -\ K
 
         .. math::
-            k_{n+1} = \mod(\ \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor,\ M\ )
+            k_{n+1} = \\mod(\ \\lfloor{\ k_{n}\ +\ \\phi_{n+1,Rate}}\\rfloor,\ M\ )
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.  Edge

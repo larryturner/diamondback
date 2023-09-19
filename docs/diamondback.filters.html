@@ -1076,7 +1076,7 @@ incident signal, producing a reference signal.  An integral limit is
 specified, preventing integral saturation which may adversely affect
 control stability and latency.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \frac{d}{dn}(\ x_{n}\ )\]</div>
+\[y_{n} = b_{0}\ x_{n} + b_{1}\max(\ \min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \frac{d}{dn}(\ x_{n}\ )\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
