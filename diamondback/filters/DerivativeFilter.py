@@ -22,37 +22,37 @@
         specified.
 
         .. math::
-            y_{n} = f^{D}\ \\frac{x_{n}}{D}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }
+            y_{n} = f^{D}\\ \\frac{x_{n}}{D}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }
 
         .. math::
             b_{1,1} = \\scriptsize{ [ \\matrix{ 1 & -1 } ] }
 
         .. math::
-            b_{1,2} = \\scriptsize{ [ \\matrix{ 1 & 0 & -1 } ]\ \\frac{1}{2} }
+            b_{1,2} = \\scriptsize{ [ \\matrix{ 1 & 0 & -1 } ]\\ \\frac{1}{2} }
 
         .. math::
-            b_{1,4} = \\scriptsize{ [ \\matrix{ -1 & 8 & 0 & -8 & 1 } ]\ \\frac{1}{12} }
+            b_{1,4} = \\scriptsize{ [ \\matrix{ -1 & 8 & 0 & -8 & 1 } ]\\ \\frac{1}{12} }
 
         .. math::
             b_{2,2} = \\scriptsize{ [ \\matrix{ 1 & -2 & 1 } ] }
 
         .. math::
-            b_{2,4} = \\scriptsize{ [ \\matrix{ 1 & 0 & -2 & 0 & 1 } ]\ \\frac{1}{4} }
+            b_{2,4} = \\scriptsize{ [ \\matrix{ 1 & 0 & -2 & 0 & 1 } ]\\ \\frac{1}{4} }
 
         .. math::
-            b_{2,6} = \\scriptsize{ [ \\matrix{ -1 & 8 & 1 & -16 & 1 & 8 & -1 } ]\ \\frac{1}{24} }
+            b_{2,6} = \\scriptsize{ [ \\matrix{ -1 & 8 & 1 & -16 & 1 & 8 & -1 } ]\\ \\frac{1}{24} }
 
         .. math::
-            b_{2,8} = \\scriptsize{ [ \\matrix{ 1 & -16 & 64 & 16 & -130 & 16 & 64 & -16 & 1 } ]\ \\frac{1}{144} }
+            b_{2,8} = \\scriptsize{ [ \\matrix{ 1 & -16 & 64 & 16 & -130 & 16 & 64 & -16 & 1 } ]\\ \\frac{1}{144} }
 
         .. math::
-            b_{3,4} = \\scriptsize{ [ \\matrix{ 1 & -2 & 0 & 2 & -1 } ]\ \\frac{1}{2} }
+            b_{3,4} = \\scriptsize{ [ \\matrix{ 1 & -2 & 0 & 2 & -1 } ]\\ \\frac{1}{2} }
 
         .. math::
-            b_{3,6} = \\scriptsize{ [ \\matrix{ 1 & 0 & -3 & 0 & 3 & 0 & 1 } ]\ \\frac{1}{8} }
+            b_{3,6} = \\scriptsize{ [ \\matrix{ 1 & 0 & -3 & 0 & 3 & 0 & 1 } ]\\ \\frac{1}{8} }
 
         .. math::
-            b_{3,8} = \\scriptsize{ [ \\matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 } ]\ \\frac{1}{48} }
+            b_{3,8} = \\scriptsize{ [ \\matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 } ]\\ \\frac{1}{48} }
 
     **Example**
 

@@ -5,13 +5,13 @@
         producing a reference signal.
 
         .. math::
-            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0
+            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0
 
         .. math::
             s_{1,n+1} = \\sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}
 
         .. math::
-            \\matrix{ a = \\scriptsize{ [\ \\matrix{ 0 & 2\ \\cos(\ \\pi\ f\ ) & -1 }\ ] } & b = \\scriptsize{ [\ \\matrix{ 1 & -e^{\ j\ \\pi\ f\ } & 0 } }\ ] }
+            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 & 2\\ \\cos(\ \\pi\\ f\\ ) & -1 }\\ ] } & b = \\scriptsize{ [\\ \\matrix{ 1 & -e^{\\ j\\ \\pi\\ f\\ } & 0 } }\\ ] }
 
         At the terminus of each window length a reference signal is evaluated
         to estimate a discrete Fourier transform at a specified normalized

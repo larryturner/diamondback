@@ -76,7 +76,7 @@
 <span class="sd">        frequency.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0</span>
+<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0</span>
 
 <span class="sd">        .. math::</span>
 <span class="sd">            s_{1,n+1} = \\sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}</span>
@@ -92,22 +92,22 @@
 <span class="sd">        instance and order are specified.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \\frac{1}{f}\ \\sum_{i=0}^{N} x_{n}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }</span>
+<span class="sd">            y_{n} = \\frac{1}{f}\\ \\sum_{i=0}^{N} x_{n}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }</span>
 
 <span class="sd">        .. math::</span>
 <span class="sd">            \\matrix{ a_{1,0} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,0} = \\scriptsize{ [ \\matrix{ 1 } ] } }\\quad\\quad\\scriptsize{ Rectangular }</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \\matrix{ a_{1,1} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,1} = \\scriptsize{ [ \\matrix{ 1 &amp; 1 } ]\ \\frac{1}{2} } }\\quad\\quad\\scriptsize{ Trapezoidal }</span>
+<span class="sd">            \\matrix{ a_{1,1} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,1} = \\scriptsize{ [ \\matrix{ 1 &amp; 1 } ]\\ \\frac{1}{2} } }\\quad\\quad\\scriptsize{ Trapezoidal }</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \\matrix{ a_{1,2} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,2} = \\scriptsize{ [ \\matrix{ 1 &amp; 4 &amp; 1 } ]\ \\frac{1}{6} } }\\quad\\quad\\scriptsize{ Simpson\ 2 }</span>
+<span class="sd">            \\matrix{ a_{1,2} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,2} = \\scriptsize{ [ \\matrix{ 1 &amp; 4 &amp; 1 } ]\\ \\frac{1}{6} } }\\quad\\quad\\scriptsize{ Simpson\\ 2 }</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \\matrix{ a_{1,3} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,3} = \\scriptsize{ [ \\matrix{ 1 &amp; 3 &amp; 3 &amp; 1 } ]\ \\frac{1}{8} } }\\quad\\quad\\scriptsize{ Simpson\ 3 }</span>
+<span class="sd">            \\matrix{ a_{1,3} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,3} = \\scriptsize{ [ \\matrix{ 1 &amp; 3 &amp; 3 &amp; 1 } ]\\ \\frac{1}{8} } }\\quad\\quad\\scriptsize{ Simpson\\ 3 }</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \\matrix{ a_{1,4} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \\scriptsize{ [ \\matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\ \\frac{1}{90} } }\\quad\\quad\\scriptsize{ Newton\ Coats }</span>
+<span class="sd">            \\matrix{ a_{1,4} = \\scriptsize{ [ \\matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \\scriptsize{ [ \\matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\\ \\frac{1}{90} } }\\quad\\quad\\scriptsize{ Newton\\ Coats }</span>
 
 <span class="sd">    **Example**</span>
 

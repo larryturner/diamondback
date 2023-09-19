@@ -6,7 +6,7 @@
         adaptation are specified.
 
         .. math::
-            x_{n} = e^{\ j\ \pi\ \phi_{n}}
+            x_{n} = e^{\\ j\\ \pi\\ \phi_{n}}
 
         .. math::
             \\phi_{n+1} = \\phi_{n} + f_{n}
