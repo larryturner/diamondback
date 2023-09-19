@@ -2,15 +2,15 @@
         Nox project management.
 
     **Example**
-        
+
         ::
-        
+
             nox --list
             nox --sessions build clean docs image notebook push status tag tests typing
-    
+
     **License**
         © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.
-    
+
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
 """
@@ -122,11 +122,11 @@ def push( session ) -> None :
             if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
                 session.run( 'git', 'push', 'origin', 'master' )
         try :
-            url = 'https://github.schneider-electric.com'
+            url = 'https://github.com'
             requests.request( method = 'head', url = url, timeout = 2 )
             value = input( '[ ' + repository + ' ] mirror : ' )
             if ( value ) :
-                session.run( 'git', 'push', '--mirror', url + '/' + value + '/' + repository + '.git' )                
+                session.run( 'git', 'push', '--mirror', url + '/' + value + '/' + repository + '.git' )
         except Exception :
             pass
 
