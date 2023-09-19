@@ -1,5 +1,7 @@
-4.1.15 - 2023-09-05
+4.1.15 - 2023-09-19
 ^^^^^^^^^^^^^^^^^^^
+-   Modified docstring latex format.
+-   Modified numpy array conversion to improve efficiency.
 -   Modified IirFilter and DiversityModel order range.
 -   Modified exception format.
 

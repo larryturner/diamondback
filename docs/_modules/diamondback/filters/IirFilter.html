@@ -73,7 +73,7 @@
 <span class="sd">        consuming an incident signal and producing a reference signal.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0</span>
+<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i,n} b_{0,n} + b_{i,n}\\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0</span>
 
 <span class="sd">        .. math::</span>
 <span class="sd">            s_{1,n+1} = \\sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\\qquad\\qquad s_{i,n+1} = s_{i-1,n}</span>
@@ -82,7 +82,7 @@
 <span class="sd">        persistent operation at a specified incident signal condition.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            s_{i,n} = \\frac{1.0 - b_{0,n}}{\\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\ x_{n}</span>
+<span class="sd">            s_{i,n} = \\frac{1.0 - b_{0,n}}{\\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\\ x_{n}</span>
 
 <span class="sd">        A frequency response is expressed as a function of a recursive</span>
 <span class="sd">        coefficient array and a forward coefficient array.</span>
