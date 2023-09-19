@@ -86,7 +86,7 @@
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.transforms.ZTransform import ZTransform
-from typing import List, Tuple, Union
+from typing import Any, List, Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -97,7 +97,7 @@ class IirFilter( FirFilter ) :
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
-    STYLE : Tuple[ str, str, str ] = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
+    STYLE : Any = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
 
     @property
     def a( self ) :

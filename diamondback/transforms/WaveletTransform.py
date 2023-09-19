@@ -167,6 +167,7 @@ class WaveletTransform( object ) :
                                               0.47169066674317, 0.76951003685204, 0.38382676114443, -0.03553674029797,
                                               -0.03199005682142, 0.04999497206861, 0.00576491204434, -0.02035493979965,
                                               -0.00080435893437, 0.00459317358270, 0.00005703608433, -0.00045932942045 ] ) } )
+    STYLE = tuple( B.keys( ) )
 
     @property
     def b( self ) :
@@ -185,8 +186,8 @@ class WaveletTransform( object ) :
                 order : int.
         """
 
-        if ( style not in WaveletTransform.B ) :
-            raise ValueError( f'style = {style} Expected Style in {tuple( WaveletTransform.B.keys( ) )}' )
+        if ( ( not style ) or ( style not in WaveletTransform.B ) ) :
+            raise ValueError( f'style = {style} Expected Style in {WaveletTransform.STYLE}' )
         if ( order not in WaveletTransform.B[ style ] ) :
             raise ValueError( f'Order = {order} Expected Order in {tuple( WaveletTransform.B[ style ].keys( ) )}' )
         super( ).__init__( )

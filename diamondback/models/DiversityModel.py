@@ -79,6 +79,7 @@ class DiversityModel( object ) :
                      Euclidean = lambda x, y : sum( ( x - y ) ** 2 ) ** 0.5,
                      Geometric = lambda x, y : numpy.prod( abs( x - y ) ) ** ( 1.0 / len( x ) ),
                      Manhattan = lambda x, y : sum( abs( x - y ) ) )
+    STYLE = tuple( DISTANCE.keys( ) )
 
     @property
     def s( self ) :
@@ -101,8 +102,8 @@ class DiversityModel( object ) :
                 order : int.
         """
 
-        if ( ( not style ) or ( style not in DiversityModel.DISTANCE ) ) :
-            raise ValueError( f'style = {style} Expected Style in {tuple( DiversityModel.DISTANCE.keys( ) )}' )
+        if ( ( not style ) or ( style not in DiversityModel.STYLE ) ) :
+            raise ValueError( f'style = {style} Expected Style in {DiversityModel.STYLE}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         super( ).__init__( )
