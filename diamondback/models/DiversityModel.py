@@ -129,7 +129,8 @@ class DiversityModel( object ) :
                 y : numpy.ndarray - diversity.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
             raise ValueError( f'X = {x}' )
         if ( not self.s.shape[ 1 ] ) :

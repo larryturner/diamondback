@@ -154,7 +154,8 @@ class PolyphaseRateFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( int( numpy.round( len( x ) * self.rate ) ) )

@@ -121,7 +121,7 @@ class Log( object ) :
 
         with ( Log._rlock ) :
             if ( ( not stream ) or ( not hasattr( stream, 'write' ) ) ) :
-                raise ValueError( f'Stream = {stream}' )
+                raise ValueError( f'Stream = {stream} Expected Write' )
             try :
                 logger.remove( Log._identity )
             except ValueError :

@@ -123,7 +123,8 @@ class ComplexBandPassFilter( FirFilter ) :
                 b : numpy.ndarray - forward coefficient.
         """
 
-        d = numpy.array( list( d ) )
+        if ( not isinstance( d, numpy.ndarray ) ) :
+            d = numpy.array( list( d ) )
         if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
         if ( not numpy.iscomplex( d ).any( ) ) :

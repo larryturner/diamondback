@@ -78,10 +78,12 @@ class ZTransform( object ) :
                 b : numpy.ndarray - forward coefficient, z-domain.
         """
 
-        u = numpy.array( list( u ) )
+        if ( not isinstance( u, numpy.ndarray ) ) :
+            u = numpy.array( list( u ) )
         if ( ( not len( u ) ) or ( not u.any( ) ) ) :
             raise ValueError( f'U = {u}' )
-        v = numpy.array( list( v ) )
+        if ( not isinstance( v, numpy.ndarray ) ) :            
+            v = numpy.array( list( v ) )
         if ( ( not len( v ) ) or ( not v.any( ) ) ) :
             raise ValueError( f'V = {v}' )
         if ( frequency <= 0.0 ) :

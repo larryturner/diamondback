@@ -196,7 +196,7 @@
 
         <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1"> Expected Write&#39;</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
             <span class="k">except</span> <span class="ne">ValueError</span> <span class="p">:</span>

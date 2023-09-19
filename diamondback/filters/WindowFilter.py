@@ -107,7 +107,8 @@ class WindowFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 1 ) or ( len( x ) != len( self.b ) ) ) :
             raise ValueError( f'X = {x}' )
         return self.b * x

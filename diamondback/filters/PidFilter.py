@@ -65,7 +65,8 @@ class PidFilter( FirFilter ) :
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
-        b = numpy.array( list( b ) )
+        if ( not isinstance( b, numpy.ndarray ) ) :
+            b = numpy.array( list( b ) )
         if ( len( b ) != 3 ) :
             raise ValueError( f'B = {b}' )
         super( ).__init__( b = b, s = numpy.zeros( len( b ) ) )
@@ -82,7 +83,8 @@ class PidFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )

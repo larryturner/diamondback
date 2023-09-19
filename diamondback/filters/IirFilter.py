@@ -163,7 +163,8 @@ class IirFilter( FirFilter ) :
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )  # type: ignore
             b *= gain
-        a = numpy.array( list( a ) )
+        if ( not isinstance( a, numpy.ndarray ) ) :
+            a = numpy.array( list( a ) )
         if ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) :
             raise ValueError( f'A = {a}' )
         if ( len( a ) < len( b ) ) :
@@ -255,7 +256,8 @@ class IirFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )

@@ -221,7 +221,8 @@ class WaveletTransform( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( ( len( x.shape ) > 2 ) or ( not len( x ) ) ) :
             raise ValueError( f'X = {x}' )
         v = numpy.array( x ) if ( len( x.shape ) == 2 ) else numpy.array( [ x ] )

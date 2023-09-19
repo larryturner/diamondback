@@ -5,7 +5,7 @@
         reference signal.
 
         .. math::
-            y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
+            y_{n} = \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
 
         .. math::
             s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
@@ -182,10 +182,12 @@ class FirFilter( object ) :
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) )
             b *= gain  # type: ignore
-        b = numpy.array( list( b ) )
+        if ( not isinstance( b, numpy.ndarray ) ) :
+            b = numpy.array( list( b ) )
         if ( not len( b ) ) :
             raise ValueError( f'B = {b}' )
-        s = numpy.array( list( s ) )
+        if ( not isinstance( s, numpy.ndarray ) ) :
+            s = numpy.array( list( s ) )
         if ( len( b ) < len( s ) ) :
             b = numpy.concatenate( ( b, numpy.zeros( len( s ) - len( b ) ) ) )
         if ( len( s ) < len( b ) ) :
@@ -229,7 +231,8 @@ class FirFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        x = numpy.array( list( x ) )
+        if ( not isinstance( x, numpy.ndarray ) ) :
+            x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )

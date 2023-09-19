@@ -140,9 +140,8 @@
 
     <span class="nd">@order</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in ( 0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>
 
     <span class="nd">@property</span>
@@ -155,7 +154,6 @@
 
     <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -171,8 +169,8 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, inf )&#39;</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in ( 0, inf )&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -190,7 +188,8 @@
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
