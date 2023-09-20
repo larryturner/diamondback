@@ -2,7 +2,7 @@
 ^^^^^^^^^^^^^^^^^^^
 -   Modified constant string comparisons to be case insensitive.
 -   Modified docstring latex format.
--   Modified numpy array conversion to improve efficiency.
+-   Modified list to numpy array conversion.
 -   Modified IirFilter and DiversityModel order range.
 -   Modified exception format.
 
