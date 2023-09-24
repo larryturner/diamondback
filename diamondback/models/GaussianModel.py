@@ -125,7 +125,7 @@ class GaussianModel( object ) :
         v = numpy.zeros( ( x.shape[ 0 ], len( self._data ) ) )
         for jj in range( 0, len( v ) ) :
             for ii in range( 0, len( self._data ) ) :
-                m = self._data[ ii ]
-                i, u = m[ 'covariancei' ], m[ 'mean' ]
+                model = self._data[ ii ]
+                i, u = model[ 'covariancei' ], model[ 'mean' ]
                 v[ jj, ii ] = max( ( x[ jj ] - u ) @ i @ ( x[ jj ] - u ).T, 0.0 )
         return numpy.argsort( v, axis = 1 )
