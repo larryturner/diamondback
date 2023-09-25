@@ -100,8 +100,8 @@ class GaussianMixtureModel( object ) :
             raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
-        self._data : List[ sklearn.mixture.GaussianMixture ] = [ ]
         self._index = index
+        self._model : List[ sklearn.mixture.GaussianMixture ] = [ ]
         self._order = order
         self._regularize = regularize
         self._shape = ( )
@@ -123,13 +123,13 @@ class GaussianMixtureModel( object ) :
             raise ValueError( f'Y = {len( y )} Expected Y = {x.shape[ 0 ]}' )
         if ( not issubclass( y.dtype.type, numpy.integer ) ) :
             raise ValueError( f'Y = {y.dtype.type} Expected Y = {numpy.integer}' )
-        self._data = [ ]
+        self._model = [ ]
         self._shape = x[ 0 ].shape
         for ii in sorted( set( y ) ) :
             z = x[ numpy.where( y == ii )[ 0 ] ]
             model = sklearn.mixture.GaussianMixture( covariance_type = 'full', n_components = self.order, max_iter = self.index, reg_covar = self.regularize )
             model.fit( z )
-            self._data.append( model )
+            self._model.append( model )
 
     def predict( self, x : numpy.ndarray ) -> numpy.ndarray :
 
@@ -147,18 +147,18 @@ class GaussianMixtureModel( object ) :
                 v : numpy.ndarray ( batch, class ) - predict.
         """
 
-        if ( not len( self._data ) ) :
-            raise ValueError( f'Data = {self._data}' )
+        if ( not len( self._model ) ) :
+            raise ValueError( f'Model = {self._model}' )
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
             raise ValueError( f'X = {x.shape}' )
         if ( x[ 0 ].shape != self._shape ) :
             raise ValueError( f'X = {x[ 0 ].shape} Expected X = {self._shape}' )
-        if ( ( not len( self._data ) ) or ( not hasattr( self._data[ 0 ], 'precisions_' ) ) ) :
-            raise RuntimeError( f'Model = {self._data} Not Trained' )
-        v = numpy.zeros( ( x.shape[ 0 ], len( self._data ) ) )
+        if ( ( not len( self._model ) ) or ( not hasattr( self._model[ 0 ], 'precisions_' ) ) ) :
+            raise RuntimeError( f'Model = {self._model} Not Trained' )
+        v = numpy.zeros( ( x.shape[ 0 ], len( self._model ) ) )
         for jj in range( 0, len( v ) ) :
-            for ii in range( 0, len( self._data ) ) :
-                model = self._data[ ii ]
+            for ii in range( 0, len( self._model ) ) :
+                model = self._model[ ii ]
                 for kk in range( 0, self.order ) :
                     i, u, w = model.precisions_[ kk ], model.means_[ kk ], model.weights_[ kk ]
                     v[ jj, ii ] += w * numpy.exp( -0.5 * max( ( x[ jj ] - u ) @ i @ ( x[ jj ] - u ).T, 0.0 ) )
