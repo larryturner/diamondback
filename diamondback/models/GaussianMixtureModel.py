@@ -104,7 +104,7 @@ class GaussianMixtureModel( object ) :
         self._model : List[ sklearn.mixture.GaussianMixture ] = [ ]
         self._order = order
         self._regularize = regularize
-        self._shape = ( )
+        self._shape = tuple( )
 
     def learn( self, x : numpy.ndarray, y : numpy.ndarray ) -> None :
 

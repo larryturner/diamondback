@@ -1,4 +1,4 @@
-4.1.15 - 2023-09-19
+4.1.15 - 2023-09-29
 ^^^^^^^^^^^^^^^^^^^
 -   Modified constant string comparisons to be case insensitive.
 -   Modified docstring latex format.
