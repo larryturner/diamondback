@@ -71,7 +71,7 @@ class GaussianModel( object ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
         self._model : List[ Dict[ Any, Any ] ] = [ ]
         self._regularize = regularize
-        self._shape = tuple( )
+        self._shape = ( )
 
     def learn( self, x : numpy.ndarray, y : numpy.ndarray ) -> None :
 

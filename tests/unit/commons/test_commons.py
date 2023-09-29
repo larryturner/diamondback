@@ -59,7 +59,7 @@ class Test( object ) :
         client = RestClient( )
         client.url = 'http://en.wikipedia.org'
         assert client.live
-        assert client.request( 'get','/wiki/Marines' ).content
+        assert client.request( method = 'get', api = '/wiki/Marines' ).content
 
     def test_Serial( self ) :
 
