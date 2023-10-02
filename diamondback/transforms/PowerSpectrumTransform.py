@@ -58,7 +58,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
-from diamondback.transforms.FourierTransform import FourierTransform
 from typing import List, Tuple, Union
 import numpy
 
@@ -81,7 +80,7 @@ class PowerSpectrumTransform( object ) :
 
             Returns :
                 y : numpy.ndarray - reference signal.
-                f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
+                f : numpy.ndarray - frequency normalized to Nyquist in [ 0.0, 1.0 ).
         """
 
         if ( not isinstance( x, numpy.ndarray ) ) :
@@ -95,10 +94,6 @@ class PowerSpectrumTransform( object ) :
         if ( len( x ) < len( b ) ) :
             raise ValueError( f'X = {x}' )
         y = [ ]
-        f : numpy.ndarray = numpy.ndarray( ( 0 ) )
-        jj = len( b ) // 2
         for ii in range( 0, len( x ) - len( b ) + 1, index ) :
-            v, f = FourierTransform.transform( x[ ii : ii + len( b ) ], b )
-            y.append( abs( v[ jj : ] ) ** 2 )
-        y, f = numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y ), f[ jj : ]
-        return y, f  # type: ignore
+            y.append( numpy.abs( numpy.fft.fft( x[ ii : ii + len( b ) ] * b )[ : len( b ) // 2 ] / len( b ) ) ** 2 )
+        return numpy.stack( y ) if ( spectrogram ) else numpy.sum( y, axis = 0 ) / len( y ), numpy.linspace( 0.0, 1.0 - 2.0 / len( b ), len( b ) // 2 )
