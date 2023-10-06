@@ -1,3 +1,8 @@
+4.1.17 - 2023-10-06
+^^^^^^^^^^^^^^^^^^^
+-   Required pillow >= 10.0.1 to address pillow libwebp dependency.
+-   Modified requirements.
+
 4.1.16 - 2023-10-01
 ^^^^^^^^^^^^^^^^^^^
 -   Optimized PowerSpectrumTransform.
