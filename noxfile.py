@@ -23,7 +23,7 @@ import requests
 import shutil
 import time
 
-nox.options.sessions = [ 'build', 'image', 'docs', 'tests' ]
+nox.options.sessions = [ 'build', 'image', 'typing', 'docs', 'tests' ]
 
 repository = pathlib.Path.cwd( ).name
 x = repository.split( '-' )
