@@ -80,7 +80,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import Dict, List, Union
+from typing import List, Union
 import numpy
 
 class DerivativeFilter( FirFilter ) :

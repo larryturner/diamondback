@@ -16,7 +16,7 @@
 """
 
 from diamondback import ComplexExponentialFilter, WindowFilter
-from diamondback import ComplexTransform, FourierTransform, PowerSpectrumTransform, WaveletTransform
+from diamondback import ComplexTransform, FourierTransform, PsdTransform, WaveletTransform
 from diamondback import ZTransform
 import math
 import numpy
@@ -68,9 +68,9 @@ class Test( object ) :
                 z = z.real
             assert numpy.allclose( z[ 1 : -1 ], x[ 1 : -1 ] )
 
-    def test_PowerSpectrumTransform( self ) :
+    def test_PsdTransform( self ) :
 
-        """ Test PowerSpectrumTransform.
+        """ Test PsdTransform.
         """
 
         count = 128
@@ -80,7 +80,7 @@ class Test( object ) :
             x = numpy.random.rand( ) * ComplexExponentialFilter( numpy.random.rand( ) ).filter( numpy.linspace( frequency[ 0 ], frequency[ 1 ], count * 8 ) )
             if ( ii > 0 ) :
                 x = x.real
-            y, f = PowerSpectrumTransform.transform( x, b, index, False )
+            y, f = PsdTransform.transform( x, b, index, False )
             assert ( ( len( y ) == ( count // 2 ) ) and ( len( f ) == ( count // 2 ) ) )
             assert not isinstance( y[ 0 ], complex )
             assert numpy.isclose( f[ 0 ], 0.0 ) and numpy.isclose( f[ -1 ], 1.0 - 2.0 / count )

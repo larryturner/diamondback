@@ -17,7 +17,7 @@ from .filters import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, I
 from .filters import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
 from .filters import WindowFilter
 from .models import DiversityModel, GaussianModel, GaussianMixtureModel
-from .transforms import ComplexTransform, FourierTransform, PowerSpectrumTransform, WaveletTransform
+from .transforms import ComplexTransform, FourierTransform, PsdTransform, WaveletTransform
 from .transforms import ZTransform
 
 __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
@@ -25,5 +25,5 @@ __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
             'DerivativeFilter', 'GoertzelFilter', 'IntegralFilter', 'PidFilter',
             'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
             'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
-            'FourierTransform', 'PowerSpectrumTransform', 'WaveletTransform', 'ZTransform' ]
-__version__ = '4.1.18'
+            'FourierTransform', 'PsdTransform', 'WaveletTransform', 'ZTransform' ]
+__version__ = '5.0.0'

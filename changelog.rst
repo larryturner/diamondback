@@ -1,3 +1,9 @@
+5.0.0 - 2023-11-01
+^^^^^^^^^^^^^^^^^^
+-   Renamed PowerSpectrumTransform PsdTransform.
+-   Modified documentation.
+-   Modified tests.
+
 4.1.18 - 2023-10-26
 ^^^^^^^^^^^^^^^^^^^
 -   Modified requirements.

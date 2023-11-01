@@ -165,12 +165,13 @@ transforms.
     signal, in equivalent and reversible representations, based on a
     window filter and inverse.
 
--   `PowerSpectrumTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-powerspectrumtransform-module>`_
-    is a singleton instance which converts a real or complex
-    discrete-time signal to a real discrete-frequency signal which
-    estimates a mean power density of the signal, based on a window
-    filter, index, and spectrogram.  A spectrogram constructs a time
-    frequency representation.
+-   `PsdTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-psdtransform-module>`_
+    is a singleton instance which realizes a Power Spectral Density ( PSD )
+    which converts a real or complex discrete-time signal to a real
+    discrete-frequency signal which estimates an aggregate power spectrum
+    of the signal, based on a window filter, index, and spectrogram.
+    A spectrogram constructs a time frequency representation of the power
+    spectrum.
 
 -   `WaveletTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-wavelettransform-module>`_
     instances realize a temporal spatial frequency transformation through

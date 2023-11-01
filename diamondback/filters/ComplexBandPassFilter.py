@@ -104,7 +104,7 @@ class ComplexBandPassFilter( FirFilter ) :
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         super( ).__init__( b = numpy.array( [ numpy.finfo( float ).eps + 0j ] ), s = numpy.zeros( 1, complex ) )
-        self._complexexponentialfilter = ComplexExponentialFilter( )
+        self._filter = ComplexExponentialFilter( )
         self._frequency = frequency
         self._rate = rate
 
@@ -129,7 +129,7 @@ class ComplexBandPassFilter( FirFilter ) :
             raise ValueError( f'D = {d}' )
         if ( not numpy.iscomplex( d ).any( ) ) :
             d = scipy.signal.hilbert( d )
-        x = self._complexexponentialfilter.filter( numpy.ones( len( d ) ) * self.frequency )
+        x = self._filter.filter( numpy.ones( len( d ) ) * self.frequency )
         y, e, b = numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex )
         for ii in range( 0, len( x ) ) :
             y[ ii ] = x[ ii ] * self.b[ 0 ]

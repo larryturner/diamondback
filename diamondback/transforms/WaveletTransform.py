@@ -237,20 +237,20 @@ class WaveletTransform( object ) :
         cc = max( ( cols // ( 2 ** count ) ) * ( 2 ** count ), 1 )
         y = numpy.array( v )
         b = self.b[ inverse ]
-        firfilter = ( FirFilter( b = b[ 0 ] ), FirFilter( b = b[ 1 ] ) )
+        filter = ( FirFilter( b = b[ 0 ] ), FirFilter( b = b[ 1 ] ) )
         if ( not inverse ) :
             if ( cc > 1 ) :
                 for ii in range( 0, rr ) :
                     for kk in range( 0, 2 ) :
-                        firfilter[ kk ].s[ : ] = 0.0
-                        u = firfilter[ kk ].filter( v[ ii, 0 : cc ] )
+                        filter[ kk ].s[ : ] = 0.0
+                        u = filter[ kk ].filter( v[ ii, 0 : cc ] )
                         y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ] = u[ 1 : : 2 ]
                 v[ : rr, 0 : cc ] = y[ : rr, 0 : cc ]
             if ( rr > 1 ) :
                 for jj in range( 0, cc ) :
                     for kk in range( 0, 2 ) :
-                        firfilter[ kk ].s[ : ] = 0.0
-                        u = firfilter[ kk ].filter( v[ : rr, jj ] )
+                        filter[ kk ].s[ : ] = 0.0
+                        u = filter[ kk ].filter( v[ : rr, jj ] )
                         y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ] = u[ 1 : : 2 ]
             if ( count > 1 ) :
                 ii = max( rr // 2, 1 )
@@ -267,8 +267,8 @@ class WaveletTransform( object ) :
                     w = numpy.zeros( rr )
                     for kk in range( 0, 2 ) :
                         u[ : : 2 ] = y[ kk * ( rr // 2 ) : ( kk + 1 ) * ( rr // 2 ), jj ]
-                        firfilter[ kk ].s[ : ] = 0.0
-                        w += 2.0 * firfilter[ kk ].filter( u )
+                        filter[ kk ].s[ : ] = 0.0
+                        w += 2.0 * filter[ kk ].filter( u )
                     y[ : rr, jj ] = w
             if ( cc > 1 ) :
                 u = numpy.zeros( cc )
@@ -276,8 +276,8 @@ class WaveletTransform( object ) :
                     w = numpy.zeros( cc )
                     for kk in range( 0, 2 ) :
                         u[ : : 2 ] = y[ ii, kk * ( cc // 2 ) : ( kk + 1 ) * ( cc // 2 ) ]
-                        firfilter[ kk ].s[ : ] = 0.0
-                        w += 2.0 * firfilter[ kk ].filter( u )
+                        filter[ kk ].s[ : ] = 0.0
+                        w += 2.0 * filter[ kk ].filter( u )
                     y[ ii, 0 : cc ] = w
         if ( len( x.shape ) == 1 ) :
             y = y[ 0 ]
