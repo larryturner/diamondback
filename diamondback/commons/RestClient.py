@@ -51,10 +51,6 @@ class RestClient( object ) :
 
     @property
     def live( self ) :
-
-        """ live : bool.
-        """
-
         try :
             requests.request( method = 'head', url = self.url, proxies = self.proxy, timeout = self.timeout )
             value = True
@@ -64,10 +60,6 @@ class RestClient( object ) :
 
     @property
     def proxy( self ) :
-
-        """ proxy : Dict[ str, str ].
-        """
-
         return self._proxy
 
     @proxy.setter
@@ -76,10 +68,6 @@ class RestClient( object ) :
 
     @property
     def timeout( self ) :
-
-        """ timeout : Any.
-        """
-
         return self._timeout
 
     @timeout.setter
@@ -88,10 +76,6 @@ class RestClient( object ) :
 
     @property
     def url( self ) :
-
-        """ url : str.
-        """
-
         return self._url
 
     @url.setter

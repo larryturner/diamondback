@@ -5,9 +5,9 @@
         distribution instance per class.
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import GaussianModel
 
             # Create an instance.
@@ -39,10 +39,6 @@ class GaussianModel( object ) :
 
     @property
     def regularize( self ) :
-
-        """ regularize : float.
-        """
-
         return self._regularize
 
     @regularize.setter
@@ -53,12 +49,8 @@ class GaussianModel( object ) :
 
     @property
     def shape( self ) :
-
-        """ shape : Tuple[ Any ].
-        """
-
         return self._shape
-        
+
     def __init__( self, regularize : float = 1.0e-1 ) -> None :
 
         """ Initialize.
@@ -78,7 +70,7 @@ class GaussianModel( object ) :
         """ Learns an incident signal with ground truth label and estimates inverse
             covariance and mean matrices to learn a distribution instance for
             each class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - incident.
                 y : numpy.ndarray ( batch ) - label.
@@ -103,10 +95,10 @@ class GaussianModel( object ) :
 
         """ Predicts an estimate of ground truth label from an incident signal
             and maximizes posterior probability.
-            
+
             Predictions for each class are ranked and ordered by decending
             probability, and the initial prediction is the most likely class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - data.
 

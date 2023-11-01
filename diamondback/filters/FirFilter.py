@@ -103,10 +103,6 @@ class FirFilter( object ) :
 
     @property
     def b( self ) :
-
-        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
-        """
-
         return self._b
 
     @b.setter
@@ -115,10 +111,6 @@ class FirFilter( object ) :
 
     @property
     def s( self ) :
-
-        """ s : Union[ List, numpy.ndarray ] - state.
-        """
-
         return self._s
 
     @s.setter

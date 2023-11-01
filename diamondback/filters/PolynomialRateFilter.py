@@ -28,9 +28,9 @@
         operation or dynamic rate.
 
     **Example**
-     
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, PolynomialRateFilter
             import math
             import numpy
@@ -62,10 +62,6 @@ class PolynomialRateFilter( object ) :
 
     @property
     def order( self ) :
-
-        """ order : int - in [ 1, inf ).
-        """
-
         return self._order
 
     @order.setter
@@ -76,10 +72,6 @@ class PolynomialRateFilter( object ) :
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, inf ).
-        """
-
         return self._rate
 
     @rate.setter
@@ -104,7 +96,7 @@ class PolynomialRateFilter( object ) :
         super( ).__init__( )
         self._order = order
         self._rate = rate
-        
+
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.

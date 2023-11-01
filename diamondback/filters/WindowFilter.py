@@ -66,10 +66,6 @@ class WindowFilter( object ) :
 
     @property
     def b( self ) :
-
-        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
-        """
-
         return self._b
 
     def __init__( self, style : str, order : int, normal : bool = True  ) -> None :

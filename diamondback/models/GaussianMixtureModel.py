@@ -1,15 +1,15 @@
 """ **Description**
         A Gaussian mixture model is a semi-supervised learning probabilistic
-        model instance which uses maximum likelihood estimation, 
+        model instance which uses maximum likelihood estimation,
         regularization, and expectation maximization to maximize posterior
         probability and classify an incident signal.  Learns model instances
         of a specified order per class, where intra-class models capture
-        mixture distributions. 
+        mixture distributions.
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import GaussianMixtureModel
 
             # Create an instance.
@@ -36,16 +36,12 @@ import numpy
 import sklearn.mixture
 
 class GaussianMixtureModel( object ) :
-    
+
     """ Gaussian mixture model.
     """
 
     @property
     def index( self ) :
-
-        """ index : int.
-        """
-
         return self._index
 
     @index.setter
@@ -56,18 +52,10 @@ class GaussianMixtureModel( object ) :
 
     @property
     def order( self ) :
-
-        """ order : int.
-        """
-
         return self._order
 
     @property
     def regularize( self ) :
-
-        """ regularize : float.
-        """
-
         return self._regularize
 
     @regularize.setter
@@ -78,10 +66,6 @@ class GaussianMixtureModel( object ) :
 
     @property
     def shape( self ) :
-        
-        """ shape : Tuple[ Any ].
-        """
-
         return self._shape
 
     def __init__( self, order : int = 10, index : int = 100, regularize : float = 1.0e-1 ) -> None :
@@ -111,7 +95,7 @@ class GaussianMixtureModel( object ) :
         """ Learns an incident signal with ground truth label and estimates inverse
             covariance and mean matrices to learn mixed distribution instances
             for each class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - incident.
                 y : numpy.ndarray ( batch ) - label.
@@ -139,7 +123,7 @@ class GaussianMixtureModel( object ) :
 
             Predictions for each class are ranked and ordered by decending
             probability, and the initial prediction is the most likely class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - data.
 

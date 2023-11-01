@@ -13,9 +13,9 @@
             y_{n} = e^{\\ j\\ \\pi\\ \\phi_{n}}
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter
             import numpy
 
@@ -47,10 +47,6 @@ class ComplexExponentialFilter( object ) :
 
     @property
     def phase( self ) :
-
-        """ phase : float - relative to pi in [ -1.0, 1.0 ].
-        """
-
         return self._phase
 
     @phase.setter

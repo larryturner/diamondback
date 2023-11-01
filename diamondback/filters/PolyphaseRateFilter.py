@@ -86,18 +86,10 @@ class PolyphaseRateFilter( object ) :
 
     @property
     def b( self ) :
-
-        """ b : numpy.ndarray - forward coefficient.
-        """
-
         return PolyphaseRateFilter.B
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, b.shape[ 0 ] ].
-        """
-
         return self._rate
 
     @rate.setter
@@ -110,10 +102,6 @@ class PolyphaseRateFilter( object ) :
 
     @property
     def s( self ) :
-
-        """ s : Union[ List, numpy.ndarray ] - state.
-        """
-
         return self._s
 
     @s.setter

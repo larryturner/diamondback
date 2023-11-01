@@ -28,9 +28,9 @@
             N = \\frac{2}{R}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, GoertzelFilter
             import numpy
 
@@ -66,10 +66,6 @@ class GoertzelFilter( IirFilter ) :
 
     @property
     def frequency( self ) :
-
-        """ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
-        """
-
         return self._frequency
 
     @frequency.setter

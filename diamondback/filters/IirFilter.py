@@ -101,10 +101,6 @@ class IirFilter( FirFilter ) :
 
     @property
     def a( self ) :
-
-        """ a : Union[ List, numpy.ndarray ] - recursive coefficient.
-        """
-
         return self._a
 
     @a.setter

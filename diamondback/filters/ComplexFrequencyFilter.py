@@ -23,9 +23,9 @@
             b_{n+1} = b_{n} + \\mu e_{n} x_{n}^{*}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter
             import numpy
 
@@ -65,10 +65,6 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @property
     def frequency( self ) :
-
-        """ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
-        """
-
         return self._frequency
 
     @frequency.setter
@@ -80,10 +76,6 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, 1.0 ].
-        """
-
         return self._rate
 
     @rate.setter

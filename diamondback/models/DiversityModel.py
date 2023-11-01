@@ -83,10 +83,6 @@ class DiversityModel( object ) :
 
     @property
     def s( self ) :
-
-        """ s : Union[ List, numpy.ndarray ] - state.
-        """
-
         return self._s
 
     @s.setter
