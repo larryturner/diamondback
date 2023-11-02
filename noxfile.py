@@ -28,6 +28,8 @@ nox.options.sessions = [ 'build', 'image', 'typing', 'docs', 'tests' ]
 repository = pathlib.Path.cwd( ).name
 x = repository.split( '-' )
 source = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]
+if ( not pathlib.Path( source ).is_dir( ) ) :
+    source = '.'
 
 @nox.session( venv_backend = 'none' )
 def build( session ) -> None :
@@ -108,8 +110,8 @@ def push( session ) -> None :
     """
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
-        package = repository.split( '-' )
-        package = package[ max( len( package ) - 2, 0 ) ]
+        x = repository.split( '-' )
+        package = x[ max( len( x ) - 2, 0 ) ]
         if ( pathlib.Path( package ).is_dir( ) ) :
             session.run( 'git', 'add', str( pathlib.Path.cwd( ) / package / '*' ) )
         if ( pathlib.Path( 'service' ).is_dir( ) ) :
