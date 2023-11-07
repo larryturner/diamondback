@@ -11,10 +11,11 @@
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -88,7 +89,7 @@
 <a class="reference external image-reference" href="https://pypi.org/larryturner/diamondback"><img alt="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" src="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" /></a>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" src="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" /></a>
 <section id="description">
-<h1>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h1>
+<h1>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h1>
 <p>Diamondback is a package which provides Digital Signal Processing ( DSP )
 solutions, and complements AI frameworks, by defining components which filter,
 model, and transform data.</p>
@@ -99,7 +100,7 @@ are useful in feature extraction and pattern recognition.</p>
 optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 </section>
 <section id="details">
-<h1>Details<a class="headerlink" href="#details" title="Permalink to this heading"></a></h1>
+<h1>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h1>
 <p>Data collections are consistently expressed in native types,
 including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
@@ -107,7 +108,7 @@ appropriate.</p>
 <p>Diamondback is defined in subpackages commons, filters, models, and
 transforms.</p>
 <section id="id1">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-log-module">Log</a>
 singleton instance which formats and writes log entries with a specified
@@ -129,7 +130,7 @@ without custom encoding definitions.</p></li>
 </ul>
 </section>
 <section id="id2">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module">ComplexBandPassFilter</a>
 instances adaptively extract or reject signals at a normalized
@@ -191,7 +192,7 @@ analysis, based on style, order, and normalization.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#diamondback-models-diversitymodel-module">DiversityModel</a>
 instances select and retain a state extracted to maximize the minimum
@@ -213,7 +214,7 @@ intra-class models capture mixture distributions.</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
+<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-complextransform-module">ComplexTransform</a>
 is a singleton instance which converts a three-phase real signal to a
@@ -226,12 +227,13 @@ discrete-time signal to a complex discrete-frequency signal, or a
 complex discrete-frequency signal to a real or complex discrete-time
 signal, in equivalent and reversible representations, based on a
 window filter and inverse.</p></li>
-<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-powerspectrumtransform-module">PowerSpectrumTransform</a>
-is a singleton instance which converts a real or complex
-discrete-time signal to a real discrete-frequency signal which
-estimates a mean power density of the signal, based on a window
-filter, index, and spectrogram.  A spectrogram constructs a time
-frequency representation.</p></li>
+<li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-psdtransform-module">PsdTransform</a>
+is a singleton instance which realizes a Power Spectral Density ( PSD )
+which converts a real or complex discrete-time signal to a real
+discrete-frequency signal which estimates an aggregate power spectrum
+of the signal, based on a window filter, index, and spectrogram.
+A spectrogram constructs a time frequency representation of the power
+spectrum.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-wavelettransform-module">WaveletTransform</a>
 instances realize a temporal spatial frequency transformation through
 defninition and application of analysis and synthesis filters with
@@ -246,7 +248,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 </section>
 <section id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h1>
+<h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
 <p>Diamondback depends upon external packages :</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jsonpickle/jsonpickle">jsonpickle</a></p></li>
@@ -266,13 +268,16 @@ depends upon additional external packages :</p>
 <li><p><a class="reference external" href="https://github.com/theacodes/nox">nox</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pandas-dev/pandas">pandas</a></p></li>
 <li><p><a class="reference external" href="https://github.com/python-pillow/pillow">pillow</a></p></li>
+<li><p><a class="reference external" href="https://github.com/thebjorn/pydeps">pydeps</a></p></li>
 <li><p><a class="reference external" href="https://github.com/pytest-dev/pytest">pytest</a></p></li>
 <li><p><a class="reference external" href="https://github.com/sphinx-doc/sphinx">sphinx</a></p></li>
 <li><p><a class="reference external" href="https://github.com/readthedocs/sphinx_rtd_theme">sphinx-rtd-theme</a></p></li>
 </ul>
+<a class="reference external image-reference" href="https://larryturner.github.io/diamondback/pydeps-partial.svg"><img alt="https://img.shields.io/badge/PyDeps-Partial-blue" src="https://img.shields.io/badge/PyDeps-Partial-blue" /></a>
+<a class="reference external image-reference" href="https://larryturner.github.io/diamondback/pydeps-full.svg"><img alt="https://img.shields.io/badge/PyDeps-Full-blue" src="https://img.shields.io/badge/PyDeps-Full-blue" /></a>
 </section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h1>
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
 <p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diamondback</span>
 
@@ -283,17 +288,10 @@ depends upon additional external packages :</p>
 </div>
 </section>
 <section id="demonstration">
-<h1>Demonstration<a class="headerlink" href="#demonstration" title="Permalink to this heading"></a></h1>
+<h1>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading"></a></h1>
 <p>A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.</p>
-<p>A jupyter notebook may be run on a remote server without installation with
-Binder, which dynamically builds and deploys a docker container from a GitHub
-repository, or installed from GitHub and run on a local system.  Binder may
-not be operational, as package dependencies on that service are dated.</p>
-<p><strong>Remote</strong></p>
-<a class="reference external image-reference" href="https://mybinder.org/v2/gh/larryturner/diamondback/master?labpath=notebooks%2Fdiamondback.ipynb"><img alt="https://img.shields.io/badge/Binder-blue" src="https://img.shields.io/badge/Binder-blue" /></a>
-<p><strong>Local</strong></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">larryturner</span><span class="o">/</span><span class="n">diamondback</span><span class="o">.</span><span class="n">git</span>
 
 <span class="n">cd</span> <span class="n">diamondback</span>
@@ -308,7 +306,7 @@ which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
 </section>
 <section id="tests">
-<h1>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h1>
+<h1>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h1>
 <p>A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">capture</span><span class="o">=</span><span class="n">no</span> <span class="o">--</span><span class="n">verbose</span>
@@ -316,16 +314,16 @@ used to execute unit and integration tests.</p>
 </div>
 </section>
 <section id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this heading"></a></h1>
+<h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h1>
 <p>Diamondback documentation is available on GitHub pages.</p>
 <a class="reference external image-reference" href="https://larryturner.github.io/diamondback/"><img alt="https://img.shields.io/badge/GitHub-blue" src="https://img.shields.io/badge/GitHub-blue" /></a>
 </section>
 <section id="license">
-<h1>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h1>
+<h1>License<a class="headerlink" href="#license" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C</a></p>
 </section>
 <section id="author">
-<h1>Author<a class="headerlink" href="#author" title="Permalink to this heading"></a></h1>
+<h1>Author<a class="headerlink" href="#author" title="Link to this heading"></a></h1>
 <p><a class="reference external" href="https://github.com/larryturner">Larry Turner</a></p>
 </section>
 

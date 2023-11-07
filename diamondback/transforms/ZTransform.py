@@ -7,16 +7,16 @@
         Singleton.
 
         .. math::
-            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
+            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0
 
         A frequency response is expressed as a function of a recursive coefficient
         array and a forward coefficient array, in s-domain and z-domain.
 
         .. math::
-            H_{s,n} = \\frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}
+            H_{s,n} = \\frac{\\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\\sum_{i = 0}^{N} u_{i} s^{N-i}}}
 
         .. math::
-            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}
+            H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}
 
     **Example**
       
@@ -78,11 +78,11 @@ class ZTransform( object ) :
                 b : numpy.ndarray - forward coefficient, z-domain.
         """
 
-        if ( ( not numpy.isscalar( u ) ) and ( not isinstance( u, numpy.ndarray ) ) ) :
+        if ( not isinstance( u, numpy.ndarray ) ) :
             u = numpy.array( list( u ) )
         if ( ( not len( u ) ) or ( not u.any( ) ) ) :
             raise ValueError( f'U = {u}' )
-        if ( ( not numpy.isscalar( v ) ) and ( not isinstance( v, numpy.ndarray ) ) ) :
+        if ( not isinstance( v, numpy.ndarray ) ) :            
             v = numpy.array( list( v ) )
         if ( ( not len( v ) ) or ( not v.any( ) ) ) :
             raise ValueError( f'V = {v}' )
@@ -105,7 +105,7 @@ class ZTransform( object ) :
             a, b = numpy.poly( p ).real, numpy.poly( z ).real
         else :
             r, p, k = scipy.signal.residue( v, u )
-            a, b = numpy.ones( 1 ) + 0j, 0j
+            a, b = numpy.ones( 1 ) + 0j, 0j  # type: ignore
             for ii in range( 0, len( r ) ) :
                 a = numpy.convolve( a, numpy.array( [ 1.0, -numpy.exp( p[ ii ] / t ) ] ) )
                 q = numpy.ones( 1 )

@@ -1,15 +1,15 @@
 """ **Description**
         A Gaussian mixture model is a semi-supervised learning probabilistic
-        model instance which uses maximum likelihood estimation, 
+        model instance which uses maximum likelihood estimation,
         regularization, and expectation maximization to maximize posterior
         probability and classify an incident signal.  Learns model instances
         of a specified order per class, where intra-class models capture
-        mixture distributions. 
+        mixture distributions.
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import GaussianMixtureModel
 
             # Create an instance.
@@ -31,11 +31,12 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
+from typing import List
 import numpy
 import sklearn.mixture
 
 class GaussianMixtureModel( object ) :
-    
+
     """ Gaussian mixture model.
     """
 
@@ -45,8 +46,8 @@ class GaussianMixtureModel( object ) :
 
     @index.setter
     def index( self, index ) :
-        if ( index < 1 ) :
-            raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
+        if ( index <= 0 ) :
+            raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         self._index = index
 
     @property
@@ -77,14 +78,14 @@ class GaussianMixtureModel( object ) :
                 regularize : float - regularize.
         """
 
-        if ( order < 1 ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
-        if ( index < 1 ) :
-            raise ValueError( f'Index = {index} Expected Index in [ 1, inf )' )
+        if ( order <= 0 ) :
+            raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
+        if ( index <= 0 ) :
+            raise ValueError( f'Index = {index} Expected Index in ( 0, inf )' )
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
-        self._data = [ ]
         self._index = index
+        self._model : List[ sklearn.mixture.GaussianMixture ] = [ ]
         self._order = order
         self._regularize = regularize
         self._shape = ( )
@@ -94,7 +95,7 @@ class GaussianMixtureModel( object ) :
         """ Learns an incident signal with ground truth label and estimates inverse
             covariance and mean matrices to learn mixed distribution instances
             for each class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - incident.
                 y : numpy.ndarray ( batch ) - label.
@@ -106,13 +107,13 @@ class GaussianMixtureModel( object ) :
             raise ValueError( f'Y = {len( y )} Expected Y = {x.shape[ 0 ]}' )
         if ( not issubclass( y.dtype.type, numpy.integer ) ) :
             raise ValueError( f'Y = {y.dtype.type} Expected Y = {numpy.integer}' )
-        self._data = [ ]
+        self._model = [ ]
         self._shape = x[ 0 ].shape
         for ii in sorted( set( y ) ) :
             z = x[ numpy.where( y == ii )[ 0 ] ]
-            m = sklearn.mixture.GaussianMixture( covariance_type = 'full', n_components = self.order, max_iter = self.index, reg_covar = self.regularize )
-            m.fit( z )
-            self._data.append( m )
+            model = sklearn.mixture.GaussianMixture( covariance_type = 'full', n_components = self.order, max_iter = self.index, reg_covar = self.regularize )
+            model.fit( z )
+            self._model.append( model )
 
     def predict( self, x : numpy.ndarray ) -> numpy.ndarray :
 
@@ -122,7 +123,7 @@ class GaussianMixtureModel( object ) :
 
             Predictions for each class are ranked and ordered by decending
             probability, and the initial prediction is the most likely class.
-        
+
             Arguments :
                 x : numpy.ndarray ( batch, count ) - data.
 
@@ -130,19 +131,19 @@ class GaussianMixtureModel( object ) :
                 v : numpy.ndarray ( batch, class ) - predict.
         """
 
-        if ( not len( self._data ) ) :
-            raise ValueError( f'Data = {self._data}' )
+        if ( not len( self._model ) ) :
+            raise ValueError( f'Model = {self._model}' )
         if ( ( len( x.shape ) != 2 ) or ( not all( x.shape ) ) ) :
             raise ValueError( f'X = {x.shape}' )
         if ( x[ 0 ].shape != self._shape ) :
             raise ValueError( f'X = {x[ 0 ].shape} Expected X = {self._shape}' )
-        if ( ( not len( self._data ) ) or ( not hasattr( self._data[ 0 ], 'precisions_' ) ) ) :
-            raise RuntimeError( f'Model = {self._data} Not Trained' )
-        v = numpy.zeros( ( x.shape[ 0 ], len( self._data ) ) )
+        if ( ( not len( self._model ) ) or ( not hasattr( self._model[ 0 ], 'precisions_' ) ) ) :
+            raise RuntimeError( f'Model = {self._model} Not Trained' )
+        v = numpy.zeros( ( x.shape[ 0 ], len( self._model ) ) )
         for jj in range( 0, len( v ) ) :
-            for ii in range( 0, len( self._data ) ) :
-                m = self._data[ ii ]
+            for ii in range( 0, len( self._model ) ) :
+                model = self._model[ ii ]
                 for kk in range( 0, self.order ) :
-                    i, u, w = m.precisions_[ kk ], m.means_[ kk ], m.weights_[ kk ]
+                    i, u, w = model.precisions_[ kk ], model.means_[ kk ], model.weights_[ kk ]
                     v[ jj, ii ] += w * numpy.exp( -0.5 * max( ( x[ jj ] - u ) @ i @ ( x[ jj ] - u ).T, 0.0 ) )
         return numpy.fliplr( numpy.argsort( v, axis = 1 ) )

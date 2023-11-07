@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -77,9 +78,9 @@
 <span class="sd">        Live makes a head request to a URL and detects a live service.</span>
 
 <span class="sd">    **Example**</span>
-<span class="sd">        </span>
+
 <span class="sd">        ::</span>
-<span class="sd">        </span>
+
 <span class="sd">            from diamondback import RestClient</span>
 <span class="sd">            from typing import Dict</span>
 <span class="sd">            import numpy</span>
@@ -106,15 +107,17 @@
 <span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2020-10-22.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">requests</span>
 
-<div class="viewcode-block" id="RestClient"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.RestClient">[docs]</a><span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.RestClient">[docs]</a>
+<span class="k">class</span> <span class="nc">RestClient</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; REST client.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">__method</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;delete&#39;</span><span class="p">,</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="s1">&#39;options&#39;</span><span class="p">,</span> <span class="s1">&#39;patch&#39;</span><span class="p">,</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span> <span class="s1">&#39;put&#39;</span> <span class="p">)</span>
+    <span class="n">METHOD</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Delete&#39;</span><span class="p">,</span> <span class="s1">&#39;Get&#39;</span><span class="p">,</span> <span class="s1">&#39;Head&#39;</span><span class="p">,</span> <span class="s1">&#39;Options&#39;</span><span class="p">,</span> <span class="s1">&#39;Patch&#39;</span><span class="p">,</span> <span class="s1">&#39;Post&#39;</span><span class="p">,</span> <span class="s1">&#39;Put&#39;</span> <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -139,7 +142,6 @@
 
     <span class="nd">@proxy</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">proxy</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">proxy</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_proxy</span> <span class="o">=</span> <span class="n">proxy</span>
 
     <span class="nd">@property</span>
@@ -152,7 +154,6 @@
 
     <span class="nd">@timeout</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="n">timeout</span>
 
     <span class="nd">@property</span>
@@ -165,10 +166,6 @@
 
     <span class="nd">@url</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">url</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">url</span> <span class="p">:</span> <span class="nb">str</span> <span class="p">)</span> <span class="p">:</span>
-
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; Url.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">if</span> <span class="p">(</span> <span class="n">url</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="n">url</span>
@@ -179,17 +176,20 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_proxy</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="p">{</span> <span class="p">},</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_proxy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
 
-<div class="viewcode-block" id="RestClient.request"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.RestClient.request">[docs]</a>    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
+<div class="viewcode-block" id="RestClient.request">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.RestClient.request">[docs]</a>
+    <span class="k">def</span> <span class="nf">request</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">method</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">api</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">auth</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">header</span> <span class="p">:</span> <span class="n">Optional</span><span class="p">[</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">item</span> <span class="p">:</span> <span class="n">Optional</span><span class="p">[</span> <span class="n">Dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">str</span> <span class="p">]</span> <span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">data</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Request client for simple REST service requests. An API and an</span>
 <span class="sd">            elective dictionary of parameter strings are encoded to build a</span>
 <span class="sd">            URL, elective binary or JSON data are defined in the body of a</span>
 <span class="sd">            request, and a requests response containing JSON, text, or binary</span>
 <span class="sd">            data is returned.</span>
-<span class="sd">            </span>
+
 <span class="sd">            Arguments :</span>
 <span class="sd">                method : str - in ( &#39;delete&#39;, &#39;get&#39;, &#39;head&#39;, &#39;options&#39;, &#39;patch&#39;, &#39;post&#39;, &#39;put&#39; ).</span>
 <span class="sd">                api : str - relative to the URL.</span>
@@ -203,11 +203,9 @@
 <span class="sd">                value : requests.Response.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">method</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-        <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">__method</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">method</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">RestClient</span><span class="o">.</span><span class="n">METHOD</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Method = </span><span class="si">{</span><span class="n">method</span><span class="si">}</span><span class="s1"> Expected Method in </span><span class="si">{</span><span class="n">RestClient</span><span class="o">.</span><span class="n">METHOD</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">data</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="n">json</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Data = </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1"> JSON = </span><span class="si">{</span><span class="n">json</span><span class="si">}</span><span class="s1"> Expected Data or JSON&#39;</span> <span class="p">)</span>
         <span class="n">api</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span> <span class="s1">&#39;/&#39;</span> <span class="p">)</span>
@@ -216,7 +214,9 @@
             <span class="n">url</span> <span class="o">+=</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">api</span>
         <span class="k">with</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span> <span class="o">=</span> <span class="n">item</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">,</span> <span class="n">auth</span> <span class="o">=</span> <span class="n">auth</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span> <span class="k">as</span> <span class="n">value</span> <span class="p">:</span>
             <span class="n">value</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">(</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="n">value</span></div></div>
+        <span class="k">return</span> <span class="n">value</span></div>
+</div>
+
 </pre></div>
 
            </div>

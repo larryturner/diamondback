@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -72,20 +73,20 @@
 <span class="sd">        producing a reference signal.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0</span>
+<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}</span>
+<span class="sd">            s_{1,n+1} = \\sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            \matrix{ a = \scriptsize{ [\ \matrix{ 0 &amp; 2\ \cos(\ \pi\ f\ ) &amp; -1 }\ ] } &amp; b = \scriptsize{ [\ \matrix{ 1 &amp; -e^{\ j\ \pi\ f\ } &amp; 0 } }\ ] }</span>
+<span class="sd">            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 &amp; 2\\ \\cos(\ \\pi\\ f\\ ) &amp; -1 }\\ ] } &amp; b = \\scriptsize{ [\\ \\matrix{ 1 &amp; -e^{\\ j\\ \\pi\\ f\\ } &amp; 0 } }\\ ] }</span>
 
 <span class="sd">        At the terminus of each window length a reference signal is evaluated</span>
 <span class="sd">        to estimate a discrete Fourier transform at a specified normalized</span>
 <span class="sd">        frequency.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            H_{z} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
+<span class="sd">            H_{z} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
 
 <span class="sd">        A Goertzel filter is normalized by incident signal length.  An incident</span>
 <span class="sd">        signal length is is inversely proportional to a normalized frequency</span>
@@ -126,7 +127,9 @@
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="GoertzelFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.GoertzelFilter">[docs]</a><span class="k">class</span> <span class="nc">GoertzelFilter</span><span class="p">(</span> <span class="n">IirFilter</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="GoertzelFilter">
+<a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.GoertzelFilter">[docs]</a>
+<span class="k">class</span> <span class="nc">GoertzelFilter</span><span class="p">(</span> <span class="n">IirFilter</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Goertzel filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -141,7 +144,6 @@
 
     <span class="nd">@frequency</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">frequency</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">frequency</span> <span class="o">&gt;</span> <span class="mf">1.0</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s1"> Expected Frequency in [ 1.0, 1.0 ]&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span> <span class="o">=</span> <span class="n">frequency</span>
@@ -155,7 +157,7 @@
 <span class="sd">                frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="n">b</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;B = </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
@@ -164,10 +166,13 @@
         <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">),</span> <span class="o">-</span><span class="mf">1.0</span> <span class="p">]</span> <span class="p">)</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">),</span> <span class="mf">0.0</span> <span class="p">]</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">v</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span> <span class="o">=</span> <span class="n">frequency</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="GoertzelFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.GoertzelFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="GoertzelFilter.filter">
+<a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.GoertzelFilter.filter">[docs]</a>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
@@ -178,7 +183,7 @@
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
@@ -195,7 +200,9 @@
                 <span class="n">jj</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">jj</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span> <span class="p">:</span> <span class="n">jj</span> <span class="p">]</span>
-        <span class="k">return</span> <span class="n">y</span></div></div>
+        <span class="k">return</span> <span class="n">y</span></div>
+</div>
+
 </pre></div>
 
            </div>

@@ -22,10 +22,10 @@ diamondback.transforms.FourierTransform module
    :undoc-members:
    :show-inheritance:
 
-diamondback.transforms.PowerSpectrumTransform module
-----------------------------------------------------
+diamondback.transforms.PsdTransform module
+------------------------------------------
 
-.. automodule:: diamondback.transforms.PowerSpectrumTransform
+.. automodule:: diamondback.transforms.PsdTransform
    :members:
    :noindex:
    :undoc-members:

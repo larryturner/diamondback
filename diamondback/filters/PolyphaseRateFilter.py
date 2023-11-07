@@ -13,13 +13,13 @@
         ratio.
 
         .. math::
-            b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]
+            b_{k,i} = b^{M}[\\ k (\\ N\\ +\\ 1\\ )\\ +\\ i\\ ] \\qquad\\qquad k\\ :\\ [\\ 0,\\ K\\sim 256\\ )\\qquad\\ i\\ :\\ [\\ 0,\\ N\\sim 15 \\ ]
 
         .. math::
-            y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}
+            y_{n} = \\sum_{i = 0}^{N} b_{k_{n},i}\\ x_{n-i} = \\sum_{i = 1}^{N} b_{k_{n},i}\\ s_{i,n} + b_{k_{n},0}\\ x_{n}
 
         .. math::
-            s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}
+            s_{1,n+1} = x_{n}\\quad\\quad s_{i,n+1} = s_{i-1,n}
 
         A specified rate must be greater than zero, and less than or equal to
         the quantity of filters comprising a polyphase filter bank, supporting
@@ -30,13 +30,13 @@
         may be addressed by latency compensation.
 
         .. math::
-            \phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \\frac{K}{\scriptsize{Rate}}
+            \\phi_{n+1,Rate} = \\phi_{n,Rate}\\ +\\ \\frac{K}{\\scriptsize{Rate}}
 
         .. math::
-            \phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K
+            \\phi_{n+1,Rate}\\ \\geq\\ K\\qquad\\longrightarrow\\qquad \\phi_{n+1,Rate} = \\phi_{n+1,Rate}\\ -\\ K
 
         .. math::
-            k_{n+1} = \mod(\ \\lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\\rfloor,\ M\ )
+            k_{n+1} = \\mod(\\ \\lfloor{\\ k_{n}\\ +\\ \\phi_{n+1,Rate}}\\rfloor,\\ M\\ )
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.  Edge
@@ -48,9 +48,9 @@
         to continuous operation.
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, PolyphaseRateFilter
             import math
             import numpy
@@ -82,44 +82,30 @@ class PolyphaseRateFilter( object ) :
     """ Polyphase rate filter.
     """
 
-    __b = numpy.zeros( ( 256, 15 ) )
+    B = numpy.zeros( ( 256, 15 ) )
 
     @property
     def b( self ) :
-
-        """ b : numpy.ndarray - forward coefficient.
-        """
-
-        return PolyphaseRateFilter.__b
+        return PolyphaseRateFilter.B
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, b.shape[ 0 ] ].
-        """
-
         return self._rate
 
     @rate.setter
     def rate( self, rate : float ) :
-
-        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
-            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.__b.shape[ 0 ]} ]' )
+        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.B.shape[ 0 ] ) ) :
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[ 0 ]} ]' )
         if ( not numpy.isclose( self.rate, rate ) ) :
             self._index = 0.0
         self._rate = rate
 
     @property
     def s( self ) :
-
-        """ s : Union[ List, numpy.ndarray ] - state.
-        """
-
         return self._s
 
     @s.setter
     def s( self, s : Union[ List, numpy.ndarray ] ) :
-
         self._s = s
 
     def __init__( self, rate : float ) -> None :
@@ -130,19 +116,20 @@ class PolyphaseRateFilter( object ) :
                 rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].
         """
 
-        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.__b.shape[ 0 ] ) ) :
-            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.__b.shape[ 0 ]} ]' )
+        if ( ( rate < 0.0 ) or ( rate > PolyphaseRateFilter.B.shape[ 0 ] ) ) :
+            raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[ 0 ]} ]' )
         super( ).__init__( )
-        b = PolyphaseRateFilter.__b
+        b = PolyphaseRateFilter.B
         rr, cc = b.shape
         if ( not b.any( ) ) :
             firfilter = FirFilter( style = 'Hann', frequency = 0.85 / rr, order = cc * rr - 1 )
             b = numpy.reshape( firfilter.b, ( rr, cc ), 'F' )
             for ii in range( 0, rr ) :
                 b[ ii, : ] /= sum( b[ ii, : ] )
-            PolyphaseRateFilter.__b = b
-        self._index, self._s = 0.0, numpy.zeros( cc )
+            PolyphaseRateFilter.B = b
+        self._index = 0
         self._rate = rate
+        self._s = numpy.zeros( cc )
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -155,12 +142,12 @@ class PolyphaseRateFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( int( numpy.round( len( x ) * self.rate ) ) )
-        b = PolyphaseRateFilter.__b
+        b = PolyphaseRateFilter.B
         rr = b.shape[ 0 ]
         ii, jj = 0, 0
         while ( ( ii < len( x ) ) and ( jj < len( y ) ) ) :

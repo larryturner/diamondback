@@ -4,7 +4,7 @@
         incident signal and producing a reference signal.
 
         .. math::
-            y_{n} = b_{n}\ x_{n}
+            y_{n} = b_{n}\\ x_{n}
 
         A forward coefficient array of a specified order is defined.  A
         style, order, and normalization are specified.
@@ -27,12 +27,12 @@
         compensate for energy loss.
 
         .. math::
-            b_{n} = b_{n}\ \\frac{ N }{ \sum_{0}^{N-1}\ |\ b_{n}\ |}
+            b_{n} = b_{n}\\ \\frac{ N }{ \\sum_{0}^{N-1}\\ |\\ b_{n}\\ |}
 
     **Example**
-     
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
@@ -62,14 +62,10 @@ class WindowFilter( object ) :
     """ Window filter.
     """
 
-    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    STYLE = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
-
-        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
-        """
-
         return self._b
 
     def __init__( self, style : str, order : int, normal : bool = True  ) -> None :
@@ -82,14 +78,15 @@ class WindowFilter( object ) :
                 normal : bool.
         """
 
-        if ( ( not style ) or ( style not in WindowFilter.__style ) ) :
-            raise ValueError( f'style = {style} Expected Style in {WindowFilter.__style}' )
+        style = style.title( )
+        if ( style not in WindowFilter.STYLE ) :
+            raise ValueError( f'style = {style} Expected Style in {WindowFilter.STYLE}' )
         if ( order < 0 ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
         if ( style == 'Kaiser' ) :
             window = ( style.lower( ), 7.0 )
         else :
-            window = style.lower( )
+            window = style.lower( )  # type: ignore
         super( ).__init__( )
         b = scipy.signal.get_window( window, order + 1, False )
         if ( normal ) :
@@ -107,7 +104,7 @@ class WindowFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 1 ) or ( len( x ) != len( self.b ) ) ) :
             raise ValueError( f'X = {x}' )

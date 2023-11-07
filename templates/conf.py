@@ -21,7 +21,6 @@ title = 'Diamondback DSP'
 
 extensions = [ 'sphinx.ext.autosummary',
                'sphinx.ext.githubpages',
-               'sphinx.ext.intersphinx',
                'sphinx.ext.napoleon',
                'sphinx.ext.viewcode' ]
 
@@ -34,10 +33,6 @@ autosummary_ignore_module_all = False
 exclude_patterns = [ 'build', 'tests' ]
 html_theme = 'sphinx_rtd_theme'
 html_title = title
-intersphinx_mapping = dict( numpy = ( 'https://numpy.org/doc/stable', None ),
-                            python = ( 'https://docs.python.org/3', None ),
-                            request = ( 'https://requests.readthedocs.io/en/latest', None ),
-                            sklearn = ( 'https://scikit-learn.org/stable', None ) )
 master_doc = 'index'
 napoleon_google_docstring = True
 napoleon_include_init_with_doc = False

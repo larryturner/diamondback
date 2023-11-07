@@ -10,9 +10,9 @@
         Live makes a head request to a URL and detects a live service.
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import RestClient
             from typing import Dict
             import numpy
@@ -39,7 +39,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any, Dict
+from typing import Any, Dict, Optional, Union
 import requests
 
 class RestClient( object ) :
@@ -47,14 +47,10 @@ class RestClient( object ) :
     """ REST client.
     """
 
-    __method = ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' )
+    METHOD = ( 'Delete', 'Get', 'Head', 'Options', 'Patch', 'Post', 'Put' )
 
     @property
     def live( self ) :
-
-        """ live : bool.
-        """
-
         try :
             requests.request( method = 'head', url = self.url, proxies = self.proxy, timeout = self.timeout )
             value = True
@@ -64,44 +60,26 @@ class RestClient( object ) :
 
     @property
     def proxy( self ) :
-
-        """ proxy : Dict[ str, str ].
-        """
-
         return self._proxy
 
     @proxy.setter
     def proxy( self, proxy : Dict[ str, str ] ) :
-
         self._proxy = proxy
 
     @property
     def timeout( self ) :
-
-        """ timeout : Any.
-        """
-
         return self._timeout
 
     @timeout.setter
     def timeout( self, timeout : Any ) :
-
         self._timeout = timeout
 
     @property
     def url( self ) :
-
-        """ url : str.
-        """
-
         return self._url
 
     @url.setter
     def url( self, url : str ) :
-
-        """ Url.
-        """
-
         if ( url ) :
             url = url.strip( '/' )
         self._url = url
@@ -112,17 +90,18 @@ class RestClient( object ) :
         """
 
         super( ).__init__( )
-        self._proxy, self._timeout = { }, ( 10.0, 60.0 )
+        self._proxy = dict( )
+        self._timeout = ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, auth : Any = None, header : Dict[ str, str ] = None, item : Dict[ str, str ] = None, data : Any = None, json : Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, auth : Any = None, header : Optional[ Dict[ str, str ] ] = None, item : Optional[ Dict[ str, str ] ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
             URL, elective binary or JSON data are defined in the body of a
             request, and a requests response containing JSON, text, or binary
             data is returned.
-            
+
             Arguments :
                 method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
                 api : str - relative to the URL.
@@ -136,11 +115,9 @@ class RestClient( object ) :
                 value : requests.Response.
         """
 
-        if ( not method ) :
-            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method}' )
-        method = method.lower( )
-        if ( method not in RestClient.__method ) :
-            raise ValueError( f'Method = {method} Expected Method in {RestClient.__method}' )
+        method = method.title( )
+        if ( method not in RestClient.METHOD ) :
+            raise ValueError( f'Method = {method} Expected Method in {RestClient.METHOD}' )
         if ( ( data ) and ( json ) ) :
             raise ValueError( f'Data = {data} JSON = {json} Expected Data or JSON' )
         api = api.strip( '/' )

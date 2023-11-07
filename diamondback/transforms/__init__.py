@@ -9,11 +9,13 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
+# isort: skip_file
+
 from .ComplexTransform import ComplexTransform
 from .FourierTransform import FourierTransform
-from .PowerSpectrumTransform import PowerSpectrumTransform
+from .PsdTransform import PsdTransform
 from .WaveletTransform import WaveletTransform
 from .ZTransform import ZTransform
 
-__all__ = [ 'ComplexTransform', 'FourierTransform', 'PowerSpectrumTransform', 'WaveletTransform',
+__all__ = [ 'ComplexTransform', 'FourierTransform', 'PsdTransform', 'WaveletTransform',
             'ZTransform' ]

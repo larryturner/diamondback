@@ -7,15 +7,15 @@
             x_{n} = f_{n}
 
         .. math::
-            \phi_{n} = \phi_{n-1} + x_{n}
+            \\phi_{n} = \\phi_{n-1} + x_{n}
 
         .. math::
-            y_{n} = e^{\ j\ \pi\ \phi_{n}}
+            y_{n} = e^{\\ j\\ \\pi\\ \\phi_{n}}
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter
             import numpy
 
@@ -47,15 +47,10 @@ class ComplexExponentialFilter( object ) :
 
     @property
     def phase( self ) :
-
-        """ phase : float - relative to pi in [ -1.0, 1.0 ].
-        """
-
         return self._phase
 
     @phase.setter
     def phase( self, phase : float ) :
-
         if ( ( phase < -1.0 ) or ( phase > 1.0 ) ) :
             raise ValueError( f'Phase = {phase} Expected Phase in [ -1.0, 1.0 ]' )
         self._phase = phase
@@ -84,7 +79,7 @@ class ComplexExponentialFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( ( numpy.iscomplex( x ).any( ) ) or ( not len( x ) ) or ( abs( x ) > 1.0 ).any( ) ) :
             raise ValueError( f'X = {x}' )

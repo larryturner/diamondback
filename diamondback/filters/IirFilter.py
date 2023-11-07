@@ -5,22 +5,22 @@
         consuming an incident signal and producing a reference signal.
 
         .. math::
-            y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0
+            y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i,n} b_{0,n} + b_{i,n}\\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0
 
         .. math::
-            s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}
+            s_{1,n+1} = \\sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\\qquad\\qquad s_{i,n+1} = s_{i-1,n}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
 
         .. math::
-            s_{i,n} = \\frac{1.0 - b_{0,n}}{\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\ x_{n}
+            s_{i,n} = \\frac{1.0 - b_{0,n}}{\\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\\ x_{n}
 
         A frequency response is expressed as a function of a recursive
         coefficient array and a forward coefficient array.
 
         .. math::
-            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i,n} z^{-i}}}
+            H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i,n} z^{-i}}}
 
         A recursive coefficient array, forward coefficient array,
         and state array of a specified order are defined to realize specified
@@ -50,9 +50,9 @@
         frequency response.
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import IirFilter
             import numpy
 
@@ -86,7 +86,7 @@
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.transforms.ZTransform import ZTransform
-from typing import List, Tuple, Union
+from typing import Any, List, Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -97,19 +97,14 @@ class IirFilter( FirFilter ) :
     """ Infinite Impulse Response ( IIR ) filter.
     """
 
-    __style = ( 'Bessel', 'Butterworth', 'Chebyshev' )
+    STYLE : Any = ( 'Bessel', 'Butterworth', 'Chebyshev' )  # type: ignore
 
     @property
     def a( self ) :
-
-        """ a : Union[ List, numpy.ndarray ] - recursive coefficient.
-        """
-
         return self._a
 
     @a.setter
     def a( self, a : Union[ List, numpy.ndarray ] ) :
-
         self._a = a
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
@@ -120,7 +115,7 @@ class IirFilter( FirFilter ) :
             Specify constraints including style, frequency, and order.
             Alternatively, a recursive coefficient array and forward coefficient array
             may be explicitly defined to ignore constraints.
-            
+
             Labels should be used to avoid ambiguity between constraints and
             coefficients.
 
@@ -137,34 +132,35 @@ class IirFilter( FirFilter ) :
         """
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
-            if ( ( not style ) or ( style not in IirFilter.__style ) ) :
-                raise ValueError( f'style = {style} Expected Style in {IirFilter.__style}' )
+            style = style.title( )
+            if ( style not in IirFilter.STYLE ) :
+                raise ValueError( f'style = {style} Expected Style in {IirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
-            if ( order < 1 ) :
-                raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
-            if ( count < 1 ) :
-                raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+            if ( order < 0 ) :
+                raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
+            if ( count <= 0 ) :
+                raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
-            beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
-            index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
-            a, b = [ ], [ ]
+            beta, eps, error = 10.0, float( numpy.finfo( float ).eps ), numpy.inf
+            index, rate, scale = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
+            a, b = numpy.ndarray( ( 0 ) ), numpy.ndarray( ( 0 ) )
             for _ in range( 0, index ) :
-                u, v = IirFilter._evaluate( style, zeta * frequency, order )
+                u, v = IirFilter._evaluate( style, scale * frequency, order )
                 x = numpy.exp( 1j * math.pi * frequency )
-                e = ( 2.0 ** ( -0.5 ) ) - ( ( abs( numpy.polyval( v, x ) / numpy.polyval( numpy.concatenate( ( [ 1.0 ], -u[ 1 : ] ) ), x ) ) ) ** count )
+                e = ( 2.0 ** ( -0.5 ) ) - ( ( abs( numpy.polyval( v, x ) / numpy.polyval( numpy.concatenate( ( [ 1.0 ], -u[ 1 : ] ) ), x ) ) ) ** count )  # type: ignore
                 if ( abs( e ) < error ) :
                     a, b, error = u, v, abs( e )
                     if ( error < ( 10.0 * eps ) ) :
                         break
-                zeta = max( zeta + mu * math.tanh( beta * e ), eps )
+                scale = max( scale + rate * math.tanh( beta * e ), eps )
             if ( complement ) :
                 a *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] )
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
-                b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )
+                b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) ) / sum( numpy.concatenate( ( [ 1.0 ], -a[ 1 : ] ) ) * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( a ) ) ] ) )  # type: ignore
             b *= gain
-        if ( ( not numpy.isscalar( a ) ) and ( not isinstance( a, numpy.ndarray ) ) ) :
+        if ( not isinstance( a, numpy.ndarray ) ) :
             a = numpy.array( list( a ) )
         if ( ( len( a ) > 0 ) and ( a[ 0 ] ) ) :
             raise ValueError( f'A = {a}' )
@@ -199,7 +195,7 @@ class IirFilter( FirFilter ) :
             bilinear = False
             u, a = numpy.ones( 1 ), numpy.ones( 2 )
             for ii in range( 2, order + 1 ) :
-                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )
+                x = numpy.concatenate( ( u, numpy.zeros( 2 ) ) ) + numpy.concatenate( ( [ 0.0 ], ( ( 2.0 * ii ) - 1.0 ) * a ) )  # type: ignore
                 u, a = a, x
         elif ( style == 'Butterworth' ) :
             a = numpy.ones( 1 )
@@ -231,10 +227,10 @@ class IirFilter( FirFilter ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length < 1 ) :
-            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
-        if ( count < 1 ) :
-            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+        if ( length <= 0) :
+            raise ValueError( f'Length = {length} Expected Length in ( 0, inf )' )
+        if ( count <= 0 ) :
+            raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ) ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
@@ -257,7 +253,7 @@ class IirFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
@@ -299,10 +295,10 @@ class IirFilter( FirFilter ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length < 1 ) :
-            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
-        if ( count < 1 ) :
-            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+        if ( length <= 0 ) :
+            raise ValueError( f'Length = {length} Expected Length in ( 0, inf )' )
+        if ( count <= 0 ) :
+            raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.freqz( self.b, numpy.concatenate( ( [ 1.0 ], -self.a[ 1 : ] ) ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )

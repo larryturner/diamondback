@@ -8,12 +8,12 @@
         control stability and latency.
 
         .. math::
-            y_{n} = b_{0}\ x_{n} + b_{1}\max(\ min( \sum_{0}^{n}\ x_{n},\ limit\ ),\ -limit\ ) + b_{2}\ \\frac{d}{dn}(\ x_{n}\ )
+            y_{n} = b_{0}\\ x_{n} + b_{1}\\max(\\ \\min( \\sum_{0}^{n}\\ x_{n},\\ limit\\ ),\\ -limit\\ ) + b_{2}\\ \\frac{d}{dn}(\\ x_{n}\\ )
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 
@@ -45,15 +45,10 @@ class PidFilter( FirFilter ) :
 
     @property
     def limit( self ) :
-
-        """ limit : float.
-        """
-
         return self._limit
 
     @limit.setter
     def limit( self, limit : float ) :
-
         if ( limit < 0.0 ) :
             raise ValueError( f'Limit = {limit} Expected Limit in ( 0.0, inf )' )
         self._limit = limit
@@ -66,12 +61,12 @@ class PidFilter( FirFilter ) :
                 b : Union[ List, numpy.ndarray ] - forward coefficient.
         """
 
-        if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
+        if ( not isinstance( b, numpy.ndarray ) ) :
             b = numpy.array( list( b ) )
         if ( len( b ) != 3 ) :
             raise ValueError( f'B = {b}' )
         super( ).__init__( b = b, s = numpy.zeros( len( b ) ) )
-        self._limit = float( 'inf' )
+        self._limit = numpy.inf
 
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
@@ -84,7 +79,7 @@ class PidFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )

@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -76,7 +77,7 @@
 <span class="sd">        In lazy initialization an existing default loguru handler, with an</span>
 <span class="sd">        identity equal to 0, and a stream assignment of sys.stdout is removed,</span>
 <span class="sd">        and a new loguru handler with a stream assignment of sys.stdout and a</span>
-<span class="sd">        level of &#39;INFO&#39; is created.</span>
+<span class="sd">        level of &#39;Info&#39; is created.</span>
 
 <span class="sd">        In stream assignments subsequent to initialization, only loguru</span>
 <span class="sd">        handlers previously created by Log will be removed, as the Log design</span>
@@ -86,39 +87,40 @@
 
 <span class="sd">        Levels defined by loguru are supported, including custom definitions,</span>
 <span class="sd">        which may have an associated numerical value greater than or equal to</span>
-<span class="sd">        zero.  The level may be dynamically modified without creating,</span>
-<span class="sd">        deleting, or modifying a loguru handler.</span>
+<span class="sd">        zero.  Levels may be dynamically modified without creating, deleting,</span>
+<span class="sd">        or modifying a loguru handler.  Levels are case insensitive on</span>
+<span class="sd">        assignment, though loguru uses upper case.</span>
 
 <span class="sd">        Singleton.</span>
 
 <span class="sd">        Thread safe.</span>
 
 <span class="sd">    **Example**</span>
-<span class="sd">    </span>
+
 <span class="sd">        ::</span>
-<span class="sd">        </span>
+
 <span class="sd">            from diamondback import Log</span>
 <span class="sd">            import io</span>
 <span class="sd">            import numpy</span>
 <span class="sd">            import sys</span>
 
 <span class="sd">            try :</span>
-<span class="sd">                # Set Log level to &#39;INFO&#39;, the default level.</span>
+<span class="sd">                # Set Log level to &#39;Info&#39;, the default level.</span>
 
-<span class="sd">                Log.level( &#39;INFO&#39; )</span>
-<span class="sd">                Log.write( &#39;INFO&#39;, &#39;Test Log write.&#39; )</span>
+<span class="sd">                Log.level( &#39;Info&#39; )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, &#39;Test Log write.&#39; )</span>
 
 <span class="sd">                # Set Log stream to sys.stdout.</span>
 
 <span class="sd">                Log.stream( sys.stdout )</span>
-<span class="sd">                Log.write( &#39;INFO&#39;, f&#39;Valid = {True}&#39; )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, f&#39;Valid = {True}&#39; )</span>
 
 <span class="sd">                # Set Log stream to a memory stream.</span>
 
 <span class="sd">                stream = io.StringIO( )</span>
 <span class="sd">                Log.stream( stream )</span>
 <span class="sd">                x = numpy.random.rand( 2, 2 )</span>
-<span class="sd">                Log.write( &#39;INFO&#39;, f&#39;X = {x}&#39; )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, f&#39;X = {x}&#39; )</span>
 
 <span class="sd">                # Read and reset memory stream.</span>
 <span class="sd">                value = stream.getvalue( )</span>
@@ -129,9 +131,9 @@
 <span class="sd">                with open( &#39;log-2112.txt&#39;, &#39;w&#39; ) as fout :</span>
 <span class="sd">                    Log.stream( fout )</span>
 <span class="sd">                    x = numpy.random.rand( 2, 2 )</span>
-<span class="sd">                    Log.write( &#39;WARNING&#39;, f&#39;X = {x}&#39; )</span>
+<span class="sd">                    Log.write( &#39;Warning&#39;, f&#39;X = {x}&#39; )</span>
 <span class="sd">            except Exception as ex :</span>
-<span class="sd">                Log.write( &#39;ERROR&#39;, ex )</span>
+<span class="sd">                Log.write( &#39;Error&#39;, ex )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -148,31 +150,42 @@
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">sys</span>
 
-<div class="viewcode-block" id="Log"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log">[docs]</a><span class="k">class</span> <span class="nc">Log</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="Log">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log">[docs]</a>
+<span class="k">class</span> <span class="nc">Log</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Log.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">float</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">)</span> <span class="p">)</span>
-    <span class="n">_identity</span><span class="p">,</span> <span class="n">_level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;INFO&#39;</span> <span class="p">)</span>
+
+    <span class="n">LEVEL</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Critical&#39;</span><span class="p">,</span> <span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;Success&#39;</span><span class="p">,</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Trace&#39;</span> <span class="p">)</span>
+
+    <span class="n">_identity</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
     <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="Log.level"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.level">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Log.level">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.level">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">level</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Level.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, &lt; custom &gt; ).</span>
+<span class="sd">                level : str - in LEVEL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">try</span> <span class="p">:</span>
                 <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in ( &quot;CRITICAL&quot;, &quot;ERROR&quot;&quot;, &quot;WARNING&quot;, &quot;SUCCESS&quot;, &quot;INFO&quot;, &quot;DEBUG&quot;, &quot;TRACE&quot;, &lt; custom &gt; )&#39;</span> <span class="p">)</span></div>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in </span><span class="si">{</span><span class="n">Log</span><span class="o">.</span><span class="n">LEVEL</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Log.stream"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.stream">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Log.stream">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.stream">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Stream.</span>
@@ -183,14 +196,17 @@
 
         <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1"> Expected Write&#39;</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
             <span class="k">except</span> <span class="ne">ValueError</span> <span class="p">:</span>
                 <span class="k">pass</span>
             <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;blue&gt;{time:YYYY-MM-DDTHH:mm:ss.SSZ}&lt;/blue&gt; &lt;level&gt;</span><span class="si">{level}</span><span class="s1">&lt;/level&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="Log.write"><a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.write">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Log.write">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.write">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entry</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Formats and writes log entries using the loguru package with a</span>
@@ -198,7 +214,7 @@
 <span class="sd">            datetime and level.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                level : str - in ( &#39;CRITICAL&#39;, &#39;ERROR&#39;, &#39;WARNING&#39;, &#39;SUCCESS&#39;, &#39;INFO&#39;, &#39;DEBUG&#39;, &#39;TRACE&#39;, &lt; custom &gt; ).</span>
+<span class="sd">                level : str - in LEVEL.</span>
 <span class="sd">                entry : Union[ str, Exception ].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
@@ -206,17 +222,19 @@
             <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
             <span class="k">try</span> <span class="p">:</span>
-                <span class="n">level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
             <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
-                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in ( &quot;CRITICAL&quot;, &quot;ERROR&quot;&quot;, &quot;WARNING&quot;, &quot;SUCCESS&quot;, &quot;INFO&quot;, &quot;DEBUG&quot;, &quot;TRACE&quot;, &lt; custom &gt; )&#39;</span> <span class="p">)</span>
-            <span class="k">if</span> <span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">no</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span><span class="o">.</span><span class="n">no</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in </span><span class="si">{</span><span class="n">Log</span><span class="o">.</span><span class="n">LEVEL</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">v</span><span class="o">.</span><span class="n">no</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span><span class="o">.</span><span class="n">no</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
                     <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Exception = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s1">&#39;</span>
                     <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
                     <span class="k">while</span> <span class="p">(</span> <span class="n">info</span> <span class="p">)</span> <span class="p">:</span>
                         <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="w"> </span><span class="p">)[</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">]</span><span class="si">}</span><span class="s1"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s1">&#39;</span>
                         <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
-                <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span> <span class="p">)</span></div></div>
+                <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span> <span class="p">)</span></div>
+</div>
+
 </pre></div>
 
            </div>

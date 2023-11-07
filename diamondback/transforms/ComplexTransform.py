@@ -7,31 +7,31 @@
         Singleton.
 
         .. math::
-            \gamma = \scriptsize{ \matrix{ 1 & \\frac{-1}{2} & \\frac{-1}{2}\cr 0 & \\frac{3^{0.5}}{2} & \\frac{-3^{0.5}}{2}\cr 1 & 1 & 1 } }
+            \\gamma = \\scriptsize{ \\matrix{ 1 & \\frac{-1}{2} & \\frac{-1}{2}\\cr 0 & \\frac{3^{0.5}}{2} & \\frac{-3^{0.5}}{2}\\cr 1 & 1 & 1 } }
 
         .. math::
-            \\alpha = \matrix{\\frac{1}{3}}^{0.5}\ e^{\ -j\ \\frac{\pi}{6}\ }
+            \\alpha = \\matrix{\\frac{1}{3}}^{0.5}\\ e^{\\ -j\ \\frac{\\pi}{6}\\ }
 
         Complex - Three-Phase.
 
         .. math::
-            y_{n} = \matrix{ x^{T}_{n}\ \gamma\ }\ \scriptsize{[\ \matrix{ 1 & j & 0 }\ ]^{T}}
+            y_{n} = \\matrix{ x^{T}_{n}\\ \\gamma\\ }\ \\scriptsize{[\\ \\matrix{ 1 & j & 0 }\\ ]^{T}}
 
         .. math::
-            \overline{\scriptsize{Neutral}}\ \qquad\longrightarrow\qquad y_{n} = y_{n}\ \\alpha
+            \\overline{\\scriptsize{Neutral}}\\ \\qquad\\longrightarrow\\qquad y_{n} = y_{n}\\ \\alpha
 
         Three-Phase - Complex.
 
         .. math::
-            \overline{\scriptsize{Neutral}}\ \qquad\longrightarrow\qquad x_{n} = \\frac{x_{n}}{\\alpha}
+            \\overline{\\scriptsize{Neutral}}\\ \\qquad\\longrightarrow\\qquad x_{n} = \\frac{x_{n}}{\\alpha}
 
         .. math::
-            y_{n} = \matrix{\ \matrix{ \gamma^{T}\gamma }^{-1}\ \gamma^{T}\ \scriptsize{[\ \matrix{ real(\ x_{n}\ ) & imag(\ x_{n}\ ) & 0 }\ ]^{T}}}^{T}
+            y_{n} = \\matrix{\\ \\matrix{ \\gamma^{T}\\gamma }^{-1}\\ \\gamma^{T}\\ \\scriptsize{[\\ \\matrix{ real(\\ x_{n}\\ ) & imag(\\ x_{n}\\ ) & 0 }\\ ]^{T}}}^{T}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, ComplexTransform
             import numpy
 
@@ -59,11 +59,10 @@ class ComplexTransform( object ) :
     """ Complex transform.
     """
 
-    __coefficient = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
-                                                   [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
-                                                   [ 1.0, 1.0, 1.0 ] ] )
-
-    __gain = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
+    COEFFICIENT = ( 2.0 / 3.0 ) * numpy.array( [ [ 1.0, -0.5, -0.5 ],
+                                                 [ 0.0, 0.5 * ( 3.0 ** 0.5 ), -0.5 * ( 3.0 ** 0.5 ) ],
+                                                 [ 1.0, 1.0, 1.0 ] ] )
+    GAIN = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
     def transform( cls, x : Union[ List, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
@@ -79,7 +78,7 @@ class ComplexTransform( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( ( len( x.shape ) > 2 ) or ( len( x ) == 0 ) ) :
             raise ValueError( f'X = {x}' )
@@ -87,16 +86,16 @@ class ComplexTransform( object ) :
             rows, cols = 1, x.shape[ 0 ]
         else :
             rows, cols = x.shape
-        if ( ( rows not in ( 1, 3 ) ) or ( cols < 1 ) ) :
-            raise ValueError( f'Rows = {rows} Columns = {cols} Expected Rows in ( 1, 3 ) and Columns in [ 1, inf )' )
+        if ( ( rows not in ( 1, 3 ) ) or ( cols <= 0 ) ) :
+            raise ValueError( f'Rows = {rows} Columns = {cols} Expected Rows in ( 1, 3 ) and Columns in ( 0, inf )' )
         if ( rows == 1 ) :
             v = x
             if ( not neutral ) :
-                v = x / ComplexTransform.__gain
-            y = numpy.matmul( numpy.linalg.inv( ComplexTransform.__coefficient ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
+                v = x / ComplexTransform.GAIN
+            y = numpy.matmul( numpy.linalg.inv( ComplexTransform.COEFFICIENT ), numpy.array( [ v.real, v.imag, numpy.zeros( cols ) ] ) )
         else :
-            v = numpy.matmul( ComplexTransform.__coefficient, x )
+            v = numpy.matmul( ComplexTransform.COEFFICIENT, x )
             y = v[ 0, : ] + 1j * v[ 1, : ]
             if ( not neutral ) :
-                y *= ComplexTransform.__gain
+                y *= ComplexTransform.GAIN
         return y

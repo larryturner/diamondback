@@ -5,10 +5,10 @@
         normalized frequency and rate of adaptation are specified.
 
         .. math::
-            f_{n} = \\frac{\\tan^{-1}(\ b_{n}\ ) }{\pi}
+            f_{n} = \\frac{\\tan^{-1}(\\ b_{n}\\ ) }{\\pi}
 
         .. math::
-            x_{n} = \\frac{d_{n}}{|\ d_{n}\ |}
+            x_{n} = \\frac{d_{n}}{|\\ d_{n}\\ |}
 
         .. math::
             y_{n} = b_{n} x_{n-1}
@@ -17,15 +17,15 @@
             e_{n} = d_{n} - y_{n}
 
         .. math::
-            b_{0} = e^{\ j\ \pi\ f_{0}}
+            b_{0} = e^{\\ j\\ \\pi\\ f_{0}}
 
         .. math::
-            b_{n} = b_{n} + \mu e_{n} x_{n}^{*}
+            b_{n+1} = b_{n} + \\mu e_{n} x_{n}^{*}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter
             import numpy
 
@@ -65,15 +65,10 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @property
     def frequency( self ) :
-
-        """ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
-        """
-
         return self._frequency
 
     @frequency.setter
     def frequency( self, frequency : float ) :
-
         if ( ( frequency < -1.0 ) or ( frequency > 1.0 ) ) :
             raise ValueError( f'Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]' )
         self.b[ 0 ] = numpy.exp( 1j * math.pi * frequency )
@@ -81,15 +76,10 @@ class ComplexFrequencyFilter( FirFilter ) :
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, 1.0 ].
-        """
-
         return self._rate
 
     @rate.setter
     def rate( self, rate : float ) :
-
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         self._rate = rate
@@ -108,9 +98,10 @@ class ComplexFrequencyFilter( FirFilter ) :
         if ( ( rate < 0.0 ) or ( rate > 1.0 ) ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, 1.0 ]' )
         super( ).__init__( b = numpy.ones( 1, complex ), s = numpy.ones( 1, complex ) )
-        self._frequency, self._rate = frequency, rate
+        self._frequency = frequency
+        self._rate = rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :
+    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
 
         """ Filters a primary signal and produces a reference signal.
 
@@ -125,13 +116,13 @@ class ComplexFrequencyFilter( FirFilter ) :
                 b : numpy.ndarray - forward coefficient.
         """
 
-        if ( ( not numpy.isscalar( d ) ) and ( not isinstance( d, numpy.ndarray ) ) ) :
+        if ( not isinstance( d, numpy.ndarray ) ) :
             d = numpy.array( list( d ) )
         if ( not len( d ) ) :
             raise ValueError( f'D = {d}' )
         if ( not numpy.iscomplex( d ).any( ) ) :
             d = scipy.signal.hilbert( d )
-        x = abs( d )
+        x = abs( d )  # type: ignore
         x[ numpy.isclose( x, 0.0 ) ] = 1.0
         x = d / x
         y, e, b = numpy.zeros( len( x ) ), numpy.zeros( len( x ), complex ), numpy.zeros( len( x ), complex )
@@ -157,4 +148,4 @@ class ComplexFrequencyFilter( FirFilter ) :
         if ( numpy.isclose( x, 0.0 ) ) :
             self.s[ 0 ] = 1.0
         else :
-            self.s[ 0 ] = x / abs( x )
+            self.s[ 0 ] = x / abs( x )  # type: ignore

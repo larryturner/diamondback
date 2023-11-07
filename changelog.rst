@@ -1,3 +1,35 @@
+5.0.0 - 2023-11-01
+^^^^^^^^^^^^^^^^^^
+-   Renamed PowerSpectrumTransform PsdTransform.
+-   Modified documentation.
+-   Modified tests.
+
+4.1.18 - 2023-10-26
+^^^^^^^^^^^^^^^^^^^
+-   Modified requirements.
+
+4.1.17 - 2023-10-06
+^^^^^^^^^^^^^^^^^^^
+-   Required pillow 10.0.1 to address pillow libwebp dependency.
+-   Modified requirements.
+
+4.1.16 - 2023-10-01
+^^^^^^^^^^^^^^^^^^^
+-   Optimized PowerSpectrumTransform.
+
+4.1.15 - 2023-09-29
+^^^^^^^^^^^^^^^^^^^
+-   Modified constant string comparisons to be case insensitive.
+-   Modified docstring latex format.
+-   Modified list to numpy array conversion.
+-   Modified IirFilter and DiversityModel order range.
+-   Modified exception format.
+
+4.1.14 - 2023-07-14
+^^^^^^^^^^^^^^^^^^^
+-   Modified for type checking compliance.
+-   Modified nox.
+
 4.1.13 - 2023-06-06
 ^^^^^^^^^^^^^^^^^^^
 -   Modified PolynomialRateFilter and PolyphaseRateFilter.
@@ -474,7 +506,7 @@
 
 1.0.17 - 2020-08-06
 ^^^^^^^^^^^^^^^^^^^
--   Modified Log to improve exception formatting.
+-   Modified Log to improve exception format.
 -   Modified jupyter notebook to utilize warnings to ignore import deprecation
     warnings.
 
@@ -519,7 +551,7 @@
 
 1.0.7 - 2019-10-23
 ^^^^^^^^^^^^^^^^^^
--   Modified exception formatting.
+-   Modified exception format.
 
 1.0.6 - 2019-09-08
 ^^^^^^^^^^^^^^^^^^

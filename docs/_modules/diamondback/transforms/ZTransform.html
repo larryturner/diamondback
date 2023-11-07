@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -74,16 +75,16 @@
 <span class="sd">        Singleton.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0</span>
+<span class="sd">            y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0</span>
 
 <span class="sd">        A frequency response is expressed as a function of a recursive coefficient</span>
 <span class="sd">        array and a forward coefficient array, in s-domain and z-domain.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            H_{s,n} = \\frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}</span>
+<span class="sd">            H_{s,n} = \\frac{\\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\\sum_{i = 0}^{N} u_{i} s^{N-i}}}</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            H_{z,n} = \\frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
+<span class="sd">            H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}</span>
 
 <span class="sd">    **Example**</span>
 <span class="sd">      </span>
@@ -122,13 +123,17 @@
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span>
 
-<div class="viewcode-block" id="ZTransform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ZTransform">[docs]</a><span class="k">class</span> <span class="nc">ZTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="ZTransform">
+<a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ZTransform">[docs]</a>
+<span class="k">class</span> <span class="nc">ZTransform</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Z transform realizes continuous s-domain to discrete z-domain transformation, through application of bilinear</span>
 <span class="sd">        or impulse invariant methods.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-<div class="viewcode-block" id="ZTransform.transform"><a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ZTransform.transform">[docs]</a>    <span class="nd">@staticmethod</span>
+<div class="viewcode-block" id="ZTransform.transform">
+<a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ZTransform.transform">[docs]</a>
+    <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">u</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">v</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bilinear</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Transforms continuous s-domain coefficient arrays and produces</span>
@@ -145,11 +150,11 @@
 <span class="sd">                b : numpy.ndarray - forward coefficient, z-domain.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">u</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">u</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">u</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">u</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;U = </span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>            
             <span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span> <span class="n">v</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">v</span><span class="o">.</span><span class="n">any</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;V = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
@@ -172,7 +177,7 @@
             <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span> <span class="n">p</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">poly</span><span class="p">(</span> <span class="n">z</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">r</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">residue</span><span class="p">(</span> <span class="n">v</span><span class="p">,</span> <span class="n">u</span> <span class="p">)</span>
-            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="n">j</span>
+            <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">,</span> <span class="mi">0</span><span class="n">j</span>  <span class="c1"># type: ignore</span>
             <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">r</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
                 <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span> <span class="n">a</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span> <span class="n">p</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="o">/</span> <span class="n">t</span> <span class="p">)</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
                 <span class="n">q</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)</span>
@@ -186,7 +191,9 @@
         <span class="n">a</span> <span class="o">/=</span> <span class="o">-</span><span class="n">a</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span>
         <span class="n">a</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="n">b</span> <span class="o">*=</span> <span class="p">(</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">a</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span> <span class="n">b</span> <span class="p">)</span> <span class="p">)</span>
-        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span></div></div>
+        <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span></div>
+</div>
+
 </pre></div>
 
            </div>

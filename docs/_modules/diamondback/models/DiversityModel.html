@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -72,10 +73,10 @@
 <span class="sd">        a specified style or distance metric.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \\in [\ 0,\ M\ ),\ u \\neq v</span>
+<span class="sd">            d_{k} = \\min(\\ d_{u,v}\\ )\\quad\\quad u, v \\in [\\ 0,\\ M\\ ),\\ u \\neq v</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{k} \geq d_{n}\qquad \longrightarrow\qquad d_{n} = d_{k}</span>
+<span class="sd">            d_{k} \\geq d_{n}\\qquad \\longrightarrow\\qquad d_{n} = d_{k}</span>
 
 <span class="sd">        A diversity model is an opportunistic unsupervised learning model which</span>
 <span class="sd">        typically improves condition and numerical accuracy and reduces storage</span>
@@ -90,30 +91,30 @@
 <span class="sd">          | in any dimension.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{u,v} = \max(\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )</span>
+<span class="sd">            d_{u,v} = \\max(\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )</span>
 
 <span class="sd">        * | &#39;Euclidean&#39; distance is an L-2 norm, a square root of a sum of squared</span>
 <span class="sd">          | differences in each dimension.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{u,v} = \matrix{\sum_{i=0}^{N}(\ |\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\ )^2|}^{0.5}</span>
+<span class="sd">            d_{u,v} = \\matrix{\\sum_{i=0}^{N}(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ )^2|}^{0.5}</span>
 
 <span class="sd">        * | &#39;Geometric&#39; distance is a ordered root of a product of absolute differences</span>
 <span class="sd">          | in each dimension.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{u,v} = \prod_{i=0}^{N}{(\ |\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\ |\ )}^{\\frac{1}{N}}</span>
+<span class="sd">            d_{u,v} = \\prod_{i=0}^{N}{(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ |\\ )}^{\\frac{1}{N}}</span>
 
 <span class="sd">        * | &#39;Manhattan&#39; distance is an L-1 norm, a sum of absolute differences in each</span>
 <span class="sd">          | dimension.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \\vec{x_{u}} - \\vec{x_{v}}\ |\ )\ }</span>
+<span class="sd">            d_{u,v} = \\sum_{i=0}^{N}{\\ (\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )\\ }</span>
 
 <span class="sd">    **Example**</span>
-<span class="sd">      </span>
+
 <span class="sd">        ::</span>
-<span class="sd">        </span>
+
 <span class="sd">            from diamondback import DiversityModel</span>
 
 <span class="sd">            # Create an instance.</span>
@@ -137,15 +138,18 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="DiversityModel"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel">[docs]</a><span class="k">class</span> <span class="nc">DiversityModel</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="DiversityModel">
+<a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel">[docs]</a>
+<span class="k">class</span> <span class="nc">DiversityModel</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Diversity model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">__distance</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">Chebyshev</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">max</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">),</span>
-                       <span class="n">Euclidean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span>
-                       <span class="n">Geometric</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">),</span>
-                       <span class="n">Manhattan</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">DISTANCE</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">Chebyshev</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">max</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">),</span>
+                     <span class="n">Euclidean</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span>
+                     <span class="n">Geometric</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="o">**</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">),</span>
+                     <span class="n">Manhattan</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">:</span> <span class="nb">sum</span><span class="p">(</span> <span class="nb">abs</span><span class="p">(</span> <span class="n">x</span> <span class="o">-</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">STYLE</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span> <span class="n">DISTANCE</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">s</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
@@ -157,7 +161,6 @@
 
     <span class="nd">@s</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">s</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">s</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">s</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">style</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
@@ -169,16 +172,19 @@
 <span class="sd">                order : int.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">style</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">__distance</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="w"> </span><span class="n">DiversityModel</span><span class="o">.</span><span class="n">__distance</span><span class="o">.</span><span class="n">keys</span><span class="p">(</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="n">style</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">title</span><span class="p">(</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">STYLE</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s1"> Expected Style in </span><span class="si">{</span><span class="n">DiversityModel</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 0, inf )&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">__distance</span><span class="p">[</span> <span class="n">style</span> <span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">DISTANCE</span><span class="p">[</span> <span class="n">style</span> <span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span>
 
-<div class="viewcode-block" id="DiversityModel.clear"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel.clear">[docs]</a>    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+<div class="viewcode-block" id="DiversityModel.clear">
+<a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel.clear">[docs]</a>
+    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Clears an instance.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -186,7 +192,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">],</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">)</span></div>
 
-<div class="viewcode-block" id="DiversityModel.learn"><a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel.learn">[docs]</a>    <span class="k">def</span> <span class="nf">learn</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+
+<div class="viewcode-block" id="DiversityModel.learn">
+<a class="viewcode-back" href="../../../diamondback.models.html#diamondback.DiversityModel.learn">[docs]</a>
+    <span class="k">def</span> <span class="nf">learn</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Learns an incident signal and produces a reference signal.</span>
 
@@ -197,14 +206,14 @@
 <span class="sd">                y : numpy.ndarray - diversity.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span> <span class="o">+</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">max</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> S = </span><span class="si">{</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1"> S = </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">for</span> <span class="n">ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="mi">0</span> <span class="p">],</span> <span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span> <span class="nb">float</span> <span class="p">)</span><span class="o">.</span><span class="n">max</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
@@ -218,7 +227,7 @@
             <span class="k">else</span> <span class="p">:</span>
                 <span class="n">v</span><span class="p">,</span> <span class="n">jj</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
                 <span class="k">for</span> <span class="n">kk</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cc</span> <span class="p">)</span> <span class="p">:</span>
-                    <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span> <span class="s1">&#39;inf&#39;</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span>
+                    <span class="n">u</span><span class="p">,</span> <span class="n">s</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span> <span class="p">)</span>
                     <span class="n">s</span><span class="p">[</span> <span class="n">kk</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span>
                     <span class="k">for</span> <span class="n">uu</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cc</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
                         <span class="k">for</span> <span class="n">vv</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span> <span class="n">uu</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">cc</span> <span class="p">)</span> <span class="p">:</span>
@@ -230,7 +239,9 @@
                 <span class="k">if</span> <span class="p">(</span> <span class="n">v</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="p">)</span> <span class="p">:</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">[</span> <span class="n">jj</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">[</span> <span class="n">ii</span><span class="p">,</span> <span class="p">:</span> <span class="p">]</span>
             <span class="n">y</span><span class="p">[</span> <span class="n">ii</span> <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span>
-        <span class="k">return</span> <span class="n">y</span></div></div>
+        <span class="k">return</span> <span class="n">y</span></div>
+</div>
+
 </pre></div>
 
            </div>

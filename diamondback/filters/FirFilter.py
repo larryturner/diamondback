@@ -5,10 +5,10 @@
         reference signal.
 
         .. math::
-            y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
+            y_{n} = \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
 
         .. math::
-            s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
+            s_{1,n+1} = x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
@@ -20,7 +20,7 @@
         coefficient array.
 
         .. math::
-            H_{z,n} = \sum_{i = 0}^{N} b_{i,n} z^{-i}
+            H_{z,n} = \\sum_{i = 0}^{N} b_{i,n} z^{-i}
 
         A forward coefficient array and state array of a specified order are
         defined to realize specified constraints.  A style, frequency,
@@ -54,9 +54,9 @@
         frequency response.
 
     **Example**
-        
+
         ::
-        
+
             from diamondback import FirFilter
             import numpy
 
@@ -99,32 +99,22 @@ class FirFilter( object ) :
     """ Finite Impulse Response ( FIR ) filter.
     """
 
-    __style = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
+    STYLE = ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' )
 
     @property
     def b( self ) :
-
-        """ b : Union[ List, numpy.ndarray ] - forward coefficient.
-        """
-
         return self._b
 
     @b.setter
     def b( self, b : Union[ List, numpy.ndarray ] ) :
-
         self._b = b
 
     @property
     def s( self ) :
-
-        """ s : Union[ List, numpy.ndarray ] - state.
-        """
-
         return self._s
 
     @s.setter
     def s( self, s : Union[ List, numpy.ndarray ] ) :
-
         self._s = s
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
@@ -151,26 +141,27 @@ class FirFilter( object ) :
         """
 
         if ( not len( b ) ) :
-            if ( ( not style ) or ( style not in FirFilter.__style ) ) :
-                raise ValueError( f'style = {style} Expected Style in {FirFilter.__style}' )
+            style = style.title( )
+            if ( style not in FirFilter.STYLE ) :
+                raise ValueError( f'style = {style} Expected Style in {FirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
             if ( order < 0 ) :
                 raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
-            if ( count < 1 ) :
-                raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+            if ( count <= 0 ) :
+                raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
             if ( complement ) :
                 frequency = 1.0 - frequency
             if ( style == 'Kaiser' ) :
                 window = ( style.lower( ), 7.0 )
             else :
-                window = style.lower( )
-            beta, eps, error = 10.0, numpy.finfo( float ).eps, float( 'inf' )
-            index, mu, zeta = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
+                window = style.lower( )  # type: ignore
+            beta, eps, error = 10.0, float( numpy.finfo( float ).eps ), numpy.inf
+            index, rate, scale = 500 * ( 1 + ( count > 2 ) ), 2.5e-2, 1.0
             for _ in range( 0, index ) :
                 with warnings.catch_warnings( ) :
                     warnings.simplefilter( 'ignore' )
-                    v = scipy.signal.firwin( order + 1, zeta * frequency, None, window, True, True, 1.0 )
+                    v = scipy.signal.firwin( order + 1, scale * frequency, None, window, True, True, 1.0 )
                     if ( numpy.isnan( v ).any( ) ) :
                         raise ValueError( f'V = {v}' )
                     x = numpy.exp( 1j * math.pi * frequency )
@@ -179,16 +170,16 @@ class FirFilter( object ) :
                         b, error = v, abs( e )
                         if ( error < ( 10.0 * eps ) ) :
                             break
-                    zeta = numpy.maximum( zeta + mu * math.tanh( beta * e ), eps )
+                    scale = numpy.maximum( scale + rate * math.tanh( beta * e ), eps )
             if ( complement ) :
                 b *= numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] )
                 b /= sum( b * numpy.array( [ ( ( -1.0 ) ** x ) for x in range( 0, len( b ) ) ] ) )
-            b *= gain
-        if ( ( not numpy.isscalar( b ) ) and ( not isinstance( b, numpy.ndarray ) ) ) :
+            b *= gain  # type: ignore
+        if ( not isinstance( b, numpy.ndarray ) ) :
             b = numpy.array( list( b ) )
         if ( not len( b ) ) :
             raise ValueError( f'B = {b}' )
-        if ( ( not numpy.isscalar( s ) ) and ( not isinstance( s, numpy.ndarray ) ) ) :
+        if ( not isinstance( s, numpy.ndarray ) ) :
             s = numpy.array( list( s ) )
         if ( len( b ) < len( s ) ) :
             b = numpy.concatenate( ( b, numpy.zeros( len( s ) - len( b ) ) ) )
@@ -210,10 +201,10 @@ class FirFilter( object ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length < 1 ) :
-            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
-        if ( count < 1 ) :
-            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+        if ( length <= 0 ) :
+            raise ValueError( f'Length = {length} Expected Length in ( 0, inf )' )
+        if ( count <= 0 ) :
+            raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
         with warnings.catch_warnings( ) :
             warnings.simplefilter( 'ignore' )
             y, f = scipy.signal.group_delay( ( self.b, [ 1.0 ] ), length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
@@ -233,7 +224,7 @@ class FirFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
@@ -271,10 +262,10 @@ class FirFilter( object ) :
                 f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
         """
 
-        if ( length < 1 ) :
-            raise ValueError( f'Length = {length} Expected Length in [ 1, inf )' )
-        if ( count < 1 ) :
-            raise ValueError( f'Count = {count} Expected Count in [ 1, inf )' )
+        if ( length <= 0 ) :
+            raise ValueError( f'Length = {length} Expected Length in ( 0, inf )' )
+        if ( count <= 0 ) :
+            raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
         y, f = scipy.signal.freqz( self.b, [ 1.0, 0.0 ], length, True )[ 1 ], numpy.linspace( -1.0, 1.0 - 2.0 / length, length )
         y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) ** count
         return y, f

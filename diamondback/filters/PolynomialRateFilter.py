@@ -28,9 +28,9 @@
         operation or dynamic rate.
 
     **Example**
-     
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, PolynomialRateFilter
             import math
             import numpy
@@ -62,30 +62,20 @@ class PolynomialRateFilter( object ) :
 
     @property
     def order( self ) :
-
-        """ order : int - in [ 1, inf ).
-        """
-
         return self._order
 
     @order.setter
     def order( self, order : int ) :
-
-        if ( order < 1 ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
+        if ( order <= 0 ) :
+            raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
         self._order = order
 
     @property
     def rate( self ) :
-
-        """ rate : float - in [ 0.0, inf ).
-        """
-
         return self._rate
 
     @rate.setter
     def rate( self, rate : float ) :
-
         if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
         self._rate = rate
@@ -101,12 +91,12 @@ class PolynomialRateFilter( object ) :
 
         if ( rate < 0.0 ) :
             raise ValueError( f'Rate = {rate} Expected Rate in [ 0.0, inf )' )
-        if ( order < 1 ) :
-            raise ValueError( f'Order = {order} Expected Order in [ 1, inf )' )
+        if ( order <= 0 ) :
+            raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
         super( ).__init__( )
         self._order = order
         self._rate = rate
-        
+
     def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
@@ -118,20 +108,20 @@ class PolynomialRateFilter( object ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( ( len( x.shape ) != 1 ) or ( len( x ) < 2 ) ) :
             raise ValueError( f'X = {x}' )
         cc = len( x )
         jj = int( numpy.round( cc * self.rate ) )
         if ( self.order == 1 ) :
-            x = numpy.concatenate( ( x, [ 2.0 * x[ -1 ] - x[ -2 ] ] ) )
+            x = numpy.concatenate( ( x, [ 2.0 * x[ -1 ] - x[ -2 ] ] ) )  # type: ignore
             u = numpy.linspace( 0, len( x ) - 1, len( x ) )
             v = numpy.linspace( 0, int( len( x ) * self.rate + 0.5 ) - 1, int( len( x ) * self.rate + 0.5 ) ) / self.rate
             y = numpy.interp( x = v, xp = u, fp = x )
         else :
             y = numpy.zeros( jj )
-            x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )
+            x = numpy.concatenate( ( [ 2.0 * x[ 0 ] - x[ 1 ] ], x, [ 2.0 * x[ -1 ] - x[ -2 ], 3.0 * x[ -1 ] - 2.0 * x[ -2 ] ] ) )  # type: ignore
             u, v = numpy.linspace( -1.0, 2.0, 4 ), 1.0 / self.rate
             ii, jj = 0, 0
             index = 0.0

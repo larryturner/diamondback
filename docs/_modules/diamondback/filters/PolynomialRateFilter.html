@@ -10,10 +10,11 @@
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-        <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-        <script src="../../../_static/doctools.js"></script>
-        <script src="../../../_static/sphinx_highlight.js"></script>
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -122,7 +123,9 @@
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<div class="viewcode-block" id="PolynomialRateFilter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolynomialRateFilter">[docs]</a><span class="k">class</span> <span class="nc">PolynomialRateFilter</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolynomialRateFilter">
+<a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolynomialRateFilter">[docs]</a>
+<span class="k">class</span> <span class="nc">PolynomialRateFilter</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
 
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Polynomial rate filter.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -137,9 +140,8 @@
 
     <span class="nd">@order</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="p">)</span> <span class="p">:</span>
-
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in ( 0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>
 
     <span class="nd">@property</span>
@@ -152,7 +154,6 @@
 
     <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">rate</span> <span class="p">:</span> <span class="nb">float</span> <span class="p">)</span> <span class="p">:</span>
-
         <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, inf )&#39;</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -168,13 +169,15 @@
 
         <span class="k">if</span> <span class="p">(</span> <span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s1"> Expected Rate in [ 0.0, inf )&#39;</span> <span class="p">)</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in [ 1, inf )&#39;</span> <span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">order</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s1"> Expected Order in ( 0, inf )&#39;</span> <span class="p">)</span>
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
         
-<div class="viewcode-block" id="PolynomialRateFilter.filter"><a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolynomialRateFilter.filter">[docs]</a>    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+<div class="viewcode-block" id="PolynomialRateFilter.filter">
+<a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolynomialRateFilter.filter">[docs]</a>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
@@ -185,20 +188,20 @@
 <span class="sd">                y : numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span> <span class="ow">and</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="nb">list</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
         <span class="n">jj</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">round</span><span class="p">(</span> <span class="n">cc</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="p">)</span> <span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span> <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">:</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>  <span class="c1"># type: ignore</span>
             <span class="n">u</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="p">)</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="p">)</span> <span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="n">xp</span> <span class="o">=</span> <span class="n">u</span><span class="p">,</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">x</span> <span class="p">)</span>
         <span class="k">else</span> <span class="p">:</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="n">jj</span> <span class="p">)</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">],</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="mi">1</span> <span class="p">]</span> <span class="p">],</span> <span class="n">x</span><span class="p">,</span> <span class="p">[</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">],</span> <span class="mf">3.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span> <span class="o">-</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="n">x</span><span class="p">[</span> <span class="o">-</span><span class="mi">2</span> <span class="p">]</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>  <span class="c1"># type: ignore</span>
             <span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">4</span> <span class="p">),</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">rate</span>
             <span class="n">ii</span><span class="p">,</span> <span class="n">jj</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span>
             <span class="n">index</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -212,7 +215,9 @@
                 <span class="n">index</span> <span class="o">-=</span> <span class="mf">1.0</span>
                 <span class="n">ii</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span> <span class="p">:</span> <span class="nb">min</span><span class="p">(</span> <span class="n">jj</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span> <span class="p">)</span> <span class="p">]</span>
-        <span class="k">return</span> <span class="n">y</span></div></div>
+        <span class="k">return</span> <span class="n">y</span></div>
+</div>
+
 </pre></div>
 
            </div>

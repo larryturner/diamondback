@@ -11,12 +11,12 @@
         sequential erosion and dilation.  An order and rank are specified.
 
         .. math::
-            y_{n} = sort(\ x_{n-N+1\ :\ n}\ )[\ i\ ]
+            y_{n} = sort(\\ x_{n-N+1\\ :\\ n}\\ )[\\ i\\ ]
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import RankFilter
             import numpy
 
@@ -49,15 +49,10 @@ class RankFilter( FirFilter ) :
 
     @property
     def index( self ) :
-
-        """ index : int - in [ 0, order ].
-        """
-
         return self._index
 
     @index.setter
     def index( self, index : int ) :
-
         if ( ( index < 0 ) or ( index > ( len( self.s ) - 1 ) ) ) :
             raise ValueError( f'Index = {index} Expected Index in [ 0, {len( self.s ) - 1} ]' )
         self._index = index
@@ -87,7 +82,7 @@ class RankFilter( FirFilter ) :
                 y : numpy.ndarray - reference signal.
         """
 
-        if ( ( not numpy.isscalar( x ) ) and ( not isinstance( x, numpy.ndarray ) ) ) :
+        if ( not isinstance( x, numpy.ndarray ) ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
