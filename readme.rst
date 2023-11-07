@@ -227,10 +227,10 @@ depends upon additional external packages :
 
 -   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`_
 
-.. image:: https://img.shields.io/badge/PyDeps-Partial-blue
+.. image:: https://img.shields.io/badge/Partial-blue
     :target: https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-partial.svg
 
-.. image:: https://img.shields.io/badge/PyDeps-Full-blue
+.. image:: https://img.shields.io/badge/Full-blue
     :target: https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-full.svg
 
 Installation
