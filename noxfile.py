@@ -108,7 +108,6 @@ def docs( session ) -> None :
     """
 
     if ( pathlib.Path( 'templates' ).is_dir( ) ) :
-        shutil.rmtree( 'docs', ignore_errors = True )
         ( pathlib.Path.cwd( ) / 'docs' ).mkdir( exist_ok = True )
         session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'templates' ), '.', 'tests' )
         for x in glob.glob( str( pathlib.Path.cwd( ) / 'templates' / '*.rst' ) ) :
