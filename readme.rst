@@ -228,10 +228,10 @@ depends upon additional external packages :
 -   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`_
 
 .. image:: https://img.shields.io/badge/PyDeps-Partial-blue
-    :target: https://larryturner.github.io/diamondback/pydeps-partial.svg
+    :target: https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-partial.svg
 
 .. image:: https://img.shields.io/badge/PyDeps-Full-blue
-    :target: https://larryturner.github.io/diamondback/pydeps-full.svg
+    :target: https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-full.svg
 
 Installation
 ~~~~~~~~~~~~
@@ -288,7 +288,7 @@ Diamondback documentation is available on GitHub pages.
 License
 ~~~~~~~
 
-`BSD-3C <https://github.com/larryturner/diamondback/blob/master/license>`_
+`BSD-3C <https://github.com/larryturner/diamondback/blob/develop/license>`_
 
 Author
 ~~~~~~
