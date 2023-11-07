@@ -227,9 +227,9 @@ depends upon additional external packages :
 
 -   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`_
 
-`Partial <https://pages.github.com/larryturner/diamondback/pydeps-partial.svg>`_
+`Partial <https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-partial.svg>`_
 
-`Full <https://pages.github.com/larryturner/diamondback/pydeps-full.svg>`_
+`Full <https://github.com/larryturner/diamondback/blob/develop/docs/pydeps-full.svg>`_
 
 Installation
 ~~~~~~~~~~~~
