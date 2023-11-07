@@ -68,16 +68,16 @@
   <h1>Source code for diamondback.models.GaussianMixtureModel</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
 <span class="sd">        A Gaussian mixture model is a semi-supervised learning probabilistic</span>
-<span class="sd">        model instance which uses maximum likelihood estimation,</span>
+<span class="sd">        model instance which uses maximum likelihood estimation, </span>
 <span class="sd">        regularization, and expectation maximization to maximize posterior</span>
 <span class="sd">        probability and classify an incident signal.  Learns model instances</span>
 <span class="sd">        of a specified order per class, where intra-class models capture</span>
-<span class="sd">        mixture distributions.</span>
+<span class="sd">        mixture distributions. </span>
 
 <span class="sd">    **Example**</span>
-
+<span class="sd">      </span>
 <span class="sd">        ::</span>
-
+<span class="sd">        </span>
 <span class="sd">            from diamondback import GaussianMixtureModel</span>
 
 <span class="sd">            # Create an instance.</span>
@@ -106,12 +106,16 @@
 <div class="viewcode-block" id="GaussianMixtureModel">
 <a class="viewcode-back" href="../../../diamondback.models.html#diamondback.GaussianMixtureModel">[docs]</a>
 <span class="k">class</span> <span class="nc">GaussianMixtureModel</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
-
+<span class="w">    </span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot; Gaussian mixture model.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">index</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; index : int.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_index</span>
 
     <span class="nd">@index</span><span class="o">.</span><span class="n">setter</span>
@@ -122,10 +126,18 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; order : int.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_order</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">regularize</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; regularize : float.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regularize</span>
 
     <span class="nd">@regularize</span><span class="o">.</span><span class="n">setter</span>
@@ -136,6 +148,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+<span class="w">        </span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; shape : Tuple[ Any ].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">order</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">regularize</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0e-1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
@@ -167,7 +183,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Learns an incident signal with ground truth label and estimates inverse</span>
 <span class="sd">            covariance and mean matrices to learn mixed distribution instances</span>
 <span class="sd">            for each class.</span>
-
+<span class="sd">        </span>
 <span class="sd">            Arguments :</span>
 <span class="sd">                x : numpy.ndarray ( batch, count ) - incident.</span>
 <span class="sd">                y : numpy.ndarray ( batch ) - label.</span>
@@ -198,7 +214,7 @@
 
 <span class="sd">            Predictions for each class are ranked and ordered by decending</span>
 <span class="sd">            probability, and the initial prediction is the most likely class.</span>
-
+<span class="sd">        </span>
 <span class="sd">            Arguments :</span>
 <span class="sd">                x : numpy.ndarray ( batch, count ) - data.</span>
 

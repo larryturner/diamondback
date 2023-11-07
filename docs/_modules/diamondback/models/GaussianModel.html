@@ -73,9 +73,9 @@
 <span class="sd">        distribution instance per class.</span>
 
 <span class="sd">    **Example**</span>
-
+<span class="sd">      </span>
 <span class="sd">        ::</span>
-
+<span class="sd">        </span>
 <span class="sd">            from diamondback import GaussianModel</span>
 
 <span class="sd">            # Create an instance.</span>
@@ -109,6 +109,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">regularize</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; regularize : float.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_regularize</span>
 
     <span class="nd">@regularize</span><span class="o">.</span><span class="n">setter</span>
@@ -119,8 +123,12 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">shape</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span>
 
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; shape : Tuple[ Any ].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_shape</span>
+        
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">regularize</span> <span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0e-1</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Initialize.</span>
@@ -142,7 +150,7 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Learns an incident signal with ground truth label and estimates inverse</span>
 <span class="sd">            covariance and mean matrices to learn a distribution instance for</span>
 <span class="sd">            each class.</span>
-
+<span class="sd">        </span>
 <span class="sd">            Arguments :</span>
 <span class="sd">                x : numpy.ndarray ( batch, count ) - incident.</span>
 <span class="sd">                y : numpy.ndarray ( batch ) - label.</span>
@@ -170,10 +178,10 @@
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Predicts an estimate of ground truth label from an incident signal</span>
 <span class="sd">            and maximizes posterior probability.</span>
-
+<span class="sd">            </span>
 <span class="sd">            Predictions for each class are ranked and ordered by decending</span>
 <span class="sd">            probability, and the initial prediction is the most likely class.</span>
-
+<span class="sd">        </span>
 <span class="sd">            Arguments :</span>
 <span class="sd">                x : numpy.ndarray ( batch, count ) - data.</span>
 

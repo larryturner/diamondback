@@ -121,6 +121,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">live</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; live : bool.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">try</span> <span class="p">:</span>
             <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;head&#39;</span><span class="p">,</span> <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">proxies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span><span class="p">,</span> <span class="n">timeout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="p">)</span>
             <span class="n">value</span> <span class="o">=</span> <span class="kc">True</span>
@@ -130,6 +134,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">proxy</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; proxy : Dict[ str, str ].</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_proxy</span>
 
     <span class="nd">@proxy</span><span class="o">.</span><span class="n">setter</span>
@@ -138,6 +146,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">timeout</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; timeout : Any.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_timeout</span>
 
     <span class="nd">@timeout</span><span class="o">.</span><span class="n">setter</span>
@@ -146,6 +158,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">url</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; url : str.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_url</span>
 
     <span class="nd">@url</span><span class="o">.</span><span class="n">setter</span>

@@ -147,7 +147,7 @@ transforms.
     maximum likelihood estimation, regularization, and expectation
     maximization to maximize posterior probability and classify an incident
     signal.  Learns model instances of a specified order per class, where
-    intra-class models capture mixture distributions. 
+    intra-class models capture mixture distributions.
 
 `transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -219,11 +219,19 @@ depends upon additional external packages :
 
 -   `pillow <https://github.com/python-pillow/pillow>`_
 
+-   `pydeps <https://github.com/thebjorn/pydeps>`_
+
 -   `pytest <https://github.com/pytest-dev/pytest>`_
 
 -   `sphinx <https://github.com/sphinx-doc/sphinx>`_
 
 -   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`_
+
+.. image:: https://img.shields.io/badge/PyDeps-Partial-blue
+    :target: https://larryturner.github.io/diamondback/pydeps-partial.svg
+
+.. image:: https://img.shields.io/badge/PyDeps-Full-blue
+    :target: https://larryturner.github.io/diamondback/pydeps-full.svg
 
 Installation
 ~~~~~~~~~~~~
@@ -244,17 +252,6 @@ Demonstration
 A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.
-
-A jupyter notebook may be run on a remote server without installation with
-Binder, which dynamically builds and deploys a docker container from a GitHub
-repository, or installed from GitHub and run on a local system.
-
-**Remote**
-
-.. image:: https://img.shields.io/badge/Binder-blue
-    :target: https://mybinder.org/v2/gh/larryturner/diamondback/master?labpath=notebooks%2Fdiamondback.ipynb
-
-**Local**
 
 ::
 

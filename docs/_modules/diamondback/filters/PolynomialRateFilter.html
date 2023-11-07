@@ -96,9 +96,9 @@
 <span class="sd">        operation or dynamic rate.</span>
 
 <span class="sd">    **Example**</span>
-
+<span class="sd">     </span>
 <span class="sd">        ::</span>
-
+<span class="sd">        </span>
 <span class="sd">            from diamondback import ComplexExponentialFilter, PolynomialRateFilter</span>
 <span class="sd">            import math</span>
 <span class="sd">            import numpy</span>
@@ -132,6 +132,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">order</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; order : int - in [ 1, inf ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_order</span>
 
     <span class="nd">@order</span><span class="o">.</span><span class="n">setter</span>
@@ -142,6 +146,10 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">rate</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; rate : float - in [ 0.0, inf ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span>
 
     <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
@@ -166,7 +174,7 @@
         <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_order</span> <span class="o">=</span> <span class="n">order</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
-
+        
 <div class="viewcode-block" id="PolynomialRateFilter.filter">
 <a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.PolynomialRateFilter.filter">[docs]</a>
     <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>

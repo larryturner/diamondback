@@ -166,12 +166,24 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>frequency</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - in [ 0.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -200,7 +212,13 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">phase</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - relative to pi in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>phase</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -233,12 +251,24 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>frequency</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - in [ 0.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -356,7 +386,13 @@ order : int.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>s</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -390,7 +426,13 @@ s : Union[ List, numpy.ndarray ] - state.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>b</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -459,7 +501,13 @@ z : numpy.ndarray - zeros.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>s</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -504,7 +552,13 @@ regularize : float - regularize.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
-<dd></dd></dl>
+<dd><p>int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -522,7 +576,13 @@ y : numpy.ndarray ( batch ) - label.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
-<dd></dd></dl>
+<dd><p>int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>order</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -543,12 +603,24 @@ probability, and the initial prediction is the most likely class.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
-<dd></dd></dl>
+<dd><p>float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>regularize</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
-<dd></dd></dl>
+<dd><p>Tuple[ Any ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>shape</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -593,12 +665,24 @@ probability, and the initial prediction is the most likely class.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
-<dd></dd></dl>
+<dd><p>float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>regularize</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
-<dd></dd></dl>
+<dd><p>Tuple[ Any ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>shape</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -628,7 +712,13 @@ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>frequency</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -678,7 +768,13 @@ b : numpy.ndarray - forward coefficient.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">a</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - recursive coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -845,7 +941,13 @@ entry : Union[ str, Exception ].</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">limit</span></span></dt>
-<dd></dd></dl>
+<dd><p>float.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>limit</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -875,12 +977,24 @@ order : int - in [ 1 , inf ).</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
-<dd></dd></dl>
+<dd><p>int - in [ 1, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>order</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - in [ 0.0, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -902,7 +1016,13 @@ order : int - in [ 1 , inf ).</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b</span></span></dt>
-<dd></dd></dl>
+<dd><p>numpy.ndarray - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>b</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -919,7 +1039,13 @@ order : int - in [ 1 , inf ).</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">rate</span></span></dt>
-<dd></dd></dl>
+<dd><p>float - in [ 0.0, b.shape[ 0 ] ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>rate</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -935,7 +1061,13 @@ operation at a specified incident signal condition.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>s</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -989,7 +1121,13 @@ order : int.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
-<dd></dd></dl>
+<dd><p>int - in [ 0, order ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>index</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1007,12 +1145,24 @@ order : int.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span></dt>
-<dd></dd></dl>
+<dd><p>bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>live</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">proxy</span></span></dt>
-<dd></dd></dl>
+<dd><p>Dict[ str, str ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>proxy</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -1039,12 +1189,24 @@ json : Any.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timeout</span></span></dt>
-<dd></dd></dl>
+<dd><p>Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>timeout</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span></dt>
-<dd></dd></dl>
+<dd><p>str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>url</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -1126,7 +1288,13 @@ order : int.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>b</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -1167,7 +1335,13 @@ normal : bool.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">b</span></span></dt>
-<dd></dd></dl>
+<dd><p>Union[ List, numpy.ndarray ] - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>b</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
