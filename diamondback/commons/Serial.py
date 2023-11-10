@@ -21,38 +21,38 @@
         Thread safe.
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import Serial
             import numpy
             import pandas
 
-            # Encode and decode a dictionary instance in JSON.
+            # Encode and decode a dictionary in JSON.
 
-            ii = numpy.random.randint( 1, 10 )
-            x = dict( a = numpy.random.rand( ii ), b = list( numpy.random.rand( ii ) ) )
-            z = Serial.decode( Serial.encode( x, indent = True ) )
+            n = numpy.random.randint( 1, 10 )
+            x = dict( a = numpy.random.rand( n ), b = list( numpy.random.rand( n ) ) )
+            y = Serial.encode( x, indent = True )
+            z = Serial.decode( y )
 
-            # Encode and decode a dictionary instance in BSON.
+            # Encode and decode a dictionary in BSON.
 
             y = Serial.encode( x, compress = True )
             z = Serial.decode( y, compress = True )
 
-            # Encode and decode a pandas data frame in BSON.
+            # Encode and decode a pandas DataFrame in BSON.
 
-            model = pandas.DataFrame( dict( fruit = [ 'orange', 'apple', 'kiwi' ], cost = [ 1.25, 1.5, 0.30 ] ) )
+            model = pandas.DataFrame( dict( fruit = [ 'orange', 'apple', 'kiwi' ], value = [ 1.25, 1.5, 0.30 ] ) )
             y = Serial.encode( model )
 
-            # Generate SHA3-256 code for an encoded model.
+            # Generate an SHA3-256 code.
 
             code = Serial.code( y )
             z = Serial.decode( y )
 
-            # Decode instances from JSON.
+            # Decode in JSON.
 
             z = Serial.decode( '{ "a" : 1.0, "b" : 2.0, "c" : 3.14159 }' )
-
             z = Serial.decode( '[ 1.0, 2.0, 3.0 ]' )
 
     **License**
@@ -84,11 +84,11 @@ class Serial( object ) :
     def code( state : str, encoding : str = 'utf_8' ) -> str :
 
         """ Code generation.  SHA3-256 hash.
-           
+
             Arguments :
                 state : str.
                 encoding : str.
-           
+
             Returns :
                 code : str.
         """
@@ -106,13 +106,13 @@ class Serial( object ) :
             Encoding may be specified if an alternative to UTF-8 is required.
             Python style docstring and line comments may be cleaned, though
             line comments must be terminated by a new line.
-           
+
             Arguments :
                 state : str.
                 compress : bool.
                 encoding : str.
                 clean : bool - clean comments.
-           
+
             Returns :
                 instance : Any.
         """
@@ -132,13 +132,13 @@ class Serial( object ) :
 
         """ Encodes BSON or JSON.  Encoding may be specified if an alternative
             to UTF-8 is required.
-            
+
             Arguments :
                 instance : Any.
                 compress : bool.
                 encoding : str.
                 indent : bool.
-            
+
             Returns :
                 state : str.
         """
