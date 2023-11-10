@@ -256,24 +256,12 @@ text, or binary data is returned.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span></dt>
-<dd><p>bool.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>live</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">proxy</span></span></dt>
-<dd><p>Dict[ str, str ].</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>proxy</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -300,24 +288,12 @@ json : Any.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timeout</span></span></dt>
-<dd><p>Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>timeout</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span></dt>
-<dd><p>str.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>url</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -348,31 +324,31 @@ terminated by a new line.</p>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
 
-<span class="c1"># Encode and decode a dictionary instance in JSON.</span>
+<span class="c1"># Encode and decode a dictionary in JSON.</span>
 
-<span class="n">ii</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">ii</span> <span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">ii</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">n</span> <span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">n</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
 
-<span class="c1"># Encode and decode a dictionary instance in BSON.</span>
+<span class="c1"># Encode and decode a dictionary in BSON.</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
 
-<span class="c1"># Encode and decode a pandas data frame in BSON.</span>
+<span class="c1"># Encode and decode a pandas DataFrame in BSON.</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="n">cost</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span>
 
-<span class="c1"># Generate SHA3-256 code for an encoded model.</span>
+<span class="c1"># Generate an SHA3-256 code.</span>
 
 <span class="n">code</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">code</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
 
-<span class="c1"># Decode instances from JSON.</span>
+<span class="c1"># Decode in JSON.</span>
 
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span> <span class="p">)</span>
-
 <span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;[ 1.0, 2.0, 3.0 ]&#39;</span> <span class="p">)</span>
 </pre></div>
 </div>
@@ -509,24 +485,12 @@ entry : Union[ str, Exception ].</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">live</span></span></dt>
-<dd><p>bool.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>live</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">proxy</span></span></dt>
-<dd><p>Dict[ str, str ].</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>proxy</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
@@ -553,24 +517,12 @@ json : Any.</p>
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timeout</span></span></dt>
-<dd><p>Any.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>timeout</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">url</span></span></dt>
-<dd><p>str.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>url</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 
