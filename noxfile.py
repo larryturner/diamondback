@@ -168,7 +168,7 @@ def push( session ) -> None :
         value = input( '[ ' + REPOSITORY + ' ] message : ' )
         if ( value ) :
             if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
-                session.run( 'git', 'push', 'origin', 'master' )
+                session.run( 'git', 'push', 'origin', 'develop' )
         try :
             url = 'https://github.com'
             requests.request( method = 'head', url = url, timeout = 2 )
