@@ -1,7 +1,7 @@
 .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=lightblue
-    :target: https://pypi.org/larryturner/diamondback
+    :target: https://pypi.org/project/diamondback
 .. image:: https://img.shields.io/github/license/larryturner/diamondback?color=lightgray
     :target: https://github.com/larryturner/diamondback/blob/master/license
 
