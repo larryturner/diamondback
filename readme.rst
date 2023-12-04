@@ -188,7 +188,7 @@ transforms.
 Dependencies
 ~~~~~~~~~~~~
 
-Diamondback depends upon external packages :
+Diamondback depends upon external packages.
 
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`_
 
@@ -203,7 +203,7 @@ Diamondback depends upon external packages :
 -   `scipy <https://github.com/scipy/scipy>`_
 
 Diamondback elective documentation, test, and visualization functionality
-depends upon additional external packages :
+depends upon additional external packages.
 
 -   `ipython <https://github.com/ipython/ipython>`_
 
