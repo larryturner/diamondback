@@ -5,6 +5,9 @@
 .. image:: https://img.shields.io/github/license/larryturner/diamondback?color=lightgray
     :target: https://github.com/larryturner/diamondback/blob/master/license
 
+Diamondback
+~~~~~~~~~~~
+
 Description
 ~~~~~~~~~~~
 
