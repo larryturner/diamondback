@@ -9,7 +9,7 @@
             nox --sessions build clean dependencies docs image notebook push status tag tests typing
 
     **License**
-        © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
