@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Description &mdash; Diamondback DSP</title>
+  <title>Diamondback &mdash; Diamondback DSP</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -42,7 +42,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Description</a></li>
+<li><a class="reference internal" href="#">Diamondback</a></li>
+<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
 <li><a class="reference internal" href="#id1">commons</a></li>
 <li><a class="reference internal" href="#id2">filters</a></li>
@@ -73,7 +74,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Description</li>
+      <li class="breadcrumb-item active">Diamondback</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -86,14 +87,16 @@
   <div class="toctree-wrapper compound">
 </div>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback"><img alt="https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue" src="https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue" /></a>
-<a class="reference external image-reference" href="https://pypi.org/larryturner/diamondback"><img alt="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" src="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" /></a>
+<a class="reference external image-reference" href="https://pypi.org/project/diamondback"><img alt="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" src="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=lightblue" /></a>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" src="https://img.shields.io/github/license/larryturner/diamondback?color=lightgray" /></a>
+<section id="diamondback">
+<h1>Diamondback<a class="headerlink" href="#diamondback" title="Link to this heading"></a></h1>
+</section>
 <section id="description">
 <h1>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h1>
-<p>Diamondback is a package which provides Digital Signal Processing ( DSP )
-solutions, and complements AI frameworks, by defining components which filter,
-model, and transform data.</p>
-<p>Diamondback complements Artificial Intelligence ( AI ) frameworks, by
+<p>Diamondback is a package which provides Digital Signal Processing (DSP)
+solutions.</p>
+<p>Diamondback complements Artificial Intelligence (AI) frameworks, by
 defining components which filter, model, and transform data into forms which
 are useful in feature extraction and pattern recognition.</p>
 <p>Diamondback also supports applications including cancellation, identification,
@@ -147,17 +150,17 @@ instances estimate discrete derivative approximations at several
 filter orders.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-firfilter-module">FirFilter</a>
 instances realize discrete difference equations of Finite Impulse
-Response ( FIR ) form. Instances are defined based on style,
+Response (FIR) form. Instances are defined based on style,
 normalized frequency, order, cascade count, and complement, or
 forward coefficients. Root extraction, group delay, and frequency
 response evaluation are defined.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-goertzelfilter-module">GoertzelFilter</a>
-instances efficiently evaluate a Discrete Fourier Transform ( DFT )
+instances efficiently evaluate a Discrete Fourier Transform (DFT)
 at a normalized frequency, based on a window filter and normalized
 frequency.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-iirfilter-module">IirFilter</a>
 instances realize discrete difference equations of Infinite Impulse
-Response ( IIR ) form. Instances are defined based on style,
+Response (IIR) form. Instances are defined based on style,
 normalized frequency, order, cascade count, and complement, or recursive
 and forward coefficients. Root extraction, group delay, and frequency
 response evaluation are defined.</p></li>
@@ -166,7 +169,7 @@ instances estimate discrete integral approximations at several filter
 orders.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-pidfilter-module">PidFilter</a>
 instances realize discrete difference equations of Proportional
-Integral Derivative ( PID ) form.</p></li>
+Integral Derivative (PID) form.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-polynomialratefilter-module">PolynomialRateFilter</a>
 instances approximate a signal evaluated at an effective frequency
 equal to the product of the normalized frequency and a rate greater
@@ -228,7 +231,7 @@ complex discrete-frequency signal to a real or complex discrete-time
 signal, in equivalent and reversible representations, based on a
 window filter and inverse.</p></li>
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-psdtransform-module">PsdTransform</a>
-is a singleton instance which realizes a Power Spectral Density ( PSD )
+is a singleton instance which realizes a Power Spectral Density (PSD)
 which converts a real or complex discrete-time signal to a real
 discrete-frequency signal which estimates an aggregate power spectrum
 of the signal, based on a window filter, index, and spectrogram.
@@ -249,7 +252,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 <section id="dependencies">
 <h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
-<p>Diamondback depends upon external packages :</p>
+<p>Diamondback depends upon external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/jsonpickle/jsonpickle">jsonpickle</a></p></li>
 <li><p><a class="reference external" href="https://github.com/delgan/loguru">loguru</a></p></li>
@@ -259,7 +262,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://github.com/scipy/scipy">scipy</a></p></li>
 </ul>
 <p>Diamondback elective documentation, test, and visualization functionality
-depends upon additional external packages :</p>
+depends upon additional external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://github.com/ipython/ipython">ipython</a></p></li>
 <li><p><a class="reference external" href="https://github.com/jupyter-widgets/ipywidgets">ipywidgets</a></p></li>
@@ -335,7 +338,7 @@ used to execute unit and integration tests.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -1,5 +1,5 @@
 """ **Description**
-        A Power Spectral Density ( PSD ) transform converts a real or complex
+        A Power Spectral Density (PSD) transform converts a real or complex
         discrete-time incident signal to a real discrete-frequency reference
         signal, which estimates an aggregate power spectrum of the incident
         signal relative to frequency.  A forward coefficient array is
@@ -24,7 +24,7 @@
         representation of the power spectrum.
 
         A PSD transform is normalized by incident signal length and forms
-        a contiguous sequence corresponding to a linear and increasing 
+        a contiguous sequence corresponding to a linear and increasing
         normalized frequency.
 
         .. math::
@@ -37,9 +37,9 @@
             N = \\frac{2}{R}
 
     **Example**
-       
+
         ::
-        
+
             from diamondback import ComplexExponentialFilter, PsdTransform
             import numpy
 
@@ -52,7 +52,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
@@ -87,7 +87,7 @@ class PsdTransform( object ) :
             x = numpy.array( list( x ) )
         if ( not len( x ) ) :
             raise ValueError( f'X = {x}' )
-        if ( not isinstance( b, numpy.ndarray ) ) :    
+        if ( not isinstance( b, numpy.ndarray ) ) :
             b = numpy.array( list( b ) )
         if ( ( not len( b ) ) or ( numpy.isclose( b, 0.0 ).all( ) ) ) :
             raise ValueError( f'B = {b}' )

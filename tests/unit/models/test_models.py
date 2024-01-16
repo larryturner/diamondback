@@ -2,15 +2,15 @@
         Test unit models.
 
     **Example**
-      
+
         ::
-        
+
             pytest --capture=no --verbose
 
     **License**
         `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
-    
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
@@ -60,8 +60,8 @@ class Test( object ) :
         assert numpy.isclose( obj.regularize, 1.0e-1 )
         obj.regularize = 0.0
         assert numpy.isclose( obj.regularize, 0.0 )
-        u = [ [ 1.0, 1.0 ], 
-              [ -1.0, 1.0 ], 
+        u = [ [ 1.0, 1.0 ],
+              [ -1.0, 1.0 ],
               [ -1.0, -1.0 ],
               [ 1.0, -1.0 ] ]
         x = numpy.random.randn( 1000, 2 ) * 1.0e-1

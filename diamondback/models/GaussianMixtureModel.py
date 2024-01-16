@@ -1,6 +1,6 @@
 """ **Description**
-        A Gaussian mixture model is a semi-supervised learning probabilistic
-        model instance which uses maximum likelihood estimation,
+        A Gaussian Mixture Model (GMM) is a semi-supervised learning
+        probabilistic model instance which uses maximum likelihood estimation,
         regularization, and expectation maximization to maximize posterior
         probability and classify an incident signal.  Learns model instances
         of a specified order per class, where intra-class models capture
@@ -25,7 +25,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.

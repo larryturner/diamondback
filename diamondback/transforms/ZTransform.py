@@ -19,9 +19,9 @@
             H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}
 
     **Example**
-      
+
         ::
-        
+
             from diamondback import ZTransform
             import math
             import numpy
@@ -35,7 +35,7 @@
             # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.
 
             a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
-            
+
             # Define zeros and normalize gain.
 
             b = numpy.poly( -numpy.ones( order ) )
@@ -44,7 +44,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
@@ -82,7 +82,7 @@ class ZTransform( object ) :
             u = numpy.array( list( u ) )
         if ( ( not len( u ) ) or ( not u.any( ) ) ) :
             raise ValueError( f'U = {u}' )
-        if ( not isinstance( v, numpy.ndarray ) ) :            
+        if ( not isinstance( v, numpy.ndarray ) ) :
             v = numpy.array( list( v ) )
         if ( ( not len( v ) ) or ( not v.any( ) ) ) :
             raise ValueError( f'V = {v}' )

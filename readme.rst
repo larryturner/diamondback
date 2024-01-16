@@ -1,18 +1,20 @@
 .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=lightblue
-    :target: https://pypi.org/larryturner/diamondback
+    :target: https://pypi.org/project/diamondback
 .. image:: https://img.shields.io/github/license/larryturner/diamondback?color=lightgray
     :target: https://github.com/larryturner/diamondback/blob/master/license
+
+Diamondback
+~~~~~~~~~~~
 
 Description
 ~~~~~~~~~~~
 
-Diamondback is a package which provides Digital Signal Processing ( DSP )
-solutions, and complements AI frameworks, by defining components which filter,
-model, and transform data.
+Diamondback is a package which provides Digital Signal Processing (DSP)
+solutions.
 
-Diamondback complements Artificial Intelligence ( AI ) frameworks, by
+Diamondback complements Artificial Intelligence (AI) frameworks, by
 defining components which filter, model, and transform data into forms which
 are useful in feature extraction and pattern recognition.
 
@@ -75,19 +77,19 @@ transforms.
 
 -   `FirFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-firfilter-module>`_
     instances realize discrete difference equations of Finite Impulse
-    Response ( FIR ) form. Instances are defined based on style,
+    Response (FIR) form. Instances are defined based on style,
     normalized frequency, order, cascade count, and complement, or
     forward coefficients. Root extraction, group delay, and frequency
     response evaluation are defined.
 
 -   `GoertzelFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-goertzelfilter-module>`_
-    instances efficiently evaluate a Discrete Fourier Transform ( DFT )
+    instances efficiently evaluate a Discrete Fourier Transform (DFT)
     at a normalized frequency, based on a window filter and normalized
     frequency.
 
 -   `IirFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-iirfilter-module>`_
     instances realize discrete difference equations of Infinite Impulse
-    Response ( IIR ) form. Instances are defined based on style,
+    Response (IIR) form. Instances are defined based on style,
     normalized frequency, order, cascade count, and complement, or recursive
     and forward coefficients. Root extraction, group delay, and frequency
     response evaluation are defined.
@@ -98,7 +100,7 @@ transforms.
 
 -   `PidFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-pidfilter-module>`_
     instances realize discrete difference equations of Proportional
-    Integral Derivative ( PID ) form.
+    Integral Derivative (PID) form.
 
 -   `PolynomialRateFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-polynomialratefilter-module>`_
     instances approximate a signal evaluated at an effective frequency
@@ -166,7 +168,7 @@ transforms.
     window filter and inverse.
 
 -   `PsdTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-psdtransform-module>`_
-    is a singleton instance which realizes a Power Spectral Density ( PSD )
+    is a singleton instance which realizes a Power Spectral Density (PSD)
     which converts a real or complex discrete-time signal to a real
     discrete-frequency signal which estimates an aggregate power spectrum
     of the signal, based on a window filter, index, and spectrogram.
@@ -188,7 +190,7 @@ transforms.
 Dependencies
 ~~~~~~~~~~~~
 
-Diamondback depends upon external packages :
+Diamondback depends upon external packages.
 
 -   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`_
 
@@ -203,7 +205,7 @@ Diamondback depends upon external packages :
 -   `scipy <https://github.com/scipy/scipy>`_
 
 Diamondback elective documentation, test, and visualization functionality
-depends upon additional external packages :
+depends upon additional external packages.
 
 -   `ipython <https://github.com/ipython/ipython>`_
 

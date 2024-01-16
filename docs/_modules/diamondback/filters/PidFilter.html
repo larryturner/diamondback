@@ -67,7 +67,7 @@
              
   <h1>Source code for diamondback.filters.PidFilter</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
-<span class="sd">        A Proportional Integral Derivative ( PID ) filter realizes a discrete</span>
+<span class="sd">        A Proportional Integral Derivative (PID) filter realizes a discrete</span>
 <span class="sd">        difference equation as a function of a forward coefficient array and a</span>
 <span class="sd">        state array of a static order.  A forward coefficient array applies a</span>
 <span class="sd">        gain to proportional, integral, and derivative representations of an</span>
@@ -79,9 +79,9 @@
 <span class="sd">            y_{n} = b_{0}\\ x_{n} + b_{1}\\max(\\ \\min( \\sum_{0}^{n}\\ x_{n},\\ limit\\ ),\\ -limit\\ ) + b_{2}\\ \\frac{d}{dn}(\\ x_{n}\\ )</span>
 
 <span class="sd">    **Example**</span>
-<span class="sd">        </span>
+
 <span class="sd">        ::</span>
-<span class="sd">        </span>
+
 <span class="sd">            from diamondback import ComplexExponentialFilter, PidFilter</span>
 <span class="sd">            import numpy</span>
 
@@ -96,7 +96,7 @@
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">    **Author**</span>
 <span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-01-31.</span>
@@ -115,10 +115,6 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">limit</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="p">:</span>
-
-<span class="w">        </span><span class="sd">&quot;&quot;&quot; limit : float.</span>
-<span class="sd">        &quot;&quot;&quot;</span>
-
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_limit</span>
 
     <span class="nd">@limit</span><span class="o">.</span><span class="n">setter</span>
@@ -178,7 +174,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2019 - 2023 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

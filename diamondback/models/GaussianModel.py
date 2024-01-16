@@ -1,5 +1,5 @@
 """ **Description**
-        A Gaussian model is a supervised learning probabilistic model instance
+        A Gaussian Model (GM) is a supervised learning probabilistic model instance
         which uses maximum likelihood estimation and regularization to maximize
         posterior probability and classify an incident signal.  Learns one
         distribution instance per class.
@@ -23,7 +23,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2023 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
