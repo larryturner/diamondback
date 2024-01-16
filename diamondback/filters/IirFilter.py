@@ -1,5 +1,5 @@
 """ **Description**
-        An Infinite Impulse Response ( IIR ) filter realizes a discrete
+        An Infinite Impulse Response (IIR) filter realizes a discrete
         difference equation as a function of a recursive coefficient array,
         a forward coefficient array, and a state array of a specified order,
         consuming an incident signal and producing a reference signal.

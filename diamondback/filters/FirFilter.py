@@ -1,5 +1,5 @@
 """ **Description**
-        A Finite Impulse Response ( FIR ) filter realizes a discrete difference
+        A Finite Impulse Response (FIR) filter realizes a discrete difference
         equation as a function of a forward coefficient array and a state array
         of a specified order, consuming an incident signal and producing a
         reference signal.

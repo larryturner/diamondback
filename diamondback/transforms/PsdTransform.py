@@ -1,5 +1,5 @@
 """ **Description**
-        A Power Spectral Density ( PSD ) transform converts a real or complex
+        A Power Spectral Density (PSD) transform converts a real or complex
         discrete-time incident signal to a real discrete-frequency reference
         signal, which estimates an aggregate power spectrum of the incident
         signal relative to frequency.  A forward coefficient array is
