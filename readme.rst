@@ -190,48 +190,48 @@ transforms.
 Dependencies
 ~~~~~~~~~~~~
 
+`Partial <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-partial.svg>`_
+
+`Full <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-full.svg>`_
+
 Diamondback depends upon external packages.
 
--   `jsonpickle <https://github.com/jsonpickle/jsonpickle>`_
+-   `jsonpickle <https://pypi.org/project/jsonpickle/>`_
 
--   `loguru <https://github.com/delgan/loguru>`_
+-   `loguru <https://pypi.org/project/loguru/>`_
 
--   `numpy <https://github.com/numpy/numpy>`_
+-   `numpy <https://pypi.org/project/numpy/>`_
 
--   `requests <https://github.com/psf/requests>`_
+-   `requests <https://pypi.org/project/requests/>`_
 
--   `scikit-learn <https://github.com/scikit-learn/scikit-learn>`_
+-   `scikit-learn <https://pypi.org/project/scikit-learn/>`_
 
--   `scipy <https://github.com/scipy/scipy>`_
+-   `scipy <https://pypi.org/project/scipy/>`_
 
 Diamondback elective documentation, test, and visualization functionality
 depends upon additional external packages.
 
--   `ipython <https://github.com/ipython/ipython>`_
+-   `ipython <https://pypi.org/project/ipython/>`_
 
--   `ipywidgets <https://github.com/jupyter-widgets/ipywidgets>`_
+-   `ipywidgets <https://pypi.org/project/ipywidgets/>`_
 
--   `jupyter <https://github.com/jupyter/notebook>`_
+-   `jupyter <https://pypi.org/project/jupyter/>`_
 
--   `matplotlib <https://github.com/matplotlib/matplotlib>`_
+-   `matplotlib <https://pypi.org/project/matplotlib/>`_
 
--   `nox <https://github.com/theacodes/nox>`_
+-   `nox <https://pypi.org/project/nox/>`_
 
--   `pandas <https://github.com/pandas-dev/pandas>`_
+-   `pandas <https://pypi.org/project/pandas/>`_
 
--   `pillow <https://github.com/python-pillow/pillow>`_
+-   `pillow <https://pypi.org/project/pillow/>`_
 
--   `pydeps <https://github.com/thebjorn/pydeps>`_
+-   `pydeps <https://pypi.org/project/pydeps/>`_
 
--   `pytest <https://github.com/pytest-dev/pytest>`_
+-   `pytest <https://pypi.org/project/pytest/>`_
 
--   `sphinx <https://github.com/sphinx-doc/sphinx>`_
+-   `sphinx <https://pypi.org/project/sphinx/>`_
 
--   `sphinx-rtd-theme <https://github.com/readthedocs/sphinx_rtd_theme>`_
-
-`Partial <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-partial.svg>`_
-
-`Full <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-full.svg>`_
+-   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
 Installation
 ~~~~~~~~~~~~
