@@ -15,7 +15,7 @@ import pathlib
 author = 'Larry Turner'
 copyright = '© 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.'
 project = pathlib.Path.cwd( ).parent.name
-title = 'Diamondback DSP'
+title = 'Diamondback Digital Signal Processing (DSP)'
 
 # Extensions.
 
