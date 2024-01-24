@@ -1,22 +1,25 @@
-.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=blue
+.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=snow
     :target: https://github.com/larryturner/diamondback
-.. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=lightblue
+.. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue
     :target: https://pypi.org/project/diamondback
-.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=lightgray
+.. image:: https://img.shields.io/badge/admin-nox-orangered
+    :target: https://pypi.org/project/nox/
+.. image:: https://img.shields.io/badge/doc-sphinx-royalblue
+    :target: https://pypi.org/project/sphinx/
+.. image:: https://img.shields.io/badge/test-pytest-forestgreen
+    :target: https://pypi.org/project/pytest/
+.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=black
     :target: https://github.com/larryturner/diamondback/blob/master/license
-
-Diamondback
-~~~~~~~~~~~
 
 Description
 ~~~~~~~~~~~
 
-Diamondback is a package which provides Digital Signal Processing (DSP)
+**Diamondback** is a package which provides Digital Signal Processing (DSP)
 solutions.
 
-Diamondback complements Artificial Intelligence (AI) frameworks, by
-defining components which filter, model, and transform data into forms which
-are useful in feature extraction and pattern recognition.
+Diamondback complements Artificial Intelligence (AI) frameworks, by defining
+components which filter, model, and transform data into forms which are
+useful in feature extraction and pattern recognition.
 
 Diamondback also supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
