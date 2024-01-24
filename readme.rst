@@ -8,7 +8,7 @@
     :target: https://pypi.org/project/sphinx/
 .. image:: https://img.shields.io/badge/test-pytest-forestgreen
     :target: https://pypi.org/project/pytest/
-.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=gray
+.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=lightgray
     :target: https://github.com/larryturner/diamondback/blob/master/license
 
 Description
