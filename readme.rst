@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=snow
+.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=gainsboro
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue
     :target: https://pypi.org/project/diamondback
@@ -8,7 +8,7 @@
     :target: https://pypi.org/project/sphinx/
 .. image:: https://img.shields.io/badge/test-pytest-forestgreen
     :target: https://pypi.org/project/pytest/
-.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=maroon
+.. image:: https://img.shields.io/github/license/larryturner/diamondback?color=snow
     :target: https://github.com/larryturner/diamondback/blob/master/license
 
 Description
