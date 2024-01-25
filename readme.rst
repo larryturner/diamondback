@@ -283,9 +283,7 @@ used to execute unit and integration tests.
 Documentation
 ~~~~~~~~~~~~~
 
-Diamondback documentation is available on GitHub pages.
-
-`GitHub <https://larryturner.github.io/diamondback/>`_
+Diamondback documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
 
 License
 ~~~~~~~
