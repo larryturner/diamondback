@@ -14,8 +14,8 @@
 Description
 ~~~~~~~~~~~
 
-**Diamondback** is a package which provides Digital Signal Processing (DSP)
-solutions.
+**Diamondback** is a package which defines Digital Signal Processing (DSP)
+algorithms.
 
 Diamondback complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
