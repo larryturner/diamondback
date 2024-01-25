@@ -1,4 +1,4 @@
-.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=crimson
+.. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue
     :target: https://pypi.org/project/diamondback
@@ -14,8 +14,8 @@
 Description
 ~~~~~~~~~~~
 
-**Diamondback** is a package which provides Digital Signal Processing (DSP)
-solutions.
+**Diamondback** is a package which defines Digital Signal Processing (DSP)
+algorithms.
 
 Diamondback complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
