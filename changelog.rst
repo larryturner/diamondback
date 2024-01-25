@@ -1,3 +1,8 @@
+5.0.1 - 2024-01-23
+^^^^^^^^^^^^^^^^^^
+-   Required pillow 10.2.0 to address pillow arbitrary code execution.
+-   Modified requirements.
+
 5.0.0 - 2023-11-01
 ^^^^^^^^^^^^^^^^^^
 -   Renamed PowerSpectrumTransform PsdTransform.
