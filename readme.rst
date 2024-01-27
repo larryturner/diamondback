@@ -1,3 +1,6 @@
+diamondback
+===========
+
 .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue
     :target: https://github.com/larryturner/diamondback
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue

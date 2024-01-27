@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Description &mdash; Diamondback Digital Signal Processing (DSP)</title>
+  <title>diamondback &mdash; Diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -42,7 +42,8 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Description</a></li>
+<li><a class="reference internal" href="#">diamondback</a><ul>
+<li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
 <li><a class="reference internal" href="#id1">commons</a></li>
 <li><a class="reference internal" href="#id2">filters</a></li>
@@ -57,6 +58,8 @@
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
 <li><a class="reference internal" href="#license">License</a></li>
 <li><a class="reference internal" href="#author">Author</a></li>
+</ul>
+</li>
 </ul>
 </div>
         </div>
@@ -73,7 +76,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Description</li>
+      <li class="breadcrumb-item active">diamondback</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -85,6 +88,8 @@
              
   <div class="toctree-wrapper compound">
 </div>
+<section id="diamondback">
+<h1>diamondback<a class="headerlink" href="#diamondback" title="Link to this heading"></a></h1>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback"><img alt="https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue" src="https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue" /></a>
 <a class="reference external image-reference" href="https://pypi.org/project/diamondback"><img alt="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=midnightblue" src="https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&amp;color=midnightblue" /></a>
 <a class="reference external image-reference" href="https://pypi.org/project/nox/"><img alt="https://img.shields.io/badge/admin-nox-orangered" src="https://img.shields.io/badge/admin-nox-orangered" /></a>
@@ -92,7 +97,7 @@
 <a class="reference external image-reference" href="https://pypi.org/project/pytest/"><img alt="https://img.shields.io/badge/test-pytest-forestgreen" src="https://img.shields.io/badge/test-pytest-forestgreen" /></a>
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" src="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" /></a>
 <section id="description">
-<h1>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h1>
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
 <p><strong>Diamondback</strong> is a package which defines Digital Signal Processing (DSP)
 algorithms.</p>
 <p>Diamondback complements Artificial Intelligence (AI) frameworks, by defining
@@ -102,7 +107,7 @@ useful in feature extraction and pattern recognition.</p>
 optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 </section>
 <section id="details">
-<h1>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h1>
+<h2>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
 <p>Data collections are consistently expressed in native types,
 including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
@@ -110,7 +115,7 @@ appropriate.</p>
 <p>Diamondback is defined in subpackages commons, filters, models, and
 transforms.</p>
 <section id="id1">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-log-module">Log</a>
 singleton instance which formats and writes log entries with a specified
@@ -132,7 +137,7 @@ without custom encoding definitions.</p></li>
 </ul>
 </section>
 <section id="id2">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module">ComplexBandPassFilter</a>
 instances adaptively extract or reject signals at a normalized
@@ -194,7 +199,7 @@ analysis, based on style, order, and normalization.</p></li>
 </ul>
 </section>
 <section id="id3">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#diamondback-models-diversitymodel-module">DiversityModel</a>
 instances select and retain a state extracted to maximize the minimum
@@ -216,7 +221,7 @@ intra-class models capture mixture distributions.</p></li>
 </ul>
 </section>
 <section id="id4">
-<h2><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-complextransform-module">ComplexTransform</a>
 is a singleton instance which converts a three-phase real signal to a
@@ -250,7 +255,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 </section>
 <section id="dependencies">
-<h1>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h1>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/docs/pydeps-partial.svg">Partial</a></p>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/docs/pydeps-full.svg">Full</a></p>
 <p>Diamondback depends upon external packages.</p>
@@ -279,7 +284,7 @@ depends upon additional external packages.</p>
 </ul>
 </section>
 <section id="installation">
-<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
 <p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">diamondback</span>
 
@@ -290,7 +295,7 @@ depends upon additional external packages.</p>
 </div>
 </section>
 <section id="demonstration">
-<h1>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading"></a></h1>
+<h2>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading"></a></h2>
 <p>A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.</p>
@@ -308,7 +313,7 @@ which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
 </section>
 <section id="tests">
-<h1>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h1>
+<h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
 <p>A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pytest</span> <span class="o">--</span><span class="n">capture</span><span class="o">=</span><span class="n">no</span> <span class="o">--</span><span class="n">verbose</span>
@@ -316,16 +321,17 @@ used to execute unit and integration tests.</p>
 </div>
 </section>
 <section id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h1>
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
 <p>Diamondback documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
 </section>
 <section id="license">
-<h1>License<a class="headerlink" href="#license" title="Link to this heading"></a></h1>
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C</a></p>
 </section>
 <section id="author">
-<h1>Author<a class="headerlink" href="#author" title="Link to this heading"></a></h1>
+<h2>Author<a class="headerlink" href="#author" title="Link to this heading"></a></h2>
 <p><a class="reference external" href="https://github.com/larryturner">Larry Turner</a></p>
+</section>
 </section>
 
 
