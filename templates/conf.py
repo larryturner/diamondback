@@ -32,6 +32,7 @@ autosummary_imported_members = True
 autosummary_ignore_module_all = False
 exclude_patterns = [ 'build', 'tests' ]
 html_theme = 'sphinx_rtd_theme'
+html_theme_options = dict( style_nav_header_background = 'black' )
 html_title = title
 master_doc = 'index'
 napoleon_google_docstring = True
