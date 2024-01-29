@@ -9,7 +9,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-
 from setuptools import setup
 
 setup( )
