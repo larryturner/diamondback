@@ -25,6 +25,7 @@ import shutil
 import string
 import time
 
+
 nox.options.sessions = [ 'typing', 'dependencies', 'build', 'image', 'tests', 'docs' ]
 
 REPOSITORY = pathlib.Path.cwd( ).name

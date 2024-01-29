@@ -22,6 +22,7 @@ import numpy
 import pytest
 import sys
 
+
 class Test( object ) :
 
     """ Test.
