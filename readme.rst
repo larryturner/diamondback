@@ -240,13 +240,13 @@ Diagrams
 
 -   **Partial**
 
-.. image:: pydeps-partial.svg
-    :target: pydeps-partial.svg
+.. image:: https://larryturner.github.io/diamondback/dependencies-partial.svg
+    :target: https://larryturner.github.io/diamondback/dependencies-partial.svg
 
 -   **Full**
 
-.. image:: pydeps-full.svg
-    :target: pydeps-full.svg
+.. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
+    :target: https://larryturner.github.io/diamondback/dependencies-full.svg
 
 Installation
 ~~~~~~~~~~~~
