@@ -88,13 +88,13 @@ def dependencies( session ) -> None :
     """
 
     ( pathlib.Path.cwd( ) / 'docs' ).mkdir( exist_ok = True )
-    path = str( pathlib.Path.cwd( ) / 'docs' / 'pydeps-partial' )
+    path = str( pathlib.Path.cwd( ) / 'docs' / 'dependencies-partial' )
     with open( path + '.dot', 'w' ) as fout :
         session.run( 'pydeps', SOURCE, '--cluster', '--no-config', '--no-output', '--show-dot', stdout = fout )
         with open( path + '.dot', 'r' ) as fin :
             with open( path + '.svg', 'w' ) as fout :
                 fout.write( convert( fin.read( ) ) )
-    path = str( pathlib.Path.cwd( ) / 'docs' / 'pydeps-full' )
+    path = str( pathlib.Path.cwd( ) / 'docs' / 'dependencies-full' )
     with open( path + '.dot', 'w' ) as fout :
         session.run( 'pydeps', SOURCE, '--cluster', '--max-bacon', '0', '--no-config', '--no-output', '--show-dot', stdout = fout )
         with open( path + '.dot', 'r' ) as fin :
