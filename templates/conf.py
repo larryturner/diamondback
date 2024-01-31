@@ -13,7 +13,8 @@ import pathlib
 # Project.
 
 author = 'Larry Turner'
-copyright = '© 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.'
+with open( str( pathlib.Path( pathlib.Path.cwd( ).parent / 'license' ) ), 'r' ) as fin :
+    copyright = fin.readline( )[ 1 : -2 ]
 project = pathlib.Path.cwd( ).parent.name
 title = 'Diamondback Digital Signal Processing (DSP)'
 
