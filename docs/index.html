@@ -51,7 +51,10 @@
 <li><a class="reference internal" href="#id4">transforms</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a><ul>
+<li><a class="reference internal" href="#diagrams">Diagrams</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#demonstration">Demonstration</a></li>
 <li><a class="reference internal" href="#tests">Tests</a></li>
@@ -256,8 +259,6 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/docs/pydeps-partial.svg">Partial</a></p>
-<p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/docs/pydeps-full.svg">Full</a></p>
 <p>Diamondback depends upon external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/jsonpickle/">jsonpickle</a></p></li>
@@ -282,6 +283,17 @@ depends upon additional external packages.</p>
 <li><p><a class="reference external" href="https://pypi.org/project/sphinx/">sphinx</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/sphinx-rtd-theme/">sphinx-rtd-theme</a></p></li>
 </ul>
+<section id="diagrams">
+<h3>Diagrams<a class="headerlink" href="#diagrams" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Partial</strong></p></li>
+</ul>
+<a class="reference external image-reference" href="pydeps-partial.svg"><img alt="pydeps-partial.svg" src="pydeps-partial.svg" /></a>
+<ul class="simple">
+<li><p><strong>Full</strong></p></li>
+</ul>
+<a class="reference external image-reference" href="pydeps-full.svg"><img alt="pydeps-full.svg" src="pydeps-full.svg" /></a>
+</section>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
@@ -305,12 +317,22 @@ of diamondback capabilities.</p>
 
 <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">requirement</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
 
-<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">.</span>\<span class="n">jupyter</span>\<span class="n">diamondback</span><span class="o">.</span><span class="n">ipynb</span>
+<span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">e</span> <span class="o">.</span>
+
+<span class="n">jupyter</span> <span class="n">notebook</span> <span class="o">.</span>\<span class="n">notebooks</span>\<span class="n">diamondback</span><span class="o">.</span><span class="n">ipynb</span>
 </pre></div>
 </div>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
+<p>Diamondback uses nox for project management.  You may electively run nox
+sessions to simplify actions including build, dependencies, documentation
+generation, tests, and typing.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nox</span> <span class="o">-</span><span class="n">l</span>
+
+<span class="n">nox</span> <span class="o">-</span><span class="n">s</span> <span class="n">notebook</span>
+</pre></div>
+</div>
 </section>
 <section id="tests">
 <h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
