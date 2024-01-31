@@ -196,10 +196,6 @@ transforms.
 Dependencies
 ~~~~~~~~~~~~
 
-`Partial <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-partial.svg>`_
-
-`Full <https://github.com/larryturner/diamondback/blob/master/docs/pydeps-full.svg>`_
-
 Diamondback depends upon external packages.
 
 -   `jsonpickle <https://pypi.org/project/jsonpickle/>`_
@@ -239,6 +235,19 @@ depends upon additional external packages.
 
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
+Diagrams
+^^^^^^^^
+
+-   **Partial**
+
+.. image:: pydeps-partial.svg
+    :target: pydeps-partial.svg
+
+-   **Full**
+
+.. image:: pydeps-full.svg
+    :target: pydeps-full.svg
+
 Installation
 ~~~~~~~~~~~~
 
@@ -267,11 +276,23 @@ of diamondback capabilities.
 
     pip install --requirement requirements.txt
 
-    jupyter notebook .\jupyter\diamondback.ipynb
+    pip install -e .
+
+    jupyter notebook .\notebooks\diamondback.ipynb
 
 Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
+
+Diamondback uses nox for project management.  You may electively run nox
+sessions to simplify actions including build, dependencies, documentation
+generation, tests, and typing.
+
+::
+
+    nox -l
+
+    nox -s notebook
 
 Tests
 ~~~~~
