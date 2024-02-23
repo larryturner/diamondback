@@ -7,6 +7,9 @@
         .. math::
 
             d_{k} = \\min(\\ d_{u,v}\\ )\\quad\\quad u, v \\in [\\ 0,\\ M\\ ),\\ u \\neq v
+
+        .. math::
+
             d_{k} \\geq d_{n}\\qquad \\longrightarrow\\qquad d_{n} = d_{k}
 
         A diversity model is an opportunistic unsupervised learning model which

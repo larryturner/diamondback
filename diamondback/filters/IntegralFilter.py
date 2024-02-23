@@ -10,6 +10,9 @@
         .. math::
 
             y_{n} = \\sum_{i = 1}^{N} a_{i} y_{n-i} + \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i} b_{0} + b_{i}\\ ) s_{i,n} + b_{0} x_{n}\\qquad a_{0} = 0
+
+        .. math::
+
             s_{1,n+1} = \\sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}
 
         A frequency response is expressed as a function of a recursive coefficient
@@ -26,10 +29,25 @@
         .. math::
 
             y_{n} = \\frac{1}{f}\\ \\sum_{i=0}^{N} x_{n}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }
+
+        .. math::
+
             \\matrix{ a_{1,0} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,0} = \\scriptsize{ [ \\matrix{ 1 } ] } }\\quad\\quad\\scriptsize{ Rectangular }
+
+        .. math::
+
             \\matrix{ a_{1,1} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,1} = \\scriptsize{ [ \\matrix{ 1 & 1 } ]\\ \\frac{1}{2} } }\\quad\\quad\\scriptsize{ Trapezoidal }
+
+        .. math::
+
             \\matrix{ a_{1,2} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,2} = \\scriptsize{ [ \\matrix{ 1 & 4 & 1 } ]\\ \\frac{1}{6} } }\\quad\\quad\\scriptsize{ Simpson\\ 2 }
+
+        .. math::
+
             \\matrix{ a_{1,3} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,3} = \\scriptsize{ [ \\matrix{ 1 & 3 & 3 & 1 } ]\\ \\frac{1}{8} } }\\quad\\quad\\scriptsize{ Simpson\\ 3 }
+
+        .. math::
+
             \\matrix{ a_{1,4} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,4} = \\scriptsize{ [ \\matrix{ 7 & 32 & 12 & 32 & 7 } ]\\ \\frac{1}{90} } }\\quad\\quad\\scriptsize{ Newton\\ Coats }
 
     **Example**

@@ -16,6 +16,9 @@
         .. math::
 
             v_{i,k} = \\frac{1}{N}\\ \\sum_{n = 0}^{N-1} b_{n} x_{n+i\\ I} e^{ \\frac{\\ -j\\ \\pi\\ k \\ n}{N} }
+
+        .. math::
+
             y_{k} = \\frac{1}{C}\\ \\sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}
 
         A spectrogram may be electively defined such that the collection of

@@ -15,7 +15,13 @@
         .. math::
 
             b_{k,i} = b^{M}[\\ k (\\ N\\ +\\ 1\\ )\\ +\\ i\\ ] \\qquad\\qquad k\\ :\\ [\\ 0,\\ K\\sim 256\\ )\\qquad\\ i\\ :\\ [\\ 0,\\ N\\sim 15 \\ ]
+
+        .. math::
+
             y_{n} = \\sum_{i = 0}^{N} b_{k_{n},i}\\ x_{n-i} = \\sum_{i = 1}^{N} b_{k_{n},i}\\ s_{i,n} + b_{k_{n},0}\\ x_{n}
+
+        .. math::
+
             s_{1,n+1} = x_{n}\\quad\\quad s_{i,n+1} = s_{i-1,n}
 
         A specified rate must be greater than zero, and less than or equal to
@@ -29,7 +35,13 @@
         .. math::
 
             \\phi_{n+1,Rate} = \\phi_{n,Rate}\\ +\\ \\frac{K}{\\scriptsize{Rate}}
+
+        .. math::
+
             \\phi_{n+1,Rate}\\ \\geq\\ K\\qquad\\longrightarrow\\qquad \\phi_{n+1,Rate} = \\phi_{n+1,Rate}\\ -\\ K
+
+        .. math::
+
             k_{n+1} = \\mod(\\ \\lfloor{\\ k_{n}\\ +\\ \\phi_{n+1,Rate}}\\rfloor,\\ M\\ )
 
         A reset may minimize edge effects at a discontinuity by assuming

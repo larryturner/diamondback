@@ -9,6 +9,9 @@
         .. math::
 
             \\gamma = \\scriptsize{ \\matrix{ 1 & \\frac{-1}{2} & \\frac{-1}{2}\\cr 0 & \\frac{3^{0.5}}{2} & \\frac{-3^{0.5}}{2}\\cr 1 & 1 & 1 } }
+
+        .. math::
+
             \\alpha = \\matrix{\\frac{1}{3}}^{0.5}\\ e^{\\ -j\ \\frac{\\pi}{6}\\ }
 
         Complex - Three-Phase.
@@ -16,6 +19,9 @@
         .. math::
 
             y_{n} = \\matrix{ x^{T}_{n}\\ \\gamma\\ }\ \\scriptsize{[\\ \\matrix{ 1 & j & 0 }\\ ]^{T}}
+
+        .. math::
+
             \\overline{\\scriptsize{Neutral}}\\ \\qquad\\longrightarrow\\qquad y_{n} = y_{n}\\ \\alpha
 
         Three-Phase - Complex.
@@ -23,6 +29,9 @@
         .. math::
 
             \\overline{\\scriptsize{Neutral}}\\ \\qquad\\longrightarrow\\qquad x_{n} = \\frac{x_{n}}{\\alpha}
+
+        .. math::
+
             y_{n} = \\matrix{\\ \\matrix{ \\gamma^{T}\\gamma }^{-1}\\ \\gamma^{T}\\ \\scriptsize{[\\ \\matrix{ real(\\ x_{n}\\ ) & imag(\\ x_{n}\\ ) & 0 }\\ ]^{T}}}^{T}
 
     **Example**

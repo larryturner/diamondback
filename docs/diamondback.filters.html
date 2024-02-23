@@ -103,11 +103,15 @@ coefficient to produce a reference signal, which estimates a component
 of interest in a primary signal.  A normalized frequency and rate of
 adaptation are specified.</p>
 <div class="math notranslate nohighlight">
-\[x_{n} = e^{\ j\ \pi\ \phi_{n}}
-\phi_{n+1} = \phi_{n} + f_{n}
-y_{n} = b_{n} x_{n}
-e_{n} = d_{n} - y_{n}
-b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
+\[x_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n+1} = \phi_{n} + f_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{n} x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -186,9 +190,11 @@ b : numpy.ndarray - forward coefficient.</p>
 signal from an incident signal equal to a specified normalized frequency.
 A normalized phase is specified.</p>
 <div class="math notranslate nohighlight">
-\[x_{n} = f_{n}
-\phi_{n} = \phi_{n-1} + x_{n}
-y_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
+\[x_{n} = f_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n} = \phi_{n-1} + x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -252,12 +258,17 @@ complex coefficient to produce a reference signal, which estimates a normalized
 frequency of a primary signal which is normalized to unity magnitude.  A
 normalized frequency and rate of adaptation are specified.</p>
 <div class="math notranslate nohighlight">
-\[f_{n} = \frac{\tan^{-1}(\ b_{n}\ ) }{\pi}
-x_{n} = \frac{d_{n}}{|\ d_{n}\ |}
-y_{n} = b_{n} x_{n-1}
-e_{n} = d_{n} - y_{n}
-b_{0} = e^{\ j\ \pi\ f_{0}}
-b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
+\[f_{n} = \frac{\tan^{-1}(\ b_{n}\ ) }{\pi}\]</div>
+<div class="math notranslate nohighlight">
+\[x_{n} = \frac{d_{n}}{|\ d_{n}\ |}\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = b_{n} x_{n-1}\]</div>
+<div class="math notranslate nohighlight">
+\[e_{n} = d_{n} - y_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{0} = e^{\ j\ \pi\ f_{0}}\]</div>
+<div class="math notranslate nohighlight">
+\[b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -350,8 +361,9 @@ to a sample.  A derivative is electively approximated relative to a second
 by multiplying a reference signal by an absolute sampling frequency raised
 to a derivative power.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} b_{i} s_{i,n} + b_{0} x_{n}
-s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+\[y_{n} = \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} b_{i} s_{i,n} + b_{0} x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
 <p>A frequency response is expressed as a function of a forward coefficient
 array.</p>
 <div class="math notranslate nohighlight">
@@ -360,17 +372,27 @@ array.</p>
 defined, to satisfy specified constraints.  A derivative, and order are
 specified.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = f^{D}\ \frac{x_{n}}{D}\quad\quad\quad\quad\scriptsize{ f = 1.0 }
-b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; -1 } ] }
-b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -1 } ]\ \frac{1}{2} }
-b_{1,4} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 0 &amp; -8 &amp; 1 } ]\ \frac{1}{12} }
-b_{2,2} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 1 } ] }
-b_{2,4} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -2 &amp; 0 &amp; 1 } ]\ \frac{1}{4} }
-b_{2,6} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 1 &amp; -16 &amp; 1 &amp; 8 &amp; -1 } ]\ \frac{1}{24} }
-b_{2,8} = \scriptsize{ [ \matrix{ 1 &amp; -16 &amp; 64 &amp; 16 &amp; -130 &amp; 16 &amp; 64 &amp; -16 &amp; 1 } ]\ \frac{1}{144} }
-b_{3,4} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 0 &amp; 2 &amp; -1 } ]\ \frac{1}{2} }
-b_{3,6} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -3 &amp; 0 &amp; 3 &amp; 0 &amp; 1 } ]\ \frac{1}{8} }
-b_{3,8} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 2 &amp; -24 &amp; 0 &amp; 24 &amp; -2 &amp; -8 &amp; 1 } ]\ \frac{1}{48} }\]</div>
+\[y_{n} = f^{D}\ \frac{x_{n}}{D}\quad\quad\quad\quad\scriptsize{ f = 1.0 }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; -1 } ] }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -1 } ]\ \frac{1}{2} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{1,4} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 0 &amp; -8 &amp; 1 } ]\ \frac{1}{12} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,2} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 1 } ] }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,4} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -2 &amp; 0 &amp; 1 } ]\ \frac{1}{4} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,6} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 1 &amp; -16 &amp; 1 &amp; 8 &amp; -1 } ]\ \frac{1}{24} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{2,8} = \scriptsize{ [ \matrix{ 1 &amp; -16 &amp; 64 &amp; 16 &amp; -130 &amp; 16 &amp; 64 &amp; -16 &amp; 1 } ]\ \frac{1}{144} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,4} = \scriptsize{ [ \matrix{ 1 &amp; -2 &amp; 0 &amp; 2 &amp; -1 } ]\ \frac{1}{2} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,6} = \scriptsize{ [ \matrix{ 1 &amp; 0 &amp; -3 &amp; 0 &amp; 3 &amp; 0 &amp; 1 } ]\ \frac{1}{8} }\]</div>
+<div class="math notranslate nohighlight">
+\[b_{3,8} = \scriptsize{ [ \matrix{ -1 &amp; 8 &amp; 2 &amp; -24 &amp; 0 &amp; 24 &amp; -2 &amp; -8 &amp; 1 } ]\ \frac{1}{48} }\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -436,8 +458,9 @@ equation as a function of a forward coefficient array and a state array
 of a specified order, consuming an incident signal and producing a
 reference signal.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
-s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+\[y_{n} = \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
 <p>A reset may minimize edge effects at a discontinuity by assuming
 persistent operation at a specified incident signal condition.</p>
 <div class="math notranslate nohighlight">
@@ -629,9 +652,11 @@ approximates a discrete Fourier transform evaluated at a specified
 normalized frequency and order, consuming an incident signal and
 producing a reference signal.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
-s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}
-\matrix{ a = \scriptsize{ [\ \matrix{ 0 &amp; 2\ \cos(\ \pi\ f\ ) &amp; -1 }\ ] } &amp; b = \scriptsize{ [\ \matrix{ 1 &amp; -e^{\ j\ \pi\ f\ } &amp; 0 } }\ ] }\]</div>
+\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a = \scriptsize{ [\ \matrix{ 0 &amp; 2\ \cos(\ \pi\ f\ ) &amp; -1 }\ ] } &amp; b = \scriptsize{ [\ \matrix{ 1 &amp; -e^{\ j\ \pi\ f\ } &amp; 0 } }\ ] }\]</div>
 <p>At the terminus of each window length a reference signal is evaluated
 to estimate a discrete Fourier transform at a specified normalized
 frequency.</p>
@@ -709,8 +734,9 @@ difference equation as a function of a recursive coefficient array,
 a forward coefficient array, and a state array of a specified order,
 consuming an incident signal and producing a reference signal.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0
-s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}\]</div>
+\[y_{n} = \sum_{i = 1}^{N} a_{i,n} y_{n-i} + \sum_{i = 0}^{N} b_{i,n} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i,n} b_{0,n} + b_{i,n}\ ) s_{i,n} + b_{0,n} x_{n}\qquad a_{0,n} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\qquad\qquad s_{i,n+1} = s_{i-1,n}\]</div>
 <p>A reset may minimize edge effects at a discontinuity by assuming
 persistent operation at a specified incident signal condition.</p>
 <div class="math notranslate nohighlight">
@@ -911,8 +937,9 @@ is approximated relative to a sample.  An integral is electively approximated
 relative to a second by dividing a reference signal by an absolute sampling
 frequency.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0
-s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+\[y_{n} = \sum_{i = 1}^{N} a_{i} y_{n-i} + \sum_{i = 0}^{N} b_{i} x_{n-i} = \sum_{i = 1}^{N} (\ a_{i} b_{0} + b_{i}\ ) s_{i,n} + b_{0} x_{n}\qquad a_{0} = 0\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = \sum_{i = 1}^{N} a_{i} s_{i,n} + x_{n}\qquad\quad s_{i,n+1} = s_{i-1,n}\]</div>
 <p>A frequency response is expressed as a function of a recursive coefficient
 array and a forward coefficient array.</p>
 <div class="math notranslate nohighlight">
@@ -921,12 +948,17 @@ array and a forward coefficient array.</p>
 of a specified order are defined to satisfy specified constraints.  An
 instance and order are specified.</p>
 <div class="math notranslate nohighlight">
-\[y_{n} = \frac{1}{f}\ \sum_{i=0}^{N} x_{n}\quad\quad\quad\quad\scriptsize{ f = 1.0 }
-\matrix{ a_{1,0} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,0} = \scriptsize{ [ \matrix{ 1 } ] } }\quad\quad\scriptsize{ Rectangular }
-\matrix{ a_{1,1} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; 1 } ]\ \frac{1}{2} } }\quad\quad\scriptsize{ Trapezoidal }
-\matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 4 &amp; 1 } ]\ \frac{1}{6} } }\quad\quad\scriptsize{ Simpson\ 2 }
-\matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,3} = \scriptsize{ [ \matrix{ 1 &amp; 3 &amp; 3 &amp; 1 } ]\ \frac{1}{8} } }\quad\quad\scriptsize{ Simpson\ 3 }
-\matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \scriptsize{ [ \matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\ \frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }\]</div>
+\[y_{n} = \frac{1}{f}\ \sum_{i=0}^{N} x_{n}\quad\quad\quad\quad\scriptsize{ f = 1.0 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,0} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,0} = \scriptsize{ [ \matrix{ 1 } ] } }\quad\quad\scriptsize{ Rectangular }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,1} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,1} = \scriptsize{ [ \matrix{ 1 &amp; 1 } ]\ \frac{1}{2} } }\quad\quad\scriptsize{ Trapezoidal }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,2} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,2} = \scriptsize{ [ \matrix{ 1 &amp; 4 &amp; 1 } ]\ \frac{1}{6} } }\quad\quad\scriptsize{ Simpson\ 2 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,3} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,3} = \scriptsize{ [ \matrix{ 1 &amp; 3 &amp; 3 &amp; 1 } ]\ \frac{1}{8} } }\quad\quad\scriptsize{ Simpson\ 3 }\]</div>
+<div class="math notranslate nohighlight">
+\[\matrix{ a_{1,4} = \scriptsize{ [ \matrix{ 0 &amp; 1 } ] } &amp; b_{1,4} = \scriptsize{ [ \matrix{ 7 &amp; 32 &amp; 12 &amp; 32 &amp; 7 } ]\ \frac{1}{90} } }\quad\quad\scriptsize{ Newton\ Coats }\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -1150,9 +1182,11 @@ to reduce aliasing and decimated or interpolated to produce a reference
 signal, effectively modifying the sampling rate by a specified rate
 ratio.</p>
 <div class="math notranslate nohighlight">
-\[b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]
-y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}
-s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}\]</div>
+\[b_{k,i} = b^{M}[\ k (\ N\ +\ 1\ )\ +\ i\ ] \qquad\qquad k\ :\ [\ 0,\ K\sim 256\ )\qquad\ i\ :\ [\ 0,\ N\sim 15 \ ]\]</div>
+<div class="math notranslate nohighlight">
+\[y_{n} = \sum_{i = 0}^{N} b_{k_{n},i}\ x_{n-i} = \sum_{i = 1}^{N} b_{k_{n},i}\ s_{i,n} + b_{k_{n},0}\ x_{n}\]</div>
+<div class="math notranslate nohighlight">
+\[s_{1,n+1} = x_{n}\quad\quad s_{i,n+1} = s_{i-1,n}\]</div>
 <p>A specified rate must be greater than zero, and less than or equal to
 the quantity of filters comprising a polyphase filter bank, supporting
 decimation and interpolation.</p>
@@ -1160,9 +1194,11 @@ decimation and interpolation.</p>
 ensure that the specified rate is realized without bias.  Group delay
 may be addressed by latency compensation.</p>
 <div class="math notranslate nohighlight">
-\[\phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \frac{K}{\scriptsize{Rate}}
-\phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K
-k_{n+1} = \mod(\ \lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\rfloor,\ M\ )\]</div>
+\[\phi_{n+1,Rate} = \phi_{n,Rate}\ +\ \frac{K}{\scriptsize{Rate}}\]</div>
+<div class="math notranslate nohighlight">
+\[\phi_{n+1,Rate}\ \geq\ K\qquad\longrightarrow\qquad \phi_{n+1,Rate} = \phi_{n+1,Rate}\ -\ K\]</div>
+<div class="math notranslate nohighlight">
+\[k_{n+1} = \mod(\ \lfloor{\ k_{n}\ +\ \phi_{n+1,Rate}}\rfloor,\ M\ )\]</div>
 <p>A reset may minimize edge effects at a discontinuity by assuming
 persistent operation at a specified incident signal condition.  Edge
 extension may also be applied to an incident signal.</p>

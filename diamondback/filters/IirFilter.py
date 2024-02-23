@@ -7,6 +7,9 @@
         .. math::
 
             y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i,n} b_{0,n} + b_{i,n}\\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0
+
+        .. math::
+
             s_{1,n+1} = \\sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\\qquad\\qquad s_{i,n+1} = s_{i-1,n}
 
         A reset may minimize edge effects at a discontinuity by assuming
