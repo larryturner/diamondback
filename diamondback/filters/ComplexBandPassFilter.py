@@ -7,11 +7,13 @@
 
         .. math::
 
+            \begin{gather*}
             x_{n} = e^{\\ j\\ \pi\\ \phi_{n}}
             \\phi_{n+1} = \\phi_{n} + f_{n}
             y_{n} = b_{n} x_{n}
             e_{n} = d_{n} - y_{n}
             b_{n+1} = b_{n} + \\mu e_{n} x_{n}^{*}
+            \end{gather*}
 
     **Example**
 
