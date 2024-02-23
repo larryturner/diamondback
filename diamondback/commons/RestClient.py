@@ -11,7 +11,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import RestClient
             from typing import Dict

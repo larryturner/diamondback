@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>diamondback.transforms.PsdTransform &mdash; Diamondback DSP</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <title>diamondback.transforms.PsdTransform &mdash; Diamondback Digital Signal Processing (DSP)</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -24,7 +26,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
 
           
           
@@ -45,7 +47,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -82,9 +84,11 @@
 <span class="sd">        non-overlapping stride, between successive operations.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            v_{i,k} = \\frac{1}{N}\\ \\sum_{n = 0}^{N-1} b_{n} x_{n+i\\ I} e^{ \\frac{\\ -j\\ \\pi\\ k \\ n}{N} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            y_{k} = \\frac{1}{C}\\ \\sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}</span>
 
 <span class="sd">        A spectrogram may be electively defined such that the collection of</span>
@@ -96,17 +100,19 @@
 <span class="sd">        normalized frequency.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            f_{k} = \\ 2\\ \\frac{k}{N}</span>
 
 <span class="sd">        An incident signal length is inversely proportional to a normalized</span>
 <span class="sd">        frequency resolution.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            N = \\frac{2}{R}</span>
 
 <span class="sd">    **Example**</span>
 
-<span class="sd">        ::</span>
+<span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            from diamondback import ComplexExponentialFilter, PsdTransform</span>
 <span class="sd">            import numpy</span>
@@ -178,7 +184,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

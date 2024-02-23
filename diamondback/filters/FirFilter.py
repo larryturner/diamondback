@@ -5,21 +5,25 @@
         reference signal.
 
         .. math::
+
             y_{n} = \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
 
         .. math::
+
             s_{1,n+1} = x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
 
         .. math::
+
             s_{i,n} = x_{n}
 
         A frequency response is expressed as a function of a forward
         coefficient array.
 
         .. math::
+
             H_{z,n} = \\sum_{i = 0}^{N} b_{i,n} z^{-i}
 
         A forward coefficient array and state array of a specified order are
@@ -55,7 +59,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import FirFilter
             import numpy

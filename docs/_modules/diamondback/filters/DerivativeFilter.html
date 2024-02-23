@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="../../../">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>diamondback.filters.DerivativeFilter &mdash; Diamondback DSP</title>
-      <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <title>diamondback.filters.DerivativeFilter &mdash; Diamondback Digital Signal Processing (DSP)</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
   <!--[if lt IE 9]>
     <script src="../../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -24,7 +26,7 @@
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-nav-search"  style="background: black" >
 
           
           
@@ -45,7 +47,7 @@
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../../../index.html">diamondback</a>
       </nav>
@@ -76,13 +78,18 @@
 <span class="sd">        to a derivative power.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            y_{n} = \\sum_{i = 0}^{N} b_{i} x_{n-i} = \\sum_{i = 1}^{N} b_{i} s_{i,n} + b_{0} x_{n}</span>
+
+<span class="sd">        .. math::</span>
+
 <span class="sd">            s_{1,n+1} = x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}</span>
 
 <span class="sd">        A frequency response is expressed as a function of a forward coefficient</span>
 <span class="sd">        array.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            H_{z} = \\sum_{i = 0}^{N} b_{i} z^{-i}</span>
 
 <span class="sd">        A forward coefficient array and a state array of a specified order are</span>
@@ -90,41 +97,52 @@
 <span class="sd">        specified.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            y_{n} = f^{D}\\ \\frac{x_{n}}{D}\\quad\\quad\\quad\\quad\\scriptsize{ f = 1.0 }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{1,1} = \\scriptsize{ [ \\matrix{ 1 &amp; -1 } ] }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{1,2} = \\scriptsize{ [ \\matrix{ 1 &amp; 0 &amp; -1 } ]\\ \\frac{1}{2} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{1,4} = \\scriptsize{ [ \\matrix{ -1 &amp; 8 &amp; 0 &amp; -8 &amp; 1 } ]\\ \\frac{1}{12} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{2,2} = \\scriptsize{ [ \\matrix{ 1 &amp; -2 &amp; 1 } ] }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{2,4} = \\scriptsize{ [ \\matrix{ 1 &amp; 0 &amp; -2 &amp; 0 &amp; 1 } ]\\ \\frac{1}{4} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{2,6} = \\scriptsize{ [ \\matrix{ -1 &amp; 8 &amp; 1 &amp; -16 &amp; 1 &amp; 8 &amp; -1 } ]\\ \\frac{1}{24} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{2,8} = \\scriptsize{ [ \\matrix{ 1 &amp; -16 &amp; 64 &amp; 16 &amp; -130 &amp; 16 &amp; 64 &amp; -16 &amp; 1 } ]\\ \\frac{1}{144} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{3,4} = \\scriptsize{ [ \\matrix{ 1 &amp; -2 &amp; 0 &amp; 2 &amp; -1 } ]\\ \\frac{1}{2} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{3,6} = \\scriptsize{ [ \\matrix{ 1 &amp; 0 &amp; -3 &amp; 0 &amp; 3 &amp; 0 &amp; 1 } ]\\ \\frac{1}{8} }</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            b_{3,8} = \\scriptsize{ [ \\matrix{ -1 &amp; 8 &amp; 2 &amp; -24 &amp; 0 &amp; 24 &amp; -2 &amp; -8 &amp; 1 } ]\\ \\frac{1}{48} }</span>
 
 <span class="sd">    **Example**</span>
 
-<span class="sd">        ::</span>
+<span class="sd">        .. code-block:: python</span>
 
 <span class="sd">            from diamondback import ComplexExponentialFilter, DerivativeFilter</span>
 <span class="sd">            import numpy</span>
@@ -209,7 +227,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved..</p>
+    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

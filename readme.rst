@@ -35,8 +35,8 @@ including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
 appropriate.
 
-Diamondback is defined in subpackages commons, filters, models, and
-transforms.
+Diamondback is defined in subpackages ``commons``, ``filters``, ``models``, and
+``transforms``.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -243,11 +243,11 @@ Installation
 
 Diamondback is a public repository hosted at PyPI and GitHub.
 
-::
+.. code-block:: bash
 
     pip install diamondback
 
-    or
+.. code-block:: bash
 
     pip install git+https://github.com/larryturner/diamondback.git
 
@@ -258,7 +258,7 @@ A jupyter notebook defines cells to create and exercise diamondback components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of diamondback capabilities.
 
-::
+.. code-block:: bash
 
     git clone https://github.com/larryturner/diamondback.git
 
@@ -278,7 +278,7 @@ Diamondback uses nox for project management.  You may electively run nox
 sessions to simplify actions including build, dependencies, documentation
 generation, tests, and typing.
 
-::
+.. code-block:: bash
 
     nox -l
 
@@ -290,7 +290,7 @@ Tests
 A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.
 
-::
+.. code-block:: bash
 
     pytest --capture=no --verbose
 

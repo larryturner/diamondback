@@ -4,6 +4,7 @@
         incident signal and producing a reference signal.
 
         .. math::
+
             y_{n} = b_{n}\\ x_{n}
 
         A forward coefficient array of a specified order is defined.  A
@@ -27,11 +28,12 @@
         compensate for energy loss.
 
         .. math::
+
             b_{n} = b_{n}\\ \\frac{ N }{ \\sum_{0}^{N-1}\\ |\\ b_{n}\\ |}
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy

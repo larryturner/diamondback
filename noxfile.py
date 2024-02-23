@@ -169,14 +169,6 @@ def push( session ) -> None :
         if ( value ) :
             if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
                 session.run( 'git', 'push', 'origin', 'develop' )
-        try :
-            url = 'https://github.com'
-            requests.request( method = 'head', url = url, timeout = 2 )
-            value = input( '[ ' + REPOSITORY + ' ] mirror : ' )
-            if ( value ) :
-                session.run( 'git', 'push', '--mirror', url + '/' + value + '/' + REPOSITORY + '.git' )
-        except Exception :
-            pass
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :

@@ -11,11 +11,12 @@
         sequential erosion and dilation.  An order and rank are specified.
 
         .. math::
+
             y_{n} = sort(\\ x_{n-N+1\\ :\\ n}\\ )[\\ i\\ ]
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import RankFilter
             import numpy

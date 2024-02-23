@@ -14,9 +14,11 @@
         non-overlapping stride, between successive operations.
 
         .. math::
+
             v_{i,k} = \\frac{1}{N}\\ \\sum_{n = 0}^{N-1} b_{n} x_{n+i\\ I} e^{ \\frac{\\ -j\\ \\pi\\ k \\ n}{N} }
 
         .. math::
+
             y_{k} = \\frac{1}{C}\\ \\sum_{i = 0}^{C-1} v_{i,k} v^{*}_{i,k}
 
         A spectrogram may be electively defined such that the collection of
@@ -28,17 +30,19 @@
         normalized frequency.
 
         .. math::
+
             f_{k} = \\ 2\\ \\frac{k}{N}
 
         An incident signal length is inversely proportional to a normalized
         frequency resolution.
 
         .. math::
+
             N = \\frac{2}{R}
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, PsdTransform
             import numpy
