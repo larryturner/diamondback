@@ -24,7 +24,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter
             import numpy

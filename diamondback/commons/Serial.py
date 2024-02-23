@@ -22,7 +22,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import Serial
             import numpy

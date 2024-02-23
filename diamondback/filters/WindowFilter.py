@@ -31,7 +31,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy

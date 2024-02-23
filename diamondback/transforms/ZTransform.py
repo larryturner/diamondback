@@ -20,7 +20,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ZTransform
             import math

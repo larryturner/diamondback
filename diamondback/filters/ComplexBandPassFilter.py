@@ -6,23 +6,16 @@
         adaptation are specified.
 
         .. math::
+
             x_{n} = e^{\\ j\\ \pi\\ \phi_{n}}
-
-        .. math::
             \\phi_{n+1} = \\phi_{n} + f_{n}
-
-        .. math::
             y_{n} = b_{n} x_{n}
-
-        .. math::
             e_{n} = d_{n} - y_{n}
-
-        .. math::
             b_{n+1} = b_{n} + \\mu e_{n} x_{n}^{*}
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexBandPassFilter, ComplexExponentialFilter
             import numpy

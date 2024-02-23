@@ -103,20 +103,16 @@ coefficient to produce a reference signal, which estimates a component
 of interest in a primary signal.  A normalized frequency and rate of
 adaptation are specified.</p>
 <div class="math notranslate nohighlight">
-\[x_{n} = e^{\ j\ \pi\ \phi_{n}}\]</div>
-<div class="math notranslate nohighlight">
-\[\phi_{n+1} = \phi_{n} + f_{n}\]</div>
-<div class="math notranslate nohighlight">
-\[y_{n} = b_{n} x_{n}\]</div>
-<div class="math notranslate nohighlight">
-\[e_{n} = d_{n} - y_{n}\]</div>
-<div class="math notranslate nohighlight">
-\[b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
+\[x_{n} = e^{\ j\ \pi\ \phi_{n}}
+\phi_{n+1} = \phi_{n} + f_{n}
+y_{n} = b_{n} x_{n}
+e_{n} = d_{n} - y_{n}
+b_{n+1} = b_{n} + \mu e_{n} x_{n}^{*}\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexBandPassFilter</span><span class="p">,</span> <span class="n">ComplexExponentialFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexBandPassFilter</span><span class="p">,</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
@@ -199,7 +195,7 @@ A normalized phase is specified.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>
@@ -273,7 +269,7 @@ normalized frequency and rate of adaptation are specified.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span>
@@ -396,7 +392,7 @@ specified.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">DerivativeFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">DerivativeFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>
@@ -507,7 +503,7 @@ frequency response.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">FirFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">FirFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance with constraints.</span>
@@ -670,7 +666,7 @@ resolution.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">GoertzelFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">GoertzelFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">(</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
@@ -778,7 +774,7 @@ frequency response.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IirFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IirFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance with constraints.</span>
@@ -962,7 +958,7 @@ instance and order are specified.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">IntegralFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">IntegralFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>
@@ -1029,7 +1025,7 @@ control stability and latency.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PidFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PidFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>
@@ -1108,7 +1104,7 @@ operation or dynamic rate.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolynomialRateFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolynomialRateFilter</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
@@ -1209,7 +1205,7 @@ to continuous operation.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolyphaseRateFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PolyphaseRateFilter</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
@@ -1306,7 +1302,7 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RankFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RankFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>
@@ -1400,7 +1396,7 @@ compensate for energy loss.</p>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
-<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">WindowFilter</span>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">WindowFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="c1"># Create an instance.</span>

@@ -51,7 +51,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import IirFilter
             import numpy

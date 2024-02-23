@@ -30,7 +30,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, ComplexTransform
             import numpy

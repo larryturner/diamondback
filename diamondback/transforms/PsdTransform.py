@@ -38,7 +38,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, PsdTransform
             import numpy

@@ -43,7 +43,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy

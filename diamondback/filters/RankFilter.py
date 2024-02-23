@@ -15,7 +15,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import RankFilter
             import numpy

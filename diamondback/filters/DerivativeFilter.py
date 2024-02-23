@@ -56,7 +56,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy

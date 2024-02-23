@@ -55,7 +55,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: python
 
             from diamondback import FirFilter
             import numpy
