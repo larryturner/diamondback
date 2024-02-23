@@ -5,21 +5,12 @@
         normalized frequency and rate of adaptation are specified.
 
         .. math::
+
             f_{n} = \\frac{\\tan^{-1}(\\ b_{n}\\ ) }{\\pi}
-
-        .. math::
             x_{n} = \\frac{d_{n}}{|\\ d_{n}\\ |}
-
-        .. math::
             y_{n} = b_{n} x_{n-1}
-
-        .. math::
             e_{n} = d_{n} - y_{n}
-
-        .. math::
             b_{0} = e^{\\ j\\ \\pi\\ f_{0}}
-
-        .. math::
             b_{n+1} = b_{n} + \\mu e_{n} x_{n}^{*}
 
     **Example**

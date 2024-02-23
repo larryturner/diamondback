@@ -75,9 +75,8 @@
 <span class="sd">        a specified style or distance metric.</span>
 
 <span class="sd">        .. math::</span>
-<span class="sd">            d_{k} = \\min(\\ d_{u,v}\\ )\\quad\\quad u, v \\in [\\ 0,\\ M\\ ),\\ u \\neq v</span>
 
-<span class="sd">        .. math::</span>
+<span class="sd">            d_{k} = \\min(\\ d_{u,v}\\ )\\quad\\quad u, v \\in [\\ 0,\\ M\\ ),\\ u \\neq v</span>
 <span class="sd">            d_{k} \\geq d_{n}\\qquad \\longrightarrow\\qquad d_{n} = d_{k}</span>
 
 <span class="sd">        A diversity model is an opportunistic unsupervised learning model which</span>
@@ -93,24 +92,28 @@
 <span class="sd">          | in any dimension.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            d_{u,v} = \\max(\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )</span>
 
 <span class="sd">        * | &#39;Euclidean&#39; distance is an L-2 norm, a square root of a sum of squared</span>
 <span class="sd">          | differences in each dimension.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            d_{u,v} = \\matrix{\\sum_{i=0}^{N}(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ )^2|}^{0.5}</span>
 
 <span class="sd">        * | &#39;Geometric&#39; distance is a ordered root of a product of absolute differences</span>
 <span class="sd">          | in each dimension.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            d_{u,v} = \\prod_{i=0}^{N}{(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ |\\ )}^{\\frac{1}{N}}</span>
 
 <span class="sd">        * | &#39;Manhattan&#39; distance is an L-1 norm, a sum of absolute differences in each</span>
 <span class="sd">          | dimension.</span>
 
 <span class="sd">        .. math::</span>
+
 <span class="sd">            d_{u,v} = \\sum_{i=0}^{N}{\\ (\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )\\ }</span>
 
 <span class="sd">    **Example**</span>

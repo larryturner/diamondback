@@ -4,12 +4,9 @@
         A normalized phase is specified.
 
         .. math::
+
             x_{n} = f_{n}
-
-        .. math::
             \\phi_{n} = \\phi_{n-1} + x_{n}
-
-        .. math::
             y_{n} = e^{\\ j\\ \\pi\\ \\phi_{n}}
 
     **Example**

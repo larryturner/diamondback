@@ -5,21 +5,22 @@
         consuming an incident signal and producing a reference signal.
 
         .. math::
-            y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i,n} b_{0,n} + b_{i,n}\\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0
 
-        .. math::
+            y_{n} = \\sum_{i = 1}^{N} a_{i,n} y_{n-i} + \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} (\\ a_{i,n} b_{0,n} + b_{i,n}\\ ) s_{i,n} + b_{0,n} x_{n}\\qquad a_{0,n} = 0
             s_{1,n+1} = \\sum_{i = 1}^{N} a_{i,n} s_{i,n} + x_{n}\\qquad\\qquad s_{i,n+1} = s_{i-1,n}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.
 
         .. math::
+
             s_{i,n} = \\frac{1.0 - b_{0,n}}{\\sum_{i=1}^{N} a_{i,n} b_{0,n} + b_{i,n}}\\ x_{n}
 
         A frequency response is expressed as a function of a recursive
         coefficient array and a forward coefficient array.
 
         .. math::
+
             H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i,n} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i,n} z^{-i}}}
 
         A recursive coefficient array, forward coefficient array,
