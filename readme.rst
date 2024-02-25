@@ -235,6 +235,8 @@ depends upon additional external packages.
 
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
+``diamondback`` dependency diagram.
+
 .. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
     :target: https://larryturner.github.io/diamondback/dependencies-full.svg
 
