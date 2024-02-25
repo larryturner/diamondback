@@ -16,6 +16,9 @@
         .. math::
 
             H_{s,n} = \\frac{\\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\\sum_{i = 0}^{N} u_{i} s^{N-i}}}
+
+        .. math::
+
             H_{z,n} = \\frac{\\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \\sum_{i = 1}^{N} a_{i} z^{-i}}}
 
     **Example**

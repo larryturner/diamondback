@@ -1,11 +1,11 @@
-#   Description
-#       Diamondback requirements.
+#   **Description**
+#       ``diamondback`` requirements.
 #
-#   License
+#   **License**
 #       BSD-3C. https://github.com/larryturner/diamondback/blob/master/license
 #       © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 #
-#   Author
+#   **Author**
 #       Larry Turner, Schneider Electric, AI Hub, 2019-09-08.
 
 build >= 1.0.3, < 2.0.0
