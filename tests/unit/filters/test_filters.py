@@ -1,5 +1,5 @@
 """ **Description**
-        Test unit filters.
+        Test ``diamondback`` ``filters``.
 
     **Example**
 

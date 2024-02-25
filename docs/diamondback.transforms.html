@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>diamondback.transforms package &mdash; Diamondback Digital Signal Processing (DSP)</title>
+  <title>diamondback.transforms package &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -458,8 +458,9 @@ A normalized frequency and bilinear condition are specified.</p>
 <p>A frequency response is expressed as a function of a recursive coefficient
 array and a forward coefficient array, in s-domain and z-domain.</p>
 <div class="math notranslate nohighlight">
-\[H_{s,n} = \frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}
-H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
+\[H_{s,n} = \frac{\sum_{i = 0}^{N} v_{i} s^{N-i}}{{\sum_{i = 0}^{N} u_{i} s^{N-i}}}\]</div>
+<div class="math notranslate nohighlight">
+\[H_{z,n} = \frac{\sum_{i = 0}^{N} b_{i} z^{-i}}{{1 - \sum_{i = 1}^{N} a_{i} z^{-i}}}\]</div>
 </dd>
 </dl>
 <p><strong>Example</strong></p>

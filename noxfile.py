@@ -3,7 +3,7 @@
 
     **Example**
 
-        ::
+        .. code-block:: bash
 
             nox --list
             nox --sessions build clean dependencies docs image notebook push status tag tests typing

@@ -17,14 +17,14 @@ diamondback
 Description
 ~~~~~~~~~~~
 
-**Diamondback** is a package which defines Digital Signal Processing (DSP)
+``diamondback`` is a package which defines Digital Signal Processing (DSP)
 algorithms.
 
-Diamondback complements Artificial Intelligence (AI) frameworks, by defining
+``diamondback`` complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.
 
-Diamondback also supports applications including cancellation, identification,
+``diamondback`` also supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
 
 Details
@@ -35,7 +35,7 @@ including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
 appropriate.
 
-Diamondback is defined in subpackages ``commons``, ``filters``, ``models``, and
+``diamondback`` is defined in subpackages ``commons``, ``filters``, ``models``, and
 ``transforms``.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
@@ -196,7 +196,7 @@ Diamondback is defined in subpackages ``commons``, ``filters``, ``models``, and
 Dependencies
 ~~~~~~~~~~~~
 
-Diamondback depends upon external packages.
+``diamondback`` depends upon external packages.
 
 -   `jsonpickle <https://pypi.org/project/jsonpickle/>`_
 
@@ -210,7 +210,7 @@ Diamondback depends upon external packages.
 
 -   `scipy <https://pypi.org/project/scipy/>`_
 
-Diamondback elective documentation, test, and visualization functionality
+``diamondback`` elective documentation, test, and visualization functionality
 depends upon additional external packages.
 
 -   `ipython <https://pypi.org/project/ipython/>`_
@@ -241,7 +241,7 @@ depends upon additional external packages.
 Installation
 ~~~~~~~~~~~~
 
-Diamondback is a public repository hosted at PyPI and GitHub.
+``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
 
 .. code-block:: bash
 
@@ -254,9 +254,9 @@ Diamondback is a public repository hosted at PyPI and GitHub.
 Demonstration
 ~~~~~~~~~~~~~
 
-A jupyter notebook defines cells to create and exercise diamondback components.
+A jupyter notebook defines cells to create and exercise ``diamondback`` components.
 The notebook serves as a tool for visualization, validation, and demonstration
-of diamondback capabilities.
+of ``diamondback`` capabilities.
 
 .. code-block:: bash
 
@@ -274,7 +274,7 @@ Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
 
-Diamondback uses nox for project management.  You may electively run nox
+``diamondback`` uses nox for project management.  You may electively run nox
 sessions to simplify actions including build, dependencies, documentation
 generation, tests, and typing.
 
@@ -297,7 +297,7 @@ used to execute unit and integration tests.
 Documentation
 ~~~~~~~~~~~~~
 
-Diamondback documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
 
 License
 ~~~~~~~

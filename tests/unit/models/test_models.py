@@ -1,5 +1,5 @@
 """ **Description**
-        Test unit models.
+        Test ``diamondback`` ``models``.
 
     **Example**
 

@@ -1,5 +1,5 @@
 """ **Description**
-        Sphinx documentation configuration.
+        ``diamondback`` documentation configuration.
 
     **License**
         © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
@@ -16,7 +16,7 @@ author = 'Larry Turner'
 with open( str( pathlib.Path( pathlib.Path.cwd( ).parent / 'license' ) ), 'r' ) as fin :
     copyright = fin.readline( )[ 1 : -2 ]
 project = pathlib.Path.cwd( ).parent.name
-title = 'Diamondback Digital Signal Processing (DSP)'
+title = 'diamondback Digital Signal Processing (DSP)'
 
 # Extensions.
 

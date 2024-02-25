@@ -1,5 +1,5 @@
 """ **Description**
-        Test unit commons.
+        Test ``diamondback`` ``commons``.
 
     **Example**
 

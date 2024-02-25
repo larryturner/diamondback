@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>diamondback &mdash; Diamondback Digital Signal Processing (DSP)</title>
+  <title>diamondback &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
 
@@ -100,12 +100,12 @@
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" src="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" /></a>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p><strong>Diamondback</strong> is a package which defines Digital Signal Processing (DSP)
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is a package which defines Digital Signal Processing (DSP)
 algorithms.</p>
-<p>Diamondback complements Artificial Intelligence (AI) frameworks, by defining
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.</p>
-<p>Diamondback also supports applications including cancellation, identification,
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> also supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 </section>
 <section id="details">
@@ -114,7 +114,7 @@ optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 including tuples, sets, lists, and dictionaries, with vector and matrix
 types expressed in numpy arrays.  Complex or real types are supported as
 appropriate.</p>
-<p>Diamondback is defined in subpackages <code class="docutils literal notranslate"><span class="pre">commons</span></code>, <code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">models</span></code>, and
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is defined in subpackages <code class="docutils literal notranslate"><span class="pre">commons</span></code>, <code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">models</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">transforms</span></code>.</p>
 <section id="id1">
 <h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
@@ -258,7 +258,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
-<p>Diamondback depends upon external packages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> depends upon external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/jsonpickle/">jsonpickle</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/loguru/">loguru</a></p></li>
@@ -267,7 +267,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scikit-learn/">scikit-learn</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scipy/">scipy</a></p></li>
 </ul>
-<p>Diamondback elective documentation, test, and visualization functionality
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> elective documentation, test, and visualization functionality
 depends upon additional external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/ipython/">ipython</a></p></li>
@@ -286,7 +286,7 @@ depends upon additional external packages.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p>Diamondback is a public repository hosted at PyPI and GitHub.</p>
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is a public repository hosted at <a class="reference external" href="https://pypi.org/project/diamondback">PyPi</a> and <a class="reference external" href="https://github.com/larryturner/diamondback">GitHub</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>diamondback
 </pre></div>
 </div>
@@ -296,9 +296,9 @@ depends upon additional external packages.</p>
 </section>
 <section id="demonstration">
 <h2>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading"></a></h2>
-<p>A jupyter notebook defines cells to create and exercise diamondback components.
+<p>A jupyter notebook defines cells to create and exercise <code class="docutils literal notranslate"><span class="pre">diamondback</span></code> components.
 The notebook serves as a tool for visualization, validation, and demonstration
-of diamondback capabilities.</p>
+of <code class="docutils literal notranslate"><span class="pre">diamondback</span></code> capabilities.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/larryturner/diamondback.git
 
 <span class="nb">cd</span><span class="w"> </span>diamondback
@@ -313,7 +313,7 @@ jupyter<span class="w"> </span>notebook<span class="w"> </span>.<span class="se"
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
-<p>Diamondback uses nox for project management.  You may electively run nox
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> uses nox for project management.  You may electively run nox
 sessions to simplify actions including build, dependencies, documentation
 generation, tests, and typing.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-l
@@ -332,7 +332,7 @@ used to execute unit and integration tests.</p>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
-<p>Diamondback documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
 </section>
 <section id="license">
 <h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
