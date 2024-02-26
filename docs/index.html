@@ -100,8 +100,7 @@
 <a class="reference external image-reference" href="https://github.com/larryturner/diamondback/blob/master/license"><img alt="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" src="https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray" /></a>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is a package which defines Digital Signal Processing (DSP)
-algorithms.</p>
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is a Digital Signal Processing (DSP) package.</p>
 <p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.</p>
@@ -110,10 +109,9 @@ optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 </section>
 <section id="details">
 <h2>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
-<p>Data collections are consistently expressed in native types,
-including tuples, sets, lists, and dictionaries, with vector and matrix
-types expressed in numpy arrays.  Complex or real types are supported as
-appropriate.</p>
+<p>Data collections are consistently expressed in native types, including tuples, sets,
+lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
+Complex or real types are supported as appropriate.</p>
 <p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is defined in subpackages <code class="docutils literal notranslate"><span class="pre">commons</span></code>, <code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">models</span></code>, and
 <code class="docutils literal notranslate"><span class="pre">transforms</span></code>.</p>
 <section id="id1">
@@ -267,8 +265,8 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scikit-learn/">scikit-learn</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scipy/">scipy</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> elective documentation, test, and visualization functionality
-depends upon additional external packages.</p>
+<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> elective build, documentation, test, and demonstration
+functionality depends upon additional external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/ipython/">ipython</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/ipywidgets/">ipywidgets</a></p></li>
@@ -317,9 +315,7 @@ visualize functionality.</p>
 <p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> uses nox for project management.  You may electively run nox
 sessions to simplify actions including build, dependencies, documentation
 generation, tests, and typing.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-l
-
-nox<span class="w"> </span>-s<span class="w"> </span>notebook
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>notebook
 </pre></div>
 </div>
 </section>
@@ -327,13 +323,16 @@ nox<span class="w"> </span>-s<span class="w"> </span>notebook
 <h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
 <p>A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>--capture<span class="o">=</span>no<span class="w"> </span>--verbose
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>tests
 </pre></div>
 </div>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
 <p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>docs
+</pre></div>
+</div>
 </section>
 <section id="license">
 <h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>

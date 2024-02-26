@@ -17,8 +17,7 @@ diamondback
 Description
 ~~~~~~~~~~~
 
-``diamondback`` is a package which defines Digital Signal Processing (DSP)
-algorithms.
+``diamondback`` is a Digital Signal Processing (DSP) package.
 
 ``diamondback`` complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
@@ -30,10 +29,9 @@ optimization, probabilistic modeling, rate adaptation, and serialization.
 Details
 ~~~~~~~
 
-Data collections are consistently expressed in native types,
-including tuples, sets, lists, and dictionaries, with vector and matrix
-types expressed in numpy arrays.  Complex or real types are supported as
-appropriate.
+Data collections are consistently expressed in native types, including tuples, sets,
+lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
+Complex or real types are supported as appropriate.
 
 ``diamondback`` is defined in subpackages ``commons``, ``filters``, ``models``, and
 ``transforms``.
@@ -210,8 +208,8 @@ Dependencies
 
 -   `scipy <https://pypi.org/project/scipy/>`_
 
-``diamondback`` elective documentation, test, and visualization functionality
-depends upon additional external packages.
+``diamondback`` elective build, documentation, test, and demonstration
+functionality depends upon additional external packages.
 
 -   `ipython <https://pypi.org/project/ipython/>`_
 
@@ -282,8 +280,6 @@ generation, tests, and typing.
 
 .. code-block:: bash
 
-    nox -l
-
     nox -s notebook
 
 Tests
@@ -294,12 +290,16 @@ used to execute unit and integration tests.
 
 .. code-block:: bash
 
-    pytest --capture=no --verbose
+    nox -s tests
 
 Documentation
 ~~~~~~~~~~~~~
 
 ``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+
+.. code-block:: bash
+
+    nox -s docs
 
 License
 ~~~~~~~
