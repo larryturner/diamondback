@@ -26,6 +26,19 @@ useful in feature extraction and pattern recognition.
 ``diamondback`` also supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
 
+Installation
+~~~~~~~~~~~~
+
+``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
+
+.. code-block:: bash
+
+    pip install diamondback
+
+.. code-block:: bash
+
+    pip install git+https://github.com/larryturner/diamondback.git
+
 Details
 ~~~~~~~
 
@@ -237,19 +250,6 @@ functionality depends upon additional external packages.
 
 .. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
     :target: https://larryturner.github.io/diamondback/dependencies-full.svg
-
-Installation
-~~~~~~~~~~~~
-
-``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
-
-.. code-block:: bash
-
-    pip install diamondback
-
-.. code-block:: bash
-
-    pip install git+https://github.com/larryturner/diamondback.git
 
 Demonstration
 ~~~~~~~~~~~~~
