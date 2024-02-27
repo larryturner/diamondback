@@ -282,6 +282,15 @@ generation, tests, and typing.
 
     nox -s notebook
 
+Documentation
+~~~~~~~~~~~~~
+
+``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+
+.. code-block:: bash
+
+    nox -s docs
+
 Tests
 ~~~~~
 
@@ -291,15 +300,6 @@ used to execute unit and integration tests.
 .. code-block:: bash
 
     nox -s tests
-
-Documentation
-~~~~~~~~~~~~~
-
-``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
-
-.. code-block:: bash
-
-    nox -s docs
 
 License
 ~~~~~~~
