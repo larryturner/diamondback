@@ -43,7 +43,7 @@ def build( session ) -> None :
         shutil.rmtree( 'dist', ignore_errors = True )
         session.run( 'python', '-m', 'build', '-s', '-w' )
         shutil.rmtree( 'build', ignore_errors = True )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'dist' / '*' ) )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'dist' / '*' ), external = True )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -124,8 +124,8 @@ def docs( session ) -> None :
             if ( ( pathlib.Path.cwd( ) / 'templates' / x ).is_file( ) ) :
                 os.remove( str( pathlib.Path.cwd( ) / 'templates' / x ) )
         session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'templates' ), str( pathlib.Path.cwd( ) / 'docs' ) )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ) )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'templates' / '*' ) )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ), external = True )
+        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'templates' / '*' ), external = True )
 
 @nox.session( venv_backend = 'none' )
 def image( session ) -> None :
@@ -135,7 +135,7 @@ def image( session ) -> None :
 
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         build( session )
-        session.run( 'docker', 'build', '--tag', REPOSITORY, '.' )
+        session.run( 'docker', 'build', '--tag', REPOSITORY, '.', external = True )
 
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
@@ -159,16 +159,16 @@ def push( session ) -> None :
         x = REPOSITORY.split( '-' )
         package = x[ max( len( x ) - 2, 0 ) ]
         if ( pathlib.Path( package ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / package / '*' ) )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / package / '*' ), external = True )
         if ( pathlib.Path( 'service' ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'service' / '*' ) )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'service' / '*' ), external = True )
         if ( pathlib.Path( 'tests' ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'tests' / '*' ) )
+            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'tests' / '*' ), external = True )
         status( session )
         value = input( '[ ' + REPOSITORY + ' ] message : ' )
         if ( value ) :
-            if ( session.run( 'git', 'commit', '--all', '--message', value ) ) :
-                session.run( 'git', 'push', 'origin', 'develop' )
+            if ( session.run( 'git', 'commit', '--all', '--message', value, external = True ) ) :
+                session.run( 'git', 'push', 'origin', 'develop', external = True )
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
@@ -178,7 +178,7 @@ def status( session ) -> None :
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
         print( '[ ' + REPOSITORY + ' ]' )
-        session.run( 'git', 'status', '--short' )
+        session.run( 'git', 'status', '--short', external = True )
 
 @nox.session( venv_backend = 'none' )
 def tag( session ) -> None :
@@ -187,11 +187,11 @@ def tag( session ) -> None :
     """
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
-        session.run( 'git', 'tag', '--list' )
+        session.run( 'git', 'tag', '--list', external = True )
         value = input( '[ ' + REPOSITORY + ' ] annotate : ' )
         if ( value ) :
-            session.run( 'git', 'tag', '--annotate', value, '--force', '--message', '.' )
-            session.run( 'git', 'push', '--force', '--tags' )
+            session.run( 'git', 'tag', '--annotate', value, '--force', '--message', '.', external = True )
+            session.run( 'git', 'push', '--force', '--tags', external = True )
 
 @nox.session( venv_backend = 'none' )
 def tests( session ) -> None :
@@ -203,14 +203,14 @@ def tests( session ) -> None :
         if ( [ u for u in pathlib.Path( 'tests' ).iterdir( ) ] ) :
             try :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
-                    session.run( 'docker', 'compose', 'up', '--detach' )
+                    session.run( 'docker', 'compose', 'up', '--detach', external = True )
                     time.sleep( 10.0 )
                 session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
                 session.run( 'pytest', '--capture=no', '--verbose', '-s' )
                 shutil.rmtree( '.pytest_cache', ignore_errors = True )
             finally :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
-                    session.run( 'docker', 'compose', 'down' )
+                    session.run( 'docker', 'compose', 'down', external = True )
 
 @nox.session( venv_backend = 'none' )
 def typing( session ) -> None :
