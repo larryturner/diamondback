@@ -36,7 +36,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import List, Union
+from typing import Union
 import numpy
 
 class PidFilter( FirFilter ) :
@@ -54,12 +54,12 @@ class PidFilter( FirFilter ) :
             raise ValueError( f'Limit = {limit} Expected Limit in ( 0.0, inf )' )
         self._limit = limit
 
-    def __init__( self, b : Union[ List, numpy.ndarray ] ) -> None :
+    def __init__( self, b : Union[ list, numpy.ndarray ] ) -> None :
 
         """ Initialize.
 
             Arguments :
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
         """
 
         if ( not isinstance( b, numpy.ndarray ) ) :
@@ -69,12 +69,12 @@ class PidFilter( FirFilter ) :
         super( ).__init__( b = b, s = numpy.zeros( len( b ) ) )
         self._limit = numpy.inf
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

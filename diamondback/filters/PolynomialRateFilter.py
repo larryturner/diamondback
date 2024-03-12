@@ -52,7 +52,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-19.
 """
 
-from typing import List, Union
+from typing import Union
 import numpy
 
 class PolynomialRateFilter( object ) :
@@ -97,12 +97,12 @@ class PolynomialRateFilter( object ) :
         self._order = order
         self._rate = rate
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

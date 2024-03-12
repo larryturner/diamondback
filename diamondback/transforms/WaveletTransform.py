@@ -83,7 +83,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import List, Union
+from typing import Union
 import numpy
 
 class WaveletTransform( object ) :
@@ -207,7 +207,7 @@ class WaveletTransform( object ) :
             if ( n != 1 ) :
                 self._b[ kk ][ 1 ][ : ] = numpy.flip( self._b[ kk ][ 1 ], 0 )
 
-    def transform( self, x : Union[ List, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
+    def transform( self, x : Union[ list, numpy.ndarray ], count : int, inverse : bool = False ) -> numpy.ndarray :
 
         """ Transforms an incident signal and produces a reference signal,
             performing analysis or synthesis operations.  Incident and reference
@@ -215,7 +215,7 @@ class WaveletTransform( object ) :
             an integral multiple of 2**count.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
                 count : int.
                 inverse : bool.
 

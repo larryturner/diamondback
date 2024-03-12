@@ -80,7 +80,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import List, Union
+from typing import Union
 import numpy
 
 class PolyphaseRateFilter( object ) :
@@ -111,7 +111,7 @@ class PolyphaseRateFilter( object ) :
         return self._s
 
     @s.setter
-    def s( self, s : Union[ List, numpy.ndarray ] ) :
+    def s( self, s : Union[ list, numpy.ndarray ] ) :
         self._s = s
 
     def __init__( self, rate : float ) -> None :
@@ -137,12 +137,12 @@ class PolyphaseRateFilter( object ) :
         self._rate = rate
         self._s = numpy.zeros( cc )
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

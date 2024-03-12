@@ -59,7 +59,7 @@
 """
 
 from diamondback.filters.FirFilter import FirFilter
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 import math
 import numpy
 import scipy
@@ -107,14 +107,14 @@ class ComplexFrequencyFilter( FirFilter ) :
         self._frequency = frequency
         self._rate = rate
 
-    def filter( self, d : Union[ List, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
+    def filter( self, d : Union[ list, numpy.ndarray ] ) -> Tuple[ numpy.ndarray, numpy.ndarray, numpy.ndarray ] :  # type: ignore
 
         """ Filters a primary signal and produces a reference signal.
 
             Signals are Hilbert transformed to complex as necessary.
 
             Arguments :
-                d : Union[ List, numpy.ndarray ] - primary signal.
+                d : Union[ list, numpy.ndarray ] - primary signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

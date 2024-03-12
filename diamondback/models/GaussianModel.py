@@ -29,7 +29,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Any, Dict, List
+from typing import Any
 import numpy
 
 class GaussianModel( object ) :
@@ -61,7 +61,7 @@ class GaussianModel( object ) :
 
         if ( regularize < 0.0 ) :
             raise ValueError( f'Regularize = {regularize} Expected Regularize in [ 0.0, inf )' )
-        self._model : List[ Dict[ Any, Any ] ] = [ ]
+        self._model : list[ dict[ Any, Any ] ] = [ ]
         self._regularize = regularize
         self._shape = ( )
 

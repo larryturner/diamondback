@@ -51,7 +51,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-12.
 """
 
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 import numpy
 
 class FourierTransform( object ) :
@@ -60,7 +60,7 @@ class FourierTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], inverse : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( x : Union[ list, numpy.ndarray ], b : Union[ list, numpy.ndarray ], inverse : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             complex discrete-frequency reference signal, or performs an
@@ -69,8 +69,8 @@ class FourierTransform( object ) :
             Inverse transform indices define an integral sequence.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                x : Union[ list, numpy.ndarray ] - incident signal.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
                 inverse : bool.
 
             Returns :

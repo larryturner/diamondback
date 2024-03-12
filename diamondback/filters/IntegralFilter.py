@@ -75,7 +75,7 @@
 """
 
 from diamondback.filters.IirFilter import IirFilter
-from typing import List, Union
+from typing import Union
 import numpy
 
 class IntegralFilter( IirFilter ) :
@@ -101,12 +101,12 @@ class IntegralFilter( IirFilter ) :
             raise ValueError( f'Order = {order} Expected Order in [ 0, {len( IntegralFilter.B )} )' )
         super( ).__init__( a = numpy.array( [ 0.0, 1.0 ] ), b = IntegralFilter.B[ order ] )
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

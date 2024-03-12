@@ -14,7 +14,6 @@
         .. code-block:: python
 
             from diamondback import RestClient
-            from typing import Dict
             import numpy
 
             class TestClient( RestClient ) :
@@ -23,7 +22,7 @@
                     super( ).__init__( )
                     self.proxy = dict( http = '', https = '' )
 
-                def add( self, json : Dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
+                def add( self, json : dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
                     return self.request( 'get', 'test/add', json = json ).json( )
 
             client = TestClient( )
@@ -39,7 +38,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any, Dict, Optional, Union
+from typing import Any, Optional, Union
 import requests
 
 class RestClient( object ) :
@@ -63,7 +62,7 @@ class RestClient( object ) :
         return self._proxy
 
     @proxy.setter
-    def proxy( self, proxy : Dict[ str, str ] ) :
+    def proxy( self, proxy : dict[ str, str ] ) :
         self._proxy = proxy
 
     @property
@@ -94,7 +93,7 @@ class RestClient( object ) :
         self._timeout = ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, auth : Any = None, header : Optional[ Dict[ str, str ] ] = None, item : Optional[ Dict[ str, str ] ] = None, data : Any = None, json : Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, auth : Any = None, header : Optional[ dict[ str, str ] ] = None, item : Optional[ dict[ str, str ] ] = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -106,8 +105,8 @@ class RestClient( object ) :
                 method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
                 api : str - relative to the URL.
                 auth : Any.
-                header : Dict[ str, str ].
-                item : Dict[ str, str ].
+                header : dict[ str, str ].
+                item : dict[ str, str ].
                 data : Any.
                 json : Any.
 
