@@ -14,7 +14,7 @@
 
         .. math::
 
-            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 & 2\\ \\cos(\ \\pi\\ f\\ ) & -1 }\\ ] } & b = \\scriptsize{ [\\ \\matrix{ 1 & -e^{\\ j\\ \\pi\\ f\\ } & 0 } }\\ ] }
+            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 & 2\\ \\cos(\\ \\pi\\ f\\ ) & -1 }\\ ] } & b = \\scriptsize{ [\\ \\matrix{ 1 & -e^{\\ j\\ \\pi\\ f\\ } & 0 } }\\ ] }
 
         At the terminus of each window length a reference signal is evaluated
         to estimate a discrete Fourier transform at a specified normalized
@@ -60,7 +60,7 @@
 """
 
 from diamondback.filters.IirFilter import IirFilter
-from typing import List, Union
+from typing import Union
 import math
 import numpy
 
@@ -79,12 +79,12 @@ class GoertzelFilter( IirFilter ) :
             raise ValueError( f'Frequency = {frequency} Expected Frequency in [ 1.0, 1.0 ]' )
         self._frequency = frequency
 
-    def __init__( self, b : Union[ List, numpy.ndarray ], frequency : float ) -> None :
+    def __init__( self, b : Union[ list, numpy.ndarray ], frequency : float ) -> None :
 
         """ Initialize.
 
             Arguments :
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
                 frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
         """
 
@@ -101,12 +101,12 @@ class GoertzelFilter( IirFilter ) :
         self._frequency = frequency
         self._w = numpy.array( b )
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

@@ -2,7 +2,7 @@ diamondback
 ===========
 
 .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue
-    :target: https://github.com/larryturner/diamondback
+    :target: https://www.python.org/
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue
     :target: https://pypi.org/project/diamondback
 .. image:: https://img.shields.io/badge/admin-nox-orangered
@@ -17,8 +17,7 @@ diamondback
 Description
 ~~~~~~~~~~~
 
-``diamondback`` is a package which defines Digital Signal Processing (DSP)
-algorithms.
+``diamondback`` is a Digital Signal Processing (DSP) package.
 
 ``diamondback`` complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
@@ -27,13 +26,25 @@ useful in feature extraction and pattern recognition.
 ``diamondback`` also supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
 
+Installation
+~~~~~~~~~~~~
+
+``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
+
+.. code-block:: bash
+
+    pip install diamondback
+
+.. code-block:: bash
+
+    pip install git+https://github.com/larryturner/diamondback.git
+
 Details
 ~~~~~~~
 
-Data collections are consistently expressed in native types,
-including tuples, sets, lists, and dictionaries, with vector and matrix
-types expressed in numpy arrays.  Complex or real types are supported as
-appropriate.
+Data collections are consistently expressed in native types, including tuples, sets,
+lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
+Complex or real types are supported as appropriate.
 
 ``diamondback`` is defined in subpackages ``commons``, ``filters``, ``models``, and
 ``transforms``.
@@ -210,8 +221,8 @@ Dependencies
 
 -   `scipy <https://pypi.org/project/scipy/>`_
 
-``diamondback`` elective documentation, test, and visualization functionality
-depends upon additional external packages.
+``diamondback`` elective build, documentation, test, and demonstration
+functionality depends upon additional external packages.
 
 -   `ipython <https://pypi.org/project/ipython/>`_
 
@@ -235,21 +246,10 @@ depends upon additional external packages.
 
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
+``diamondback`` dependency diagram.
+
 .. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
     :target: https://larryturner.github.io/diamondback/dependencies-full.svg
-
-Installation
-~~~~~~~~~~~~
-
-``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
-
-.. code-block:: bash
-
-    pip install diamondback
-
-.. code-block:: bash
-
-    pip install git+https://github.com/larryturner/diamondback.git
 
 Demonstration
 ~~~~~~~~~~~~~
@@ -280,9 +280,16 @@ generation, tests, and typing.
 
 .. code-block:: bash
 
-    nox -l
-
     nox -s notebook
+
+Documentation
+~~~~~~~~~~~~~
+
+``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+
+.. code-block:: bash
+
+    nox -s docs
 
 Tests
 ~~~~~
@@ -292,12 +299,7 @@ used to execute unit and integration tests.
 
 .. code-block:: bash
 
-    pytest --capture=no --verbose
-
-Documentation
-~~~~~~~~~~~~~
-
-``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+    nox -s tests
 
 License
 ~~~~~~~

@@ -123,7 +123,7 @@
 <span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-01-26.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 <span class="kn">import</span> <span class="nn">scipy.signal</span>
@@ -139,14 +139,14 @@
 <div class="viewcode-block" id="ZTransform.transform">
 <a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ZTransform.transform">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">u</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">v</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bilinear</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span> <span class="n">u</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">list</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">v</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">list</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">],</span> <span class="n">frequency</span> <span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bilinear</span> <span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Transforms continuous s-domain coefficient arrays and produces</span>
 <span class="sd">            discrete z-domain coefficient arrays.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                u : Union[ List, numpy.ndarray ] - recursive coefficient, s-domain.</span>
-<span class="sd">                v : Union[ List, numpy.ndarray ] - forward coefficient, s-domain.</span>
+<span class="sd">                u : Union[ list, numpy.ndarray ] - recursive coefficient, s-domain.</span>
+<span class="sd">                v : Union[ list, numpy.ndarray ] - forward coefficient, s-domain.</span>
 <span class="sd">                frequency : float - frequency in ( 0.0, inf ).</span>
 <span class="sd">                bilinear : bool.</span>
 

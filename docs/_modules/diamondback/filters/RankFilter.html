@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>diamondback.filters.RankFilter &mdash; Diamondback Digital Signal Processing (DSP)</title>
+  <title>diamondback.filters.RankFilter &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
 
@@ -110,7 +110,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span> <span class="nn">diamondback.filters.FirFilter</span> <span class="kn">import</span> <span class="n">FirFilter</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Union</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <div class="viewcode-block" id="RankFilter">
@@ -146,12 +146,12 @@
 
 <div class="viewcode-block" id="RankFilter.filter">
 <a class="viewcode-back" href="../../../diamondback.filters.html#diamondback.RankFilter.filter">[docs]</a>
-    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="n">List</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
+    <span class="k">def</span> <span class="nf">filter</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">x</span> <span class="p">:</span> <span class="n">Union</span><span class="p">[</span> <span class="nb">list</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
 
 <span class="w">        </span><span class="sd">&quot;&quot;&quot; Filters an incident signal and produces a reference signal.</span>
 
 <span class="sd">            Arguments :</span>
-<span class="sd">                x : Union[ List, numpy.ndarray ] - incident signal.</span>
+<span class="sd">                x : Union[ list, numpy.ndarray ] - incident signal.</span>
 
 <span class="sd">            Returns :</span>
 <span class="sd">                y : numpy.ndarray - reference signal.</span>

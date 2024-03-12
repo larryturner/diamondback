@@ -62,7 +62,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 import numpy
 
 class PsdTransform( object ) :
@@ -71,14 +71,14 @@ class PsdTransform( object ) :
     """
 
     @staticmethod
-    def transform( x : Union[ List, numpy.ndarray ], b : Union[ List, numpy.ndarray ], index : int, spectrogram : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( x : Union[ list, numpy.ndarray ], b : Union[ list, numpy.ndarray ], index : int, spectrogram : bool = False ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms a real or complex discrete-time incident signal to a
             real discrete-frequency reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
+                x : Union[ list, numpy.ndarray ] - incident signal.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
                 index : int.
                 spectrogram : bool.
 

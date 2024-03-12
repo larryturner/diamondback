@@ -92,7 +92,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-from typing import List, Tuple, Union
+from typing import Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -110,7 +110,7 @@ class FirFilter( object ) :
         return self._b
 
     @b.setter
-    def b( self, b : Union[ List, numpy.ndarray ] ) :
+    def b( self, b : Union[ list, numpy.ndarray ] ) :
         self._b = b
 
     @property
@@ -118,11 +118,11 @@ class FirFilter( object ) :
         return self._s
 
     @s.setter
-    def s( self, s : Union[ List, numpy.ndarray ] ) :
+    def s( self, s : Union[ list, numpy.ndarray ] ) :
         self._s = s
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
+                  b : Union[ list, numpy.ndarray ] = [ ], s : Union[ list, numpy.ndarray ] = [ ] ) -> None :
 
         """ Initialize.
 
@@ -140,8 +140,8 @@ class FirFilter( object ) :
                 count : int - instances per cascade.
                 complement : bool - complement response.
                 gain : float - gain.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
-                s : Union[ List, numpy.ndarray ] - state.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
+                s : Union[ list, numpy.ndarray ] - state.
         """
 
         if ( not len( b ) ) :
@@ -217,12 +217,12 @@ class FirFilter( object ) :
             y[ 0 ] = y[ 1 ] * 2.0 - y[ 2 ]
         return y, f
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

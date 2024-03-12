@@ -39,7 +39,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-31.
 """
 
-from typing import List, Union
+from typing import Union
 import math
 import numpy
 
@@ -71,12 +71,12 @@ class ComplexExponentialFilter( object ) :
         super( ).__init__( )
         self._phase = phase
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).
+                x : Union[ list, numpy.ndarray ] - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).
 
             Returns :
                 y : numpy.ndarray - reference signal.

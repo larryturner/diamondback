@@ -90,7 +90,7 @@
 
 from diamondback.filters.FirFilter import FirFilter
 from diamondback.transforms.ZTransform import ZTransform
-from typing import Any, List, Tuple, Union
+from typing import Any, Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -108,11 +108,11 @@ class IirFilter( FirFilter ) :
         return self._a
 
     @a.setter
-    def a( self, a : Union[ List, numpy.ndarray ] ) :
+    def a( self, a : Union[ list, numpy.ndarray ] ) :
         self._a = a
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  a : Union[ List, numpy.ndarray ] = [ ], b : Union[ List, numpy.ndarray ] = [ ], s : Union[ List, numpy.ndarray ] = [ ] ) -> None :
+                  a : Union[ list, numpy.ndarray ] = [ ], b : Union[ list, numpy.ndarray ] = [ ], s : Union[ list, numpy.ndarray ] = [ ] ) -> None :
 
         """ Initialize.
 
@@ -130,9 +130,9 @@ class IirFilter( FirFilter ) :
                 count : int - instances per cascade.
                 complement : bool - complement response.
                 gain : float - gain.
-                a : Union[ List, numpy.ndarray ] - recursive coefficient.
-                b : Union[ List, numpy.ndarray ] - forward coefficient.
-                s : Union[ List, numpy.ndarray ] - state.
+                a : Union[ list, numpy.ndarray ] - recursive coefficient.
+                b : Union[ list, numpy.ndarray ] - forward coefficient.
+                s : Union[ list, numpy.ndarray ] - state.
         """
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
@@ -246,12 +246,12 @@ class IirFilter( FirFilter ) :
                 y[ -6 : ] = numpy.sign( y[ -6 : ] ) * min( abs( y[ -6 : ] ) )
         return y, f
 
-    def filter( self, x : Union[ List, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ List, numpy.ndarray ] - incident signal.
+                x : Union[ list, numpy.ndarray ] - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.
