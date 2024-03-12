@@ -7,7 +7,7 @@
 
         .. math::
 
-            x_{n} = e^{\\ j\\ \pi\\ \phi_{n}}
+            x_{n} = e^{\\ j\\ \\pi\\ \\phi_{n}}
 
         .. math::
 

@@ -36,11 +36,11 @@
 
         .. math::
 
-            x_{0:R-1,j} = \\matrix{filter_{b_{S,L}}(\\ 2\ \\uparrow(\\ y_{0:\\frac{R}{2}-1,j},\\ 2\\ )\\ ) ) + filter_{b_{S,H}}(\\ 2\\ \\uparrow(\\ y_{\\frac{R}{2}:R-1,j},\\ 2\\ ) )\\ ) & j \\in \\scriptsize{[\\ 0,\\ C\\ )}}
+            x_{0:R-1,j} = \\matrix{filter_{b_{S,L}}(\\ 2\\ \\uparrow(\\ y_{0:\\frac{R}{2}-1,j},\\ 2\\ )\\ ) ) + filter_{b_{S,H}}(\\ 2\\ \\uparrow(\\ y_{\\frac{R}{2}:R-1,j},\\ 2\\ ) )\\ ) & j \\in \\scriptsize{[\\ 0,\\ C\\ )}}
 
         .. math::
 
-            x_{i,0:C-1} = \\matrix{filter_{b_{S,L}}(\\ 2\ \\uparrow(\\ y_{i,0:\\frac{C}{2}-1},\\ 2\\ )\\ ) + filter_{b_{S,H}}(\\ 2\\ \\uparrow(\\ y_{i,\\frac{C}{2}:C-1},\\ 2\\ )\\ ) & i \\in \\scriptsize{[\\ 0,\\ R\\ )}}
+            x_{i,0:C-1} = \\matrix{filter_{b_{S,L}}(\\ 2\\ \\uparrow(\\ y_{i,0:\\frac{C}{2}-1},\\ 2\\ )\\ ) + filter_{b_{S,H}}(\\ 2\\ \\uparrow(\\ y_{i,\\frac{C}{2}:C-1},\\ 2\\ )\\ ) & i \\in \\scriptsize{[\\ 0,\\ R\\ )}}
 
         Analysis filters and synthesis filters of a specified order are defined
         to satisfy specified constraints.  A style and order are

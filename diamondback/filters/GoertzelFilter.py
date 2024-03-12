@@ -14,7 +14,7 @@
 
         .. math::
 
-            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 & 2\\ \\cos(\ \\pi\\ f\\ ) & -1 }\\ ] } & b = \\scriptsize{ [\\ \\matrix{ 1 & -e^{\\ j\\ \\pi\\ f\\ } & 0 } }\\ ] }
+            \\matrix{ a = \\scriptsize{ [\\ \\matrix{ 0 & 2\\ \\cos(\\ \\pi\\ f\\ ) & -1 }\\ ] } & b = \\scriptsize{ [\\ \\matrix{ 1 & -e^{\\ j\\ \\pi\\ f\\ } & 0 } }\\ ] }
 
         At the terminus of each window length a reference signal is evaluated
         to estimate a discrete Fourier transform at a specified normalized

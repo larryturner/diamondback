@@ -12,7 +12,7 @@
 
         .. math::
 
-            \\alpha = \\matrix{\\frac{1}{3}}^{0.5}\\ e^{\\ -j\ \\frac{\\pi}{6}\\ }
+            \\alpha = \\matrix{\\frac{1}{3}}^{0.5}\\ e^{\\ -j\\ \\frac{\\pi}{6}\\ }
 
         Complex - Three-Phase.
 
