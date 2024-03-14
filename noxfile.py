@@ -5,7 +5,7 @@
         Environment variables may be electively defined to support access to
         non-public repositories on GitHub or GitHub Enterprise.
 
-        ``GITHUB_USER`` and ``GITHUB`` token define a GitHub user and token.
+        ``GITHUB_USER`` and ``GITHUB_TOKEN`` token define a GitHub user and token.
 
         pyproject.toml dependencies may include GitHub repositories, which
         are temporarily modified to embed GitHub credentials in build, as
@@ -13,7 +13,7 @@
 
         .. code-block:: bash
 
-            '<package> @ git+https://[{GITHUB_USER}:{GITHUB_TOKEN}]@github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
+            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>]@github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
 
     **Example**
 
@@ -65,6 +65,7 @@ def build( session ) -> None :
                     u, v = '//github.', f'//{user}:{token}@github.'
                     y = x.replace( u, v )
                     if ( x != y ) :
+                        print( 'pyproject.toml : GitHub credentials found.' )
                         with open( 'pyproject.toml', 'w' ) as fout :
                             fout.write( y )
             session.run( 'python', '-m', 'build', '-s', '-w' )
