@@ -6,6 +6,6 @@
 .vscode/
 __pycache__/
 build/
-desktop.ini
+dist/
 notebooks/.ipynb_checkpoints/
 *.egg-info/
