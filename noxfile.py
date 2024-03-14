@@ -19,8 +19,8 @@
 
         .. code-block:: bash
 
-            nox --list
-            nox --sessions build clean dependencies docs image notebook push status tag tests typing
+            nox -l
+            nox -s build clean dependencies docs image notebook push status tag tests typing
 
     **License**
         © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
