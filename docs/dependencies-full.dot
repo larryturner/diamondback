@@ -432,6 +432,7 @@ digraph G {
     typing_extensions -> arrow [fillcolor="#f910f1",minlen="2"];
     typing_extensions -> attr [fillcolor="#f910f1",minlen="2"];
     typing_extensions -> babel [fillcolor="#f910f1",minlen="2"];
+    typing_extensions -> fsspec [fillcolor="#f910f1",minlen="2"];
     typing_extensions -> iniconfig [fillcolor="#f910f1",minlen="2"];
     typing_extensions -> jinja2 [fillcolor="#f910f1",minlen="2"];
     typing_extensions -> markupsafe [fillcolor="#f910f1"];
