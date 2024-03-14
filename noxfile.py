@@ -1,12 +1,26 @@
 """ **Description**
         Nox project management.
 
+    **Environment**
+        Environment variables may be electively defined to support access to
+        non-public repositories on GitHub or GitHub Enterprise.
+
+        ``GITHUB_USER`` and ``GITHUB`` token define a GitHub user and token.
+
+        pyproject.toml dependencies may include GitHub repositories, which
+        are temporarily modified to embed GitHub credentials in build, as
+        environment variable expressions are not directly supported.
+
+        .. code-block:: bash
+
+            '<package> @ git+https://[{GITHUB_USER}:{GITHUB_TOKEN}]@github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
+
     **Example**
 
         .. code-block:: bash
 
-            nox --list
-            nox --sessions build clean dependencies docs image notebook push status tag tests typing
+            nox -l
+            nox -s build clean dependencies docs image notebook push status tag tests typing
 
     **License**
         © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
@@ -41,9 +55,24 @@ def build( session ) -> None :
 
     if ( pathlib.Path( 'setup.py' ).is_file( ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
-        session.run( 'python', '-m', 'build', '-s', '-w' )
-        shutil.rmtree( 'build', ignore_errors = True )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'dist' / '*' ), external = True )
+        x = None
+        try :
+            if ( pathlib.Path( 'pyproject.toml' ).is_file( ) ) :
+                user, token = os.getenv( 'GITHUB_USER' ), os.getenv( 'GITHUB_TOKEN' )
+                if ( user and token ) :
+                    with open( 'pyproject.toml', 'r' ) as fin :
+                        x = fin.read( )
+                    u, v = '//github.', f'//{user}:{token}@github.'
+                    y = x.replace( u, v )
+                    if ( x != y ) :
+                        with open( 'pyproject.toml', 'w' ) as fout :
+                            fout.write( y )
+            session.run( 'python', '-m', 'build', '-s', '-w' )
+        finally :
+            if ( x ) :
+                with open( 'pyproject.toml', 'w' ) as fout :
+                    fout.write( x )
+            shutil.rmtree( 'build', ignore_errors = True )
 
 @nox.session( venv_backend = 'none' )
 def clean( session ) -> None :
@@ -84,7 +113,7 @@ def convert( x : str ) -> str :
 @nox.session( venv_backend = 'none' )
 def dependencies( session ) -> None :
 
-    """ Build dependency diagrams.
+    """ Dependency diagrams.
     """
 
     ( pathlib.Path.cwd( ) / 'docs' ).mkdir( exist_ok = True )
@@ -104,7 +133,7 @@ def dependencies( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def docs( session ) -> None :
 
-    """ Build documentation.
+    """ Documentation.
     """
 
     if ( pathlib.Path( 'templates' ).is_dir( ) ) :
@@ -130,7 +159,7 @@ def docs( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def image( session ) -> None :
 
-    """ Build image.
+    """ Image.
     """
 
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
@@ -140,7 +169,7 @@ def image( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def notebook( session ) -> None :
 
-    """ Run notebook.
+    """ Notebook.
     """
 
     if ( pathlib.Path( 'notebooks' ).is_dir( ) ) :
@@ -152,7 +181,7 @@ def notebook( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def push( session ) -> None :
 
-    """ Push repository.
+    """ Push.
     """
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
@@ -168,12 +197,12 @@ def push( session ) -> None :
         value = input( '[ ' + REPOSITORY + ' ] message : ' )
         if ( value ) :
             if ( session.run( 'git', 'commit', '--all', '--message', value, external = True ) ) :
-                session.run( 'git', 'push', 'origin', 'develop', external = True )
+                session.run( 'git', 'push', 'origin', 'master', external = True )
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
 
-    """ Check status.
+    """ Status.
     """
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
@@ -183,7 +212,7 @@ def status( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def tag( session ) -> None :
 
-    """ Push tag.
+    """ Tag.
     """
 
     if ( pathlib.Path( '.git' ).is_dir( ) ) :
@@ -196,7 +225,7 @@ def tag( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def tests( session ) -> None :
 
-    """ Run tests.
+    """ Tests.
     """
 
     if ( pathlib.Path( 'tests' ).is_dir( ) ) :
@@ -215,7 +244,7 @@ def tests( session ) -> None :
 @nox.session( venv_backend = 'none' )
 def typing( session ) -> None :
 
-    """ Run typing.
+    """ Typing.
     """
 
     session.run( 'mypy', SOURCE )
