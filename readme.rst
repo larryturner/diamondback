@@ -274,9 +274,7 @@ Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
 
-``diamondback`` uses nox for project management.  You may electively run nox
-sessions to simplify actions including build, dependencies, documentation
-generation, tests, and typing.
+Run a nox ``notebook`` session to exercise demonstration.
 
 .. code-block:: bash
 
@@ -287,6 +285,8 @@ Documentation
 
 ``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
 
+Run a nox ``docs`` session to generate documentation.
+
 .. code-block:: bash
 
     nox -s docs
@@ -296,6 +296,8 @@ Tests
 
 A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.
+
+Run a nox ``tests`` session to exercise tests.
 
 .. code-block:: bash
 
