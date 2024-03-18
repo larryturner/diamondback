@@ -13,7 +13,7 @@
 
         .. code-block:: bash
 
-            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>]@github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
+            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>@]github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
 
     **Example**
 
