@@ -198,7 +198,7 @@ def push( session ) -> None :
         value = input( '[ ' + REPOSITORY + ' ] message : ' )
         if ( value ) :
             if ( session.run( 'git', 'commit', '--all', '--message', value, external = True ) ) :
-                session.run( 'git', 'push', 'origin', 'master', external = True )
+                session.run( 'git', 'push', external = True )
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
