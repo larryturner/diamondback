@@ -62,7 +62,7 @@ def build( session ) -> None :
                 if ( user and token ) :
                     with open( 'pyproject.toml', 'r' ) as fin :
                         x = fin.read( )
-                    u, v = '//github.', f'//{user}:{token}@github.'
+                    u, v = 'git+https://github.', f'git+https://{user}:{token}@github.'
                     y = x.replace( u, v )
                     if ( x != y ) :
                         print( 'pyproject.toml : GitHub credentials found.' )
