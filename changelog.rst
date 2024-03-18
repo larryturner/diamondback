@@ -1,3 +1,8 @@
+5.0.2 - 2024-03-18
+^^^^^^^^^^^^^^^^^^
+-   Modified documentation.
+-   Modified requirements.
+
 5.0.1 - 2024-01-23
 ^^^^^^^^^^^^^^^^^^
 -   Required pillow 10.2.0 to address pillow arbitrary code execution.

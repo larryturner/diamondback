@@ -13,7 +13,7 @@
 
         .. code-block:: bash
 
-            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>]@github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
+            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>@]github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
 
     **Example**
 
@@ -198,7 +198,7 @@ def push( session ) -> None :
         value = input( '[ ' + REPOSITORY + ' ] message : ' )
         if ( value ) :
             if ( session.run( 'git', 'commit', '--all', '--message', value, external = True ) ) :
-                session.run( 'git', 'push', 'origin', 'master', external = True )
+                session.run( 'git', 'push', external = True )
 
 @nox.session( venv_backend = 'none' )
 def status( session ) -> None :
