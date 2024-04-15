@@ -3,7 +3,6 @@ authors = [ { name = 'Larry Turner', email = 'larry.turner@se.com' } ]
 classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Operating System :: OS Independent',
                 'Programming Language :: Python :: 3',
-                'Programming Language :: Python :: 3.8',
                 'Programming Language :: Python :: 3.9',
                 'Programming Language :: Python :: 3.10',
                 'Programming Language :: Python :: 3.11',
@@ -11,12 +10,12 @@ classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python :: 3.13',
                 'License :: OSI Approved :: BSD License' ]
 dependencies = [ 'jsonpickle >= 3.0.2, < 4.0.0',
-                 'loguru >= 0.7.2, < 1.0.0',
+                 'loguru >= 0.6.0, < 1.0.0',
                  'numpy >= 1.26.4, < 2.0.0',
-                 'pandas >= 2.2.0, < 3.0.0',
+                 'pandas >= 2.2.2, < 3.0.0',
                  'requests >= 2.31.0, < 3.0.0',
                  'scikit-learn >= 1.4.0, < 2.0.0',
-                 'scipy >= 1.12.0, < 2.0.0' ]
+                 'scipy >= 1.13.0, < 2.0.0' ]
 description = 'diamondback DSP package.'
 keywords = [ 'BSON',
              'DSP',
@@ -46,22 +45,22 @@ keywords = [ 'BSON',
 license = { file = 'license' }
 name = 'diamondback'
 readme = 'readme.rst'
-requires-python = '>= 3.8, < 3.13'
-version = '5.0.2'
+requires-python = '>= 3.9, < 3.14'
+version = '5.0.3'
 
 [ project.optional-dependencies ]
 doc = [ 'ipython >= 8.21.0, < 9.0.0',
         'ipywidgets >= 8.1.2, < 9.0.0',
         'jupyter >= 1.0.0, < 2.0.0',
-        'matplotlib >= 3.8.2, < 4.0.0',
+        'matplotlib >= 3.8.4, < 4.0.0',
         'mypy >= 1.8.0, < 2.0.0',
-        'nox >= 2023.04.22, < 2025.04.22',
-        'pillow >= 10.2.0, < 11.0.0',
-        'pydeps >= 1.12.18, < 2.0.0',
+        'nox >= 2024.04.14, < 2026.04.14',
+        'pillow >= 10.3.0, < 11.0.0',
+        'pydeps >= 1.12.20, < 2.0.0',
         'requests >= 2.31.0, < 3.0.0',
         'sphinx >= 7.2.6, < 8.0.0',
         'sphinx-rtd-theme >= 2.0.0, < 3.0.0' ]
-test = [ 'pytest >= 8.0.0, < 9.0.0',
+test = [ 'pytest >= 8.1.1, < 9.0.0',
          'requests >= 2.31.0, < 3.0.0' ]
 
 [ project.urls ]
@@ -69,10 +68,10 @@ homepage = 'https://github.com/larryturner/diamondback'
 
 [ build-system ]
 build-backend = 'setuptools.build_meta'
-requires = [ 'build >= 1.0.3, < 2.0.0',
+requires = [ 'build >= 1.2.1, < 2.0.0',
              'requests >= 2.31.0, < 3.0.0',
-             'setuptools >= 69.0.3, < 70.0.0',
-             'wheel >= 0.42.0, < 1.0.0' ]
+             'setuptools >= 69.5.1, < 70.0.0',
+             'wheel >= 0.43.0, < 1.0.0' ]
 
 [ tool.setuptools.packages.find ]
 include = [ 'diamondback*' ]

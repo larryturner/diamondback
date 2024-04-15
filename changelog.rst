@@ -1,3 +1,7 @@
+5.0.3 - 2024-04-15
+^^^^^^^^^^^^^^^^^^
+-   Modified requirements.
+
 5.0.2 - 2024-03-18
 ^^^^^^^^^^^^^^^^^^
 -   Modified documentation.
