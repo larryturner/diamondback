@@ -3,7 +3,6 @@ authors = [ { name = 'Larry Turner', email = 'larry.turner@se.com' } ]
 classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Operating System :: OS Independent',
                 'Programming Language :: Python :: 3',
-                'Programming Language :: Python :: 3.8',
                 'Programming Language :: Python :: 3.9',
                 'Programming Language :: Python :: 3.10',
                 'Programming Language :: Python :: 3.11',
@@ -46,7 +45,7 @@ keywords = [ 'BSON',
 license = { file = 'license' }
 name = 'diamondback'
 readme = 'readme.rst'
-requires-python = '>= 3.8, < 3.13'
+requires-python = '>= 3.9, < 3.14'
 version = '5.0.2'
 
 [ project.optional-dependencies ]
