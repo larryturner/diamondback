@@ -3,7 +3,7 @@ diamondback
 
 .. image:: https://img.shields.io/pypi/pyversions/diamondback.svg?color=steelblue
     :target: https://www.python.org/
-.. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi%20version&color=midnightblue
+.. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi&color=midnightblue
     :target: https://pypi.org/project/diamondback
 .. image:: https://img.shields.io/badge/admin-nox-orangered
     :target: https://pypi.org/project/nox/
