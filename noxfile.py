@@ -1,26 +1,32 @@
 """ **Description**
-        Nox project management.
+        Nox defines sessions to support project administration.
 
     **Environment**
         Environment variables may be electively defined to support access to
         non-public repositories on GitHub or GitHub Enterprise.
 
-        ``GITHUB_USER`` and ``GITHUB_TOKEN`` token define a GitHub user and token.
+        ``GITHUB_USER`` defines a GitHub user.
 
-        pyproject.toml dependencies may include GitHub repositories, which
-        are temporarily modified to embed GitHub credentials in build, as
-        environment variable expressions are not directly supported.
-
-        .. code-block:: bash
-
-            '<package> @ git+https://[<GITHUB_USER>:<GITHUB_TOKEN>@]github.[<enterprise>.]com/<account>/<repository>@<tag>#egg=<package>'
+        ``GITHUB_TOKEN`` defines a GitHub access token.
 
     **Example**
+        List sessions.
 
         .. code-block:: bash
 
             nox -l
-            nox -s build clean dependencies docs image notebook push status tag tests typing
+
+        Run default sessions.
+
+        .. code-block:: bash
+
+            nox
+
+        Run specific sessions.
+
+        .. code-block:: bash
+
+            nox -s typing dependencies build image tests docs
 
     **License**
         © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
