@@ -1,5 +1,3 @@
-D:\Development\Python\diamondback\diamondback\transforms\ComplexTransform.py:1: SyntaxWarning: invalid escape sequence '\ '
-  """ **Description**
 
 digraph G {
     concentrate = true;

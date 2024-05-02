@@ -5,6 +5,8 @@ diamondback
     :target: https://www.python.org/
 .. image:: https://img.shields.io/pypi/v/diamondback.svg?label=pypi&color=midnightblue
     :target: https://pypi.org/project/diamondback
+.. image:: https://img.shields.io/badge/admin-nox-orangered
+    :target: https://pypi.org/project/nox/
 .. image:: https://img.shields.io/badge/doc-sphinx-royalblue
     :target: https://pypi.org/project/sphinx/
 .. image:: https://img.shields.io/badge/test-pytest-forestgreen
