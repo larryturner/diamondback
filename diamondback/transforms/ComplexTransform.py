@@ -18,7 +18,7 @@
 
         .. math::
 
-            y_{n} = \\matrix{ x^{T}_{n}\\ \\gamma\\ }\ \\scriptsize{[\\ \\matrix{ 1 & j & 0 }\\ ]^{T}}
+            y_{n} = \\matrix{ x^{T}_{n}\\ \\gamma\\ }\\ \\scriptsize{[\\ \\matrix{ 1 & j & 0 }\\ ]^{T}}
 
         .. math::
 

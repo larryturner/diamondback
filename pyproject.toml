@@ -42,9 +42,9 @@ keywords = [ 'BSON',
              'serial',
              'transform',
              'wavelet' ]
-license = { file = 'license' }
+license = { file = 'LICENSE' }
 name = 'diamondback'
-readme = 'readme.rst'
+readme = 'README.rst'
 requires-python = '>= 3.9, < 3.14'
 version = '5.0.3'
 
