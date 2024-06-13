@@ -39,7 +39,7 @@ digraph G {
     numpy [fillcolor="#06f991",shape="folder"];
     requests [fillcolor="#4089c0",fontcolor="#ffffff",shape="folder"];
     scipy [fillcolor="#4806ef",fontcolor="#ffffff",shape="folder"];
-    sklearn [fillcolor="#b83da6",fontcolor="#ffffff",shape="folder"];
+    sklearn [fillcolor="#b03a9f",fontcolor="#ffffff",shape="folder"];
     diamondback_commons -> diamondback [fillcolor="#b03a3a"];
     diamondback_commons_Log -> diamondback [fillcolor="#c43131",minlen="2"];
     diamondback_commons_Log -> diamondback_commons [fillcolor="#c43131",weight="2"];
@@ -140,6 +140,7 @@ digraph G {
     scipy -> diamondback_filters_IirFilter [fillcolor="#4806ef",minlen="3"];
     scipy -> diamondback_filters_WindowFilter [fillcolor="#4806ef",minlen="3"];
     scipy -> diamondback_transforms_ZTransform [fillcolor="#4806ef",minlen="3"];
-    sklearn -> diamondback_models_GaussianMixtureModel [fillcolor="#b83da6",minlen="3"];
+    scipy -> sklearn [fillcolor="#4806ef"];
+    sklearn -> diamondback_models_GaussianMixtureModel [fillcolor="#b03a9f",minlen="3"];
 }
 
