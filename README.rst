@@ -75,7 +75,7 @@ Complex or real types are supported as appropriate.
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `ComplexBandPassFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module>`_
+-   `ComplexBandpassFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module>`_
     instances adaptively extract or reject signals at a normalized
     frequency of interest, and may be employed to dynamically track
     magnitude and phase or demodulate signals.

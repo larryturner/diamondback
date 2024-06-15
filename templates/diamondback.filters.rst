@@ -4,10 +4,10 @@ diamondback.filters package
 Submodules
 ----------
 
-diamondback.filters.ComplexBandPassFilter module
+diamondback.filters.ComplexBandpassFilter module
 ------------------------------------------------
 
-.. automodule:: diamondback.filters.ComplexBandPassFilter
+.. automodule:: diamondback.filters.ComplexBandpassFilter
    :members:
    :noindex:
    :undoc-members:

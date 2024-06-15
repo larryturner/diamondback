@@ -11,21 +11,21 @@
 
 # isort: skip_file
 
-from .FirFilter import FirFilter
-from .IirFilter import IirFilter
-from .ComplexBandPassFilter import ComplexBandPassFilter
-from .ComplexExponentialFilter import ComplexExponentialFilter
-from .ComplexFrequencyFilter import ComplexFrequencyFilter
-from .DerivativeFilter import DerivativeFilter
-from .GoertzelFilter import GoertzelFilter
-from .IntegralFilter import IntegralFilter
-from .PidFilter import PidFilter
-from .PolynomialRateFilter import PolynomialRateFilter
-from .PolyphaseRateFilter import PolyphaseRateFilter
-from .RankFilter import RankFilter
-from .WindowFilter import WindowFilter
+from .fir_filter import FirFilter
+from .iir_filter import IirFilter
+from .complex_bandpass_filter import ComplexBandpassFilter
+from .complex_exponential_filter import ComplexExponentialFilter
+from .complex_frequency_filter import ComplexFrequencyFilter
+from .derivative_filter import DerivativeFilter
+from .goertzel_filter import GoertzelFilter
+from .integral_filter import IntegralFilter
+from .pid_filter import PidFilter
+from .polynomial_rate_filter import PolynomialRateFilter
+from .polyphase_rate_filter import PolyphaseRateFilter
+from .rank_filter import RankFilter
+from .window_filter import WindowFilter
 
-__all__ = [ 'FirFilter', 'IirFilter', 'ComplexBandPassFilter', 'ComplexExponentialFilter',
+__all__ = [ 'FirFilter', 'IirFilter', 'ComplexBandpassFilter', 'ComplexExponentialFilter',
             'ComplexFrequencyFilter', 'DerivativeFilter', 'GoertzelFilter', 'IntegralFilter',
             'PidFilter', 'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter',
             'WindowFilter' ]
