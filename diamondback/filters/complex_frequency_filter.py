@@ -36,19 +36,10 @@
             import numpy
 
             x = numpy.linspace( 0.0, 0.1, 128 )
-
-            # Create a primary signal.
-
             d = ComplexExponentialFilter( 0.0 ).filter( x )
-
-            # Create an instance.
-
-            obj = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
-
-            # Filter a primary signal.
-
-            obj.reset( d[ 0 ] )
-            y, e, b = obj.filter( d )
+            complex_frequency_filter = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
+            complex_frequency_filter.reset( d[ 0 ] )
+            y, e, b = complex_frequency_filter.filter( d )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

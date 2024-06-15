@@ -42,12 +42,12 @@
                 Log.level( 'Info' )
                 Log.write( 'Info', 'Test Log write.' )
 
-                # Set Log stream to sys.stdout.
+                # Standard output.
 
                 Log.stream( sys.stdout )
                 Log.write( 'Info', f'Valid = {True}' )
 
-                # Set Log stream to a memory stream.
+                # Memory stream.
 
                 stream = io.StringIO( )
                 Log.stream( stream )
@@ -58,7 +58,7 @@
                 value = stream.getvalue( )
                 _, _ = stream.truncate( 0 ), stream.seek( 0 )
 
-                # Set Log stream to a file.
+                # File.
 
                 with open( 'log-2112.txt', 'w' ) as fout :
                     Log.stream( fout )

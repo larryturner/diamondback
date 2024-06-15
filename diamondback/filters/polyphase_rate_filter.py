@@ -61,15 +61,10 @@
             import math
             import numpy
 
-            # Create an instance.
-
-            obj = PolyphaseRateFilter( rate = 1.0 / math.pi )
-
-            # Filter an incident signal.
-
+            polyphase_rate_filter = PolyphaseRateFilter( rate = 1.0 / math.pi )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-            obj.reset( x[ 0 ] )
-            y = obj.filter( x )
+            polyphase_rate_filter.reset( x[ 0 ] )
+            y = polyphase_rate_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

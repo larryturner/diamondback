@@ -35,14 +35,9 @@
             import math
             import numpy
 
-            # Create an instance.
-
-            obj = PolynomialRateFilter( rate = math.pi, order = 1 )
-
-            # Filter an incident signal.
-
+            polynomial_rate_filter = PolynomialRateFilter( rate = math.pi, order = 1 )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-            y = obj.filter( x )
+            y = polynomial_rate_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

@@ -55,15 +55,10 @@
 
             from diamondback import DiversityModel
 
-            # Create an instance.
-
-            obj = DiversityModel( style = 'Euclidean', order = 4 )
-
-            # Learn an incident signal and extract a state.
-
+            diversity_model = DiversityModel( style = 'Euclidean', order = 4 )
             x = numpy.random.rand( 32, 2 )
-            y = obj.learn( x )
-            s = obj.s
+            y = diversity_model.learn( x )
+            s = diversity_model.s
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

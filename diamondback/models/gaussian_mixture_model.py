@@ -12,16 +12,11 @@
 
             from diamondback import GaussianMixtureModel
 
-            # Create an instance.
-
-            obj = GaussianMixtureModel( order = 10, index = 100 )
-
-            # Learn an incident signal and predict classification.
-
+            gaussian_mixture_model = GaussianMixtureModel( order = 10, index = 100 )
             x, y = numpy.random.rand( 32, 2 ), numpy.random.randint( 0, 10, 32 )
-            obj.learn( x, y )
+            gaussian_mixture_model.learn( x, y )
             x = numpy.random.rand( 16, 2 )
-            v = obj.predict( x )
+            v = gaussian_mixture_model.predict( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

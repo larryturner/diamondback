@@ -63,16 +63,11 @@
             from diamondback import WaveletTransform
             import numpy
 
-            # Create an instance.
-
-            obj = WaveletTransform( style = 'Haar', order = 1 )
-
-            # Transform an incident signal, forward and inverse.
-
+            wavelet_transform = WaveletTransform( style = 'Haar', order = 1 )
             count = 3
             x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
-            y = obj.transform( x, count, False )
-            z = obj.transform( y, count, True )
+            y = wavelet_transform.transform( x, count, False )
+            z = wavelet_transform.transform( y, count, True )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

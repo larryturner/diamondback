@@ -41,15 +41,9 @@
 
             b = WindowFilter( 'Hann', 128 ).b
             frequency = 0.1
-
-            # Create an instance.
-
-            obj = GoertzelFilter( b = b, frequency = frequency )
-
-            # Filter an incident signal.
-
+            goertzel_filter = GoertzelFilter( b = b, frequency = frequency )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 0 ]
-            y = obj.filter( x )
+            y = goertzel_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

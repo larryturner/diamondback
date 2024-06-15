@@ -21,15 +21,10 @@
             from diamondback import RankFilter
             import numpy
 
-            # Create an instance.
-
-            obj = RankFilter( rank = 4, order = 4 )
-
-            # Filter an incident signal.
-
+            rank_filter = RankFilter( rank = 4, order = 4 )
             x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )
-            obj.reset( x[ 0 ] )
-            y = obj.filter( x )
+            rank_filter.reset( x[ 0 ] )
+            y = rank_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

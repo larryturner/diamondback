@@ -10,16 +10,11 @@
 
             from diamondback import GaussianModel
 
-            # Create an instance.
-
-            obj = GaussianModel( )
-
-            # Learn an incident signal and predict classification.
-
+            gaussian_model = GaussianModel( )
             x, y = numpy.random.rand( 32, 2 ), numpy.random.randint( 0, 10, 32 )
-            obj.learn( x, y )
+            gaussian_model.learn( x, y )
             x = numpy.random.rand( 16, 2 )
-            v = obj.predict( x )
+            v = gaussian_model.predict( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
