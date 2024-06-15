@@ -11,11 +11,11 @@
 
 # isort: skip_file
 
-from .ComplexTransform import ComplexTransform
-from .FourierTransform import FourierTransform
-from .PsdTransform import PsdTransform
-from .WaveletTransform import WaveletTransform
-from .ZTransform import ZTransform
+from .complex_transform import ComplexTransform
+from .fourier_transform import FourierTransform
+from .psd_transform import PsdTransform
+from .wavelet_transform import WaveletTransform
+from .z_transform import ZTransform
 
 __all__ = [ 'ComplexTransform', 'FourierTransform', 'PsdTransform', 'WaveletTransform',
             'ZTransform' ]

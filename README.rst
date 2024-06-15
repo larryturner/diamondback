@@ -75,7 +75,7 @@ Complex or real types are supported as appropriate.
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
--   `ComplexBandPassFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module>`_
+-   `ComplexBandpassFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complexbandpassfilter-module>`_
     instances adaptively extract or reject signals at a normalized
     frequency of interest, and may be employed to dynamically track
     magnitude and phase or demodulate signals.
@@ -219,15 +219,18 @@ Dependencies
 ``diamondback`` elective build, documentation, test, and demonstration
 functionality depends upon additional external packages.
 
+-   `build <https://pypi.org/project/build/>`_
 -   `ipython <https://pypi.org/project/ipython/>`_
 -   `ipywidgets <https://pypi.org/project/ipywidgets/>`_
 -   `jupyter <https://pypi.org/project/jupyter/>`_
 -   `matplotlib <https://pypi.org/project/matplotlib/>`_
+-   `mypy <https://pypi.org/project/mypy/>`_
 -   `nox <https://pypi.org/project/nox/>`_
 -   `pandas <https://pypi.org/project/pandas/>`_
 -   `pillow <https://pypi.org/project/pillow/>`_
 -   `pydeps <https://pypi.org/project/pydeps/>`_
 -   `pytest <https://pypi.org/project/pytest/>`_
+-   `ruff <https://pypi.org/project/ruff/>`_
 -   `sphinx <https://pypi.org/project/sphinx/>`_
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 

@@ -11,8 +11,8 @@
 
 # isort: skip_file
 
-from .Log import Log
-from .RestClient import RestClient
-from .Serial import Serial
+from .log import Log
+from .rest_client import RestClient
+from .serial import Serial
 
 __all__ = [ 'Log', 'RestClient', 'Serial' ]

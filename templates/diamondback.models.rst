@@ -4,28 +4,28 @@ diamondback.models package
 Submodules
 ----------
 
-diamondback.models.DiversityModel module
-----------------------------------------
+diamondback.models.diversity\_model module
+------------------------------------------
 
-.. automodule:: diamondback.models.DiversityModel
+.. automodule:: diamondback.models.diversity_model
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.models.GaussianMixtureModel module
-----------------------------------------------
+diamondback.models.gaussian\_mixture\_model module
+--------------------------------------------------
 
-.. automodule:: diamondback.models.GaussianMixtureModel
+.. automodule:: diamondback.models.gaussian_mixture_model
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.models.GaussianModel module
----------------------------------------
+diamondback.models.gaussian\_model module
+-----------------------------------------
 
-.. automodule:: diamondback.models.GaussianModel
+.. automodule:: diamondback.models.gaussian_model
    :members:
    :noindex:
    :undoc-members:

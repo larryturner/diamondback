@@ -15,7 +15,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import FirFilter, IirFilter, ComplexBandPassFilter, ComplexExponentialFilter
+from diamondback import FirFilter, IirFilter, ComplexBandpassFilter, ComplexExponentialFilter
 from diamondback import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, IntegralFilter
 from diamondback import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
 from diamondback import WindowFilter
@@ -27,14 +27,14 @@ class Test( object ) :
     """ Test.
     """
 
-    def test_ComplexBandPassFilter( self ) :
+    def test_ComplexBandpassFilter( self ) :
 
-        """ Test ComplexBandPassFilter.
+        """ Test ComplexBandpassFilter.
         """
 
         count = 128
         frequency, rate = numpy.random.rand( ) * 2.0 - 1.0, numpy.random.rand( )
-        obj = ComplexBandPassFilter( frequency, rate )
+        obj = ComplexBandpassFilter( frequency, rate )
         assert numpy.isclose( obj.frequency, frequency )
         assert numpy.isclose( obj.rate, rate )
         frequency, rate = 0.1, 5.0e-2

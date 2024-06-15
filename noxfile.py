@@ -29,7 +29,7 @@
             nox -s typing dependencies build image tests docs
 
     **License**
-        © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
@@ -45,20 +45,22 @@ import shutil
 import string
 import time
 
-nox.options.sessions = [ 'typing', 'dependencies', 'build', 'image', 'tests', 'docs' ]
+nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'image', 'tests', 'docs' ]
 
+PYTHON = [ '3.9', '3.10', '3.11', '3.12' ]
 REPOSITORY = pathlib.Path.cwd( ).name
 x = REPOSITORY.split( '-' )
 SOURCE = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]
 if ( not pathlib.Path( SOURCE ).is_dir( ) ) :
     SOURCE = '.'
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def build( session ) -> None :
 
     """ Build distribution.
     """
 
+    session.install( '.[build]' )
     if ( pathlib.Path( 'setup.py' ).is_file( ) ) :
         shutil.rmtree( 'dist', ignore_errors = True )
         x = None
@@ -81,7 +83,7 @@ def build( session ) -> None :
                     fout.write( x )
             shutil.rmtree( 'build', ignore_errors = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv' )
 def clean( session ) -> None :
 
     """ Clean repository.
@@ -95,6 +97,9 @@ def clean( session ) -> None :
 def convert( x : str ) -> str :
 
     """Convert dot to svg format.
+
+    Encode class names with random patterns which preserve length,
+    convert format in request, and decode original class names.
 
     Arguments :
         x : str - dot.
@@ -117,12 +122,13 @@ def convert( x : str ) -> str :
         y = y.replace( v, u )
     return y
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def dependencies( session ) -> None :
 
     """ Dependency diagrams.
     """
 
+    session.install( '.[dependencies]' )
     ( pathlib.Path.cwd( ) / 'docs' ).mkdir( exist_ok = True )
     path = str( pathlib.Path.cwd( ) / 'docs' / 'dependencies-partial' )
     with open( path + '.dot', 'w' ) as fout :
@@ -137,12 +143,13 @@ def dependencies( session ) -> None :
             with open( path + '.svg', 'w' ) as fout :
                 fout.write( convert( fin.read( ) ) )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def docs( session ) -> None :
 
     """ Documentation.
     """
 
+    session.install( '.[docs]' )
     if ( pathlib.Path( 'templates' ).is_dir( ) ) :
         ( pathlib.Path.cwd( ) / 'docs' ).mkdir( exist_ok = True )
         session.run( 'sphinx-apidoc', '--force', '--output', str( pathlib.Path.cwd( ) / 'templates' ), '.', 'tests' )
@@ -160,10 +167,8 @@ def docs( session ) -> None :
             if ( ( pathlib.Path.cwd( ) / 'templates' / x ).is_file( ) ) :
                 os.remove( str( pathlib.Path.cwd( ) / 'templates' / x ) )
         session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'templates' ), str( pathlib.Path.cwd( ) / 'docs' ) )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'docs' / '*' ), external = True )
-        session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'templates' / '*' ), external = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv' )
 def image( session ) -> None :
 
     """ Image.
@@ -173,40 +178,29 @@ def image( session ) -> None :
         build( session )
         session.run( 'docker', 'build', '--tag', REPOSITORY, '.', external = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
+def lint( session ) -> None :
+
+    """ Lint.
+    """
+
+    session.install( '.[lint]' )
+    session.run( 'ruff', 'check', SOURCE )
+
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def notebook( session ) -> None :
 
     """ Notebook.
     """
 
+    session.install( '.[notebook]' )
     if ( pathlib.Path( 'notebooks' ).is_dir( ) ) :
         os.chdir( 'notebooks' )
         value = [ x for x in glob.glob( '*.ipynb', recursive = True ) ]
         if ( value ) :
             session.run( 'jupyter', 'notebook', value[ 0 ] )
 
-@nox.session( venv_backend = 'none' )
-def push( session ) -> None :
-
-    """ Push.
-    """
-
-    if ( pathlib.Path( '.git' ).is_dir( ) ) :
-        x = REPOSITORY.split( '-' )
-        package = x[ max( len( x ) - 2, 0 ) ]
-        if ( pathlib.Path( package ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / package / '*' ), external = True )
-        if ( pathlib.Path( 'service' ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'service' / '*' ), external = True )
-        if ( pathlib.Path( 'tests' ).is_dir( ) ) :
-            session.run( 'git', 'add', str( pathlib.Path.cwd( ) / 'tests' / '*' ), external = True )
-        status( session )
-        value = input( '[ ' + REPOSITORY + ' ] message : ' )
-        if ( value ) :
-            if ( session.run( 'git', 'commit', '--all', '--message', value, external = True ) ) :
-                session.run( 'git', 'push', external = True )
-
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv' )
 def status( session ) -> None :
 
     """ Status.
@@ -216,7 +210,7 @@ def status( session ) -> None :
         print( '[ ' + REPOSITORY + ' ]' )
         session.run( 'git', 'status', '--short', external = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv' )
 def tag( session ) -> None :
 
     """ Tag.
@@ -229,29 +223,31 @@ def tag( session ) -> None :
             session.run( 'git', 'tag', '--annotate', value, '--force', '--message', '.', external = True )
             session.run( 'git', 'push', '--force', '--tags', external = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON )
 def tests( session ) -> None :
 
     """ Tests.
     """
 
+    session.install( '.[tests]' )
     if ( pathlib.Path( 'tests' ).is_dir( ) ) :
         if ( [ u for u in pathlib.Path( 'tests' ).iterdir( ) ] ) :
             try :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
                     session.run( 'docker', 'compose', 'up', '--detach', external = True )
                     time.sleep( 10.0 )
-                session.run( 'python', '-m', 'pip', 'install', '-e', '.' )
+                session.install( '-e', '.' )
                 session.run( 'pytest', '--capture=no', '--verbose', '-s' )
                 shutil.rmtree( '.pytest_cache', ignore_errors = True )
             finally :
                 if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
                     session.run( 'docker', 'compose', 'down', external = True )
 
-@nox.session( venv_backend = 'none' )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def typing( session ) -> None :
 
     """ Typing.
     """
 
+    session.install( '.[typing]' )
     session.run( 'mypy', SOURCE )

@@ -4,118 +4,118 @@ diamondback.filters package
 Submodules
 ----------
 
-diamondback.filters.ComplexBandPassFilter module
-------------------------------------------------
+diamondback.filters.complex\_bandpass\_filter module
+----------------------------------------------------
 
-.. automodule:: diamondback.filters.ComplexBandPassFilter
+.. automodule:: diamondback.filters.complex_bandpass_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.ComplexExponentialFilter module
----------------------------------------------------
+diamondback.filters.complex\_exponential\_filter module
+-------------------------------------------------------
 
-.. automodule:: diamondback.filters.ComplexExponentialFilter
+.. automodule:: diamondback.filters.complex_exponential_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.ComplexFrequencyFilter module
--------------------------------------------------
+diamondback.filters.complex\_frequency\_filter module
+-----------------------------------------------------
 
-.. automodule:: diamondback.filters.ComplexFrequencyFilter
+.. automodule:: diamondback.filters.complex_frequency_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.DerivativeFilter module
+diamondback.filters.derivative\_filter module
+---------------------------------------------
+
+.. automodule:: diamondback.filters.derivative_filter
+   :members:
+   :noindex:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.filters.fir\_filter module
+--------------------------------------
+
+.. automodule:: diamondback.filters.fir_filter
+   :members:
+   :noindex:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.filters.goertzel\_filter module
 -------------------------------------------
 
-.. automodule:: diamondback.filters.DerivativeFilter
+.. automodule:: diamondback.filters.goertzel_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.FirFilter module
-------------------------------------
+diamondback.filters.iir\_filter module
+--------------------------------------
 
-.. automodule:: diamondback.filters.FirFilter
+.. automodule:: diamondback.filters.iir_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.GoertzelFilter module
------------------------------------------
+diamondback.filters.integral\_filter module
+-------------------------------------------
 
-.. automodule:: diamondback.filters.GoertzelFilter
+.. automodule:: diamondback.filters.integral_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.IirFilter module
-------------------------------------
+diamondback.filters.pid\_filter module
+--------------------------------------
 
-.. automodule:: diamondback.filters.IirFilter
+.. automodule:: diamondback.filters.pid_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.IntegralFilter module
------------------------------------------
+diamondback.filters.polynomial\_rate\_filter module
+---------------------------------------------------
 
-.. automodule:: diamondback.filters.IntegralFilter
+.. automodule:: diamondback.filters.polynomial_rate_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.PidFilter module
-------------------------------------
+diamondback.filters.polyphase\_rate\_filter module
+--------------------------------------------------
 
-.. automodule:: diamondback.filters.PidFilter
+.. automodule:: diamondback.filters.polyphase_rate_filter
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.filters.PolynomialRateFilter module
------------------------------------------------
-
-.. automodule:: diamondback.filters.PolynomialRateFilter
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.filters.PolyphaseRateFilter module
-----------------------------------------------
-
-.. automodule:: diamondback.filters.PolyphaseRateFilter
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.filters.RankFilter module
--------------------------------------
-
-.. automodule:: diamondback.filters.RankFilter
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.filters.WindowFilter module
+diamondback.filters.rank\_filter module
 ---------------------------------------
 
-.. automodule:: diamondback.filters.WindowFilter
+.. automodule:: diamondback.filters.rank_filter
+   :members:
+   :noindex:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.filters.window\_filter module
+-----------------------------------------
+
+.. automodule:: diamondback.filters.window_filter
    :members:
    :noindex:
    :undoc-members:

@@ -12,7 +12,7 @@
 # isort: skip_file
 
 from .commons import Log, RestClient, Serial
-from .filters import FirFilter, IirFilter, ComplexBandPassFilter, ComplexExponentialFilter
+from .filters import FirFilter, IirFilter, ComplexBandpassFilter, ComplexExponentialFilter
 from .filters import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, IntegralFilter
 from .filters import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
 from .filters import WindowFilter
@@ -21,9 +21,9 @@ from .transforms import ComplexTransform, FourierTransform, PsdTransform, Wavele
 from .transforms import ZTransform
 
 __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
-            'IirFilter', 'ComplexBandPassFilter', 'ComplexExponentialFilter', 'ComplexFrequencyFilter',
+            'IirFilter', 'ComplexBandpassFilter', 'ComplexExponentialFilter', 'ComplexFrequencyFilter',
             'DerivativeFilter', 'GoertzelFilter', 'IntegralFilter', 'PidFilter',
             'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
             'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
             'FourierTransform', 'PsdTransform', 'WaveletTransform', 'ZTransform' ]
-__version__ = '5.0.3'
+__version__ = '5.1.0'
