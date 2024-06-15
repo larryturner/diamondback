@@ -4,46 +4,46 @@ diamondback.transforms package
 Submodules
 ----------
 
-diamondback.transforms.ComplexTransform module
-----------------------------------------------
+diamondback.transforms.complex\_transform module
+------------------------------------------------
 
-.. automodule:: diamondback.transforms.ComplexTransform
+.. automodule:: diamondback.transforms.complex_transform
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.transforms.FourierTransform module
-----------------------------------------------
+diamondback.transforms.fourier\_transform module
+------------------------------------------------
 
-.. automodule:: diamondback.transforms.FourierTransform
+.. automodule:: diamondback.transforms.fourier_transform
    :members:
    :noindex:
    :undoc-members:
    :show-inheritance:
 
-diamondback.transforms.PsdTransform module
+diamondback.transforms.psd\_transform module
+--------------------------------------------
+
+.. automodule:: diamondback.transforms.psd_transform
+   :members:
+   :noindex:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.transforms.wavelet\_transform module
+------------------------------------------------
+
+.. automodule:: diamondback.transforms.wavelet_transform
+   :members:
+   :noindex:
+   :undoc-members:
+   :show-inheritance:
+
+diamondback.transforms.z\_transform module
 ------------------------------------------
 
-.. automodule:: diamondback.transforms.PsdTransform
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.transforms.WaveletTransform module
-----------------------------------------------
-
-.. automodule:: diamondback.transforms.WaveletTransform
-   :members:
-   :noindex:
-   :undoc-members:
-   :show-inheritance:
-
-diamondback.transforms.ZTransform module
-----------------------------------------
-
-.. automodule:: diamondback.transforms.ZTransform
+.. automodule:: diamondback.transforms.z_transform
    :members:
    :noindex:
    :undoc-members:

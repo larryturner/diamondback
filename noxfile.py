@@ -241,5 +241,4 @@ def typing( session ) -> None :
     """
 
     session.install( '.[typing]' )
-    session.run( 'mypy', '--install-types', '--non-interactive' )
     session.run( 'mypy', SOURCE )
