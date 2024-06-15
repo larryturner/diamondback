@@ -123,12 +123,12 @@ assignment, though loguru uses upper case.</p>
     <span class="n">Log</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span> <span class="p">)</span>
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Log write.&#39;</span> <span class="p">)</span>
 
-    <span class="c1"># Set Log stream to sys.stdout.</span>
+    <span class="c1"># Standard output.</span>
 
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
     <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span><span class="kc">True</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
 
-    <span class="c1"># Set Log stream to a memory stream.</span>
+    <span class="c1"># Memory stream.</span>
 
     <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="p">)</span>
     <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
@@ -139,7 +139,7 @@ assignment, though loguru uses upper case.</p>
     <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
     <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span> <span class="mi">0</span> <span class="p">),</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
 
-    <span class="c1"># Set Log stream to a file.</span>
+    <span class="c1"># File.</span>
 
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log-2112.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
         <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">fout</span> <span class="p">)</span>
@@ -592,7 +592,7 @@ indent : bool.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

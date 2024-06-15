@@ -125,15 +125,10 @@
 
 <span class="sd">            from diamondback import DiversityModel</span>
 
-<span class="sd">            # Create an instance.</span>
-
-<span class="sd">            obj = DiversityModel( style = &#39;Euclidean&#39;, order = 4 )</span>
-
-<span class="sd">            # Learn an incident signal and extract a state.</span>
-
+<span class="sd">            diversity_model = DiversityModel( style = &#39;Euclidean&#39;, order = 4 )</span>
 <span class="sd">            x = numpy.random.rand( 32, 2 )</span>
-<span class="sd">            y = obj.learn( x )</span>
-<span class="sd">            s = obj.s</span>
+<span class="sd">            y = diversity_model.learn( x )</span>
+<span class="sd">            s = diversity_model.s</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -255,7 +250,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

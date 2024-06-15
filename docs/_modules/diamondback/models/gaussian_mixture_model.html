@@ -82,16 +82,11 @@
 
 <span class="sd">            from diamondback import GaussianMixtureModel</span>
 
-<span class="sd">            # Create an instance.</span>
-
-<span class="sd">            obj = GaussianMixtureModel( order = 10, index = 100 )</span>
-
-<span class="sd">            # Learn an incident signal and predict classification.</span>
-
+<span class="sd">            gaussian_mixture_model = GaussianMixtureModel( order = 10, index = 100 )</span>
 <span class="sd">            x, y = numpy.random.rand( 32, 2 ), numpy.random.randint( 0, 10, 32 )</span>
-<span class="sd">            obj.learn( x, y )</span>
+<span class="sd">            gaussian_mixture_model.learn( x, y )</span>
 <span class="sd">            x = numpy.random.rand( 16, 2 )</span>
-<span class="sd">            v = obj.predict( x )</span>
+<span class="sd">            v = gaussian_mixture_model.predict( x )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -234,7 +229,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -49,9 +49,6 @@
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
             b = WindowFilter( 'Hann', 128 - 1 ).b
-
-            # Transform an incident signal.
-
             y, f = PsdTransform.transform( x, b = b, index = len( b ) // 2 )
 
     **License**

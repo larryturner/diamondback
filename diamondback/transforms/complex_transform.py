@@ -42,9 +42,6 @@
             import numpy
 
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )
-
-            # Transform an incident signal, forward and inverse.
-
             y = ComplexTransform.transform( x, neutral = True )
             z = ComplexTransform.transform( y, neutral = True )
 

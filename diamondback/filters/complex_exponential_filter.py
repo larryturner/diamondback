@@ -22,14 +22,9 @@
             from diamondback import ComplexExponentialFilter
             import numpy
 
-            # Create an instance.
-
-            obj = ComplexExponentialFilter( phase = 0.0 )
-
-            # Filter an incident signal.
-
+            complex_exponential_filter = ComplexExponentialFilter( phase = 0.0 )
             x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
-            y = obj.filter( x )
+            y = complex_exponential_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

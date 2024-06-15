@@ -105,11 +105,11 @@
 <span class="sd">            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real</span>
 <span class="sd">            a /= a[ -1 ]</span>
 
-<span class="sd">            # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.</span>
+<span class="sd">            # Bilinear transform.</span>
 
 <span class="sd">            a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )</span>
 
-<span class="sd">            # Define zeros and normalize gain.</span>
+<span class="sd">            # Zeros and normalize gain.</span>
 
 <span class="sd">            b = numpy.poly( -numpy.ones( order ) )</span>
 <span class="sd">            b = b * ( 1.0 - sum( a ) ) / sum( b )</span>
@@ -208,7 +208,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

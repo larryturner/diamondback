@@ -119,9 +119,6 @@
 
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]</span>
 <span class="sd">            b = WindowFilter( &#39;Hann&#39;, 128 - 1 ).b</span>
-
-<span class="sd">            # Transform an incident signal.</span>
-
 <span class="sd">            y, f = PsdTransform.transform( x, b = b, index = len( b ) // 2 )</span>
 
 <span class="sd">    **License**</span>
@@ -184,7 +181,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

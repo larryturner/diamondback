@@ -88,14 +88,9 @@
 <span class="sd">            from diamondback import ComplexExponentialFilter, PidFilter</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance.</span>
-
-<span class="sd">            obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )</span>
-
-<span class="sd">            # Filter an incident signal.</span>
-
+<span class="sd">            pid_filter = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )</span>
 <span class="sd">            x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real</span>
-<span class="sd">            y = obj.filter( x )</span>
+<span class="sd">            y = pid_filter.filter( x )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -177,7 +172,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

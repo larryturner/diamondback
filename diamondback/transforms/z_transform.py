@@ -35,11 +35,11 @@
             a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
             a /= a[ -1 ]
 
-            # Transform z-domain coefficients with s-domain coefficients, frequency, and bilinear.
+            # Bilinear transform.
 
             a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
 
-            # Define zeros and normalize gain.
+            # Zeros and normalize gain.
 
             b = numpy.poly( -numpy.ones( order ) )
             b = b * ( 1.0 - sum( a ) ) / sum( b )

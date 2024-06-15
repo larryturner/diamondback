@@ -143,15 +143,10 @@ inferred.  A style and order are specified.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">DiversityModel</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
-
-<span class="c1"># Learn an incident signal and extract a state.</span>
-
+<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">s</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">s</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -224,16 +219,11 @@ mixture distributions.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">GaussianMixtureModel</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">)</span>
-
-<span class="c1"># Learn an incident signal and predict classification.</span>
-
+<span class="n">gaussian_mixture_model</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -321,16 +311,11 @@ distribution instance per class.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">GaussianModel</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">(</span> <span class="p">)</span>
-
-<span class="c1"># Learn an incident signal and predict classification.</span>
-
+<span class="n">gaussian_model</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">(</span> <span class="p">)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">gaussian_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -573,7 +558,7 @@ probability, and the initial prediction is the most likely class.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -34,19 +34,10 @@
 
             frequency = 0.1
             x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency
-
-            # Create a primary signal.
-
             d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )
-
-            # Create an instance.
-
-            obj = ComplexBandpassFilter( frequency = frequency, rate = 5.0e-2 )
-
-            # Filter a primary signal.
-
-            obj.reset( d[ 0 ] )
-            y, e, b = obj.filter( d )
+            complex_bandpass_filter = ComplexBandpassFilter( frequency = frequency, rate = 5.0e-2 )
+            complex_bandpass_filter.reset( d[ 0 ] )
+            y, e, b = complex_bandpass_filter.filter( d )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

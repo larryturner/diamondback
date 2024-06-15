@@ -121,19 +121,10 @@ adaptation are specified.</p>
 
 <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="n">frequency</span>
-
-<span class="c1"># Create a primary signal.</span>
-
 <span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexBandpassFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span> <span class="p">)</span>
-
-<span class="c1"># Filter a primary signal.</span>
-
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+<span class="n">complex_bandpass_filter</span> <span class="o">=</span> <span class="n">ComplexBandpassFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">5.0e-2</span> <span class="p">)</span>
+<span class="n">complex_bandpass_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">complex_bandpass_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -202,14 +193,9 @@ A normalized phase is specified.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">complex_exponential_filter</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="n">phase</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">+</span> <span class="mf">0.1</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">complex_exponential_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -277,19 +263,10 @@ normalized frequency and rate of adaptation are specified.</p>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span>
-
-<span class="c1"># Create a primary signal.</span>
-
 <span class="n">d</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
-
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">ComplexFrequencyFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="p">)</span>
-
-<span class="c1"># Filter a primary signal.</span>
-
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
+<span class="n">complex_frequency_filter</span> <span class="o">=</span> <span class="n">ComplexFrequencyFilter</span><span class="p">(</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">0.1</span> <span class="p">)</span>
+<span class="n">complex_frequency_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">d</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">complex_frequency_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">d</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -400,15 +377,10 @@ specified.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">DerivativeFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="p">(</span> <span class="n">derivative</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">derivative_filter</span> <span class="o">=</span> <span class="n">DerivativeFilter</span><span class="p">(</span> <span class="n">derivative</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">derivative_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">derivative_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -511,25 +483,25 @@ frequency response.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">FirFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance with constraints.</span>
+<span class="c1"># Constraints.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Kaiser&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">fir_filter</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Kaiser&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 
-<span class="c1"># Create an instance with coefficients.</span>
+<span class="c1"># Coefficients.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+<span class="n">fir_filter</span> <span class="o">=</span> <span class="n">FirFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fir_filter</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
 
-<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+<span class="c1"># Frequency response, group delay, and roots.</span>
 
-<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fir_filter</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">fir_filter</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">fir_filter</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 
-<span class="c1"># Filter an incident signal.</span>
+<span class="c1"># Filter.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">fir_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">fir_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -676,15 +648,9 @@ resolution.</p>
 
 <span class="n">b</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">(</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span><span class="o">.</span><span class="n">b</span>
 <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span>
-
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">GoertzelFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">goertzel_filter</span> <span class="o">=</span> <span class="n">GoertzelFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">b</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="n">frequency</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1024</span> <span class="p">)</span> <span class="o">*</span> <span class="n">frequency</span> <span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">1</span> <span class="p">)[</span> <span class="mi">0</span> <span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">goertzel_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -782,25 +748,25 @@ frequency response.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">IirFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance with constraints.</span>
+<span class="c1"># Constraints.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">iir_filter</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Chebyshev&#39;</span><span class="p">,</span> <span class="n">frequency</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 
-<span class="c1"># Create an instance with coefficients.</span>
+<span class="c1"># Coefficients.</span>
 
-<span class="n">obj</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
+<span class="n">iir_filter</span> <span class="o">=</span> <span class="n">IirFilter</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span>
 
-<span class="c1"># Estimate frequency response, group delay, and roots.</span>
+<span class="c1"># Frequency response, group delay, and roots.</span>
 
-<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">response</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">y</span><span class="p">,</span> <span class="n">f</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">delay</span><span class="p">(</span> <span class="n">length</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
+<span class="n">p</span><span class="p">,</span> <span class="n">z</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span> <span class="n">count</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 
-<span class="c1"># Filter an incident signal.</span>
+<span class="c1"># Filter.</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">2.0</span> <span class="o">-</span> <span class="mf">1.0</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">iir_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">iir_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -966,14 +932,9 @@ instance and order are specified.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">IntegralFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="p">(</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">integral_filter</span> <span class="o">=</span> <span class="n">IntegralFilter</span><span class="p">(</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">integral_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1033,14 +994,9 @@ control stability and latency.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">PidFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">PidFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">5.0e-2</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">pid_filter</span> <span class="o">=</span> <span class="n">PidFilter</span><span class="p">(</span> <span class="n">b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span> <span class="p">[</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">5.0e-2</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span> <span class="o">-</span><span class="mf">1.0e-4</span><span class="p">,</span> <span class="mf">1.0e-4</span><span class="p">,</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">pid_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1113,14 +1069,9 @@ operation or dynamic rate.</p>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">polynomial_rate_filter</span> <span class="o">=</span> <span class="n">PolynomialRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">polynomial_rate_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1214,15 +1165,10 @@ to continuous operation.</p>
 <span class="kn">import</span> <span class="nn">math</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">polyphase_rate_filter</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="p">(</span> <span class="n">rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">128</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">polyphase_rate_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">polyphase_rate_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1310,15 +1256,10 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">RankFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">RankFilter</span><span class="p">(</span> <span class="n">rank</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
+<span class="n">rank_filter</span> <span class="o">=</span> <span class="n">RankFilter</span><span class="p">(</span> <span class="n">rank</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span> <span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">1</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">10</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">4</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="mi">5</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span> <span class="mi">6</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">obj</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">rank_filter</span><span class="o">.</span><span class="n">reset</span><span class="p">(</span> <span class="n">x</span><span class="p">[</span> <span class="mi">0</span> <span class="p">]</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">rank_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -1404,14 +1345,9 @@ compensate for energy loss.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">diamondback</span> <span class="kn">import</span> <span class="n">ComplexExponentialFilter</span><span class="p">,</span> <span class="n">WindowFilter</span>
 <span class="kn">import</span> <span class="nn">numpy</span>
 
-<span class="c1"># Create an instance.</span>
-
-<span class="n">obj</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normal</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
-
-<span class="c1"># Filter an incident signal.</span>
-
-<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">obj</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">window_filter</span> <span class="o">=</span> <span class="n">WindowFilter</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Hann&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">15</span><span class="p">,</span> <span class="n">normal</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">(</span> <span class="mf">0.0</span> <span class="p">)</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span> <span class="nb">len</span><span class="p">(</span> <span class="n">window_filter</span><span class="o">.</span><span class="n">b</span> <span class="p">)</span> <span class="p">)</span> <span class="o">*</span> <span class="mf">0.1</span> <span class="p">)</span><span class="o">.</span><span class="n">real</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">window_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -2088,7 +2024,7 @@ normal : bool.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

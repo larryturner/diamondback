@@ -38,14 +38,9 @@
             from diamondback import ComplexExponentialFilter, WindowFilter
             import numpy
 
-            # Create an instance.
-
-            obj = WindowFilter( style = 'Hann', order = 15, normal = True )
-
-            # Filter an incident signal.
-
-            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( len( obj.b ) ) * 0.1 ).real
-            y = obj.filter( x )
+            window_filter = WindowFilter( style = 'Hann', order = 15, normal = True )
+            x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( len( window_filter.b ) ) * 0.1 ).real
+            y = window_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

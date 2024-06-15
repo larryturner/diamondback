@@ -112,12 +112,12 @@
 <span class="sd">                Log.level( &#39;Info&#39; )</span>
 <span class="sd">                Log.write( &#39;Info&#39;, &#39;Test Log write.&#39; )</span>
 
-<span class="sd">                # Set Log stream to sys.stdout.</span>
+<span class="sd">                # Standard output.</span>
 
 <span class="sd">                Log.stream( sys.stdout )</span>
 <span class="sd">                Log.write( &#39;Info&#39;, f&#39;Valid = {True}&#39; )</span>
 
-<span class="sd">                # Set Log stream to a memory stream.</span>
+<span class="sd">                # Memory stream.</span>
 
 <span class="sd">                stream = io.StringIO( )</span>
 <span class="sd">                Log.stream( stream )</span>
@@ -128,7 +128,7 @@
 <span class="sd">                value = stream.getvalue( )</span>
 <span class="sd">                _, _ = stream.truncate( 0 ), stream.seek( 0 )</span>
 
-<span class="sd">                # Set Log stream to a file.</span>
+<span class="sd">                # File.</span>
 
 <span class="sd">                with open( &#39;log-2112.txt&#39;, &#39;w&#39; ) as fout :</span>
 <span class="sd">                    Log.stream( fout )</span>
@@ -246,7 +246,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -77,15 +77,10 @@
             from diamondback import ComplexExponentialFilter, DerivativeFilter
             import numpy
 
-            # Create an instance.
-
-            obj = DerivativeFilter( derivative = 1, order = 2 )
-
-            # Filter an incident signal.
-
+            derivative_filter = DerivativeFilter( derivative = 1, order = 2 )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-            obj.reset( x[ 0 ] )
-            y = obj.filter( x )
+            derivative_filter.reset( x[ 0 ] )
+            y = derivative_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

@@ -104,19 +104,10 @@
 
 <span class="sd">            frequency = 0.1</span>
 <span class="sd">            x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency</span>
-
-<span class="sd">            # Create a primary signal.</span>
-
 <span class="sd">            d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )</span>
-
-<span class="sd">            # Create an instance.</span>
-
-<span class="sd">            obj = ComplexBandpassFilter( frequency = frequency, rate = 5.0e-2 )</span>
-
-<span class="sd">            # Filter a primary signal.</span>
-
-<span class="sd">            obj.reset( d[ 0 ] )</span>
-<span class="sd">            y, e, b = obj.filter( d )</span>
+<span class="sd">            complex_bandpass_filter = ComplexBandpassFilter( frequency = frequency, rate = 5.0e-2 )</span>
+<span class="sd">            complex_bandpass_filter.reset( d[ 0 ] )</span>
+<span class="sd">            y, e, b = complex_bandpass_filter.filter( d )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -219,7 +210,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -134,25 +134,25 @@
 <span class="sd">            from diamondback import FirFilter</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance with constraints.</span>
+<span class="sd">            # Constraints.</span>
 
-<span class="sd">            obj = FirFilter( style = &#39;Kaiser&#39;, frequency = 0.1, order = 32, count = 1 )</span>
+<span class="sd">            fir_filter = FirFilter( style = &#39;Kaiser&#39;, frequency = 0.1, order = 32, count = 1 )</span>
 
-<span class="sd">            # Create an instance with coefficients.</span>
+<span class="sd">            # Coefficients.</span>
 
-<span class="sd">            obj = FirFilter( b = obj.b )</span>
+<span class="sd">            fir_filter = FirFilter( b = fir_filter.b )</span>
 
-<span class="sd">            # Estimate frequency response, group delay, and roots.</span>
+<span class="sd">            # Frequency response, group delay, and roots.</span>
 
-<span class="sd">            y, f = obj.response( length = 8192, count = 1 )</span>
-<span class="sd">            y, f = obj.delay( length = 8192, count = 1 )</span>
-<span class="sd">            p, z = obj.roots( count = 1 )</span>
+<span class="sd">            y, f = fir_filter.response( length = 8192, count = 1 )</span>
+<span class="sd">            y, f = fir_filter.delay( length = 8192, count = 1 )</span>
+<span class="sd">            p, z = fir_filter.roots( count = 1 )</span>
 
-<span class="sd">            # Filter an incident signal.</span>
+<span class="sd">            # Filter.</span>
 
 <span class="sd">            x = numpy.random.rand( 128 ) * 2.0 - 1.0</span>
-<span class="sd">            obj.reset( x[ 0 ] )</span>
-<span class="sd">            y = obj.filter( x )</span>
+<span class="sd">            fir_filter.reset( x[ 0 ] )</span>
+<span class="sd">            y = fir_filter.filter( x )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -384,7 +384,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

@@ -64,25 +64,25 @@
             from diamondback import FirFilter
             import numpy
 
-            # Create an instance with constraints.
+            # Constraints.
 
-            obj = FirFilter( style = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
+            fir_filter = FirFilter( style = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
 
-            # Create an instance with coefficients.
+            # Coefficients.
 
-            obj = FirFilter( b = obj.b )
+            fir_filter = FirFilter( b = fir_filter.b )
 
-            # Estimate frequency response, group delay, and roots.
+            # Frequency response, group delay, and roots.
 
-            y, f = obj.response( length = 8192, count = 1 )
-            y, f = obj.delay( length = 8192, count = 1 )
-            p, z = obj.roots( count = 1 )
+            y, f = fir_filter.response( length = 8192, count = 1 )
+            y, f = fir_filter.delay( length = 8192, count = 1 )
+            p, z = fir_filter.roots( count = 1 )
 
-            # Filter an incident signal.
+            # Filter.
 
             x = numpy.random.rand( 128 ) * 2.0 - 1.0
-            obj.reset( x[ 0 ] )
-            y = obj.filter( x )
+            fir_filter.reset( x[ 0 ] )
+            y = fir_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

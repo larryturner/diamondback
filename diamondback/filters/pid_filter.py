@@ -18,14 +18,9 @@
             from diamondback import ComplexExponentialFilter, PidFilter
             import numpy
 
-            # Create an instance.
-
-            obj = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
-
-            # Filter an incident signal.
-
+            pid_filter = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real
-            y = obj.filter( x )
+            y = pid_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

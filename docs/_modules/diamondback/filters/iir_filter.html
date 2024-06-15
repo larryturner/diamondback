@@ -130,25 +130,25 @@
 <span class="sd">            from diamondback import IirFilter</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance with constraints.</span>
+<span class="sd">            # Constraints.</span>
 
-<span class="sd">            obj = IirFilter( style = &#39;Chebyshev&#39;, frequency = 0.1, order = 8, count = 1 )</span>
+<span class="sd">            iir_filter = IirFilter( style = &#39;Chebyshev&#39;, frequency = 0.1, order = 8, count = 1 )</span>
 
-<span class="sd">            # Create an instance with coefficients.</span>
+<span class="sd">            # Coefficients.</span>
 
-<span class="sd">            obj = IirFilter( a = obj.a, b = obj.b )</span>
+<span class="sd">            iir_filter = IirFilter( a = iir_filter.a, b = iir_filter.b )</span>
 
-<span class="sd">            # Estimate frequency response, group delay, and roots.</span>
+<span class="sd">            # Frequency response, group delay, and roots.</span>
 
-<span class="sd">            y, f = obj.response( length = 8192, count = 1 )</span>
-<span class="sd">            y, f = obj.delay( length = 8192, count = 1 )</span>
-<span class="sd">            p, z = obj.roots( count = 1 )</span>
+<span class="sd">            y, f = iir_filter.response( length = 8192, count = 1 )</span>
+<span class="sd">            y, f = iir_filter.delay( length = 8192, count = 1 )</span>
+<span class="sd">            p, z = iir_filter.roots( count = 1 )</span>
 
-<span class="sd">            # Filter an incident signal.</span>
+<span class="sd">            # Filter.</span>
 
 <span class="sd">            x = numpy.random.rand( 128 ) * 2.0 - 1.0</span>
-<span class="sd">            obj.reset( x[ 0 ] )</span>
-<span class="sd">            y = obj.filter( x )</span>
+<span class="sd">            iir_filter.reset( x[ 0 ] )</span>
+<span class="sd">            y = iir_filter.filter( x )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -423,7 +423,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

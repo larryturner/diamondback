@@ -29,7 +29,7 @@
             nox -s typing dependencies build image tests docs
 
     **License**
-        © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2020-10-12.

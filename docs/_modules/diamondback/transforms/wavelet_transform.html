@@ -133,16 +133,11 @@
 <span class="sd">            from diamondback import WaveletTransform</span>
 <span class="sd">            import numpy</span>
 
-<span class="sd">            # Create an instance.</span>
-
-<span class="sd">            obj = WaveletTransform( style = &#39;Haar&#39;, order = 1 )</span>
-
-<span class="sd">            # Transform an incident signal, forward and inverse.</span>
-
+<span class="sd">            wavelet_transform = WaveletTransform( style = &#39;Haar&#39;, order = 1 )</span>
 <span class="sd">            count = 3</span>
 <span class="sd">            x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )</span>
-<span class="sd">            y = obj.transform( x, count, False )</span>
-<span class="sd">            z = obj.transform( y, count, True )</span>
+<span class="sd">            y = wavelet_transform.transform( x, count, False )</span>
+<span class="sd">            z = wavelet_transform.transform( y, count, True )</span>
 
 <span class="sd">    **License**</span>
 <span class="sd">        `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -367,7 +362,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2024 Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

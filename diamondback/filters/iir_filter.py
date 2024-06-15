@@ -60,25 +60,25 @@
             from diamondback import IirFilter
             import numpy
 
-            # Create an instance with constraints.
+            # Constraints.
 
-            obj = IirFilter( style = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
+            iir_filter = IirFilter( style = 'Chebyshev', frequency = 0.1, order = 8, count = 1 )
 
-            # Create an instance with coefficients.
+            # Coefficients.
 
-            obj = IirFilter( a = obj.a, b = obj.b )
+            iir_filter = IirFilter( a = iir_filter.a, b = iir_filter.b )
 
-            # Estimate frequency response, group delay, and roots.
+            # Frequency response, group delay, and roots.
 
-            y, f = obj.response( length = 8192, count = 1 )
-            y, f = obj.delay( length = 8192, count = 1 )
-            p, z = obj.roots( count = 1 )
+            y, f = iir_filter.response( length = 8192, count = 1 )
+            y, f = iir_filter.delay( length = 8192, count = 1 )
+            p, z = iir_filter.roots( count = 1 )
 
-            # Filter an incident signal.
+            # Filter.
 
             x = numpy.random.rand( 128 ) * 2.0 - 1.0
-            obj.reset( x[ 0 ] )
-            y = obj.filter( x )
+            iir_filter.reset( x[ 0 ] )
+            y = iir_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

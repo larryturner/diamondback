@@ -57,14 +57,9 @@
             from diamondback import ComplexExponentialFilter, IntegralFilter
             import numpy
 
-            # Create an instance.
-
-            obj = IntegralFilter( order = 2 )
-
-            # Filter an incident signal.
-
+            integral_filter = IntegralFilter( order = 2 )
             x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-            y = obj.filter( x )
+            y = integral_filter.filter( x )
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
