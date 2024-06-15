@@ -232,6 +232,7 @@ functionality depends upon additional external packages.
 -   `pytest <https://pypi.org/project/pytest/>`_
 -   `ruff <https://pypi.org/project/ruff/>`_
 -   `sphinx <https://pypi.org/project/sphinx/>`_
+
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
 ``diamondback`` dependency diagram.
