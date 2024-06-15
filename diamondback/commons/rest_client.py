@@ -38,7 +38,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any, Optional, Union
+from typing import Any, Optional
 import requests
 
 class RestClient( object ) :
