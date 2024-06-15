@@ -59,7 +59,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-16.
 """
 
-from diamondback.filters.IirFilter import IirFilter
+from diamondback.filters.iir_filter import IirFilter
 from typing import Union
 import math
 import numpy

@@ -88,8 +88,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-from diamondback.filters.FirFilter import FirFilter
-from diamondback.transforms.ZTransform import ZTransform
+from diamondback.filters.fir_filter import FirFilter
+from diamondback.transforms.z_transform import ZTransform
 from typing import Any, Tuple, Union
 import math
 import numpy

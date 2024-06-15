@@ -79,7 +79,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-03-19.
 """
 
-from diamondback.filters.FirFilter import FirFilter
+from diamondback.filters.fir_filter import FirFilter
 from typing import Union
 import numpy
 

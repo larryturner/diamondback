@@ -56,8 +56,8 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-31.
 """
 
-from diamondback.filters.ComplexExponentialFilter import ComplexExponentialFilter
-from diamondback.filters.FirFilter import FirFilter
+from diamondback.filters.complex_exponential_filter import ComplexExponentialFilter
+from diamondback.filters.fir_filter import FirFilter
 from typing import Tuple, Union
 import numpy
 import scipy
