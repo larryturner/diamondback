@@ -26,4 +26,4 @@ __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
             'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
             'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
             'FourierTransform', 'PsdTransform', 'WaveletTransform', 'ZTransform' ]
-__version__ = '5.0.3'
+__version__ = '5.1.0'
