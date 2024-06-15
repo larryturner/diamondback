@@ -45,7 +45,7 @@ import shutil
 import string
 import time
 
-nox.options.sessions = [ 'typing', 'dependencies', 'build', 'image', 'tests', 'docs' ]
+nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'image', 'tests', 'docs' ]
 
 PYTHON = [ '3.9', '3.10', '3.11', '3.12' ]
 REPOSITORY = pathlib.Path.cwd( ).name
@@ -177,6 +177,15 @@ def image( session ) -> None :
     if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
         build( session )
         session.run( 'docker', 'build', '--tag', REPOSITORY, '.', external = True )
+
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
+def lint( session ) -> None :
+
+    """ Lint.
+    """
+
+    session.install( '.[lint]' )
+    session.run( 'ruff', 'check', SOURCE )
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def notebook( session ) -> None :
