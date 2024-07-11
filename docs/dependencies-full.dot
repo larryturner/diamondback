@@ -51,7 +51,7 @@ digraph G {
     requests [fillcolor="#172182",fontcolor="#ffffff",shape="folder"];
     scipy [fillcolor="#2504a9",fontcolor="#ffffff",shape="folder"];
     six [fillcolor="#8510f9",fontcolor="#ffffff",shape="folder"];
-    sklearn [fillcolor="#780395",fontcolor="#ffffff",shape="folder"];
+    sklearn [fillcolor="#8804a9",fontcolor="#ffffff",shape="folder"];
     threadpoolctl [fillcolor="#ce3bc0",fontcolor="#ffffff",shape="folder"];
     urllib3 [fillcolor="#95035b",fontcolor="#ffffff",shape="folder"];
     win32_setctime [fillcolor="#b65371",fontcolor="#ffffff",shape="folder"];
@@ -152,7 +152,7 @@ digraph G {
     scipy -> pandas [fillcolor="#2504a9",minlen="3"];
     scipy -> sklearn [fillcolor="#2504a9",minlen="3"];
     six -> dateutil [fillcolor="#8510f9",minlen="3"];
-    sklearn -> diamondback_models_gaussian_mixture_model [fillcolor="#780395",minlen="3"];
+    sklearn -> diamondback_models_gaussian_mixture_model [fillcolor="#8804a9",minlen="3"];
     threadpoolctl -> numpy [fillcolor="#ce3bc0",minlen="3"];
     threadpoolctl -> sklearn [fillcolor="#ce3bc0",minlen="3"];
     urllib3 -> requests [fillcolor="#95035b",minlen="3"];
