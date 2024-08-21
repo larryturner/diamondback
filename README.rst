@@ -17,13 +17,13 @@ diamondback
 Description
 ~~~~~~~~~~~
 
-``diamondback`` is a Digital Signal Processing (DSP) package.
+``diamondback`` Digital Signal Processing (DSP).
 
 ``diamondback`` complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.
 
-``diamondback`` also supports applications including cancellation, identification,
+``diamondback`` supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
 
 Installation
@@ -288,7 +288,7 @@ Run a nox ``tests`` session to exercise tests.
 License
 ~~~~~~~
 
-`BSD-3C <https://github.com/larryturner/diamondback/blob/master/license>`_
+`BSD-3C <https://github.com/larryturner/diamondback/blob/master/LICENSE>`_
 
 Author
 ~~~~~~
