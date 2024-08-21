@@ -19,6 +19,7 @@ from .filters import WindowFilter
 from .models import DiversityModel, GaussianModel, GaussianMixtureModel
 from .transforms import ComplexTransform, FourierTransform, PsdTransform, WaveletTransform
 from .transforms import ZTransform
+from importlib import metadata
 
 __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
             'IirFilter', 'ComplexBandpassFilter', 'ComplexExponentialFilter', 'ComplexFrequencyFilter',
@@ -26,4 +27,5 @@ __all__ = [ 'Log', 'RestClient', 'Serial', 'FirFilter',
             'PolynomialRateFilter', 'PolyphaseRateFilter', 'RankFilter', 'WindowFilter',
             'DiversityModel', 'GaussianModel', 'GaussianMixtureModel', 'ComplexTransform',
             'FourierTransform', 'PsdTransform', 'WaveletTransform', 'ZTransform' ]
-__version__ = '5.1.0'
+
+__version__ = metadata.version( 'diamondback' )
