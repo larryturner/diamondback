@@ -165,7 +165,7 @@ class FirFilter( object ) :
             for _ in range( 0, index ) :
                 with warnings.catch_warnings( ) :
                     warnings.simplefilter( 'ignore' )
-                    v = scipy.signal.firwin( order + 1, scale * frequency, None, window, True, True, 1.0 )
+                    v = scipy.signal.firwin( numtaps = order + 1, cutoff = scale * frequency, width = None, window = window, pass_zero = True, scale = True, fs = 1.0 )
                     if ( numpy.isnan( v ).any( ) ) :
                         raise ValueError( f'V = {v}' )
                     x = numpy.exp( 1j * math.pi * frequency )
