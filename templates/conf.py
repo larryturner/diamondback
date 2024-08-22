@@ -2,6 +2,7 @@
         ``diamondback`` documentation configuration.
 
     **License**
+        `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
         © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
