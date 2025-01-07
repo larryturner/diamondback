@@ -90,7 +90,7 @@
 
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
-from typing import Any, Tuple, Union
+from typing import Any
 import math
 import numpy
 import scipy.signal
@@ -108,11 +108,11 @@ class IirFilter( FirFilter ) :
         return self._a
 
     @a.setter
-    def a( self, a : Union[ list, numpy.ndarray ] ) :
+    def a( self, a : list | numpy.ndarray ) :
         self._a = a
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  a : Union[ list, numpy.ndarray ] = [ ], b : Union[ list, numpy.ndarray ] = [ ], s : Union[ list, numpy.ndarray ] = [ ] ) -> None :
+                  a : list | numpy.ndarray = [ ], b : list | numpy.ndarray = [ ], s : list | numpy.ndarray = [ ] ) -> None :
 
         """ Initialize.
 
@@ -130,9 +130,9 @@ class IirFilter( FirFilter ) :
                 count : int - instances per cascade.
                 complement : bool - complement response.
                 gain : float - gain.
-                a : Union[ list, numpy.ndarray ] - recursive coefficient.
-                b : Union[ list, numpy.ndarray ] - forward coefficient.
-                s : Union[ list, numpy.ndarray ] - state.
+                a : list | numpy.ndarray - recursive coefficient.
+                b : list | numpy.ndarray - forward coefficient.
+                s : list | numpy.ndarray - state.
         """
 
         if ( ( not len( a ) ) and ( ( not len( b ) ) ) ) :
@@ -180,7 +180,7 @@ class IirFilter( FirFilter ) :
         self._a = numpy.array( a )
 
     @staticmethod
-    def _evaluate( style : str, frequency : float, order : int ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def _evaluate( style : str, frequency : float, order : int ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Evaluates coefficients.
 
@@ -206,19 +206,19 @@ class IirFilter( FirFilter ) :
             for ii in range( 1, ( order // 2 ) + 1 ) :
                 a = numpy.convolve( a, numpy.array( [ 1.0, -2.0 * math.cos( ( ( ( 2.0 * ii ) + order - 1.0 ) / ( 2.0 * order ) ) * math.pi ), 1.0 ] ) )
             if ( order & 1 ) :
-                a = numpy.convolve( a, numpy.ones( 2 ) )
+                a = numpy.convolve( a, numpy.ones( 2 ) )  # type: ignore
         elif ( style == 'Chebyshev' ) :
             ripple = 0.125
             u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
             v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
-            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
+            a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real  # type: ignore
         a /= a[ -1 ]
         a, b = ZTransform.transform( a, [ 1.0 ], frequency, bilinear )
         b = numpy.poly( -numpy.ones( order ) )
         b *= ( 1.0 - sum( a ) ) / sum( b )
         return a, b
 
-    def delay( self, length : int = 8192, count : int = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def delay( self, length : int = 8192, count : int = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -246,12 +246,12 @@ class IirFilter( FirFilter ) :
                 y[ -6 : ] = numpy.sign( y[ -6 : ] ) * min( abs( y[ -6 : ] ) )
         return y, f
 
-    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.
@@ -272,13 +272,13 @@ class IirFilter( FirFilter ) :
                 self.s[ 1 ] += z
         return y
 
-    def reset( self, x : Union[ complex, float ] ) -> None :
+    def reset( self, x : complex | float ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
 
             Arguments :
-                x : Union[ complex, float ] - incident signal.
+                x : complex | float - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :
@@ -286,7 +286,7 @@ class IirFilter( FirFilter ) :
         if ( len( self.s ) > 1 ) :
             self.s.fill( x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( ) )
 
-    def response( self, length = 8192, count = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -309,7 +309,7 @@ class IirFilter( FirFilter ) :
             y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) ** count
         return y, f
 
-    def roots( self, count = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def roots( self, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 

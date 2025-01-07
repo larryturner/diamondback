@@ -68,7 +68,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Union
 import numpy
 
 class DiversityModel( object ) :
@@ -87,7 +86,7 @@ class DiversityModel( object ) :
         return self._s
 
     @s.setter
-    def s( self, s : Union[ list, numpy.ndarray ] ) :
+    def s( self, s : list | numpy.ndarray ) :
         self._s = s
 
     def __init__( self, style : str, order : int ) -> None :
@@ -117,12 +116,12 @@ class DiversityModel( object ) :
         self._diversity = 0.0
         self.s = numpy.zeros( ( self.s.shape[ 1 ], 0 ) )
 
-    def learn( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def learn( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Learns an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - diversity.

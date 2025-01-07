@@ -92,7 +92,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-from typing import Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -110,7 +109,7 @@ class FirFilter( object ) :
         return self._b
 
     @b.setter
-    def b( self, b : Union[ list, numpy.ndarray ] ) :
+    def b( self, b : list | numpy.ndarray ) :
         self._b = b
 
     @property
@@ -118,11 +117,11 @@ class FirFilter( object ) :
         return self._s
 
     @s.setter
-    def s( self, s : Union[ list, numpy.ndarray ] ) :
+    def s( self, s : list | numpy.ndarray ) :
         self._s = s
 
     def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
-                  b : Union[ list, numpy.ndarray ] = [ ], s : Union[ list, numpy.ndarray ] = [ ] ) -> None :
+                  b : list | numpy.ndarray = [ ], s : list | numpy.ndarray = [ ] ) -> None :
 
         """ Initialize.
 
@@ -140,8 +139,8 @@ class FirFilter( object ) :
                 count : int - instances per cascade.
                 complement : bool - complement response.
                 gain : float - gain.
-                b : Union[ list, numpy.ndarray ] - forward coefficient.
-                s : Union[ list, numpy.ndarray ] - state.
+                b : list | numpy.ndarray - forward coefficient.
+                s : list | numpy.ndarray - state.
         """
 
         if ( not len( b ) ) :
@@ -192,7 +191,7 @@ class FirFilter( object ) :
         super( ).__init__( )
         self._b, self._s = numpy.array( b ), numpy.array( s, type( b[ 0 ] ) )
 
-    def delay( self, length : int = 8192, count : int = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def delay( self, length : int = 8192, count : int = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates group delay and produces a reference signal.
 
@@ -217,12 +216,12 @@ class FirFilter( object ) :
             y[ 0 ] = y[ 1 ] * 2.0 - y[ 2 ]
         return y, f
 
-    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.
@@ -240,20 +239,20 @@ class FirFilter( object ) :
                 self.s[ 1 : ] = self.s[ : -1 ]
         return y
 
-    def reset( self, x : Union[ complex, float ] ) -> None :
+    def reset( self, x : complex | float ) -> None :
 
         """ Modifies a state to minimize edge effects by assuming persistent
             operation at a specified incident signal condition.
 
             Arguments :
-                x : Union[ complex, float ] - incident signal.
+                x : complex | float - incident signal.
         """
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
         self.s.fill( x )
 
-    def response( self, length = 8192, count = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates frequency response and produces a reference signal.
 
@@ -274,7 +273,7 @@ class FirFilter( object ) :
         y = numpy.concatenate( ( y[ len( y ) // 2 : ], y[ : len( y ) // 2 ] ) ) ** count
         return y, f
 
-    def roots( self, count = 1 ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def roots( self, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Estimates roots of a frequency response in poles and zeros.
 

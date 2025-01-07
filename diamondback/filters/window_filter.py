@@ -50,7 +50,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
-from typing import Union
 import numpy
 import scipy.signal
 
@@ -90,12 +89,12 @@ class WindowFilter( object ) :
             b *= ( order + 1 ) / sum( abs( b ) )
         self._b = numpy.array( b )
 
-    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

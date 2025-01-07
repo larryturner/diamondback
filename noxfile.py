@@ -48,7 +48,7 @@ import time
 
 nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'image', 'tests', 'docs' ]
 
-PYTHON = [ '3.9', '3.10', '3.11', '3.12' ]
+PYTHON = [ '3.10', '3.11', '3.12', '3.13' ]
 REPOSITORY = pathlib.Path.cwd( ).name
 x = REPOSITORY.split( '-' )
 SOURCE = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]

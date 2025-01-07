@@ -1,3 +1,5 @@
+C:\Users\sesa14073\Development\Python\diamondback\.nox\dependencies\Lib\site-packages\pydeps\pystdlib.py:26: UserWarning: stdlib_list does't support Python 3.13 yet, pydeps will use symbols from 3.12 for now.
+  warnings.warn(
 
 digraph G {
     concentrate = true;
@@ -36,7 +38,7 @@ digraph G {
     diamondback_transforms_psd_transform [fillcolor="#c04040",fontcolor="#ffffff",label="diamondback\.\ntransforms\.\npsd_transform"];
     diamondback_transforms_wavelet_transform [fillcolor="#a83838",fontcolor="#ffffff",label="diamondback\.\ntransforms\.\nwavelet_transform"];
     diamondback_transforms_z_transform [fillcolor="#bc2f2f",fontcolor="#ffffff",label="diamondback\.\ntransforms\.\nz_transform"];
-    jsonpickle [fillcolor="#dbc22f",shape="folder"];
+    jsonpickle [fillcolor="#ceb93b",shape="folder"];
     loguru [fillcolor="#5fcc33",shape="folder"];
     numpy [fillcolor="#06f991",shape="folder"];
     requests [fillcolor="#4089c0",fontcolor="#ffffff",shape="folder"];
@@ -86,8 +88,8 @@ digraph G {
     diamondback_transforms_wavelet_transform -> diamondback_transforms [fillcolor="#a83838",weight="2"];
     diamondback_transforms_z_transform -> diamondback_filters_iir_filter [fillcolor="#bc2f2f",minlen="2"];
     diamondback_transforms_z_transform -> diamondback_transforms [fillcolor="#bc2f2f",weight="2"];
-    jsonpickle -> diamondback_commons_Serial [fillcolor="#dbc22f",minlen="3"];
-    jsonpickle -> diamondback_commons_serial [fillcolor="#dbc22f",minlen="3"];
+    jsonpickle -> diamondback_commons_Serial [fillcolor="#ceb93b",minlen="3"];
+    jsonpickle -> diamondback_commons_serial [fillcolor="#ceb93b",minlen="3"];
     loguru -> diamondback_commons_Log [fillcolor="#5fcc33",minlen="3"];
     loguru -> diamondback_commons_log [fillcolor="#5fcc33",minlen="3"];
     numpy -> diamondback_commons_Log [fillcolor="#06f991",minlen="3"];
