@@ -35,7 +35,6 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
-from typing import Union
 import numpy
 
 class RankFilter( FirFilter ) :
@@ -67,12 +66,12 @@ class RankFilter( FirFilter ) :
         super( ).__init__( b = numpy.ones( order + 1 ) / ( order + 1 ) )
         self._index = index
 
-    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

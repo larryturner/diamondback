@@ -53,7 +53,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
-from typing import Tuple, Union
 import math
 import numpy
 import scipy.signal
@@ -65,14 +64,14 @@ class ZTransform( object ) :
     """
 
     @staticmethod
-    def transform( u : Union[ list, numpy.ndarray ], v : Union[ list, numpy.ndarray ], frequency : float, bilinear : bool = True ) -> Tuple[ numpy.ndarray, numpy.ndarray ] :
+    def transform( u : list | numpy.ndarray, v : list | numpy.ndarray, frequency : float, bilinear : bool = True ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
         """ Transforms continuous s-domain coefficient arrays and produces
             discrete z-domain coefficient arrays.
 
             Arguments :
-                u : Union[ list, numpy.ndarray ] - recursive coefficient, s-domain.
-                v : Union[ list, numpy.ndarray ] - forward coefficient, s-domain.
+                u : list | numpy.ndarray - recursive coefficient, s-domain.
+                v : list | numpy.ndarray - forward coefficient, s-domain.
                 frequency : float - frequency in ( 0.0, inf ).
                 bilinear : bool.
 

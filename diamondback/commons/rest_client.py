@@ -38,7 +38,7 @@
         Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any, Optional
+from typing import Any
 import requests
 
 class RestClient( object ) :
@@ -93,7 +93,7 @@ class RestClient( object ) :
         self._timeout = ( 10.0, 60.0 )
         self._url = 'http://127.0.0.1:8080'
 
-    def request( self, method : str, api : str, auth : Any = None, header : Optional[ dict[ str, str ] ] = None, item : Optional[ dict[ str, str ] ] = None, data : Any = None, json : Any = None ) -> requests.Response :
+    def request( self, method : str, api : str, auth : Any = None, header : dict[ str, str ] | None = None, item : dict[ str, str ] | None = None, data : Any = None, json : Any = None ) -> requests.Response :
 
         """ Request client for simple REST service requests. An API and an
             elective dictionary of parameter strings are encoded to build a
@@ -105,8 +105,8 @@ class RestClient( object ) :
                 method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
                 api : str - relative to the URL.
                 auth : Any.
-                header : dict[ str, str ].
-                item : dict[ str, str ].
+                header : dict[ str, str ] | None.
+                item : dict[ str, str ] | None.
                 data : Any.
                 json : Any.
 

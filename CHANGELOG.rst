@@ -1,3 +1,9 @@
+5.1.2 - 2025-01-07
+^^^^^^^^^^^^^^^^^^
+- Refactor and simplify typing declarations.
+- Remove support for Python 3.9.
+- Add support for Python 3.13.
+
 5.1.1 - 2024-08-21
 ^^^^^^^^^^^^^^^^^^
 - Refactor FirFilter scipy firwin argument assignment.

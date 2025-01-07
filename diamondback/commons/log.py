@@ -77,7 +77,7 @@
 
 from loguru import logger
 from threading import RLock
-from typing import Any, Union
+from typing import Any
 import numpy
 import os
 import sys
@@ -129,7 +129,7 @@ class Log( object ) :
             Log._identity = logger.add( stream, level = 0, format = '<blue>{time:YYYY-MM-DDTHH:mm:ss.SSZ}</blue> <level>{level}</level> {message}' )
 
     @classmethod
-    def write( cls, level : str, entry : Union[ str, Exception ] ) -> None :
+    def write( cls, level : str, entry : str | Exception ) -> None :
 
         """ Formats and writes log entries using the loguru package with a
             specified level and stream.  Log entries contain an ISO-8601
@@ -137,7 +137,7 @@ class Log( object ) :
 
             Arguments :
                 level : str - in LEVEL.
-                entry : Union[ str, Exception ].
+                entry : str | Exception.
         """
 
         with ( Log._rlock ) :
