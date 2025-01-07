@@ -91,7 +91,6 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
-from typing import Union
 import numpy
 
 class DerivativeFilter( FirFilter ) :
@@ -125,12 +124,12 @@ class DerivativeFilter( FirFilter ) :
             raise ValueError( f'Order = {order} Expected Order in {tuple( DerivativeFilter.B[ derivative ].keys( ) )}' )
         super( ).__init__( b = DerivativeFilter.B[ derivative ][ order ] )
 
-    def filter( self, x : Union[ list, numpy.ndarray ] ) -> numpy.ndarray :
+    def filter( self, x : list | numpy.ndarray ) -> numpy.ndarray :
 
         """ Filters an incident signal and produces a reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
 
             Returns :
                 y : numpy.ndarray - reference signal.

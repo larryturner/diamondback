@@ -29,6 +29,7 @@
             nox -s typing dependencies build image tests docs
 
     **License**
+        `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
         © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
@@ -47,7 +48,7 @@ import time
 
 nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'image', 'tests', 'docs' ]
 
-PYTHON = [ '3.9', '3.10', '3.11', '3.12' ]
+PYTHON = [ '3.10', '3.11', '3.12', '3.13' ]
 REPOSITORY = pathlib.Path.cwd( ).name
 x = REPOSITORY.split( '-' )
 SOURCE = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]

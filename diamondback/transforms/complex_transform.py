@@ -53,7 +53,6 @@
         Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
-from typing import Union
 import math
 import numpy
 
@@ -68,13 +67,13 @@ class ComplexTransform( object ) :
     GAIN = ( ( 1.0 / 3.0 ) ** 0.5 ) * numpy.exp( -1j * math.pi / 6.0 )
 
     @classmethod
-    def transform( cls, x : Union[ list, numpy.ndarray ], neutral : bool = True ) -> numpy.ndarray :
+    def transform( cls, x : list | numpy.ndarray, neutral : bool = True ) -> numpy.ndarray :
 
         """ Transforms a real three-phase or complex incident signal into a complex
             or three-phase reference signal.
 
             Arguments :
-                x : Union[ list, numpy.ndarray ] - incident signal.
+                x : list | numpy.ndarray - incident signal.
                 neutral : bool.
 
             Returns :

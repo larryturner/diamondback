@@ -1,3 +1,5 @@
+C:\Users\sesa14073\Development\Python\diamondback\.nox\dependencies\Lib\site-packages\pydeps\pystdlib.py:26: UserWarning: stdlib_list does't support Python 3.13 yet, pydeps will use symbols from 3.12 for now.
+  warnings.warn(
 
 digraph G {
     concentrate = true;
@@ -38,7 +40,7 @@ digraph G {
     diamondback_transforms_z_transform [fillcolor="#75bc2f",label="diamondback\.\ntransforms\.\nz_transform"];
     __main__ [fillcolor="#6b2e2e",fontcolor="#ffffff",shape="folder"];
     certifi [fillcolor="#b36b4c",fontcolor="#ffffff",shape="folder"];
-    charset_normalizer [fillcolor="#a17635",fontcolor="#ffffff",shape="folder"];
+    charset_normalizer [fillcolor="#ac782b",fontcolor="#ffffff",shape="folder"];
     colorama [fillcolor="#b0a43a",shape="folder"];
     dateutil [fillcolor="#c8f906",shape="folder"];
     idna [fillcolor="#44c823",shape="folder"];
@@ -54,10 +56,11 @@ digraph G {
     sklearn [fillcolor="#8804a9",fontcolor="#ffffff",shape="folder"];
     threadpoolctl [fillcolor="#ce3bc0",fontcolor="#ffffff",shape="folder"];
     urllib3 [fillcolor="#95035b",fontcolor="#ffffff",shape="folder"];
-    win32_setctime [fillcolor="#b65371",fontcolor="#ffffff",shape="folder"];
+    win32_setctime [fillcolor="#b34c6b",fontcolor="#ffffff",shape="folder"];
     __main__ -> pandas [fillcolor="#6b2e2e",minlen="4"];
     certifi -> requests [fillcolor="#b36b4c",minlen="2"];
-    charset_normalizer -> requests [fillcolor="#a17635"];
+    charset_normalizer -> numpy [fillcolor="#ac782b",minlen="3"];
+    charset_normalizer -> requests [fillcolor="#ac782b"];
     colorama -> loguru [fillcolor="#b0a43a",minlen="2"];
     dateutil -> pandas [fillcolor="#c8f906",minlen="3"];
     diamondback_commons -> diamondback [fillcolor="#75b03a"];
@@ -135,7 +138,7 @@ digraph G {
     numpy -> diamondback_transforms_wavelet_transform [fillcolor="#039595",minlen="3"];
     numpy -> diamondback_transforms_z_transform [fillcolor="#039595",minlen="3"];
     numpy -> joblib [fillcolor="#039595",minlen="3"];
-    numpy -> jsonpickle [fillcolor="#039595",minlen="3"];
+    numpy -> jsonpickle [fillcolor="#039595",minlen="2"];
     numpy -> pandas [fillcolor="#039595",minlen="3"];
     numpy -> scipy [fillcolor="#039595",minlen="3"];
     numpy -> sklearn [fillcolor="#039595",minlen="3"];
@@ -156,6 +159,6 @@ digraph G {
     threadpoolctl -> numpy [fillcolor="#ce3bc0",minlen="3"];
     threadpoolctl -> sklearn [fillcolor="#ce3bc0",minlen="3"];
     urllib3 -> requests [fillcolor="#95035b",minlen="3"];
-    win32_setctime -> loguru [fillcolor="#b65371",minlen="2"];
+    win32_setctime -> loguru [fillcolor="#b34c6b",minlen="2"];
 }
 
