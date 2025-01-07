@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diamondback.commons.log &mdash; diamondback Digital Signal Processing (DSP)</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            diamondback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"></div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">diamondback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">diamondback.commons.log</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for diamondback.commons.log</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; **Description**</span>
+<span class="sd">        A log instance formats and writes log entries with a specified level</span>
+<span class="sd">        and stream using the loguru package. Log entries contain an ISO-8601</span>
+<span class="sd">        datetime and level.  Dynamic stream redirection and level specification</span>
+<span class="sd">        are supported.</span>
+
+<span class="sd">        Log uses lazy initialization to coexist with loguru, and removes or</span>
+<span class="sd">        creates loguru handlers only on explicit stream assignment or write.</span>
+<span class="sd">        In lazy initialization an existing default loguru handler, with an</span>
+<span class="sd">        identity equal to 0, and a stream assignment of sys.stdout is removed,</span>
+<span class="sd">        and a new loguru handler with a stream assignment of sys.stdout and a</span>
+<span class="sd">        level of &#39;Info&#39; is created.</span>
+
+<span class="sd">        In stream assignments subsequent to initialization, only loguru</span>
+<span class="sd">        handlers previously created by Log will be removed, as the Log design</span>
+<span class="sd">        pattern does not define multicast.  The ability to create and modify</span>
+<span class="sd">        externally defined loguru handlers, multicast, and utilize any native</span>
+<span class="sd">        loguru functionality is supported.</span>
+
+<span class="sd">        Levels defined by loguru are supported, including custom definitions,</span>
+<span class="sd">        which may have an associated numerical value greater than or equal to</span>
+<span class="sd">        zero.  Levels may be dynamically modified without creating, deleting,</span>
+<span class="sd">        or modifying a loguru handler.  Levels are case insensitive on</span>
+<span class="sd">        assignment, though loguru uses upper case.</span>
+
+<span class="sd">        Singleton.</span>
+
+<span class="sd">        Thread safe.</span>
+
+<span class="sd">    **Example**</span>
+
+<span class="sd">        .. code-block:: python</span>
+
+<span class="sd">            from diamondback import Log</span>
+<span class="sd">            import io</span>
+<span class="sd">            import numpy</span>
+<span class="sd">            import sys</span>
+
+<span class="sd">            try :</span>
+<span class="sd">                # Set Log level to &#39;Info&#39;, the default level.</span>
+
+<span class="sd">                Log.level( &#39;Info&#39; )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, &#39;Test Log write.&#39; )</span>
+
+<span class="sd">                # Standard output.</span>
+
+<span class="sd">                Log.stream( sys.stdout )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, f&#39;Valid = {True}&#39; )</span>
+
+<span class="sd">                # Memory stream.</span>
+
+<span class="sd">                stream = io.StringIO( )</span>
+<span class="sd">                Log.stream( stream )</span>
+<span class="sd">                x = numpy.random.rand( 2, 2 )</span>
+<span class="sd">                Log.write( &#39;Info&#39;, f&#39;X = {x}&#39; )</span>
+
+<span class="sd">                # Read and reset memory stream.</span>
+<span class="sd">                value = stream.getvalue( )</span>
+<span class="sd">                _, _ = stream.truncate( 0 ), stream.seek( 0 )</span>
+
+<span class="sd">                # File.</span>
+
+<span class="sd">                with open( &#39;log-2112.txt&#39;, &#39;w&#39; ) as fout :</span>
+<span class="sd">                    Log.stream( fout )</span>
+<span class="sd">                    x = numpy.random.rand( 2, 2 )</span>
+<span class="sd">                    Log.write( &#39;Warning&#39;, f&#39;X = {x}&#39; )</span>
+<span class="sd">            except Exception as ex :</span>
+<span class="sd">                Log.write( &#39;Error&#39;, ex )</span>
+
+<span class="sd">    **License**</span>
+<span class="sd">        `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
+<span class="sd">        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+
+<span class="sd">    **Author**</span>
+<span class="sd">        Larry Turner, Schneider Electric, AI Hub, 2018-03-22.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">loguru</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">RLock</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<div class="viewcode-block" id="Log">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Log</span><span class="p">(</span> <span class="nb">object</span> <span class="p">)</span> <span class="p">:</span>
+
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Log.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span> <span class="n">formatter</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="nb">float</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{:.6f}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span> <span class="p">)</span> <span class="p">)</span>
+
+    <span class="n">LEVEL</span> <span class="o">=</span> <span class="p">(</span> <span class="s1">&#39;Critical&#39;</span><span class="p">,</span> <span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="s1">&#39;Success&#39;</span><span class="p">,</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Debug&#39;</span><span class="p">,</span> <span class="s1">&#39;Trace&#39;</span> <span class="p">)</span>
+
+    <span class="n">_identity</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+    <span class="n">_rlock</span> <span class="o">=</span> <span class="n">RLock</span><span class="p">(</span> <span class="p">)</span>
+
+<div class="viewcode-block" id="Log.level">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.level">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">level</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Level.</span>
+
+<span class="sd">            Arguments :</span>
+<span class="sd">                level : str - in LEVEL.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">try</span> <span class="p">:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in </span><span class="si">{</span><span class="n">Log</span><span class="o">.</span><span class="n">LEVEL</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Log.stream">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.stream">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span> <span class="p">:</span> <span class="n">Any</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Stream.</span>
+
+<span class="sd">            Arguments :</span>
+<span class="sd">                stream : Any, hasattr( &#39;write&#39; ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, &#39;w&#39; or &#39;a&#39; ) ).</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">stream</span> <span class="p">)</span> <span class="ow">or</span> <span class="p">(</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="s1">&#39;write&#39;</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s1"> Expected Write&#39;</span> <span class="p">)</span>
+            <span class="k">try</span> <span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="n">stream</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">format</span> <span class="o">=</span> <span class="s1">&#39;&lt;blue&gt;{time:YYYY-MM-DDTHH:mm:ss.SSZ}&lt;/blue&gt; &lt;level&gt;</span><span class="si">{level}</span><span class="s1">&lt;/level&gt; </span><span class="si">{message}</span><span class="s1">&#39;</span> <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Log.write">
+<a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.write">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">level</span> <span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entry</span> <span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; Formats and writes log entries using the loguru package with a</span>
+<span class="sd">            specified level and stream.  Log entries contain an ISO-8601</span>
+<span class="sd">            datetime and level.</span>
+
+<span class="sd">            Arguments :</span>
+<span class="sd">                level : str - in LEVEL.</span>
+<span class="sd">                entry : str | Exception.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">with</span> <span class="p">(</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span> <span class="p">)</span> <span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="ow">not</span> <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
+            <span class="k">try</span> <span class="p">:</span>
+                <span class="n">v</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="n">level</span><span class="o">.</span><span class="n">upper</span><span class="p">(</span> <span class="p">)</span> <span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span> <span class="sa">f</span><span class="s1">&#39;Level = </span><span class="si">{</span><span class="n">level</span><span class="si">}</span><span class="s1"> Expected Level in </span><span class="si">{</span><span class="n">Log</span><span class="o">.</span><span class="n">LEVEL</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+            <span class="k">if</span> <span class="p">(</span> <span class="n">v</span><span class="o">.</span><span class="n">no</span> <span class="o">&gt;=</span> <span class="n">Log</span><span class="o">.</span><span class="n">_level</span><span class="o">.</span><span class="n">no</span> <span class="p">)</span> <span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="nb">isinstance</span><span class="p">(</span> <span class="n">entry</span><span class="p">,</span> <span class="ne">Exception</span> <span class="p">)</span> <span class="p">)</span> <span class="p">:</span>
+                    <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Exception = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="w"> </span><span class="n">entry</span><span class="w"> </span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1"> </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s1">&#39;</span>
+                    <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">(</span> <span class="p">)[</span> <span class="o">-</span><span class="mi">1</span> <span class="p">]</span>
+                    <span class="k">while</span> <span class="p">(</span> <span class="n">info</span> <span class="p">)</span> <span class="p">:</span>
+                        <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s1">&#39; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="w"> </span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="w"> </span><span class="p">)[</span><span class="w"> </span><span class="o">-</span><span class="mi">1</span><span class="w"> </span><span class="p">]</span><span class="si">}</span><span class="s1"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s1">&#39;</span>
+                        <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span> <span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span> <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
