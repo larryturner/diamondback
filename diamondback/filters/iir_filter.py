@@ -282,7 +282,8 @@ class IirFilter( FirFilter ) :
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
-        self.s[ : ] = x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( )
+        if ( len( self.s ) > 1 ) :
+            self.s[ 1 : ] = x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( )
         self.s[ 0 ] = x
 
     def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
