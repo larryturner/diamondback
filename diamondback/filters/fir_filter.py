@@ -233,10 +233,10 @@ class FirFilter( object ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :
-            self.s[ 0 ] = x[ ii ]
-            y[ ii ] = self.b.dot( self.s )
             if ( len( self.s ) > 1 ) :
                 self.s[ 1 : ] = self.s[ : -1 ]
+            self.s[ 0 ] = x[ ii ]
+            y[ ii ] = self.b.dot( self.s )
         return y
 
     def reset( self, x : complex | float ) -> None :
@@ -250,7 +250,7 @@ class FirFilter( object ) :
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
-        self.s.fill( x )
+        self.s[ : ] = x
 
     def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
