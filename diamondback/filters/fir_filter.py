@@ -6,11 +6,11 @@
 
         .. math::
 
-            y_{n} = \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
+            s_{i,n} = s_{i-1,n-1}\\qquad\\quad s_{0,n} = x_{n}
 
         .. math::
 
-            s_{1,n+1} = x_{n}\\qquad\\quad s_{i,n+1} = s_{i-1,n}
+            y_{n} = \\sum_{i = 0}^{N} b_{i,n} x_{n-i} = \\sum_{i = 1}^{N} b_{i,n} s_{i,n} + b_{0,n} x_{n}
 
         A reset may minimize edge effects at a discontinuity by assuming
         persistent operation at a specified incident signal condition.

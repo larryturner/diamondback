@@ -123,7 +123,7 @@ def convert( x : str ) -> str :
         y = y.replace( v, u )
     return y
 
-@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -2 ] )  # pydeps python 3.13 support is late.
 def dependencies( session ) -> None :
 
     """ Dependency diagrams.

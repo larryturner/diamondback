@@ -1,3 +1,8 @@
+5.1.4 - 2025-01-08
+^^^^^^^^^^^^^^^^^^
+- Modify dependency generation which does not yet support Python 3.13.
+- Modify requirements.
+
 5.1.2 - 2025-01-07
 ^^^^^^^^^^^^^^^^^^
 - Refactor and simplify typing declarations.
