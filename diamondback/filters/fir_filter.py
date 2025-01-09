@@ -86,7 +86,7 @@
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-        © 2018 - 2024 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+        © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
     **Author**
         Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
@@ -233,10 +233,10 @@ class FirFilter( object ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :
-            self.s[ 0 ] = x[ ii ]
-            y[ ii ] = self.b.dot( self.s )
             if ( len( self.s ) > 1 ) :
                 self.s[ 1 : ] = self.s[ : -1 ]
+            self.s[ 0 ] = x[ ii ]
+            y[ ii ] = self.b.dot( self.s )
         return y
 
     def reset( self, x : complex | float ) -> None :
@@ -250,7 +250,7 @@ class FirFilter( object ) :
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
-        self.s.fill( x )
+        self.s[ : ] = x
 
     def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
