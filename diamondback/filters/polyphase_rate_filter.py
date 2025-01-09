@@ -175,5 +175,4 @@ class PolyphaseRateFilter( object ) :
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
-        if ( len( self.s ) > 1 ) :
-            self.s.fill( x )
+        self.s[ : ] = x

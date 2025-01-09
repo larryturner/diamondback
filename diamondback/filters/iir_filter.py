@@ -263,13 +263,12 @@ class IirFilter( FirFilter ) :
             raise ValueError( f'X = {x}' )
         y = numpy.zeros( len( x ), type( self.b[ 0 ] ) )
         for ii in range( 0, len( x ) ) :
+            if ( len( self.s ) > 1 ) :
+                self.s[ 0 ] += self.a.dot( self.s )
+                self.s[ 1 : ] = self.s[ : -1 ]
             self.s[ 0 ] = x[ ii ]
             c = self.a * self.b[ 0 ] + self.b
             y[ ii ] = c.dot( self.s )
-            if ( len( self.s ) > 1 ) :
-                z = self.a.dot( self.s )
-                self.s[ 1 : ] = self.s[ : -1 ]
-                self.s[ 1 ] += z
         return y
 
     def reset( self, x : complex | float ) -> None :
@@ -283,8 +282,8 @@ class IirFilter( FirFilter ) :
 
         if ( not numpy.isscalar( x ) ) :
             raise ValueError( f'X = {x}' )
-        if ( len( self.s ) > 1 ) :
-            self.s.fill( x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( ) )
+        self.s[ : ] = x * ( 1.0 - self.b[ 0 ] ) / ( self.a[ 1 : ] * self.b[ 0 ] + self.b[ 1 : ] ).sum( )
+        self.s[ 0 ] = x
 
     def response( self, length = 8192, count = 1 ) -> tuple[ numpy.ndarray, numpy.ndarray ] :
 
