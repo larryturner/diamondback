@@ -1,3 +1,7 @@
+5.1.5 - 2025-01-17
+^^^^^^^^^^^^^^^^^^
+- Modify FirFilter and IirFilter frequency and order constraints.
+
 5.1.4 - 2025-01-08
 ^^^^^^^^^^^^^^^^^^
 - Modify dependency generation which does not yet support Python 3.13.
