@@ -111,7 +111,7 @@ class IirFilter( FirFilter ) :
     def a( self, a : list | numpy.ndarray ) :
         self._a = a
 
-    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
+    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 1, count : int = 1, complement : bool = False, gain : float = 1.0,
                   a : list | numpy.ndarray = [ ], b : list | numpy.ndarray = [ ], s : list | numpy.ndarray = [ ] ) -> None :
 
         """ Initialize.
@@ -141,8 +141,8 @@ class IirFilter( FirFilter ) :
                 raise ValueError( f'style = {style} Expected Style in {IirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
-            if ( order < 0 ) :
-                raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
+            if ( order <= 0 ) :
+                raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
             if ( count <= 0 ) :
                 raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
             if ( complement ) :

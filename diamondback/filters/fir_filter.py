@@ -120,7 +120,7 @@ class FirFilter( object ) :
     def s( self, s : list | numpy.ndarray ) :
         self._s = s
 
-    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 0, count : int = 1, complement : bool = False, gain : float = 1.0,
+    def __init__( self, style : str = '', frequency : float = 0.0, order : int = 1, count : int = 1, complement : bool = False, gain : float = 1.0,
                   b : list | numpy.ndarray = [ ], s : list | numpy.ndarray = [ ] ) -> None :
 
         """ Initialize.
@@ -149,8 +149,8 @@ class FirFilter( object ) :
                 raise ValueError( f'style = {style} Expected Style in {FirFilter.STYLE}' )
             if ( ( frequency <= 0.0 ) or ( frequency >= 1.0 ) ) :
                 raise ValueError( f'Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )' )
-            if ( order < 0 ) :
-                raise ValueError( f'Order = {order} Expected Order in [ 0, inf )' )
+            if ( order <= 0 ) :
+                raise ValueError( f'Order = {order} Expected Order in ( 0, inf )' )
             if ( count <= 0 ) :
                 raise ValueError( f'Count = {count} Expected Count in ( 0, inf )' )
             if ( complement ) :
@@ -164,7 +164,7 @@ class FirFilter( object ) :
             for _ in range( 0, index ) :
                 with warnings.catch_warnings( ) :
                     warnings.simplefilter( 'ignore' )
-                    v = scipy.signal.firwin( numtaps = order + 1, cutoff = scale * frequency, width = None, window = window, pass_zero = True, scale = True, fs = 1.0 )
+                    v = scipy.signal.firwin( numtaps = order + 1, cutoff = min( scale * frequency, 1.0 - eps ), width = None, window = window, pass_zero = True, scale = True, fs = 2.0 )
                     if ( numpy.isnan( v ).any( ) ) :
                         raise ValueError( f'V = {v}' )
                     x = numpy.exp( 1j * math.pi * frequency )

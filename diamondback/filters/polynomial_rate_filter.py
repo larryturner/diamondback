@@ -80,7 +80,7 @@ class PolynomialRateFilter( object ) :
 
             Arguments :
                 rate : float - ratio of effective frequency in [ 0.0, inf ).
-                order : int - in [ 1 , inf ).
+                order : int - in ( 0, inf ).
         """
 
         if ( rate < 0.0 ) :
