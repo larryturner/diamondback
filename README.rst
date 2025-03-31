@@ -17,19 +17,19 @@ diamondback
 Description
 ~~~~~~~~~~~
 
-``diamondback`` Digital Signal Processing (DSP).
+*diamondback* Digital Signal Processing (DSP).
 
-``diamondback`` complements Artificial Intelligence (AI) frameworks, by defining
+*diamondback* complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.
 
-``diamondback`` supports applications including cancellation, identification,
+*diamondback* supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.
 
 Installation
 ~~~~~~~~~~~~
 
-``diamondback`` is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
+*diamondback* is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
 
 .. code-block:: bash
 
@@ -46,8 +46,8 @@ Data collections are consistently expressed in native types, including tuples, s
 lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 Complex or real types are supported as appropriate.
 
-``diamondback`` is defined in subpackages ``commons``, ``filters``, ``models``, and
-``transforms``.
+*diamondback* is defined in subpackages *commons*, *filters*, *models*, and
+*transforms*.
 
 `commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -207,7 +207,7 @@ Complex or real types are supported as appropriate.
 Dependencies
 ~~~~~~~~~~~~
 
-``diamondback`` depends upon external packages.
+*diamondback* depends upon external packages.
 
 -   `jsonpickle <https://pypi.org/project/jsonpickle/>`_
 -   `loguru <https://pypi.org/project/loguru/>`_
@@ -216,7 +216,7 @@ Dependencies
 -   `scikit-learn <https://pypi.org/project/scikit-learn/>`_
 -   `scipy <https://pypi.org/project/scipy/>`_
 
-``diamondback`` elective build, documentation, test, and demonstration
+*diamondback* elective build, documentation, test, and demonstration
 functionality depends upon additional external packages.
 
 -   `build <https://pypi.org/project/build/>`_
@@ -234,7 +234,7 @@ functionality depends upon additional external packages.
 -   `sphinx <https://pypi.org/project/sphinx/>`_
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
 
-``diamondback`` dependency diagram.
+*diamondback* dependency diagram.
 
 .. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
     :target: https://larryturner.github.io/diamondback/dependencies-full.svg
@@ -242,9 +242,9 @@ functionality depends upon additional external packages.
 Demonstration
 ~~~~~~~~~~~~~
 
-A jupyter notebook defines cells to create and exercise ``diamondback`` components.
+A jupyter notebook defines cells to create and exercise *diamondback* components.
 The notebook serves as a tool for visualization, validation, and demonstration
-of ``diamondback`` capabilities.
+of *diamondback* capabilities.
 
 .. code-block:: bash
 
@@ -256,7 +256,7 @@ Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
 
-Run a nox ``notebook`` session to exercise demonstration.
+Run a nox *notebook* session to exercise demonstration.
 
 .. code-block:: bash
 
@@ -265,9 +265,9 @@ Run a nox ``notebook`` session to exercise demonstration.
 Documentation
 ~~~~~~~~~~~~~
 
-``diamondback`` documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
+*diamondback* documentation is available on `GitHub Pages <https://larryturner.github.io/diamondback/>`_.
 
-Run a nox ``docs`` session to generate documentation.
+Run a nox *docs* session to generate documentation.
 
 .. code-block:: bash
 
@@ -279,7 +279,7 @@ Tests
 A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.
 
-Run a nox ``tests`` session to exercise tests.
+Run a nox *tests* session to exercise tests.
 
 .. code-block:: bash
 

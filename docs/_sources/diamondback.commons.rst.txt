@@ -10,8 +10,8 @@ diamondback.commons.log module
 .. automodule:: diamondback.commons.log
    :members:
    :noindex:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 diamondback.commons.rest\_client module
 ---------------------------------------
@@ -19,8 +19,8 @@ diamondback.commons.rest\_client module
 .. automodule:: diamondback.commons.rest_client
    :members:
    :noindex:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 diamondback.commons.serial module
 ---------------------------------
@@ -28,8 +28,8 @@ diamondback.commons.serial module
 .. automodule:: diamondback.commons.serial
    :members:
    :noindex:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:
 
 Module contents
 ---------------
@@ -37,5 +37,5 @@ Module contents
 .. automodule:: diamondback.commons
    :members:
    :noindex:
-   :undoc-members:
    :show-inheritance:
+   :undoc-members:

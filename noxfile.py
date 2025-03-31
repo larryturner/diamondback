@@ -5,9 +5,9 @@
         Environment variables may be electively defined to support access to
         non-public repositories on GitHub or GitHub Enterprise.
 
-        ``GITHUB_USER`` defines a GitHub user.
+        *GITHUB_USER* defines a GitHub user.
 
-        ``GITHUB_TOKEN`` defines a GitHub access token.
+        *GITHUB_TOKEN* defines a GitHub access token.
 
     **Example**
         List sessions.
