@@ -5,8 +5,7 @@ classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python :: 3.10',
                 'Programming Language :: Python :: 3.11',
                 'Programming Language :: Python :: 3.12',
-                'Programming Language :: Python :: 3.13',
-                'License :: OSI Approved :: BSD License' ]
+                'Programming Language :: Python :: 3.13' ]
 dependencies = [ 'jsonpickle >= 4.0.5, < 5.0.0',
                  'loguru >= 0.7.3, < 1.0.0',
                  'numpy >= 2.2.4, < 3.0.0',
@@ -31,7 +30,7 @@ keywords = [ 'DSP',
              'rate',
              'request',
              'serial' ]
-license = { file = 'LICENSE' }
+license = 'BSD-3-Clause'
 name = 'diamondback'
 readme = 'README.rst'
 requires-python = '>= 3.10, < 3.14'
