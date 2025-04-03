@@ -39,6 +39,12 @@ Installation
 
     pip install git+https://github.com/larryturner/diamondback.git
 
+.. code-block:: bash
+
+    git clone https://github.com/larryturner/diamondback.git
+    cd diamondback
+    pip install .
+
 Details
 ~~~~~~~
 
@@ -248,19 +254,11 @@ of *diamondback* capabilities.
 
 .. code-block:: bash
 
-    git clone https://github.com/larryturner/diamondback.git
-    cd diamondback
-    jupyter notebook .\notebooks\diamondback.ipynb
+    jupyter notebook ./notebooks/diamondback.ipynb
 
 Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.
-
-Run a nox *notebook* session to exercise demonstration.
-
-.. code-block:: bash
-
-    nox -s notebook
 
 Documentation
 ~~~~~~~~~~~~~

@@ -120,6 +120,11 @@ optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/larryturner/diamondback.git
 </pre></div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/larryturner/diamondback.git
+<span class="nb">cd</span><span class="w"> </span>diamondback
+pip<span class="w"> </span>install<span class="w"> </span>.
+</pre></div>
+</div>
 </section>
 <section id="details">
 <h2>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
@@ -306,18 +311,12 @@ functionality depends upon additional external packages.</p>
 <p>A jupyter notebook defines cells to create and exercise <em>diamondback</em> components.
 The notebook serves as a tool for visualization, validation, and demonstration
 of <em>diamondback</em> capabilities.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/larryturner/diamondback.git
-<span class="nb">cd</span><span class="w"> </span>diamondback
-jupyter<span class="w"> </span>notebook<span class="w"> </span>.<span class="se">\n</span>otebooks<span class="se">\d</span>iamondback.ipynb
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook<span class="w"> </span>./notebooks/diamondback.ipynb
 </pre></div>
 </div>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
-<p>Run a nox <em>notebook</em> session to exercise demonstration.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>notebook
-</pre></div>
-</div>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
