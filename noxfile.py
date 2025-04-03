@@ -26,7 +26,7 @@
 
         .. code-block:: bash
 
-            nox -s typing dependencies build image tests docs
+            nox -s typing lint dependencies build tests docs
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -44,14 +44,12 @@ import random
 import requests
 import shutil
 import string
-import time
 
-nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'image', 'tests', 'docs' ]
+nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'tests', 'docs' ]
 
 PYTHON = [ '3.10', '3.11', '3.12', '3.13' ]
 REPOSITORY = pathlib.Path.cwd( ).name
-x = REPOSITORY.split( '-' )
-SOURCE = 'service' if ( pathlib.Path( 'service' ).is_dir( ) ) else x[ max( len( x ) - 2, 0 ) ]
+SOURCE = REPOSITORY.split( '-' )[ 0 ]
 if ( not pathlib.Path( SOURCE ).is_dir( ) ) :
     SOURCE = '.'
 
@@ -62,27 +60,8 @@ def build( session ) -> None :
     """
 
     session.install( '.[build]' )
-    if ( pathlib.Path( 'setup.py' ).is_file( ) ) :
-        shutil.rmtree( 'dist', ignore_errors = True )
-        x = None
-        try :
-            if ( pathlib.Path( 'pyproject.toml' ).is_file( ) ) :
-                user, token = os.getenv( 'GITHUB_USER' ), os.getenv( 'GITHUB_TOKEN' )
-                if ( user and token ) :
-                    with open( 'pyproject.toml', 'r' ) as fin :
-                        x = fin.read( )
-                    u, v = 'git+https://github.', f'git+https://{user}:{token}@github.'
-                    y = x.replace( u, v )
-                    if ( x != y ) :
-                        print( 'pyproject.toml : GitHub credentials found.' )
-                        with open( 'pyproject.toml', 'w' ) as fout :
-                            fout.write( y )
-            session.run( 'python', '-m', 'build', '-s', '-w' )
-        finally :
-            if ( x ) :
-                with open( 'pyproject.toml', 'w' ) as fout :
-                    fout.write( x )
-            shutil.rmtree( 'build', ignore_errors = True )
+    session.run( 'python', '-m', 'build', '-s', '-w' )
+    shutil.rmtree( 'build', ignore_errors = True )
 
 @nox.session( venv_backend = 'virtualenv' )
 def clean( session ) -> None :
@@ -123,7 +102,7 @@ def convert( x : str ) -> str :
         y = y.replace( v, u )
     return y
 
-@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -2 ] )  # pydeps python 3.13 support is late.
+@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def dependencies( session ) -> None :
 
     """ Dependency diagrams.
@@ -169,16 +148,6 @@ def docs( session ) -> None :
                 os.remove( str( pathlib.Path.cwd( ) / 'templates' / x ) )
         session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'templates' ), str( pathlib.Path.cwd( ) / 'docs' ) )
 
-@nox.session( venv_backend = 'virtualenv' )
-def image( session ) -> None :
-
-    """ Image.
-    """
-
-    if ( pathlib.Path( 'dockerfile' ).is_file( ) ) :
-        build( session )
-        session.run( 'docker', 'build', '--tag', REPOSITORY, '.', external = True )
-
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def lint( session ) -> None :
 
@@ -187,29 +156,6 @@ def lint( session ) -> None :
 
     session.install( '.[lint]' )
     session.run( 'ruff', 'check', SOURCE )
-
-@nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def notebook( session ) -> None :
-
-    """ Notebook.
-    """
-
-    session.install( '.[notebook]' )
-    if ( pathlib.Path( 'notebooks' ).is_dir( ) ) :
-        os.chdir( 'notebooks' )
-        value = [ x for x in glob.glob( '*.ipynb', recursive = True ) ]
-        if ( value ) :
-            session.run( 'jupyter', 'notebook', value[ 0 ] )
-
-@nox.session( venv_backend = 'virtualenv' )
-def status( session ) -> None :
-
-    """ Status.
-    """
-
-    if ( pathlib.Path( '.git' ).is_dir( ) ) :
-        print( '[ ' + REPOSITORY + ' ]' )
-        session.run( 'git', 'status', '--short', external = True )
 
 @nox.session( venv_backend = 'virtualenv' )
 def tag( session ) -> None :
@@ -233,16 +179,9 @@ def tests( session ) -> None :
     session.install( '.[tests]' )
     if ( pathlib.Path( 'tests' ).is_dir( ) ) :
         if ( [ u for u in pathlib.Path( 'tests' ).iterdir( ) ] ) :
-            try :
-                if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
-                    session.run( 'docker', 'compose', 'up', '--detach', external = True )
-                    time.sleep( 10.0 )
-                session.install( '-e', '.' )
-                session.run( 'pytest', '--capture=no', '--verbose', '-s' )
-                shutil.rmtree( '.pytest_cache', ignore_errors = True )
-            finally :
-                if ( pathlib.Path( 'docker-compose.yml' ).is_file( ) ) :
-                    session.run( 'docker', 'compose', 'down', external = True )
+            session.install( '-e', '.' )
+            session.run( 'pytest', '--capture=no', '--verbose', '-s' )
+            shutil.rmtree( '.pytest_cache', ignore_errors = True )
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
 def typing( session ) -> None :
