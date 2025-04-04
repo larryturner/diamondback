@@ -60,6 +60,8 @@ def build( session ) -> None :
     """
 
     session.install( '.[build]' )
+    for x in ( 'build', 'dist' ) :
+        shutil.rmtree( x, ignore_errors = True )
     session.run( 'python', '-m', 'build', '-s', '-w' )
     shutil.rmtree( 'build', ignore_errors = True )
 
