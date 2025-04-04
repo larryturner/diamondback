@@ -34,7 +34,7 @@ license = 'BSD-3-Clause'
 name = 'diamondback'
 readme = 'README.rst'
 requires-python = '>= 3.10, < 3.14'
-version = '5.1.5'
+version = '5.1.6'
 
 [ project.urls ]
 homepage = 'https://github.com/larryturner/diamondback'

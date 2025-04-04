@@ -1,3 +1,9 @@
+5.1.6 - 2025-04-03
+^^^^^^^^^^^^^^^^^^
+- Modify nox build, dependency, and test, and remove image sessions.
+- Modify documentation.
+- Modify requirements.
+
 5.1.5 - 2025-01-17
 ^^^^^^^^^^^^^^^^^^
 - Modify FirFilter and IirFilter frequency and order constraints.
