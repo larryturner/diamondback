@@ -30,12 +30,11 @@ keywords = [ 'DSP',
              'rate',
              'request',
              'serial' ]
-license = 'BSD-3-Clause'
-license-files = [ 'LICENSE' ]
+license = { file = 'LICENSE' }
 name = 'diamondback'
 readme = 'README.rst'
 requires-python = '>= 3.10, < 3.14'
-version = '5.1.7'
+version = '5.1.9'
 
 [ project.urls ]
 homepage = 'https://github.com/larryturner/diamondback'
@@ -43,7 +42,7 @@ homepage = 'https://github.com/larryturner/diamondback'
 [ build-system ]
 build-backend = 'setuptools.build_meta'
 requires = [ 'build >= 1.2.2, < 2.0.0',
-             'setuptools >= 78.1.0, < 79.0.0' ]
+             'setuptools >= 75.8.0, < 76.0.0' ]
 
 [ tool.setuptools.packages.find ]
 include = [ 'diamondback*' ]
