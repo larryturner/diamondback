@@ -1,5 +1,5 @@
 """ **Description**
-        Test ``diamondback`` ``models``.
+        Test *diamondback* *models*.
 
     **Example**
 

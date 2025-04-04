@@ -1,5 +1,5 @@
 """ **Description**
-        Test ``diamondback`` ``commons``.
+        Test *diamondback* *commons*.
 
     **Example**
 

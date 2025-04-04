@@ -104,20 +104,25 @@
 </a>
 <section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> Digital Signal Processing (DSP).</p>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> complements Artificial Intelligence (AI) frameworks, by defining
+<p><em>diamondback</em> Digital Signal Processing (DSP).</p>
+<p><em>diamondback</em> complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
 useful in feature extraction and pattern recognition.</p>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> supports applications including cancellation, identification,
+<p><em>diamondback</em> supports applications including cancellation, identification,
 optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is a public repository hosted at <a class="reference external" href="https://pypi.org/project/diamondback">PyPi</a> and <a class="reference external" href="https://github.com/larryturner/diamondback">GitHub</a>.</p>
+<p><em>diamondback</em> is a public repository hosted at <a class="reference external" href="https://pypi.org/project/diamondback">PyPi</a> and <a class="reference external" href="https://github.com/larryturner/diamondback">GitHub</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>diamondback
 </pre></div>
 </div>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/larryturner/diamondback.git
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/larryturner/diamondback.git
+<span class="nb">cd</span><span class="w"> </span>diamondback
+pip<span class="w"> </span>install<span class="w"> </span>.
 </pre></div>
 </div>
 </section>
@@ -126,8 +131,8 @@ optimization, probabilistic modeling, rate adaptation, and serialization.</p>
 <p>Data collections are consistently expressed in native types, including tuples, sets,
 lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 Complex or real types are supported as appropriate.</p>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> is defined in subpackages <code class="docutils literal notranslate"><span class="pre">commons</span></code>, <code class="docutils literal notranslate"><span class="pre">filters</span></code>, <code class="docutils literal notranslate"><span class="pre">models</span></code>, and
-<code class="docutils literal notranslate"><span class="pre">transforms</span></code>.</p>
+<p><em>diamondback</em> is defined in subpackages <em>commons</em>, <em>filters</em>, <em>models</em>, and
+<em>transforms</em>.</p>
 <section id="id1">
 <h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <ul class="simple">
@@ -270,7 +275,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 </section>
 <section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> depends upon external packages.</p>
+<p><em>diamondback</em> depends upon external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/jsonpickle/">jsonpickle</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/loguru/">loguru</a></p></li>
@@ -279,7 +284,7 @@ frequency and application of bilinear or impulse invariant methods.</p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scikit-learn/">scikit-learn</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/scipy/">scipy</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> elective build, documentation, test, and demonstration
+<p><em>diamondback</em> elective build, documentation, test, and demonstration
 functionality depends upon additional external packages.</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://pypi.org/project/build/">build</a></p></li>
@@ -297,32 +302,26 @@ functionality depends upon additional external packages.</p>
 <li><p><a class="reference external" href="https://pypi.org/project/sphinx/">sphinx</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/sphinx-rtd-theme/">sphinx-rtd-theme</a></p></li>
 </ul>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> dependency diagram.</p>
+<p><em>diamondback</em> dependency diagram.</p>
 <a class="reference external image-reference" href="https://larryturner.github.io/diamondback/dependencies-full.svg"><img alt="https://larryturner.github.io/diamondback/dependencies-full.svg" src="https://larryturner.github.io/diamondback/dependencies-full.svg" />
 </a>
 </section>
 <section id="demonstration">
 <h2>Demonstration<a class="headerlink" href="#demonstration" title="Link to this heading"></a></h2>
-<p>A jupyter notebook defines cells to create and exercise <code class="docutils literal notranslate"><span class="pre">diamondback</span></code> components.
+<p>A jupyter notebook defines cells to create and exercise <em>diamondback</em> components.
 The notebook serves as a tool for visualization, validation, and demonstration
-of <code class="docutils literal notranslate"><span class="pre">diamondback</span></code> capabilities.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/larryturner/diamondback.git
-<span class="nb">cd</span><span class="w"> </span>diamondback
-jupyter<span class="w"> </span>notebook<span class="w"> </span>.<span class="se">\n</span>otebooks<span class="se">\d</span>iamondback.ipynb
+of <em>diamondback</em> capabilities.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>jupyter<span class="w"> </span>notebook<span class="w"> </span>./notebooks/diamondback.ipynb
 </pre></div>
 </div>
 <p>Restart the kernel, as the first cell contains common definitions, find cells
 which exercise components of interest, and manipulate widgets to exercise and
 visualize functionality.</p>
-<p>Run a nox <code class="docutils literal notranslate"><span class="pre">notebook</span></code> session to exercise demonstration.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>notebook
-</pre></div>
-</div>
 </section>
 <section id="documentation">
 <h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
-<p><code class="docutils literal notranslate"><span class="pre">diamondback</span></code> documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
-<p>Run a nox <code class="docutils literal notranslate"><span class="pre">docs</span></code> session to generate documentation.</p>
+<p><em>diamondback</em> documentation is available on <a class="reference external" href="https://larryturner.github.io/diamondback/">GitHub Pages</a>.</p>
+<p>Run a nox <em>docs</em> session to generate documentation.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>docs
 </pre></div>
 </div>
@@ -331,7 +330,7 @@ visualize functionality.</p>
 <h2>Tests<a class="headerlink" href="#tests" title="Link to this heading"></a></h2>
 <p>A test solution is provided to exercise and verify components, pytest is
 used to execute unit and integration tests.</p>
-<p>Run a nox <code class="docutils literal notranslate"><span class="pre">tests</span></code> session to exercise tests.</p>
+<p>Run a nox <em>tests</em> session to exercise tests.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>nox<span class="w"> </span>-s<span class="w"> </span>tests
 </pre></div>
 </div>
