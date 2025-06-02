@@ -71,7 +71,7 @@ def clean( session ) -> None :
     """ Clean repository.
     """
 
-    for x in ( '.mypy_cache', '.nox', '.pytest_cache', 'build', 'dist', 'docs' ) :
+    for x in ( '.mypy_cache', '.nox', '.pytest_cache', '.ruff_cache', 'build', 'dist', 'docs' ) :
         shutil.rmtree( x, ignore_errors = True )
     for x in [ x for x in glob.glob( f'**{str( pathlib.Path( "/" ) )}', recursive = True ) if ( '__pycache__' in x ) ] :
         shutil.rmtree( x, ignore_errors = True )
