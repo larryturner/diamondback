@@ -1,5 +1,5 @@
 """ **Description**
-        *diamondback* setup.
+        Setup.
 
     **License**
         `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_

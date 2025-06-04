@@ -8,11 +8,11 @@ classifiers = [ 'Development Status :: 5 - Production/Stable',
                 'Programming Language :: Python :: 3.13' ]
 dependencies = [ 'jsonpickle >= 4.0.5, < 5.0.0',
                  'loguru >= 0.7.3, < 1.0.0',
-                 'numpy >= 2.2.4, < 3.0.0',
+                 'numpy >= 1.26.4, < 3.0.0',
                  'pandas >= 2.2.3, < 3.0.0',
                  'requests >= 2.32.3, < 3.0.0',
                  'scikit-learn >= 1.6.1, < 2.0.0',
-                 'scipy >= 1.15.2, < 2.0.0' ]
+                 'scipy >= 1.15.3, < 2.0.0' ]
 description = 'Diamondback DSP'
 keywords = [ 'DSP',
              'FFT',
@@ -30,11 +30,12 @@ keywords = [ 'DSP',
              'rate',
              'request',
              'serial' ]
-license = { file = 'LICENSE' }
+license = 'BSD-3-Clause'
+license-files = []
 name = 'diamondback'
 readme = 'README.rst'
 requires-python = '>= 3.10, < 3.14'
-version = '5.1.9'
+version = '5.1.10'
 
 [ project.urls ]
 homepage = 'https://github.com/larryturner/diamondback'
@@ -42,7 +43,7 @@ homepage = 'https://github.com/larryturner/diamondback'
 [ build-system ]
 build-backend = 'setuptools.build_meta'
 requires = [ 'build >= 1.2.2, < 2.0.0',
-             'setuptools >= 75.8.0, < 76.0.0' ]
+             'setuptools >= 80.9.0, < 81.0.0' ]
 
 [ tool.setuptools.packages.find ]
 include = [ 'diamondback*' ]
