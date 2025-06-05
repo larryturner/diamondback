@@ -286,7 +286,7 @@ Run a nox *tests* session to exercise tests.
 License
 ~~~~~~~
 
-`BSD-3C <https://github.com/larryturner/diamondback/blob/master/LICENSE>`_
+`BSD-3-Clause <https://github.com/larryturner/diamondback/blob/master/LICENSE>`_
 
 Author
 ~~~~~~
