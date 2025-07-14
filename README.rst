@@ -261,8 +261,10 @@ Notebook
 
 A jupyter notebook defines cells to create and exercise *diamondback* components.
 The notebook serves as a tool for visualization, validation, and demonstration
-of *diamondback* capabilities.  Restart kernel and run all cells, and exercise
-widgets to explore behaviors.
+of *diamondback* capabilities.
+
+Run a nox *notebook* session to exercise notebook.  Restart kernel and run all cells,
+then exercise widgets.
 
 .. code-block:: bash
 
