@@ -44,8 +44,9 @@ import random
 import requests
 import shutil
 import string
+from nox import Session
 
-nox.options.sessions = [ 'typing', 'lint', 'dependencies', 'build', 'tests', 'docs' ]
+nox.options.sessions = [ 'format', 'typing', 'lint', 'dependencies', 'build', 'tests', 'docs' ]
 
 PYTHON = [ '3.10', '3.11', '3.12', '3.13' ]
 REPOSITORY = pathlib.Path.cwd( ).name
@@ -54,9 +55,9 @@ if ( not pathlib.Path( SOURCE ).is_dir( ) ) :
     SOURCE = '.'
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def build( session ) -> None :
+def build( session : Session ) -> None :
 
-    """ Build distribution.
+    """ Build.
     """
 
     session.install( '.[build]' )
@@ -66,9 +67,9 @@ def build( session ) -> None :
     shutil.rmtree( 'build', ignore_errors = True )
 
 @nox.session( venv_backend = 'virtualenv' )
-def clean( session ) -> None :
+def clean( session : Session ) -> None :
 
-    """ Clean repository.
+    """ Clean.
     """
 
     for x in ( '.mypy_cache', '.nox', '.pytest_cache', '.ruff_cache', 'build', 'dist', 'docs' ) :
@@ -105,9 +106,9 @@ def convert( x : str ) -> str :
     return y
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def dependencies( session ) -> None :
+def dependencies( session : Session ) -> None :
 
-    """ Dependency diagrams.
+    """ Dependencies.
     """
 
     session.install( '.[dependencies]' )
@@ -126,7 +127,7 @@ def dependencies( session ) -> None :
                 fout.write( convert( fin.read( ) ) )
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def docs( session ) -> None :
+def docs( session : Session ) -> None :
 
     """ Documentation.
     """
@@ -150,8 +151,17 @@ def docs( session ) -> None :
                 os.remove( str( pathlib.Path.cwd( ) / 'templates' / x ) )
         session.run( 'sphinx-build', str( pathlib.Path.cwd( ) / 'templates' ), str( pathlib.Path.cwd( ) / 'docs' ) )
 
+@nox.session(venv_backend="virtualenv", python = PYTHON[ -1 ] )
+def format( session: Session ) :
+
+    """ Format.
+    """
+
+    session.install( '.[format]' )
+    session.run( 'ruff', 'format', '.', '--check' )
+
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def lint( session ) -> None :
+def lint( session : Session ) -> None :
 
     """ Lint.
     """
@@ -160,7 +170,7 @@ def lint( session ) -> None :
     session.run( 'ruff', 'check', SOURCE )
 
 @nox.session( venv_backend = 'virtualenv' )
-def tag( session ) -> None :
+def tag( session : Session ) -> None :
 
     """ Tag.
     """
@@ -173,7 +183,7 @@ def tag( session ) -> None :
             session.run( 'git', 'push', '--force', '--tags', external = True )
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON )
-def tests( session ) -> None :
+def tests( session : Session ) -> None :
 
     """ Tests.
     """
@@ -186,7 +196,7 @@ def tests( session ) -> None :
             shutil.rmtree( '.pytest_cache', ignore_errors = True )
 
 @nox.session( venv_backend = 'virtualenv', python = PYTHON[ -1 ] )
-def typing( session ) -> None :
+def typing( session : Session ) -> None :
 
     """ Typing.
     """
