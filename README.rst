@@ -143,7 +143,7 @@ Complex or real types are supported as appropriate.
 
 -   `RankFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-rank-filter-module>`_
     instances define nonlinear morphological operators, which define
-    functionality based on rank and order, including dilation, median,
+    behavior based on rank and order, including dilation, median,
     and erosion, and may be combined in sequences to support close and
     open.
 
@@ -222,8 +222,8 @@ Dependencies
 -   `scikit-learn <https://pypi.org/project/scikit-learn/>`_
 -   `scipy <https://pypi.org/project/scipy/>`_
 
-*diamondback* elective build, documentation, test, and demonstration
-functionality depends upon additional external packages.
+*diamondback* elective build, dependencies, docs, format, lint, notebook,
+tests, and typing behavior depends upon additional external packages.
 
 -   `build <https://pypi.org/project/build/>`_
 -   `ipython <https://pypi.org/project/ipython/>`_
@@ -245,21 +245,6 @@ functionality depends upon additional external packages.
 .. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
     :target: https://larryturner.github.io/diamondback/dependencies-full.svg
 
-Demonstration
-~~~~~~~~~~~~~
-
-A jupyter notebook defines cells to create and exercise *diamondback* components.
-The notebook serves as a tool for visualization, validation, and demonstration
-of *diamondback* capabilities.
-
-.. code-block:: bash
-
-    jupyter notebook ./notebooks/diamondback.ipynb
-
-Restart the kernel, as the first cell contains common definitions, find cells
-which exercise components of interest, and manipulate widgets to exercise and
-visualize functionality.
-
 Documentation
 ~~~~~~~~~~~~~
 
@@ -270,6 +255,18 @@ Run a nox *docs* session to generate documentation.
 .. code-block:: bash
 
     nox -s docs
+
+Notebook
+~~~~~~~~
+
+A jupyter notebook defines cells to create and exercise *diamondback* components.
+The notebook serves as a tool for visualization, validation, and demonstration
+of *diamondback* capabilities.  Restart kernel and run all cells, and exercise
+widgets to explore behaviors.
+
+.. code-block:: bash
+
+    nox -s notebook
 
 Tests
 ~~~~~
