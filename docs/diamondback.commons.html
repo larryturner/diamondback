@@ -169,8 +169,9 @@ assignment, though loguru uses upper case.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,8 +180,9 @@ assignment, though loguru uses upper case.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Stream.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>stream : Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,9 +193,12 @@ assignment, though loguru uses upper case.</p>
 <dd><p>Formats and writes log entries using the loguru package with a
 specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
-entry : str | Exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – str - in LEVEL.</p></li>
+<li><p><strong>entry</strong> – str | Exception.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -270,16 +275,23 @@ elective dictionary of parameter strings are encoded to build a
 URL, elective binary or JSON data are defined in the body of a
 request, and a requests response containing JSON, text, or binary
 data is returned.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>method : str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).
-api : str - relative to the URL.
-auth : Any.
-header : dict[str, str] | None.
-item : dict[str, str] | None.
-data : Any.
-json : Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
+<li><p><strong>api</strong> – str - relative to the URL.</p></li>
+<li><p><strong>auth</strong> – Any.</p></li>
+<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>data</strong> – Any.</p></li>
+<li><p><strong>json</strong> – Any.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>value : requests.Response.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>requests.Response.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value</p>
 </dd>
 </dl>
 </dd></dl>
@@ -368,11 +380,18 @@ terminated by a new line.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Code generation.  SHA3-256 hash.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-encoding : str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>code : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>code</p>
 </dd>
 </dl>
 </dd></dl>
@@ -384,13 +403,20 @@ encoding : str.</p>
 Encoding may be specified if an alternative to UTF-8 is required.
 Python style docstring and line comments may be cleaned, though
 line comments must be terminated by a new line.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-compress : bool.
-encoding : str.
-clean : bool - clean comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>instance : Any.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -400,13 +426,20 @@ clean : bool - clean comments.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
 to UTF-8 is required.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>instance : Any.
-compress : bool.
-encoding : str.
-indent : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – Any.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>indent</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>state : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state</p>
 </dd>
 </dl>
 </dd></dl>
@@ -439,8 +472,9 @@ indent : bool.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -449,8 +483,9 @@ indent : bool.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Stream.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>stream : Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -461,9 +496,12 @@ indent : bool.</p>
 <dd><p>Formats and writes log entries using the loguru package with a
 specified level and stream.  Log entries contain an ISO-8601
 datetime and level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
-entry : str | Exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – str - in LEVEL.</p></li>
+<li><p><strong>entry</strong> – str | Exception.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -499,16 +537,23 @@ elective dictionary of parameter strings are encoded to build a
 URL, elective binary or JSON data are defined in the body of a
 request, and a requests response containing JSON, text, or binary
 data is returned.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>method : str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).
-api : str - relative to the URL.
-auth : Any.
-header : dict[str, str] | None.
-item : dict[str, str] | None.
-data : Any.
-json : Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
+<li><p><strong>api</strong> – str - relative to the URL.</p></li>
+<li><p><strong>auth</strong> – Any.</p></li>
+<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>data</strong> – Any.</p></li>
+<li><p><strong>json</strong> – Any.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>value : requests.Response.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>requests.Response.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value</p>
 </dd>
 </dl>
 </dd></dl>
@@ -534,11 +579,18 @@ json : Any.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Code generation.  SHA3-256 hash.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-encoding : str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>code : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>code</p>
 </dd>
 </dl>
 </dd></dl>
@@ -550,13 +602,20 @@ encoding : str.</p>
 Encoding may be specified if an alternative to UTF-8 is required.
 Python style docstring and line comments may be cleaned, though
 line comments must be terminated by a new line.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-compress : bool.
-encoding : str.
-clean : bool - clean comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>instance : Any.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -566,13 +625,20 @@ clean : bool - clean comments.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
 to UTF-8 is required.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>instance : Any.
-compress : bool.
-encoding : str.
-indent : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – Any.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>indent</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>state : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state</p>
 </dd>
 </dl>
 </dd></dl>

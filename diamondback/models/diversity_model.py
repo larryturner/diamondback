@@ -93,9 +93,9 @@ class DiversityModel(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            style : str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan").
-            order : int.
+        Arguments:
+            style: str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan").
+            order: int.
         """
 
         style = style.title()
@@ -117,11 +117,11 @@ class DiversityModel(object):
     def learn(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Learns an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - diversity.
+        Returns:
+            y: numpy.ndarray - diversity.
         """
 
         if not isinstance(x, numpy.ndarray):

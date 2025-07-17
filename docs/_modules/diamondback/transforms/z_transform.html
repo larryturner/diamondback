@@ -145,15 +145,15 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Transforms continuous s-domain coefficient arrays and produces</span>
 <span class="sd">        discrete z-domain coefficient arrays.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            u : list | numpy.ndarray - recursive coefficient, s-domain.</span>
-<span class="sd">            v : list | numpy.ndarray - forward coefficient, s-domain.</span>
-<span class="sd">            frequency : float - frequency in (0.0, inf).</span>
-<span class="sd">            bilinear : bool.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            u: list | numpy.ndarray - recursive coefficient, s-domain.</span>
+<span class="sd">            v: list | numpy.ndarray - forward coefficient, s-domain.</span>
+<span class="sd">            frequency: float - frequency in (0.0, inf).</span>
+<span class="sd">            bilinear: bool.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            a : numpy.ndarray - recursive coefficient, z-domain.</span>
-<span class="sd">            b : numpy.ndarray - forward coefficient, z-domain.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            a: numpy.ndarray - recursive coefficient, z-domain.</span>
+<span class="sd">            b: numpy.ndarray - forward coefficient, z-domain.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>

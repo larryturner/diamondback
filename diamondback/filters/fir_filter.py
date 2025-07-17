@@ -139,15 +139,15 @@ class FirFilter(object):
         Labels should be used to avoid ambiguity between constraints and
         coefficients.
 
-        Arguments :
-            style : str - in ("Blackman", "Hamming", "Hann", "Kaiser").
-            frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-            order : int - order per instance.
-            count : int - instances per cascade.
-            complement : bool - complement response.
-            gain : float - gain.
-            b : list | numpy.ndarray - forward coefficient.
-            s : list | numpy.ndarray - state.
+        Arguments:
+            style: str - in ("Blackman", "Hamming", "Hann", "Kaiser").
+            frequency: float - frequency normalized to Nyquist in (0.0, 1.0).
+            order: int - order per instance.
+            count: int - instances per cascade.
+            complement: bool - complement response.
+            gain: float - gain.
+            b: list | numpy.ndarray - forward coefficient.
+            s: list | numpy.ndarray - state.
         """
 
         if not len(b):
@@ -209,13 +209,13 @@ class FirFilter(object):
     def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
-        Arguments :
-            length : int.
-            count : int.
+        Arguments:
+            length: int.
+            count: int.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
+        Returns:
+            y: numpy.ndarray - reference signal.
+            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
         """
 
         if length <= 0:
@@ -236,11 +236,11 @@ class FirFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -259,8 +259,8 @@ class FirFilter(object):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments :
-            x : complex | float - incident signal.
+        Arguments:
+            x: complex | float - incident signal.
         """
 
         if not numpy.isscalar(x):
@@ -270,13 +270,13 @@ class FirFilter(object):
     def response(self, length=8192, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates frequency response and produces a reference signal.
 
-        Arguments :
-            length : int.
-            count : int.
+        Arguments:
+            length: int.
+            count: int.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
+        Returns:
+            y: numpy.ndarray - reference signal.
+            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
         """
 
         if length <= 0:
@@ -293,11 +293,11 @@ class FirFilter(object):
     def roots(self, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates roots of a frequency response in poles and zeros.
 
-        Arguments :
-            count : int.
-        Returns :
-            p : numpy.ndarray - poles.
-            z : numpy.ndarray - zeros.
+        Arguments:
+            count: int.
+        Returns:
+            p: numpy.ndarray - poles.
+            z: numpy.ndarray - zeros.
         """
 
         z = numpy.tile(numpy.roots(self.b), count)

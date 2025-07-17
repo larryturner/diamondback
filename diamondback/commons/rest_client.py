@@ -106,17 +106,17 @@ class RestClient(object):
         request, and a requests response containing JSON, text, or binary
         data is returned.
 
-        Arguments :
-            method : str - in ("delete", "get", "head", "options", "patch", "post", "put").
-            api : str - relative to the URL.
-            auth : Any.
-            header : dict[str, str] | None.
-            item : dict[str, str] | None.
-            data : Any.
-            json : Any.
+        Arguments:
+            method: str - in ("delete", "get", "head", "options", "patch", "post", "put").
+            api: str - relative to the URL.
+            auth: Any.
+            header: dict[str, str] | None.
+            item: dict[str, str] | None.
+            data: Any.
+            json: Any.
 
-        Returns :
-            value : requests.Response.
+        Returns:
+            value: requests.Response.
         """
 
         method = method.title()

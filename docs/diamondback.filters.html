@@ -139,9 +139,12 @@ adaptation are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex bandpass filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [-1.0, 1.0).
-rate : float - in [0.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -149,12 +152,17 @@ rate : float - in [0.0, 1.0].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_bandpass_filter.html#ComplexBandpassFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,18 +218,24 @@ A normalized phase is specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Complex exponential filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>phase : float - relative to pi in [-1.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phase</strong> – float - relative to pi in [-1.0, 1.0].</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_exponential_filter.html#ComplexExponentialFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -281,9 +295,12 @@ normalized frequency and rate of adaptation are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex frequency filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [-1.0, 1.0).
-rate : float - in [0.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -291,12 +308,17 @@ rate : float - in [0.0, 1.0].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -316,8 +338,9 @@ b : numpy.ndarray - forward coefficient.</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified primary incident condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -395,9 +418,12 @@ specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Derivative filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>derivative : int - in [1, 3].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>derivative</strong> – int - in [1, 3].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -409,10 +435,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/derivative_filter.html#DerivativeFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -521,15 +552,18 @@ Alternatively, a forward coefficient array may be explicitly defined
 to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -546,12 +580,19 @@ s : list | numpy.ndarray - state.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -560,10 +601,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -573,8 +619,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -583,12 +630,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -597,11 +651,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -665,19 +724,27 @@ resolution.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Goertzel filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.
-frequency : float - frequency normalized to Nyquist in [-1.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/goertzel_filter.html#GoertzelFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -788,16 +855,19 @@ Alternatively, a recursive coefficient array and forward coefficient array
 may be explicitly defined to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Bessel”, “Butterworth”, “Chebyshev”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-a : list | numpy.ndarray - recursive coefficient.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>a</strong> – list | numpy.ndarray - recursive coefficient.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -809,13 +879,20 @@ s : list | numpy.ndarray - state.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter._evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Evaluates coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Bessel”, “Butterworth”, “Chebyshev”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>
@@ -829,12 +906,19 @@ b : numpy.ndarray - forward coefficient.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -843,10 +927,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -856,8 +945,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -866,12 +956,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -880,11 +977,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -951,8 +1053,9 @@ instance and order are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Integral filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order</strong> – int.</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -964,10 +1067,15 @@ instance and order are specified.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/integral_filter.html#IntegralFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1013,18 +1121,24 @@ control stability and latency.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Proportional Integral Derivative (PID) filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/pid_filter.html#PidFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1088,19 +1202,27 @@ operation or dynamic rate.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polynomial rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in [0.0, inf).
-order : int - in (0, inf).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rate</strong> – float - ratio of effective frequency in [0.0, inf).</p></li>
+<li><p><strong>order</strong> – int - in (0, inf).</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polynomial_rate_filter.html#PolynomialRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1185,8 +1307,9 @@ to continuous operation.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polyphase rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in (0.0, b.shape[0]].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rate</strong> – float - ratio of effective frequency in (0.0, b.shape[0]].</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1203,10 +1326,15 @@ to continuous operation.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1221,8 +1349,9 @@ to continuous operation.</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1276,19 +1405,27 @@ sequential erosion and dilation.  An order and rank are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Rank filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>index : int - in [0, order].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – int - in [0, order].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/rank_filter.html#RankFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1364,10 +1501,13 @@ compensate for energy loss.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).
-order : int.
-normal : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>normal</strong> – bool.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1384,10 +1524,15 @@ normal : bool.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/window_filter.html#WindowFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1412,9 +1557,12 @@ normal : bool.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex bandpass filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [-1.0, 1.0).
-rate : float - in [0.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -1422,12 +1570,17 @@ rate : float - in [0.0, 1.0].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_bandpass_filter.html#ComplexBandpassFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1450,18 +1603,24 @@ b : numpy.ndarray - forward coefficient.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Complex exponential filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>phase : float - relative to pi in [-1.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phase</strong> – float - relative to pi in [-1.0, 1.0].</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_exponential_filter.html#ComplexExponentialFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1479,9 +1638,12 @@ b : numpy.ndarray - forward coefficient.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex frequency filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [-1.0, 1.0).
-rate : float - in [0.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -1489,12 +1651,17 @@ rate : float - in [0.0, 1.0].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1514,8 +1681,9 @@ b : numpy.ndarray - forward coefficient.</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified primary incident condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1528,9 +1696,12 @@ operation at a specified primary incident condition.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Derivative filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>derivative : int - in [1, 3].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>derivative</strong> – int - in [1, 3].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1542,10 +1713,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/derivative_filter.html#DerivativeFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1563,15 +1739,18 @@ Alternatively, a forward coefficient array may be explicitly defined
 to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1588,12 +1767,19 @@ s : list | numpy.ndarray - state.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1602,10 +1788,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1615,8 +1806,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1625,12 +1817,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1639,11 +1838,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1661,19 +1865,27 @@ z : numpy.ndarray - zeros.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Goertzel filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.
-frequency : float - frequency normalized to Nyquist in [-1.0, 1.0].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/goertzel_filter.html#GoertzelFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1696,16 +1908,19 @@ Alternatively, a recursive coefficient array and forward coefficient array
 may be explicitly defined to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Bessel”, “Butterworth”, “Chebyshev”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-a : list | numpy.ndarray - recursive coefficient.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>a</strong> – list | numpy.ndarray - recursive coefficient.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1717,13 +1932,20 @@ s : list | numpy.ndarray - state.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter._evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Evaluates coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Bessel”, “Butterworth”, “Chebyshev”).
-frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1737,12 +1959,19 @@ b : numpy.ndarray - forward coefficient.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1751,10 +1980,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1764,8 +1998,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1774,12 +2009,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1788,11 +2030,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1805,8 +2052,9 @@ z : numpy.ndarray - zeros.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Integral filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order</strong> – int.</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1818,10 +2066,15 @@ z : numpy.ndarray - zeros.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/integral_filter.html#IntegralFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1834,18 +2087,24 @@ z : numpy.ndarray - zeros.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Proportional Integral Derivative (PID) filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/pid_filter.html#PidFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1863,19 +2122,27 @@ z : numpy.ndarray - zeros.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polynomial rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in [0.0, inf).
-order : int - in (0, inf).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rate</strong> – float - ratio of effective frequency in [0.0, inf).</p></li>
+<li><p><strong>order</strong> – int - in (0, inf).</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polynomial_rate_filter.html#PolynomialRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1898,8 +2165,9 @@ order : int - in (0, inf).</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polyphase rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in (0.0, b.shape[0]].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rate</strong> – float - ratio of effective frequency in (0.0, b.shape[0]].</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1916,10 +2184,15 @@ order : int - in (0, inf).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1934,8 +2207,9 @@ order : int - in (0, inf).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1953,19 +2227,27 @@ operation at a specified incident signal condition.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Rank filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>index : int - in [0, order].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – int - in [0, order].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/rank_filter.html#RankFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1983,10 +2265,13 @@ order : int.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).
-order : int.
-normal : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>normal</strong> – bool.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -2003,10 +2288,15 @@ normal : bool.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/window_filter.html#WindowFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>

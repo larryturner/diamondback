@@ -146,11 +146,18 @@ specified.</p>
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/transforms/complex_transform.html#ComplexTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real three-phase or complex incident signal into a complex
 or three-phase reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-neutral : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>neutral</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -215,13 +222,20 @@ complex discrete-frequency reference signal, or performs an
 inverse transform.  Indices definition depends upon an inverse
 condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -289,14 +303,21 @@ frequency resolution.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectrogram</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/psd_transform.html#PsdTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 real discrete-frequency reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-index : int.
-spectrogram : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>index</strong> – int.</p></li>
+<li><p><strong>spectrogram</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -389,9 +410,12 @@ specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Wavelet transform.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -416,12 +440,19 @@ order : int.</p>
 performing analysis or synthesis operations.  Incident and reference
 signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-count : int.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -488,14 +519,21 @@ or impulse invariant methods.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bilinear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/z_transform.html#ZTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms continuous s-domain coefficient arrays and produces
 discrete z-domain coefficient arrays.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>u : list | numpy.ndarray - recursive coefficient, s-domain.
-v : list | numpy.ndarray - forward coefficient, s-domain.
-frequency : float - frequency in (0.0, inf).
-bilinear : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – list | numpy.ndarray - recursive coefficient, s-domain.</p></li>
+<li><p><strong>v</strong> – list | numpy.ndarray - forward coefficient, s-domain.</p></li>
+<li><p><strong>frequency</strong> – float - frequency in (0.0, inf).</p></li>
+<li><p><strong>bilinear</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient, z-domain.
-b : numpy.ndarray - forward coefficient, z-domain.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient, z-domain.
+b: numpy.ndarray - forward coefficient, z-domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>
@@ -534,11 +572,18 @@ b : numpy.ndarray - forward coefficient, z-domain.</p>
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/transforms/complex_transform.html#ComplexTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real three-phase or complex incident signal into a complex
 or three-phase reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-neutral : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>neutral</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -558,13 +603,20 @@ complex discrete-frequency reference signal, or performs an
 inverse transform.  Indices definition depends upon an inverse
 condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -581,14 +633,21 @@ f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectrogram</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/psd_transform.html#PsdTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 real discrete-frequency reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-index : int.
-spectrogram : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>index</strong> – int.</p></li>
+<li><p><strong>spectrogram</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -601,9 +660,12 @@ f : numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Wavelet transform.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -628,12 +690,19 @@ order : int.</p>
 performing analysis or synthesis operations.  Incident and reference
 signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-count : int.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -651,14 +720,21 @@ or impulse invariant methods.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bilinear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/z_transform.html#ZTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms continuous s-domain coefficient arrays and produces
 discrete z-domain coefficient arrays.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>u : list | numpy.ndarray - recursive coefficient, s-domain.
-v : list | numpy.ndarray - forward coefficient, s-domain.
-frequency : float - frequency in (0.0, inf).
-bilinear : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – list | numpy.ndarray - recursive coefficient, s-domain.</p></li>
+<li><p><strong>v</strong> – list | numpy.ndarray - forward coefficient, s-domain.</p></li>
+<li><p><strong>frequency</strong> – float - frequency in (0.0, inf).</p></li>
+<li><p><strong>bilinear</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient, z-domain.
-b : numpy.ndarray - forward coefficient, z-domain.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient, z-domain.
+b: numpy.ndarray - forward coefficient, z-domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>

@@ -83,12 +83,12 @@ class Serial(object):
     def code(state: str, encoding: str = "utf_8") -> str:
         """Code generation.  SHA3-256 hash.
 
-        Arguments :
-            state : str.
-            encoding : str.
+        Arguments:
+            state: str.
+            encoding: str.
 
-        Returns :
-            code : str.
+        Returns:
+            code: str.
         """
 
         if not state:
@@ -104,14 +104,14 @@ class Serial(object):
         Python style docstring and line comments may be cleaned, though
         line comments must be terminated by a new line.
 
-        Arguments :
-            state : str.
-            compress : bool.
-            encoding : str.
-            clean : bool - clean comments.
+        Arguments:
+            state: str.
+            compress: bool.
+            encoding: str.
+            clean: bool - clean comments.
 
-        Returns :
-            instance : Any.
+        Returns:
+            instance: Any.
         """
 
         if not state:
@@ -138,14 +138,14 @@ class Serial(object):
         """Encodes BSON or JSON.  Encoding may be specified if an alternative
         to UTF-8 is required.
 
-        Arguments :
-            instance : Any.
-            compress : bool.
-            encoding : str.
-            indent : bool.
+        Arguments:
+            instance: Any.
+            compress: bool.
+            encoding: str.
+            indent: bool.
 
-        Returns :
-            state : str.
+        Returns:
+            state: str.
         """
 
         if not encoding:

@@ -98,8 +98,8 @@ class Log(object):
     def level(cls, level: str) -> None:
         """Level.
 
-        Arguments :
-            level : str - in LEVEL.
+        Arguments:
+            level: str - in LEVEL.
         """
 
         with Log._rlock:
@@ -112,8 +112,8 @@ class Log(object):
     def stream(cls, stream: Any) -> None:
         """Stream.
 
-        Arguments :
-            stream : Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a")).
+        Arguments:
+            stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a")).
         """
 
         with Log._rlock:
@@ -135,9 +135,9 @@ class Log(object):
         specified level and stream.  Log entries contain an ISO-8601
         datetime and level.
 
-        Arguments :
-            level : str - in LEVEL.
-            entry : str | Exception.
+        Arguments:
+            level: str - in LEVEL.
+            entry: str | Exception.
         """
 
         with Log._rlock:

@@ -48,8 +48,8 @@ class GaussianModel(object):
     def __init__(self, regularize: float = 1.0e-1) -> None:
         """Initialize.
 
-        Arguments :
-            regularize : float - regularize.
+        Arguments:
+            regularize: float - regularize.
         """
 
         if regularize < 0.0:
@@ -63,9 +63,9 @@ class GaussianModel(object):
         covariance and mean matrices to learn a distribution instance for
         each class.
 
-        Arguments :
-            x : numpy.ndarray (batch, count) - incident.
-            y : numpy.ndarray (batch) - label.
+        Arguments:
+            x: numpy.ndarray (batch, count) - incident.
+            y: numpy.ndarray (batch) - label.
         """
 
         if (len(x.shape) != 2) or (not all(x.shape)):
@@ -90,11 +90,11 @@ class GaussianModel(object):
         Predictions for each class are ranked and ordered by decending
         probability, and the initial prediction is the most likely class.
 
-        Arguments :
-            x : numpy.ndarray (batch, count) - data.
+        Arguments:
+            x: numpy.ndarray (batch, count) - data.
 
-        Returns :
-            v : numpy.ndarray (batch, class) - predict.
+        Returns:
+            v: numpy.ndarray (batch, class) - predict.
         """
 
         if not len(self._model):

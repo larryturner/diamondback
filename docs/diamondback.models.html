@@ -161,9 +161,12 @@ inferred.  A style and order are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -186,10 +189,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Learns an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -238,10 +246,13 @@ mixture distributions.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian mixture model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
-index : int - iterations.
-regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
+<li><p><strong>index</strong> – int - iterations.</p></li>
+<li><p><strong>regularize</strong> – float - regularize.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -255,9 +266,12 @@ regularize : float - regularize.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
-y : numpy.ndarray (batch) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -275,10 +289,15 @@ and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -330,8 +349,9 @@ distribution instance per class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -340,9 +360,12 @@ distribution instance per class.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
-y : numpy.ndarray (batch) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -354,10 +377,15 @@ y : numpy.ndarray (batch) - label.</p>
 and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -392,9 +420,12 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -417,10 +448,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Learns an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,10 +474,13 @@ order : int.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian mixture model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
-index : int - iterations.
-regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
+<li><p><strong>index</strong> – int - iterations.</p></li>
+<li><p><strong>regularize</strong> – float - regularize.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -455,9 +494,12 @@ regularize : float - regularize.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
-y : numpy.ndarray (batch) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -475,10 +517,15 @@ and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -501,8 +548,9 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -511,9 +559,12 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
-y : numpy.ndarray (batch) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -525,10 +576,15 @@ y : numpy.ndarray (batch) - label.</p>
 and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>

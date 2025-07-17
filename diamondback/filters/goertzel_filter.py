@@ -74,9 +74,9 @@ class GoertzelFilter(IirFilter):
     def __init__(self, b: list | numpy.ndarray, frequency: float) -> None:
         """Initialize.
 
-        Arguments :
-            b : list | numpy.ndarray - forward coefficient.
-            frequency : float - frequency normalized to Nyquist in [-1.0, 1.0].
+        Arguments:
+            b: list | numpy.ndarray - forward coefficient.
+            frequency: float - frequency normalized to Nyquist in [-1.0, 1.0].
         """
 
         if not isinstance(b, numpy.ndarray):
@@ -95,11 +95,11 @@ class GoertzelFilter(IirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

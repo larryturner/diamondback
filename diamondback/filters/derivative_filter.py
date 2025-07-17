@@ -119,9 +119,9 @@ class DerivativeFilter(FirFilter):
     def __init__(self, derivative: int, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            derivative : int - in [1, 3].
-            order : int.
+        Arguments:
+            derivative: int - in [1, 3].
+            order: int.
         """
 
         if derivative not in DerivativeFilter.B:
@@ -133,11 +133,11 @@ class DerivativeFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         return super().filter(x)

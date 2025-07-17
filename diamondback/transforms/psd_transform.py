@@ -75,15 +75,15 @@ class PsdTransform(object):
         """Transforms a real or complex discrete-time incident signal to a
         real discrete-frequency reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            b : list | numpy.ndarray - forward coefficient.
-            index : int.
-            spectrogram : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            b: list | numpy.ndarray - forward coefficient.
+            index: int.
+            spectrogram: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).
+        Returns:
+            y: numpy.ndarray - reference signal.
+            f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).
         """
 
         if not isinstance(x, numpy.ndarray):

@@ -70,12 +70,12 @@ class ComplexTransform(object):
         """Transforms a real three-phase or complex incident signal into a complex
         or three-phase reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            neutral : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            neutral: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

@@ -118,8 +118,8 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">regularize</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0e-1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            regularize : float - regularize.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            regularize: float - regularize.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">regularize</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">:</span>
@@ -135,9 +135,9 @@
 <span class="sd">        covariance and mean matrices to learn a distribution instance for</span>
 <span class="sd">        each class.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : numpy.ndarray (batch, count) - incident.</span>
-<span class="sd">            y : numpy.ndarray (batch) - label.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: numpy.ndarray (batch, count) - incident.</span>
+<span class="sd">            y: numpy.ndarray (batch) - label.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)):</span>
@@ -165,11 +165,11 @@
 <span class="sd">        Predictions for each class are ranked and ordered by decending</span>
 <span class="sd">        probability, and the initial prediction is the most likely class.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : numpy.ndarray (batch, count) - data.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: numpy.ndarray (batch, count) - data.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            v : numpy.ndarray (batch, class) - predict.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            v: numpy.ndarray (batch, class) - predict.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_model</span><span class="p">):</span>

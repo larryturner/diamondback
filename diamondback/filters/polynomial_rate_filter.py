@@ -76,9 +76,9 @@ class PolynomialRateFilter(object):
     def __init__(self, rate: float, order: int = 1) -> None:
         """Initialize.
 
-        Arguments :
-            rate : float - ratio of effective frequency in [0.0, inf).
-            order : int - in (0, inf).
+        Arguments:
+            rate: float - ratio of effective frequency in [0.0, inf).
+            order: int - in (0, inf).
         """
 
         if rate < 0.0:
@@ -92,11 +92,11 @@ class PolynomialRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

@@ -482,9 +482,9 @@ class WaveletTransform(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            style : str - in ("Coiflet", "Daubechies", "Haar", "Symmlet").
-            order : int.
+        Arguments:
+            style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet").
+            order: int.
         """
 
         style = style.title()
@@ -514,13 +514,13 @@ class WaveletTransform(object):
         signals have two dimensions.  Dimension lengths must be unity or
         an integral multiple of 2**count.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            count : int.
-            inverse : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            count: int.
+            inverse: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

@@ -87,8 +87,8 @@ class IntegralFilter(IirFilter):
     def __init__(self, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            order : int.
+        Arguments:
+            order: int.
         """
 
         if (order < 0) or (order >= len(IntegralFilter.B)):
@@ -98,10 +98,10 @@ class IntegralFilter(IirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
+        Arguments:
             x : list | numpy.ndarray - incident signal.
 
-        Returns :
+        Returns:
             y : numpy.ndarray - reference signal.
         """
 

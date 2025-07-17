@@ -170,8 +170,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">level</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Level.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            level : str - in LEVEL.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            level: str - in LEVEL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>
@@ -187,8 +187,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stream.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            stream : Any, hasattr(&quot;write&quot;) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, &quot;w&quot; or &quot;a&quot;)).</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            stream: Any, hasattr(&quot;write&quot;) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, &quot;w&quot; or &quot;a&quot;)).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>
@@ -213,9 +213,9 @@
 <span class="sd">        specified level and stream.  Log entries contain an ISO-8601</span>
 <span class="sd">        datetime and level.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            level : str - in LEVEL.</span>
-<span class="sd">            entry : str | Exception.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            level: str - in LEVEL.</span>
+<span class="sd">            entry: str | Exception.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>

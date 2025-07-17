@@ -54,8 +54,8 @@ class ComplexExponentialFilter(object):
     def __init__(self, phase: float = 0.0) -> None:
         """Initialize.
 
-        Arguments :
-            phase : float - relative to pi in [-1.0, 1.0].
+        Arguments:
+            phase: float - relative to pi in [-1.0, 1.0].
         """
 
         if (phase < -1.0) or (phase > 1.0):
@@ -66,11 +66,11 @@ class ComplexExponentialFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).
+        Arguments:
+            x: list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

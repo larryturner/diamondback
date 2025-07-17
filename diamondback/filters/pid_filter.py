@@ -50,8 +50,8 @@ class PidFilter(FirFilter):
     def __init__(self, b: list | numpy.ndarray) -> None:
         """Initialize.
 
-        Arguments :
-            b : list | numpy.ndarray - forward coefficient.
+        Arguments:
+            b: list | numpy.ndarray - forward coefficient.
         """
 
         if not isinstance(b, numpy.ndarray):
@@ -64,11 +64,11 @@ class PidFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

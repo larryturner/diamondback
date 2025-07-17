@@ -98,11 +98,11 @@ def convert(x: str) -> str:
     Encode class names with random patterns which preserve length,
     convert format in request, and decode original class names.
 
-    Arguments :
-        x : str - dot.
+    Arguments:
+        x: str - dot.
 
-    Returns :
-        y : str - svg.
+    Returns:
+        y: str - svg.
     """
 
     if not x:
