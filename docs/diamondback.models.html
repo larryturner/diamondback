@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>diamondback.models package &mdash; diamondback Digital Signal Processing (DSP)</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            diamondback
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">diamondback.models package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#diamondback-models-diversity-model-module">diamondback.models.diversity_model module</a></li>
+<li><a class="reference internal" href="#diamondback-models-gaussian-mixture-model-module">diamondback.models.gaussian_mixture_model module</a></li>
+<li><a class="reference internal" href="#diamondback-models-gaussian-model-module">diamondback.models.gaussian_model module</a></li>
+<li><a class="reference internal" href="#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">diamondback</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">diamondback.models package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/diamondback.models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="diamondback-models-package">
+<h1>diamondback.models package<a class="headerlink" href="#diamondback-models-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="diamondback-models-diversity-model-module">
+<h2>diamondback.models.diversity_model module<a class="headerlink" href="#diamondback-models-diversity-model-module" title="Link to this heading"></a></h2>
+<dl>
+<dt><strong>Description</strong></dt><dd><p>A diversity model realizes the selection and retention of a state as a
+finite collection of observations extracted from an incident signal, to
+maximize a minimum distance between any members of a state, according to
+a specified style or distance metric.</p>
+<div class="math notranslate nohighlight">
+\[d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \in [\ 0,\ M\ ),\ u \neq v\]</div>
+<div class="math notranslate nohighlight">
+\[d_{k} \geq d_{n}\qquad \longrightarrow\qquad d_{n} = d_{k}\]</div>
+<p>A diversity model is an opportunistic unsupervised learning model which
+typically improves condition and numerical accuracy and reduces storage
+relative to alternative approaches including generalized linear inverse.</p>
+<p>A state array of a specified order is defined.  A stationary dimension is
+inferred.  A style and order are specified.</p>
+<p>Style is (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p>
+<ul>
+<li><div class="line-block">
+<div class="line">“Chebyshev” distance is an L-infinity norm, a maximum absolute difference</div>
+<div class="line">in any dimension.</div>
+</div>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \max(\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\]</div>
+<ul>
+<li><div class="line-block">
+<div class="line">“Euclidean” distance is an L-2 norm, a square root of a sum of squared</div>
+<div class="line">differences in each dimension.</div>
+</div>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \matrix{\sum_{i=0}^{N}(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ )^2|}^{0.5}\]</div>
+<ul>
+<li><div class="line-block">
+<div class="line">“Geometric” distance is a ordered root of a product of absolute differences</div>
+<div class="line">in each dimension.</div>
+</div>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \prod_{i=0}^{N}{(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ |\ )}^{\frac{1}{N}}\]</div>
+<ul>
+<li><div class="line-block">
+<div class="line">“Manhattan” distance is an L-1 norm, a sum of absolute differences in each</div>
+<div class="line">dimension.</div>
+</div>
+</li>
+</ul>
+<div class="math notranslate nohighlight">
+\[d_{u,v} = \sum_{i=0}^{N}{\ (\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\ }\]</div>
+</dd>
+</dl>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiversityModel</span>
+
+<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;Euclidean&quot;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
+© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.diversity_model.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Diversity model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>style : str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).
+order : int.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Clears an instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal and produces a reference signal.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+</dd>
+<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="diamondback-models-gaussian-mixture-model-module">
+<h2>diamondback.models.gaussian_mixture_model module<a class="headerlink" href="#diamondback-models-gaussian-mixture-model-module" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>A Gaussian Mixture Model (GMM) is a semi-supervised learning
+probabilistic model instance which uses maximum likelihood estimation,
+regularization, and expectation maximization to maximize posterior
+probability and classify an incident signal.  Learns model instances
+of a specified order per class, where intra-class models capture
+mixture distributions.</p>
+</dd>
+</dl>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixtureModel</span>
+
+<span class="n">gaussian_mixture_model</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
+© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.gaussian_mixture_model.</span></span><span class="sig-name descname"><span class="pre">GaussianMixtureModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gaussian mixture model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
+index : int - iterations.
+regularize : float - regularize.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
+covariance and mean matrices to learn mixed distribution instances
+for each class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
+y : numpy.ndarray (batch) - label.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability of weighted intra-class mixed
+distributions.</p>
+<p>Predictions for each class are ranked and ordered by decending
+probability, and the initial prediction is the most likely class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+</dd>
+<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="diamondback-models-gaussian-model-module">
+<h2>diamondback.models.gaussian_model module<a class="headerlink" href="#diamondback-models-gaussian-model-module" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>A Gaussian Model (GM) is a supervised learning probabilistic model instance
+which uses maximum likelihood estimation and regularization to maximize
+posterior probability and classify an incident signal.  Learns one
+distribution instance per class.</p>
+</dd>
+</dl>
+<p><strong>Example</strong></p>
+<blockquote>
+<div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianModel</span>
+
+<span class="n">gaussian_model</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">()</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">gaussian_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+<dl class="simple">
+<dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
+© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.gaussian_model.</span></span><span class="sig-name descname"><span class="pre">GaussianModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regularize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gaussian model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
+covariance and mean matrices to learn a distribution instance for
+each class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
+y : numpy.ndarray (batch) - label.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability.</p>
+<p>Predictions for each class are ranked and ordered by decending
+probability, and the initial prediction is the most likely class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+</dd>
+<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-contents">
+<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt><strong>Description</strong></dt><dd><p>Initialize.</p>
+</dd>
+<dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
+© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+</dd>
+<dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-03-22.</p>
+</dd>
+</dl>
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.</span></span><span class="sig-name descname"><span class="pre">DiversityModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Diversity model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>style : str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).
+order : int.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">clear</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.clear"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Clears an instance.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal and produces a reference signal.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+</dd>
+<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">s</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.</span></span><span class="sig-name descname"><span class="pre">GaussianMixtureModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regularize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gaussian mixture model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
+index : int - iterations.
+regularize : float - regularize.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
+covariance and mean matrices to learn mixed distribution instances
+for each class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
+y : numpy.ndarray (batch) - label.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">order</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability of weighted intra-class mixed
+distributions.</p>
+<p>Predictions for each class are ranked and ordered by decending
+probability, and the initial prediction is the most likely class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+</dd>
+<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.models.</span></span><span class="sig-name descname"><span class="pre">GaussianModel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">regularize</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Gaussian model.</p>
+<p>Initialize.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Learns an incident signal with ground truth label and estimates inverse
+covariance and mean matrices to learn a distribution instance for
+each class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - incident.
+y : numpy.ndarray (batch) - label.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">predict</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.predict"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Predicts an estimate of ground truth label from an incident signal
+and maximizes posterior probability.</p>
+<p>Predictions for each class are ranked and ordered by decending
+probability, and the initial prediction is the most likely class.</p>
+<dl class="simple">
+<dt>Arguments :</dt><dd><p>x : numpy.ndarray (batch, count) - data.</p>
+</dd>
+<dt>Returns :</dt><dd><p>v : numpy.ndarray (batch, class) - predict.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">regularize</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">shape</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
