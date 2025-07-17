@@ -35,9 +35,7 @@ class Test(object):
 
         count = 32
         frequency = 0.1
-        x = ComplexExponentialFilter(0.5).filter(
-            numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency
-        )
+        x = ComplexExponentialFilter(0.5).filter(numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency)
         for ii in range(0, 2):
             y = ComplexTransform.transform(x, not ii)
             assert y.shape == (3, count)
@@ -54,9 +52,9 @@ class Test(object):
         frequency = (0.12, 0.23)
         b = numpy.ones(count)
         for ii in range(0, 4):
-            x = numpy.random.rand() * ComplexExponentialFilter(
-                numpy.random.rand()
-            ).filter(numpy.linspace(frequency[0], frequency[1], count))
+            x = numpy.random.rand() * ComplexExponentialFilter(numpy.random.rand()).filter(
+                numpy.linspace(frequency[0], frequency[1], count)
+            )
             if ii % 2:
                 x = x.real
             if ii >= 2:
@@ -81,9 +79,9 @@ class Test(object):
         frequency, index = (0.12, 0.23), 64
         b = WindowFilter("Hann", count - 1).b
         for ii in range(0, 2):
-            x = numpy.random.rand() * ComplexExponentialFilter(
-                numpy.random.rand()
-            ).filter(numpy.linspace(frequency[0], frequency[1], count * 8))
+            x = numpy.random.rand() * ComplexExponentialFilter(numpy.random.rand()).filter(
+                numpy.linspace(frequency[0], frequency[1], count * 8)
+            )
             if ii > 0:
                 x = x.real
             y, f = PsdTransform.transform(x, b, index, False)
@@ -223,18 +221,9 @@ class Test(object):
                 0.01620959171830,
             ]
         )
-        s = numpy.array(
-            [
-                numpy.exp(1j * math.pi * x / ((len(u) - 1) * 2))
-                for x in range(1, (len(u) - 1) * 2, 2)
-            ]
-        )
+        s = numpy.array([numpy.exp(1j * math.pi * x / ((len(u) - 1) * 2)) for x in range(1, (len(u) - 1) * 2, 2)])
         t = math.asinh(1.0 / ((10.0 ** (0.1 * ripple) - 1.0) ** 0.5)) / (len(u) - 1)
-        a = (
-            numpy.poly(
-                (-math.sinh(t) * s.imag + 1j * math.cosh(t) * s.real) * 2.0 * math.pi
-            )
-        ).real
+        a = (numpy.poly((-math.sinh(t) * s.imag + 1j * math.cosh(t) * s.real) * 2.0 * math.pi)).real
         a /= a[-1]
         b = [1.0]
         a, b = ZTransform.transform(a, b, frequency, True)
@@ -272,9 +261,7 @@ class Test(object):
         )
         s, a = numpy.ones(1), numpy.ones(2)
         for ii in range(2, len(u)):
-            x = numpy.concatenate((s, numpy.zeros(2))) + numpy.concatenate(
-                ([0.0], ((2.0 * ii) - 1.0) * a)
-            )
+            x = numpy.concatenate((s, numpy.zeros(2))) + numpy.concatenate(([0.0], ((2.0 * ii) - 1.0) * a))
             s, a = a, x
         a /= a[-1]
         b = [1.0]

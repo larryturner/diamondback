@@ -36,14 +36,18 @@ build-backend = "setuptools.build_meta"
 requires = ["build >= 1.2.2, < 2.0.0",
             "setuptools >= 80.9.0, < 81.0.0"]
 
-[tool.setuptools.packages.find]
-include = ["diamondback*"]
-
 [tool.mypy]
 ignore_missing_imports = true
 
+[tool.ruff]
+line-length = 120
+
+[tool.setuptools.packages.find]
+include = ["diamondback*"]
+
 [project.optional-dependencies]
-build = ["build >= 1.2.2, < 2.0.0"]
+build = [ "build >= 1.2.2, < 2.0.0",
+          "virtualenv >= 20.29.3, < 21.0.0"]
 dependencies = ["pydeps >= 3.0.1, < 4.0.0"]
 docs = ["sphinx >= 8.2.3, < 9.0.0",
         "sphinx-rtd-theme >= 3.0.2, < 4.0.0"]

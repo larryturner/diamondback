@@ -39,33 +39,33 @@
         try :
             # Set Log level to 'Info', the default level.
 
-            Log.level( 'Info' )
-            Log.write( 'Info', 'Test Log write.' )
+            Log.level('Info')
+            Log.write('Info', 'Test Log write.')
 
             # Standard output.
 
-            Log.stream( sys.stdout )
-            Log.write( 'Info', f'Valid = {True}' )
+            Log.stream(sys.stdout)
+            Log.write('Info', f'Valid = {True}')
 
             # Memory stream.
 
-            stream = io.StringIO( )
-            Log.stream( stream )
-            x = numpy.random.rand( 2, 2 )
-            Log.write( 'Info', f'X = {x}' )
+            stream = io.StringIO()
+            Log.stream(stream)
+            x = numpy.random.rand(2, 2)
+            Log.write('Info', f'X = {x}')
 
             # Read and reset memory stream.
-            value = stream.getvalue( )
-            _, _ = stream.truncate( 0 ), stream.seek( 0 )
+            value = stream.getvalue()
+            _, _ = stream.truncate(0), stream.seek(0)
 
             # File.
 
-            with open( 'log-2112.txt', 'w' ) as fout :
-                Log.stream( fout )
-                x = numpy.random.rand( 2, 2 )
-                Log.write( 'Warning', f'X = {x}' )
+            with open('log-2112.txt', 'w') as fout:
+                Log.stream(fout)
+                x = numpy.random.rand(2, 2)
+                Log.write('Warning', f'X = {x}')
         except Exception as ex :
-            Log.write( 'Error', ex )
+            Log.write('Error', ex)
 
 **License**
     `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -113,7 +113,7 @@ class Log(object):
         """Stream.
 
         Arguments :
-            stream : Any, hasattr( 'write' ) - in ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
+            stream : Any, hasattr('write') - in (sys.stderr, sys.stdout, open(< path >, 'w' or 'a')).
         """
 
         with Log._rlock:
@@ -152,6 +152,8 @@ class Log(object):
                     entry = f"Exception = {type(entry).__name__} {entry}"
                     info = sys.exc_info()[-1]
                     while info:
-                        entry += f" @ File = {info.tb_frame.f_code.co_filename.split(os.sep)[-1]} Line = {info.tb_lineno}"
+                        entry += (
+                            f" @ File = {info.tb_frame.f_code.co_filename.split(os.sep)[-1]} Line = {info.tb_lineno}"
+                        )
                         info = info.tb_next
                 logger.log(v.name, entry)

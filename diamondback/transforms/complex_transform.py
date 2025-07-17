@@ -41,9 +41,9 @@
         from diamondback import ComplexExponentialFilter, ComplexTransform
         import numpy
 
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )
-        y = ComplexTransform.transform( x, neutral = True )
-        z = ComplexTransform.transform( y, neutral = True )
+        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, 128) + 0.1)
+        y = ComplexTransform.transform(x, neutral = True)
+        z = ComplexTransform.transform(y, neutral = True)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -87,9 +87,7 @@ class ComplexTransform(object):
         else:
             rows, cols = x.shape
         if (rows not in (1, 3)) or (cols <= 0):
-            raise ValueError(
-                f"Rows = {rows} Columns = {cols} Expected Rows in ( 1, 3 ) and Columns in ( 0, inf )"
-            )
+            raise ValueError(f"Rows = {rows} Columns = {cols} Expected Rows in (1, 3) and Columns in (0, inf)")
         if rows == 1:
             v = x
             if not neutral:

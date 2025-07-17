@@ -88,11 +88,7 @@ def clean(session: Session) -> None:
         "docs",
     ):
         shutil.rmtree(x, ignore_errors=True)
-    for x in [
-        x
-        for x in glob.glob(f"**{str(pathlib.Path('/'))}", recursive=True)
-        if ("__pycache__" in x)
-    ]:
+    for x in [x for x in glob.glob(f"**{str(pathlib.Path('/'))}", recursive=True) if ("__pycache__" in x)]:
         shutil.rmtree(x, ignore_errors=True)
 
 
@@ -115,17 +111,10 @@ def convert(x: str) -> str:
     if "digraph" not in x:
         raise ValueError(f"X = {x}")
     encode = lambda x: "".join(random.choices(string.ascii_letters, k=len(x)))
-    code = dict(
-        [
-            (u, encode(u))
-            for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}
-        ]
-    )
+    code = dict([(u, encode(u)) for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}])
     for u, v in code.items():
         x = x.replace(u, v)
-    y = requests.post(
-        "https://quickchart.io/graphviz", json=dict(format="svg", graph=x)
-    ).text
+    y = requests.post("https://quickchart.io/graphviz", json=dict(format="svg", graph=x)).text
     for u, v in code.items():
         y = y.replace(v, u)
     return y
@@ -238,7 +227,7 @@ def tag(session: Session) -> None:
 
     if pathlib.Path(".git").is_dir():
         session.run("git", "tag", "--list", external=True)
-        value = input("[ " + REPOSITORY + " ] annotate : ")
+        value = input("[" + REPOSITORY + "] annotate : ")
         if value:
             session.run(
                 "git",

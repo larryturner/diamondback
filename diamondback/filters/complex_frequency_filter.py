@@ -35,11 +35,11 @@
         from diamondback import ComplexExponentialFilter
         import numpy
 
-        x = numpy.linspace( 0.0, 0.1, 128 )
-        d = ComplexExponentialFilter( 0.0 ).filter( x )
-        complex_frequency_filter = ComplexFrequencyFilter( frequency = 0.0, rate = 0.1 )
-        complex_frequency_filter.reset( d[ 0 ] )
-        y, e, b = complex_frequency_filter.filter( d )
+        x = numpy.linspace(0.0, 0.1, 128)
+        d = ComplexExponentialFilter(0.0).filter(x)
+        complex_frequency_filter = ComplexFrequencyFilter(frequency = 0.0, rate = 0.1)
+        complex_frequency_filter.reset(d[0])
+        y, e, b = complex_frequency_filter.filter(d)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -65,9 +65,7 @@ class ComplexFrequencyFilter(FirFilter):
     @frequency.setter
     def frequency(self, frequency: float):
         if (frequency < -1.0) or (frequency > 1.0):
-            raise ValueError(
-                f"Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]"
-            )
+            raise ValueError(f"Frequency = {frequency} Expected Frequency in [-1.0, 1.0]")
         self.b[0] = numpy.exp(1j * math.pi * frequency)
         self._frequency = frequency
 
@@ -78,23 +76,21 @@ class ComplexFrequencyFilter(FirFilter):
     @rate.setter
     def rate(self, rate: float):
         if (rate < 0.0) or (rate > 1.0):
-            raise ValueError(f"Rate = {rate} Expected Rate in [ 0.0, 1.0 ]")
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, 1.0]")
         self._rate = rate
 
     def __init__(self, frequency: float, rate: float) -> None:
         """Initialize.
 
         Arguments :
-            frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
-            rate : float - in [ 0.0, 1.0 ].
+            frequency : float - frequency normalized to Nyquist in [-1.0, 1.0).
+            rate : float - in [0.0, 1.0].
         """
 
         if (frequency < -1.0) or (frequency > 1.0):
-            raise ValueError(
-                f"Frequency = {frequency} Expected Frequency in [ -1.0, 1.0 ]"
-            )
+            raise ValueError(f"Frequency = {frequency} Expected Frequency in [-1.0, 1.0]")
         if (rate < 0.0) or (rate > 1.0):
-            raise ValueError(f"Rate = {rate} Expected Rate in [ 0.0, 1.0 ]")
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, 1.0]")
         super().__init__(b=numpy.ones(1, complex), s=numpy.ones(1, complex))
         self._frequency = frequency
         self._rate = rate

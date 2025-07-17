@@ -16,19 +16,19 @@
         from diamondback import RestClient
         import numpy
 
-        class TestClient( RestClient ) :
+        class TestClient(RestClient) :
 
-            def __init__( self ) -> None :
-                super( ).__init__( )
-                self.proxy = dict( http = '', https = '' )
+            def __init__(self) -> None :
+                super().__init__()
+                self.proxy = dict(http = "", https = "")
 
-            def add( self, json : dict[ str, numpy.ndarray ] ) -> numpy.ndarray :
-                return self.request( 'get', 'test/add', json = json ).json( )
+            def add(self, json : dict[str, numpy.ndarray]) -> numpy.ndarray:
+                return self.request("get", "test/add", json = json).json()
 
-        client = TestClient( )
-        client.url = 'http://127.0.0.1:8080'
-        client.timeout = ( 10.0, 60.0 )  # connect, read
-        value = client.add( dict( x = numpy.random.rand( 3 ), y = numpy.random.rand( 3 ) ) )
+        client = TestClient()
+        client.url = "http://127.0.0.1:8080"
+        client.timeout = (10.0, 60.0)  # connect, read
+        value = client.add(dict(x = numpy.random.rand(3), y = numpy.random.rand(3)))
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -50,9 +50,7 @@ class RestClient(object):
     @property
     def live(self):
         try:
-            requests.request(
-                method="head", url=self.url, proxies=self.proxy, timeout=self.timeout
-            )
+            requests.request(method="head", url=self.url, proxies=self.proxy, timeout=self.timeout)
             value = True
         except Exception:
             value = False
@@ -109,11 +107,11 @@ class RestClient(object):
         data is returned.
 
         Arguments :
-            method : str - in ( 'delete', 'get', 'head', 'options', 'patch', 'post', 'put' ).
+            method : str - in ("delete", "get", "head", "options", "patch", "post", "put").
             api : str - relative to the URL.
             auth : Any.
-            header : dict[ str, str ] | None.
-            item : dict[ str, str ] | None.
+            header : dict[str, str] | None.
+            item : dict[str, str] | None.
             data : Any.
             json : Any.
 
@@ -123,9 +121,7 @@ class RestClient(object):
 
         method = method.title()
         if method not in RestClient.METHOD:
-            raise ValueError(
-                f"Method = {method} Expected Method in {RestClient.METHOD}"
-            )
+            raise ValueError(f"Method = {method} Expected Method in {RestClient.METHOD}")
         if (data) and (json):
             raise ValueError(f"Data = {data} JSON = {json} Expected Data or JSON")
         api = api.strip("/")

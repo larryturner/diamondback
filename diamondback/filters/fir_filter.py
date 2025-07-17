@@ -35,17 +35,17 @@
     Frequency corresponds to a -3 dB frequency response normalized relative
     to Nyquist.
 
-    Style is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+    Style is in ("Blackman", "Hamming", "Hann", "Kaiser").
 
-    * | 'Blackman' filters demonstrate low resolution and spectral leakage
+    * | "Blackman" filters demonstrate low resolution and spectral leakage
       | with improved rate of attenuation.
 
-    * | 'Hamming' filters demonstrate minimal nearest side lobe magnitude
+    * | "Hamming" filters demonstrate minimal nearest side lobe magnitude
       | response.
 
-    * | 'Hann' filters demonstrate high resolution and spectral leakage.
+    * | "Hann" filters demonstrate high resolution and spectral leakage.
 
-    * | 'Kaiser' filters demonstrate flexible resolution and spectral
+    * | "Kaiser" filters demonstrate flexible resolution and spectral
       | leakage dependent upon a beta value of a Bessel function of the
       | first kind, with beta equal to 7.0.
 
@@ -66,23 +66,23 @@
 
         # Constraints.
 
-        fir_filter = FirFilter( style = 'Kaiser', frequency = 0.1, order = 32, count = 1 )
+        fir_filter = FirFilter(style = "Kaiser", frequency = 0.1, order = 32, count = 1)
 
         # Coefficients.
 
-        fir_filter = FirFilter( b = fir_filter.b )
+        fir_filter = FirFilter(b = fir_filter.b)
 
         # Frequency response, group delay, and roots.
 
-        y, f = fir_filter.response( length = 8192, count = 1 )
-        y, f = fir_filter.delay( length = 8192, count = 1 )
-        p, z = fir_filter.roots( count = 1 )
+        y, f = fir_filter.response(length = 8192, count = 1)
+        y, f = fir_filter.delay(length = 8192, count = 1)
+        p, z = fir_filter.roots(count = 1)
 
         # Filter.
 
-        x = numpy.random.rand( 128 ) * 2.0 - 1.0
-        fir_filter.reset( x[ 0 ] )
-        y = fir_filter.filter( x )
+        x = numpy.random.rand(128) * 2.0 - 1.0
+        fir_filter.reset(x[0])
+        y = fir_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -99,7 +99,7 @@ import warnings
 
 
 class FirFilter(object):
-    """Finite Impulse Response ( FIR ) filter."""
+    """Finite Impulse Response (FIR) filter."""
 
     STYLE = ("Blackman", "Hamming", "Hann", "Kaiser")
 
@@ -140,8 +140,8 @@ class FirFilter(object):
         coefficients.
 
         Arguments :
-            style : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
-            frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
+            style : str - in ("Blackman", "Hamming", "Hann", "Kaiser").
+            frequency : float - frequency normalized to Nyquist in (0.0, 1.0).
             order : int - order per instance.
             count : int - instances per cascade.
             complement : bool - complement response.
@@ -155,13 +155,11 @@ class FirFilter(object):
             if style not in FirFilter.STYLE:
                 raise ValueError(f"style = {style} Expected Style in {FirFilter.STYLE}")
             if (frequency <= 0.0) or (frequency >= 1.0):
-                raise ValueError(
-                    f"Frequency = {frequency} Expected Frequency in ( 0.0, 1.0 )"
-                )
+                raise ValueError(f"Frequency = {frequency} Expected Frequency in (0.0, 1.0)")
             if order <= 0:
-                raise ValueError(f"Order = {order} Expected Order in ( 0, inf )")
+                raise ValueError(f"Order = {order} Expected Order in (0, inf)")
             if count <= 0:
-                raise ValueError(f"Count = {count} Expected Count in ( 0, inf )")
+                raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
             if style == "Kaiser":
@@ -208,9 +206,7 @@ class FirFilter(object):
         super().__init__()
         self._b, self._s = numpy.array(b), numpy.array(s, type(b[0]))
 
-    def delay(
-        self, length: int = 8192, count: int = 1
-    ) -> tuple[numpy.ndarray, numpy.ndarray]:
+    def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
         Arguments :
@@ -219,13 +215,13 @@ class FirFilter(object):
 
         Returns :
             y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
+            f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
         """
 
         if length <= 0:
-            raise ValueError(f"Length = {length} Expected Length in ( 0, inf )")
+            raise ValueError(f"Length = {length} Expected Length in (0, inf)")
         if count <= 0:
-            raise ValueError(f"Count = {count} Expected Count in ( 0, inf )")
+            raise ValueError(f"Count = {count} Expected Count in (0, inf)")
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             y, f = (
@@ -280,13 +276,13 @@ class FirFilter(object):
 
         Returns :
             y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
+            f : numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
         """
 
         if length <= 0:
-            raise ValueError(f"Length = {length} Expected Length in ( 0, inf )")
+            raise ValueError(f"Length = {length} Expected Length in (0, inf)")
         if count <= 0:
-            raise ValueError(f"Count = {count} Expected Count in ( 0, inf )")
+            raise ValueError(f"Count = {count} Expected Count in (0, inf)")
         y, f = (
             scipy.signal.freqz(self.b, [1.0, 0.0], length, True)[1],
             numpy.linspace(-1.0, 1.0 - 2.0 / length, length),

@@ -10,17 +10,17 @@
     A forward coefficient array of a specified order is defined.  A
     style, order, and normalization are specified.
 
-    Style is in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+    Style is in ("Blackman", "Hamming", "Hann", "Kaiser").
 
-    * | 'Blackman' filters demonstrate low resolution and spectral leakage
+    * | "Blackman" filters demonstrate low resolution and spectral leakage
       | with improved rate of attenuation.
 
-    * | 'Hamming' filters demonstrate minimal nearest side lobe magnitude
+    * | "Hamming" filters demonstrate minimal nearest side lobe magnitude
       | response.
 
-    * | 'Hann' filters demonstrate high resolution and spectral leakage.
+    * | "Hann" filters demonstrate high resolution and spectral leakage.
 
-    * | 'Kaiser' filters demonstrate flexible resolution and spectral
+    * | "Kaiser" filters demonstrate flexible resolution and spectral
       | leakage dependent upon a beta value of a Bessel function of the
       | first kind, with beta equal to 7.0.
 
@@ -38,9 +38,9 @@
         from diamondback import ComplexExponentialFilter, WindowFilter
         import numpy
 
-        window_filter = WindowFilter( style = 'Hann', order = 15, normal = True )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( len( window_filter.b ) ) * 0.1 ).real
-        y = window_filter.filter( x )
+        window_filter = WindowFilter(style = "Hann", order = 15, normal = True)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(len(window_filter.b)) * 0.1).real
+        y = window_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -67,7 +67,7 @@ class WindowFilter(object):
         """Initialize.
 
         Arguments :
-            style : str - in ( 'Blackman', 'Hamming', 'Hann', 'Kaiser' ).
+            style : str - in ("Blackman", "Hamming", "Hann", "Kaiser").
             order : int.
             normal : bool.
         """
@@ -76,7 +76,7 @@ class WindowFilter(object):
         if style not in WindowFilter.STYLE:
             raise ValueError(f"style = {style} Expected Style in {WindowFilter.STYLE}")
         if order < 0:
-            raise ValueError(f"Order = {order} Expected Order in [ 0, inf )")
+            raise ValueError(f"Order = {order} Expected Order in [0, inf)")
         if style == "Kaiser":
             window = (style.lower(), 7.0)
         else:

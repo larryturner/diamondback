@@ -30,19 +30,19 @@
         import numpy
 
         frequency, order, ripple = 0.1, 2, 0.125
-        u = numpy.array( [ numpy.exp( 1j * math.pi * x / ( 2.0 * order ) ) for x in range( 1, 2 * order, 2 ) ] )
-        v = math.asinh( 1.0 / ( ( 10.0 ** ( 0.1 * ripple ) - 1.0 ) ** 0.5 ) ) / order
-        a = ( numpy.poly( ( -math.sinh( v ) * u.imag + 1j * math.cosh( v ) * u.real ) * 2.0 * math.pi ) ).real
-        a /= a[ -1 ]
+        u = numpy.array([numpy.exp(1j * math.pi * x / (2.0 * order)) for x in range(1, 2 * order, 2)])
+        v = math.asinh(1.0 / ((10.0 ** (0.1 * ripple) - 1.0) ** 0.5)) / order
+        a = (numpy.poly((-math.sinh(v) * u.imag + 1j * math.cosh(v) * u.real) * 2.0 * math.pi)).real
+        a /= a[-1]
 
         # Bilinear transform.
 
-        a, b = ZTransform.transform( a = a, b = [ 1.0 ], frequency = frequency, bilinear = True )
+        a, b = ZTransform.transform(a = a, b = [1.0], frequency = frequency, bilinear = True)
 
         # Zeros and normalize gain.
 
-        b = numpy.poly( -numpy.ones( order ) )
-        b = b * ( 1.0 - sum( a ) ) / sum( b )
+        b = numpy.poly(-numpy.ones(order))
+        b = b * (1.0 - sum(a)) / sum(b)
 
 
 **License**
@@ -76,7 +76,7 @@ class ZTransform(object):
         Arguments :
             u : list | numpy.ndarray - recursive coefficient, s-domain.
             v : list | numpy.ndarray - forward coefficient, s-domain.
-            frequency : float - frequency in ( 0.0, inf ).
+            frequency : float - frequency in (0.0, inf).
             bilinear : bool.
 
         Returns :
@@ -93,9 +93,7 @@ class ZTransform(object):
         if (not len(v)) or (not v.any()):
             raise ValueError(f"V = {v}")
         if frequency <= 0.0:
-            raise ValueError(
-                f"Frequency = {frequency} Expected Frequency in ( 0.0, inf )"
-            )
+            raise ValueError(f"Frequency = {frequency} Expected Frequency in (0.0, inf)")
         while not u[0]:
             u = numpy.delete(u, 0)
         while not v[0]:

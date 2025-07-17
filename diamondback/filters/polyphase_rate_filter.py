@@ -61,10 +61,10 @@
         import math
         import numpy
 
-        polyphase_rate_filter = PolyphaseRateFilter( rate = 1.0 / math.pi )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-        polyphase_rate_filter.reset( x[ 0 ] )
-        y = polyphase_rate_filter.filter( x )
+        polyphase_rate_filter = PolyphaseRateFilter(rate = 1.0 / math.pi)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real
+        polyphase_rate_filter.reset(x[0])
+        y = polyphase_rate_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -94,9 +94,7 @@ class PolyphaseRateFilter(object):
     @rate.setter
     def rate(self, rate: float):
         if (rate < 0.0) or (rate > PolyphaseRateFilter.B.shape[0]):
-            raise ValueError(
-                f"Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[0]} ]"
-            )
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, {PolyphaseRateFilter.B.shape[0]}]")
         if not numpy.isclose(self.rate, rate):
             self._index = 0.0
         self._rate = rate
@@ -113,13 +111,11 @@ class PolyphaseRateFilter(object):
         """Initialize.
 
         Arguments :
-            rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].
+            rate : float - ratio of effective frequency in (0.0, b.shape[0]].
         """
 
         if (rate < 0.0) or (rate > PolyphaseRateFilter.B.shape[0]):
-            raise ValueError(
-                f"Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[0]} ]"
-            )
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, {PolyphaseRateFilter.B.shape[0]}]")
         super().__init__()
         b = PolyphaseRateFilter.B
         rr, cc = b.shape

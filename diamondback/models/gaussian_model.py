@@ -10,11 +10,11 @@
 
         from diamondback import GaussianModel
 
-        gaussian_model = GaussianModel( )
-        x, y = numpy.random.rand( 32, 2 ), numpy.random.randint( 0, 10, 32 )
-        gaussian_model.learn( x, y )
-        x = numpy.random.rand( 16, 2 )
-        v = gaussian_model.predict( x )
+        gaussian_model = GaussianModel()
+        x, y = numpy.random.rand(32, 2), numpy.random.randint(0, 10, 32)
+        gaussian_model.learn(x, y)
+        x = numpy.random.rand(16, 2)
+        v = gaussian_model.predict(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -38,9 +38,7 @@ class GaussianModel(object):
     @regularize.setter
     def regularize(self, regularize: float):
         if regularize < 0.0:
-            raise ValueError(
-                f"Regularize = {regularize} Expected Regularize in [ 0.0, inf )"
-            )
+            raise ValueError(f"Regularize = {regularize} Expected Regularize in [0.0, inf)")
         self._regularize = regularize
 
     @property
@@ -55,9 +53,7 @@ class GaussianModel(object):
         """
 
         if regularize < 0.0:
-            raise ValueError(
-                f"Regularize = {regularize} Expected Regularize in [ 0.0, inf )"
-            )
+            raise ValueError(f"Regularize = {regularize} Expected Regularize in [0.0, inf)")
         self._model: list[dict[Any, Any]] = []
         self._regularize = regularize
         self._shape = ()
@@ -68,8 +64,8 @@ class GaussianModel(object):
         each class.
 
         Arguments :
-            x : numpy.ndarray ( batch, count ) - incident.
-            y : numpy.ndarray ( batch ) - label.
+            x : numpy.ndarray (batch, count) - incident.
+            y : numpy.ndarray (batch) - label.
         """
 
         if (len(x.shape) != 2) or (not all(x.shape)):
@@ -95,10 +91,10 @@ class GaussianModel(object):
         probability, and the initial prediction is the most likely class.
 
         Arguments :
-            x : numpy.ndarray ( batch, count ) - data.
+            x : numpy.ndarray (batch, count) - data.
 
         Returns :
-            v : numpy.ndarray ( batch, class ) - predict.
+            v : numpy.ndarray (batch, class) - predict.
         """
 
         if not len(self._model):

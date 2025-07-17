@@ -48,15 +48,8 @@ class Test(object):
         obj.frequency, obj.rate = frequency, rate
         assert numpy.isclose(obj.frequency, frequency)
         assert numpy.isclose(obj.rate, rate)
-        x = ComplexExponentialFilter(0.5).filter(
-            numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency
-        )
-        n = (
-            ComplexExponentialFilter(0.0).filter(
-                numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency * 3.5
-            )
-            * 1.0e-3
-        )
+        x = ComplexExponentialFilter(0.5).filter(numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency)
+        n = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency * 3.5) * 1.0e-3
         d = x + n
         obj.reset(d[0])
         assert numpy.allclose(obj.s, d[0])
@@ -143,20 +136,8 @@ class Test(object):
         obj.reset(d[0])
         y, e, b = obj.filter(d)
         assert (len(y) == count) and (len(e) == count) and (len(b) == count)
-        assert (
-            abs(
-                max(y[int(numpy.floor(0.25 * len(y))) :])
-                - max(x[int(numpy.floor(0.25 * len(x))) :])
-            )
-            < 5.0e-3
-        )
-        assert (
-            abs(
-                min(y[int(numpy.floor(0.25 * len(y))) :])
-                - min(x[int(numpy.floor(0.25 * len(x))) :])
-            )
-            < 5.0e-3
-        )
+        assert abs(max(y[int(numpy.floor(0.25 * len(y))) :]) - max(x[int(numpy.floor(0.25 * len(x))) :])) < 5.0e-3
+        assert abs(min(y[int(numpy.floor(0.25 * len(y))) :]) - min(x[int(numpy.floor(0.25 * len(x))) :])) < 5.0e-3
         assert abs(y[-1] - x[-1]) < 5.0e-3
 
     def test_DerivativeFilter(self):
@@ -293,12 +274,7 @@ class Test(object):
         obj = GoertzelFilter(b, frequency)
         for ii in range(0, 4):
             v = numpy.random.rand()
-            x = (
-                ComplexExponentialFilter(numpy.random.rand()).filter(
-                    numpy.ones(count * 4) * frequency
-                )
-                * v
-            )
+            x = ComplexExponentialFilter(numpy.random.rand()).filter(numpy.ones(count * 4) * frequency) * v
             if ii % 1:
                 x = x.real
             y = obj.filter(x)
@@ -437,13 +413,8 @@ class Test(object):
         )
         y = obj.filter(d)
         assert numpy.allclose(y, z)
-        a = numpy.array(
-            [0.000000000000000, 3.86461185, -5.60825317, 3.6218745, -0.878256]
-        )
-        b = (
-            numpy.array([1.42535217, 5.70140866, 8.55211299, 5.70140866, 1.42535217])
-            * 1.0e-6
-        )
+        a = numpy.array([0.000000000000000, 3.86461185, -5.60825317, 3.6218745, -0.878256])
+        b = numpy.array([1.42535217, 5.70140866, 8.55211299, 5.70140866, 1.42535217]) * 1.0e-6
         obj = IirFilter("Chebyshev", 0.025, len(b) - 1, 2)
         assert numpy.allclose(obj.a, a)
         assert numpy.allclose(obj.b, b)
@@ -626,16 +597,12 @@ class Test(object):
         polyphaseratefilter.reset(x[0])
         assert numpy.allclose(polyphaseratefilter.s, x[0])
         y = polyphaseratefilter.filter(x)
-        assert numpy.isclose(len(y), numpy.floor(count * rate)) or numpy.isclose(
-            len(y), numpy.ceil(count * rate)
-        )
+        assert numpy.isclose(len(y), numpy.floor(count * rate)) or numpy.isclose(len(y), numpy.ceil(count * rate))
         rate, count = 1.0 / rate, len(y)
         polyphaseratefilter.rate = rate
         polyphaseratefilter.reset(y[0])
         z = polyphaseratefilter.filter(y)
-        assert numpy.isclose(len(z), numpy.floor(count * rate)) or numpy.isclose(
-            len(z), numpy.ceil(count * rate)
-        )
+        assert numpy.isclose(len(z), numpy.floor(count * rate)) or numpy.isclose(len(z), numpy.ceil(count * rate))
         rate, count = 0.25, 64
         x = numpy.concatenate(
             (
@@ -688,9 +655,7 @@ class Test(object):
         obj.reset(x[0])
         assert numpy.allclose(obj.s, x[0])
         y = obj.filter(x)
-        z = numpy.concatenate(
-            (numpy.ones(5), numpy.zeros(11), numpy.ones(15), numpy.zeros(2))
-        )
+        z = numpy.concatenate((numpy.ones(5), numpy.zeros(11), numpy.ones(15), numpy.zeros(2)))
         assert numpy.allclose(y, z)
 
     def test_WindowFilter(self):
