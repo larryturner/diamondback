@@ -94,7 +94,6 @@
 
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
-from typing import Any
 import math
 import numpy
 import scipy.signal
@@ -104,7 +103,7 @@ import warnings
 class IirFilter(FirFilter):
     """Infinite Impulse Response (IIR) filter."""
 
-    STYLE: Any = ("Bessel", "Butterworth", "Chebyshev")  # type: ignore
+    STYLE: tuple[str, ...] = ("Bessel", "Butterworth", "Chebyshev")
 
     @property
     def a(self):
@@ -214,7 +213,7 @@ class IirFilter(FirFilter):
             bilinear = False
             u, a = numpy.ones(1), numpy.ones(2)
             for ii in range(2, order + 1):
-                x = numpy.concatenate((u, numpy.zeros(2))) + numpy.concatenate(([0.0], ((2.0 * ii) - 1.0) * a))  # type: ignore
+                x = numpy.concatenate((u, numpy.zeros(2))) + numpy.concatenate(([0.0], ((2.0 * ii) - 1.0) * a))
                 u, a = a, x
         elif style == "Butterworth":
             a = numpy.ones(1)

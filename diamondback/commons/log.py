@@ -1,7 +1,7 @@
 """**Description**
     A log instance formats and writes log entries with a specified level
-    and stream using the loguru package. Log entries contain an ISO-8601
-    datetime and level.  Dynamic stream redirection and level specification
+    and stream using loguru. Log entries contain an ISO 8601 datetime
+    and level.  Dynamic stream redirection and level specification
     are supported.
 
     Log uses lazy initialization to coexist with loguru, and removes or
@@ -88,7 +88,7 @@ class Log(object):
 
     numpy.set_printoptions(formatter=dict(float="{:.6f}".format))
 
-    LEVEL = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
+    LEVEL: tuple[str, ...] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
 
     _identity = 0
     _level = logger.level("Info".upper())
@@ -131,9 +131,8 @@ class Log(object):
 
     @classmethod
     def write(cls, level: str, entry: str | Exception) -> None:
-        """Formats and writes log entries using the loguru package with a
-        specified level and stream.  Log entries contain an ISO-8601
-        datetime and level.
+        """Formats and writes log entries using loguru with a specified level
+        and stream.  Log entries contain an ISO 8601 datetime and level.
 
         Arguments:
             level: str - in LEVEL.

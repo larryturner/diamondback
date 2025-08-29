@@ -60,23 +60,23 @@ Complex or real types are supported as appropriate.
 
 -   `Log <https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-log-module>`_
     singleton instance which formats and writes log entries with a specified
-    level and stream using the loguru package. Log entries contain an ISO-8601
-    datetime and level.  Log uses lazy initialization to coexist with loguru.
-    Dynamic stream redirection and level specification are supported.
+    level and stream using loguru. Log entries contain an ISO 8601 datetime
+    and level.  Log uses lazy initialization to coexist with loguru.  Dynamic
+    stream redirection and level specification are supported.
 
 -   `RestClient <https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-rest-client-module>`_
-    instances define a client for simple REST service requests using the
-    requests package.  An API and an elective dictionary of parameter strings
-    are encoded to build a URL, elective binary or JSON data are defined in the
-    body of a request, and a requests response containing JSON, text, or binary
-    data is returned.  Proxy, timeout, and URL definition are supported.
+    instances define a client for simple REST service requests using requests.
+    An API and an elective dictionary of parameter strings are encoded to build
+    a URL, elective binary or JSON data are defined in the body of a request,
+    and a requests response containing JSON, text, or binary data is returned.
+    Proxy, timeout, and URL definition are supported.
 
 -   `Serial <https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-serial-module>`_
     singleton instance which encodes and decodes an instance or collection in
-    BSON or JSON, and generates SHA3-256 codes, using the jsonpickle package.
-    An instance may be an object or a collection, referenced by abstract or
-    concrete types, and the instance will be correctly encoded and decoded,
-    without custom encoding definitions.
+    BSON or JSON, and generates SHA3-256 codes, using jsonpickle.  An instance
+    may be an object or a collection, referenced by abstract or concrete types,
+    and the instance will be correctly encoded and decoded, without custom
+    encoding definitions.
 
 `filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -171,8 +171,8 @@ Complex or real types are supported as appropriate.
     is a semi-supervised learning probabilistic model instance which uses
     maximum likelihood estimation, regularization, and expectation
     maximization to maximize posterior probability and classify an incident
-    signal.  Learns model instances of a specified order per class, where
-    intra-class models capture mixture distributions.
+    signal.  Learns distribution instances of a specified order per class,
+    where intra-class models capture mixture distributions.
 
 `transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^

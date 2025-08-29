@@ -57,7 +57,7 @@ import scipy.signal
 class WindowFilter(object):
     """Window filter."""
 
-    STYLE = ("Blackman", "Hamming", "Hann", "Kaiser")
+    STYLE: tuple[str, ...] = ("Blackman", "Hamming", "Hann", "Kaiser")
 
     @property
     def b(self):

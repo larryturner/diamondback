@@ -171,12 +171,12 @@ inferred.  A style and order are specified.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -216,9 +216,9 @@ inferred.  A style and order are specified.</p>
 <dt><strong>Description</strong></dt><dd><p>A Gaussian Mixture Model (GMM) is a semi-supervised learning
 probabilistic model instance which uses maximum likelihood estimation,
 regularization, and expectation maximization to maximize posterior
-probability and classify an incident signal.  Learns model instances
-of a specified order per class, where intra-class models capture
-mixture distributions.</p>
+probability and classify an incident signal.  Learns distribution
+instances of a specified order per class, where intra-class models
+capture mixture distributions.</p>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -430,12 +430,12 @@ probability, and the initial prediction is the most likely class.</p>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">

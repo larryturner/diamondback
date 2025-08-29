@@ -1,9 +1,9 @@
 """**Description**
     REST client instances define a client for simple REST service requests
-    using the requests package.  An API and an elective dictionary of parameter
-    strings are encoded to build a URL, elective binary or JSON data are
-    defined in the body of a request, and a requests response containing JSON,
-    text, or binary data is returned.
+    using requests.  An API and an elective dictionary of parameter strings
+    are encoded to build a URL, elective binary or JSON data are defined in
+    the body of a request, and a requests response containing JSON, text,
+    or binary data is returned.
 
     Proxy, timeout, and URL definition are supported.
 
@@ -45,7 +45,7 @@ import requests
 class RestClient(object):
     """REST client."""
 
-    METHOD = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
+    METHOD: tuple[str, ...] = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
 
     @property
     def live(self):

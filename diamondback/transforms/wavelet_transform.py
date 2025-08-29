@@ -84,7 +84,7 @@ import numpy
 class WaveletTransform(object):
     """Wavelet transform."""
 
-    B = dict(
+    B: dict[str, dict[int, numpy.ndarray]] = dict(
         Coiflet={
             5: numpy.array(
                 [
@@ -473,7 +473,7 @@ class WaveletTransform(object):
             ),
         },
     )
-    STYLE = tuple(B.keys())
+    STYLE: tuple[str, ...] = tuple(B.keys())
 
     @property
     def b(self):

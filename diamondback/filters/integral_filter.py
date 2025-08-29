@@ -76,13 +76,13 @@ import numpy
 class IntegralFilter(IirFilter):
     """Integral filter."""
 
-    B = (
-        numpy.array([1.0]),
-        numpy.array([1.0, 1.0]) * (1.0 / 2.0),
-        numpy.array([1.0, 4.0, 1.0]) * (1.0 / 6.0),
-        numpy.array([1.0, 3.0, 3.0, 1.0]) * (1.0 / 8.0),
-        numpy.array([7.0, 32.0, 12.0, 32.0, 7.0]) * (1.0 / 90.0),
-    )
+    B: dict[int, numpy.ndarray] = {
+        0: numpy.array([1.0]),
+        1: numpy.array([1.0, 1.0]) * (1.0 / 2.0),
+        2: numpy.array([1.0, 4.0, 1.0]) * (1.0 / 6.0),
+        3: numpy.array([1.0, 3.0, 3.0, 1.0]) * (1.0 / 8.0),
+        4: numpy.array([7.0, 32.0, 12.0, 32.0, 7.0]) * (1.0 / 90.0),
+    }
 
     def __init__(self, order: int) -> None:
         """Initialize.
@@ -91,8 +91,8 @@ class IntegralFilter(IirFilter):
             order: int.
         """
 
-        if (order < 0) or (order >= len(IntegralFilter.B)):
-            raise ValueError(f"Order = {order} Expected Order in [0, {len(IntegralFilter.B)})")
+        if order not in IntegralFilter.B:
+            raise ValueError(f"Order = {order} Expected Order in {tuple(IntegralFilter.B.keys())}")
         super().__init__(a=numpy.array([0.0, 1.0]), b=IntegralFilter.B[order])
 
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
