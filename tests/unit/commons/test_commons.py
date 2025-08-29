@@ -52,9 +52,9 @@ class Test(object):
         """Test RestClient."""
 
         client = RestClient()
-        client.url = "http://en.wikipedia.org"
+        client.url = "http://github.com"
         assert client.live
-        assert client.request(method="get", api="/wiki/Marines").content
+        assert client.request(method="get", api="").content
 
     def test_Serial(self):
         """Test Serial."""

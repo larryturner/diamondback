@@ -68,10 +68,10 @@
   <h1>Source code for diamondback.commons.rest_client</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
 <span class="sd">    REST client instances define a client for simple REST service requests</span>
-<span class="sd">    using the requests package.  An API and an elective dictionary of parameter</span>
-<span class="sd">    strings are encoded to build a URL, elective binary or JSON data are</span>
-<span class="sd">    defined in the body of a request, and a requests response containing JSON,</span>
-<span class="sd">    text, or binary data is returned.</span>
+<span class="sd">    using requests.  An API and an elective dictionary of parameter strings</span>
+<span class="sd">    are encoded to build a URL, elective binary or JSON data are defined in</span>
+<span class="sd">    the body of a request, and a requests response containing JSON, text,</span>
+<span class="sd">    or binary data is returned.</span>
 
 <span class="sd">    Proxy, timeout, and URL definition are supported.</span>
 
@@ -115,7 +115,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">RestClient</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;REST client.&quot;&quot;&quot;</span>
 
-    <span class="n">METHOD</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Delete&quot;</span><span class="p">,</span> <span class="s2">&quot;Get&quot;</span><span class="p">,</span> <span class="s2">&quot;Head&quot;</span><span class="p">,</span> <span class="s2">&quot;Options&quot;</span><span class="p">,</span> <span class="s2">&quot;Patch&quot;</span><span class="p">,</span> <span class="s2">&quot;Post&quot;</span><span class="p">,</span> <span class="s2">&quot;Put&quot;</span><span class="p">)</span>
+    <span class="n">METHOD</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Delete&quot;</span><span class="p">,</span> <span class="s2">&quot;Get&quot;</span><span class="p">,</span> <span class="s2">&quot;Head&quot;</span><span class="p">,</span> <span class="s2">&quot;Options&quot;</span><span class="p">,</span> <span class="s2">&quot;Patch&quot;</span><span class="p">,</span> <span class="s2">&quot;Post&quot;</span><span class="p">,</span> <span class="s2">&quot;Put&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">live</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
