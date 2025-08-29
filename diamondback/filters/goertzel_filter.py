@@ -118,5 +118,5 @@ class GoertzelFilter(IirFilter):
                 self._index = 0
                 jj += 1
         if jj != len(y):
-            y = y[:jj]  # type: ignore
+            y = y[:jj]
         return y

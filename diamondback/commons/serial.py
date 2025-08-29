@@ -1,7 +1,6 @@
 """**Description**
     A serial instance encodes and decodes an instance or collection in
-    BSON or JSON, and generates SHA3-256 codes, using the jsonpickle
-    package.
+    BSON or JSON, and generates SHA3-256 codes, using jsonpickle.
 
     BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code
     will not be consistent or useful for validation.

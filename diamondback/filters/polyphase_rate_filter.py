@@ -81,7 +81,7 @@ import numpy
 class PolyphaseRateFilter(object):
     """Polyphase rate filter."""
 
-    B = numpy.zeros((256, 15))
+    B: numpy.ndarray = numpy.zeros((256, 15))
 
     @property
     def b(self):

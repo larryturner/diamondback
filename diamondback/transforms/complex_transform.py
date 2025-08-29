@@ -60,10 +60,10 @@ import numpy
 class ComplexTransform(object):
     """Complex transform."""
 
-    COEFFICIENT = (2.0 / 3.0) * numpy.array(
+    COEFFICIENT: numpy.ndarray = (2.0 / 3.0) * numpy.array(
         [[1.0, -0.5, -0.5], [0.0, 0.5 * (3.0**0.5), -0.5 * (3.0**0.5)], [1.0, 1.0, 1.0]]
     )
-    GAIN = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
+    GAIN: complex = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
 
     @classmethod
     def transform(cls, x: list | numpy.ndarray, neutral: bool = True) -> numpy.ndarray:

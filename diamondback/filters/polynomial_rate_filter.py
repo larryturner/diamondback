@@ -106,7 +106,7 @@ class PolynomialRateFilter(object):
         cc = len(x)
         jj = int(numpy.round(cc * self.rate))
         if self.order == 1:
-            x = numpy.concatenate((x, [2.0 * x[-1] - x[-2]]))  # type: ignore
+            x = numpy.concatenate((x, [2.0 * x[-1] - x[-2]]))
             u = numpy.linspace(0, len(x) - 1, len(x))
             v = numpy.linspace(0, int(len(x) * self.rate + 0.5) - 1, int(len(x) * self.rate + 0.5)) / self.rate
             y = numpy.interp(x=v, xp=u, fp=x)
@@ -118,7 +118,7 @@ class PolynomialRateFilter(object):
                     x,
                     [2.0 * x[-1] - x[-2], 3.0 * x[-1] - 2.0 * x[-2]],
                 )
-            )  # type: ignore
+            )
             u, v = numpy.linspace(-1.0, 2.0, 4), 1.0 / self.rate
             ii, jj = 0, 0
             index = 0.0
