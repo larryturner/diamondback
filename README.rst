@@ -35,7 +35,7 @@ optimization, probabilistic modeling, rate adaptation, and serialization.
 Installation
 ~~~~~~~~~~~~
 
-*diamondback* is a public repository hosted at `PyPi <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
+*diamondback* is a public repository hosted at `PyPI <https://pypi.org/project/diamondback>`_ and `GitHub <https://github.com/larryturner/diamondback>`_.
 
 .. code-block:: bash
 
