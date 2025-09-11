@@ -9,8 +9,14 @@ diamondback
     :target: https://pypi.org/project/nox/
 .. image:: https://img.shields.io/badge/doc-sphinx-royalblue
     :target: https://pypi.org/project/sphinx/
+.. image:: https://img.shields.io/badge/format-ruff-black
+    :target: https://pypi.org/project/ruff/
+.. image:: https://img.shields.io/badge/lint-ruff-firebrick
+    :target: https://pypi.org/project/ruff/
 .. image:: https://img.shields.io/badge/test-pytest-forestgreen
     :target: https://pypi.org/project/pytest/
+.. image:: https://img.shields.io/badge/type-mypy-royalblue
+    :target: http://pypi.org/project/mypy/
 .. image:: https://img.shields.io/github/license/larryturner/diamondback?color=darkslategray
     :target: https://github.com/larryturner/diamondback/blob/master/LICENSE
 
