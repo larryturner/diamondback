@@ -6,10 +6,11 @@ digraph G {
     node [style=filled,fillcolor="#ffffff",fontcolor="#000000",fontname=Helvetica,fontsize=10];
 
     __main__ [fillcolor="blue",fontcolor="white",shape="folder"];
-    certifi [fillcolor="#b36b4c",fontcolor="#ffffff",shape="folder"];
+    _distutils_hack [fillcolor="#c26647",fontcolor="#ffffff",shape="folder"];
+    certifi [fillcolor="#b3804c",shape="folder"];
     charset_normalizer [fillcolor="blue",fontcolor="white",shape="folder"];
     colorama [fillcolor="blue",fontcolor="white",shape="folder"];
-    dateutil [fillcolor="#c8f906",shape="folder"];
+    dateutil [fillcolor="#bcf906",shape="folder"];
     diamondback [fillcolor="blue",fontcolor="white",shape="box"];
     diamondback_commons [fillcolor="blue",fontcolor="white",label="diamondback\.\ncommons",shape="box"];
     diamondback_commons_Log [fillcolor="#7aac49",label="diamondback\.\ncommons\.\nLog"];
@@ -47,20 +48,25 @@ digraph G {
     loguru [fillcolor="blue",fontcolor="white",shape="folder"];
     numpy [fillcolor="blue",fontcolor="white",shape="folder"];
     pandas [fillcolor="blue",fontcolor="white",shape="folder"];
+    pkg_resources [fillcolor="blue",fontcolor="white",shape="folder"];
     pytz [fillcolor="blue",fontcolor="white",shape="folder"];
     requests [fillcolor="blue",fontcolor="white",shape="folder"];
     scipy [fillcolor="blue",fontcolor="white",shape="folder"];
+    setuptools [fillcolor="blue",fontcolor="white",shape="folder"];
     six [fillcolor="#8510f9",fontcolor="#ffffff",shape="folder"];
     sklearn [fillcolor="blue",fontcolor="white",shape="folder"];
-    threadpoolctl [fillcolor="#ce3bc0",fontcolor="#ffffff",shape="folder"];
+    threadpoolctl [fillcolor="#ce3bce",fontcolor="#ffffff",shape="folder"];
     urllib3 [fillcolor="blue",fontcolor="white",shape="folder"];
-    win32_setctime [fillcolor="#b34c6b",fontcolor="#ffffff",shape="folder"];
+    wheel [fillcolor="#f31685",fontcolor="#ffffff",shape="folder"];
+    win32_setctime [fillcolor="#b34c66",fontcolor="#ffffff",shape="folder"];
     __main__ -> pandas [fillcolor="blue",minlen="4"];
-    certifi -> requests [fillcolor="#b36b4c",minlen="2"];
+    __main__ -> pkg_resources [fillcolor="blue"];
+    _distutils_hack -> setuptools [fillcolor="#c26647",minlen="2"];
+    certifi -> requests [fillcolor="#b3804c",minlen="2"];
     charset_normalizer -> numpy [fillcolor="blue",minlen="3"];
     charset_normalizer -> requests [fillcolor="blue"];
     colorama -> loguru [fillcolor="blue",minlen="2"];
-    dateutil -> pandas [fillcolor="#c8f906",minlen="3"];
+    dateutil -> pandas [fillcolor="#bcf906",minlen="3"];
     diamondback_commons -> diamondback [fillcolor="blue"];
     diamondback_commons_Log -> diamondback [fillcolor="#7aac49",minlen="2"];
     diamondback_commons_log -> diamondback_commons [fillcolor="#7ab83d",weight="2"];
@@ -142,6 +148,7 @@ digraph G {
     numpy -> sklearn [fillcolor="blue",minlen="3"];
     pandas -> jsonpickle [fillcolor="blue",minlen="3"];
     pandas -> sklearn [fillcolor="blue",minlen="3"];
+    pkg_resources -> pytz [fillcolor="blue"];
     pytz -> pandas [fillcolor="blue",minlen="4"];
     requests -> diamondback_commons_rest_client [fillcolor="blue",minlen="3"];
     scipy -> diamondback_filters_complex_bandpass_filter [fillcolor="blue",minlen="3"];
@@ -152,11 +159,13 @@ digraph G {
     scipy -> diamondback_transforms_z_transform [fillcolor="blue",minlen="3"];
     scipy -> pandas [fillcolor="blue",minlen="3"];
     scipy -> sklearn [fillcolor="blue",minlen="3"];
+    setuptools -> numpy [fillcolor="blue",minlen="4"];
     six -> dateutil [fillcolor="#8510f9",minlen="3"];
     sklearn -> diamondback_models_gaussian_mixture_model [fillcolor="blue",minlen="3"];
-    threadpoolctl -> numpy [fillcolor="#ce3bc0",minlen="3"];
-    threadpoolctl -> sklearn [fillcolor="#ce3bc0",minlen="3"];
+    threadpoolctl -> numpy [fillcolor="#ce3bce",minlen="3"];
+    threadpoolctl -> sklearn [fillcolor="#ce3bce",minlen="3"];
     urllib3 -> requests [fillcolor="blue",minlen="3"];
-    win32_setctime -> loguru [fillcolor="#b34c6b",minlen="2"];
+    wheel -> setuptools [fillcolor="#f31685",minlen="3"];
+    win32_setctime -> loguru [fillcolor="#b34c66",minlen="2"];
 }
 

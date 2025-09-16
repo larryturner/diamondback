@@ -56,7 +56,8 @@ nox.options.sessions = [
     "docs",
 ]
 
-PYTHON = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON_LIST = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON = PYTHON_LIST[-1]
 REPOSITORY = pathlib.Path.cwd().name
 SOURCE = REPOSITORY.split("-")[0]
 if not pathlib.Path(SOURCE).is_dir():
@@ -92,8 +93,8 @@ def clean(session: Session) -> None:
         shutil.rmtree(x, ignore_errors=True)
 
 
-def convert(x: str) -> str:
-    """Convert dot to svg format.
+def convert_dot_svg(x: str) -> str:
+    """Convert dot to SVG.
 
     Encode class names with random patterns which preserve length,
     convert format in request, and decode original class names.
@@ -126,22 +127,8 @@ def dependencies(session: Session) -> None:
 
     session.install(".[dependencies]")
     (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
-    path = str(pathlib.Path.cwd() / "docs" / "dependencies-partial")
-    with open(path + ".dot", "w") as fout:
-        session.run(
-            "pydeps",
-            SOURCE,
-            "--cluster",
-            "--no-config",
-            "--no-output",
-            "--show-dot",
-            stdout=fout,
-        )
-        with open(path + ".dot", "r") as fin:
-            with open(path + ".svg", "w") as fout:
-                fout.write(convert(fin.read()))
-    path = str(pathlib.Path.cwd() / "docs" / "dependencies-full")
-    with open(path + ".dot", "w") as fout:
+    path = pathlib.Path.cwd() / "docs" / "dependencies"
+    with open(path.with_suffix(".dot"), "w") as fout:
         session.run(
             "pydeps",
             SOURCE,
@@ -153,9 +140,9 @@ def dependencies(session: Session) -> None:
             "--show-dot",
             stdout=fout,
         )
-        with open(path + ".dot", "r") as fin:
-            with open(path + ".svg", "w") as fout:
-                fout.write(convert(fin.read()))
+        with open(path.with_suffix(".dot"), "r") as fin:
+            with open(path.with_suffix(".svg"), "w") as fout:
+                fout.write(convert_dot_svg(fin.read()))
 
 
 @nox.session(venv_backend="virtualenv", python=PYTHON[-1])

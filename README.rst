@@ -248,8 +248,8 @@ tests, and typing behavior depends upon additional external packages.
 
 *diamondback* dependency diagram.
 
-.. image:: https://larryturner.github.io/diamondback/dependencies-full.svg
-    :target: https://larryturner.github.io/diamondback/dependencies-full.svg
+.. image:: https://larryturner.github.io/diamondback/dependencies.svg
+    :target: https://larryturner.github.io/diamondback/dependencies.svg
 
 Documentation
 ~~~~~~~~~~~~~
