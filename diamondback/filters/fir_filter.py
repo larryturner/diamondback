@@ -92,9 +92,9 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
+from scipy.signal import firwin
 import math
 import numpy
-import scipy.signal
 import warnings
 
 
@@ -166,12 +166,12 @@ class FirFilter(object):
                 window = (style.lower(), 7.0)
             else:
                 window = style.lower()  # type: ignore
-            beta, eps, error = 10.0, float(numpy.finfo(float).eps), numpy.inf
+            beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500 * (1 + (count > 2)), 2.5e-2, 1.0
             for _ in range(0, index):
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
-                    v = scipy.signal.firwin(
+                    v = firwin(
                         numtaps=order + 1,
                         cutoff=min(scale * frequency, 1.0 - eps),
                         width=None,

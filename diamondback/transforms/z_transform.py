@@ -53,9 +53,9 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
+from scipy.signal import residue
 import math
 import numpy
-import scipy.signal
 
 
 class ZTransform(object):
@@ -110,7 +110,7 @@ class ZTransform(object):
                 z = numpy.concatenate((z, numpy.zeros(len(p) - len(z))))
             a, b = numpy.poly(p).real, numpy.poly(z).real
         else:
-            r, p, _ = scipy.signal.residue(v, u)
+            r, p, _ = residue(v, u)
             a, b = numpy.ones(1) + 0j, 0j  # type: ignore
             for ii in range(0, len(r)):
                 a = numpy.convolve(a, numpy.array([1.0, -numpy.exp(p[ii] / t)]))

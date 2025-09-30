@@ -50,8 +50,8 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
+from scipy.signal import get_window
 import numpy
-import scipy.signal
 
 
 class WindowFilter(object):
@@ -82,7 +82,7 @@ class WindowFilter(object):
         else:
             window = style.lower()  # type: ignore
         super().__init__()
-        b = scipy.signal.get_window(window, order + 1, False)
+        b = get_window(window, order + 1, False)
         if normal:
             b *= (order + 1) / sum(abs(b))
         self._b = numpy.array(b)

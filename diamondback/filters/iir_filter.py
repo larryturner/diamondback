@@ -94,9 +94,9 @@
 
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
+from scipy.signal import freqz, group_delay
 import math
 import numpy
-import scipy.signal
 import warnings
 
 
@@ -158,7 +158,7 @@ class IirFilter(FirFilter):
                 raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
-            beta, eps, error = 10.0, float(numpy.finfo(float).eps), numpy.inf
+            beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500 * (1 + (count > 2)), 2.5e-2, 1.0
             a, b = numpy.ndarray((0)), numpy.ndarray((0))
             for _ in range(0, index):
@@ -260,7 +260,7 @@ class IirFilter(FirFilter):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             y, f = (
-                scipy.signal.group_delay((self.b, numpy.concatenate(([1.0], -self.a[1:]))), length, True)[1],
+                group_delay((self.b, numpy.concatenate(([1.0], -self.a[1:]))), length, True)[1],
                 numpy.linspace(-1.0, 1.0 - 2.0 / length, length),
             )
             y = numpy.concatenate((y[len(y) // 2 :], y[: len(y) // 2])) * count
@@ -328,7 +328,7 @@ class IirFilter(FirFilter):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             y, f = (
-                scipy.signal.freqz(self.b, numpy.concatenate(([1.0], -self.a[1:])), length, True)[1],
+                freqz(self.b, numpy.concatenate(([1.0], -self.a[1:])), length, True)[1],
                 numpy.linspace(-1.0, 1.0 - 2.0 / length, length),
             )
             y = numpy.concatenate((y[len(y) // 2 :], y[: len(y) // 2])) ** count

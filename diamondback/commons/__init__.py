@@ -11,8 +11,8 @@
 
 # isort: skip_file
 
-from .log import Log
-from .rest_client import RestClient
-from .serial import Serial
+from diamondback.commons.log import Log
+from diamondback.commons.rest_client import RestClient
+from diamondback.commons.serial import Serial
 
 __all__ = ["Log", "RestClient", "Serial"]

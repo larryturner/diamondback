@@ -50,9 +50,9 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
+from scipy.signal import hilbert
 import math
 import numpy
-import scipy
 
 
 class ComplexFrequencyFilter(FirFilter):
@@ -116,7 +116,7 @@ class ComplexFrequencyFilter(FirFilter):
         if not len(d):
             raise ValueError(f"D = {d}")
         if not numpy.iscomplex(d).any():
-            d = scipy.signal.hilbert(d)
+            d = hilbert(d)
         x = abs(d)  # type: ignore
         x[numpy.isclose(x, 0.0)] = 1.0
         x = d / x

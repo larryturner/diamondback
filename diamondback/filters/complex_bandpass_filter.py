@@ -49,8 +49,8 @@
 
 from diamondback.filters.complex_exponential_filter import ComplexExponentialFilter
 from diamondback.filters.fir_filter import FirFilter
+from scipy.signal import hilbert
 import numpy
-import scipy
 
 
 class ComplexBandpassFilter(FirFilter):
@@ -114,7 +114,7 @@ class ComplexBandpassFilter(FirFilter):
         if not len(d):
             raise ValueError(f"D = {d}")
         if not numpy.iscomplex(d).any():
-            d = scipy.signal.hilbert(d)
+            d = hilbert(d)
         x = self._filter.filter(numpy.ones(len(d)) * self.frequency)
         y, e, b = (
             numpy.zeros(len(x), complex),
