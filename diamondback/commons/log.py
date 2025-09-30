@@ -78,6 +78,7 @@
 from loguru import logger
 from threading import RLock
 from typing import Any
+import contextlib
 import numpy
 import os
 import sys
@@ -119,10 +120,8 @@ class Log(object):
         with Log._rlock:
             if (not stream) or (not hasattr(stream, "write")):
                 raise ValueError(f"Stream = {stream} Expected Write")
-            try:
+            with contextlib.suppress(ValueError):
                 logger.remove(Log._identity)
-            except ValueError:
-                pass
             Log._identity = logger.add(
                 stream,
                 level=0,

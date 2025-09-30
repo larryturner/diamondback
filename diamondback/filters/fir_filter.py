@@ -92,7 +92,7 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-from scipy.signal import firwin
+from scipy.signal import firwin, freqz, group_delay
 import math
 import numpy
 import warnings
@@ -225,7 +225,7 @@ class FirFilter(object):
         with warnings.catch_warnings():
             warnings.simplefilter("ignore")
             y, f = (
-                scipy.signal.group_delay((self.b, [1.0]), length, True)[1],
+                group_delay((self.b, [1.0]), length, True)[1],
                 numpy.linspace(-1.0, 1.0 - 2.0 / length, length),
             )
             y = numpy.concatenate((y[len(y) // 2 :], y[: len(y) // 2])) * count
@@ -284,7 +284,7 @@ class FirFilter(object):
         if count <= 0:
             raise ValueError(f"Count = {count} Expected Count in (0, inf)")
         y, f = (
-            scipy.signal.freqz(self.b, [1.0, 0.0], length, True)[1],
+            freqz(self.b, [1.0, 0.0], length, True)[1],
             numpy.linspace(-1.0, 1.0 - 2.0 / length, length),
         )
         y = numpy.concatenate((y[len(y) // 2 :], y[: len(y) // 2])) ** count

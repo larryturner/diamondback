@@ -113,9 +113,9 @@ class Test(object):
                 0.235233603892082,
             ]
         )
-        obj = WaveletTransform("Daubechies", len(h) - 1)
-        assert numpy.allclose(obj.b[0][0], h)
-        assert numpy.allclose(obj.b[0][1], g)
+        wavelet_transform = WaveletTransform("Daubechies", len(h) - 1)
+        assert numpy.allclose(wavelet_transform.b[0][0], h)
+        assert numpy.allclose(wavelet_transform.b[0][1], g)
         h = numpy.array(
             [
                 0.024908749868442,
@@ -136,17 +136,17 @@ class Test(object):
                 -0.024908749868442,
             ]
         )
-        assert numpy.allclose(obj.b[1][0], h)
-        assert numpy.allclose(obj.b[1][1], g)
+        assert numpy.allclose(wavelet_transform.b[1][0], h)
+        assert numpy.allclose(wavelet_transform.b[1][1], g)
         h = numpy.array([0.5, 0.5])
         g = numpy.array([0.5, -0.5])
-        obj = WaveletTransform("Haar", len(h) - 1)
-        assert numpy.allclose(obj.b[0][0], h)
-        assert numpy.allclose(obj.b[0][1], g)
+        wavelet_transform = WaveletTransform("Haar", len(h) - 1)
+        assert numpy.allclose(wavelet_transform.b[0][0], h)
+        assert numpy.allclose(wavelet_transform.b[0][1], g)
         h = numpy.array([0.5, 0.5])
         g = numpy.array([-0.5, 0.5])
-        assert numpy.allclose(obj.b[1][0], h)
-        assert numpy.allclose(obj.b[1][1], g)
+        assert numpy.allclose(wavelet_transform.b[1][0], h)
+        assert numpy.allclose(wavelet_transform.b[1][1], g)
         u = numpy.array(
             [
                 -0.677118658500953,
@@ -184,9 +184,9 @@ class Test(object):
             ]
         )
         x = ComplexExponentialFilter(0.5).filter(numpy.ones(len(u)) * 0.1).real
-        y = obj.transform(x, count, False)
+        y = wavelet_transform.transform(x, count, False)
         assert numpy.allclose(y, u)
-        z = obj.transform(y, count, True)
+        z = wavelet_transform.transform(y, count, True)
         assert numpy.allclose(z, x)
         x = numpy.zeros((len(u), len(u)))
         for ii in range(0, x.shape[0]):
@@ -196,7 +196,7 @@ class Test(object):
                 .filter(numpy.ones(len(u)) * numpy.random.rand() * 0.5)
                 .real
             )
-        z = obj.transform(obj.transform(x, count, False), count, True)
+        z = wavelet_transform.transform(wavelet_transform.transform(x, count, False), count, True)
         assert numpy.allclose(z, x)
 
     def test_ZTransform(self):

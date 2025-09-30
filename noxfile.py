@@ -37,13 +37,14 @@
 """
 
 import glob
+import json
 import nox
 import os
 import pathlib
 import random
-import requests
 import shutil
 import string
+import urllib.request
 from nox import Session
 
 nox.options.sessions = [
@@ -93,34 +94,6 @@ def clean(session: Session) -> None:
         shutil.rmtree(x, ignore_errors=True)
 
 
-def convert_dot_svg(x: str) -> str:
-    """Convert dot to SVG.
-
-    Encode class names with random patterns which preserve length,
-    convert format in request, and decode original class names.
-
-    Arguments:
-        x: str - dot.
-
-    Returns:
-        y: str - svg.
-    """
-
-    if not x:
-        raise ValueError(f"X = {x}")
-    x = x.strip()
-    if "digraph" not in x:
-        raise ValueError(f"X = {x}")
-    encode = lambda x: "".join(random.choices(string.ascii_letters, k=len(x)))
-    code = dict([(u, encode(u)) for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}])
-    for u, v in code.items():
-        x = x.replace(u, v)
-    y = requests.post("https://quickchart.io/graphviz", json=dict(format="svg", graph=x)).text
-    for u, v in code.items():
-        y = y.replace(v, u)
-    return y
-
-
 @nox.session(venv_backend="virtualenv", python=PYTHON[-1])
 def dependencies(session: Session) -> None:
     """Dependencies."""
@@ -142,7 +115,24 @@ def dependencies(session: Session) -> None:
         )
         with open(path.with_suffix(".dot"), "r") as fin:
             with open(path.with_suffix(".svg"), "w") as fout:
-                fout.write(convert_dot_svg(fin.read()))
+                x = fin.read().strip()
+                if "digraph" not in x:
+                    raise ValueError(f"X = {x}")
+                encode = lambda x: "".join(random.choices(string.ascii_letters, k=len(x)))
+                code = dict([(u, encode(u)) for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}])
+                for u, v in code.items():
+                    x = x.replace(u, v)
+                response = urllib.request.urlopen(
+                    urllib.request.Request(
+                        url="https://quickchart.io/graphviz",
+                        data=str(json.dumps(dict(format="svg", graph=x))).encode("utf-8"),
+                        headers={"Content-Type": "application/json"},
+                    )
+                )
+                x = response.read().decode("utf-8")
+                for u, v in code.items():
+                    x = x.replace(v, u)
+                fout.write(x)
 
 
 @nox.session(venv_backend="virtualenv", python=PYTHON[-1])

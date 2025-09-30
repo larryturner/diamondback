@@ -117,8 +117,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">diamondback.filters.complex_exponential_filter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">diamondback.filters.fir_filter</span><span class="w"> </span><span class="kn">import</span> <span class="n">FirFilter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">hilbert</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 
 
 <div class="viewcode-block" id="ComplexBandpassFilter">
@@ -186,7 +186,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;D = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">hilbert</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">complex</span><span class="p">),</span>

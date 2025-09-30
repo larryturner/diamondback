@@ -51,10 +51,10 @@ class Test(object):
     def test_RestClient(self):
         """Test RestClient."""
 
-        client = RestClient()
-        client.url = "http://github.com"
-        assert client.live
-        assert client.request(method="get", api="").content
+        rest_client = RestClient()
+        rest_client.url = "http://marines.com"
+        assert rest_client.live
+        assert rest_client.request(method="get", api="").content
 
     def test_Serial(self):
         """Test Serial."""

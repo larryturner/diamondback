@@ -118,8 +118,8 @@
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2018-04-13.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_window</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.signal</span>
 
 
 <div class="viewcode-block" id="WindowFilter">
@@ -152,7 +152,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">window</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">get_window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">get_window</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">normal</span><span class="p">:</span>
             <span class="n">b</span> <span class="o">*=</span> <span class="p">(</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_b</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
