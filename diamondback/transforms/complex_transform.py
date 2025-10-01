@@ -41,9 +41,9 @@
         from diamondback import ComplexExponentialFilter, ComplexTransform
         import numpy
 
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )
-        y = ComplexTransform.transform( x, neutral = True )
-        z = ComplexTransform.transform( y, neutral = True )
+        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, 128) + 0.1)
+        y = ComplexTransform.transform(x, neutral = True)
+        z = ComplexTransform.transform(y, neutral = True)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -60,22 +60,22 @@ import numpy
 class ComplexTransform(object):
     """Complex transform."""
 
-    COEFFICIENT = (2.0 / 3.0) * numpy.array(
+    COEFFICIENT: numpy.ndarray = (2.0 / 3.0) * numpy.array(
         [[1.0, -0.5, -0.5], [0.0, 0.5 * (3.0**0.5), -0.5 * (3.0**0.5)], [1.0, 1.0, 1.0]]
     )
-    GAIN = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
+    GAIN: complex = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
 
     @classmethod
     def transform(cls, x: list | numpy.ndarray, neutral: bool = True) -> numpy.ndarray:
         """Transforms a real three-phase or complex incident signal into a complex
         or three-phase reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            neutral : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            neutral: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -87,9 +87,7 @@ class ComplexTransform(object):
         else:
             rows, cols = x.shape
         if (rows not in (1, 3)) or (cols <= 0):
-            raise ValueError(
-                f"Rows = {rows} Columns = {cols} Expected Rows in ( 1, 3 ) and Columns in ( 0, inf )"
-            )
+            raise ValueError(f"Rows = {rows} Columns = {cols} Expected Rows in (1, 3) and Columns in (0, inf)")
         if rows == 1:
             v = x
             if not neutral:

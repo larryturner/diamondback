@@ -15,18 +15,8 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import (
-    FirFilter,
-    IirFilter,
-    ComplexBandpassFilter,
-    ComplexExponentialFilter,
-)
-from diamondback import (
-    ComplexFrequencyFilter,
-    DerivativeFilter,
-    GoertzelFilter,
-    IntegralFilter,
-)
+from diamondback import FirFilter, IirFilter, ComplexBandpassFilter, ComplexExponentialFilter
+from diamondback import ComplexFrequencyFilter, DerivativeFilter, GoertzelFilter, IntegralFilter
 from diamondback import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
 from diamondback import WindowFilter
 import math
@@ -41,26 +31,19 @@ class Test(object):
 
         count = 128
         frequency, rate = numpy.random.rand() * 2.0 - 1.0, numpy.random.rand()
-        obj = ComplexBandpassFilter(frequency, rate)
-        assert numpy.isclose(obj.frequency, frequency)
-        assert numpy.isclose(obj.rate, rate)
+        complex_bandpass_filter = ComplexBandpassFilter(frequency, rate)
+        assert numpy.isclose(complex_bandpass_filter.frequency, frequency)
+        assert numpy.isclose(complex_bandpass_filter.rate, rate)
         frequency, rate = 0.1, 5.0e-2
-        obj.frequency, obj.rate = frequency, rate
-        assert numpy.isclose(obj.frequency, frequency)
-        assert numpy.isclose(obj.rate, rate)
-        x = ComplexExponentialFilter(0.5).filter(
-            numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency
-        )
-        n = (
-            ComplexExponentialFilter(0.0).filter(
-                numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency * 3.5
-            )
-            * 1.0e-3
-        )
+        complex_bandpass_filter.frequency, complex_bandpass_filter.rate = frequency, rate
+        assert numpy.isclose(complex_bandpass_filter.frequency, frequency)
+        assert numpy.isclose(complex_bandpass_filter.rate, rate)
+        x = ComplexExponentialFilter(0.5).filter(numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency)
+        n = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, count) + frequency * 3.5) * 1.0e-3
         d = x + n
-        obj.reset(d[0])
-        assert numpy.allclose(obj.s, d[0])
-        y, e, b = obj.filter(d)
+        complex_bandpass_filter.reset(d[0])
+        assert numpy.allclose(complex_bandpass_filter.s, d[0])
+        y, e, b = complex_bandpass_filter.filter(d)
         assert (len(y) == count) and (len(e) == count) and (len(b) == count)
         assert numpy.allclose(y + e, d)
         assert numpy.average(abs(e[len(e) - 31 :])) < 5.0e-3
@@ -69,11 +52,11 @@ class Test(object):
         """Test ComplexExponentialFilter."""
 
         phase = numpy.random.rand() * 2.0 - 1.0
-        obj = ComplexExponentialFilter(phase)
-        assert numpy.isclose(obj.phase, phase)
+        complex_exponential_filter = ComplexExponentialFilter(phase)
+        assert numpy.isclose(complex_exponential_filter.phase, phase)
         phase = 1.0 / 3.0
-        obj.phase = phase
-        assert numpy.isclose(obj.phase, phase)
+        complex_exponential_filter.phase = phase
+        assert numpy.isclose(complex_exponential_filter.phase, phase)
         z = numpy.array(
             [
                 0.500000000000000 + 0.866025403784439j,
@@ -116,22 +99,22 @@ class Test(object):
                 numpy.linspace(0.5, -0.75, len(z) // 2),
             )
         )
-        y = obj.filter(x)
+        y = complex_exponential_filter.filter(x)
         assert numpy.allclose(y, z)
-        assert numpy.isclose(obj.phase, numpy.fmod(phase + sum(x), 2.0))
+        assert numpy.isclose(complex_exponential_filter.phase, numpy.fmod(phase + sum(x), 2.0))
 
     def test_ComplexFrequencyFilter(self):
         """Test ComplexFrequencyFilter."""
 
         count = 128
         frequency, rate = numpy.random.rand() * 2.0 - 1.0, numpy.random.rand()
-        obj = ComplexFrequencyFilter(frequency, rate)
-        assert numpy.isclose(obj.frequency, frequency)
-        assert numpy.isclose(obj.rate, rate)
+        complex_frequency_filter = ComplexFrequencyFilter(frequency, rate)
+        assert numpy.isclose(complex_frequency_filter.frequency, frequency)
+        assert numpy.isclose(complex_frequency_filter.rate, rate)
         frequency, rate = 0.0, 2.0e-1
-        obj.frequency, obj.rate = frequency, rate
-        assert numpy.isclose(obj.frequency, frequency)
-        assert numpy.isclose(obj.rate, rate)
+        complex_frequency_filter.frequency, complex_frequency_filter.rate = frequency, rate
+        assert numpy.isclose(complex_frequency_filter.frequency, frequency)
+        assert numpy.isclose(complex_frequency_filter.rate, rate)
         x = numpy.concatenate(
             (
                 numpy.linspace(0.0, 0.05, int(count / 4)),
@@ -140,23 +123,11 @@ class Test(object):
             )
         )
         d = ComplexExponentialFilter(0.0).filter(x)
-        obj.reset(d[0])
-        y, e, b = obj.filter(d)
+        complex_frequency_filter.reset(d[0])
+        y, e, b = complex_frequency_filter.filter(d)
         assert (len(y) == count) and (len(e) == count) and (len(b) == count)
-        assert (
-            abs(
-                max(y[int(numpy.floor(0.25 * len(y))) :])
-                - max(x[int(numpy.floor(0.25 * len(x))) :])
-            )
-            < 5.0e-3
-        )
-        assert (
-            abs(
-                min(y[int(numpy.floor(0.25 * len(y))) :])
-                - min(x[int(numpy.floor(0.25 * len(x))) :])
-            )
-            < 5.0e-3
-        )
+        assert abs(max(y[int(numpy.floor(0.25 * len(y))) :]) - max(x[int(numpy.floor(0.25 * len(x))) :])) < 5.0e-3
+        assert abs(min(y[int(numpy.floor(0.25 * len(y))) :]) - min(x[int(numpy.floor(0.25 * len(x))) :])) < 5.0e-3
         assert abs(y[-1] - x[-1]) < 5.0e-3
 
     def test_DerivativeFilter(self):
@@ -164,19 +135,19 @@ class Test(object):
 
         count = 1024
         b, derivative = numpy.array([-1.0, 8.0, 0.0, -8.0, 1.0]) * (1.0 / 12.0), 1
-        obj = DerivativeFilter(derivative, len(b) - 1)
-        assert numpy.allclose(obj.b, b)
+        derivative_filter = DerivativeFilter(derivative, len(b) - 1)
+        assert numpy.allclose(derivative_filter.b, b)
         b = numpy.array([1.0, -1.0])
-        obj = DerivativeFilter(derivative, len(b) - 1)
-        assert numpy.allclose(obj.b, b)
+        derivative_filter = DerivativeFilter(derivative, len(b) - 1)
+        assert numpy.allclose(derivative_filter.b, b)
         x = numpy.random.randn(count) / 2.0
         x[0] = 0.0
         d = numpy.zeros(count)
         for ii in range(1, count):
             d[ii] = d[ii - 1] + x[ii]
-        obj.reset(d[0])
-        assert numpy.allclose(obj.s, d[0])
-        y = obj.filter(d)
+        derivative_filter.reset(d[0])
+        assert numpy.allclose(derivative_filter.s, d[0])
+        y = derivative_filter.filter(d)
         assert numpy.allclose(y, x)
 
     def test_FirFilter(self):
@@ -184,62 +155,64 @@ class Test(object):
 
         b = numpy.array(
             [
-                0.00000000e00,
-                -4.86482301e-05,
-                -5.14935918e-04,
-                -1.76685187e-03,
-                -3.80954037e-03,
-                -6.09708239e-03,
-                -7.50679522e-03,
-                -6.51555805e-03,
-                -1.55646139e-03,
-                8.52625075e-03,
-                2.40464408e-02,
-                4.41987108e-02,
-                6.70321691e-02,
-                8.97106501e-02,
-                1.09017962e-01,
-                1.21997354e-01,
-                1.26572673e-01,
-                1.21997354e-01,
-                1.09017962e-01,
-                8.97106501e-02,
-                6.70321691e-02,
-                4.41987108e-02,
-                2.40464408e-02,
-                8.52625075e-03,
-                -1.55646139e-03,
-                -6.51555805e-03,
-                -7.50679522e-03,
-                -6.09708239e-03,
-                -3.80954037e-03,
-                -1.76685187e-03,
-                -5.14935918e-04,
-                -4.86482301e-05,
-                0.00000000e00,
+                0.0000000000e00,
+                -1.6216717596e-05,
+                -3.6442085109e-04,
+                -1.4345850653e-03,
+                -3.3373491103e-03,
+                -5.7041757801e-03,
+                -7.6158521029e-03,
+                -7.7081520260e-03,
+                -4.4529481869e-03,
+                3.4419758016e-03,
+                1.6614207761e-02,
+                3.4726088610e-02,
+                5.6343682524e-02,
+                7.9071032167e-02,
+                9.9930765617e-02,
+                1.1591605454e-01,
+                1.2458989282e-01,
+                1.2458989282e-01,
+                1.1591605454e-01,
+                9.9930765617e-02,
+                7.9071032167e-02,
+                5.6343682524e-02,
+                3.4726088610e-02,
+                1.6614207761e-02,
+                3.4419758016e-03,
+                -4.4529481869e-03,
+                -7.7081520260e-03,
+                -7.6158521029e-03,
+                -5.7041757801e-03,
+                -3.3373491103e-03,
+                -1.4345850653e-03,
+                -3.6442085109e-04,
+                -1.6216717596e-05,
+                0.0000000000e00,
             ]
         )
-        obj = FirFilter(style="Hann", frequency=0.1, order=len(b) - 1, count=1)
-        assert numpy.allclose(obj.b, b)
+        fir_filter = FirFilter(style="Hann", frequency=0.1, order=len(b) - 1, count=1)
+        assert numpy.allclose(fir_filter.b, b)
         b = numpy.array(
             [
-                -0.00549098,
-                0.00180547,
-                0.08123026,
-                0.24963445,
-                0.34564162,
-                0.24963445,
-                0.08123026,
-                0.00180547,
-                -0.00549098,
+                -0.0057982961,
+                -0.0077523984,
+                0.0325469666,
+                0.1679628694,
+                0.3130408585,
+                0.3130408585,
+                0.1679628694,
+                0.0325469666,
+                -0.0077523984,
+                -0.0057982961,
             ]
         )
-        obj = FirFilter(style="Hamming", frequency=0.25, order=len(b) - 1, count=1)
-        assert numpy.allclose(obj.b, b)
-        obj = FirFilter(b=b, s=numpy.zeros(len(b)))
-        assert numpy.allclose(obj.b, b)
-        obj = FirFilter(style="Hann", frequency=0.2, order=16, count=1)
-        assert numpy.isclose(sum(obj.b), 1.0)
+        fir_filter = FirFilter(style="Hamming", frequency=0.25, order=len(b) - 1, count=1)
+        assert numpy.allclose(fir_filter.b, b)
+        fir_filter = FirFilter(b=b, s=numpy.zeros(len(b)))
+        assert numpy.allclose(fir_filter.b, b)
+        fir_filter = FirFilter(style="Hann", frequency=0.2, order=16, count=1)
+        assert numpy.isclose(sum(fir_filter.b), 1.0)
         z = numpy.array(
             [
                 1.00000000e-01,
@@ -279,9 +252,9 @@ class Test(object):
         x = ComplexExponentialFilter(0.5).filter(numpy.ones(len(z)) * 0.1).real
         n = ComplexExponentialFilter(0.0).filter(numpy.ones(len(z)) * 0.5).real * 0.1
         d = x + n
-        obj.reset(d[0])
-        assert numpy.allclose(obj.s, d[0])
-        y = obj.filter(d)
+        fir_filter.reset(d[0])
+        assert numpy.allclose(fir_filter.s, d[0])
+        y = fir_filter.filter(d)
         assert numpy.allclose(y, z)
 
     def test_GoertzelFilter(self):
@@ -290,78 +263,44 @@ class Test(object):
         count = 1024
         frequency = 0.1
         b = WindowFilter("Hann", count - 1).b
-        obj = GoertzelFilter(b, frequency)
+        goertzel_filter = GoertzelFilter(b, frequency)
         for ii in range(0, 4):
             v = numpy.random.rand()
-            x = (
-                ComplexExponentialFilter(numpy.random.rand()).filter(
-                    numpy.ones(count * 4) * frequency
-                )
-                * v
-            )
+            x = ComplexExponentialFilter(numpy.random.rand()).filter(numpy.ones(count * 4) * frequency) * v
             if ii % 1:
                 x = x.real
-            y = obj.filter(x)
+            y = goertzel_filter.filter(x)
             assert numpy.allclose(abs(y), v)
 
     def test_IirFilter(self):
         """Test IirFilter."""
 
+        a = numpy.array([0.0000000000, 3.11345435, -4.016479371, 2.670363629, -0.9113738389, 0.1273250395])
+        b = numpy.array([0.0005221935, 0.0026109674, 0.0052219348, 0.0052219348, 0.0026109674, 0.0005221935])
+        iir_filter = IirFilter(style="Bessel", frequency=0.1, order=len(b) - 1, count=1)
+        assert numpy.allclose(iir_filter.a, a)
+        assert numpy.allclose(iir_filter.b, b)
+        iir_filter = IirFilter(a=a, b=b, s=numpy.zeros(len(a)))
+        assert numpy.allclose(iir_filter.a, a)
+        assert numpy.allclose(iir_filter.b, b)
         a = numpy.array(
-            [
-                0.000000000000000,
-                3.113454350028766,
-                -4.016479371043305,
-                2.670363629085213,
-                -0.911373838931267,
-                0.127325039532952,
-            ]
+            [0.0000000000, 5.3932124849, -12.1474251704, 14.6237875666, -9.9230485708, 3.5980635339, -0.5446010676]
         )
         b = numpy.array(
             [
-                5.221934789888007e-04,
-                0.002610967394944,
-                0.005221934789888,
-                0.005221934789888,
-                0.002610967394944,
-                5.221934789888007e-04,
+                1.7536549721e-07,
+                1.0521929832e-06,
+                2.6304824581e-06,
+                3.5073099441e-06,
+                2.6304824581e-06,
+                1.0521929832e-06,
+                1.7536549721e-07,
             ]
         )
-        obj = IirFilter(style="Bessel", frequency=0.1, order=len(b) - 1, count=1)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
-        obj = IirFilter(a=a, b=b, s=numpy.zeros(len(a)))
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
-        a = numpy.array(
-            [
-                0.000000000000000,
-                5.393212484862779,
-                -12.147425170423173,
-                14.623787566618699,
-                -9.923048570780237,
-                3.598063533891009,
-                -0.544601067560899,
-            ]
-        )
-        b = (
-            numpy.array(
-                [
-                    0.017536549719831,
-                    0.105219298318984,
-                    0.263048245797461,
-                    0.350730994396614,
-                    0.263048245797462,
-                    0.105219298318984,
-                    0.017536549719831,
-                ]
-            )
-            * 1.0e-5
-        )
-        obj = IirFilter(style="Butterworth", frequency=0.05, order=len(b) - 1, count=1)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
-        assert numpy.allclose(obj.s, 0.0)
+        iir_filter = IirFilter(style="Butterworth", frequency=0.05, order=len(b) - 1, count=1)
+        assert numpy.allclose(iir_filter.a, a)
+        assert numpy.allclose(iir_filter.b, b)
+        assert numpy.allclose(iir_filter.s, 0.0)
         z = numpy.array(
             [
                 1.753654971914e-08,
@@ -397,12 +336,12 @@ class Test(object):
         x = ComplexExponentialFilter(0.5).filter(numpy.ones(len(z)) * 0.1).real
         n = ComplexExponentialFilter(0.0).filter(numpy.ones(len(z)) * 0.5).real * 0.1
         d = x + n
-        y = obj.filter(d)
+        y = iir_filter.filter(d)
         assert numpy.allclose(y, z)
-        obj.reset(d[0])
-        s = numpy.ones(len(obj.a)) * 8909.962478155508
+        iir_filter.reset(d[0])
+        s = numpy.ones(len(iir_filter.a)) * 8909.962478155508
         s[0] = d[0]
-        assert numpy.allclose(s, obj.s)
+        assert numpy.allclose(s, iir_filter.s)
         z = numpy.array(
             [
                 0.100000000000,
@@ -435,18 +374,13 @@ class Test(object):
                 -0.168298973585,
             ]
         )
-        y = obj.filter(d)
+        y = iir_filter.filter(d)
         assert numpy.allclose(y, z)
-        a = numpy.array(
-            [0.000000000000000, 3.86461185, -5.60825317, 3.6218745, -0.878256]
-        )
-        b = (
-            numpy.array([1.42535217, 5.70140866, 8.55211299, 5.70140866, 1.42535217])
-            * 1.0e-6
-        )
-        obj = IirFilter("Chebyshev", 0.025, len(b) - 1, 2)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
+        a = numpy.array([0.0000000000, 3.8765072084, -5.6415809915, 3.653029515, -0.8879718207])
+        b = numpy.array([1.0055554834e-06, 4.0222219335e-06, 6.0333329003e-06, 4.0222219335e-06, 1.0055554834e-06])
+        iir_filter = IirFilter(style="Chebyshev", frequency=0.025, order=len(b) - 1, count=2)
+        assert numpy.allclose(iir_filter.a, a)
+        assert numpy.allclose(iir_filter.b, b)
 
     def test_IntegralFilter(self):
         """Test IntegralFilter."""
@@ -454,27 +388,27 @@ class Test(object):
         count = 128
         a = numpy.array([0.0, 1.0, 0.0, 0.0, 0.0])
         b = numpy.array([7.0, 32.0, 12.0, 32.0, 7.0]) * (1.0 / 90.0)
-        obj = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
+        integral_filter = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
+        assert numpy.allclose(integral_filter.a, a)
+        assert numpy.allclose(integral_filter.b, b)
         a = numpy.array([0.0, 1.0])
         b = numpy.array([1.0, 1.0]) * (1.0 / 2.0)
-        obj = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
+        integral_filter = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
+        assert numpy.allclose(integral_filter.a, a)
+        assert numpy.allclose(integral_filter.b, b)
         a = numpy.array([0.0, 1.0])
         b = numpy.array([1.0, 0.0])
-        obj = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
-        assert numpy.allclose(obj.a, a)
-        assert numpy.allclose(obj.b, b)
+        integral_filter = IntegralFilter(len([x for x in b if (not numpy.isclose(x, 0.0))]) - 1)
+        assert numpy.allclose(integral_filter.a, a)
+        assert numpy.allclose(integral_filter.b, b)
         x = numpy.random.randn(count) / 2.0
         x[0] = 0.0
         d = numpy.zeros(count)
         for ii in range(1, count):
             d[ii] = d[ii - 1] + x[ii]
-        obj.reset(x[0])
-        assert numpy.allclose(obj.s, x[0])
-        y = obj.filter(x)
+        integral_filter.reset(x[0])
+        assert numpy.allclose(integral_filter.s, x[0])
+        y = integral_filter.filter(x)
         assert numpy.allclose(y, d)
 
     def test_PidFilter(self):
@@ -483,14 +417,14 @@ class Test(object):
         count = 1024
         limit = 1.5
         b = numpy.random.randn(3)
-        obj = PidFilter(b)
-        assert numpy.allclose(obj.b, b)
-        obj.limit = limit
-        assert numpy.isclose(obj.limit, limit)
-        obj.limit = numpy.inf
-        assert numpy.isclose(obj.limit, numpy.inf)
+        pid_filter = PidFilter(b)
+        assert numpy.allclose(pid_filter.b, b)
+        pid_filter.limit = limit
+        assert numpy.isclose(pid_filter.limit, limit)
+        pid_filter.limit = numpy.inf
+        assert numpy.isclose(pid_filter.limit, numpy.inf)
         x = numpy.random.randn(count)
-        y = obj.filter(x)
+        y = pid_filter.filter(x)
         assert len(y) == count
 
     def test_PolynomialRateFilter(self):
@@ -500,12 +434,12 @@ class Test(object):
         frequency, order = math.pi * 0.1, 3
         rate = math.pi
         r = numpy.random.rand() * 10.0 + 1.0
-        obj = PolynomialRateFilter(r, order)
-        assert numpy.isclose(obj.rate, r)
-        obj.rate = rate
-        assert numpy.isclose(obj.rate, rate)
+        polynomial_rate_filter = PolynomialRateFilter(r, order)
+        assert numpy.isclose(polynomial_rate_filter.rate, r)
+        polynomial_rate_filter.rate = rate
+        assert numpy.isclose(polynomial_rate_filter.rate, rate)
         x = ComplexExponentialFilter(0.5).filter(numpy.ones(count) * frequency).real
-        y = obj.filter(x)
+        y = polynomial_rate_filter.filter(x)
         z = numpy.array(
             [
                 -1.50938920e-15,
@@ -618,24 +552,20 @@ class Test(object):
 
         count = 128
         frequency, rate = math.pi * 0.1, math.pi
-        polyphaseratefilter = PolyphaseRateFilter(0.1)
-        assert numpy.isclose(polyphaseratefilter.rate, 0.1)
-        polyphaseratefilter.rate = rate
-        assert numpy.isclose(polyphaseratefilter.rate, rate)
+        polyphase_rate_filter = PolyphaseRateFilter(0.1)
+        assert numpy.isclose(polyphase_rate_filter.rate, 0.1)
+        polyphase_rate_filter.rate = rate
+        assert numpy.isclose(polyphase_rate_filter.rate, rate)
         x = ComplexExponentialFilter(0.5).filter(numpy.ones(count) * frequency).real
-        polyphaseratefilter.reset(x[0])
-        assert numpy.allclose(polyphaseratefilter.s, x[0])
-        y = polyphaseratefilter.filter(x)
-        assert numpy.isclose(len(y), numpy.floor(count * rate)) or numpy.isclose(
-            len(y), numpy.ceil(count * rate)
-        )
+        polyphase_rate_filter.reset(x[0])
+        assert numpy.allclose(polyphase_rate_filter.s, x[0])
+        y = polyphase_rate_filter.filter(x)
+        assert numpy.isclose(len(y), numpy.floor(count * rate)) or numpy.isclose(len(y), numpy.ceil(count * rate))
         rate, count = 1.0 / rate, len(y)
-        polyphaseratefilter.rate = rate
-        polyphaseratefilter.reset(y[0])
-        z = polyphaseratefilter.filter(y)
-        assert numpy.isclose(len(z), numpy.floor(count * rate)) or numpy.isclose(
-            len(z), numpy.ceil(count * rate)
-        )
+        polyphase_rate_filter.rate = rate
+        polyphase_rate_filter.reset(y[0])
+        z = polyphase_rate_filter.filter(y)
+        assert numpy.isclose(len(z), numpy.floor(count * rate)) or numpy.isclose(len(z), numpy.ceil(count * rate))
         rate, count = 0.25, 64
         x = numpy.concatenate(
             (
@@ -643,9 +573,9 @@ class Test(object):
                 numpy.linspace(1.0, -1.0, count // 2),
             )
         )
-        polyphaseratefilter.rate = rate
-        polyphaseratefilter.reset(0.0)
-        y = polyphaseratefilter.filter(x)
+        polyphase_rate_filter.rate = rate
+        polyphase_rate_filter.reset(0.0)
+        y = polyphase_rate_filter.filter(x)
         z = numpy.array(
             [
                 0.00000000,
@@ -672,9 +602,9 @@ class Test(object):
         """Test RankFilter."""
 
         index, order = 4, 4
-        obj = RankFilter(index, order)
-        assert obj.index == index
-        assert len(obj.s) == order + 1
+        rank_filter = RankFilter(index, order)
+        assert rank_filter.index == index
+        assert len(rank_filter.s) == order + 1
         x = numpy.concatenate(
             (
                 numpy.ones(1),
@@ -685,12 +615,10 @@ class Test(object):
                 numpy.zeros(6),
             )
         )
-        obj.reset(x[0])
-        assert numpy.allclose(obj.s, x[0])
-        y = obj.filter(x)
-        z = numpy.concatenate(
-            (numpy.ones(5), numpy.zeros(11), numpy.ones(15), numpy.zeros(2))
-        )
+        rank_filter.reset(x[0])
+        assert numpy.allclose(rank_filter.s, x[0])
+        y = rank_filter.filter(x)
+        z = numpy.concatenate((numpy.ones(5), numpy.zeros(11), numpy.ones(15), numpy.zeros(2)))
         assert numpy.allclose(y, z)
 
     def test_WindowFilter(self):
@@ -716,7 +644,7 @@ class Test(object):
                 0.00000000,
             ]
         )
-        obj = WindowFilter("Hann", len(b) - 1, False)
-        assert numpy.allclose(obj.b, b)
-        obj = WindowFilter("Hann", len(b) - 1, True)
-        assert numpy.allclose(obj.b, b * len(b) / sum(abs(b)))
+        window_filter = WindowFilter("Hann", len(b) - 1, False)
+        assert numpy.allclose(window_filter.b, b)
+        window_filter = WindowFilter("Hann", len(b) - 1, True)
+        assert numpy.allclose(window_filter.b, b * len(b) / sum(abs(b)))

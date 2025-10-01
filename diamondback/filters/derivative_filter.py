@@ -32,43 +32,43 @@
 
     .. math::
 
-        b_{1,1} = \\scriptsize{ [ \\matrix{ 1 & -1 } ] }
+        b_{1,1} = \\scriptsize{ [\\matrix{ 1 & -1 }] }
 
     .. math::
 
-        b_{1,2} = \\scriptsize{ [ \\matrix{ 1 & 0 & -1 } ]\\ \\frac{1}{2} }
+        b_{1,2} = \\scriptsize{ [\\matrix{ 1 & 0 & -1 }]\\ \\frac{1}{2} }
 
     .. math::
 
-        b_{1,4} = \\scriptsize{ [ \\matrix{ -1 & 8 & 0 & -8 & 1 } ]\\ \\frac{1}{12} }
+        b_{1,4} = \\scriptsize{ [\\matrix{ -1 & 8 & 0 & -8 & 1 }]\\ \\frac{1}{12} }
 
     .. math::
 
-        b_{2,2} = \\scriptsize{ [ \\matrix{ 1 & -2 & 1 } ] }
+        b_{2,2} = \\scriptsize{ [\\matrix{ 1 & -2 & 1 }] }
 
     .. math::
 
-        b_{2,4} = \\scriptsize{ [ \\matrix{ 1 & 0 & -2 & 0 & 1 } ]\\ \\frac{1}{4} }
+        b_{2,4} = \\scriptsize{ [\\matrix{ 1 & 0 & -2 & 0 & 1 }]\\ \\frac{1}{4} }
 
     .. math::
 
-        b_{2,6} = \\scriptsize{ [ \\matrix{ -1 & 8 & 1 & -16 & 1 & 8 & -1 } ]\\ \\frac{1}{24} }
+        b_{2,6} = \\scriptsize{ [\\matrix{ -1 & 8 & 1 & -16 & 1 & 8 & -1 }]\\ \\frac{1}{24} }
 
     .. math::
 
-        b_{2,8} = \\scriptsize{ [ \\matrix{ 1 & -16 & 64 & 16 & -130 & 16 & 64 & -16 & 1 } ]\\ \\frac{1}{144} }
+        b_{2,8} = \\scriptsize{ [\\matrix{ 1 & -16 & 64 & 16 & -130 & 16 & 64 & -16 & 1 }]\\ \\frac{1}{144} }
 
     .. math::
 
-        b_{3,4} = \\scriptsize{ [ \\matrix{ 1 & -2 & 0 & 2 & -1 } ]\\ \\frac{1}{2} }
+        b_{3,4} = \\scriptsize{ [\\matrix{ 1 & -2 & 0 & 2 & -1 }]\\ \\frac{1}{2} }
 
     .. math::
 
-        b_{3,6} = \\scriptsize{ [ \\matrix{ 1 & 0 & -3 & 0 & 3 & 0 & 1 } ]\\ \\frac{1}{8} }
+        b_{3,6} = \\scriptsize{ [\\matrix{ 1 & 0 & -3 & 0 & 3 & 0 & 1 }]\\ \\frac{1}{8} }
 
     .. math::
 
-        b_{3,8} = \\scriptsize{ [ \\matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 } ]\\ \\frac{1}{48} }
+        b_{3,8} = \\scriptsize{ [\\matrix{ -1 & 8 & 2 & -24 & 0 & 24 & -2 & -8 & 1 }]\\ \\frac{1}{48} }
 
 **Example**
 
@@ -77,10 +77,10 @@
         from diamondback import ComplexExponentialFilter, DerivativeFilter
         import numpy
 
-        derivative_filter = DerivativeFilter( derivative = 1, order = 2 )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-        derivative_filter.reset( x[ 0 ] )
-        y = derivative_filter.filter( x )
+        derivative_filter = DerivativeFilter(derivative = 1, order = 2)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real
+        derivative_filter.reset(x[0])
+        y = derivative_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -97,7 +97,7 @@ import numpy
 class DerivativeFilter(FirFilter):
     """Derivative filter."""
 
-    B = {
+    B: dict[int, dict[int, numpy.ndarray]] = {
         1: {
             1: numpy.array([1.0, -1.0]),
             2: numpy.array([1.0, 0.0, -1.0]) * (1.0 / 2.0),
@@ -107,43 +107,37 @@ class DerivativeFilter(FirFilter):
             2: numpy.array([1.0, -2.0, 1.0]),
             4: numpy.array([1.0, 0.0, -2.0, 0.0, 1.0]) * (1.0 / 4.0),
             6: numpy.array([-1.0, 8.0, 1.0, -16.0, 1.0, 8.0, -1.0]) * (1.0 / 24.0),
-            8: numpy.array([1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0])
-            * (1.0 / 144.0),
+            8: numpy.array([1.0, -16.0, 64.0, 16.0, -130.0, 16.0, 64.0, -16.0, 1.0]) * (1.0 / 144.0),
         },
         3: {
             4: numpy.array([1.0, -2.0, 0.0, 2.0, -1.0]) * (1.0 / 2.0),
             6: numpy.array([1.0, 0.0, -3.0, 0.0, 3.0, 0.0, -1.0]) * (1.0 / 8.0),
-            8: numpy.array([-1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0])
-            * (1.0 / 48.0),
+            8: numpy.array([-1.0, 8.0, 2.0, -24.0, 0.0, 24.0, -2.0, -8.0, 1.0]) * (1.0 / 48.0),
         },
     }
 
     def __init__(self, derivative: int, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            derivative : int - in [ 1, 3 ].
-            order : int.
+        Arguments:
+            derivative: int - in [1, 3].
+            order: int.
         """
 
         if derivative not in DerivativeFilter.B:
-            raise ValueError(
-                f"Derivative = {derivative} Expected Derivative in {tuple(DerivativeFilter.B.keys())}"
-            )
+            raise ValueError(f"Derivative = {derivative} Expected Derivative in {tuple(DerivativeFilter.B.keys())}")
         if order not in DerivativeFilter.B[derivative]:
-            raise ValueError(
-                f"Order = {order} Expected Order in {tuple(DerivativeFilter.B[derivative].keys())}"
-            )
+            raise ValueError(f"Order = {order} Expected Order in {tuple(DerivativeFilter.B[derivative].keys())}")
         super().__init__(b=DerivativeFilter.B[derivative][order])
 
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         return super().filter(x)

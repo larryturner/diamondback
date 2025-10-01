@@ -11,8 +11,8 @@
 
 # isort: skip_file
 
-from .diversity_model import DiversityModel
-from .gaussian_model import GaussianModel
-from .gaussian_mixture_model import GaussianMixtureModel
+from diamondback.models.diversity_model import DiversityModel
+from diamondback.models.gaussian_model import GaussianModel
+from diamondback.models.gaussian_mixture_model import GaussianMixtureModel
 
 __all__ = ["DiversityModel", "GaussianModel", "GaussianMixtureModel"]

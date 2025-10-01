@@ -21,10 +21,10 @@
         from diamondback import RankFilter
         import numpy
 
-        rank_filter = RankFilter( rank = 4, order = 4 )
-        x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )
-        rank_filter.reset( x[ 0 ] )
-        y = rank_filter.filter( x )
+        rank_filter = RankFilter(rank = 4, order = 4)
+        x = numpy.concatenate((numpy.ones(1), numpy.zeros(10), numpy.ones(4), numpy.zeros(2), numpy.ones(5), numpy.zeros(6)))
+        rank_filter.reset(x[0])
+        y = rank_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -48,34 +48,30 @@ class RankFilter(FirFilter):
     @index.setter
     def index(self, index: int):
         if (index < 0) or (index > (len(self.s) - 1)):
-            raise ValueError(
-                f"Index = {index} Expected Index in [ 0, {len(self.s) - 1} ]"
-            )
+            raise ValueError(f"Index = {index} Expected Index in [0, {len(self.s) - 1}]")
         self._index = index
 
     def __init__(self, index: int, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            index : int - in [ 0, order ].
-            order : int.
+        Arguments:
+            index: int - in [0, order].
+            order: int.
         """
 
         if (index < 0) or (index > order):
-            raise ValueError(
-                f"Index = {index} Order = {order} Expected Index in [ 0, {order} ]"
-            )
+            raise ValueError(f"Index = {index} Order = {order} Expected Index in [0, {order}]")
         super().__init__(b=numpy.ones(order + 1) / (order + 1))
         self._index = index
 
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

@@ -143,9 +143,12 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex bandpass filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
-rate : float - in [ 0.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -153,12 +156,17 @@ rate : float - in [ 0.0, 1.0 ].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_bandpass_filter.html#ComplexBandpassFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -181,18 +189,24 @@ b : numpy.ndarray - forward coefficient.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Complex exponential filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>phase : float - relative to pi in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>phase</strong> – float - relative to pi in [-1.0, 1.0].</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_exponential_filter.html#ComplexExponentialFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -210,9 +224,12 @@ b : numpy.ndarray - forward coefficient.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Complex frequency filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).
-rate : float - in [ 0.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
+<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
@@ -220,12 +237,17 @@ rate : float - in [ 0.0, 1.0 ].</p>
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters a primary signal and produces a reference signal.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>d : list | numpy.ndarray - primary signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-e : numpy.ndarray - error signal.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+e: numpy.ndarray - error signal.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -245,8 +267,9 @@ b : numpy.ndarray - forward coefficient.</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/complex_frequency_filter.html#ComplexFrequencyFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified primary incident condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -260,12 +283,12 @@ operation at a specified primary incident condition.</p>
 <p>Complex transform.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">COEFFICIENT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0.666667,</span> <span class="pre">-0.333333,</span> <span class="pre">-0.333333],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.577350,</span> <span class="pre">-0.577350],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.666667,</span> <span class="pre">0.666667,</span> <span class="pre">0.666667]])</span></em></dt>
+<span class="sig-name descname"><span class="pre">COEFFICIENT</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0.666667,</span> <span class="pre">-0.333333,</span> <span class="pre">-0.333333],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.577350,</span> <span class="pre">-0.577350],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.666667,</span> <span class="pre">0.666667,</span> <span class="pre">0.666667]])</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">GAIN</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">np.complex128(0.5-0.2886751345948128j)</span></em></dt>
+<span class="sig-name descname"><span class="pre">GAIN</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">complex</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">np.complex128(0.5-0.2886751345948128j)</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -273,11 +296,18 @@ operation at a specified primary incident condition.</p>
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">neutral</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/transforms/complex_transform.html#ComplexTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real three-phase or complex incident signal into a complex
 or three-phase reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-neutral : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>neutral</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -290,24 +320,32 @@ neutral : bool.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Derivative filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>derivative : int - in [ 1, 3 ].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>derivative</strong> – int - in [1, 3].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{1:</span> <span class="pre">{1:</span> <span class="pre">array([1.000000,</span> <span class="pre">-1.000000]),</span> <span class="pre">2:</span> <span class="pre">array([0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.500000]),</span> <span class="pre">4:</span> <span class="pre">array([-0.083333,</span> <span class="pre">0.666667,</span> <span class="pre">0.000000,</span> <span class="pre">-0.666667,</span> <span class="pre">0.083333])},</span> <span class="pre">2:</span> <span class="pre">{2:</span> <span class="pre">array([1.000000,</span> <span class="pre">-2.000000,</span> <span class="pre">1.000000]),</span> <span class="pre">4:</span> <span class="pre">array([0.250000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">0.250000]),</span> <span class="pre">6:</span> <span class="pre">array([-0.041667,</span> <span class="pre">0.333333,</span> <span class="pre">0.041667,</span> <span class="pre">-0.666667,</span> <span class="pre">0.041667,</span> <span class="pre">0.333333,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.041667]),</span> <span class="pre">8:</span> <span class="pre">array([0.006944,</span> <span class="pre">-0.111111,</span> <span class="pre">0.444444,</span> <span class="pre">0.111111,</span> <span class="pre">-0.902778,</span> <span class="pre">0.111111,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.444444,</span> <span class="pre">-0.111111,</span> <span class="pre">0.006944])},</span> <span class="pre">3:</span> <span class="pre">{4:</span> <span class="pre">array([0.500000,</span> <span class="pre">-1.000000,</span> <span class="pre">0.000000,</span> <span class="pre">1.000000,</span> <span class="pre">-0.500000]),</span> <span class="pre">6:</span> <span class="pre">array([0.125000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.375000,</span> <span class="pre">0.000000,</span> <span class="pre">0.375000,</span> <span class="pre">0.000000,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.125000]),</span> <span class="pre">8:</span> <span class="pre">array([-0.020833,</span> <span class="pre">0.166667,</span> <span class="pre">0.041667,</span> <span class="pre">-0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">0.500000,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.041667,</span> <span class="pre">-0.166667,</span> <span class="pre">0.020833])}}</span></em></dt>
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{1:</span> <span class="pre">{1:</span> <span class="pre">array([1.000000,</span> <span class="pre">-1.000000]),</span> <span class="pre">2:</span> <span class="pre">array([0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.500000]),</span> <span class="pre">4:</span> <span class="pre">array([-0.083333,</span> <span class="pre">0.666667,</span> <span class="pre">0.000000,</span> <span class="pre">-0.666667,</span> <span class="pre">0.083333])},</span> <span class="pre">2:</span> <span class="pre">{2:</span> <span class="pre">array([1.000000,</span> <span class="pre">-2.000000,</span> <span class="pre">1.000000]),</span> <span class="pre">4:</span> <span class="pre">array([0.250000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">0.250000]),</span> <span class="pre">6:</span> <span class="pre">array([-0.041667,</span> <span class="pre">0.333333,</span> <span class="pre">0.041667,</span> <span class="pre">-0.666667,</span> <span class="pre">0.041667,</span> <span class="pre">0.333333,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.041667]),</span> <span class="pre">8:</span> <span class="pre">array([0.006944,</span> <span class="pre">-0.111111,</span> <span class="pre">0.444444,</span> <span class="pre">0.111111,</span> <span class="pre">-0.902778,</span> <span class="pre">0.111111,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.444444,</span> <span class="pre">-0.111111,</span> <span class="pre">0.006944])},</span> <span class="pre">3:</span> <span class="pre">{4:</span> <span class="pre">array([0.500000,</span> <span class="pre">-1.000000,</span> <span class="pre">0.000000,</span> <span class="pre">1.000000,</span> <span class="pre">-0.500000]),</span> <span class="pre">6:</span> <span class="pre">array([0.125000,</span> <span class="pre">0.000000,</span> <span class="pre">-0.375000,</span> <span class="pre">0.000000,</span> <span class="pre">0.375000,</span> <span class="pre">0.000000,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.125000]),</span> <span class="pre">8:</span> <span class="pre">array([-0.020833,</span> <span class="pre">0.166667,</span> <span class="pre">0.041667,</span> <span class="pre">-0.500000,</span> <span class="pre">0.000000,</span> <span class="pre">0.500000,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.041667,</span> <span class="pre">-0.166667,</span> <span class="pre">0.020833])}}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/derivative_filter.html#DerivativeFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -320,19 +358,22 @@ order : int.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -345,10 +386,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Learns an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -364,27 +410,30 @@ order : int.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.</span></span><span class="sig-name descname"><span class="pre">FirFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Finite Impulse Response ( FIR ) filter.</p>
+<p>Finite Impulse Response (FIR) filter.</p>
 <p>Initialize.</p>
 <p>Specify constraints including style, frequency, and order.
 Alternatively, a forward coefficient array may be explicitly defined
 to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).
-frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Blackman',</span> <span class="pre">'Hamming',</span> <span class="pre">'Hann',</span> <span class="pre">'Kaiser')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Blackman',</span> <span class="pre">'Hamming',</span> <span class="pre">'Hann',</span> <span class="pre">'Kaiser')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -396,12 +445,19 @@ s : list | numpy.ndarray - state.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -410,10 +466,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -423,8 +484,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -433,12 +495,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -447,11 +516,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/fir_filter.html#FirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -476,13 +550,20 @@ complex discrete-frequency reference signal, or performs an
 inverse transform.  Indices definition depends upon an inverse
 condition.  Forward transform indices define normalized frequency.
 Inverse transform indices define an integral sequence.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -495,10 +576,13 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian mixture model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
-index : int - iterations.
-regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
+<li><p><strong>index</strong> – int - iterations.</p></li>
+<li><p><strong>regularize</strong> – float - regularize.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -512,9 +596,12 @@ regularize : float - regularize.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -532,10 +619,15 @@ and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -558,8 +650,9 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -568,9 +661,12 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -582,10 +678,15 @@ y : numpy.ndarray ( batch ) - label.</p>
 and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -608,19 +709,27 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Goertzel filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.
-frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0].</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/goertzel_filter.html#GoertzelFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -636,41 +745,51 @@ frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.</span></span><span class="sig-name descname"><span class="pre">IirFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">complement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gain</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">s</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
-<p>Infinite Impulse Response ( IIR ) filter.</p>
+<p>Infinite Impulse Response (IIR) filter.</p>
 <p>Initialize.</p>
 <p>Specify constraints including style, frequency, and order.
 Alternatively, a recursive coefficient array and forward coefficient array
 may be explicitly defined to ignore constraints.</p>
 <p>Labels should be used to avoid ambiguity between constraints and
 coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).
-frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
-order : int - order per instance.
-count : int - instances per cascade.
-complement : bool - complement response.
-gain : float - gain.
-a : list | numpy.ndarray - recursive coefficient.
-b : list | numpy.ndarray - forward coefficient.
-s : list | numpy.ndarray - state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int - order per instance.</p></li>
+<li><p><strong>count</strong> – int - instances per cascade.</p></li>
+<li><p><strong>complement</strong> – bool - complement response.</p></li>
+<li><p><strong>gain</strong> – float - gain.</p></li>
+<li><p><strong>a</strong> – list | numpy.ndarray - recursive coefficient.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Bessel',</span> <span class="pre">'Butterworth',</span> <span class="pre">'Chebyshev')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Bessel',</span> <span class="pre">'Butterworth',</span> <span class="pre">'Chebyshev')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">_evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">style</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter._evaluate"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Evaluates coefficients.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Bessel’, ‘Butterworth’, ‘Chebyshev’ ).
-frequency : float - frequency normalized to Nyquist in ( 0.0, 1.0 ).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
+<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient.
-b : numpy.ndarray - forward coefficient.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient.
+b: numpy.ndarray - forward coefficient.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>
@@ -684,12 +803,19 @@ b : numpy.ndarray - forward coefficient.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates group delay and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -698,10 +824,15 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -711,8 +842,9 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : complex | float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -721,12 +853,19 @@ operation at a specified incident signal condition.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8192</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.response"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates frequency response and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>length : int.
-count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>length</strong> – int.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -735,11 +874,16 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">roots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/filters/iir_filter.html#IirFilter.roots"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>count : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>count</strong> – int.</p>
 </dd>
-<dt>Returns :</dt><dd><p>p : numpy.ndarray - poles.
-z : numpy.ndarray - zeros.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - poles.
+z: numpy.ndarray - zeros.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>p</p>
 </dd>
 </dl>
 </dd></dl>
@@ -752,23 +896,29 @@ z : numpy.ndarray - zeros.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IirFilter</span></code></p>
 <p>Integral filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>order</strong> – int.</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">(array([1.000000]),</span> <span class="pre">array([0.500000,</span> <span class="pre">0.500000]),</span> <span class="pre">array([0.166667,</span> <span class="pre">0.666667,</span> <span class="pre">0.166667]),</span> <span class="pre">array([0.125000,</span> <span class="pre">0.375000,</span> <span class="pre">0.375000,</span> <span class="pre">0.125000]),</span> <span class="pre">array([0.077778,</span> <span class="pre">0.355556,</span> <span class="pre">0.133333,</span> <span class="pre">0.355556,</span> <span class="pre">0.077778]))</span></em></dt>
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{0:</span> <span class="pre">array([1.000000]),</span> <span class="pre">1:</span> <span class="pre">array([0.500000,</span> <span class="pre">0.500000]),</span> <span class="pre">2:</span> <span class="pre">array([0.166667,</span> <span class="pre">0.666667,</span> <span class="pre">0.166667]),</span> <span class="pre">3:</span> <span class="pre">array([0.125000,</span> <span class="pre">0.375000,</span> <span class="pre">0.375000,</span> <span class="pre">0.125000]),</span> <span class="pre">4:</span> <span class="pre">array([0.077778,</span> <span class="pre">0.355556,</span> <span class="pre">0.133333,</span> <span class="pre">0.355556,</span> <span class="pre">0.077778])}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/integral_filter.html#IntegralFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -782,15 +932,16 @@ z : numpy.ndarray - zeros.</p>
 <p>Log.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -799,8 +950,9 @@ z : numpy.ndarray - zeros.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Stream.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>stream : Any, hasattr( ‘write’ ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -808,12 +960,14 @@ z : numpy.ndarray - zeros.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Formats and writes log entries using the loguru package with a
-specified level and stream.  Log entries contain an ISO-8601
-datetime and level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
-entry : str | Exception.</p>
+<dd><p>Formats and writes log entries using loguru with a specified level
+and stream.  Log entries contain an ISO 8601 datetime and level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – str - in LEVEL.</p></li>
+<li><p><strong>entry</strong> – str | Exception.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -824,20 +978,26 @@ entry : str | Exception.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diamondback.</span></span><span class="sig-name descname"><span class="pre">PidFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/diamondback/filters/pid_filter.html#PidFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
-<p>Proportional Integral Derivative ( PID ) filter.</p>
+<p>Proportional Integral Derivative (PID) filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>b : list | numpy.ndarray - forward coefficient.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/pid_filter.html#PidFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -855,19 +1015,27 @@ entry : str | Exception.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polynomial rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in [ 0.0, inf ).
-order : int - in ( 0, inf ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rate</strong> – float - ratio of effective frequency in [0.0, inf).</p></li>
+<li><p><strong>order</strong> – int - in (0, inf).</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polynomial_rate_filter.html#PolynomialRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -890,13 +1058,14 @@ order : int - in ( 0, inf ).</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Polyphase rate filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>rate</strong> – float - ratio of effective frequency in (0.0, b.shape[0]].</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000]],</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">shape=(256,</span> <span class="pre">15))</span></em></dt>
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ndarray</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">array([[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">...,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000],</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">[0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">...,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000,</span> <span class="pre">0.000000]],</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">shape=(256,</span> <span class="pre">15))</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -908,10 +1077,15 @@ order : int - in ( 0, inf ).</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -926,8 +1100,9 @@ order : int - in ( 0, inf ).</p>
 <span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/filters/polyphase_rate_filter.html#PolyphaseRateFilter.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Modifies a state to minimize edge effects by assuming persistent
 operation at a specified incident signal condition.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : float - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – float - incident signal.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -949,14 +1124,21 @@ operation at a specified incident signal condition.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">b</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spectrogram</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/psd_transform.html#PsdTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms a real or complex discrete-time incident signal to a
 real discrete-frequency reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-b : list | numpy.ndarray - forward coefficient.
-index : int.
-spectrogram : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
+<li><p><strong>index</strong> – int.</p></li>
+<li><p><strong>spectrogram</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.
-f : numpy.ndarray - frequency normalized to Nyquist in [ 0.0, 1.0 ).</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.
+f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -969,19 +1151,27 @@ f : numpy.ndarray - frequency normalized to Nyquist in [ 0.0, 1.0 ).</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">FirFilter</span></code></p>
 <p>Rank filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>index : int - in [ 0, order ].
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>index</strong> – int - in [0, order].</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/rank_filter.html#RankFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1001,7 +1191,7 @@ order : int.</p>
 <p>Initialize.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1022,16 +1212,23 @@ elective dictionary of parameter strings are encoded to build a
 URL, elective binary or JSON data are defined in the body of a
 request, and a requests response containing JSON, text, or binary
 data is returned.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>method : str - in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).
-api : str - relative to the URL.
-auth : Any.
-header : dict[ str, str ] | None.
-item : dict[ str, str ] | None.
-data : Any.
-json : Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
+<li><p><strong>api</strong> – str - relative to the URL.</p></li>
+<li><p><strong>auth</strong> – Any.</p></li>
+<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>data</strong> – Any.</p></li>
+<li><p><strong>json</strong> – Any.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>value : requests.Response.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>requests.Response.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1057,11 +1254,18 @@ json : Any.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Code generation.  SHA3-256 hash.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-encoding : str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>code : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>code</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1073,13 +1277,20 @@ encoding : str.</p>
 Encoding may be specified if an alternative to UTF-8 is required.
 Python style docstring and line comments may be cleaned, though
 line comments must be terminated by a new line.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-compress : bool.
-encoding : str.
-clean : bool - clean comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>instance : Any.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1089,13 +1300,20 @@ clean : bool - clean comments.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
 to UTF-8 is required.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>instance : Any.
-compress : bool.
-encoding : str.
-indent : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – Any.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>indent</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>state : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1108,19 +1326,22 @@ indent : bool.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Wavelet transform.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Coiflet’, ‘Daubechies’, ‘Haar’, ‘Symmlet’ ).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Coiflet':</span> <span class="pre">{5:</span> <span class="pre">array([-0.072699,</span> <span class="pre">0.337885,</span> <span class="pre">0.852557,</span> <span class="pre">0.384854,</span> <span class="pre">-0.072729,</span> <span class="pre">-0.015655]),</span> <span class="pre">11:</span> <span class="pre">array([0.016387,</span> <span class="pre">-0.041465,</span> <span class="pre">-0.067373,</span> <span class="pre">0.386110,</span> <span class="pre">0.812724,</span> <span class="pre">0.417005,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.076489,</span> <span class="pre">-0.059434,</span> <span class="pre">0.023680,</span> <span class="pre">0.005611,</span> <span class="pre">-0.001823,</span> <span class="pre">-0.000721]),</span> <span class="pre">17:</span> <span class="pre">array([-0.003794,</span> <span class="pre">0.007783,</span> <span class="pre">0.023453,</span> <span class="pre">-0.065772,</span> <span class="pre">-0.061123,</span> <span class="pre">0.405177,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.793777,</span> <span class="pre">0.428483,</span> <span class="pre">-0.071800,</span> <span class="pre">-0.082302,</span> <span class="pre">0.034555,</span> <span class="pre">0.015881,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.009008,</span> <span class="pre">-0.002575,</span> <span class="pre">0.001118,</span> <span class="pre">0.000466,</span> <span class="pre">-0.000071,</span> <span class="pre">-0.000035]),</span> <span class="pre">23:</span> <span class="pre">array([0.000892,</span> <span class="pre">-0.001629,</span> <span class="pre">-0.007346,</span> <span class="pre">0.016069,</span> <span class="pre">0.026682,</span> <span class="pre">-0.081267,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.056077,</span> <span class="pre">0.415308,</span> <span class="pre">0.782239,</span> <span class="pre">0.434386,</span> <span class="pre">-0.066627,</span> <span class="pre">-0.096220,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.039334,</span> <span class="pre">0.025082,</span> <span class="pre">-0.015212,</span> <span class="pre">-0.005658,</span> <span class="pre">0.003751,</span> <span class="pre">0.001267,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.000589,</span> <span class="pre">-0.000260,</span> <span class="pre">0.000062,</span> <span class="pre">0.000031,</span> <span class="pre">-0.000003,</span> <span class="pre">-0.000002]),</span> <span class="pre">29:</span> <span class="pre">array([-0.000212,</span> <span class="pre">0.000359,</span> <span class="pre">0.002178,</span> <span class="pre">-0.004159,</span> <span class="pre">-0.010131,</span> <span class="pre">0.023408,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.028168,</span> <span class="pre">-0.091920,</span> <span class="pre">-0.052043,</span> <span class="pre">0.421566,</span> <span class="pre">0.774290,</span> <span class="pre">0.437992,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.062036,</span> <span class="pre">-0.105574,</span> <span class="pre">0.041289,</span> <span class="pre">0.032684,</span> <span class="pre">-0.019762,</span> <span class="pre">-0.009164,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.006764,</span> <span class="pre">0.002433,</span> <span class="pre">-0.001663,</span> <span class="pre">-0.000638,</span> <span class="pre">0.000302,</span> <span class="pre">0.000141,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.000041,</span> <span class="pre">-0.000021,</span> <span class="pre">0.000004,</span> <span class="pre">0.000002,</span> <span class="pre">-0.000000,</span> <span class="pre">-0.000000])},</span> <span class="pre">'Daubechies':</span> <span class="pre">{3:</span> <span class="pre">array([0.482963,</span> <span class="pre">0.836516,</span> <span class="pre">0.224144,</span> <span class="pre">-0.129410]),</span> <span class="pre">5:</span> <span class="pre">array([0.332671,</span> <span class="pre">0.806892,</span> <span class="pre">0.459878,</span> <span class="pre">-0.135011,</span> <span class="pre">-0.085441,</span> <span class="pre">0.035226]),</span> <span class="pre">7:</span> <span class="pre">array([0.230378,</span> <span class="pre">0.714847,</span> <span class="pre">0.630881,</span> <span class="pre">-0.027984,</span> <span class="pre">-0.187035,</span> <span class="pre">0.030841,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.032883,</span> <span class="pre">-0.010597]),</span> <span class="pre">9:</span> <span class="pre">array([0.160102,</span> <span class="pre">0.603829,</span> <span class="pre">0.724309,</span> <span class="pre">0.138428,</span> <span class="pre">-0.242295,</span> <span class="pre">-0.032245,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.077571,</span> <span class="pre">-0.006241,</span> <span class="pre">-0.012581,</span> <span class="pre">0.003336]),</span> <span class="pre">11:</span> <span class="pre">array([0.111541,</span> <span class="pre">0.494624,</span> <span class="pre">0.751134,</span> <span class="pre">0.315250,</span> <span class="pre">-0.226265,</span> <span class="pre">-0.129767,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.097502,</span> <span class="pre">0.027523,</span> <span class="pre">-0.031582,</span> <span class="pre">0.000554,</span> <span class="pre">0.004777,</span> <span class="pre">-0.001073]),</span> <span class="pre">13:</span> <span class="pre">array([0.077852,</span> <span class="pre">0.396539,</span> <span class="pre">0.729132,</span> <span class="pre">0.469782,</span> <span class="pre">-0.143906,</span> <span class="pre">-0.224036,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.071309,</span> <span class="pre">0.080613,</span> <span class="pre">-0.038030,</span> <span class="pre">-0.016575,</span> <span class="pre">0.012551,</span> <span class="pre">0.000430,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.001802,</span> <span class="pre">0.000354]),</span> <span class="pre">15:</span> <span class="pre">array([0.054416,</span> <span class="pre">0.312872,</span> <span class="pre">0.675631,</span> <span class="pre">0.585355,</span> <span class="pre">-0.015829,</span> <span class="pre">-0.284016,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000472,</span> <span class="pre">0.128747,</span> <span class="pre">-0.017369,</span> <span class="pre">-0.044088,</span> <span class="pre">0.013981,</span> <span class="pre">0.008746,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.004870,</span> <span class="pre">-0.000392,</span> <span class="pre">0.000675,</span> <span class="pre">-0.000117]),</span> <span class="pre">17:</span> <span class="pre">array([0.038078,</span> <span class="pre">0.243835,</span> <span class="pre">0.604823,</span> <span class="pre">0.657288,</span> <span class="pre">0.133197,</span> <span class="pre">-0.293274,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.096841,</span> <span class="pre">0.148541,</span> <span class="pre">0.030726,</span> <span class="pre">-0.067633,</span> <span class="pre">0.000251,</span> <span class="pre">0.022362,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.004723,</span> <span class="pre">-0.004282,</span> <span class="pre">0.001848,</span> <span class="pre">0.000230,</span> <span class="pre">-0.000252,</span> <span class="pre">0.000039]),</span> <span class="pre">19:</span> <span class="pre">array([0.026670,</span> <span class="pre">0.188177,</span> <span class="pre">0.527201,</span> <span class="pre">0.688459,</span> <span class="pre">0.281172,</span> <span class="pre">-0.249846,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.195946,</span> <span class="pre">0.127369,</span> <span class="pre">0.093057,</span> <span class="pre">-0.071394,</span> <span class="pre">-0.029458,</span> <span class="pre">0.033213,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.003607,</span> <span class="pre">-0.010733,</span> <span class="pre">0.001395,</span> <span class="pre">0.001992,</span> <span class="pre">-0.000686,</span> <span class="pre">-0.000116,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000094,</span> <span class="pre">-0.000013])},</span> <span class="pre">'Haar':</span> <span class="pre">{1:</span> <span class="pre">array([1.000000,</span> <span class="pre">1.000000])},</span> <span class="pre">'Symmlet':</span> <span class="pre">{7:</span> <span class="pre">array([-0.075766,</span> <span class="pre">-0.029636,</span> <span class="pre">0.497619,</span> <span class="pre">0.803739,</span> <span class="pre">0.297858,</span> <span class="pre">-0.099220,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.012604,</span> <span class="pre">0.032223]),</span> <span class="pre">9:</span> <span class="pre">array([0.019539,</span> <span class="pre">-0.021102,</span> <span class="pre">-0.175328,</span> <span class="pre">0.016602,</span> <span class="pre">0.633979,</span> <span class="pre">0.723408,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.199398,</span> <span class="pre">-0.039134,</span> <span class="pre">0.029519,</span> <span class="pre">0.027333]),</span> <span class="pre">11:</span> <span class="pre">array([0.015404,</span> <span class="pre">0.003491,</span> <span class="pre">-0.117990,</span> <span class="pre">-0.048312,</span> <span class="pre">0.491056,</span> <span class="pre">0.787641,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.337929,</span> <span class="pre">-0.072638,</span> <span class="pre">-0.021060,</span> <span class="pre">0.044725,</span> <span class="pre">0.001768,</span> <span class="pre">-0.007801]),</span> <span class="pre">13:</span> <span class="pre">array([0.002682,</span> <span class="pre">-0.001047,</span> <span class="pre">-0.012636,</span> <span class="pre">0.030516,</span> <span class="pre">0.067893,</span> <span class="pre">-0.049553,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.017441,</span> <span class="pre">0.536102,</span> <span class="pre">0.767764,</span> <span class="pre">0.288630,</span> <span class="pre">-0.140047,</span> <span class="pre">-0.107808,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.004010,</span> <span class="pre">0.010268]),</span> <span class="pre">15:</span> <span class="pre">array([0.001890,</span> <span class="pre">-0.000303,</span> <span class="pre">-0.014952,</span> <span class="pre">0.003809,</span> <span class="pre">0.049137,</span> <span class="pre">-0.027219,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.051946,</span> <span class="pre">0.364442,</span> <span class="pre">0.777186,</span> <span class="pre">0.481360,</span> <span class="pre">-0.061273,</span> <span class="pre">-0.143294,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.007607,</span> <span class="pre">0.031695,</span> <span class="pre">-0.000542,</span> <span class="pre">-0.003382]),</span> <span class="pre">17:</span> <span class="pre">array([0.001401,</span> <span class="pre">0.000620,</span> <span class="pre">-0.013272,</span> <span class="pre">-0.011528,</span> <span class="pre">0.030225,</span> <span class="pre">0.000583,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.054569,</span> <span class="pre">0.238761,</span> <span class="pre">0.717897,</span> <span class="pre">0.617338,</span> <span class="pre">0.035272,</span> <span class="pre">-0.191551,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.018234,</span> <span class="pre">0.062078,</span> <span class="pre">0.008859,</span> <span class="pre">-0.010264,</span> <span class="pre">-0.000473,</span> <span class="pre">0.001069]),</span> <span class="pre">19:</span> <span class="pre">array([0.000770,</span> <span class="pre">0.000096,</span> <span class="pre">-0.008641,</span> <span class="pre">-0.001465,</span> <span class="pre">0.045927,</span> <span class="pre">0.011610,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.159494,</span> <span class="pre">-0.070881,</span> <span class="pre">0.471691,</span> <span class="pre">0.769510,</span> <span class="pre">0.383827,</span> <span class="pre">-0.035537,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.031990,</span> <span class="pre">0.049995,</span> <span class="pre">0.005765,</span> <span class="pre">-0.020355,</span> <span class="pre">-0.000804,</span> <span class="pre">0.004593,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000057,</span> <span class="pre">-0.000459])}}</span></em></dt>
+<span class="sig-name descname"><span class="pre">B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Coiflet':</span> <span class="pre">{5:</span> <span class="pre">array([-0.072699,</span> <span class="pre">0.337885,</span> <span class="pre">0.852557,</span> <span class="pre">0.384854,</span> <span class="pre">-0.072729,</span> <span class="pre">-0.015655]),</span> <span class="pre">11:</span> <span class="pre">array([0.016387,</span> <span class="pre">-0.041465,</span> <span class="pre">-0.067373,</span> <span class="pre">0.386110,</span> <span class="pre">0.812724,</span> <span class="pre">0.417005,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.076489,</span> <span class="pre">-0.059434,</span> <span class="pre">0.023680,</span> <span class="pre">0.005611,</span> <span class="pre">-0.001823,</span> <span class="pre">-0.000721]),</span> <span class="pre">17:</span> <span class="pre">array([-0.003794,</span> <span class="pre">0.007783,</span> <span class="pre">0.023453,</span> <span class="pre">-0.065772,</span> <span class="pre">-0.061123,</span> <span class="pre">0.405177,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.793777,</span> <span class="pre">0.428483,</span> <span class="pre">-0.071800,</span> <span class="pre">-0.082302,</span> <span class="pre">0.034555,</span> <span class="pre">0.015881,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.009008,</span> <span class="pre">-0.002575,</span> <span class="pre">0.001118,</span> <span class="pre">0.000466,</span> <span class="pre">-0.000071,</span> <span class="pre">-0.000035]),</span> <span class="pre">23:</span> <span class="pre">array([0.000892,</span> <span class="pre">-0.001629,</span> <span class="pre">-0.007346,</span> <span class="pre">0.016069,</span> <span class="pre">0.026682,</span> <span class="pre">-0.081267,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.056077,</span> <span class="pre">0.415308,</span> <span class="pre">0.782239,</span> <span class="pre">0.434386,</span> <span class="pre">-0.066627,</span> <span class="pre">-0.096220,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.039334,</span> <span class="pre">0.025082,</span> <span class="pre">-0.015212,</span> <span class="pre">-0.005658,</span> <span class="pre">0.003751,</span> <span class="pre">0.001267,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.000589,</span> <span class="pre">-0.000260,</span> <span class="pre">0.000062,</span> <span class="pre">0.000031,</span> <span class="pre">-0.000003,</span> <span class="pre">-0.000002]),</span> <span class="pre">29:</span> <span class="pre">array([-0.000212,</span> <span class="pre">0.000359,</span> <span class="pre">0.002178,</span> <span class="pre">-0.004159,</span> <span class="pre">-0.010131,</span> <span class="pre">0.023408,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.028168,</span> <span class="pre">-0.091920,</span> <span class="pre">-0.052043,</span> <span class="pre">0.421566,</span> <span class="pre">0.774290,</span> <span class="pre">0.437992,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.062036,</span> <span class="pre">-0.105574,</span> <span class="pre">0.041289,</span> <span class="pre">0.032684,</span> <span class="pre">-0.019762,</span> <span class="pre">-0.009164,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.006764,</span> <span class="pre">0.002433,</span> <span class="pre">-0.001663,</span> <span class="pre">-0.000638,</span> <span class="pre">0.000302,</span> <span class="pre">0.000141,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.000041,</span> <span class="pre">-0.000021,</span> <span class="pre">0.000004,</span> <span class="pre">0.000002,</span> <span class="pre">-0.000000,</span> <span class="pre">-0.000000])},</span> <span class="pre">'Daubechies':</span> <span class="pre">{3:</span> <span class="pre">array([0.482963,</span> <span class="pre">0.836516,</span> <span class="pre">0.224144,</span> <span class="pre">-0.129410]),</span> <span class="pre">5:</span> <span class="pre">array([0.332671,</span> <span class="pre">0.806892,</span> <span class="pre">0.459878,</span> <span class="pre">-0.135011,</span> <span class="pre">-0.085441,</span> <span class="pre">0.035226]),</span> <span class="pre">7:</span> <span class="pre">array([0.230378,</span> <span class="pre">0.714847,</span> <span class="pre">0.630881,</span> <span class="pre">-0.027984,</span> <span class="pre">-0.187035,</span> <span class="pre">0.030841,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.032883,</span> <span class="pre">-0.010597]),</span> <span class="pre">9:</span> <span class="pre">array([0.160102,</span> <span class="pre">0.603829,</span> <span class="pre">0.724309,</span> <span class="pre">0.138428,</span> <span class="pre">-0.242295,</span> <span class="pre">-0.032245,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.077571,</span> <span class="pre">-0.006241,</span> <span class="pre">-0.012581,</span> <span class="pre">0.003336]),</span> <span class="pre">11:</span> <span class="pre">array([0.111541,</span> <span class="pre">0.494624,</span> <span class="pre">0.751134,</span> <span class="pre">0.315250,</span> <span class="pre">-0.226265,</span> <span class="pre">-0.129767,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.097502,</span> <span class="pre">0.027523,</span> <span class="pre">-0.031582,</span> <span class="pre">0.000554,</span> <span class="pre">0.004777,</span> <span class="pre">-0.001073]),</span> <span class="pre">13:</span> <span class="pre">array([0.077852,</span> <span class="pre">0.396539,</span> <span class="pre">0.729132,</span> <span class="pre">0.469782,</span> <span class="pre">-0.143906,</span> <span class="pre">-0.224036,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.071309,</span> <span class="pre">0.080613,</span> <span class="pre">-0.038030,</span> <span class="pre">-0.016575,</span> <span class="pre">0.012551,</span> <span class="pre">0.000430,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.001802,</span> <span class="pre">0.000354]),</span> <span class="pre">15:</span> <span class="pre">array([0.054416,</span> <span class="pre">0.312872,</span> <span class="pre">0.675631,</span> <span class="pre">0.585355,</span> <span class="pre">-0.015829,</span> <span class="pre">-0.284016,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000472,</span> <span class="pre">0.128747,</span> <span class="pre">-0.017369,</span> <span class="pre">-0.044088,</span> <span class="pre">0.013981,</span> <span class="pre">0.008746,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.004870,</span> <span class="pre">-0.000392,</span> <span class="pre">0.000675,</span> <span class="pre">-0.000117]),</span> <span class="pre">17:</span> <span class="pre">array([0.038078,</span> <span class="pre">0.243835,</span> <span class="pre">0.604823,</span> <span class="pre">0.657288,</span> <span class="pre">0.133197,</span> <span class="pre">-0.293274,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.096841,</span> <span class="pre">0.148541,</span> <span class="pre">0.030726,</span> <span class="pre">-0.067633,</span> <span class="pre">0.000251,</span> <span class="pre">0.022362,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.004723,</span> <span class="pre">-0.004282,</span> <span class="pre">0.001848,</span> <span class="pre">0.000230,</span> <span class="pre">-0.000252,</span> <span class="pre">0.000039]),</span> <span class="pre">19:</span> <span class="pre">array([0.026670,</span> <span class="pre">0.188177,</span> <span class="pre">0.527201,</span> <span class="pre">0.688459,</span> <span class="pre">0.281172,</span> <span class="pre">-0.249846,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.195946,</span> <span class="pre">0.127369,</span> <span class="pre">0.093057,</span> <span class="pre">-0.071394,</span> <span class="pre">-0.029458,</span> <span class="pre">0.033213,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.003607,</span> <span class="pre">-0.010733,</span> <span class="pre">0.001395,</span> <span class="pre">0.001992,</span> <span class="pre">-0.000686,</span> <span class="pre">-0.000116,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000094,</span> <span class="pre">-0.000013])},</span> <span class="pre">'Haar':</span> <span class="pre">{1:</span> <span class="pre">array([1.000000,</span> <span class="pre">1.000000])},</span> <span class="pre">'Symmlet':</span> <span class="pre">{7:</span> <span class="pre">array([-0.075766,</span> <span class="pre">-0.029636,</span> <span class="pre">0.497619,</span> <span class="pre">0.803739,</span> <span class="pre">0.297858,</span> <span class="pre">-0.099220,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.012604,</span> <span class="pre">0.032223]),</span> <span class="pre">9:</span> <span class="pre">array([0.019539,</span> <span class="pre">-0.021102,</span> <span class="pre">-0.175328,</span> <span class="pre">0.016602,</span> <span class="pre">0.633979,</span> <span class="pre">0.723408,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.199398,</span> <span class="pre">-0.039134,</span> <span class="pre">0.029519,</span> <span class="pre">0.027333]),</span> <span class="pre">11:</span> <span class="pre">array([0.015404,</span> <span class="pre">0.003491,</span> <span class="pre">-0.117990,</span> <span class="pre">-0.048312,</span> <span class="pre">0.491056,</span> <span class="pre">0.787641,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.337929,</span> <span class="pre">-0.072638,</span> <span class="pre">-0.021060,</span> <span class="pre">0.044725,</span> <span class="pre">0.001768,</span> <span class="pre">-0.007801]),</span> <span class="pre">13:</span> <span class="pre">array([0.002682,</span> <span class="pre">-0.001047,</span> <span class="pre">-0.012636,</span> <span class="pre">0.030516,</span> <span class="pre">0.067893,</span> <span class="pre">-0.049553,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.017441,</span> <span class="pre">0.536102,</span> <span class="pre">0.767764,</span> <span class="pre">0.288630,</span> <span class="pre">-0.140047,</span> <span class="pre">-0.107808,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.004010,</span> <span class="pre">0.010268]),</span> <span class="pre">15:</span> <span class="pre">array([0.001890,</span> <span class="pre">-0.000303,</span> <span class="pre">-0.014952,</span> <span class="pre">0.003809,</span> <span class="pre">0.049137,</span> <span class="pre">-0.027219,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.051946,</span> <span class="pre">0.364442,</span> <span class="pre">0.777186,</span> <span class="pre">0.481360,</span> <span class="pre">-0.061273,</span> <span class="pre">-0.143294,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.007607,</span> <span class="pre">0.031695,</span> <span class="pre">-0.000542,</span> <span class="pre">-0.003382]),</span> <span class="pre">17:</span> <span class="pre">array([0.001401,</span> <span class="pre">0.000620,</span> <span class="pre">-0.013272,</span> <span class="pre">-0.011528,</span> <span class="pre">0.030225,</span> <span class="pre">0.000583,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.054569,</span> <span class="pre">0.238761,</span> <span class="pre">0.717897,</span> <span class="pre">0.617338,</span> <span class="pre">0.035272,</span> <span class="pre">-0.191551,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.018234,</span> <span class="pre">0.062078,</span> <span class="pre">0.008859,</span> <span class="pre">-0.010264,</span> <span class="pre">-0.000473,</span> <span class="pre">0.001069]),</span> <span class="pre">19:</span> <span class="pre">array([0.000770,</span> <span class="pre">0.000096,</span> <span class="pre">-0.008641,</span> <span class="pre">-0.001465,</span> <span class="pre">0.045927,</span> <span class="pre">0.011610,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.159494,</span> <span class="pre">-0.070881,</span> <span class="pre">0.471691,</span> <span class="pre">0.769510,</span> <span class="pre">0.383827,</span> <span class="pre">-0.035537,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">-0.031990,</span> <span class="pre">0.049995,</span> <span class="pre">0.005765,</span> <span class="pre">-0.020355,</span> <span class="pre">-0.000804,</span> <span class="pre">0.004593,</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">0.000057,</span> <span class="pre">-0.000459])}}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Coiflet',</span> <span class="pre">'Daubechies',</span> <span class="pre">'Haar',</span> <span class="pre">'Symmlet')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Coiflet',</span> <span class="pre">'Daubechies',</span> <span class="pre">'Haar',</span> <span class="pre">'Symmlet')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1135,12 +1356,19 @@ order : int.</p>
 performing analysis or synthesis operations.  Incident and reference
 signals have two dimensions.  Dimension lengths must be unity or
 an integral multiple of 2**count.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.
-count : int.
-inverse : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
+<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>inverse</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1153,15 +1381,18 @@ inverse : bool.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Window filter.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Blackman’, ‘Hamming’, ‘Hann’, ‘Kaiser’ ).
-order : int.
-normal : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>normal</strong> – bool.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Blackman',</span> <span class="pre">'Hamming',</span> <span class="pre">'Hann',</span> <span class="pre">'Kaiser')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Blackman',</span> <span class="pre">'Hamming',</span> <span class="pre">'Hann',</span> <span class="pre">'Kaiser')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -1173,10 +1404,15 @@ normal : bool.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/filters/window_filter.html#WindowFilter.filter"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - reference signal.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1194,14 +1430,21 @@ or impulse invariant methods.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">u</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">v</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bilinear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="_modules/diamondback/transforms/z_transform.html#ZTransform.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Transforms continuous s-domain coefficient arrays and produces
 discrete z-domain coefficient arrays.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>u : list | numpy.ndarray - recursive coefficient, s-domain.
-v : list | numpy.ndarray - forward coefficient, s-domain.
-frequency : float - frequency in ( 0.0, inf ).
-bilinear : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>u</strong> – list | numpy.ndarray - recursive coefficient, s-domain.</p></li>
+<li><p><strong>v</strong> – list | numpy.ndarray - forward coefficient, s-domain.</p></li>
+<li><p><strong>frequency</strong> – float - frequency in (0.0, inf).</p></li>
+<li><p><strong>bilinear</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>a : numpy.ndarray - recursive coefficient, z-domain.
-b : numpy.ndarray - forward coefficient, z-domain.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - recursive coefficient, z-domain.
+b: numpy.ndarray - forward coefficient, z-domain.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>a</p>
 </dd>
 </dl>
 </dd></dl>

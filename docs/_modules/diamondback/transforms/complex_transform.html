@@ -109,9 +109,9 @@
 <span class="sd">        from diamondback import ComplexExponentialFilter, ComplexTransform</span>
 <span class="sd">        import numpy</span>
 
-<span class="sd">        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1 )</span>
-<span class="sd">        y = ComplexTransform.transform( x, neutral = True )</span>
-<span class="sd">        z = ComplexTransform.transform( y, neutral = True )</span>
+<span class="sd">        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, 128) + 0.1)</span>
+<span class="sd">        y = ComplexTransform.transform(x, neutral = True)</span>
+<span class="sd">        z = ComplexTransform.transform(y, neutral = True)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -130,10 +130,10 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">ComplexTransform</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Complex transform.&quot;&quot;&quot;</span>
 
-    <span class="n">COEFFICIENT</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="n">COEFFICIENT</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
         <span class="p">[[</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.0</span><span class="o">**</span><span class="mf">0.5</span><span class="p">),</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="mf">3.0</span><span class="o">**</span><span class="mf">0.5</span><span class="p">)],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]</span>
     <span class="p">)</span>
-    <span class="n">GAIN</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span>
+    <span class="n">GAIN</span><span class="p">:</span> <span class="nb">complex</span> <span class="o">=</span> <span class="p">((</span><span class="mf">1.0</span> <span class="o">/</span> <span class="mf">3.0</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mf">6.0</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ComplexTransform.transform">
 <a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.ComplexTransform.transform">[docs]</a>
@@ -142,12 +142,12 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Transforms a real three-phase or complex incident signal into a complex</span>
 <span class="sd">        or three-phase reference signal.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : list | numpy.ndarray - incident signal.</span>
-<span class="sd">            neutral : bool.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
+<span class="sd">            neutral: bool.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - reference signal.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -159,9 +159,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">rows</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="ow">or</span> <span class="p">(</span><span class="n">cols</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s2"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2"> Expected Rows in ( 1, 3 ) and Columns in ( 0, inf )&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s2"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2"> Expected Rows in (1, 3) and Columns in (0, inf)&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">rows</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">v</span> <span class="o">=</span> <span class="n">x</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">neutral</span><span class="p">:</span>

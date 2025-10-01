@@ -101,11 +101,11 @@
 <span class="sd">        import numpy</span>
 
 <span class="sd">        frequency = 0.1</span>
-<span class="sd">        x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + frequency</span>
-<span class="sd">        d = ComplexExponentialFilter( phase = numpy.random.rand( 1 )[ 0 ] * 2.0 - 1.0 ).filter( x )</span>
-<span class="sd">        complex_bandpass_filter = ComplexBandpassFilter( frequency = frequency, rate = 5.0e-2 )</span>
-<span class="sd">        complex_bandpass_filter.reset( d[ 0 ] )</span>
-<span class="sd">        y, e, b = complex_bandpass_filter.filter( d )</span>
+<span class="sd">        x = numpy.linspace(-1.0e-4, 1.0e-4, 128) + frequency</span>
+<span class="sd">        d = ComplexExponentialFilter(phase = numpy.random.rand(1)[0] * 2.0 - 1.0).filter(x)</span>
+<span class="sd">        complex_bandpass_filter = ComplexBandpassFilter(frequency = frequency, rate = 5.0e-2)</span>
+<span class="sd">        complex_bandpass_filter.reset(d[0])</span>
+<span class="sd">        y, e, b = complex_bandpass_filter.filter(d)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -117,8 +117,8 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">diamondback.filters.complex_exponential_filter</span><span class="w"> </span><span class="kn">import</span> <span class="n">ComplexExponentialFilter</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">diamondback.filters.fir_filter</span><span class="w"> </span><span class="kn">import</span> <span class="n">FirFilter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">hilbert</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span>
 
 
 <div class="viewcode-block" id="ComplexBandpassFilter">
@@ -133,9 +133,7 @@
     <span class="nd">@frequency</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">frequency</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2"> Expected Frequency in [ -1.0, 1.0 ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2"> Expected Frequency in [-1.0, 1.0]&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span> <span class="o">=</span> <span class="n">frequency</span>
 
     <span class="nd">@property</span>
@@ -145,26 +143,22 @@
     <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [ 0.0, 1.0 ]&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [0.0, 1.0]&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frequency</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
-<span class="sd">            rate : float - in [ 0.0, 1.0 ].</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            frequency: float - frequency normalized to Nyquist in [-1.0, 1.0).</span>
+<span class="sd">            rate: float - in [0.0, 1.0].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">frequency</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2"> Expected Frequency in [ -1.0, 1.0 ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frequency = </span><span class="si">{</span><span class="n">frequency</span><span class="si">}</span><span class="s2"> Expected Frequency in [-1.0, 1.0]&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&gt;</span> <span class="mf">1.0</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [ 0.0, 1.0 ]&quot;</span><span class="p">)</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
-            <span class="n">b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span><span class="p">)</span>
-        <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [0.0, 1.0]&quot;</span><span class="p">)</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span> <span class="o">+</span> <span class="mi">0</span><span class="n">j</span><span class="p">]),</span> <span class="n">s</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">complex</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span> <span class="o">=</span> <span class="n">ComplexExponentialFilter</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_frequency</span> <span class="o">=</span> <span class="n">frequency</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -178,13 +172,13 @@
 
 <span class="sd">        Signals are Hilbert transformed to complex as necessary.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            d : list | numpy.ndarray - primary signal.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            d: list | numpy.ndarray - primary signal.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - reference signal.</span>
-<span class="sd">            e : numpy.ndarray - error signal.</span>
-<span class="sd">            b : numpy.ndarray - forward coefficient.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - reference signal.</span>
+<span class="sd">            e: numpy.ndarray - error signal.</span>
+<span class="sd">            b: numpy.ndarray - forward coefficient.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -192,7 +186,7 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;D = </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">iscomplex</span><span class="p">(</span><span class="n">d</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">():</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">hilbert</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+            <span class="n">d</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_filter</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frequency</span><span class="p">)</span>
         <span class="n">y</span><span class="p">,</span> <span class="n">e</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">complex</span><span class="p">),</span>

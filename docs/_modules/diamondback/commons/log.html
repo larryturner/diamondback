@@ -68,8 +68,8 @@
   <h1>Source code for diamondback.commons.log</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
 <span class="sd">    A log instance formats and writes log entries with a specified level</span>
-<span class="sd">    and stream using the loguru package. Log entries contain an ISO-8601</span>
-<span class="sd">    datetime and level.  Dynamic stream redirection and level specification</span>
+<span class="sd">    and stream using loguru. Log entries contain an ISO 8601 datetime</span>
+<span class="sd">    and level.  Dynamic stream redirection and level specification</span>
 <span class="sd">    are supported.</span>
 
 <span class="sd">    Log uses lazy initialization to coexist with loguru, and removes or</span>
@@ -77,7 +77,7 @@
 <span class="sd">    In lazy initialization an existing default loguru handler, with an</span>
 <span class="sd">    identity equal to 0, and a stream assignment of sys.stdout is removed,</span>
 <span class="sd">    and a new loguru handler with a stream assignment of sys.stdout and a</span>
-<span class="sd">    level of &#39;Info&#39; is created.</span>
+<span class="sd">    level of &quot;Info&quot; is created.</span>
 
 <span class="sd">    In stream assignments subsequent to initialization, only loguru</span>
 <span class="sd">    handlers previously created by Log will be removed, as the Log design</span>
@@ -105,35 +105,35 @@
 <span class="sd">        import sys</span>
 
 <span class="sd">        try :</span>
-<span class="sd">            # Set Log level to &#39;Info&#39;, the default level.</span>
+<span class="sd">            # Set Log level to &quot;Info&quot;, the default level.</span>
 
-<span class="sd">            Log.level( &#39;Info&#39; )</span>
-<span class="sd">            Log.write( &#39;Info&#39;, &#39;Test Log write.&#39; )</span>
+<span class="sd">            Log.level(&quot;Info&quot;)</span>
+<span class="sd">            Log.write(&quot;Info&quot;, &quot;Test Log write.&quot;)</span>
 
 <span class="sd">            # Standard output.</span>
 
-<span class="sd">            Log.stream( sys.stdout )</span>
-<span class="sd">            Log.write( &#39;Info&#39;, f&#39;Valid = {True}&#39; )</span>
+<span class="sd">            Log.stream(sys.stdout)</span>
+<span class="sd">            Log.write(&quot;Info&quot;, f&quot;Valid = {True}&quot;)</span>
 
 <span class="sd">            # Memory stream.</span>
 
-<span class="sd">            stream = io.StringIO( )</span>
-<span class="sd">            Log.stream( stream )</span>
-<span class="sd">            x = numpy.random.rand( 2, 2 )</span>
-<span class="sd">            Log.write( &#39;Info&#39;, f&#39;X = {x}&#39; )</span>
+<span class="sd">            stream = io.StringIO()</span>
+<span class="sd">            Log.stream(stream)</span>
+<span class="sd">            x = numpy.random.rand(2, 2)</span>
+<span class="sd">            Log.write(&quot;Info&quot;, f&quot;X = {x}&quot;)</span>
 
 <span class="sd">            # Read and reset memory stream.</span>
-<span class="sd">            value = stream.getvalue( )</span>
-<span class="sd">            _, _ = stream.truncate( 0 ), stream.seek( 0 )</span>
+<span class="sd">            value = stream.getvalue()</span>
+<span class="sd">            _, _ = stream.truncate(0), stream.seek(0)</span>
 
 <span class="sd">            # File.</span>
 
-<span class="sd">            with open( &#39;log-2112.txt&#39;, &#39;w&#39; ) as fout :</span>
-<span class="sd">                Log.stream( fout )</span>
-<span class="sd">                x = numpy.random.rand( 2, 2 )</span>
-<span class="sd">                Log.write( &#39;Warning&#39;, f&#39;X = {x}&#39; )</span>
+<span class="sd">            with open(&quot;log-2112.txt&quot;, &quot;w&quot;) as fout:</span>
+<span class="sd">                Log.stream(fout)</span>
+<span class="sd">                x = numpy.random.rand(2, 2)</span>
+<span class="sd">                Log.write(&quot;Warning&quot;, f&quot;X = {x}&quot;)</span>
 <span class="sd">        except Exception as ex :</span>
-<span class="sd">            Log.write( &#39;Error&#39;, ex )</span>
+<span class="sd">            Log.write(&quot;Error&quot;, ex)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C. &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -146,6 +146,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">loguru</span><span class="w"> </span><span class="kn">import</span> <span class="n">logger</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">RLock</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
@@ -158,7 +159,7 @@
 
     <span class="n">numpy</span><span class="o">.</span><span class="n">set_printoptions</span><span class="p">(</span><span class="n">formatter</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="nb">float</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{:.6f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">))</span>
 
-    <span class="n">LEVEL</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Critical&quot;</span><span class="p">,</span> <span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Warning&quot;</span><span class="p">,</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span> <span class="s2">&quot;Info&quot;</span><span class="p">,</span> <span class="s2">&quot;Debug&quot;</span><span class="p">,</span> <span class="s2">&quot;Trace&quot;</span><span class="p">)</span>
+    <span class="n">LEVEL</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Critical&quot;</span><span class="p">,</span> <span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="s2">&quot;Warning&quot;</span><span class="p">,</span> <span class="s2">&quot;Success&quot;</span><span class="p">,</span> <span class="s2">&quot;Info&quot;</span><span class="p">,</span> <span class="s2">&quot;Debug&quot;</span><span class="p">,</span> <span class="s2">&quot;Trace&quot;</span><span class="p">)</span>
 
     <span class="n">_identity</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">_level</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">level</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
@@ -170,8 +171,8 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">level</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Level.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            level : str - in LEVEL.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            level: str - in LEVEL.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>
@@ -187,17 +188,15 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">stream</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Stream.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            stream : Any, hasattr( &#39;write&#39; ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, &#39;w&#39; or &#39;a&#39; ) ).</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            stream: Any, hasattr(&quot;write&quot;) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, &quot;w&quot; or &quot;a&quot;)).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>
             <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">stream</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="s2">&quot;write&quot;</span><span class="p">)):</span>
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stream = </span><span class="si">{</span><span class="n">stream</span><span class="si">}</span><span class="s2"> Expected Write&quot;</span><span class="p">)</span>
-            <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">):</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">Log</span><span class="o">.</span><span class="n">_identity</span><span class="p">)</span>
-            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                <span class="k">pass</span>
             <span class="n">Log</span><span class="o">.</span><span class="n">_identity</span> <span class="o">=</span> <span class="n">logger</span><span class="o">.</span><span class="n">add</span><span class="p">(</span>
                 <span class="n">stream</span><span class="p">,</span>
                 <span class="n">level</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -209,13 +208,12 @@
 <a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Log.write">[docs]</a>
     <span class="nd">@classmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">level</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">entry</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="ne">Exception</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Formats and writes log entries using the loguru package with a</span>
-<span class="sd">        specified level and stream.  Log entries contain an ISO-8601</span>
-<span class="sd">        datetime and level.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Formats and writes log entries using loguru with a specified level</span>
+<span class="sd">        and stream.  Log entries contain an ISO 8601 datetime and level.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            level : str - in LEVEL.</span>
-<span class="sd">            entry : str | Exception.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            level: str - in LEVEL.</span>
+<span class="sd">            entry: str | Exception.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">with</span> <span class="n">Log</span><span class="o">.</span><span class="n">_rlock</span><span class="p">:</span>
@@ -230,7 +228,9 @@
                     <span class="n">entry</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Exception = </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">entry</span><span class="si">}</span><span class="s2">&quot;</span>
                     <span class="n">info</span> <span class="o">=</span> <span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
                     <span class="k">while</span> <span class="n">info</span><span class="p">:</span>
-                        <span class="n">entry</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="n">entry</span> <span class="o">+=</span> <span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot; @ File = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_frame</span><span class="o">.</span><span class="n">f_code</span><span class="o">.</span><span class="n">co_filename</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2"> Line = </span><span class="si">{</span><span class="n">info</span><span class="o">.</span><span class="n">tb_lineno</span><span class="si">}</span><span class="s2">&quot;</span>
+                        <span class="p">)</span>
                         <span class="n">info</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">tb_next</span>
                 <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">entry</span><span class="p">)</span></div>
 </div>

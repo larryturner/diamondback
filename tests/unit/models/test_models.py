@@ -26,8 +26,8 @@ class Test(object):
         """Test DiversityModel."""
 
         ii = [11, 1, 2, 3, 10]
-        obj = DiversityModel("Euclidean", len(ii) - 1)
-        assert obj.s.shape == (len(ii), 0)
+        diversity_model = DiversityModel("Euclidean", len(ii) - 1)
+        assert diversity_model.s.shape == (len(ii), 0)
         x = numpy.array(
             [
                 [0.929263623187228, 0.349983765984809],
@@ -44,7 +44,7 @@ class Test(object):
                 [0.968823660872193, 1.269390641058206],
             ]
         )
-        y = obj.learn(x)
+        y = diversity_model.learn(x)
         v = numpy.array(
             [
                 0.000000,
@@ -63,36 +63,36 @@ class Test(object):
         )
         s = x[ii, :]
         assert numpy.allclose(y, v)
-        assert numpy.allclose(s, obj.s)
+        assert numpy.allclose(s, diversity_model.s)
 
     def test_GaussianModel(self):
         """Test GaussianModel."""
 
-        obj = GaussianModel(1.0e-1)
-        assert numpy.isclose(obj.regularize, 1.0e-1)
-        obj.regularize = 0.0
-        assert numpy.isclose(obj.regularize, 0.0)
+        gaussian_model = GaussianModel(1.0e-1)
+        assert numpy.isclose(gaussian_model.regularize, 1.0e-1)
+        gaussian_model.regularize = 0.0
+        assert numpy.isclose(gaussian_model.regularize, 0.0)
         u = [[1.0, 1.0], [-1.0, 1.0], [-1.0, -1.0], [1.0, -1.0]]
         x = numpy.random.randn(1000, 2) * 1.0e-1
         y = numpy.random.randint(0, len(u), x.shape[0])
         for ii in range(0, len(u)):
             jj = numpy.where(y == ii)[0]
             x[jj] += u[ii]
-        obj.learn(x, y)
-        v = obj.predict(x)[:, 0]
+        gaussian_model.learn(x, y)
+        v = gaussian_model.predict(x)[:, 0]
         assert sum(v == y) >= 0.95 * len(y)
 
     def test_GaussianMixtureModel(self):
         """Test GaussianMixtureModel."""
 
-        obj = GaussianMixtureModel(2, 20, 0.0)
-        assert obj.order == 2
-        assert obj.index == 20
-        obj.index = 100
-        assert obj.index == 100
-        assert numpy.isclose(obj.regularize, 0.0)
-        obj.regularize = 1.0e-1
-        assert numpy.isclose(obj.regularize, 1.0e-1)
+        gaussian_mixture_model = GaussianMixtureModel(2, 20, 0.0)
+        assert gaussian_mixture_model.order == 2
+        assert gaussian_mixture_model.index == 20
+        gaussian_mixture_model.index = 100
+        assert gaussian_mixture_model.index == 100
+        assert numpy.isclose(gaussian_mixture_model.regularize, 0.0)
+        gaussian_mixture_model.regularize = 1.0e-1
+        assert numpy.isclose(gaussian_mixture_model.regularize, 1.0e-1)
         u = [
             [0.5, 0.5],
             [1.0, 1.0],
@@ -109,6 +109,6 @@ class Test(object):
             jj = numpy.where(y == ii)[0]
             x[jj] += u[ii]
         y >>= 1
-        obj.learn(x, y)
-        v = obj.predict(x)[:, 0]
+        gaussian_mixture_model.learn(x, y)
+        v = gaussian_mixture_model.predict(x)[:, 0]
         assert sum(v == y) >= 0.95 * len(y)

@@ -19,30 +19,30 @@
     A state array of a specified order is defined.  A stationary dimension is
     inferred.  A style and order are specified.
 
-    Style is in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
+    Style is ("Chebyshev", "Euclidean", "Geometric", "Manhattan").
 
-    * | 'Chebyshev' distance is an L-infinity norm, a maximum absolute difference
+    * | "Chebyshev" distance is an L-infinity norm, a maximum absolute difference
       | in any dimension.
 
     .. math::
 
         d_{u,v} = \\max(\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )
 
-    * | 'Euclidean' distance is an L-2 norm, a square root of a sum of squared
+    * | "Euclidean" distance is an L-2 norm, a square root of a sum of squared
       | differences in each dimension.
 
     .. math::
 
         d_{u,v} = \\matrix{\\sum_{i=0}^{N}(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ )^2|}^{0.5}
 
-    * | 'Geometric' distance is a ordered root of a product of absolute differences
+    * | "Geometric" distance is a ordered root of a product of absolute differences
       | in each dimension.
 
     .. math::
 
         d_{u,v} = \\prod_{i=0}^{N}{(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ |\\ )}^{\\frac{1}{N}}
 
-    * | 'Manhattan' distance is an L-1 norm, a sum of absolute differences in each
+    * | "Manhattan" distance is an L-1 norm, a sum of absolute differences in each
       | dimension.
 
     .. math::
@@ -55,9 +55,9 @@
 
         from diamondback import DiversityModel
 
-        diversity_model = DiversityModel( style = 'Euclidean', order = 4 )
-        x = numpy.random.rand( 32, 2 )
-        y = diversity_model.learn( x )
+        diversity_model = DiversityModel(style = "Euclidean", order = 4)
+        x = numpy.random.rand(32, 2)
+        y = diversity_model.learn(x)
         s = diversity_model.s
 
 **License**
@@ -68,19 +68,20 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
+from typing import Callable
 import numpy
 
 
 class DiversityModel(object):
     """Diversity model."""
 
-    DISTANCE = dict(
+    DISTANCE: dict[str, Callable] = dict(
         Chebyshev=lambda x, y: max(abs(x - y)),
         Euclidean=lambda x, y: sum((x - y) ** 2) ** 0.5,
         Geometric=lambda x, y: numpy.prod(abs(x - y)) ** (1.0 / len(x)),
         Manhattan=lambda x, y: sum(abs(x - y)),
     )
-    STYLE = tuple(DISTANCE.keys())
+    STYLE: tuple[str, ...] = tuple(DISTANCE.keys())
 
     @property
     def s(self):
@@ -93,18 +94,16 @@ class DiversityModel(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            style : str - in ( 'Chebyshev', 'Euclidean', 'Geometric', 'Manhattan' ).
-            order : int.
+        Arguments:
+            style: str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan").
+            order: int.
         """
 
         style = style.title()
         if style not in DiversityModel.STYLE:
-            raise ValueError(
-                f"style = {style} Expected Style in {DiversityModel.STYLE}"
-            )
+            raise ValueError(f"style = {style} Expected Style in {DiversityModel.STYLE}")
         if order < 0:
-            raise ValueError(f"Order = {order} Expected Order in [ 0, inf )")
+            raise ValueError(f"Order = {order} Expected Order in [0, inf)")
         super().__init__()
         self._distance = DiversityModel.DISTANCE[style]
         self._diversity = 0.0
@@ -119,11 +118,11 @@ class DiversityModel(object):
     def learn(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Learns an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - diversity.
+        Returns:
+            y: numpy.ndarray - diversity.
         """
 
         if not isinstance(x, numpy.ndarray):

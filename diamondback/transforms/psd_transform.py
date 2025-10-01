@@ -47,9 +47,9 @@
         from diamondback import ComplexExponentialFilter, PsdTransform
         import numpy
 
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 1024 ) ) * numpy.random.rand( 1 )[ 0 ]
-        b = WindowFilter( 'Hann', 128 - 1 ).b
-        y, f = PsdTransform.transform( x, b = b, index = len( b ) // 2 )
+        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(0.12, 0.23, 1024)) * numpy.random.rand(1)[0]
+        b = WindowFilter("Hann", 128 - 1).b
+        y, f = PsdTransform.transform(x, b = b, index = len(b) // 2)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -75,15 +75,15 @@ class PsdTransform(object):
         """Transforms a real or complex discrete-time incident signal to a
         real discrete-frequency reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            b : list | numpy.ndarray - forward coefficient.
-            index : int.
-            spectrogram : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            b: list | numpy.ndarray - forward coefficient.
+            index: int.
+            spectrogram: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [ 0.0, 1.0 ).
+        Returns:
+            y: numpy.ndarray - reference signal.
+            f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -97,10 +97,9 @@ class PsdTransform(object):
         if len(x) < len(b):
             raise ValueError(f"X = {x}")
         y = [
-            numpy.abs(numpy.fft.fft(x[ii : ii + len(b)] * b)[: len(b) // 2] / len(b))
-            ** 2
+            numpy.abs(numpy.fft.fft(x[ii : ii + len(b)] * b)[: len(b) // 2] / len(b)) ** 2
             for ii in range(0, len(x) - len(b) + 1, index)
         ]
-        return numpy.stack(y) if (spectrogram) else numpy.sum(y, axis=0) / len(
-            y
-        ), numpy.linspace(0.0, 1.0 - 2.0 / len(b), len(b) // 2)
+        return numpy.stack(y) if (spectrogram) else numpy.sum(y, axis=0) / len(y), numpy.linspace(
+            0.0, 1.0 - 2.0 / len(b), len(b) // 2
+        )

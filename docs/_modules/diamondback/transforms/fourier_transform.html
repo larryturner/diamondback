@@ -103,10 +103,10 @@
 <span class="sd">        from diamondback import ComplexExponentialFilter, FourierTransform</span>
 <span class="sd">        import numpy</span>
 
-<span class="sd">        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]</span>
-<span class="sd">        b = WindowFilter( &#39;Hann&#39;, len( x ) - 1 ).b</span>
-<span class="sd">        y, f = FourierTransform.transform( x, b = b, inverse = False )</span>
-<span class="sd">        z = FourierTransform.transform( y, b = b, inverse = True )[ 0 ]</span>
+<span class="sd">        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(0.12, 0.23, 128)) * numpy.random.rand(1)[0]</span>
+<span class="sd">        b = WindowFilter(&quot;Hann&quot;, len(x) - 1).b</span>
+<span class="sd">        y, f = FourierTransform.transform(x, b = b, inverse = False)</span>
+<span class="sd">        z = FourierTransform.transform(y, b = b, inverse = True )[0]</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -136,14 +136,14 @@
 <span class="sd">        condition.  Forward transform indices define normalized frequency.</span>
 <span class="sd">        Inverse transform indices define an integral sequence.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : list | numpy.ndarray - incident signal.</span>
-<span class="sd">            b : list | numpy.ndarray - forward coefficient.</span>
-<span class="sd">            inverse : bool.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
+<span class="sd">            b: list | numpy.ndarray - forward coefficient.</span>
+<span class="sd">            inverse: bool.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - reference signal.</span>
-<span class="sd">            f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - reference signal.</span>
+<span class="sd">            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>

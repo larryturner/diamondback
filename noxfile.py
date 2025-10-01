@@ -37,13 +37,14 @@
 """
 
 import glob
+import json
 import nox
 import os
 import pathlib
 import random
-import requests
 import shutil
 import string
+import urllib.request
 from nox import Session
 
 nox.options.sessions = [
@@ -56,7 +57,8 @@ nox.options.sessions = [
     "docs",
 ]
 
-PYTHON = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON_LIST = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON = PYTHON_LIST[-1]
 REPOSITORY = pathlib.Path.cwd().name
 SOURCE = REPOSITORY.split("-")[0]
 if not pathlib.Path(SOURCE).is_dir():
@@ -88,47 +90,8 @@ def clean(session: Session) -> None:
         "docs",
     ):
         shutil.rmtree(x, ignore_errors=True)
-    for x in [
-        x
-        for x in glob.glob(f"**{str(pathlib.Path('/'))}", recursive=True)
-        if ("__pycache__" in x)
-    ]:
+    for x in [x for x in glob.glob(f"**{str(pathlib.Path('/'))}", recursive=True) if ("__pycache__" in x)]:
         shutil.rmtree(x, ignore_errors=True)
-
-
-def convert(x: str) -> str:
-    """Convert dot to svg format.
-
-    Encode class names with random patterns which preserve length,
-    convert format in request, and decode original class names.
-
-    Arguments :
-        x : str - dot.
-
-    Returns :
-        y : str - svg.
-    """
-
-    if not x:
-        raise ValueError(f"X = {x}")
-    x = x.strip()
-    if "digraph" not in x:
-        raise ValueError(f"X = {x}")
-    encode = lambda x: "".join(random.choices(string.ascii_letters, k=len(x)))
-    code = dict(
-        [
-            (u, encode(u))
-            for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}
-        ]
-    )
-    for u, v in code.items():
-        x = x.replace(u, v)
-    y = requests.post(
-        "https://quickchart.io/graphviz", json=dict(format="svg", graph=x)
-    ).text
-    for u, v in code.items():
-        y = y.replace(v, u)
-    return y
 
 
 @nox.session(venv_backend="virtualenv", python=PYTHON[-1])
@@ -137,22 +100,8 @@ def dependencies(session: Session) -> None:
 
     session.install(".[dependencies]")
     (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
-    path = str(pathlib.Path.cwd() / "docs" / "dependencies-partial")
-    with open(path + ".dot", "w") as fout:
-        session.run(
-            "pydeps",
-            SOURCE,
-            "--cluster",
-            "--no-config",
-            "--no-output",
-            "--show-dot",
-            stdout=fout,
-        )
-        with open(path + ".dot", "r") as fin:
-            with open(path + ".svg", "w") as fout:
-                fout.write(convert(fin.read()))
-    path = str(pathlib.Path.cwd() / "docs" / "dependencies-full")
-    with open(path + ".dot", "w") as fout:
+    path = pathlib.Path.cwd() / "docs" / "dependencies"
+    with open(path.with_suffix(".dot"), "w") as fout:
         session.run(
             "pydeps",
             SOURCE,
@@ -164,9 +113,26 @@ def dependencies(session: Session) -> None:
             "--show-dot",
             stdout=fout,
         )
-        with open(path + ".dot", "r") as fin:
-            with open(path + ".svg", "w") as fout:
-                fout.write(convert(fin.read()))
+        with open(path.with_suffix(".dot"), "r") as fin:
+            with open(path.with_suffix(".svg"), "w") as fout:
+                x = fin.read().strip()
+                if "digraph" not in x:
+                    raise ValueError(f"X = {x}")
+                encode = lambda x: "".join(random.choices(string.ascii_letters, k=len(x)))
+                code = dict([(u, encode(u)) for u in {v.split()[0] for v in x.splitlines() if ("[fillcolor" in v)}])
+                for u, v in code.items():
+                    x = x.replace(u, v)
+                response = urllib.request.urlopen(
+                    urllib.request.Request(
+                        url="https://quickchart.io/graphviz",
+                        data=str(json.dumps(dict(format="svg", graph=x))).encode("utf-8"),
+                        headers={"Content-Type": "application/json"},
+                    )
+                )
+                x = response.read().decode("utf-8")
+                for u, v in code.items():
+                    x = x.replace(v, u)
+                fout.write(x)
 
 
 @nox.session(venv_backend="virtualenv", python=PYTHON[-1])
@@ -238,7 +204,7 @@ def tag(session: Session) -> None:
 
     if pathlib.Path(".git").is_dir():
         session.run("git", "tag", "--list", external=True)
-        value = input("[ " + REPOSITORY + " ] annotate : ")
+        value = input("[" + REPOSITORY + "] annotate : ")
         if value:
             session.run(
                 "git",

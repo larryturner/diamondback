@@ -11,19 +11,19 @@
 
 # isort: skip_file
 
-from .fir_filter import FirFilter
-from .iir_filter import IirFilter
-from .complex_bandpass_filter import ComplexBandpassFilter
-from .complex_exponential_filter import ComplexExponentialFilter
-from .complex_frequency_filter import ComplexFrequencyFilter
-from .derivative_filter import DerivativeFilter
-from .goertzel_filter import GoertzelFilter
-from .integral_filter import IntegralFilter
-from .pid_filter import PidFilter
-from .polynomial_rate_filter import PolynomialRateFilter
-from .polyphase_rate_filter import PolyphaseRateFilter
-from .rank_filter import RankFilter
-from .window_filter import WindowFilter
+from diamondback.filters.fir_filter import FirFilter
+from diamondback.filters.iir_filter import IirFilter
+from diamondback.filters.complex_bandpass_filter import ComplexBandpassFilter
+from diamondback.filters.complex_exponential_filter import ComplexExponentialFilter
+from diamondback.filters.complex_frequency_filter import ComplexFrequencyFilter
+from diamondback.filters.derivative_filter import DerivativeFilter
+from diamondback.filters.goertzel_filter import GoertzelFilter
+from diamondback.filters.integral_filter import IntegralFilter
+from diamondback.filters.pid_filter import PidFilter
+from diamondback.filters.polynomial_rate_filter import PolynomialRateFilter
+from diamondback.filters.polyphase_rate_filter import PolyphaseRateFilter
+from diamondback.filters.rank_filter import RankFilter
+from diamondback.filters.window_filter import WindowFilter
 
 __all__ = [
     "FirFilter",

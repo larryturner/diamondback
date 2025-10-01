@@ -22,9 +22,9 @@
         from diamondback import ComplexExponentialFilter
         import numpy
 
-        complex_exponential_filter = ComplexExponentialFilter( phase = 0.0 )
-        x = numpy.linspace( -1.0e-4, 1.0e-4, 128 ) + 0.1
-        y = complex_exponential_filter.filter( x )
+        complex_exponential_filter = ComplexExponentialFilter(phase = 0.0)
+        x = numpy.linspace(-1.0e-4, 1.0e-4, 128) + 0.1
+        y = complex_exponential_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -48,29 +48,29 @@ class ComplexExponentialFilter(object):
     @phase.setter
     def phase(self, phase: float):
         if (phase < -1.0) or (phase > 1.0):
-            raise ValueError(f"Phase = {phase} Expected Phase in [ -1.0, 1.0 ]")
+            raise ValueError(f"Phase = {phase} Expected Phase in [-1.0, 1.0]")
         self._phase = phase
 
     def __init__(self, phase: float = 0.0) -> None:
         """Initialize.
 
-        Arguments :
-            phase : float - relative to pi in [ -1.0, 1.0 ].
+        Arguments:
+            phase: float - relative to pi in [-1.0, 1.0].
         """
 
         if (phase < -1.0) or (phase > 1.0):
-            raise ValueError(f"Phase = {phase} Expected Phase in [ -1.0, 1.0 ]")
+            raise ValueError(f"Phase = {phase} Expected Phase in [-1.0, 1.0]")
         super().__init__()
         self._phase = phase
 
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal frequency normalized to Nyquist in [ -1.0, 1.0 ).
+        Arguments:
+            x: list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

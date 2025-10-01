@@ -1,7 +1,7 @@
 """**Description**
     A log instance formats and writes log entries with a specified level
-    and stream using the loguru package. Log entries contain an ISO-8601
-    datetime and level.  Dynamic stream redirection and level specification
+    and stream using loguru. Log entries contain an ISO 8601 datetime
+    and level.  Dynamic stream redirection and level specification
     are supported.
 
     Log uses lazy initialization to coexist with loguru, and removes or
@@ -9,7 +9,7 @@
     In lazy initialization an existing default loguru handler, with an
     identity equal to 0, and a stream assignment of sys.stdout is removed,
     and a new loguru handler with a stream assignment of sys.stdout and a
-    level of 'Info' is created.
+    level of "Info" is created.
 
     In stream assignments subsequent to initialization, only loguru
     handlers previously created by Log will be removed, as the Log design
@@ -37,35 +37,35 @@
         import sys
 
         try :
-            # Set Log level to 'Info', the default level.
+            # Set Log level to "Info", the default level.
 
-            Log.level( 'Info' )
-            Log.write( 'Info', 'Test Log write.' )
+            Log.level("Info")
+            Log.write("Info", "Test Log write.")
 
             # Standard output.
 
-            Log.stream( sys.stdout )
-            Log.write( 'Info', f'Valid = {True}' )
+            Log.stream(sys.stdout)
+            Log.write("Info", f"Valid = {True}")
 
             # Memory stream.
 
-            stream = io.StringIO( )
-            Log.stream( stream )
-            x = numpy.random.rand( 2, 2 )
-            Log.write( 'Info', f'X = {x}' )
+            stream = io.StringIO()
+            Log.stream(stream)
+            x = numpy.random.rand(2, 2)
+            Log.write("Info", f"X = {x}")
 
             # Read and reset memory stream.
-            value = stream.getvalue( )
-            _, _ = stream.truncate( 0 ), stream.seek( 0 )
+            value = stream.getvalue()
+            _, _ = stream.truncate(0), stream.seek(0)
 
             # File.
 
-            with open( 'log-2112.txt', 'w' ) as fout :
-                Log.stream( fout )
-                x = numpy.random.rand( 2, 2 )
-                Log.write( 'Warning', f'X = {x}' )
+            with open("log-2112.txt", "w") as fout:
+                Log.stream(fout)
+                x = numpy.random.rand(2, 2)
+                Log.write("Warning", f"X = {x}")
         except Exception as ex :
-            Log.write( 'Error', ex )
+            Log.write("Error", ex)
 
 **License**
     `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -78,6 +78,7 @@
 from loguru import logger
 from threading import RLock
 from typing import Any
+import contextlib
 import numpy
 import os
 import sys
@@ -88,7 +89,7 @@ class Log(object):
 
     numpy.set_printoptions(formatter=dict(float="{:.6f}".format))
 
-    LEVEL = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
+    LEVEL: tuple[str, ...] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
 
     _identity = 0
     _level = logger.level("Info".upper())
@@ -98,8 +99,8 @@ class Log(object):
     def level(cls, level: str) -> None:
         """Level.
 
-        Arguments :
-            level : str - in LEVEL.
+        Arguments:
+            level: str - in LEVEL.
         """
 
         with Log._rlock:
@@ -112,17 +113,15 @@ class Log(object):
     def stream(cls, stream: Any) -> None:
         """Stream.
 
-        Arguments :
-            stream : Any, hasattr( 'write' ) - in ( sys.stderr, sys.stdout, open( < path >, 'w' or 'a' ) ).
+        Arguments:
+            stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a")).
         """
 
         with Log._rlock:
             if (not stream) or (not hasattr(stream, "write")):
                 raise ValueError(f"Stream = {stream} Expected Write")
-            try:
+            with contextlib.suppress(ValueError):
                 logger.remove(Log._identity)
-            except ValueError:
-                pass
             Log._identity = logger.add(
                 stream,
                 level=0,
@@ -131,13 +130,12 @@ class Log(object):
 
     @classmethod
     def write(cls, level: str, entry: str | Exception) -> None:
-        """Formats and writes log entries using the loguru package with a
-        specified level and stream.  Log entries contain an ISO-8601
-        datetime and level.
+        """Formats and writes log entries using loguru with a specified level
+        and stream.  Log entries contain an ISO 8601 datetime and level.
 
-        Arguments :
-            level : str - in LEVEL.
-            entry : str | Exception.
+        Arguments:
+            level: str - in LEVEL.
+            entry: str | Exception.
         """
 
         with Log._rlock:
@@ -152,6 +150,8 @@ class Log(object):
                     entry = f"Exception = {type(entry).__name__} {entry}"
                     info = sys.exc_info()[-1]
                     while info:
-                        entry += f" @ File = {info.tb_frame.f_code.co_filename.split(os.sep)[-1]} Line = {info.tb_lineno}"
+                        entry += (
+                            f" @ File = {info.tb_frame.f_code.co_filename.split(os.sep)[-1]} Line = {info.tb_lineno}"
+                        )
                         info = info.tb_next
                 logger.log(v.name, entry)

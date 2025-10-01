@@ -85,15 +85,15 @@
 <h2>diamondback.commons.log module<a class="headerlink" href="#diamondback-commons-log-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A log instance formats and writes log entries with a specified level
-and stream using the loguru package. Log entries contain an ISO-8601
-datetime and level.  Dynamic stream redirection and level specification
+and stream using loguru. Log entries contain an ISO 8601 datetime
+and level.  Dynamic stream redirection and level specification
 are supported.</p>
 <p>Log uses lazy initialization to coexist with loguru, and removes or
 creates loguru handlers only on explicit stream assignment or write.
 In lazy initialization an existing default loguru handler, with an
 identity equal to 0, and a stream assignment of sys.stdout is removed,
 and a new loguru handler with a stream assignment of sys.stdout and a
-level of ‘Info’ is created.</p>
+level of “Info” is created.</p>
 <p>In stream assignments subsequent to initialization, only loguru
 handlers previously created by Log will be removed, as the Log design
 pattern does not define multicast.  The ability to create and modify
@@ -116,35 +116,35 @@ assignment, though loguru uses upper case.</p>
 <span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
 
 <span class="k">try</span> <span class="p">:</span>
-    <span class="c1"># Set Log level to &#39;Info&#39;, the default level.</span>
+    <span class="c1"># Set Log level to &quot;Info&quot;, the default level.</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">level</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span> <span class="p">)</span>
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="s1">&#39;Test Log write.&#39;</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">level</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="p">,</span> <span class="s2">&quot;Test Log write.&quot;</span><span class="p">)</span>
 
     <span class="c1"># Standard output.</span>
 
-    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span> <span class="p">)</span>
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;Valid = </span><span class="si">{</span><span class="kc">True</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Valid = </span><span class="si">{</span><span class="kc">True</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># Memory stream.</span>
 
-    <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span> <span class="p">)</span>
-    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">stream</span> <span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Info&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">()</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Info&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># Read and reset memory stream.</span>
-    <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(</span> <span class="p">)</span>
-    <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span> <span class="mi">0</span> <span class="p">),</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span> <span class="mi">0</span> <span class="p">)</span>
+    <span class="n">value</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()</span>
+    <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># File.</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span> <span class="s1">&#39;log-2112.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span> <span class="p">)</span> <span class="k">as</span> <span class="n">fout</span> <span class="p">:</span>
-        <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span> <span class="n">fout</span> <span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Warning&#39;</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;log-2112.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+        <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">fout</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Warning&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">ex</span> <span class="p">:</span>
-    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span> <span class="s1">&#39;Error&#39;</span><span class="p">,</span> <span class="n">ex</span> <span class="p">)</span>
+    <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="n">ex</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -162,15 +162,16 @@ assignment, though loguru uses upper case.</p>
 <p>Log.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -179,8 +180,9 @@ assignment, though loguru uses upper case.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Stream.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>stream : Any, hasattr( ‘write’ ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -188,12 +190,14 @@ assignment, though loguru uses upper case.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Formats and writes log entries using the loguru package with a
-specified level and stream.  Log entries contain an ISO-8601
-datetime and level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
-entry : str | Exception.</p>
+<dd><p>Formats and writes log entries using loguru with a specified level
+and stream.  Log entries contain an ISO 8601 datetime and level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – str - in LEVEL.</p></li>
+<li><p><strong>entry</strong> – str | Exception.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -205,10 +209,10 @@ entry : str | Exception.</p>
 <h2>diamondback.commons.rest_client module<a class="headerlink" href="#diamondback-commons-rest-client-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>REST client instances define a client for simple REST service requests
-using the requests package.  An API and an elective dictionary of parameter
-strings are encoded to build a URL, elective binary or JSON data are
-defined in the body of a request, and a requests response containing JSON,
-text, or binary data is returned.</p>
+using requests.  An API and an elective dictionary of parameter strings
+are encoded to build a URL, elective binary or JSON data are defined in
+the body of a request, and a requests response containing JSON, text,
+or binary data is returned.</p>
 <p>Proxy, timeout, and URL definition are supported.</p>
 <p>Live makes a head request to a URL and detects a live service.</p>
 </dd>
@@ -218,19 +222,19 @@ text, or binary data is returned.</p>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">RestClient</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 
-<span class="k">class</span><span class="w"> </span><span class="nc">TestClient</span><span class="p">(</span> <span class="n">RestClient</span> <span class="p">)</span> <span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TestClient</span><span class="p">(</span><span class="n">RestClient</span><span class="p">)</span> <span class="p">:</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span> <span class="bp">self</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
-        <span class="nb">super</span><span class="p">(</span> <span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span> <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">http</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">https</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span> <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span> <span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">proxy</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">http</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">https</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
 
-    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span> <span class="bp">self</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">[</span> <span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">]</span> <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="p">:</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span> <span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;test/add&#39;</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span> <span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">(</span> <span class="p">)</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">json</span> <span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;get&quot;</span><span class="p">,</span> <span class="s2">&quot;test/add&quot;</span><span class="p">,</span> <span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="p">)</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
-<span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">(</span> <span class="p">)</span>
-<span class="n">client</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;http://127.0.0.1:8080&#39;</span>
-<span class="n">client</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span> <span class="p">)</span>  <span class="c1"># connect, read</span>
-<span class="n">value</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">3</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
+<span class="n">client</span> <span class="o">=</span> <span class="n">TestClient</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://127.0.0.1:8080&quot;</span>
+<span class="n">client</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="p">(</span><span class="mf">10.0</span><span class="p">,</span> <span class="mf">60.0</span><span class="p">)</span>  <span class="c1"># connect, read</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -249,7 +253,7 @@ text, or binary data is returned.</p>
 <p>Initialize.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -270,16 +274,23 @@ elective dictionary of parameter strings are encoded to build a
 URL, elective binary or JSON data are defined in the body of a
 request, and a requests response containing JSON, text, or binary
 data is returned.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>method : str - in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).
-api : str - relative to the URL.
-auth : Any.
-header : dict[ str, str ] | None.
-item : dict[ str, str ] | None.
-data : Any.
-json : Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
+<li><p><strong>api</strong> – str - relative to the URL.</p></li>
+<li><p><strong>auth</strong> – Any.</p></li>
+<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>data</strong> – Any.</p></li>
+<li><p><strong>json</strong> – Any.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>value : requests.Response.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>requests.Response.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value</p>
 </dd>
 </dl>
 </dd></dl>
@@ -301,8 +312,7 @@ json : Any.</p>
 <h2>diamondback.commons.serial module<a class="headerlink" href="#diamondback-commons-serial-module" title="Link to this heading"></a></h2>
 <dl>
 <dt><strong>Description</strong></dt><dd><p>A serial instance encodes and decodes an instance or collection in
-BSON or JSON, and generates SHA3-256 codes, using the jsonpickle
-package.</p>
+BSON or JSON, and generates SHA3-256 codes, using jsonpickle.</p>
 <p>BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code
 will not be consistent or useful for validation.</p>
 <p>An instance may be an object or a collection, referenced by abstract or
@@ -325,30 +335,30 @@ terminated by a new line.</p>
 
 <span class="c1"># Encode and decode a dictionary in JSON.</span>
 
-<span class="n">n</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">n</span> <span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="n">n</span> <span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">a</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">),</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">n</span><span class="p">)))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">indent</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># Encode and decode a dictionary in BSON.</span>
 
-<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span> <span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">compress</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Encode and decode a pandas DataFrame in BSON.</span>
 
-<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span> <span class="nb">dict</span><span class="p">(</span> <span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span> <span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="s1">&#39;apple&#39;</span><span class="p">,</span> <span class="s1">&#39;kiwi&#39;</span> <span class="p">],</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span> <span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span> <span class="p">]</span> <span class="p">)</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">model</span> <span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="n">fruit</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="s2">&quot;apple&quot;</span><span class="p">,</span> <span class="s2">&quot;kiwi&quot;</span><span class="p">],</span> <span class="n">value</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.30</span><span class="p">]))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
 <span class="c1"># Generate an SHA3-256 code.</span>
 
-<span class="n">code</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">code</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">y</span> <span class="p">)</span>
+<span class="n">code</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">code</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 
 <span class="c1"># Decode in JSON.</span>
 
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;{ &quot;a&quot; : 1.0, &quot;b&quot; : 2.0, &quot;c&quot; : 3.14159 }&#39;</span> <span class="p">)</span>
-<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span> <span class="s1">&#39;[ 1.0, 2.0, 3.0 ]&#39;</span> <span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;{&#39;a&#39; : 1.0, &#39;b&#39; : 2.0, &#39;c&#39; : 3.14159}&quot;</span><span class="p">)</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">Serial</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;[1.0, 2.0, 3.0]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -368,11 +378,18 @@ terminated by a new line.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Code generation.  SHA3-256 hash.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-encoding : str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>code : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>code</p>
 </dd>
 </dl>
 </dd></dl>
@@ -384,13 +401,20 @@ encoding : str.</p>
 Encoding may be specified if an alternative to UTF-8 is required.
 Python style docstring and line comments may be cleaned, though
 line comments must be terminated by a new line.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-compress : bool.
-encoding : str.
-clean : bool - clean comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>instance : Any.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -400,13 +424,20 @@ clean : bool - clean comments.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
 to UTF-8 is required.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>instance : Any.
-compress : bool.
-encoding : str.
-indent : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – Any.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>indent</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>state : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state</p>
 </dd>
 </dl>
 </dd></dl>
@@ -432,15 +463,16 @@ indent : bool.</p>
 <p>Log.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">level</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.level"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -449,8 +481,9 @@ indent : bool.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.stream"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Stream.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>stream : Any, hasattr( ‘write’ ) - in ( sys.stderr, sys.stdout, open( &lt; path &gt;, ‘w’ or ‘a’ ) ).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
 </dd>
 </dl>
 </dd></dl>
@@ -458,12 +491,14 @@ indent : bool.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/commons/log.html#Log.write"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Formats and writes log entries using the loguru package with a
-specified level and stream.  Log entries contain an ISO-8601
-datetime and level.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>level : str - in LEVEL.
-entry : str | Exception.</p>
+<dd><p>Formats and writes log entries using loguru with a specified level
+and stream.  Log entries contain an ISO 8601 datetime and level.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>level</strong> – str - in LEVEL.</p></li>
+<li><p><strong>entry</strong> – str | Exception.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -478,7 +513,7 @@ entry : str | Exception.</p>
 <p>Initialize.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -499,16 +534,23 @@ elective dictionary of parameter strings are encoded to build a
 URL, elective binary or JSON data are defined in the body of a
 request, and a requests response containing JSON, text, or binary
 data is returned.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>method : str - in ( ‘delete’, ‘get’, ‘head’, ‘options’, ‘patch’, ‘post’, ‘put’ ).
-api : str - relative to the URL.
-auth : Any.
-header : dict[ str, str ] | None.
-item : dict[ str, str ] | None.
-data : Any.
-json : Any.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
+<li><p><strong>api</strong> – str - relative to the URL.</p></li>
+<li><p><strong>auth</strong> – Any.</p></li>
+<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
+<li><p><strong>data</strong> – Any.</p></li>
+<li><p><strong>json</strong> – Any.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>value : requests.Response.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>requests.Response.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>value</p>
 </dd>
 </dl>
 </dd></dl>
@@ -534,11 +576,18 @@ json : Any.</p>
 <dt class="sig sig-object py">
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Code generation.  SHA3-256 hash.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-encoding : str.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>code : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>code</p>
 </dd>
 </dl>
 </dd></dl>
@@ -550,13 +599,20 @@ encoding : str.</p>
 Encoding may be specified if an alternative to UTF-8 is required.
 Python style docstring and line comments may be cleaned, though
 line comments must be terminated by a new line.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>state : str.
-compress : bool.
-encoding : str.
-clean : bool - clean comments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – str.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>instance : Any.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Any.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>instance</p>
 </dd>
 </dl>
 </dd></dl>
@@ -566,13 +622,20 @@ clean : bool - clean comments.</p>
 <em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
 to UTF-8 is required.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>instance : Any.
-compress : bool.
-encoding : str.
-indent : bool.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>instance</strong> – Any.</p></li>
+<li><p><strong>compress</strong> – bool.</p></li>
+<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>indent</strong> – bool.</p></li>
+</ul>
 </dd>
-<dt>Returns :</dt><dd><p>state : str.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>str.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>state</p>
 </dd>
 </dl>
 </dd></dl>

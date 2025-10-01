@@ -9,7 +9,7 @@
 
     .. math::
 
-        y_{n} = b_{0}\\ x_{n} + b_{1}\\max(\\ \\min( \\sum_{0}^{n}\\ x_{n},\\ limit\\ ),\\ -limit\\ ) + b_{2}\\ \\frac{d}{dn}(\\ x_{n}\\ )
+        y_{n} = b_{0}\\ x_{n} + b_{1}\\max(\\min(\\sum_{0}^{n}\\ x_{n},\\ limit\\ ),\\ -limit) + b_{2}\\ \\frac{d}{dn}(\\ x_{n})
 
 **Example**
 
@@ -18,9 +18,9 @@
         from diamondback import ComplexExponentialFilter, PidFilter
         import numpy
 
-        pid_filter = PidFilter( b = numpy.array( [ 0.1, 5.0e-2, 0.0 ] ) )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( -1.0e-4, 1.0e-4, 128 ) * 0.1 ).real
-        y = pid_filter.filter( x )
+        pid_filter = PidFilter(b = numpy.array([0.1, 5.0e-2, 0.0]))
+        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(-1.0e-4, 1.0e-4, 128) * 0.1).real
+        y = pid_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -35,7 +35,7 @@ import numpy
 
 
 class PidFilter(FirFilter):
-    """Proportional Integral Derivative ( PID ) filter."""
+    """Proportional Integral Derivative (PID) filter."""
 
     @property
     def limit(self):
@@ -44,14 +44,14 @@ class PidFilter(FirFilter):
     @limit.setter
     def limit(self, limit: float):
         if limit < 0.0:
-            raise ValueError(f"Limit = {limit} Expected Limit in ( 0.0, inf )")
+            raise ValueError(f"Limit = {limit} Expected Limit in (0.0, inf)")
         self._limit = limit
 
     def __init__(self, b: list | numpy.ndarray) -> None:
         """Initialize.
 
-        Arguments :
-            b : list | numpy.ndarray - forward coefficient.
+        Arguments:
+            b: list | numpy.ndarray - forward coefficient.
         """
 
         if not isinstance(b, numpy.ndarray):
@@ -64,11 +64,11 @@ class PidFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):

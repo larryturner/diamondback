@@ -98,10 +98,10 @@ typically improves condition and numerical accuracy and reduces storage
 relative to alternative approaches including generalized linear inverse.</p>
 <p>A state array of a specified order is defined.  A stationary dimension is
 inferred.  A style and order are specified.</p>
-<p>Style is in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).</p>
+<p>Style is (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p>
 <ul>
 <li><div class="line-block">
-<div class="line">‘Chebyshev’ distance is an L-infinity norm, a maximum absolute difference</div>
+<div class="line">“Chebyshev” distance is an L-infinity norm, a maximum absolute difference</div>
 <div class="line">in any dimension.</div>
 </div>
 </li>
@@ -110,7 +110,7 @@ inferred.  A style and order are specified.</p>
 \[d_{u,v} = \max(\ |\ \vec{x_{u}} - \vec{x_{v}}\ |\ )\]</div>
 <ul>
 <li><div class="line-block">
-<div class="line">‘Euclidean’ distance is an L-2 norm, a square root of a sum of squared</div>
+<div class="line">“Euclidean” distance is an L-2 norm, a square root of a sum of squared</div>
 <div class="line">differences in each dimension.</div>
 </div>
 </li>
@@ -119,7 +119,7 @@ inferred.  A style and order are specified.</p>
 \[d_{u,v} = \matrix{\sum_{i=0}^{N}(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ )^2|}^{0.5}\]</div>
 <ul>
 <li><div class="line-block">
-<div class="line">‘Geometric’ distance is a ordered root of a product of absolute differences</div>
+<div class="line">“Geometric” distance is a ordered root of a product of absolute differences</div>
 <div class="line">in each dimension.</div>
 </div>
 </li>
@@ -128,7 +128,7 @@ inferred.  A style and order are specified.</p>
 \[d_{u,v} = \prod_{i=0}^{N}{(\ |\ \vec{x_{u,i}} - \vec{x_{v,i}}\ |\ )}^{\frac{1}{N}}\]</div>
 <ul>
 <li><div class="line-block">
-<div class="line">‘Manhattan’ distance is an L-1 norm, a sum of absolute differences in each</div>
+<div class="line">“Manhattan” distance is an L-1 norm, a sum of absolute differences in each</div>
 <div class="line">dimension.</div>
 </div>
 </li>
@@ -141,9 +141,9 @@ inferred.  A style and order are specified.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiversityModel</span>
 
-<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span> <span class="n">style</span> <span class="o">=</span> <span class="s1">&#39;Euclidean&#39;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;Euclidean&quot;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">s</span>
 </pre></div>
 </div>
@@ -161,19 +161,22 @@ inferred.  A style and order are specified.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -186,10 +189,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Learns an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -208,20 +216,20 @@ order : int.</p>
 <dt><strong>Description</strong></dt><dd><p>A Gaussian Mixture Model (GMM) is a semi-supervised learning
 probabilistic model instance which uses maximum likelihood estimation,
 regularization, and expectation maximization to maximize posterior
-probability and classify an incident signal.  Learns model instances
-of a specified order per class, where intra-class models capture
-mixture distributions.</p>
+probability and classify an incident signal.  Learns distribution
+instances of a specified order per class, where intra-class models
+capture mixture distributions.</p>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixtureModel</span>
 
-<span class="n">gaussian_mixture_model</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span> <span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
-<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">gaussian_mixture_model</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -238,10 +246,13 @@ mixture distributions.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian mixture model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
-index : int - iterations.
-regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
+<li><p><strong>index</strong> – int - iterations.</p></li>
+<li><p><strong>regularize</strong> – float - regularize.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -255,9 +266,12 @@ regularize : float - regularize.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -275,10 +289,15 @@ and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -309,11 +328,11 @@ distribution instance per class.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianModel</span>
 
-<span class="n">gaussian_model</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">(</span> <span class="p">)</span>
-<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">2</span> <span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span> <span class="p">)</span>
-<span class="n">gaussian_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">2</span> <span class="p">)</span>
-<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span> <span class="n">x</span> <span class="p">)</span>
+<span class="n">gaussian_model</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">()</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
+<span class="n">gaussian_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </div></blockquote>
@@ -330,8 +349,9 @@ distribution instance per class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -340,9 +360,12 @@ distribution instance per class.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -354,10 +377,15 @@ y : numpy.ndarray ( batch ) - label.</p>
 and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -392,19 +420,22 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Diversity model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>style : str - in ( ‘Chebyshev’, ‘Euclidean’, ‘Geometric’, ‘Manhattan’ ).
-order : int.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
+<li><p><strong>order</strong> – int.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -417,10 +448,15 @@ order : int.</p>
 <dt class="sig sig-object py">
 <span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
 <dd><p>Learns an incident signal and produces a reference signal.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : list | numpy.ndarray - incident signal.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
 </dd>
-<dt>Returns :</dt><dd><p>y : numpy.ndarray - diversity.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>y</p>
 </dd>
 </dl>
 </dd></dl>
@@ -438,10 +474,13 @@ order : int.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian mixture model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>order : int - mixture distributions per class.
-index : int - iterations.
-regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
+<li><p><strong>index</strong> – int - iterations.</p></li>
+<li><p><strong>regularize</strong> – float - regularize.</p></li>
+</ul>
 </dd>
 </dl>
 <dl class="py property">
@@ -455,9 +494,12 @@ regularize : float - regularize.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -475,10 +517,15 @@ and maximizes posterior probability of weighted intra-class mixed
 distributions.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>
@@ -501,8 +548,9 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Gaussian model.</p>
 <p>Initialize.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>regularize : float - regularize.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -511,9 +559,12 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Learns an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - incident.
-y : numpy.ndarray ( batch ) - label.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
+<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
@@ -525,10 +576,15 @@ y : numpy.ndarray ( batch ) - label.</p>
 and maximizes posterior probability.</p>
 <p>Predictions for each class are ranked and ordered by decending
 probability, and the initial prediction is the most likely class.</p>
-<dl class="simple">
-<dt>Arguments :</dt><dd><p>x : numpy.ndarray ( batch, count ) - data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
 </dd>
-<dt>Returns :</dt><dd><p>v : numpy.ndarray ( batch, class ) - predict.</p>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>v</p>
 </dd>
 </dl>
 </dd></dl>

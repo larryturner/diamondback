@@ -32,23 +32,23 @@
 
     .. math::
 
-        \\matrix{ a_{1,0} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,0} = \\scriptsize{ [ \\matrix{ 1 } ] } }\\quad\\quad\\scriptsize{ Rectangular }
+        \\matrix{ a_{1,0} = \\scriptsize{ [\\matrix{ 0 & 1 }] } & b_{1,0} = \\scriptsize{ [\\matrix{ 1 }] } }\\quad\\quad\\scriptsize{ Rectangular }
 
     .. math::
 
-        \\matrix{ a_{1,1} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,1} = \\scriptsize{ [ \\matrix{ 1 & 1 } ]\\ \\frac{1}{2} } }\\quad\\quad\\scriptsize{ Trapezoidal }
+        \\matrix{ a_{1,1} = \\scriptsize{ [\\matrix{ 0 & 1 }] } & b_{1,1} = \\scriptsize{ [\\matrix{ 1 & 1 }]\\ \\frac{1}{2} } }\\quad\\quad\\scriptsize{ Trapezoidal }
 
     .. math::
 
-        \\matrix{ a_{1,2} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,2} = \\scriptsize{ [ \\matrix{ 1 & 4 & 1 } ]\\ \\frac{1}{6} } }\\quad\\quad\\scriptsize{ Simpson\\ 2 }
+        \\matrix{ a_{1,2} = \\scriptsize{ [\\matrix{ 0 & 1 }] } & b_{1,2} = \\scriptsize{ [\\matrix{ 1 & 4 & 1 }]\\ \\frac{1}{6} } }\\quad\\quad\\scriptsize{ Simpson\\ 2 }
 
     .. math::
 
-        \\matrix{ a_{1,3} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,3} = \\scriptsize{ [ \\matrix{ 1 & 3 & 3 & 1 } ]\\ \\frac{1}{8} } }\\quad\\quad\\scriptsize{ Simpson\\ 3 }
+        \\matrix{ a_{1,3} = \\scriptsize{ [\\matrix{ 0 & 1 }] } & b_{1,3} = \\scriptsize{ [\\matrix{ 1 & 3 & 3 & 1 }]\\ \\frac{1}{8} } }\\quad\\quad\\scriptsize{ Simpson\\ 3 }
 
     .. math::
 
-        \\matrix{ a_{1,4} = \\scriptsize{ [ \\matrix{ 0 & 1 } ] } & b_{1,4} = \\scriptsize{ [ \\matrix{ 7 & 32 & 12 & 32 & 7 } ]\\ \\frac{1}{90} } }\\quad\\quad\\scriptsize{ Newton\\ Coats }
+        \\matrix{ a_{1,4} = \\scriptsize{ [\\matrix{ 0 & 1 }] } & b_{1,4} = \\scriptsize{ [\\matrix{ 7 & 32 & 12 & 32 & 7 }]\\ \\frac{1}{90} } }\\quad\\quad\\scriptsize{ Newton\\ Coats }
 
 **Example**
 
@@ -57,9 +57,9 @@
         from diamondback import ComplexExponentialFilter, IntegralFilter
         import numpy
 
-        integral_filter = IntegralFilter( order = 2 )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-        y = integral_filter.filter( x )
+        integral_filter = IntegralFilter(order = 2)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real
+        y = integral_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -76,34 +76,32 @@ import numpy
 class IntegralFilter(IirFilter):
     """Integral filter."""
 
-    B = (
-        numpy.array([1.0]),
-        numpy.array([1.0, 1.0]) * (1.0 / 2.0),
-        numpy.array([1.0, 4.0, 1.0]) * (1.0 / 6.0),
-        numpy.array([1.0, 3.0, 3.0, 1.0]) * (1.0 / 8.0),
-        numpy.array([7.0, 32.0, 12.0, 32.0, 7.0]) * (1.0 / 90.0),
-    )
+    B: dict[int, numpy.ndarray] = {
+        0: numpy.array([1.0]),
+        1: numpy.array([1.0, 1.0]) * (1.0 / 2.0),
+        2: numpy.array([1.0, 4.0, 1.0]) * (1.0 / 6.0),
+        3: numpy.array([1.0, 3.0, 3.0, 1.0]) * (1.0 / 8.0),
+        4: numpy.array([7.0, 32.0, 12.0, 32.0, 7.0]) * (1.0 / 90.0),
+    }
 
     def __init__(self, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            order : int.
+        Arguments:
+            order: int.
         """
 
-        if (order < 0) or (order >= len(IntegralFilter.B)):
-            raise ValueError(
-                f"Order = {order} Expected Order in [ 0, {len(IntegralFilter.B)} )"
-            )
+        if order not in IntegralFilter.B:
+            raise ValueError(f"Order = {order} Expected Order in {tuple(IntegralFilter.B.keys())}")
         super().__init__(a=numpy.array([0.0, 1.0]), b=IntegralFilter.B[order])
 
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
+        Arguments:
             x : list | numpy.ndarray - incident signal.
 
-        Returns :
+        Returns:
             y : numpy.ndarray - reference signal.
         """
 

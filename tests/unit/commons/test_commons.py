@@ -51,10 +51,10 @@ class Test(object):
     def test_RestClient(self):
         """Test RestClient."""
 
-        client = RestClient()
-        client.url = "http://en.wikipedia.org"
-        assert client.live
-        assert client.request(method="get", api="/wiki/Marines").content
+        rest_client = RestClient()
+        rest_client.url = "http://marines.com"
+        assert rest_client.live
+        assert rest_client.request(method="get", api="").content
 
     def test_Serial(self):
         """Test Serial."""
@@ -62,14 +62,8 @@ class Test(object):
         x = IirFilter(style="Butterworth", frequency=0.1, order=4, count=1)
         for ii in range(0, 2):
             y = Serial.decode(Serial.encode(x, ii != 0), ii != 0)
-            assert (
-                (numpy.allclose(x.a, y.a))
-                and (numpy.allclose(x.b, y.b))
-                and (numpy.allclose(x.s, y.s))
-            )
-            assert Serial.code(Serial.encode(x, compress=False)) == Serial.code(
-                Serial.encode(y, compress=False)
-            )
+            assert (numpy.allclose(x.a, y.a)) and (numpy.allclose(x.b, y.b)) and (numpy.allclose(x.s, y.s))
+            assert Serial.code(Serial.encode(x, compress=False)) == Serial.code(Serial.encode(y, compress=False))
             with pytest.raises(ValueError):
                 Serial.decode(Serial.encode(x, bool(ii)), not ii)
         x = dict(x=numpy.random.rand(30, 50), y=numpy.random.rand(50, 30))
@@ -78,9 +72,9 @@ class Test(object):
             assert Serial.encode(x, compress=False) == Serial.encode(y, compress=False)
             assert all([u in x for u in list(y.keys())])
         x = '""" Docstring. """\n \
-                    { "serial" : { "datetime" : "2019-09-01T15:10:00Z", # Comment.\n \
-                                   "duration" : 28800.0,\n \
-                                   "period" : 123.4 } }\n'
+                    {"serial" : {"datetime" : "2019-09-01T15:10:00Z", # Comment.\n \
+                                 "duration" : 28800.0,\n \
+                                 "period" : 123.4}}\n'
         y = Serial.decode(x, compress=False, clean=True)
         assert "serial" in y
         assert all([u in y["serial"] for u in ("datetime", "duration", "period")])

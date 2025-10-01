@@ -129,10 +129,10 @@
 <span class="sd">        import math</span>
 <span class="sd">        import numpy</span>
 
-<span class="sd">        polyphase_rate_filter = PolyphaseRateFilter( rate = 1.0 / math.pi )</span>
-<span class="sd">        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real</span>
-<span class="sd">        polyphase_rate_filter.reset( x[ 0 ] )</span>
-<span class="sd">        y = polyphase_rate_filter.filter( x )</span>
+<span class="sd">        polyphase_rate_filter = PolyphaseRateFilter(rate = 1.0 / math.pi)</span>
+<span class="sd">        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real</span>
+<span class="sd">        polyphase_rate_filter.reset(x[0])</span>
+<span class="sd">        y = polyphase_rate_filter.filter(x)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -151,7 +151,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">PolyphaseRateFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Polyphase rate filter.&quot;&quot;&quot;</span>
 
-    <span class="n">B</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
+    <span class="n">B</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">256</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -164,9 +164,7 @@
     <span class="nd">@rate</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">rate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&gt;</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [ 0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="mf">0.0</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_rate</span> <span class="o">=</span> <span class="n">rate</span>
@@ -182,14 +180,12 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">rate</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            rate: float - ratio of effective frequency in (0.0, b.shape[0]].</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&lt;</span> <span class="mf">0.0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">rate</span> <span class="o">&gt;</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [ 0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rate = </span><span class="si">{</span><span class="n">rate</span><span class="si">}</span><span class="s2"> Expected Rate in [0.0, </span><span class="si">{</span><span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">PolyphaseRateFilter</span><span class="o">.</span><span class="n">B</span>
         <span class="n">rr</span><span class="p">,</span> <span class="n">cc</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
@@ -208,11 +204,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Filters an incident signal and produces a reference signal.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : list | numpy.ndarray - incident signal.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - reference signal.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -244,8 +240,8 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Modifies a state to minimize edge effects by assuming persistent</span>
 <span class="sd">        operation at a specified incident signal condition.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : float - incident signal.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: float - incident signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>

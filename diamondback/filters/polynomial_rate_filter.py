@@ -35,9 +35,9 @@
         import math
         import numpy
 
-        polynomial_rate_filter = PolynomialRateFilter( rate = math.pi, order = 1 )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-        y = polynomial_rate_filter.filter( x )
+        polynomial_rate_filter = PolynomialRateFilter(rate = math.pi, order = 1)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real
+        y = polynomial_rate_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -60,7 +60,7 @@ class PolynomialRateFilter(object):
     @order.setter
     def order(self, order: int):
         if order <= 0:
-            raise ValueError(f"Order = {order} Expected Order in ( 0, inf )")
+            raise ValueError(f"Order = {order} Expected Order in (0, inf)")
         self._order = order
 
     @property
@@ -70,21 +70,21 @@ class PolynomialRateFilter(object):
     @rate.setter
     def rate(self, rate: float):
         if rate < 0.0:
-            raise ValueError(f"Rate = {rate} Expected Rate in [ 0.0, inf )")
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, inf)")
         self._rate = rate
 
     def __init__(self, rate: float, order: int = 1) -> None:
         """Initialize.
 
-        Arguments :
-            rate : float - ratio of effective frequency in [ 0.0, inf ).
-            order : int - in ( 0, inf ).
+        Arguments:
+            rate: float - ratio of effective frequency in [0.0, inf).
+            order: int - in (0, inf).
         """
 
         if rate < 0.0:
-            raise ValueError(f"Rate = {rate} Expected Rate in [ 0.0, inf )")
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, inf)")
         if order <= 0:
-            raise ValueError(f"Order = {order} Expected Order in ( 0, inf )")
+            raise ValueError(f"Order = {order} Expected Order in (0, inf)")
         super().__init__()
         self._order = order
         self._rate = rate
@@ -92,11 +92,11 @@ class PolynomialRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -106,14 +106,9 @@ class PolynomialRateFilter(object):
         cc = len(x)
         jj = int(numpy.round(cc * self.rate))
         if self.order == 1:
-            x = numpy.concatenate((x, [2.0 * x[-1] - x[-2]]))  # type: ignore
+            x = numpy.concatenate((x, [2.0 * x[-1] - x[-2]]))
             u = numpy.linspace(0, len(x) - 1, len(x))
-            v = (
-                numpy.linspace(
-                    0, int(len(x) * self.rate + 0.5) - 1, int(len(x) * self.rate + 0.5)
-                )
-                / self.rate
-            )
+            v = numpy.linspace(0, int(len(x) * self.rate + 0.5) - 1, int(len(x) * self.rate + 0.5)) / self.rate
             y = numpy.interp(x=v, xp=u, fp=x)
         else:
             y = numpy.zeros(jj)
@@ -123,7 +118,7 @@ class PolynomialRateFilter(object):
                     x,
                     [2.0 * x[-1] - x[-2], 3.0 * x[-1] - 2.0 * x[-2]],
                 )
-            )  # type: ignore
+            )
             u, v = numpy.linspace(-1.0, 2.0, 4), 1.0 / self.rate
             ii, jj = 0, 0
             index = 0.0

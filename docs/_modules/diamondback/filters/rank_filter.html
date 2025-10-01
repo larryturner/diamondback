@@ -89,10 +89,10 @@
 <span class="sd">        from diamondback import RankFilter</span>
 <span class="sd">        import numpy</span>
 
-<span class="sd">        rank_filter = RankFilter( rank = 4, order = 4 )</span>
-<span class="sd">        x = numpy.concatenate( ( numpy.ones( 1 ), numpy.zeros( 10 ), numpy.ones( 4 ), numpy.zeros( 2 ), numpy.ones( 5 ), numpy.zeros( 6 ) ) )</span>
-<span class="sd">        rank_filter.reset( x[ 0 ] )</span>
-<span class="sd">        y = rank_filter.filter( x )</span>
+<span class="sd">        rank_filter = RankFilter(rank = 4, order = 4)</span>
+<span class="sd">        x = numpy.concatenate((numpy.ones(1), numpy.zeros(10), numpy.ones(4), numpy.zeros(2), numpy.ones(5), numpy.zeros(6)))</span>
+<span class="sd">        rank_filter.reset(x[0])</span>
+<span class="sd">        y = rank_filter.filter(x)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
@@ -118,23 +118,19 @@
     <span class="nd">@index</span><span class="o">.</span><span class="n">setter</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
         <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> Expected Index in [ 0, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2"> ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> Expected Index in [0, </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">s</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            index : int - in [ 0, order ].</span>
-<span class="sd">            order : int.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            index: int - in [0, order].</span>
+<span class="sd">            order: int.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="p">(</span><span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">index</span> <span class="o">&gt;</span> <span class="n">order</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Index in [ 0, </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> ]&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Index = </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Index in [0, </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">b</span><span class="o">=</span><span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_index</span> <span class="o">=</span> <span class="n">index</span>
 
@@ -143,11 +139,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Filters an incident signal and produces a reference signal.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : list | numpy.ndarray - incident signal.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - reference signal.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - reference signal.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>

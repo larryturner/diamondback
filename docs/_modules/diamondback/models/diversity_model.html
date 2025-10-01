@@ -87,30 +87,30 @@
 <span class="sd">    A state array of a specified order is defined.  A stationary dimension is</span>
 <span class="sd">    inferred.  A style and order are specified.</span>
 
-<span class="sd">    Style is in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
+<span class="sd">    Style is (&quot;Chebyshev&quot;, &quot;Euclidean&quot;, &quot;Geometric&quot;, &quot;Manhattan&quot;).</span>
 
-<span class="sd">    * | &#39;Chebyshev&#39; distance is an L-infinity norm, a maximum absolute difference</span>
+<span class="sd">    * | &quot;Chebyshev&quot; distance is an L-infinity norm, a maximum absolute difference</span>
 <span class="sd">      | in any dimension.</span>
 
 <span class="sd">    .. math::</span>
 
 <span class="sd">        d_{u,v} = \\max(\\ |\\ \\vec{x_{u}} - \\vec{x_{v}}\\ |\\ )</span>
 
-<span class="sd">    * | &#39;Euclidean&#39; distance is an L-2 norm, a square root of a sum of squared</span>
+<span class="sd">    * | &quot;Euclidean&quot; distance is an L-2 norm, a square root of a sum of squared</span>
 <span class="sd">      | differences in each dimension.</span>
 
 <span class="sd">    .. math::</span>
 
 <span class="sd">        d_{u,v} = \\matrix{\\sum_{i=0}^{N}(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ )^2|}^{0.5}</span>
 
-<span class="sd">    * | &#39;Geometric&#39; distance is a ordered root of a product of absolute differences</span>
+<span class="sd">    * | &quot;Geometric&quot; distance is a ordered root of a product of absolute differences</span>
 <span class="sd">      | in each dimension.</span>
 
 <span class="sd">    .. math::</span>
 
 <span class="sd">        d_{u,v} = \\prod_{i=0}^{N}{(\\ |\\ \\vec{x_{u,i}} - \\vec{x_{v,i}}\\ |\\ )}^{\\frac{1}{N}}</span>
 
-<span class="sd">    * | &#39;Manhattan&#39; distance is an L-1 norm, a sum of absolute differences in each</span>
+<span class="sd">    * | &quot;Manhattan&quot; distance is an L-1 norm, a sum of absolute differences in each</span>
 <span class="sd">      | dimension.</span>
 
 <span class="sd">    .. math::</span>
@@ -123,9 +123,9 @@
 
 <span class="sd">        from diamondback import DiversityModel</span>
 
-<span class="sd">        diversity_model = DiversityModel( style = &#39;Euclidean&#39;, order = 4 )</span>
-<span class="sd">        x = numpy.random.rand( 32, 2 )</span>
-<span class="sd">        y = diversity_model.learn( x )</span>
+<span class="sd">        diversity_model = DiversityModel(style = &quot;Euclidean&quot;, order = 4)</span>
+<span class="sd">        x = numpy.random.rand(32, 2)</span>
+<span class="sd">        y = diversity_model.learn(x)</span>
 <span class="sd">        s = diversity_model.s</span>
 
 <span class="sd">**License**</span>
@@ -136,6 +136,7 @@
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 
 
@@ -144,13 +145,13 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">DiversityModel</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Diversity model.&quot;&quot;&quot;</span>
 
-    <span class="n">DISTANCE</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+    <span class="n">DISTANCE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Callable</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
         <span class="n">Chebyshev</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)),</span>
         <span class="n">Euclidean</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">sum</span><span class="p">((</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">,</span>
         <span class="n">Geometric</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">numpy</span><span class="o">.</span><span class="n">prod</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">))</span> <span class="o">**</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)),</span>
         <span class="n">Manhattan</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">y</span><span class="p">)),</span>
     <span class="p">)</span>
-    <span class="n">STYLE</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">DISTANCE</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+    <span class="n">STYLE</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">DISTANCE</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">s</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -163,18 +164,16 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            style : str - in ( &#39;Chebyshev&#39;, &#39;Euclidean&#39;, &#39;Geometric&#39;, &#39;Manhattan&#39; ).</span>
-<span class="sd">            order : int.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            style: str - in (&quot;Chebyshev&quot;, &quot;Euclidean&quot;, &quot;Geometric&quot;, &quot;Manhattan&quot;).</span>
+<span class="sd">            order: int.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">style</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">STYLE</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2"> Expected Style in </span><span class="si">{</span><span class="n">DiversityModel</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2"> Expected Style in </span><span class="si">{</span><span class="n">DiversityModel</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Order in [ 0, inf )&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Order in [0, inf)&quot;</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_distance</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="o">.</span><span class="n">DISTANCE</span><span class="p">[</span><span class="n">style</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_diversity</span> <span class="o">=</span> <span class="mf">0.0</span>
@@ -194,11 +193,11 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">learn</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Learns an incident signal and produces a reference signal.</span>
 
-<span class="sd">        Arguments :</span>
-<span class="sd">            x : list | numpy.ndarray - incident signal.</span>
+<span class="sd">        Arguments:</span>
+<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
 
-<span class="sd">        Returns :</span>
-<span class="sd">            y : numpy.ndarray - diversity.</span>
+<span class="sd">        Returns:</span>
+<span class="sd">            y: numpy.ndarray - diversity.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>

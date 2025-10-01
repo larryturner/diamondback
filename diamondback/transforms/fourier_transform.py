@@ -35,10 +35,10 @@
         from diamondback import ComplexExponentialFilter, FourierTransform
         import numpy
 
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.linspace( 0.12, 0.23, 128 ) ) * numpy.random.rand( 1 )[ 0 ]
-        b = WindowFilter( 'Hann', len( x ) - 1 ).b
-        y, f = FourierTransform.transform( x, b = b, inverse = False )
-        z = FourierTransform.transform( y, b = b, inverse = True )[ 0 ]
+        x = ComplexExponentialFilter(0.0).filter(numpy.linspace(0.12, 0.23, 128)) * numpy.random.rand(1)[0]
+        b = WindowFilter("Hann", len(x) - 1).b
+        y, f = FourierTransform.transform(x, b = b, inverse = False)
+        z = FourierTransform.transform(y, b = b, inverse = True )[0]
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -64,14 +64,14 @@ class FourierTransform(object):
         condition.  Forward transform indices define normalized frequency.
         Inverse transform indices define an integral sequence.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            b : list | numpy.ndarray - forward coefficient.
-            inverse : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            b: list | numpy.ndarray - forward coefficient.
+            inverse: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
-            f : numpy.ndarray - frequency normalized to Nyquist in [ -1.0, 1.0 ).
+        Returns:
+            y: numpy.ndarray - reference signal.
+            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
         """
 
         if not isinstance(x, numpy.ndarray):

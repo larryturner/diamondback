@@ -61,10 +61,10 @@
         import math
         import numpy
 
-        polyphase_rate_filter = PolyphaseRateFilter( rate = 1.0 / math.pi )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 128 ) * 0.1 ).real
-        polyphase_rate_filter.reset( x[ 0 ] )
-        y = polyphase_rate_filter.filter( x )
+        polyphase_rate_filter = PolyphaseRateFilter(rate = 1.0 / math.pi)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(128) * 0.1).real
+        polyphase_rate_filter.reset(x[0])
+        y = polyphase_rate_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -81,7 +81,7 @@ import numpy
 class PolyphaseRateFilter(object):
     """Polyphase rate filter."""
 
-    B = numpy.zeros((256, 15))
+    B: numpy.ndarray = numpy.zeros((256, 15))
 
     @property
     def b(self):
@@ -94,9 +94,7 @@ class PolyphaseRateFilter(object):
     @rate.setter
     def rate(self, rate: float):
         if (rate < 0.0) or (rate > PolyphaseRateFilter.B.shape[0]):
-            raise ValueError(
-                f"Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[0]} ]"
-            )
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, {PolyphaseRateFilter.B.shape[0]}]")
         if not numpy.isclose(self.rate, rate):
             self._index = 0.0
         self._rate = rate
@@ -112,14 +110,12 @@ class PolyphaseRateFilter(object):
     def __init__(self, rate: float) -> None:
         """Initialize.
 
-        Arguments :
-            rate : float - ratio of effective frequency in ( 0.0, b.shape[ 0 ] ].
+        Arguments:
+            rate: float - ratio of effective frequency in (0.0, b.shape[0]].
         """
 
         if (rate < 0.0) or (rate > PolyphaseRateFilter.B.shape[0]):
-            raise ValueError(
-                f"Rate = {rate} Expected Rate in [ 0.0, {PolyphaseRateFilter.B.shape[0]} ]"
-            )
+            raise ValueError(f"Rate = {rate} Expected Rate in [0.0, {PolyphaseRateFilter.B.shape[0]}]")
         super().__init__()
         b = PolyphaseRateFilter.B
         rr, cc = b.shape
@@ -136,11 +132,11 @@ class PolyphaseRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -169,8 +165,8 @@ class PolyphaseRateFilter(object):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments :
-            x : float - incident signal.
+        Arguments:
+            x: float - incident signal.
         """
 
         if not numpy.isscalar(x):

@@ -46,15 +46,15 @@
     to satisfy specified constraints.  A style and order are
     specified.
 
-    Style is in ( 'Coiflet', 'Daubechies', 'Haar', 'Symmlet' ).
+    Style is in ("Coiflet", "Daubechies", "Haar", "Symmlet").
 
-    * | 'Coiflet' is asymmetric, very high quality, with order in [ 5 : 29 : 6 ].
+    * | "Coiflet" is asymmetric, very high quality, with order in [5 : 29 : 6].
 
-    * | 'Daubechies' is asymmetric, high quality, with order in [ 3 : 19 : 2 ].
+    * | "Daubechies" is asymmetric, high quality, with order in [3 : 19 : 2].
 
-    * | 'Haar' is symmetric, perfect reconstruction, with order in [ 1 ].
+    * | "Haar" is symmetric, perfect reconstruction, with order in [1].
 
-    * | 'Symmlet' is nearly symmetric, high quality, with order in [ 7 : 19 : 2 ].
+    * | "Symmlet" is nearly symmetric, high quality, with order in [7 : 19 : 2].
 
 **Example**
 
@@ -63,11 +63,11 @@
         from diamondback import WaveletTransform
         import numpy
 
-        wavelet_transform = WaveletTransform( style = 'Haar', order = 1 )
+        wavelet_transform = WaveletTransform(style = "Haar", order = 1)
         count = 3
-        x = numpy.random.rand( 2**( count + 3 ), 2**( count + 3 ) )
-        y = wavelet_transform.transform( x, count, False )
-        z = wavelet_transform.transform( y, count, True )
+        x = numpy.random.rand(2**(count + 3), 2**(count + 3))
+        y = wavelet_transform.transform(x, count, False)
+        z = wavelet_transform.transform(y, count, True)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -84,7 +84,7 @@ import numpy
 class WaveletTransform(object):
     """Wavelet transform."""
 
-    B = dict(
+    B: dict[str, dict[int, numpy.ndarray]] = dict(
         Coiflet={
             5: numpy.array(
                 [
@@ -473,7 +473,7 @@ class WaveletTransform(object):
             ),
         },
     )
-    STYLE = tuple(B.keys())
+    STYLE: tuple[str, ...] = tuple(B.keys())
 
     @property
     def b(self):
@@ -482,20 +482,16 @@ class WaveletTransform(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments :
-            style : str - in ( 'Coiflet', 'Daubechies', 'Haar', 'Symmlet' ).
-            order : int.
+        Arguments:
+            style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet").
+            order: int.
         """
 
         style = style.title()
         if style not in WaveletTransform.B:
-            raise ValueError(
-                f"style = {style} Expected Style in {WaveletTransform.STYLE}"
-            )
+            raise ValueError(f"style = {style} Expected Style in {WaveletTransform.STYLE}")
         if order not in WaveletTransform.B[style]:
-            raise ValueError(
-                f"Order = {order} Expected Order in {tuple(WaveletTransform.B[style].keys())}"
-            )
+            raise ValueError(f"Order = {order} Expected Order in {tuple(WaveletTransform.B[style].keys())}")
         super().__init__()
         b = WaveletTransform.B[style][order]
         n = len(b) - 1
@@ -512,21 +508,19 @@ class WaveletTransform(object):
             if n != 1:
                 self._b[kk][1][:] = numpy.flip(self._b[kk][1], 0)
 
-    def transform(
-        self, x: list | numpy.ndarray, count: int, inverse: bool = False
-    ) -> numpy.ndarray:
+    def transform(self, x: list | numpy.ndarray, count: int, inverse: bool = False) -> numpy.ndarray:
         """Transforms an incident signal and produces a reference signal,
         performing analysis or synthesis operations.  Incident and reference
         signals have two dimensions.  Dimension lengths must be unity or
         an integral multiple of 2**count.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
-            count : int.
-            inverse : bool.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
+            count: int.
+            inverse: bool.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -536,13 +530,9 @@ class WaveletTransform(object):
         v = numpy.array(x) if (len(x.shape) == 2) else numpy.array([x])
         rows, cols = v.shape
         if count <= 0:
-            raise ValueError(f"Count = {count} Expected Count in ( 0, inf )")
-        if ((rows != 1) and (rows % (2**count))) or (
-            (cols != 1) and (cols % (2**count))
-        ):
-            raise ValueError(
-                f"Rows = {rows} Columns = {cols} Expected Rows % {2**count} and Columns % {2**count}"
-            )
+            raise ValueError(f"Count = {count} Expected Count in (0, inf)")
+        if ((rows != 1) and (rows % (2**count))) or ((cols != 1) and (cols % (2**count))):
+            raise ValueError(f"Rows = {rows} Columns = {cols} Expected Rows % {2**count} and Columns % {2**count}")
         rr = max((rows // (2**count)) * (2**count), 1)
         cc = max((cols // (2**count)) * (2**count), 1)
         y = numpy.array(v)

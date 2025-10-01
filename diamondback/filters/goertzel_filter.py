@@ -39,11 +39,11 @@
         from diamondback import ComplexExponentialFilter, GoertzelFilter
         import numpy
 
-        b = WindowFilter( 'Hann', 128 ).b
+        b = WindowFilter("Hann", 128).b
         frequency = 0.1
-        goertzel_filter = GoertzelFilter( b = b, frequency = frequency )
-        x = ComplexExponentialFilter( 0.0 ).filter( numpy.ones( 1024 ) * frequency ) * numpy.random.rand( 1 )[ 0 ]
-        y = goertzel_filter.filter( x )
+        goertzel_filter = GoertzelFilter(b = b, frequency = frequency)
+        x = ComplexExponentialFilter(0.0).filter(numpy.ones(1024) * frequency) * numpy.random.rand(1)[0]
+        y = goertzel_filter.filter(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
@@ -68,17 +68,15 @@ class GoertzelFilter(IirFilter):
     @frequency.setter
     def frequency(self, frequency: float):
         if (frequency < -1.0) or (frequency > 1.0):
-            raise ValueError(
-                f"Frequency = {frequency} Expected Frequency in [ 1.0, 1.0 ]"
-            )
+            raise ValueError(f"Frequency = {frequency} Expected Frequency in [1.0, 1.0]")
         self._frequency = frequency
 
     def __init__(self, b: list | numpy.ndarray, frequency: float) -> None:
         """Initialize.
 
-        Arguments :
-            b : list | numpy.ndarray - forward coefficient.
-            frequency : float - frequency normalized to Nyquist in [ -1.0, 1.0 ].
+        Arguments:
+            b: list | numpy.ndarray - forward coefficient.
+            frequency: float - frequency normalized to Nyquist in [-1.0, 1.0].
         """
 
         if not isinstance(b, numpy.ndarray):
@@ -86,9 +84,7 @@ class GoertzelFilter(IirFilter):
         if (not len(b)) or (numpy.isclose(b, 0.0).all()):
             raise ValueError(f"B = {b}")
         if (frequency < -1.0) or (frequency > 1.0):
-            raise ValueError(
-                f"Frequency = {frequency} Expected Frequency in [ 1.0, 1.0 ]"
-            )
+            raise ValueError(f"Frequency = {frequency} Expected Frequency in [1.0, 1.0]")
         u = numpy.array([0.0, 2.0 * math.cos(math.pi * frequency), -1.0])
         v = numpy.array([1.0, -numpy.exp(-1j * math.pi * frequency), 0.0])
         super().__init__(a=u, b=v)
@@ -99,11 +95,11 @@ class GoertzelFilter(IirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments :
-            x : list | numpy.ndarray - incident signal.
+        Arguments:
+            x: list | numpy.ndarray - incident signal.
 
-        Returns :
-            y : numpy.ndarray - reference signal.
+        Returns:
+            y: numpy.ndarray - reference signal.
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -122,5 +118,5 @@ class GoertzelFilter(IirFilter):
                 self._index = 0
                 jj += 1
         if jj != len(y):
-            y = y[:jj]  # type: ignore
+            y = y[:jj]
         return y

@@ -11,30 +11,31 @@
 
 # isort: skip_file
 
-from .commons import Log, RestClient, Serial
-from .filters import (
+from diamondback.commons import Log, RestClient, Serial
+from diamondback.filters import (
     FirFilter,
     IirFilter,
     ComplexBandpassFilter,
     ComplexExponentialFilter,
-)
-from .filters import (
     ComplexFrequencyFilter,
     DerivativeFilter,
     GoertzelFilter,
     IntegralFilter,
+    PidFilter,
+    PolynomialRateFilter,
+    PolyphaseRateFilter,
+    RankFilter,
+    WindowFilter,
 )
-from .filters import PidFilter, PolynomialRateFilter, PolyphaseRateFilter, RankFilter
-from .filters import WindowFilter
-from .models import DiversityModel, GaussianModel, GaussianMixtureModel
-from .transforms import (
+from diamondback.models import DiversityModel, GaussianModel, GaussianMixtureModel
+from diamondback.transforms import (
     ComplexTransform,
     FourierTransform,
     PsdTransform,
     WaveletTransform,
+    ZTransform,
 )
-from .transforms import ZTransform
-from importlib import metadata
+from importlib.metadata import version
 
 __all__ = [
     "Log",
@@ -63,4 +64,4 @@ __all__ = [
     "ZTransform",
 ]
 
-__version__ = metadata.version("diamondback")
+__version__ = version("diamondback")

@@ -1,6 +1,13 @@
+5.1.12 - 2025-09-30
+^^^^^^^^^^^^^^^^^^^
+- Modify scipy imports to reduce latency.
+- Modify FirFilter and IirFilter evaluate to improve coefficient accuracy.
+- Modify nox dependencies session and replace requests with urllib.
+- Modify tests.
+
 5.1.11 - 2025-07-14
 ^^^^^^^^^^^^^^^^^^^
-- Add nox format.
+- Add nox format session.
 - Modify requirements.
 
 5.1.10 - 2025-06-04
@@ -9,7 +16,7 @@
 
 5.1.9 - 2025-04-03
 ^^^^^^^^^^^^^^^^^^
-- Modify nox build, dependency, and test, and remove image sessions.
+- Modify nox build, dependencies, and tests sessions, and remove image session.
 - Modify documentation.
 - Modify requirements.
 
@@ -19,12 +26,12 @@
 
 5.1.4 - 2025-01-08
 ^^^^^^^^^^^^^^^^^^
-- Modify dependency generation which does not yet support Python 3.13.
+- Modify nox dependencies session as pydeps does not yet support Python 3.13.
 - Modify requirements.
 
 5.1.2 - 2025-01-07
 ^^^^^^^^^^^^^^^^^^
-- Refactor and simplify typing declarations.
+- Simplify typing declarations.
 - Remove support for Python 3.9.
 - Add support for Python 3.13.
 
