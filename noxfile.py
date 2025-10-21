@@ -57,7 +57,7 @@ nox.options.sessions = [
     "docs",
 ]
 
-PYTHON_LIST = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON_LIST = nox.project.python_versions(nox.project.load_toml("pyproject.toml"), max_version="3.13")
 PYTHON = PYTHON_LIST[-1]
 REPOSITORY = pathlib.Path.cwd().name
 SOURCE = REPOSITORY.split("-")[0]
