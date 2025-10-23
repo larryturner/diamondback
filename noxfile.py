@@ -48,16 +48,16 @@ import urllib.request
 from nox import Session
 
 nox.options.sessions = [
+    "build",
     "format",
     "typing",
     "lint",
     "dependencies",
-    "build",
     "tests",
     "docs",
 ]
 
-PYTHON_LIST = ["3.10", "3.11", "3.12", "3.13"]
+PYTHON_LIST = nox.project.python_versions(nox.project.load_toml("pyproject.toml"), max_version="3.13")
 PYTHON = PYTHON_LIST[-1]
 REPOSITORY = pathlib.Path.cwd().name
 SOURCE = REPOSITORY.split("-")[0]
@@ -65,7 +65,7 @@ if not pathlib.Path(SOURCE).is_dir():
     SOURCE = "."
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def build(session: Session) -> None:
     """Build."""
 
@@ -94,7 +94,7 @@ def clean(session: Session) -> None:
         shutil.rmtree(x, ignore_errors=True)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def dependencies(session: Session) -> None:
     """Dependencies."""
 
@@ -135,7 +135,7 @@ def dependencies(session: Session) -> None:
                 fout.write(x)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def docs(session: Session) -> None:
     """Documentation."""
 
@@ -170,7 +170,7 @@ def docs(session: Session) -> None:
         )
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def format(session: Session):
     """Format."""
 
@@ -178,7 +178,7 @@ def format(session: Session):
     session.run("ruff", "format", ".", "--check")
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def lint(session: Session) -> None:
     """Lint."""
 
@@ -219,7 +219,7 @@ def tag(session: Session) -> None:
             session.run("git", "push", "--force", "--tags", external=True)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(venv_backend="virtualenv", python=PYTHON_LIST)
 def tests(session: Session) -> None:
     """Tests."""
 
@@ -231,7 +231,7 @@ def tests(session: Session) -> None:
             shutil.rmtree(".pytest_cache", ignore_errors=True)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON[-1])
+@nox.session(venv_backend="virtualenv", python=PYTHON)
 def typing(session: Session) -> None:
     """Typing."""
 
