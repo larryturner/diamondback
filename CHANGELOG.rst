@@ -1,3 +1,9 @@
+5.2.0 - Proposed
+^^^^^^^^^^^^^^^^
+- Remove support for Python 3.10.
+- Add support for Python 3.14.
+- Modify documentation.
+
 5.1.12 - 2025-09-30
 ^^^^^^^^^^^^^^^^^^^
 - Modify scipy imports to reduce latency.
