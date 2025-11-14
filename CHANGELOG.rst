@@ -1,5 +1,5 @@
-5.2.0 - Proposed
-^^^^^^^^^^^^^^^^
+5.2.0 - 2025-11-14
+^^^^^^^^^^^^^^^^^^
 - Remove support for Python 3.10.
 - Add support for Python 3.14.
 - Modify documentation.
