@@ -101,7 +101,7 @@ def dependencies(session: Session) -> None:
     session.install(".[dependencies]")
     (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
     path = pathlib.Path.cwd() / "docs" / "dependencies"
-    with open(path.with_suffix(".dot"), "w") as fout:
+    with path.with_suffix(".dot").open("w") as fout:
         session.run(
             "pydeps",
             SOURCE,
@@ -113,8 +113,8 @@ def dependencies(session: Session) -> None:
             "--show-dot",
             stdout=fout,
         )
-        with open(path.with_suffix(".dot"), "r") as fin:
-            with open(path.with_suffix(".svg"), "w") as fout:
+        with path.with_suffix(".dot").open("r") as fin:
+            with path.with_suffix(".svg").open("w") as fout:
                 x = fin.read().strip()
                 if "digraph" not in x:
                     raise ValueError(f"X = {x}")
@@ -151,14 +151,14 @@ def docs(session: Session) -> None:
             "tests",
         )
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "*.rst")):
-            with open(x, "r") as fin:
+            with pathlib.Path(x).open("r") as fin:
                 y = fin.read().replace("   :members:", "   :members:\n   :noindex:")
-            with open(x, "w") as fout:
+            with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "modules.rst")):
-            with open(x, "r") as fin:
+            with pathlib.Path(x).open("r") as fin:
                 y = fin.read().replace("noxfile", "").replace("setup", "")
-            with open(x, "w") as fout:
+            with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
         for x in ("noxfile.rst", "setup.rst"):
             if (pathlib.Path.cwd() / "templates" / x).is_file():

@@ -14,7 +14,7 @@ import pathlib
 # Project.
 
 author = "Larry Turner"
-with open(str(pathlib.Path(pathlib.Path.cwd().parent / "LICENSE")), "r") as fin:
+with (pathlib.Path.cwd().parent / "LICENSE").open("r", encoding="utf-8") as fin:
     copyright = fin.readline()[1:-2]
 project = pathlib.Path.cwd().parent.name
 title = "diamondback Digital Signal Processing (DSP)"

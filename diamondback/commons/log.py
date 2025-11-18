@@ -60,7 +60,7 @@
 
             # File.
 
-            with open("log-2112.txt", "w") as fout:
+            with open("log.txt", "w") as fout:
                 Log.stream(fout)
                 x = numpy.random.rand(2, 2)
                 Log.write("Warning", f"X = {x}")
