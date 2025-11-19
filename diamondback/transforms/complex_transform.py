@@ -53,6 +53,7 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
+from typing import ClassVar
 import math
 import numpy
 
@@ -60,10 +61,10 @@ import numpy
 class ComplexTransform(object):
     """Complex transform."""
 
-    COEFFICIENT: numpy.ndarray = (2.0 / 3.0) * numpy.array(
+    COEFFICIENT: ClassVar[numpy.ndarray] = (2.0 / 3.0) * numpy.array(
         [[1.0, -0.5, -0.5], [0.0, 0.5 * (3.0**0.5), -0.5 * (3.0**0.5)], [1.0, 1.0, 1.0]]
     )
-    GAIN: complex = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
+    GAIN: ClassVar[complex] = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
 
     @classmethod
     def transform(cls, x: list | numpy.ndarray, neutral: bool = True) -> numpy.ndarray:

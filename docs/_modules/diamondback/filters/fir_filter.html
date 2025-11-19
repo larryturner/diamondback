@@ -161,6 +161,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">firwin</span><span class="p">,</span> <span class="n">freqz</span><span class="p">,</span> <span class="n">group_delay</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
@@ -171,7 +172,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">FirFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Finite Impulse Response (FIR) filter.&quot;&quot;&quot;</span>
 
-    <span class="n">STYLE</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Blackman&quot;</span><span class="p">,</span> <span class="s2">&quot;Hamming&quot;</span><span class="p">,</span> <span class="s2">&quot;Hann&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">)</span>
+    <span class="n">STYLE</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Blackman&quot;</span><span class="p">,</span> <span class="s2">&quot;Hamming&quot;</span><span class="p">,</span> <span class="s2">&quot;Hann&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -397,7 +398,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

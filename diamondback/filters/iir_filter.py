@@ -95,6 +95,7 @@
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
 from scipy.signal import freqz, group_delay
+from typing import ClassVar
 import math
 import numpy
 import warnings
@@ -103,7 +104,7 @@ import warnings
 class IirFilter(FirFilter):
     """Infinite Impulse Response (IIR) filter."""
 
-    STYLE: tuple[str, ...] = ("Bessel", "Butterworth", "Chebyshev")
+    STYLE: ClassVar[tuple[str, ...]] = ("Bessel", "Butterworth", "Chebyshev")
 
     @property
     def a(self):

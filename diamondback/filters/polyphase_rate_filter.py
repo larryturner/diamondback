@@ -75,13 +75,14 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
 import numpy
 
 
 class PolyphaseRateFilter(object):
     """Polyphase rate filter."""
 
-    B: numpy.ndarray = numpy.zeros((256, 15))
+    B: ClassVar[numpy.ndarray] = numpy.zeros((256, 15))
 
     @property
     def b(self):

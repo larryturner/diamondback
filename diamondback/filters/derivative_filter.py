@@ -91,13 +91,14 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
 import numpy
 
 
 class DerivativeFilter(FirFilter):
     """Derivative filter."""
 
-    B: dict[int, dict[int, numpy.ndarray]] = {
+    B: ClassVar[dict[int, dict[int, numpy.ndarray]]] = {
         1: {
             1: numpy.array([1.0, -1.0]),
             2: numpy.array([1.0, 0.0, -1.0]) * (1.0 / 2.0),

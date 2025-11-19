@@ -68,20 +68,20 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Callable
+from typing import Callable, ClassVar
 import numpy
 
 
 class DiversityModel(object):
     """Diversity model."""
 
-    DISTANCE: dict[str, Callable] = dict(
+    DISTANCE: ClassVar[dict[str, Callable]] = dict(
         Chebyshev=lambda x, y: max(abs(x - y)),
         Euclidean=lambda x, y: sum((x - y) ** 2) ** 0.5,
         Geometric=lambda x, y: numpy.prod(abs(x - y)) ** (1.0 / len(x)),
         Manhattan=lambda x, y: sum(abs(x - y)),
     )
-    STYLE: tuple[str, ...] = tuple(DISTANCE.keys())
+    STYLE: ClassVar[tuple[str, ...]] = tuple(DISTANCE.keys())
 
     @property
     def s(self):

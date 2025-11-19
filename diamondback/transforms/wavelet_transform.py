@@ -78,13 +78,14 @@
 """
 
 from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
 import numpy
 
 
 class WaveletTransform(object):
     """Wavelet transform."""
 
-    B: dict[str, dict[int, numpy.ndarray]] = dict(
+    B: ClassVar[dict[str, dict[int, numpy.ndarray]]] = dict(
         Coiflet={
             5: numpy.array(
                 [
@@ -473,7 +474,7 @@ class WaveletTransform(object):
             ),
         },
     )
-    STYLE: tuple[str, ...] = tuple(B.keys())
+    STYLE: ClassVar[tuple[str, ...]] = tuple(B.keys())
 
     @property
     def b(self):

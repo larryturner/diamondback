@@ -70,13 +70,14 @@
 """
 
 from diamondback.filters.iir_filter import IirFilter
+from typing import ClassVar
 import numpy
 
 
 class IntegralFilter(IirFilter):
     """Integral filter."""
 
-    B: dict[int, numpy.ndarray] = {
+    B: ClassVar[dict[int, numpy.ndarray]] = {
         0: numpy.array([1.0]),
         1: numpy.array([1.0, 1.0]) * (1.0 / 2.0),
         2: numpy.array([1.0, 4.0, 1.0]) * (1.0 / 6.0),

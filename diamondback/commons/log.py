@@ -77,7 +77,7 @@
 
 from loguru import logger
 from threading import RLock
-from typing import Any
+from typing import Any, ClassVar
 import contextlib
 import numpy
 import os
@@ -89,11 +89,11 @@ class Log(object):
 
     numpy.set_printoptions(formatter=dict(float="{:.6f}".format))
 
-    LEVEL: tuple[str, ...] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
+    LEVEL: ClassVar[tuple[str, ...]] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
 
-    _identity = 0
-    _level = logger.level("Info".upper())
-    _rlock = RLock()
+    _identity: ClassVar[int] = 0
+    _level: ClassVar[Any] = logger.level("Info".upper())
+    _rlock: ClassVar[RLock] = RLock()
 
     @classmethod
     def level(cls, level: str) -> None:

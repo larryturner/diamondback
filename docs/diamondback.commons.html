@@ -139,7 +139,7 @@ assignment, though loguru uses upper case.</p>
 
     <span class="c1"># File.</span>
 
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;log-2112.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;log.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fout</span><span class="p">:</span>
         <span class="n">Log</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">fout</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">Log</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;Warning&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -162,7 +162,7 @@ assignment, though loguru uses upper case.</p>
 <p>Log.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -253,7 +253,7 @@ or binary data is returned.</p>
 <p>Initialize.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -463,7 +463,7 @@ to UTF-8 is required.</p>
 <p>Log.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
+<span class="sig-name descname"><span class="pre">LEVEL</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Critical',</span> <span class="pre">'Error',</span> <span class="pre">'Warning',</span> <span class="pre">'Success',</span> <span class="pre">'Info',</span> <span class="pre">'Debug',</span> <span class="pre">'Trace')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -513,7 +513,7 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <p>Initialize.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
+<span class="sig-name descname"><span class="pre">METHOD</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Delete',</span> <span class="pre">'Get',</span> <span class="pre">'Head',</span> <span class="pre">'Options',</span> <span class="pre">'Patch',</span> <span class="pre">'Post',</span> <span class="pre">'Put')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py property">
@@ -653,7 +653,7 @@ to UTF-8 is required.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

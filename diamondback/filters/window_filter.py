@@ -51,13 +51,14 @@
 """
 
 from scipy.signal import get_window
+from typing import ClassVar
 import numpy
 
 
 class WindowFilter(object):
     """Window filter."""
 
-    STYLE: tuple[str, ...] = ("Blackman", "Hamming", "Hann", "Kaiser")
+    STYLE: ClassVar[tuple[str, ...]] = ("Blackman", "Hamming", "Hann", "Kaiser")
 
     @property
     def b(self):

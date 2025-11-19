@@ -38,14 +38,14 @@
     Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any
+from typing import Any, ClassVar
 import requests
 
 
 class RestClient(object):
     """REST client."""
 
-    METHOD: tuple[str, ...] = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
+    METHOD: ClassVar[tuple[str, ...]] = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
 
     @property
     def live(self):

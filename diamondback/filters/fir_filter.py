@@ -93,6 +93,7 @@
 """
 
 from scipy.signal import firwin, freqz, group_delay
+from typing import ClassVar
 import math
 import numpy
 import warnings
@@ -101,7 +102,7 @@ import warnings
 class FirFilter(object):
     """Finite Impulse Response (FIR) filter."""
 
-    STYLE: tuple[str, ...] = ("Blackman", "Hamming", "Hann", "Kaiser")
+    STYLE: ClassVar[tuple[str, ...]] = ("Blackman", "Hamming", "Hann", "Kaiser")
 
     @property
     def b(self):
