@@ -168,7 +168,7 @@ class FirFilter(object):
             else:
                 window = style.lower()  # type: ignore
             beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
-            index, rate, scale = 500 * (1 + (count > 2)), 2.5e-2, 1.0
+            index, rate, scale = 500 * (1 + (count > 2)), 3.0e-2, 1.0
             for _ in range(0, index):
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
@@ -187,7 +187,7 @@ class FirFilter(object):
                     e = (2.0 ** (-0.5)) - (abs(numpy.polyval(v, x)) ** count)
                     if abs(e) < error:
                         b, error = v, abs(e)
-                        if error < (10.0 * eps):
+                        if error < (100.0 * eps):
                             break
                     scale = numpy.maximum(scale + rate * math.tanh(beta * e), eps)
             if complement:

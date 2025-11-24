@@ -160,7 +160,7 @@ class IirFilter(FirFilter):
             if complement:
                 frequency = 1.0 - frequency
             beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
-            index, rate, scale = 500 * (1 + (count > 2)), 2.5e-2, 1.0
+            index, rate, scale = 500 * (1 + (count > 2)), 3.0e-2, 1.0
             a, b = numpy.ndarray((0)), numpy.ndarray((0))
             for _ in range(0, index):
                 u, v = IirFilter._evaluate(style, scale * frequency, order)
@@ -170,7 +170,7 @@ class IirFilter(FirFilter):
                 )  # type: ignore
                 if abs(e) < error:
                     a, b, error = u, v, abs(e)
-                    if error < (10.0 * eps):
+                    if error < (100.0 * eps):
                         break
                 scale = max(scale + rate * math.tanh(beta * e), eps)
             if complement:
