@@ -15,8 +15,9 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import DiversityModel, GaussianModel, GaussianMixtureModel
 import numpy
+
+from diamondback import DiversityModel, GaussianMixtureModel, GaussianModel
 
 
 class Test(object):

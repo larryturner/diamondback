@@ -53,9 +53,11 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-16.
 """
 
-from diamondback.filters.iir_filter import IirFilter
 import math
+
 import numpy
+
+from diamondback.filters.iir_filter import IirFilter
 
 
 class GoertzelFilter(IirFilter):

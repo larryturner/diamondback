@@ -62,14 +62,15 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-07-13.
 """
 
-from typing import Any
 import base64
 import gzip
 import hashlib
+import re
+from typing import Any
+
 import jsonpickle
 import jsonpickle.ext.numpy
 import jsonpickle.ext.pandas
-import re
 
 
 class Serial(object):

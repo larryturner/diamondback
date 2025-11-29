@@ -50,9 +50,10 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
-from scipy.signal import get_window
 from typing import ClassVar
+
 import numpy
+from scipy.signal import get_window
 
 
 class WindowFilter(object):

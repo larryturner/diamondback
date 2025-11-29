@@ -69,9 +69,11 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-06.
 """
 
-from diamondback.filters.iir_filter import IirFilter
 from typing import ClassVar
+
 import numpy
+
+from diamondback.filters.iir_filter import IirFilter
 
 
 class IntegralFilter(IirFilter):

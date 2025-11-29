@@ -15,16 +15,19 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import ComplexExponentialFilter, WindowFilter
+import math
+
+import numpy
+
 from diamondback import (
+    ComplexExponentialFilter,
     ComplexTransform,
     FourierTransform,
     PsdTransform,
     WaveletTransform,
+    WindowFilter,
+    ZTransform,
 )
-from diamondback import ZTransform
-import math
-import numpy
 
 
 class Test(object):

@@ -47,10 +47,11 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-31.
 """
 
+import numpy
+from scipy.signal import hilbert
+
 from diamondback.filters.complex_exponential_filter import ComplexExponentialFilter
 from diamondback.filters.fir_filter import FirFilter
-from scipy.signal import hilbert
-import numpy
 
 
 class ComplexBandpassFilter(FirFilter):

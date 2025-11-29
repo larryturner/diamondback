@@ -15,12 +15,13 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import IirFilter
-from diamondback import Log, RestClient, Serial
 import io
+import sys
+
 import numpy
 import pytest
-import sys
+
+from diamondback import IirFilter, Log, RestClient, Serial
 
 
 class Test(object):

@@ -92,13 +92,15 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
+import math
+import warnings
+from typing import ClassVar
+
+import numpy
+from scipy.signal import freqz, group_delay
+
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
-from scipy.signal import freqz, group_delay
-from typing import ClassVar
-import math
-import numpy
-import warnings
 
 
 class IirFilter(FirFilter):
@@ -159,8 +161,8 @@ class IirFilter(FirFilter):
                 raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
-            beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
-            index, rate, scale = 500 * (1 + (count > 2)), 3.0e-2, 1.0
+            eps, error = float(numpy.finfo(float).eps), numpy.inf
+            index, rate, scale = 500, 3.0e-2 * (1.0 - 0.5 * ((order > 8) or ((order > 6) and (count > 1)))), 1.0
             a, b = numpy.ndarray((0)), numpy.ndarray((0))
             for _ in range(0, index):
                 u, v = IirFilter._evaluate(style, scale * frequency, order)
@@ -170,9 +172,9 @@ class IirFilter(FirFilter):
                 )  # type: ignore
                 if abs(e) < error:
                     a, b, error = u, v, abs(e)
-                    if error < (100.0 * eps):
+                    if error < (10e3 * eps):
                         break
-                scale = max(scale + rate * math.tanh(beta * e), eps)
+                scale = max(scale + rate * e, eps)
             if complement:
                 a *= numpy.array([((-1.0) ** x) for x in range(0, len(a))])
                 b *= numpy.array([((-1.0) ** x) for x in range(0, len(b))])

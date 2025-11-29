@@ -25,6 +25,7 @@
 """
 
 from typing import Any
+
 import numpy
 
 

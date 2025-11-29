@@ -69,6 +69,7 @@
 """
 
 from typing import Callable, ClassVar
+
 import numpy
 
 

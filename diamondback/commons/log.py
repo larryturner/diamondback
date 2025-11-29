@@ -75,13 +75,14 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
-from loguru import logger
-from threading import RLock
-from typing import Any, ClassVar
 import contextlib
-import numpy
 import os
 import sys
+from threading import RLock
+from typing import Any, ClassVar
+
+import numpy
+from loguru import logger
 
 
 class Log(object):

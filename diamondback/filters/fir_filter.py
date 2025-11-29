@@ -92,11 +92,12 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
-from scipy.signal import firwin, freqz, group_delay
-from typing import ClassVar
 import math
-import numpy
 import warnings
+from typing import ClassVar
+
+import numpy
+from scipy.signal import firwin, freqz, group_delay
 
 
 class FirFilter(object):
@@ -167,8 +168,8 @@ class FirFilter(object):
                 window = (style.lower(), 7.0)
             else:
                 window = style.lower()  # type: ignore
-            beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
-            index, rate, scale = 500 * (1 + (count > 2)), 3.0e-2, 1.0
+            eps, error = float(numpy.finfo(float).eps), numpy.inf
+            index, rate, scale = 500, 3.0e-2, 1.0
             for _ in range(0, index):
                 with warnings.catch_warnings():
                     warnings.simplefilter("ignore")
@@ -187,9 +188,9 @@ class FirFilter(object):
                     e = (2.0 ** (-0.5)) - (abs(numpy.polyval(v, x)) ** count)
                     if abs(e) < error:
                         b, error = v, abs(e)
-                        if error < (100.0 * eps):
+                        if error < (10e3 * eps):
                             break
-                    scale = numpy.maximum(scale + rate * math.tanh(beta * e), eps)
+                    scale = numpy.maximum(scale + rate * e, eps)
             if complement:
                 b *= numpy.array([((-1.0) ** x) for x in range(0, len(b))])
                 b /= sum(b * numpy.array([((-1.0) ** x) for x in range(0, len(b))]))

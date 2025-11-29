@@ -49,10 +49,12 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-01.
 """
 
-from diamondback.filters.fir_filter import FirFilter
-from scipy.signal import hilbert
 import math
+
 import numpy
+from scipy.signal import hilbert
+
+from diamondback.filters.fir_filter import FirFilter
 
 
 class ComplexFrequencyFilter(FirFilter):

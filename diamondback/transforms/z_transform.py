@@ -53,9 +53,10 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
-from scipy.signal import residue
 import math
+
 import numpy
+from scipy.signal import residue
 
 
 class ZTransform(object):

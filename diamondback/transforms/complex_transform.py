@@ -53,8 +53,9 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
-from typing import ClassVar
 import math
+from typing import ClassVar
+
 import numpy
 
 

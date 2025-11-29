@@ -34,8 +34,9 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-01-31.
 """
 
-from diamondback.filters.fir_filter import FirFilter
 import numpy
+
+from diamondback.filters.fir_filter import FirFilter
 
 
 class RankFilter(FirFilter):

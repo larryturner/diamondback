@@ -34,13 +34,14 @@
 
 import glob
 import json
-import nox
 import os
 import pathlib
 import random
 import shutil
 import string
 import urllib.request
+
+import nox
 from nox import Session
 
 nox.options.sessions = [
@@ -171,6 +172,7 @@ def format(session: Session):
     """Format."""
 
     session.install(".[format]")
+    session.run("ruff", "check", ".", "--select", "I", "--fix")
     session.run("ruff", "format", ".", "--check")
 
 
