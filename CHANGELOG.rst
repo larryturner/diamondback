@@ -1,3 +1,8 @@
+5.2.1 - 2025-11-29
+^^^^^^^^^^^^^^^^^^
+- Modify FirFilter and IirFilter evaluate to improve efficiency.
+- Modify format.
+
 5.2.0 - 2025-11-14
 ^^^^^^^^^^^^^^^^^^
 - Remove support for Python 3.10.
