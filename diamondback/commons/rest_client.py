@@ -107,8 +107,8 @@ class RestClient(object):
         request, and a requests response containing JSON, text, or binary
         data is returned.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         method: str - in ("delete", "get", "head", "options", "patch", "post", "put")
         api: str - relative to the URL
         auth: Any

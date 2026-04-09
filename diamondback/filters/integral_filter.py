@@ -90,8 +90,8 @@ class IntegralFilter(IirFilter):
     def __init__(self, order: int) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         order: int
         """
 
@@ -102,8 +102,8 @@ class IntegralFilter(IirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x : list | numpy.ndarray - incident signal
 
         Returns

@@ -122,8 +122,8 @@ class DerivativeFilter(FirFilter):
     def __init__(self, derivative: int, order: int) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         derivative: int - in [1, 3]
         order: int
         """
@@ -137,8 +137,8 @@ class DerivativeFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns

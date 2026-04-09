@@ -84,8 +84,8 @@ class ComplexFrequencyFilter(FirFilter):
     def __init__(self, frequency: float, rate: float) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         frequency: float - frequency normalized to Nyquist in [-1.0, 1.0)
         rate: float - in [0.0, 1.0]
         """
@@ -105,8 +105,8 @@ class ComplexFrequencyFilter(FirFilter):
 
         Signals are Hilbert transformed to complex as necessary.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         d: list | numpy.ndarray - primary signal
 
         Returns
@@ -142,8 +142,8 @@ class ComplexFrequencyFilter(FirFilter):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified primary incident condition.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: complex - incident signal
         """
 

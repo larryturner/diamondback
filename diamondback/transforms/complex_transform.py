@@ -72,8 +72,8 @@ class ComplexTransform(object):
         """Transforms a real three-phase or complex incident signal into a complex
         or three-phase reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
         neutral: bool
 

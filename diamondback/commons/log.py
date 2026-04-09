@@ -100,8 +100,8 @@ class Log(object):
     def level(cls, level: str) -> None:
         """Level.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         level: str - in LEVEL
         """
 
@@ -115,8 +115,8 @@ class Log(object):
     def stream(cls, stream: Any) -> None:
         """Stream.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a"))
         """
 
@@ -136,8 +136,8 @@ class Log(object):
         """Formats and writes log entries using loguru with a specified level
         and stream.  Log entries contain an ISO 8601 datetime and level.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         level: str - in LEVEL
         entry: str | Exception
         """

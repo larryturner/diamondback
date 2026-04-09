@@ -69,8 +69,8 @@ class Serial(object):
     def code(x: str, encoding: str = "utf-8") -> str:
         """Code generates an SHA3-256 hash code.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: str
         encoding: str
 
@@ -90,8 +90,8 @@ class Serial(object):
         """Decodes a Base-85 encoded serialized string to an instance.  Elective
         compression is applied with gzip and automatically detected.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: str
         encoding: str
 
@@ -118,8 +118,8 @@ class Serial(object):
         """Encodes an instance to a Base-85 encoded serialized string.  Elective
         compression is applied with gzip.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: Any
         compress: bool
         encoding: str

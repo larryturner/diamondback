@@ -74,8 +74,8 @@ class ZTransform(object):
         """Transforms continuous s-domain coefficient arrays and produces
         discrete z-domain coefficient arrays.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         u: list | numpy.ndarray - recursive coefficient, s-domain
         v: list | numpy.ndarray - forward coefficient, s-domain
         frequency: float - frequency in (0.0, inf)

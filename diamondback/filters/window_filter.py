@@ -68,8 +68,8 @@ class WindowFilter(object):
     def __init__(self, style: str, order: int, normal: bool = True) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Blackman", "Hamming", "Hann", "Kaiser")
         order: int
         normal: bool
@@ -93,8 +93,8 @@ class WindowFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns

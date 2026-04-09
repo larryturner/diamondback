@@ -485,8 +485,8 @@ class WaveletTransform(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet")
         order: int
         """
@@ -518,8 +518,8 @@ class WaveletTransform(object):
         signals have two dimensions.  Dimension lengths must be unity or
         an integral multiple of 2**count.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
         count: int
         inverse: bool

@@ -55,8 +55,8 @@ class RankFilter(FirFilter):
     def __init__(self, index: int, order: int) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         index: int - in [0, order]
         order: int
         """
@@ -69,8 +69,8 @@ class RankFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns

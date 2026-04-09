@@ -137,8 +137,8 @@ class IirFilter(FirFilter):
         Labels should be used to avoid ambiguity between constraints and
         coefficients.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Bessel", "Butterworth", "Chebyshev")
         frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
         order: int - order per instance
@@ -202,8 +202,8 @@ class IirFilter(FirFilter):
     def _evaluate(style: str, frequency: float, order: int) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Evaluates coefficients.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Bessel", "Butterworth", "Chebyshev")
         frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
         order: int
@@ -250,8 +250,8 @@ class IirFilter(FirFilter):
     def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -282,8 +282,8 @@ class IirFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x : list | numpy.ndarray - incident signal
 
         Returns
@@ -309,8 +309,8 @@ class IirFilter(FirFilter):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: complex | float - incident signal
         """
 
@@ -323,8 +323,8 @@ class IirFilter(FirFilter):
     def response(self, length=8192, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates frequency response and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -350,8 +350,8 @@ class IirFilter(FirFilter):
     def roots(self, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates roots of a frequency response in poles and zeros.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         count: int
 
         Returns
