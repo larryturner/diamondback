@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.models package &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -85,7 +85,7 @@
 <section id="diamondback-models-diversity-model-module">
 <h2>diamondback.models.diversity_model module<a class="headerlink" href="#diamondback-models-diversity-model-module" title="Link to this heading"></a></h2>
 <dl>
-<dt><strong>Description</strong></dt><dd><p>A diversity model realizes the selection and retention of a state as a
+<dt><strong>Description</strong></dt><dd><p>Diversity model realizes the selection and retention of a state as a
 finite collection of observations extracted from an incident signal, to
 maximize a minimum distance between any members of a state, according to
 a specified style or distance metric.</p>
@@ -93,7 +93,7 @@ a specified style or distance metric.</p>
 \[d_{k} = \min(\ d_{u,v}\ )\quad\quad u, v \in [\ 0,\ M\ ),\ u \neq v\]</div>
 <div class="math notranslate nohighlight">
 \[d_{k} \geq d_{n}\qquad \longrightarrow\qquad d_{n} = d_{k}\]</div>
-<p>A diversity model is an opportunistic unsupervised learning model which
+<p>Diversity model is an opportunistic unsupervised learning model which
 typically improves condition and numerical accuracy and reduces storage
 relative to alternative approaches including generalized linear inverse.</p>
 <p>A state array of a specified order is defined.  A stationary dimension is
@@ -143,14 +143,14 @@ inferred.  A style and order are specified.</p>
 
 <span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">&quot;Euclidean&quot;</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">s</span>
 </pre></div>
 </div>
 </div></blockquote>
 <dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
-© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+© 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
 </dd>
@@ -164,19 +164,19 @@ inferred.  A style and order are specified.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Chebyshev&quot;</em><em>, </em><em>&quot;Euclidean&quot;</em><em>, </em><em>&quot;Geometric&quot;</em><em>, </em><em>&quot;Manhattan&quot;</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -187,17 +187,17 @@ inferred.  A style and order are specified.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal and produces a reference signal.</p>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - diversity</p>
 </dd>
 </dl>
 </dd></dl>
@@ -213,12 +213,12 @@ inferred.  A style and order are specified.</p>
 <section id="diamondback-models-gaussian-mixture-model-module">
 <h2>diamondback.models.gaussian_mixture_model module<a class="headerlink" href="#diamondback-models-gaussian-mixture-model-module" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt><strong>Description</strong></dt><dd><p>A Gaussian Mixture Model (GMM) is a semi-supervised learning
+<dt><strong>Description</strong></dt><dd><p>Gaussian Mixture Model (GMM) is a semi-supervised learning
 probabilistic model instance which uses maximum likelihood estimation,
 regularization, and expectation maximization to maximize posterior
 probability and classify an incident signal.  Learns distribution
-instances of a specified order per class, where intra-class models
-capture mixture distributions.</p>
+of a specified order per class, where intra-class models capture
+mixture distributions.</p>
 </dd>
 </dl>
 <p><strong>Example</strong></p>
@@ -227,7 +227,7 @@ capture mixture distributions.</p>
 
 <span class="n">gaussian_mixture_model</span> <span class="o">=</span> <span class="n">GaussianMixtureModel</span><span class="p">(</span><span class="n">order</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_mixture_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -235,7 +235,7 @@ capture mixture distributions.</p>
 </div></blockquote>
 <dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
-© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+© 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
 </dd>
@@ -249,32 +249,32 @@ capture mixture distributions.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
-<li><p><strong>index</strong> – int - iterations.</p></li>
-<li><p><strong>regularize</strong> – float - regularize.</p></li>
+<li><p><strong>order</strong> (<em>int - mixture distributions per class</em>)</p></li>
+<li><p><strong>index</strong> (<em>int - iterations</em>)</p></li>
+<li><p><strong>regularize</strong> (<em>float - regularize</em>)</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>FIt an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
@@ -291,13 +291,13 @@ distributions.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -318,7 +318,7 @@ probability, and the initial prediction is the most likely class.</p>
 <section id="diamondback-models-gaussian-model-module">
 <h2>diamondback.models.gaussian_model module<a class="headerlink" href="#diamondback-models-gaussian-model-module" title="Link to this heading"></a></h2>
 <dl class="simple">
-<dt><strong>Description</strong></dt><dd><p>A Gaussian Model (GM) is a supervised learning probabilistic model instance
+<dt><strong>Description</strong></dt><dd><p>Gaussian Model (GM) is a supervised learning probabilistic model instance
 which uses maximum likelihood estimation and regularization to maximize
 posterior probability and classify an incident signal.  Learns one
 distribution instance per class.</p>
@@ -330,7 +330,7 @@ distribution instance per class.</p>
 
 <span class="n">gaussian_model</span> <span class="o">=</span> <span class="n">GaussianModel</span><span class="p">()</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
-<span class="n">gaussian_model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">gaussian_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">gaussian_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -338,7 +338,7 @@ distribution instance per class.</p>
 </div></blockquote>
 <dl class="simple">
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
-© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+© 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-02-08.</p>
 </dd>
@@ -351,20 +351,20 @@ distribution instance per class.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
+<dd class="field-odd"><p><strong>regularize</strong> (<em>float - regularize</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -379,13 +379,13 @@ and maximizes posterior probability.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -409,7 +409,7 @@ probability, and the initial prediction is the most likely class.</p>
 <dt><strong>Description</strong></dt><dd><p>Initialize.</p>
 </dd>
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
-© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+© 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-03-22.</p>
 </dd>
@@ -423,19 +423,19 @@ probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Chebyshev&quot;</em><em>, </em><em>&quot;Euclidean&quot;</em><em>, </em><em>&quot;Geometric&quot;</em><em>, </em><em>&quot;Manhattan&quot;</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
+<span class="sig-name descname"><span class="pre">DISTANCE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'Chebyshev':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Euclidean':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Geometric':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;,</span> <span class="pre">'Manhattan':</span> <span class="pre">&lt;function</span> <span class="pre">DiversityModel.&lt;lambda&gt;&gt;}</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
+<span class="sig-name descname"><span class="pre">STYLE</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('Chebyshev',</span> <span class="pre">'Euclidean',</span> <span class="pre">'Geometric',</span> <span class="pre">'Manhattan')</span></em></dt>
 <dd></dd></dl>
 
 <dl class="py method">
@@ -446,17 +446,17 @@ probability, and the initial prediction is the most likely class.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal and produces a reference signal.</p>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - diversity</p>
 </dd>
 </dl>
 </dd></dl>
@@ -477,32 +477,32 @@ probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
-<li><p><strong>index</strong> – int - iterations.</p></li>
-<li><p><strong>regularize</strong> – float - regularize.</p></li>
+<li><p><strong>order</strong> (<em>int - mixture distributions per class</em>)</p></li>
+<li><p><strong>index</strong> (<em>int - iterations</em>)</p></li>
+<li><p><strong>regularize</strong> (<em>float - regularize</em>)</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>FIt an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
@@ -519,13 +519,13 @@ distributions.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -550,20 +550,20 @@ probability, and the initial prediction is the most likely class.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
+<dd class="field-odd"><p><strong>regularize</strong> (<em>float - regularize</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -578,13 +578,13 @@ and maximizes posterior probability.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -612,7 +612,7 @@ probability, and the initial prediction is the most likely class.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

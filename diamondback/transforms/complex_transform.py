@@ -1,5 +1,5 @@
 """**Description**
-    A complex transform converts a three-phase real signal to a complex
+    Complex transform converts a three-phase real signal to a complex
     signal, or converts a complex signal to a three-phase real signal, in
     equivalent and reversible representations.  A neutral condition is
     specified.
@@ -47,35 +47,39 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-01-26.
 """
 
 import math
+from typing import ClassVar
+
 import numpy
 
 
 class ComplexTransform(object):
     """Complex transform."""
 
-    COEFFICIENT: numpy.ndarray = (2.0 / 3.0) * numpy.array(
+    COEFFICIENT: ClassVar[numpy.ndarray] = (2.0 / 3.0) * numpy.array(
         [[1.0, -0.5, -0.5], [0.0, 0.5 * (3.0**0.5), -0.5 * (3.0**0.5)], [1.0, 1.0, 1.0]]
     )
-    GAIN: complex = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
+    GAIN: ClassVar[complex] = ((1.0 / 3.0) ** 0.5) * numpy.exp(-1j * math.pi / 6.0)
 
     @classmethod
     def transform(cls, x: list | numpy.ndarray, neutral: bool = True) -> numpy.ndarray:
         """Transforms a real three-phase or complex incident signal into a complex
         or three-phase reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
-            neutral: bool.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
+        neutral: bool
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):

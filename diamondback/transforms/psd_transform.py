@@ -1,5 +1,5 @@
 """**Description**
-    A Power Spectral Density (PSD) transform converts a real or complex
+    Power Spectral Density (PSD) transform converts a real or complex
     discrete-time incident signal to a real discrete-frequency reference
     signal, which estimates an aggregate power spectrum of the incident
     signal relative to frequency.  A forward coefficient array is
@@ -7,7 +7,7 @@
 
     Singleton.
 
-    A PSD transform is constructed by estimating a mean power from a
+    PSD transform is constructed by estimating a mean power from a
     collection of Fourier transforms of an incident signal, over a
     sliding window defined by a forward coefficient array which defines a
     window filter.  An index specifies a sample interval, or a
@@ -25,7 +25,7 @@
     Fourier transforms is preserved to construct a time frequency
     representation of the power spectrum.
 
-    A PSD transform is normalized by incident signal length and forms
+    PSD transform is normalized by incident signal length and forms
     a contiguous sequence corresponding to a linear and increasing
     normalized frequency.
 
@@ -53,7 +53,7 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
@@ -75,15 +75,17 @@ class PsdTransform(object):
         """Transforms a real or complex discrete-time incident signal to a
         real discrete-frequency reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
-            b: list | numpy.ndarray - forward coefficient.
-            index: int.
-            spectrogram: bool.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
+        b: list | numpy.ndarray - forward coefficient
+        index: int
+        spectrogram: bool
 
-        Returns:
-            y: numpy.ndarray - reference signal.
-            f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
+        f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0)
         """
 
         if not isinstance(x, numpy.ndarray):

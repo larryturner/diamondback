@@ -9,22 +9,25 @@
 
 **License**
     `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import ComplexExponentialFilter, WindowFilter
+import math
+
+import numpy
+
 from diamondback import (
+    ComplexExponentialFilter,
     ComplexTransform,
     FourierTransform,
     PsdTransform,
     WaveletTransform,
+    WindowFilter,
+    ZTransform,
 )
-from diamondback import ZTransform
-import math
-import numpy
 
 
 class Test(object):

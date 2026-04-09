@@ -1,5 +1,5 @@
 """**Description**
-    A derivative filter realizes a discrete difference equation which
+    Derivative filter realizes a discrete difference equation which
     approximates a discrete derivative as a function of a forward coefficient
     array and a state array of a specified order, consuming an incident signal
     and producing a reference signal.  A derivative is approximated relative
@@ -84,20 +84,23 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-02-06.
 """
 
-from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
+
 import numpy
+
+from diamondback.filters.fir_filter import FirFilter
 
 
 class DerivativeFilter(FirFilter):
     """Derivative filter."""
 
-    B: dict[int, dict[int, numpy.ndarray]] = {
+    B: ClassVar[dict[int, dict[int, numpy.ndarray]]] = {
         1: {
             1: numpy.array([1.0, -1.0]),
             2: numpy.array([1.0, 0.0, -1.0]) * (1.0 / 2.0),
@@ -119,9 +122,10 @@ class DerivativeFilter(FirFilter):
     def __init__(self, derivative: int, order: int) -> None:
         """Initialize.
 
-        Arguments:
-            derivative: int - in [1, 3].
-            order: int.
+        Arguments
+        ---------
+        derivative: int - in [1, 3]
+        order: int
         """
 
         if derivative not in DerivativeFilter.B:
@@ -133,11 +137,13 @@ class DerivativeFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         return super().filter(x)

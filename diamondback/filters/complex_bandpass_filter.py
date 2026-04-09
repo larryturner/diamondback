@@ -1,5 +1,5 @@
 """**Description**
-    A complex bandpass filter produces a complex exponential incident
+    Complex bandpass filter produces a complex exponential incident
     signal at a specified normalized frequency and adapts a forward complex
     coefficient to produce a reference signal, which estimates a component
     of interest in a primary signal.  A normalized frequency and rate of
@@ -41,16 +41,17 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-01-31.
 """
 
+import numpy
+from scipy.signal import hilbert
+
 from diamondback.filters.complex_exponential_filter import ComplexExponentialFilter
 from diamondback.filters.fir_filter import FirFilter
-from scipy.signal import hilbert
-import numpy
 
 
 class ComplexBandpassFilter(FirFilter):
@@ -79,9 +80,10 @@ class ComplexBandpassFilter(FirFilter):
     def __init__(self, frequency: float, rate: float) -> None:
         """Initialize.
 
-        Arguments:
-            frequency: float - frequency normalized to Nyquist in [-1.0, 1.0).
-            rate: float - in [0.0, 1.0].
+        Arguments
+        ---------
+        frequency: float - frequency normalized to Nyquist in [-1.0, 1.0)
+        rate: float - in [0.0, 1.0]
         """
 
         if (frequency < -1.0) or (frequency > 1.0):
@@ -100,13 +102,15 @@ class ComplexBandpassFilter(FirFilter):
 
         Signals are Hilbert transformed to complex as necessary.
 
-        Arguments:
-            d: list | numpy.ndarray - primary signal.
+        Arguments
+        ---------
+        d: list | numpy.ndarray - primary signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
-            e: numpy.ndarray - error signal.
-            b: numpy.ndarray - forward coefficient.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
+        e: numpy.ndarray - error signal
+        b: numpy.ndarray - forward coefficient
         """
 
         if not isinstance(d, numpy.ndarray):

@@ -1,5 +1,5 @@
 """**Description**
-    REST client instances define a client for simple REST service requests
+    REST client defines a client for simple REST service requests
     using requests.  An API and an elective dictionary of parameter strings
     are encoded to build a URL, elective binary or JSON data are defined in
     the body of a request, and a requests response containing JSON, text,
@@ -32,20 +32,21 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2020-10-22.
 """
 
-from typing import Any
+from typing import Any, ClassVar
+
 import requests
 
 
 class RestClient(object):
     """REST client."""
 
-    METHOD: tuple[str, ...] = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
+    METHOD: ClassVar[tuple[str, ...]] = ("Delete", "Get", "Head", "Options", "Patch", "Post", "Put")
 
     @property
     def live(self):
@@ -106,17 +107,19 @@ class RestClient(object):
         request, and a requests response containing JSON, text, or binary
         data is returned.
 
-        Arguments:
-            method: str - in ("delete", "get", "head", "options", "patch", "post", "put").
-            api: str - relative to the URL.
-            auth: Any.
-            header: dict[str, str] | None.
-            item: dict[str, str] | None.
-            data: Any.
-            json: Any.
+        Arguments
+        ---------
+        method: str - in ("delete", "get", "head", "options", "patch", "post", "put")
+        api: str - relative to the URL
+        auth: Any
+        header: dict[str, str] | None
+        item: dict[str, str] | None
+        data: Any
+        json: Any
 
-        Returns:
-            value: requests.Response.
+        Returns
+        -------
+        value: requests.Response
         """
 
         method = method.title()

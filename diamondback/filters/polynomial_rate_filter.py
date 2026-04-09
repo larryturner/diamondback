@@ -1,5 +1,5 @@
 """**Description**
-    A polynomial rate filter produces a reference signal which approximates
+    Polynomial rate filter produces a reference signal which approximates
     an incident signal evaluated at an effective frequency equal to the
     product of an incident sample frequency and a specified rate.
 
@@ -41,7 +41,7 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-03-19.
@@ -76,9 +76,10 @@ class PolynomialRateFilter(object):
     def __init__(self, rate: float, order: int = 1) -> None:
         """Initialize.
 
-        Arguments:
-            rate: float - ratio of effective frequency in [0.0, inf).
-            order: int - in (0, inf).
+        Arguments
+        ---------
+        rate: float - ratio of effective frequency in [0.0, inf)
+        order: int - in (0, inf)
         """
 
         if rate < 0.0:
@@ -92,11 +93,13 @@ class PolynomialRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):

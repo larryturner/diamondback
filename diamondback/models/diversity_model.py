@@ -1,5 +1,5 @@
 """**Description**
-    A diversity model realizes the selection and retention of a state as a
+    Diversity model realizes the selection and retention of a state as a
     finite collection of observations extracted from an incident signal, to
     maximize a minimum distance between any members of a state, according to
     a specified style or distance metric.
@@ -12,7 +12,7 @@
 
         d_{k} \\geq d_{n}\\qquad \\longrightarrow\\qquad d_{n} = d_{k}
 
-    A diversity model is an opportunistic unsupervised learning model which
+    Diversity model is an opportunistic unsupervised learning model which
     typically improves condition and numerical accuracy and reduces storage
     relative to alternative approaches including generalized linear inverse.
 
@@ -57,31 +57,32 @@
 
         diversity_model = DiversityModel(style = "Euclidean", order = 4)
         x = numpy.random.rand(32, 2)
-        y = diversity_model.learn(x)
+        y = diversity_model.fit(x)
         s = diversity_model.s
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Callable
+from typing import Callable, ClassVar
+
 import numpy
 
 
 class DiversityModel(object):
     """Diversity model."""
 
-    DISTANCE: dict[str, Callable] = dict(
+    DISTANCE: ClassVar[dict[str, Callable]] = dict(
         Chebyshev=lambda x, y: max(abs(x - y)),
         Euclidean=lambda x, y: sum((x - y) ** 2) ** 0.5,
         Geometric=lambda x, y: numpy.prod(abs(x - y)) ** (1.0 / len(x)),
         Manhattan=lambda x, y: sum(abs(x - y)),
     )
-    STYLE: tuple[str, ...] = tuple(DISTANCE.keys())
+    STYLE: ClassVar[tuple[str, ...]] = tuple(DISTANCE.keys())
 
     @property
     def s(self):
@@ -94,9 +95,10 @@ class DiversityModel(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments:
-            style: str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan").
-            order: int.
+        Arguments
+        ---------
+        style: str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan")
+        order: int
         """
 
         style = style.title()
@@ -115,14 +117,16 @@ class DiversityModel(object):
         self._diversity = 0.0
         self.s = numpy.zeros((self.s.shape[1], 0))
 
-    def learn(self, x: list | numpy.ndarray) -> numpy.ndarray:
-        """Learns an incident signal and produces a reference signal.
+    def fit(self, x: list | numpy.ndarray) -> numpy.ndarray:
+        """Fit an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - diversity.
+        Returns
+        -------
+        y: numpy.ndarray - diversity
         """
 
         if not isinstance(x, numpy.ndarray):

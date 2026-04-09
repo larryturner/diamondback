@@ -1,5 +1,5 @@
 """**Description**
-    An Infinite Impulse Response (IIR) filter realizes a discrete
+    Infinite Impulse Response (IIR) filter realizes a discrete
     difference equation as a function of a recursive coefficient array,
     a forward coefficient array, and a state array of a specified order,
     consuming an incident signal and producing a reference signal.
@@ -86,24 +86,27 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-01-23.
 """
 
+import math
+import warnings
+from typing import ClassVar
+
+import numpy
+from scipy.signal import freqz, group_delay
+
 from diamondback.filters.fir_filter import FirFilter
 from diamondback.transforms.z_transform import ZTransform
-from scipy.signal import freqz, group_delay
-import math
-import numpy
-import warnings
 
 
 class IirFilter(FirFilter):
     """Infinite Impulse Response (IIR) filter."""
 
-    STYLE: tuple[str, ...] = ("Bessel", "Butterworth", "Chebyshev")
+    STYLE: ClassVar[tuple[str, ...]] = ("Bessel", "Butterworth", "Chebyshev")
 
     @property
     def a(self):
@@ -134,16 +137,17 @@ class IirFilter(FirFilter):
         Labels should be used to avoid ambiguity between constraints and
         coefficients.
 
-        Arguments:
-            style: str - in ("Bessel", "Butterworth", "Chebyshev").
-            frequency: float - frequency normalized to Nyquist in (0.0, 1.0).
-            order: int - order per instance.
-            count: int - instances per cascade.
-            complement: bool - complement response.
-            gain: float - gain.
-            a: list | numpy.ndarray - recursive coefficient.
-            b: list | numpy.ndarray - forward coefficient.
-            s: list | numpy.ndarray - state.
+        Arguments
+        ---------
+        style: str - in ("Bessel", "Butterworth", "Chebyshev")
+        frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
+        order: int - order per instance
+        count: int - instances per cascade
+        complement: bool - complement response
+        gain: float - gain
+        a: list | numpy.ndarray - recursive coefficient
+        b: list | numpy.ndarray - forward coefficient
+        s: list | numpy.ndarray - state
         """
 
         if (not len(a)) and (not len(b)):
@@ -158,8 +162,8 @@ class IirFilter(FirFilter):
                 raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
-            beta, eps, error = 2.0, float(numpy.finfo(float).eps), numpy.inf
-            index, rate, scale = 500 * (1 + (count > 2)), 2.5e-2, 1.0
+            eps, error = float(numpy.finfo(float).eps), numpy.inf
+            index, rate, scale = 500, 3.0e-2 * (1.0 - 0.5 * ((order > 8) or ((order > 6) and (count > 1)))), 1.0
             a, b = numpy.ndarray((0)), numpy.ndarray((0))
             for _ in range(0, index):
                 u, v = IirFilter._evaluate(style, scale * frequency, order)
@@ -169,9 +173,9 @@ class IirFilter(FirFilter):
                 )  # type: ignore
                 if abs(e) < error:
                     a, b, error = u, v, abs(e)
-                    if error < (10.0 * eps):
+                    if error < (10e3 * eps):
                         break
-                scale = max(scale + rate * math.tanh(beta * e), eps)
+                scale = max(scale + rate * e, eps)
             if complement:
                 a *= numpy.array([((-1.0) ** x) for x in range(0, len(a))])
                 b *= numpy.array([((-1.0) ** x) for x in range(0, len(b))])
@@ -198,14 +202,16 @@ class IirFilter(FirFilter):
     def _evaluate(style: str, frequency: float, order: int) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Evaluates coefficients.
 
-        Arguments:
-            style: str - in ("Bessel", "Butterworth", "Chebyshev").
-            frequency: float - frequency normalized to Nyquist in (0.0, 1.0).
-            order: int.
+        Arguments
+        ---------
+        style: str - in ("Bessel", "Butterworth", "Chebyshev")
+        frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
+        order: int
 
-        Returns:
-            a: numpy.ndarray - recursive coefficient.
-            b: numpy.ndarray - forward coefficient.
+        Returns
+        -------
+        a: numpy.ndarray - recursive coefficient
+        b: numpy.ndarray - forward coefficient
         """
 
         bilinear = True
@@ -244,13 +250,15 @@ class IirFilter(FirFilter):
     def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
-        Arguments:
-            length: int.
-            count: int.
+        Arguments
+        ---------
+        length: int
+        count: int
 
-        Returns:
-            y: numpy.ndarray - reference signal.
-            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
+        f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)
         """
 
         if length <= 0:
@@ -274,11 +282,13 @@ class IirFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x : list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x : list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -299,8 +309,9 @@ class IirFilter(FirFilter):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments:
-            x: complex | float - incident signal.
+        Arguments
+        ---------
+        x: complex | float - incident signal
         """
 
         if not numpy.isscalar(x):
@@ -312,13 +323,15 @@ class IirFilter(FirFilter):
     def response(self, length=8192, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates frequency response and produces a reference signal.
 
-        Arguments:
-            length: int.
-            count: int.
+        Arguments
+        ---------
+        length: int
+        count: int
 
-        Returns:
-            y: numpy.ndarray - reference signal.
-            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
+        f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)
         """
 
         if length <= 0:
@@ -337,12 +350,14 @@ class IirFilter(FirFilter):
     def roots(self, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates roots of a frequency response in poles and zeros.
 
-        Arguments:
-            count: int.
+        Arguments
+        ---------
+        count: int
 
-        Returns:
-            p: numpy.ndarray - poles.
-            z: numpy.ndarray - zeros.
+        Returns
+        -------
+        p: numpy.ndarray - poles
+        z: numpy.ndarray - zeros
         """
 
         p, z = (

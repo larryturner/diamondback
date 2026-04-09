@@ -1,10 +1,10 @@
 """**Description**
-    A Gaussian Mixture Model (GMM) is a semi-supervised learning
+    Gaussian Mixture Model (GMM) is a semi-supervised learning
     probabilistic model instance which uses maximum likelihood estimation,
     regularization, and expectation maximization to maximize posterior
     probability and classify an incident signal.  Learns distribution
-    instances of a specified order per class, where intra-class models
-    capture mixture distributions.
+    of a specified order per class, where intra-class models capture
+    mixture distributions.
 
 **Example**
 
@@ -14,13 +14,13 @@
 
         gaussian_mixture_model = GaussianMixtureModel(order = 10, index = 100)
         x, y = numpy.random.rand(32, 2), numpy.random.randint(0, 10, 32)
-        gaussian_mixture_model.learn(x, y)
+        gaussian_mixture_model.fit(x, y)
         x = numpy.random.rand(16, 2)
         v = gaussian_mixture_model.predict(x)
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
@@ -64,10 +64,11 @@ class GaussianMixtureModel(object):
     def __init__(self, order: int = 10, index: int = 100, regularize: float = 1.0e-1) -> None:
         """Initialize.
 
-        Arguments:
-            order: int - mixture distributions per class.
-            index: int - iterations.
-            regularize: float - regularize.
+        Arguments
+        ---------
+        order: int - mixture distributions per class
+        index: int - iterations
+        regularize: float - regularize
         """
 
         if order <= 0:
@@ -82,14 +83,15 @@ class GaussianMixtureModel(object):
         self._regularize = regularize
         self._shape = ()
 
-    def learn(self, x: numpy.ndarray, y: numpy.ndarray) -> None:
-        """Learns an incident signal with ground truth label and estimates inverse
+    def fit(self, x: numpy.ndarray, y: numpy.ndarray) -> None:
+        """FIt an incident signal with ground truth label and estimates inverse
         covariance and mean matrices to learn mixed distribution instances
         for each class.
 
-        Arguments:
-            x: numpy.ndarray (batch, count) - incident.
-            y: numpy.ndarray (batch) - label.
+        Arguments
+        ---------
+        x: numpy.ndarray (batch, count) - incident
+        y: numpy.ndarray (batch) - label
         """
 
         if (len(x.shape) != 2) or (not all(x.shape)):
@@ -119,11 +121,13 @@ class GaussianMixtureModel(object):
         Predictions for each class are ranked and ordered by decending
         probability, and the initial prediction is the most likely class.
 
-        Arguments:
-            x: numpy.ndarray (batch, count) - data.
+        Arguments
+        ---------
+        x: numpy.ndarray (batch, count) - data
 
-        Returns:
-            v: numpy.ndarray (batch, class) - predict.
+        Returns
+        -------
+        v: numpy.ndarray (batch, class) - predict
         """
 
         if not len(self._model):

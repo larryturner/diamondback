@@ -1,9 +1,9 @@
 """**Description**
-    A polyphase rate filter produces a reference signal which approximates
+    Polyphase rate filter produces a reference signal which approximates
     an incident signal evaluated at an effective frequency equal to the
     product of an incident sample frequency and a specified rate.
 
-    A polyphase rate filter synthesizes a polyphase filter bank with
+    Polyphase rate filter synthesizes a polyphase filter bank with
     comprised of a sequence of low pass filters.  Each low pass filter in a
     filter bank realizes a common frequency response, with a fractional
     sample difference in group delay.  A stride is defined to be dependent
@@ -68,20 +68,23 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-03-19.
 """
 
-from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
+
 import numpy
+
+from diamondback.filters.fir_filter import FirFilter
 
 
 class PolyphaseRateFilter(object):
     """Polyphase rate filter."""
 
-    B: numpy.ndarray = numpy.zeros((256, 15))
+    B: ClassVar[numpy.ndarray] = numpy.zeros((256, 15))
 
     @property
     def b(self):
@@ -110,8 +113,9 @@ class PolyphaseRateFilter(object):
     def __init__(self, rate: float) -> None:
         """Initialize.
 
-        Arguments:
-            rate: float - ratio of effective frequency in (0.0, b.shape[0]].
+        Arguments
+        ---------
+        rate: float - ratio of effective frequency in (0.0, b.shape[0]]
         """
 
         if (rate < 0.0) or (rate > PolyphaseRateFilter.B.shape[0]):
@@ -132,11 +136,13 @@ class PolyphaseRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):
@@ -165,8 +171,9 @@ class PolyphaseRateFilter(object):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments:
-            x: float - incident signal.
+        Arguments
+        ---------
+        x: float - incident signal
         """
 
         if not numpy.isscalar(x):

@@ -1,5 +1,5 @@
 """**Description**
-    A Fourier transform converts a real or complex discrete-time incident
+    Fourier transform converts a real or complex discrete-time incident
     signal to a complex discrete-frequency reference signal, or a complex
     discrete-frequency incident signal to a real or complex discrete-time
     reference signal, in equivalent and reversible representations.  A
@@ -15,7 +15,7 @@
 
         x_{n} = \\frac{N}{b_{n}}\\ \\sum_{k = 0}^{N-1} y_{k} e^{\\frac{\\ j\\ \\pi\\ k \\ n}{N}} = \\frac{N}{b_{n}}\\ ifft(\\ y_{k}\\ )
 
-    A Fourier transform is normalized by incident signal length and forms
+    Fourier transform is normalized by incident signal length and forms
     a contiguous sequence corresponding to a linear and increasing
     normalized frequency.
 
@@ -42,7 +42,7 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-04-12.
@@ -64,14 +64,16 @@ class FourierTransform(object):
         condition.  Forward transform indices define normalized frequency.
         Inverse transform indices define an integral sequence.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
-            b: list | numpy.ndarray - forward coefficient.
-            inverse: bool.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
+        b: list | numpy.ndarray - forward coefficient
+        inverse: bool
 
-        Returns:
-            y: numpy.ndarray - reference signal.
-            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
+        f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)
         """
 
         if not isinstance(x, numpy.ndarray):

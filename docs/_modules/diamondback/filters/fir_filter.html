@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.filters.fir_filter &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -67,7 +67,7 @@
              
   <h1>Source code for diamondback.filters.fir_filter</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
-<span class="sd">    A Finite Impulse Response (FIR) filter realizes a discrete difference</span>
+<span class="sd">    Finite Impulse Response (FIR) filter realizes a discrete difference</span>
 <span class="sd">    equation as a function of a forward coefficient array and a state array</span>
 <span class="sd">    of a specified order, consuming an incident signal and producing a</span>
 <span class="sd">    reference signal.</span>
@@ -154,16 +154,18 @@
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">**Author**</span>
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2018-01-23.</span>
 <span class="sd">&quot;&quot;&quot;</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">firwin</span><span class="p">,</span> <span class="n">freqz</span><span class="p">,</span> <span class="n">group_delay</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">scipy.signal</span><span class="w"> </span><span class="kn">import</span> <span class="n">firwin</span><span class="p">,</span> <span class="n">freqz</span><span class="p">,</span> <span class="n">group_delay</span>
 
 
 <div class="viewcode-block" id="FirFilter">
@@ -171,7 +173,7 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">FirFilter</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Finite Impulse Response (FIR) filter.&quot;&quot;&quot;</span>
 
-    <span class="n">STYLE</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Blackman&quot;</span><span class="p">,</span> <span class="s2">&quot;Hamming&quot;</span><span class="p">,</span> <span class="s2">&quot;Hann&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">)</span>
+    <span class="n">STYLE</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Blackman&quot;</span><span class="p">,</span> <span class="s2">&quot;Hamming&quot;</span><span class="p">,</span> <span class="s2">&quot;Hann&quot;</span><span class="p">,</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">b</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -209,15 +211,16 @@
 <span class="sd">        Labels should be used to avoid ambiguity between constraints and</span>
 <span class="sd">        coefficients.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            style: str - in (&quot;Blackman&quot;, &quot;Hamming&quot;, &quot;Hann&quot;, &quot;Kaiser&quot;).</span>
-<span class="sd">            frequency: float - frequency normalized to Nyquist in (0.0, 1.0).</span>
-<span class="sd">            order: int - order per instance.</span>
-<span class="sd">            count: int - instances per cascade.</span>
-<span class="sd">            complement: bool - complement response.</span>
-<span class="sd">            gain: float - gain.</span>
-<span class="sd">            b: list | numpy.ndarray - forward coefficient.</span>
-<span class="sd">            s: list | numpy.ndarray - state.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        style: str - in (&quot;Blackman&quot;, &quot;Hamming&quot;, &quot;Hann&quot;, &quot;Kaiser&quot;)</span>
+<span class="sd">        frequency: float - frequency normalized to Nyquist in (0.0, 1.0)</span>
+<span class="sd">        order: int - order per instance</span>
+<span class="sd">        count: int - instances per cascade</span>
+<span class="sd">        complement: bool - complement response</span>
+<span class="sd">        gain: float - gain</span>
+<span class="sd">        b: list | numpy.ndarray - forward coefficient</span>
+<span class="sd">        s: list | numpy.ndarray - state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
@@ -236,8 +239,8 @@
                 <span class="n">window</span> <span class="o">=</span> <span class="p">(</span><span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mf">7.0</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">window</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
-            <span class="n">beta</span><span class="p">,</span> <span class="n">eps</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
-            <span class="n">index</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">500</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">count</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)),</span> <span class="mf">2.5e-2</span><span class="p">,</span> <span class="mf">1.0</span>
+            <span class="n">eps</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
+            <span class="n">index</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">3.0e-2</span><span class="p">,</span> <span class="mf">1.0</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
                 <span class="k">with</span> <span class="n">warnings</span><span class="o">.</span><span class="n">catch_warnings</span><span class="p">():</span>
                     <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
@@ -256,9 +259,9 @@
                     <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="mf">0.5</span><span class="p">))</span> <span class="o">-</span> <span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">x</span><span class="p">))</span> <span class="o">**</span> <span class="n">count</span><span class="p">)</span>
                     <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">error</span><span class="p">:</span>
                         <span class="n">b</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="n">v</span><span class="p">,</span> <span class="nb">abs</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
-                        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">10.0</span> <span class="o">*</span> <span class="n">eps</span><span class="p">):</span>
+                        <span class="k">if</span> <span class="n">error</span> <span class="o">&lt;</span> <span class="p">(</span><span class="mf">10e3</span> <span class="o">*</span> <span class="n">eps</span><span class="p">):</span>
                             <span class="k">break</span>
-                    <span class="n">scale</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">scale</span> <span class="o">+</span> <span class="n">rate</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">beta</span> <span class="o">*</span> <span class="n">e</span><span class="p">),</span> <span class="n">eps</span><span class="p">)</span>
+                    <span class="n">scale</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">scale</span> <span class="o">+</span> <span class="n">rate</span> <span class="o">*</span> <span class="n">e</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">complement</span><span class="p">:</span>
                 <span class="n">b</span> <span class="o">*=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([((</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">))])</span>
                 <span class="n">b</span> <span class="o">/=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">b</span> <span class="o">*</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([((</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">**</span> <span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">))]))</span>
@@ -281,13 +284,15 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">delay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8192</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimates group delay and produces a reference signal.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            length: int.</span>
-<span class="sd">            count: int.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        length: int</span>
+<span class="sd">        count: int</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            y: numpy.ndarray - reference signal.</span>
-<span class="sd">            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: numpy.ndarray - reference signal</span>
+<span class="sd">        f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -311,11 +316,13 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Filters an incident signal and produces a reference signal.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            x: list | numpy.ndarray - incident signal.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: list | numpy.ndarray - incident signal</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            y: numpy.ndarray - reference signal.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: numpy.ndarray - reference signal</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -337,8 +344,9 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Modifies a state to minimize edge effects by assuming persistent</span>
 <span class="sd">        operation at a specified incident signal condition.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            x: complex | float - incident signal.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: complex | float - incident signal</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">numpy</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -351,13 +359,15 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">response</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="mi">8192</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimates frequency response and produces a reference signal.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            length: int.</span>
-<span class="sd">            count: int.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        length: int</span>
+<span class="sd">        count: int</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            y: numpy.ndarray - reference signal.</span>
-<span class="sd">            f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: numpy.ndarray - reference signal</span>
+<span class="sd">        f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">length</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -377,11 +387,14 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">roots</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimates roots of a frequency response in poles and zeros.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            count: int.</span>
-<span class="sd">        Returns:</span>
-<span class="sd">            p: numpy.ndarray - poles.</span>
-<span class="sd">            z: numpy.ndarray - zeros.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        count: int</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        p: numpy.ndarray - poles</span>
+<span class="sd">        z: numpy.ndarray - zeros</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">z</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">roots</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">),</span> <span class="n">count</span><span class="p">)</span>
@@ -397,7 +410,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

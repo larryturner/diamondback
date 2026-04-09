@@ -1,10 +1,10 @@
 """**Description**
-    A log instance formats and writes log entries with a specified level
-    and stream using loguru. Log entries contain an ISO 8601 datetime
+    *Log* formats and writes log entries with a specified level
+    and stream using loguru. *Log* entries contain an ISO 8601 datetime
     and level.  Dynamic stream redirection and level specification
     are supported.
 
-    Log uses lazy initialization to coexist with loguru, and removes or
+    *Log* uses lazy initialization to coexist with loguru, and removes or
     creates loguru handlers only on explicit stream assignment or write.
     In lazy initialization an existing default loguru handler, with an
     identity equal to 0, and a stream assignment of sys.stdout is removed,
@@ -60,7 +60,7 @@
 
             # File.
 
-            with open("log-2112.txt", "w") as fout:
+            with open("log.txt", "w") as fout:
                 Log.stream(fout)
                 x = numpy.random.rand(2, 2)
                 Log.write("Warning", f"X = {x}")
@@ -69,19 +69,20 @@
 
 **License**
     `BSD-3C. <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-03-22.
 """
 
-from loguru import logger
-from threading import RLock
-from typing import Any
 import contextlib
-import numpy
 import os
 import sys
+from threading import RLock
+from typing import Any, ClassVar
+
+import numpy
+from loguru import logger
 
 
 class Log(object):
@@ -89,18 +90,19 @@ class Log(object):
 
     numpy.set_printoptions(formatter=dict(float="{:.6f}".format))
 
-    LEVEL: tuple[str, ...] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
+    LEVEL: ClassVar[tuple[str, ...]] = ("Critical", "Error", "Warning", "Success", "Info", "Debug", "Trace")
 
-    _identity = 0
-    _level = logger.level("Info".upper())
-    _rlock = RLock()
+    _identity: ClassVar[int] = 0
+    _level: ClassVar[Any] = logger.level("Info".upper())
+    _rlock: ClassVar[RLock] = RLock()
 
     @classmethod
     def level(cls, level: str) -> None:
         """Level.
 
-        Arguments:
-            level: str - in LEVEL.
+        Arguments
+        ---------
+        level: str - in LEVEL
         """
 
         with Log._rlock:
@@ -113,8 +115,9 @@ class Log(object):
     def stream(cls, stream: Any) -> None:
         """Stream.
 
-        Arguments:
-            stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a")).
+        Arguments
+        ---------
+        stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a"))
         """
 
         with Log._rlock:
@@ -133,9 +136,10 @@ class Log(object):
         """Formats and writes log entries using loguru with a specified level
         and stream.  Log entries contain an ISO 8601 datetime and level.
 
-        Arguments:
-            level: str - in LEVEL.
-            entry: str | Exception.
+        Arguments
+        ---------
+        level: str - in LEVEL
+        entry: str | Exception
         """
 
         with Log._rlock:

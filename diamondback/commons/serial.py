@@ -1,19 +1,21 @@
 """**Description**
-    A serial instance encodes and decodes an instance or collection in
-    BSON or JSON, and generates SHA3-256 codes, using jsonpickle.
+    *Serial* encodes and decodes an instance to a Base-85 encoded serialized
+    string with elective gzip compression, and generates SHA3-256 hash codes.
 
-    BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code
-    will not be consistent or useful for validation.
+    Decode decodes a Base-85 encoded serialized string to an instance.
+    Elective compression is applied with gzip and automatically detected.
+
+    Encode encodes an instance to a Base-85 encoded serialized string.
+    Elective compression is applied with gzip.
+
+    Code generates an SHA3-256 hash code of an encoded serialized string,
+    with applications in security and version control.  Encode with
+    compression embeds a datetime context, and code will not be consistent
+    or deterministic.
 
     An instance may be an object or a collection, referenced by abstract or
-    concrete types, and the instance will be correctly encoded and decoded,
-    without custom encoding definitions.  BSON binary format is selected by
-    electing to compress.  Encoding may be specified if an alternative to
-    UTF-8 is required.
-
-    Comments may be filtered from JSON by electing to clean.  Python style
-    docstring and line comments are supported, though line comments must be
-    terminated by a new line.
+    concrete types, and the instance will be completely encoded and decoded,
+    without custom encoding definitions.
 
     Singleton.
 
@@ -24,132 +26,112 @@
     .. code-block:: python
 
         from diamondback import Serial
-        import numpy
         import pandas
 
-        # Encode and decode a dictionary in JSON.
+        # Define a model instance of any supported type.
 
-        n = numpy.random.randint(1, 10)
-        x = dict(a = numpy.random.rand(n), b = list(numpy.random.rand(n)))
-        y = Serial.encode(x, indent = True)
+        x = pandas.DataFrame(dict(fruit = ["orange", "apple", "kiwi"], value = [1.25, 1.5, 0.30]))
+
+        # Encode and decode a model instance with compression.
+
+        y = Serial.encode(x)
         z = Serial.decode(y)
 
-        # Encode and decode a dictionary in BSON.
+        # Encode and decode a model instance without compression.
 
-        y = Serial.encode(x, compress = True)
-        z = Serial.decode(y, compress = True)
-
-        # Encode and decode a pandas DataFrame in BSON.
-
-        model = pandas.DataFrame(dict(fruit = ["orange", "apple", "kiwi"], value = [1.25, 1.5, 0.30]))
-        y = Serial.encode(model)
+        y = Serial.encode(x, compress=False)
+        z = Serial.decode(y)
 
         # Generate an SHA3-256 code.
 
         code = Serial.code(y)
-        z = Serial.decode(y)
-
-        # Decode in JSON.
-
-        z = Serial.decode("{'a' : 1.0, 'b' : 2.0, 'c' : 3.14159}")
-        z = Serial.decode("[1.0, 2.0, 3.0]")
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-07-13.
 """
 
-from typing import Any
 import base64
 import gzip
 import hashlib
-import jsonpickle
-import jsonpickle.ext.numpy
-import jsonpickle.ext.pandas
-import re
+import io
+import pickle
+from typing import Any
 
 
 class Serial(object):
     """Serial."""
 
-    jsonpickle.ext.numpy.register_handlers()
-    jsonpickle.ext.pandas.register_handlers()
-
     @staticmethod
-    def code(state: str, encoding: str = "utf_8") -> str:
-        """Code generation.  SHA3-256 hash.
+    def code(x: str, encoding: str = "utf-8") -> str:
+        """Code generates an SHA3-256 hash code.
 
-        Arguments:
-            state: str.
-            encoding: str.
+        Arguments
+        ---------
+        x: str
+        encoding: str
 
-        Returns:
-            code: str.
+        Returns
+        -------
+        y: str
         """
 
-        if not state:
-            raise ValueError(f"State = {state}")
+        if not x:
+            raise ValueError(f"X = {x}")
         if not encoding:
             raise ValueError(f"Encoding = {encoding}")
-        return hashlib.sha3_256(bytes(state, encoding)).hexdigest()
+        return hashlib.sha3_256(bytes(x, encoding)).hexdigest()
 
     @staticmethod
-    def decode(state: str, compress: bool = False, encoding: str = "utf_8", clean: bool = False) -> Any:
-        """Decodes an instance or collection from a BSON or JSON state.
-        Encoding may be specified if an alternative to UTF-8 is required.
-        Python style docstring and line comments may be cleaned, though
-        line comments must be terminated by a new line.
+    def decode(x: str, encoding: str = "utf-8") -> Any:
+        """Decodes a Base-85 encoded serialized string to an instance.  Elective
+        compression is applied with gzip and automatically detected.
 
-        Arguments:
-            state: str.
-            compress: bool.
-            encoding: str.
-            clean: bool - clean comments.
+        Arguments
+        ---------
+        x: str
+        encoding: str
 
-        Returns:
-            instance: Any.
+        Returns
+        -------
+        y: Any
         """
 
-        if not state:
-            raise ValueError(f"State = {state}")
+        if not x:
+            raise ValueError(f"X = {x}")
         if not encoding:
             raise ValueError(f"Encoding = {encoding}")
-        if compress:
-            state = str(gzip.decompress(base64.b85decode(bytes(state, encoding))), encoding)
-        if clean:
-            state = re.sub(
-                re.compile("#.*?\n", re.DOTALL),
-                "",
-                re.sub(re.compile('""".*?"""', re.DOTALL), "", state),
-            )
-        return jsonpickle.decode(state)
+        u = base64.b85decode(bytes(x, encoding))
+        try:
+            with io.BytesIO(gzip.decompress(u)) as fio:
+                y = pickle.load(fio)  # noqa
+        except Exception:
+            with io.BytesIO(u) as fio:
+                y = pickle.load(fio)  # noqa
+        return y
 
     @staticmethod
-    def encode(
-        instance: Any,
-        compress: bool = False,
-        encoding: str = "utf_8",
-        indent: bool = False,
-    ) -> str:
-        """Encodes BSON or JSON.  Encoding may be specified if an alternative
-        to UTF-8 is required.
+    def encode(x: Any, compress: bool = True, encoding: str = "utf-8") -> str:
+        """Encodes an instance to a Base-85 encoded serialized string.  Elective
+        compression is applied with gzip.
 
-        Arguments:
-            instance: Any.
-            compress: bool.
-            encoding: str.
-            indent: bool.
+        Arguments
+        ---------
+        x: Any
+        compress: bool
+        encoding: str
 
-        Returns:
-            state: str.
+        Returns
+        -------
+        y: str
         """
 
         if not encoding:
             raise ValueError(f"Encoding = {encoding}")
-        state = jsonpickle.encode(instance, indent="    " if (indent) else None, separators=(",", ":"))
-        if compress:
-            state = str(base64.b85encode(gzip.compress(bytes(state, encoding))), encoding)
-        return state
+        with io.BytesIO() as fio:
+            pickle.dump(x, fio)
+            y = str(base64.b85encode(gzip.compress(fio.getvalue()) if compress else fio.getvalue()), encoding)
+        return y

@@ -1,5 +1,5 @@
 """**Description**
-    A window filter realizes a discrete difference equation as a function
+    Window filter realizes a discrete difference equation as a function
     of a forward coefficient array of a specified order, consuming an
     incident signal and producing a reference signal.
 
@@ -44,20 +44,22 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-04-13.
 """
 
-from scipy.signal import get_window
+from typing import ClassVar
+
 import numpy
+from scipy.signal import get_window
 
 
 class WindowFilter(object):
     """Window filter."""
 
-    STYLE: tuple[str, ...] = ("Blackman", "Hamming", "Hann", "Kaiser")
+    STYLE: ClassVar[tuple[str, ...]] = ("Blackman", "Hamming", "Hann", "Kaiser")
 
     @property
     def b(self):
@@ -66,10 +68,11 @@ class WindowFilter(object):
     def __init__(self, style: str, order: int, normal: bool = True) -> None:
         """Initialize.
 
-        Arguments:
-            style: str - in ("Blackman", "Hamming", "Hann", "Kaiser").
-            order: int.
-            normal: bool.
+        Arguments
+        ---------
+        style: str - in ("Blackman", "Hamming", "Hann", "Kaiser")
+        order: int
+        normal: bool
         """
 
         style = style.title()
@@ -90,11 +93,13 @@ class WindowFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):

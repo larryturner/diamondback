@@ -5,10 +5,6 @@
     Environment variables may be electively defined to support access to
     non-public repositories on GitHub or GitHub Enterprise.
 
-    *GITHUB_USER* defines a GitHub user.
-
-    *GITHUB_TOKEN* defines a GitHub access token.
-
 **Example**
     List sessions.
 
@@ -30,7 +26,7 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2020-10-12.
@@ -38,13 +34,14 @@
 
 import glob
 import json
-import nox
 import os
 import pathlib
 import random
 import shutil
 import string
 import urllib.request
+
+import nox
 from nox import Session
 
 nox.options.sessions = [
@@ -101,7 +98,7 @@ def dependencies(session: Session) -> None:
     session.install(".[dependencies]")
     (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
     path = pathlib.Path.cwd() / "docs" / "dependencies"
-    with open(path.with_suffix(".dot"), "w") as fout:
+    with path.with_suffix(".dot").open("w") as fout:
         session.run(
             "pydeps",
             SOURCE,
@@ -113,8 +110,8 @@ def dependencies(session: Session) -> None:
             "--show-dot",
             stdout=fout,
         )
-        with open(path.with_suffix(".dot"), "r") as fin:
-            with open(path.with_suffix(".svg"), "w") as fout:
+        with path.with_suffix(".dot").open("r") as fin:
+            with path.with_suffix(".svg").open("w") as fout:
                 x = fin.read().strip()
                 if "digraph" not in x:
                     raise ValueError(f"X = {x}")
@@ -151,14 +148,14 @@ def docs(session: Session) -> None:
             "tests",
         )
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "*.rst")):
-            with open(x, "r") as fin:
+            with pathlib.Path(x).open("r") as fin:
                 y = fin.read().replace("   :members:", "   :members:\n   :noindex:")
-            with open(x, "w") as fout:
+            with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "modules.rst")):
-            with open(x, "r") as fin:
+            with pathlib.Path(x).open("r") as fin:
                 y = fin.read().replace("noxfile", "").replace("setup", "")
-            with open(x, "w") as fout:
+            with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
         for x in ("noxfile.rst", "setup.rst"):
             if (pathlib.Path.cwd() / "templates" / x).is_file():
@@ -175,6 +172,7 @@ def format(session: Session):
     """Format."""
 
     session.install(".[format]")
+    session.run("ruff", "check", ".", "--select", "I", "--fix")
     session.run("ruff", "format", ".", "--check")
 
 

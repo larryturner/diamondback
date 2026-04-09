@@ -9,18 +9,19 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-04-03.
 """
 
-from diamondback import IirFilter
-from diamondback import Log, RestClient, Serial
 import io
+import sys
+
 import numpy
 import pytest
-import sys
+
+from diamondback import IirFilter, Log, RestClient, Serial
 
 
 class Test(object):
@@ -60,22 +61,12 @@ class Test(object):
         """Test Serial."""
 
         x = IirFilter(style="Butterworth", frequency=0.1, order=4, count=1)
-        for ii in range(0, 2):
-            y = Serial.decode(Serial.encode(x, ii != 0), ii != 0)
+        for compress in (False, True):
+            y = Serial.decode(Serial.encode(x, compress))
             assert (numpy.allclose(x.a, y.a)) and (numpy.allclose(x.b, y.b)) and (numpy.allclose(x.s, y.s))
             assert Serial.code(Serial.encode(x, compress=False)) == Serial.code(Serial.encode(y, compress=False))
-            with pytest.raises(ValueError):
-                Serial.decode(Serial.encode(x, bool(ii)), not ii)
         x = dict(x=numpy.random.rand(30, 50), y=numpy.random.rand(50, 30))
-        for ii in range(0, 2):
-            y = Serial.decode(Serial.encode(x, ii != 0), ii != 0)
+        for compress in (False, True):
+            y = Serial.decode(Serial.encode(x, compress))
             assert Serial.encode(x, compress=False) == Serial.encode(y, compress=False)
             assert all([u in x for u in list(y.keys())])
-        x = '""" Docstring. """\n \
-                    {"serial" : {"datetime" : "2019-09-01T15:10:00Z", # Comment.\n \
-                                 "duration" : 28800.0,\n \
-                                 "period" : 123.4}}\n'
-        y = Serial.decode(x, compress=False, clean=True)
-        assert "serial" in y
-        assert all([u in y["serial"] for u in ("datetime", "duration", "period")])
-        assert numpy.isclose(y["serial"]["period"], 123.4)

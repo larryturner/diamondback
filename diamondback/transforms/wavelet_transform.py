@@ -1,5 +1,5 @@
 """**Description**
-    A wavelet transform realizes a temporal spatial frequency
+    Wavelet transform realizes a temporal spatial frequency
     transformation in the form of analysis and synthesis filters with a
     complementary frequency response, combined with downsampling and
     upsampling operations to facilitate frequency-dependent decomposition
@@ -71,20 +71,23 @@
 
 **License**
     `BSD-3C.  <https://github.com/larryturner/diamondback/blob/master/license>`_
-    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
+    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.
 
 **Author**
     Larry Turner, Schneider Electric, AI Hub, 2018-02-06.
 """
 
-from diamondback.filters.fir_filter import FirFilter
+from typing import ClassVar
+
 import numpy
+
+from diamondback.filters.fir_filter import FirFilter
 
 
 class WaveletTransform(object):
     """Wavelet transform."""
 
-    B: dict[str, dict[int, numpy.ndarray]] = dict(
+    B: ClassVar[dict[str, dict[int, numpy.ndarray]]] = dict(
         Coiflet={
             5: numpy.array(
                 [
@@ -473,7 +476,7 @@ class WaveletTransform(object):
             ),
         },
     )
-    STYLE: tuple[str, ...] = tuple(B.keys())
+    STYLE: ClassVar[tuple[str, ...]] = tuple(B.keys())
 
     @property
     def b(self):
@@ -482,9 +485,10 @@ class WaveletTransform(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments:
-            style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet").
-            order: int.
+        Arguments
+        ---------
+        style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet")
+        order: int
         """
 
         style = style.title()
@@ -514,13 +518,15 @@ class WaveletTransform(object):
         signals have two dimensions.  Dimension lengths must be unity or
         an integral multiple of 2**count.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
-            count: int.
-            inverse: bool.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
+        count: int
+        inverse: bool
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):
