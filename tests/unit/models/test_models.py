@@ -45,7 +45,7 @@ class Test(object):
                 [0.968823660872193, 1.269390641058206],
             ]
         )
-        y = diversity_model.learn(x)
+        y = diversity_model.fit(x)
         v = numpy.array(
             [
                 0.000000,
@@ -79,7 +79,7 @@ class Test(object):
         for ii in range(0, len(u)):
             jj = numpy.where(y == ii)[0]
             x[jj] += u[ii]
-        gaussian_model.learn(x, y)
+        gaussian_model.fit(x, y)
         v = gaussian_model.predict(x)[:, 0]
         assert sum(v == y) >= 0.95 * len(y)
 
@@ -110,6 +110,6 @@ class Test(object):
             jj = numpy.where(y == ii)[0]
             x[jj] += u[ii]
         y >>= 1
-        gaussian_mixture_model.learn(x, y)
+        gaussian_mixture_model.fit(x, y)
         v = gaussian_mixture_model.predict(x)[:, 0]
         assert sum(v == y) >= 0.95 * len(y)

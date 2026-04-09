@@ -1,5 +1,5 @@
 """**Description**
-    REST client instances define a client for simple REST service requests
+    REST client defines a client for simple REST service requests
     using requests.  An API and an elective dictionary of parameter strings
     are encoded to build a URL, elective binary or JSON data are defined in
     the body of a request, and a requests response containing JSON, text,
@@ -107,17 +107,19 @@ class RestClient(object):
         request, and a requests response containing JSON, text, or binary
         data is returned.
 
-        Arguments:
-            method: str - in ("delete", "get", "head", "options", "patch", "post", "put").
-            api: str - relative to the URL.
-            auth: Any.
-            header: dict[str, str] | None.
-            item: dict[str, str] | None.
-            data: Any.
-            json: Any.
+        Arguments
+        ---------
+        method: str - in ("delete", "get", "head", "options", "patch", "post", "put")
+        api: str - relative to the URL
+        auth: Any
+        header: dict[str, str] | None
+        item: dict[str, str] | None
+        data: Any
+        json: Any
 
-        Returns:
-            value: requests.Response.
+        Returns
+        -------
+        value: requests.Response
         """
 
         method = method.title()

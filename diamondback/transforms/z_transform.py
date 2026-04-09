@@ -1,5 +1,5 @@
 """**Description**
-    A z transform converts a continuous s-domain differential equation to a
+    Z transform converts a continuous s-domain differential equation to a
     discrete z-domain difference equation as a function of a recursive
     coefficient array and a forward coefficient array of a specified order.
     A normalized frequency and bilinear condition are specified.
@@ -74,15 +74,17 @@ class ZTransform(object):
         """Transforms continuous s-domain coefficient arrays and produces
         discrete z-domain coefficient arrays.
 
-        Arguments:
-            u: list | numpy.ndarray - recursive coefficient, s-domain.
-            v: list | numpy.ndarray - forward coefficient, s-domain.
-            frequency: float - frequency in (0.0, inf).
-            bilinear: bool.
+        Arguments
+        ---------
+        u: list | numpy.ndarray - recursive coefficient, s-domain
+        v: list | numpy.ndarray - forward coefficient, s-domain
+        frequency: float - frequency in (0.0, inf)
+        bilinear: bool
 
-        Returns:
-            a: numpy.ndarray - recursive coefficient, z-domain.
-            b: numpy.ndarray - forward coefficient, z-domain.
+        Returns
+        -------
+        a: numpy.ndarray - recursive coefficient, z-domain
+        b: numpy.ndarray - forward coefficient, z-domain
         """
 
         if not isinstance(u, numpy.ndarray):

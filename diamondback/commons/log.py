@@ -1,10 +1,10 @@
 """**Description**
-    A log instance formats and writes log entries with a specified level
-    and stream using loguru. Log entries contain an ISO 8601 datetime
+    *Log* formats and writes log entries with a specified level
+    and stream using loguru. *Log* entries contain an ISO 8601 datetime
     and level.  Dynamic stream redirection and level specification
     are supported.
 
-    Log uses lazy initialization to coexist with loguru, and removes or
+    *Log* uses lazy initialization to coexist with loguru, and removes or
     creates loguru handlers only on explicit stream assignment or write.
     In lazy initialization an existing default loguru handler, with an
     identity equal to 0, and a stream assignment of sys.stdout is removed,
@@ -100,8 +100,9 @@ class Log(object):
     def level(cls, level: str) -> None:
         """Level.
 
-        Arguments:
-            level: str - in LEVEL.
+        Arguments
+        ---------
+        level: str - in LEVEL
         """
 
         with Log._rlock:
@@ -114,8 +115,9 @@ class Log(object):
     def stream(cls, stream: Any) -> None:
         """Stream.
 
-        Arguments:
-            stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a")).
+        Arguments
+        ---------
+        stream: Any, hasattr("write") - in (sys.stderr, sys.stdout, open(< path >, "w" or "a"))
         """
 
         with Log._rlock:
@@ -134,9 +136,10 @@ class Log(object):
         """Formats and writes log entries using loguru with a specified level
         and stream.  Log entries contain an ISO 8601 datetime and level.
 
-        Arguments:
-            level: str - in LEVEL.
-            entry: str | Exception.
+        Arguments
+        ---------
+        level: str - in LEVEL
+        entry: str | Exception
         """
 
         with Log._rlock:

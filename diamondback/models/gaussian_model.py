@@ -1,5 +1,5 @@
 """**Description**
-    A Gaussian Model (GM) is a supervised learning probabilistic model instance
+    Gaussian Model (GM) is a supervised learning probabilistic model instance
     which uses maximum likelihood estimation and regularization to maximize
     posterior probability and classify an incident signal.  Learns one
     distribution instance per class.
@@ -12,7 +12,7 @@
 
         gaussian_model = GaussianModel()
         x, y = numpy.random.rand(32, 2), numpy.random.randint(0, 10, 32)
-        gaussian_model.learn(x, y)
+        gaussian_model.fit(x, y)
         x = numpy.random.rand(16, 2)
         v = gaussian_model.predict(x)
 
@@ -49,8 +49,9 @@ class GaussianModel(object):
     def __init__(self, regularize: float = 1.0e-1) -> None:
         """Initialize.
 
-        Arguments:
-            regularize: float - regularize.
+        Arguments
+        ---------
+        regularize: float - regularize
         """
 
         if regularize < 0.0:
@@ -59,14 +60,15 @@ class GaussianModel(object):
         self._regularize = regularize
         self._shape = ()
 
-    def learn(self, x: numpy.ndarray, y: numpy.ndarray) -> None:
-        """Learns an incident signal with ground truth label and estimates inverse
+    def fit(self, x: numpy.ndarray, y: numpy.ndarray) -> None:
+        """Fit an incident signal with ground truth label and estimates inverse
         covariance and mean matrices to learn a distribution instance for
         each class.
 
-        Arguments:
-            x: numpy.ndarray (batch, count) - incident.
-            y: numpy.ndarray (batch) - label.
+        Arguments
+        ---------
+        x: numpy.ndarray (batch, count) - incident
+        y: numpy.ndarray (batch) - label
         """
 
         if (len(x.shape) != 2) or (not all(x.shape)):
@@ -91,11 +93,13 @@ class GaussianModel(object):
         Predictions for each class are ranked and ordered by decending
         probability, and the initial prediction is the most likely class.
 
-        Arguments:
-            x: numpy.ndarray (batch, count) - data.
+        Arguments
+        ---------
+        x: numpy.ndarray (batch, count) - data
 
-        Returns:
-            v: numpy.ndarray (batch, class) - predict.
+        Returns
+        -------
+        v: numpy.ndarray (batch, class) - predict
         """
 
         if not len(self._model):

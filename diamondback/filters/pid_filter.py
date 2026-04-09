@@ -1,5 +1,5 @@
 """**Description**
-    A Proportional Integral Derivative (PID) filter realizes a discrete
+    Proportional Integral Derivative (PID) filter realizes a discrete
     difference equation as a function of a forward coefficient array and a
     state array of a static order.  A forward coefficient array applies a
     gain to proportional, integral, and derivative representations of an
@@ -51,8 +51,9 @@ class PidFilter(FirFilter):
     def __init__(self, b: list | numpy.ndarray) -> None:
         """Initialize.
 
-        Arguments:
-            b: list | numpy.ndarray - forward coefficient.
+        Arguments
+        ---------
+        b: list | numpy.ndarray - forward coefficient
         """
 
         if not isinstance(b, numpy.ndarray):
@@ -65,11 +66,13 @@ class PidFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):

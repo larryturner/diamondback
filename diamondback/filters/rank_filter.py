@@ -1,5 +1,5 @@
 """**Description**
-    A rank filter realizes a nonlinear morphological operator consuming an
+    Rank filter realizes a nonlinear morphological operator consuming an
     incident signal, sorting, indexing, and selecting over a sliding window
     of a specified order, and producing a reference signal.
 
@@ -55,9 +55,10 @@ class RankFilter(FirFilter):
     def __init__(self, index: int, order: int) -> None:
         """Initialize.
 
-        Arguments:
-            index: int - in [0, order].
-            order: int.
+        Arguments
+        ---------
+        index: int - in [0, order]
+        order: int
         """
 
         if (index < 0) or (index > order):
@@ -68,11 +69,13 @@ class RankFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):

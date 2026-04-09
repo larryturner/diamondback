@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback package &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
@@ -132,7 +132,7 @@
 <dt><strong>Description</strong></dt><dd><p>Initialize.</p>
 </dd>
 <dt><strong>License</strong></dt><dd><p><a class="reference external" href="https://github.com/larryturner/diamondback/blob/master/license">BSD-3C.</a>
-© 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+© 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
 </dd>
 <dt><strong>Author</strong></dt><dd><p>Larry Turner, Schneider Electric, AI Hub, 2018-03-22.</p>
 </dd>
@@ -146,8 +146,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
-<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> [</em><em>-1.0</em><em>, </em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>rate</strong> (<em>float - in</em><em> [</em><em>0.0</em><em>, </em><em>1.0</em><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -158,15 +158,15 @@
 <p>Signals are Hilbert transformed to complex as necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
+<dd class="field-odd"><p><strong>d</strong> (<em>list</em><em> | </em><em>numpy.ndarray - primary signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-e: numpy.ndarray - error signal.
-b: numpy.ndarray - forward coefficient.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>e</strong> (<em>numpy.ndarray - error signal</em>)</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray - forward coefficient</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -191,7 +191,7 @@ b: numpy.ndarray - forward coefficient.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>phase</strong> – float - relative to pi in [-1.0, 1.0].</p>
+<dd class="field-odd"><p><strong>phase</strong> (<em>float - relative to pi in</em><em> [</em><em>-1.0</em><em>, </em><em>1.0</em><em>]</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -200,13 +200,13 @@ b: numpy.ndarray - forward coefficient.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0).</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal frequency normalized to Nyquist in</em><em> [</em><em>-1.0</em><em>, </em><em>1.0</em><em>)</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -227,8 +227,8 @@ b: numpy.ndarray - forward coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0).</p></li>
-<li><p><strong>rate</strong> – float - in [0.0, 1.0].</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> [</em><em>-1.0</em><em>, </em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>rate</strong> (<em>float - in</em><em> [</em><em>0.0</em><em>, </em><em>1.0</em><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -239,15 +239,15 @@ b: numpy.ndarray - forward coefficient.</p>
 <p>Signals are Hilbert transformed to complex as necessary.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>d</strong> – list | numpy.ndarray - primary signal.</p>
+<dd class="field-odd"><p><strong>d</strong> (<em>list</em><em> | </em><em>numpy.ndarray - primary signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-e: numpy.ndarray - error signal.
-b: numpy.ndarray - forward coefficient.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>e</strong> (<em>numpy.ndarray - error signal</em>)</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray - forward coefficient</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -269,7 +269,7 @@ b: numpy.ndarray - forward coefficient.</p>
 operation at a specified primary incident condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – complex - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex - incident signal</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -299,15 +299,15 @@ or three-phase reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
-<li><p><strong>neutral</strong> – bool.</p></li>
+<li><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p></li>
+<li><p><strong>neutral</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -323,8 +323,8 @@ or three-phase reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>derivative</strong> – int - in [1, 3].</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>derivative</strong> (<em>int - in</em><em> [</em><em>1</em><em>, </em><em>3</em><em>]</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -339,13 +339,13 @@ or three-phase reference signal.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -361,8 +361,8 @@ or three-phase reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Chebyshev”, “Euclidean”, “Geometric”, “Manhattan”).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Chebyshev&quot;</em><em>, </em><em>&quot;Euclidean&quot;</em><em>, </em><em>&quot;Geometric&quot;</em><em>, </em><em>&quot;Manhattan&quot;</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -384,17 +384,17 @@ or three-phase reference signal.</p>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal and produces a reference signal.</p>
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="reference internal" href="_modules/diamondback/models/diversity_model.html#DiversityModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - diversity.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - diversity</p>
 </dd>
 </dl>
 </dd></dl>
@@ -420,14 +420,14 @@ coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
-<li><p><strong>order</strong> – int - order per instance.</p></li>
-<li><p><strong>count</strong> – int - instances per cascade.</p></li>
-<li><p><strong>complement</strong> – bool - complement response.</p></li>
-<li><p><strong>gain</strong> – float - gain.</p></li>
-<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
-<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Blackman&quot;</em><em>, </em><em>&quot;Hamming&quot;</em><em>, </em><em>&quot;Hann&quot;</em><em>, </em><em>&quot;Kaiser&quot;</em><em>)</em>)</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> (</em><em>0.0</em><em>, </em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int - order per instance</em>)</p></li>
+<li><p><strong>count</strong> (<em>int - instances per cascade</em>)</p></li>
+<li><p><strong>complement</strong> (<em>bool - complement response</em>)</p></li>
+<li><p><strong>gain</strong> (<em>float - gain</em>)</p></li>
+<li><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p></li>
+<li><p><strong>s</strong> (<em>list</em><em> | </em><em>numpy.ndarray - state</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -448,16 +448,16 @@ coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>length</strong> – int.</p></li>
-<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>length</strong> (<em>int</em>)</p></li>
+<li><p><strong>count</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -468,13 +468,13 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -486,7 +486,7 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex</em><em> | </em><em>float - incident signal</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -498,16 +498,16 @@ operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>length</strong> – int.</p></li>
-<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>length</strong> (<em>int</em>)</p></li>
+<li><p><strong>count</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -518,14 +518,14 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>count</strong> – int.</p>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - poles.
-z: numpy.ndarray - zeros.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>p</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>p</strong> (<em>numpy.ndarray - poles</em>)</p></li>
+<li><p><strong>z</strong> (<em>numpy.ndarray - zeros</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -553,17 +553,17 @@ Inverse transform indices define an integral sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
-<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
-<li><p><strong>inverse</strong> – bool.</p></li>
+<li><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p></li>
+<li><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p></li>
+<li><p><strong>inverse</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -579,32 +579,32 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>order</strong> – int - mixture distributions per class.</p></li>
-<li><p><strong>index</strong> – int - iterations.</p></li>
-<li><p><strong>regularize</strong> – float - regularize.</p></li>
+<li><p><strong>order</strong> (<em>int - mixture distributions per class</em>)</p></li>
+<li><p><strong>index</strong> (<em>int - iterations</em>)</p></li>
+<li><p><strong>regularize</strong> (<em>float - regularize</em>)</p></li>
 </ul>
 </dd>
 </dl>
-<dl class="py property">
-<dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
-<dd></dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_mixture_model.html#GaussianMixtureModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>FIt an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn mixed distribution instances
 for each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">index</span></span></dt>
+<dd></dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py">
@@ -621,13 +621,13 @@ distributions.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -652,20 +652,20 @@ probability, and the initial prediction is the most likely class.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>regularize</strong> – float - regularize.</p>
+<dd class="field-odd"><p><strong>regularize</strong> (<em>float - regularize</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py">
-<span class="sig-name descname"><span class="pre">learn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.learn"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Learns an incident signal with ground truth label and estimates inverse
+<span class="sig-name descname"><span class="pre">fit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/diamondback/models/gaussian_model.html#GaussianModel.fit"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Fit an incident signal with ground truth label and estimates inverse
 covariance and mean matrices to learn a distribution instance for
 each class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – numpy.ndarray (batch, count) - incident.</p></li>
-<li><p><strong>y</strong> – numpy.ndarray (batch) - label.</p></li>
+<li><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- incident</em>)</p></li>
+<li><p><strong>y</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>) </em><em>- label</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -680,13 +680,13 @@ and maximizes posterior probability.</p>
 probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – numpy.ndarray (batch, count) - data.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>numpy.ndarray</em><em> (</em><em>batch</em><em>, </em><em>count</em><em>) </em><em>- data</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray (batch, class) - predict.</p>
+<dd class="field-even"><p><strong>v</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>v</p>
+<dd class="field-odd"><p>numpy.ndarray (batch, class) - predict</p>
 </dd>
 </dl>
 </dd></dl>
@@ -712,8 +712,8 @@ probability, and the initial prediction is the most likely class.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in [-1.0, 1.0].</p></li>
+<li><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> [</em><em>-1.0</em><em>, </em><em>1.0</em><em>]</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -723,13 +723,13 @@ probability, and the initial prediction is the most likely class.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -755,15 +755,15 @@ coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
-<li><p><strong>order</strong> – int - order per instance.</p></li>
-<li><p><strong>count</strong> – int - instances per cascade.</p></li>
-<li><p><strong>complement</strong> – bool - complement response.</p></li>
-<li><p><strong>gain</strong> – float - gain.</p></li>
-<li><p><strong>a</strong> – list | numpy.ndarray - recursive coefficient.</p></li>
-<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
-<li><p><strong>s</strong> – list | numpy.ndarray - state.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Bessel&quot;</em><em>, </em><em>&quot;Butterworth&quot;</em><em>, </em><em>&quot;Chebyshev&quot;</em><em>)</em>)</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> (</em><em>0.0</em><em>, </em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int - order per instance</em>)</p></li>
+<li><p><strong>count</strong> (<em>int - instances per cascade</em>)</p></li>
+<li><p><strong>complement</strong> (<em>bool - complement response</em>)</p></li>
+<li><p><strong>gain</strong> (<em>float - gain</em>)</p></li>
+<li><p><strong>a</strong> (<em>list</em><em> | </em><em>numpy.ndarray - recursive coefficient</em>)</p></li>
+<li><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p></li>
+<li><p><strong>s</strong> (<em>list</em><em> | </em><em>numpy.ndarray - state</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -779,17 +779,17 @@ coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Bessel”, “Butterworth”, “Chebyshev”).</p></li>
-<li><p><strong>frequency</strong> – float - frequency normalized to Nyquist in (0.0, 1.0).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Bessel&quot;</em><em>, </em><em>&quot;Butterworth&quot;</em><em>, </em><em>&quot;Chebyshev&quot;</em><em>)</em>)</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency normalized to Nyquist in</em><em> (</em><em>0.0</em><em>, </em><em>1.0</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - recursive coefficient.
-b: numpy.ndarray - forward coefficient.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>a</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>a</strong> (<em>numpy.ndarray - recursive coefficient</em>)</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray - forward coefficient</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -806,16 +806,16 @@ b: numpy.ndarray - forward coefficient.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>length</strong> – int.</p></li>
-<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>length</strong> (<em>int</em>)</p></li>
+<li><p><strong>count</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -826,13 +826,13 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -844,7 +844,7 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – complex | float - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>complex</em><em> | </em><em>float - incident signal</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -856,16 +856,16 @@ operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>length</strong> – int.</p></li>
-<li><p><strong>count</strong> – int.</p></li>
+<li><p><strong>length</strong> (<em>int</em>)</p></li>
+<li><p><strong>count</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -876,14 +876,14 @@ f: numpy.ndarray - frequency normalized to Nyquist in [-1.0, 1.0).</p>
 <dd><p>Estimates roots of a frequency response in poles and zeros.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>count</strong> – int.</p>
+<dd class="field-odd"><p><strong>count</strong> (<em>int</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - poles.
-z: numpy.ndarray - zeros.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>p</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>p</strong> (<em>numpy.ndarray - poles</em>)</p></li>
+<li><p><strong>z</strong> (<em>numpy.ndarray - zeros</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -898,7 +898,7 @@ z: numpy.ndarray - zeros.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>order</strong> – int.</p>
+<dd class="field-odd"><p><strong>order</strong> (<em>int</em>)</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -912,13 +912,13 @@ z: numpy.ndarray - zeros.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -941,7 +941,7 @@ z: numpy.ndarray - zeros.</p>
 <dd><p>Level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>level</strong> – str - in LEVEL.</p>
+<dd class="field-odd"><p><strong>level</strong> (<em>str - in LEVEL</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -952,7 +952,7 @@ z: numpy.ndarray - zeros.</p>
 <dd><p>Stream.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stream</strong> – Any, hasattr(“write”) - in (sys.stderr, sys.stdout, open(&lt; path &gt;, “w” or “a”)).</p>
+<dd class="field-odd"><p><strong>stream</strong> (<em>Any</em><em>, </em><em>hasattr</em><em>(</em><em>&quot;write&quot;</em><em>) </em><em>- in</em><em> (</em><em>sys.stderr</em><em>, </em><em>sys.stdout</em><em>, </em><em>open</em><em>(</em><em>&lt; path &gt;</em><em>, </em><em>&quot;w&quot;</em><em> or </em><em>&quot;a&quot;</em><em>)</em><em>)</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -965,8 +965,8 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>level</strong> – str - in LEVEL.</p></li>
-<li><p><strong>entry</strong> – str | Exception.</p></li>
+<li><p><strong>level</strong> (<em>str - in LEVEL</em>)</p></li>
+<li><p><strong>entry</strong> (<em>str</em><em> | </em><em>Exception</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -982,7 +982,7 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p>
+<dd class="field-odd"><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p>
 </dd>
 </dl>
 <dl class="py method">
@@ -991,13 +991,13 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1018,8 +1018,8 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>rate</strong> – float - ratio of effective frequency in [0.0, inf).</p></li>
-<li><p><strong>order</strong> – int - in (0, inf).</p></li>
+<li><p><strong>rate</strong> (<em>float - ratio</em><em> of </em><em>effective frequency in</em><em> [</em><em>0.0</em><em>, </em><em>inf</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int - in</em><em> (</em><em>0</em><em>, </em><em>inf</em><em>)</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1029,13 +1029,13 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1060,7 +1060,7 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <p>Initialize.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>rate</strong> – float - ratio of effective frequency in (0.0, b.shape[0]].</p>
+<dd class="field-odd"><p><strong>rate</strong> (<em>float - ratio</em><em> of </em><em>effective frequency in</em><em> (</em><em>0.0</em><em>, </em><em>b.shape</em><em>[</em><em>0</em><em>]</em><em>]</em>)</p>
 </dd>
 </dl>
 <dl class="py attribute">
@@ -1079,13 +1079,13 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1102,7 +1102,7 @@ and stream.  Log entries contain an ISO 8601 datetime and level.</p>
 operation at a specified incident signal condition.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – float - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>float - incident signal</em>)</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1127,18 +1127,18 @@ real discrete-frequency reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
-<li><p><strong>b</strong> – list | numpy.ndarray - forward coefficient.</p></li>
-<li><p><strong>index</strong> – int.</p></li>
-<li><p><strong>spectrogram</strong> – bool.</p></li>
+<li><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p></li>
+<li><p><strong>b</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em>)</p></li>
+<li><p><strong>index</strong> (<em>int</em>)</p></li>
+<li><p><strong>spectrogram</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.
-f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>y</strong> (<em>numpy.ndarray - reference signal</em>)</p></li>
+<li><p><strong>f</strong> (<em>numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0)</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1154,8 +1154,8 @@ f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>index</strong> – int - in [0, order].</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>index</strong> (<em>int - in</em><em> [</em><em>0</em><em>, </em><em>order</em><em>]</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1165,13 +1165,13 @@ f: numpy.ndarray - frequency normalized to Nyquist in [0.0, 1.0).</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1215,20 +1215,20 @@ data is returned.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>method</strong> – str - in (“delete”, “get”, “head”, “options”, “patch”, “post”, “put”).</p></li>
-<li><p><strong>api</strong> – str - relative to the URL.</p></li>
-<li><p><strong>auth</strong> – Any.</p></li>
-<li><p><strong>header</strong> – dict[str, str] | None.</p></li>
-<li><p><strong>item</strong> – dict[str, str] | None.</p></li>
-<li><p><strong>data</strong> – Any.</p></li>
-<li><p><strong>json</strong> – Any.</p></li>
+<li><p><strong>method</strong> (<em>str - in</em><em> (</em><em>&quot;delete&quot;</em><em>, </em><em>&quot;get&quot;</em><em>, </em><em>&quot;head&quot;</em><em>, </em><em>&quot;options&quot;</em><em>, </em><em>&quot;patch&quot;</em><em>, </em><em>&quot;post&quot;</em><em>, </em><em>&quot;put&quot;</em><em>)</em>)</p></li>
+<li><p><strong>api</strong> (<em>str - relative to the URL</em>)</p></li>
+<li><p><strong>auth</strong> (<em>Any</em>)</p></li>
+<li><p><strong>header</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>item</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>] </em><em>| </em><em>None</em>)</p></li>
+<li><p><strong>data</strong> (<em>Any</em>)</p></li>
+<li><p><strong>json</strong> (<em>Any</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>requests.Response.</p>
+<dd class="field-even"><p><strong>value</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>value</p>
+<dd class="field-odd"><p>requests.Response</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1252,68 +1252,63 @@ data is returned.</p>
 <p>Serial.</p>
 <dl class="py method">
 <dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Code generation.  SHA3-256 hash.</p>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.code"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Code generates an SHA3-256 hash code.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>state</strong> – str.</p></li>
-<li><p><strong>encoding</strong> – str.</p></li>
+<li><p><strong>x</strong> (<em>str</em>)</p></li>
+<li><p><strong>encoding</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>str.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>code</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">clean</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Decodes an instance or collection from a BSON or JSON state.
-Encoding may be specified if an alternative to UTF-8 is required.
-Python style docstring and line comments may be cleaned, though
-line comments must be terminated by a new line.</p>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Any</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Decodes a Base-85 encoded serialized string to an instance.  Elective
+compression is applied with gzip and automatically detected.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>state</strong> – str.</p></li>
-<li><p><strong>compress</strong> – bool.</p></li>
-<li><p><strong>encoding</strong> – str.</p></li>
-<li><p><strong>clean</strong> – bool - clean comments.</p></li>
+<li><p><strong>x</strong> (<em>str</em>)</p></li>
+<li><p><strong>encoding</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>Any.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>instance</p>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py">
-<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">instance</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf_8'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
-<dd><p>Encodes BSON or JSON.  Encoding may be specified if an alternative
-to UTF-8 is required.</p>
+<em class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">encode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compress</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">encoding</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'utf-8'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="reference internal" href="_modules/diamondback/commons/serial.html#Serial.encode"><span class="viewcode-link"><span class="pre">[source]</span></span></a></dt>
+<dd><p>Encodes an instance to a Base-85 encoded serialized string.  Elective
+compression is applied with gzip.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>instance</strong> – Any.</p></li>
-<li><p><strong>compress</strong> – bool.</p></li>
-<li><p><strong>encoding</strong> – str.</p></li>
-<li><p><strong>indent</strong> – bool.</p></li>
+<li><p><strong>x</strong> (<em>Any</em>)</p></li>
+<li><p><strong>compress</strong> (<em>bool</em>)</p></li>
+<li><p><strong>encoding</strong> (<em>str</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>str.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>state</p>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1329,8 +1324,8 @@ to UTF-8 is required.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Coiflet”, “Daubechies”, “Haar”, “Symmlet”).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Coiflet&quot;</em><em>, </em><em>&quot;Daubechies&quot;</em><em>, </em><em>&quot;Haar&quot;</em><em>, </em><em>&quot;Symmlet&quot;</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1359,16 +1354,16 @@ an integral multiple of 2**count.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p></li>
-<li><p><strong>count</strong> – int.</p></li>
-<li><p><strong>inverse</strong> – bool.</p></li>
+<li><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p></li>
+<li><p><strong>count</strong> (<em>int</em>)</p></li>
+<li><p><strong>inverse</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1384,9 +1379,9 @@ an integral multiple of 2**count.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>style</strong> – str - in (“Blackman”, “Hamming”, “Hann”, “Kaiser”).</p></li>
-<li><p><strong>order</strong> – int.</p></li>
-<li><p><strong>normal</strong> – bool.</p></li>
+<li><p><strong>style</strong> (<em>str - in</em><em> (</em><em>&quot;Blackman&quot;</em><em>, </em><em>&quot;Hamming&quot;</em><em>, </em><em>&quot;Hann&quot;</em><em>, </em><em>&quot;Kaiser&quot;</em><em>)</em>)</p></li>
+<li><p><strong>order</strong> (<em>int</em>)</p></li>
+<li><p><strong>normal</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -1406,13 +1401,13 @@ an integral multiple of 2**count.</p>
 <dd><p>Filters an incident signal and produces a reference signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> – list | numpy.ndarray - incident signal.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>list</em><em> | </em><em>numpy.ndarray - incident signal</em>)</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - reference signal.</p>
+<dd class="field-even"><p><strong>y</strong></p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>y</p>
+<dd class="field-odd"><p>numpy.ndarray - reference signal</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1433,18 +1428,18 @@ discrete z-domain coefficient arrays.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>u</strong> – list | numpy.ndarray - recursive coefficient, s-domain.</p></li>
-<li><p><strong>v</strong> – list | numpy.ndarray - forward coefficient, s-domain.</p></li>
-<li><p><strong>frequency</strong> – float - frequency in (0.0, inf).</p></li>
-<li><p><strong>bilinear</strong> – bool.</p></li>
+<li><p><strong>u</strong> (<em>list</em><em> | </em><em>numpy.ndarray - recursive coefficient</em><em>, </em><em>s-domain</em>)</p></li>
+<li><p><strong>v</strong> (<em>list</em><em> | </em><em>numpy.ndarray - forward coefficient</em><em>, </em><em>s-domain</em>)</p></li>
+<li><p><strong>frequency</strong> (<em>float - frequency in</em><em> (</em><em>0.0</em><em>, </em><em>inf</em><em>)</em>)</p></li>
+<li><p><strong>bilinear</strong> (<em>bool</em>)</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>numpy.ndarray - recursive coefficient, z-domain.
-b: numpy.ndarray - forward coefficient, z-domain.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>a</p>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>a</strong> (<em>numpy.ndarray - recursive coefficient, z-domain</em>)</p></li>
+<li><p><strong>b</strong> (<em>numpy.ndarray - forward coefficient, z-domain</em>)</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -1462,7 +1457,7 @@ b: numpy.ndarray - forward coefficient, z-domain.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright  2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

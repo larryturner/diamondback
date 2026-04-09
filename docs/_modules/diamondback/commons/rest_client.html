@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.commons.rest_client &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -67,7 +67,7 @@
              
   <h1>Source code for diamondback.commons.rest_client</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
-<span class="sd">    REST client instances define a client for simple REST service requests</span>
+<span class="sd">    REST client defines a client for simple REST service requests</span>
 <span class="sd">    using requests.  An API and an elective dictionary of parameter strings</span>
 <span class="sd">    are encoded to build a URL, elective binary or JSON data are defined in</span>
 <span class="sd">    the body of a request, and a requests response containing JSON, text,</span>
@@ -100,7 +100,7 @@
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">**Author**</span>
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2020-10-22.</span>
@@ -179,17 +179,19 @@
 <span class="sd">        request, and a requests response containing JSON, text, or binary</span>
 <span class="sd">        data is returned.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            method: str - in (&quot;delete&quot;, &quot;get&quot;, &quot;head&quot;, &quot;options&quot;, &quot;patch&quot;, &quot;post&quot;, &quot;put&quot;).</span>
-<span class="sd">            api: str - relative to the URL.</span>
-<span class="sd">            auth: Any.</span>
-<span class="sd">            header: dict[str, str] | None.</span>
-<span class="sd">            item: dict[str, str] | None.</span>
-<span class="sd">            data: Any.</span>
-<span class="sd">            json: Any.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        method: str - in (&quot;delete&quot;, &quot;get&quot;, &quot;head&quot;, &quot;options&quot;, &quot;patch&quot;, &quot;post&quot;, &quot;put&quot;)</span>
+<span class="sd">        api: str - relative to the URL</span>
+<span class="sd">        auth: Any</span>
+<span class="sd">        header: dict[str, str] | None</span>
+<span class="sd">        item: dict[str, str] | None</span>
+<span class="sd">        data: Any</span>
+<span class="sd">        json: Any</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            value: requests.Response.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        value: requests.Response</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="n">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
@@ -225,7 +227,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright  2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

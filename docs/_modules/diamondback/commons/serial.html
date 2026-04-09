@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>diamondback.commons.serial &mdash; diamondback Digital Signal Processing (DSP)</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
@@ -67,21 +67,23 @@
              
   <h1>Source code for diamondback.commons.serial</h1><div class="highlight"><pre>
 <span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
-<span class="sd">    A serial instance encodes and decodes an instance or collection in</span>
-<span class="sd">    BSON or JSON, and generates SHA3-256 codes, using jsonpickle.</span>
+<span class="sd">    *Serial* encodes and decodes an instance to a Base-85 encoded serialized</span>
+<span class="sd">    string with elective gzip compression, and generates SHA3-256 hash codes.</span>
 
-<span class="sd">    BSON, Base-85 encoded gzip JSON, embeds a datetime context, and code</span>
-<span class="sd">    will not be consistent or useful for validation.</span>
+<span class="sd">    Decode decodes a Base-85 encoded serialized string to an instance.</span>
+<span class="sd">    Elective compression is applied with gzip and automatically detected.</span>
+
+<span class="sd">    Encode encodes an instance to a Base-85 encoded serialized string.</span>
+<span class="sd">    Elective compression is applied with gzip.</span>
+
+<span class="sd">    Code generates an SHA3-256 hash code of an encoded serialized string,</span>
+<span class="sd">    with applications in security and version control.  Encode with</span>
+<span class="sd">    compression embeds a datetime context, and code will not be consistent</span>
+<span class="sd">    or deterministic.</span>
 
 <span class="sd">    An instance may be an object or a collection, referenced by abstract or</span>
-<span class="sd">    concrete types, and the instance will be correctly encoded and decoded,</span>
-<span class="sd">    without custom encoding definitions.  BSON binary format is selected by</span>
-<span class="sd">    electing to compress.  Encoding may be specified if an alternative to</span>
-<span class="sd">    UTF-8 is required.</span>
-
-<span class="sd">    Comments may be filtered from JSON by electing to clean.  Python style</span>
-<span class="sd">    docstring and line comments are supported, though line comments must be</span>
-<span class="sd">    terminated by a new line.</span>
+<span class="sd">    concrete types, and the instance will be completely encoded and decoded,</span>
+<span class="sd">    without custom encoding definitions.</span>
 
 <span class="sd">    Singleton.</span>
 
@@ -92,39 +94,29 @@
 <span class="sd">    .. code-block:: python</span>
 
 <span class="sd">        from diamondback import Serial</span>
-<span class="sd">        import numpy</span>
 <span class="sd">        import pandas</span>
 
-<span class="sd">        # Encode and decode a dictionary in JSON.</span>
+<span class="sd">        # Define a model instance of any supported type.</span>
 
-<span class="sd">        n = numpy.random.randint(1, 10)</span>
-<span class="sd">        x = dict(a = numpy.random.rand(n), b = list(numpy.random.rand(n)))</span>
-<span class="sd">        y = Serial.encode(x, indent = True)</span>
+<span class="sd">        x = pandas.DataFrame(dict(fruit = [&quot;orange&quot;, &quot;apple&quot;, &quot;kiwi&quot;], value = [1.25, 1.5, 0.30]))</span>
+
+<span class="sd">        # Encode and decode a model instance with compression.</span>
+
+<span class="sd">        y = Serial.encode(x)</span>
 <span class="sd">        z = Serial.decode(y)</span>
 
-<span class="sd">        # Encode and decode a dictionary in BSON.</span>
+<span class="sd">        # Encode and decode a model instance without compression.</span>
 
-<span class="sd">        y = Serial.encode(x, compress = True)</span>
-<span class="sd">        z = Serial.decode(y, compress = True)</span>
-
-<span class="sd">        # Encode and decode a pandas DataFrame in BSON.</span>
-
-<span class="sd">        model = pandas.DataFrame(dict(fruit = [&quot;orange&quot;, &quot;apple&quot;, &quot;kiwi&quot;], value = [1.25, 1.5, 0.30]))</span>
-<span class="sd">        y = Serial.encode(model)</span>
+<span class="sd">        y = Serial.encode(x, compress=False)</span>
+<span class="sd">        z = Serial.decode(y)</span>
 
 <span class="sd">        # Generate an SHA3-256 code.</span>
 
 <span class="sd">        code = Serial.code(y)</span>
-<span class="sd">        z = Serial.decode(y)</span>
-
-<span class="sd">        # Decode in JSON.</span>
-
-<span class="sd">        z = Serial.decode(&quot;{&#39;a&#39; : 1.0, &#39;b&#39; : 2.0, &#39;c&#39; : 3.14159}&quot;)</span>
-<span class="sd">        z = Serial.decode(&quot;[1.0, 2.0, 3.0]&quot;)</span>
 
 <span class="sd">**License**</span>
 <span class="sd">    `BSD-3C.  &lt;https://github.com/larryturner/diamondback/blob/master/license&gt;`_</span>
-<span class="sd">    © 2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
+<span class="sd">    © 2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</span>
 
 <span class="sd">**Author**</span>
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2018-07-13.</span>
@@ -133,12 +125,9 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">base64</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">gzip</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">io</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pickle</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">jsonpickle</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">jsonpickle.ext.numpy</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">jsonpickle.ext.pandas</span>
 
 
 <div class="viewcode-block" id="Serial">
@@ -146,92 +135,84 @@
 <span class="k">class</span><span class="w"> </span><span class="nc">Serial</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Serial.&quot;&quot;&quot;</span>
 
-    <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">numpy</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">()</span>
-    <span class="n">jsonpickle</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">pandas</span><span class="o">.</span><span class="n">register_handlers</span><span class="p">()</span>
-
 <div class="viewcode-block" id="Serial.code">
 <a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.code">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">code</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf_8&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Code generation.  SHA3-256 hash.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">code</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Code generates an SHA3-256 hash code.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            state: str.</span>
-<span class="sd">            encoding: str.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: str</span>
+<span class="sd">        encoding: str</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            code: str.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;State = </span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">encoding</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Encoding = </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha3_256</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">encoding</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
+        <span class="k">return</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha3_256</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">encoding</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></div>
 
 
 <div class="viewcode-block" id="Serial.decode">
 <a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.decode">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">state</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf_8&quot;</span><span class="p">,</span> <span class="n">clean</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decodes an instance or collection from a BSON or JSON state.</span>
-<span class="sd">        Encoding may be specified if an alternative to UTF-8 is required.</span>
-<span class="sd">        Python style docstring and line comments may be cleaned, though</span>
-<span class="sd">        line comments must be terminated by a new line.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Decodes a Base-85 encoded serialized string to an instance.  Elective</span>
+<span class="sd">        compression is applied with gzip and automatically detected.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            state: str.</span>
-<span class="sd">            compress: bool.</span>
-<span class="sd">            encoding: str.</span>
-<span class="sd">            clean: bool - clean comments.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: str</span>
+<span class="sd">        encoding: str</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            instance: Any.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: Any</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">state</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;State = </span><span class="si">{</span><span class="n">state</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">encoding</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Encoding = </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">compress</span><span class="p">:</span>
-            <span class="n">state</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b85decode</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">encoding</span><span class="p">))),</span> <span class="n">encoding</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">clean</span><span class="p">:</span>
-            <span class="n">state</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span>
-                <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;#.*?</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">),</span>
-                <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;&quot;&quot;&quot;.*?&quot;&quot;&quot;&#39;</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">DOTALL</span><span class="p">),</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">state</span><span class="p">),</span>
-            <span class="p">)</span>
-        <span class="k">return</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></div>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b85decode</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">encoding</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">decompress</span><span class="p">(</span><span class="n">u</span><span class="p">))</span> <span class="k">as</span> <span class="n">fio</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fio</span><span class="p">)</span>  <span class="c1"># noqa</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">(</span><span class="n">u</span><span class="p">)</span> <span class="k">as</span> <span class="n">fio</span><span class="p">:</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">fio</span><span class="p">)</span>  <span class="c1"># noqa</span>
+        <span class="k">return</span> <span class="n">y</span></div>
 
 
 <div class="viewcode-block" id="Serial.encode">
 <a class="viewcode-back" href="../../../diamondback.commons.html#diamondback.Serial.encode">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span>
-        <span class="n">instance</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
-        <span class="n">compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf_8&quot;</span><span class="p">,</span>
-        <span class="n">indent</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Encodes BSON or JSON.  Encoding may be specified if an alternative</span>
-<span class="sd">        to UTF-8 is required.</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">encode</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="n">compress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">encoding</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Encodes an instance to a Base-85 encoded serialized string.  Elective</span>
+<span class="sd">        compression is applied with gzip.</span>
 
-<span class="sd">        Arguments:</span>
-<span class="sd">            instance: Any.</span>
-<span class="sd">            compress: bool.</span>
-<span class="sd">            encoding: str.</span>
-<span class="sd">            indent: bool.</span>
+<span class="sd">        Arguments</span>
+<span class="sd">        ---------</span>
+<span class="sd">        x: Any</span>
+<span class="sd">        compress: bool</span>
+<span class="sd">        encoding: str</span>
 
-<span class="sd">        Returns:</span>
-<span class="sd">            state: str.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y: str</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">encoding</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Encoding = </span><span class="si">{</span><span class="n">encoding</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-        <span class="n">state</span> <span class="o">=</span> <span class="n">jsonpickle</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s2">&quot;    &quot;</span> <span class="k">if</span> <span class="p">(</span><span class="n">indent</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span> <span class="n">separators</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">,</span> <span class="s2">&quot;:&quot;</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">compress</span><span class="p">:</span>
-            <span class="n">state</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b85encode</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">state</span><span class="p">,</span> <span class="n">encoding</span><span class="p">))),</span> <span class="n">encoding</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">state</span></div>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span> <span class="k">as</span> <span class="n">fio</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fio</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">base64</span><span class="o">.</span><span class="n">b85encode</span><span class="p">(</span><span class="n">gzip</span><span class="o">.</span><span class="n">compress</span><span class="p">(</span><span class="n">fio</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span> <span class="k">if</span> <span class="n">compress</span> <span class="k">else</span> <span class="n">fio</span><span class="o">.</span><span class="n">getvalue</span><span class="p">()),</span> <span class="n">encoding</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span></div>
 </div>
 
 </pre></div>
@@ -243,7 +224,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright  2018 - 2025 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
+    <p>&#169; Copyright  2018 - 2026 Larry Turner, Schneider Electric Industries SAS. All rights reserved.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

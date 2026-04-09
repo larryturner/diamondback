@@ -1,5 +1,5 @@
 """**Description**
-    A complex transform converts a three-phase real signal to a complex
+    Complex transform converts a three-phase real signal to a complex
     signal, or converts a complex signal to a three-phase real signal, in
     equivalent and reversible representations.  A neutral condition is
     specified.
@@ -72,12 +72,14 @@ class ComplexTransform(object):
         """Transforms a real three-phase or complex incident signal into a complex
         or three-phase reference signal.
 
-        Arguments:
-            x: list | numpy.ndarray - incident signal.
-            neutral: bool.
+        Arguments
+        ---------
+        x: list | numpy.ndarray - incident signal
+        neutral: bool
 
-        Returns:
-            y: numpy.ndarray - reference signal.
+        Returns
+        -------
+        y: numpy.ndarray - reference signal
         """
 
         if not isinstance(x, numpy.ndarray):
