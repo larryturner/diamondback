@@ -113,8 +113,8 @@ class PolyphaseRateFilter(object):
     def __init__(self, rate: float) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         rate: float - ratio of effective frequency in (0.0, b.shape[0]]
         """
 
@@ -136,8 +136,8 @@ class PolyphaseRateFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns
@@ -171,8 +171,8 @@ class PolyphaseRateFilter(object):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: float - incident signal
         """
 

@@ -241,6 +241,7 @@ tests, and typing behavior depends upon additional external packages.
 -   `ruff <https://pypi.org/project/ruff/>`_
 -   `sphinx <https://pypi.org/project/sphinx/>`_
 -   `sphinx-rtd-theme <https://pypi.org/project/sphinx-rtd-theme/>`_
+-   `uv <https://pypi.org/project/uv/>`_
 
 *diamondback* dependency diagram.
 

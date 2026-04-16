@@ -124,9 +124,9 @@ class IirFilter(FirFilter):
         count: int = 1,
         complement: bool = False,
         gain: float = 1.0,
-        a: list | numpy.ndarray = [],
-        b: list | numpy.ndarray = [],
-        s: list | numpy.ndarray = [],
+        a: list | numpy.ndarray | None = None,
+        b: list | numpy.ndarray | None = None,
+        s: list | numpy.ndarray | None = None,
     ) -> None:
         """Initialize.
 
@@ -137,8 +137,8 @@ class IirFilter(FirFilter):
         Labels should be used to avoid ambiguity between constraints and
         coefficients.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Bessel", "Butterworth", "Chebyshev")
         frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
         order: int - order per instance
@@ -150,6 +150,12 @@ class IirFilter(FirFilter):
         s: list | numpy.ndarray - state
         """
 
+        if a is None:
+            a = []
+        if b is None:
+            b = []
+        if s is None:
+            s = []
         if (not len(a)) and (not len(b)):
             style = style.title()
             if style not in IirFilter.STYLE:
@@ -164,13 +170,13 @@ class IirFilter(FirFilter):
                 frequency = 1.0 - frequency
             eps, error = float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500, 3.0e-2 * (1.0 - 0.5 * ((order > 8) or ((order > 6) and (count > 1)))), 1.0
-            a, b = numpy.ndarray((0)), numpy.ndarray((0))
+            a, b = numpy.array([]), numpy.array([])
             for _ in range(0, index):
                 u, v = IirFilter._evaluate(style, scale * frequency, order)
                 x = numpy.exp(1j * math.pi * frequency)
                 e = (2.0 ** (-0.5)) - (
                     (abs(numpy.polyval(v, x) / numpy.polyval(numpy.concatenate(([1.0], -u[1:])), x))) ** count
-                )  # type: ignore
+                )
                 if abs(e) < error:
                     a, b, error = u, v, abs(e)
                     if error < (10e3 * eps):
@@ -181,7 +187,7 @@ class IirFilter(FirFilter):
                 b *= numpy.array([((-1.0) ** x) for x in range(0, len(b))])
                 b /= sum(b * numpy.array([((-1.0) ** x) for x in range(0, len(b))])) / sum(
                     numpy.concatenate(([1.0], -a[1:])) * numpy.array([((-1.0) ** x) for x in range(0, len(a))])
-                )  # type: ignore
+                )
             b *= gain
         if not isinstance(a, numpy.ndarray):
             a = numpy.array(list(a))
@@ -202,8 +208,8 @@ class IirFilter(FirFilter):
     def _evaluate(style: str, frequency: float, order: int) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Evaluates coefficients.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Bessel", "Butterworth", "Chebyshev")
         frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
         order: int
@@ -235,7 +241,7 @@ class IirFilter(FirFilter):
                     ),
                 )
             if order & 1:
-                a = numpy.convolve(a, numpy.ones(2))  # type: ignore
+                a = numpy.convolve(a, numpy.ones(2))
         elif style == "Chebyshev":
             ripple = 0.125
             u = numpy.array([numpy.exp(1j * math.pi * x / (2.0 * order)) for x in range(1, 2 * order, 2)])
@@ -250,8 +256,8 @@ class IirFilter(FirFilter):
     def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -282,8 +288,8 @@ class IirFilter(FirFilter):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x : list | numpy.ndarray - incident signal
 
         Returns
@@ -309,8 +315,8 @@ class IirFilter(FirFilter):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: complex | float - incident signal
         """
 
@@ -323,8 +329,8 @@ class IirFilter(FirFilter):
     def response(self, length=8192, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates frequency response and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -350,8 +356,8 @@ class IirFilter(FirFilter):
     def roots(self, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates roots of a frequency response in poles and zeros.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         count: int
 
         Returns

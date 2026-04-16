@@ -64,8 +64,8 @@ class GaussianMixtureModel(object):
     def __init__(self, order: int = 10, index: int = 100, regularize: float = 1.0e-1) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         order: int - mixture distributions per class
         index: int - iterations
         regularize: float - regularize
@@ -88,8 +88,8 @@ class GaussianMixtureModel(object):
         covariance and mean matrices to learn mixed distribution instances
         for each class.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: numpy.ndarray (batch, count) - incident
         y: numpy.ndarray (batch) - label
         """
@@ -99,7 +99,7 @@ class GaussianMixtureModel(object):
         if len(y) != x.shape[0]:
             raise ValueError(f"Y = {len(y)} Expected Y = {x.shape[0]}")
         if not issubclass(y.dtype.type, numpy.integer):
-            raise ValueError(f"Y = {y.dtype.type} Expected Y = {numpy.integer}")
+            raise TypeError(f"Y = {y.dtype.type} Expected Y = {numpy.integer}")
         self._model = []
         self._shape = x[0].shape
         for ii in sorted(set(y)):
@@ -121,8 +121,8 @@ class GaussianMixtureModel(object):
         Predictions for each class are ranked and ordered by decending
         probability, and the initial prediction is the most likely class.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: numpy.ndarray (batch, count) - data
 
         Returns

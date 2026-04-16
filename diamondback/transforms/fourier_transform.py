@@ -64,8 +64,8 @@ class FourierTransform(object):
         condition.  Forward transform indices define normalized frequency.
         Inverse transform indices define an integral sequence.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
         b: list | numpy.ndarray - forward coefficient
         inverse: bool

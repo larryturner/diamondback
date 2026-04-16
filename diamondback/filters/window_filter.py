@@ -68,8 +68,8 @@ class WindowFilter(object):
     def __init__(self, style: str, order: int, normal: bool = True) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Blackman", "Hamming", "Hann", "Kaiser")
         order: int
         normal: bool
@@ -80,10 +80,7 @@ class WindowFilter(object):
             raise ValueError(f"style = {style} Expected Style in {WindowFilter.STYLE}")
         if order < 0:
             raise ValueError(f"Order = {order} Expected Order in [0, inf)")
-        if style == "Kaiser":
-            window = (style.lower(), 7.0)
-        else:
-            window = style.lower()  # type: ignore
+        window = (style.lower(), 7.0) if style == "Kaiser" else style.lower()
         super().__init__()
         b = get_window(window, order + 1, False)
         if normal:
@@ -93,8 +90,8 @@ class WindowFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns

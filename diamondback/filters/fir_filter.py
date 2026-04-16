@@ -129,8 +129,8 @@ class FirFilter(object):
         count: int = 1,
         complement: bool = False,
         gain: float = 1.0,
-        b: list | numpy.ndarray = [],
-        s: list | numpy.ndarray = [],
+        b: list | numpy.ndarray | None = None,
+        s: list | numpy.ndarray | None = None,
     ) -> None:
         """Initialize.
 
@@ -141,18 +141,22 @@ class FirFilter(object):
         Labels should be used to avoid ambiguity between constraints and
         coefficients.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Blackman", "Hamming", "Hann", "Kaiser")
         frequency: float - frequency normalized to Nyquist in (0.0, 1.0)
         order: int - order per instance
         count: int - instances per cascade
         complement: bool - complement response
         gain: float - gain
-        b: list | numpy.ndarray - forward coefficient
-        s: list | numpy.ndarray - state
+        b: list | numpy.ndarray | None - forward coefficient
+        s: list | numpy.ndarray | None - state
         """
 
+        if b is None:
+            b = []
+        if s is None:
+            s = []
         if not len(b):
             style = style.title()
             if style not in FirFilter.STYLE:
@@ -165,10 +169,7 @@ class FirFilter(object):
                 raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
-            if style == "Kaiser":
-                window = (style.lower(), 7.0)
-            else:
-                window = style.lower()  # type: ignore
+            window = (style.lower(), 7.0) if style == "Kaiser" else style.lower()
             eps, error = float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500, 3.0e-2, 1.0
             for _ in range(0, index):
@@ -212,8 +213,8 @@ class FirFilter(object):
     def delay(self, length: int = 8192, count: int = 1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates group delay and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -241,8 +242,8 @@ class FirFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns
@@ -266,8 +267,8 @@ class FirFilter(object):
         """Modifies a state to minimize edge effects by assuming persistent
         operation at a specified incident signal condition.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: complex | float - incident signal
         """
 
@@ -278,8 +279,8 @@ class FirFilter(object):
     def response(self, length=8192, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates frequency response and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         length: int
         count: int
 
@@ -303,8 +304,8 @@ class FirFilter(object):
     def roots(self, count=1) -> tuple[numpy.ndarray, numpy.ndarray]:
         """Estimates roots of a frequency response in poles and zeros.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         count: int
 
         Returns

@@ -68,7 +68,8 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Callable, ClassVar
+from collections.abc import Callable
+from typing import ClassVar
 
 import numpy
 
@@ -95,8 +96,8 @@ class DiversityModel(object):
     def __init__(self, style: str, order: int) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         style: str - in ("Chebyshev", "Euclidean", "Geometric", "Manhattan")
         order: int
         """
@@ -120,8 +121,8 @@ class DiversityModel(object):
     def fit(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Fit an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
 
         Returns

@@ -1,11 +1,16 @@
+.coverage
 .eggs/
-.github/
+.mypy_cache
 .nox/
 .pytest_cache/
+.ruff_cache/
 .venv/
 .vscode/
 __pycache__/
 build/
 dist/
+lightning_logs/
 notebooks/.ipynb_checkpoints/
 *.egg-info/
+*.code-workspace
+*/_version.py

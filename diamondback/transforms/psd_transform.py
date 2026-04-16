@@ -75,8 +75,8 @@ class PsdTransform(object):
         """Transforms a real or complex discrete-time incident signal to a
         real discrete-frequency reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal
         b: list | numpy.ndarray - forward coefficient
         index: int

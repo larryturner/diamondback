@@ -55,8 +55,8 @@ class ComplexExponentialFilter(object):
     def __init__(self, phase: float = 0.0) -> None:
         """Initialize.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         phase: float - relative to pi in [-1.0, 1.0]
         """
 
@@ -68,8 +68,8 @@ class ComplexExponentialFilter(object):
     def filter(self, x: list | numpy.ndarray) -> numpy.ndarray:
         """Filters an incident signal and produces a reference signal.
 
-        Arguments
-        ---------
+        Parameters
+        ----------
         x: list | numpy.ndarray - incident signal frequency normalized to Nyquist in [-1.0, 1.0)
 
         Returns
