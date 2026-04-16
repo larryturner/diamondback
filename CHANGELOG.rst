@@ -1,3 +1,10 @@
+6.0.1 - 2026-04-16
+~~~~~~~~~~~~~~~~~~
+- Modify administration to use uv.
+- Modify tests organization.
+- Modify pillow requirements to address vulnerability.
+- Modify documentation.
+
 6.0.0 - 2026-04-09
 ^^^^^^^^^^^^^^^^^^
 - Modify Serial to use Base-85 gzip pickle encoding, deprecate JSON support.

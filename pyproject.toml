@@ -25,7 +25,7 @@ license-files = []
 name = "diamondback"
 readme = "README.rst"
 requires-python = ">= 3.11, < 3.15"
-version = "6.0.0"
+version = "6.0.1"
 
 [project.urls]
 repository = "https://github.com/larryturner/diamondback"
