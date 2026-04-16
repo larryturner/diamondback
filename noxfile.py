@@ -62,40 +62,38 @@ if not pathlib.Path(SOURCE).is_dir():
     SOURCE = "."
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def build(session: Session) -> None:
     """Build."""
 
-    session.install(".[build]")
-    for x in ("build", "dist"):
-        shutil.rmtree(x, ignore_errors=True)
+    session.run("uv", "sync", "--active", "--locked", "--group=build", external=True)
     session.run("python", "-m", "build", "-s", "-w")
     shutil.rmtree("build", ignore_errors=True)
 
 
-@nox.session(venv_backend="virtualenv")
+@nox.session(venv_backend="none")
 def clean(session: Session) -> None:
     """Clean."""
 
     for x in (
+        "__pycache__",
         ".mypy_cache",
         ".nox",
         ".pytest_cache",
         ".ruff_cache",
         "build",
         "dist",
-        "docs",
     ):
         shutil.rmtree(x, ignore_errors=True)
-    for x in [x for x in glob.glob(f"**{str(pathlib.Path('/'))}", recursive=True) if ("__pycache__" in x)]:
+    for x in [x for x in glob.glob("**/", recursive=True) if ("__pycache__" in x)]:
         shutil.rmtree(x, ignore_errors=True)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def dependencies(session: Session) -> None:
     """Dependencies."""
 
-    session.install(".[dependencies]")
+    session.run("uv", "sync", "--active", "--locked", "--group=dependencies", external=True)
     (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
     path = pathlib.Path.cwd() / "docs" / "dependencies"
     with path.with_suffix(".dot").open("w") as fout:
@@ -132,11 +130,11 @@ def dependencies(session: Session) -> None:
                 fout.write(x)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def docs(session: Session) -> None:
     """Documentation."""
 
-    session.install(".[docs]")
+    session.run("uv", "sync", "--active", "--locked", "--group=docs", external=True)
     if pathlib.Path("templates").is_dir():
         (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
         session.run(
@@ -167,28 +165,35 @@ def docs(session: Session) -> None:
         )
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def format(session: Session):
     """Format."""
 
-    session.install(".[format]")
+    session.run("uv", "sync", "--active", "--locked", "--group=format", external=True)
     session.run("ruff", "check", ".", "--select", "I", "--fix")
     session.run("ruff", "format", ".", "--check")
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def lint(session: Session) -> None:
     """Lint."""
 
-    session.install(".[lint]")
+    session.run("uv", "sync", "--active", "--locked", "--group=lint", external=True)
     session.run("ruff", "check", SOURCE)
 
 
-@nox.session(venv_backend="virtualenv")
+@nox.session(venv_backend="none")
+def lock(session: Session) -> None:
+    """Lock."""
+
+    session.run("uv", "lock", "--upgrade", external=True)
+
+
+@nox.session(python=PYTHON)
 def notebook(session: Session) -> None:
     """Notebook."""
 
-    session.install(".[notebook]")
+    session.run("uv", "sync", "--active", "--locked", "--group=notebook", external=True)
     if pathlib.Path("notebooks").is_dir():
         os.chdir("notebooks")
         value = [x for x in glob.glob("*.ipynb", recursive=True)]
@@ -196,7 +201,7 @@ def notebook(session: Session) -> None:
             session.run("jupyter", "notebook", value[0])
 
 
-@nox.session(venv_backend="virtualenv")
+@nox.session(venv_backend="none")
 def tag(session: Session) -> None:
     """Tag."""
 
@@ -217,21 +222,27 @@ def tag(session: Session) -> None:
             session.run("git", "push", "--force", "--tags", external=True)
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON_LIST)
+@nox.session(python=PYTHON_LIST)
 def tests(session: Session) -> None:
     """Tests."""
 
-    session.install(".[tests]")
+    session.run("uv", "sync", "--active", "--locked", "--group=tests", external=True)
     if pathlib.Path("tests").is_dir():
-        if [u for u in pathlib.Path("tests").iterdir()]:
-            session.install("-e", ".")
-            session.run("pytest", "--capture=no", "--verbose", "-s")
-            shutil.rmtree(".pytest_cache", ignore_errors=True)
+        session.run(
+            "coverage",
+            "run",
+            "--source=" + SOURCE,
+            "-m",
+            "pytest",
+            "tests",
+            "--verbose",
+        )
+        session.run("coverage", "report")
 
 
-@nox.session(venv_backend="virtualenv", python=PYTHON)
+@nox.session(python=PYTHON)
 def typing(session: Session) -> None:
     """Typing."""
 
-    session.install(".[typing]")
+    session.run("uv", "sync", "--active", "--locked", "--group=typing", external=True)
     session.run("mypy", SOURCE)

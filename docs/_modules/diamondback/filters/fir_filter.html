@@ -199,8 +199,8 @@
         <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
         <span class="n">complement</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">gain</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
-        <span class="n">b</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="p">[],</span>
-        <span class="n">s</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">b</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">s</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
 
@@ -219,10 +219,14 @@
 <span class="sd">        count: int - instances per cascade</span>
 <span class="sd">        complement: bool - complement response</span>
 <span class="sd">        gain: float - gain</span>
-<span class="sd">        b: list | numpy.ndarray - forward coefficient</span>
-<span class="sd">        s: list | numpy.ndarray - state</span>
+<span class="sd">        b: list | numpy.ndarray | None - forward coefficient</span>
+<span class="sd">        s: list | numpy.ndarray | None - state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
 
+        <span class="k">if</span> <span class="n">b</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">s</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">s</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
             <span class="n">style</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
             <span class="k">if</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">FirFilter</span><span class="o">.</span><span class="n">STYLE</span><span class="p">:</span>
@@ -235,10 +239,7 @@
                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Count = </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> Expected Count in (0, inf)&quot;</span><span class="p">)</span>
             <span class="k">if</span> <span class="n">complement</span><span class="p">:</span>
                 <span class="n">frequency</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">frequency</span>
-            <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span><span class="p">:</span>
-                <span class="n">window</span> <span class="o">=</span> <span class="p">(</span><span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mf">7.0</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">window</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+            <span class="n">window</span> <span class="o">=</span> <span class="p">(</span><span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">(),</span> <span class="mf">7.0</span><span class="p">)</span> <span class="k">if</span> <span class="n">style</span> <span class="o">==</span> <span class="s2">&quot;Kaiser&quot;</span> <span class="k">else</span> <span class="n">style</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
             <span class="n">eps</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span><span class="p">),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
             <span class="n">index</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">scale</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span> <span class="mf">3.0e-2</span><span class="p">,</span> <span class="mf">1.0</span>
             <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>

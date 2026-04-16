@@ -68,7 +68,8 @@
     Larry Turner, Schneider Electric, AI Hub, 2018-02-08.
 """
 
-from typing import Callable, ClassVar
+from collections.abc import Callable
+from typing import ClassVar
 
 import numpy
 

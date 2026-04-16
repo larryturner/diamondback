@@ -106,9 +106,9 @@ class ZTransform(object):
         t = 1.0 / (math.pi * frequency)
         if bilinear:
             p = numpy.roots(u)
-            p = (1.0 + p / (2.0 * t)) / (1.0 - p / (2.0 * t))  # type: ignore
+            p = (1.0 + p / (2.0 * t)) / (1.0 - p / (2.0 * t))
             z = numpy.roots(v)
-            z = (1.0 + z / (2.0 * t)) / (1.0 - z / (2.0 * t))  # type: ignore
+            z = (1.0 + z / (2.0 * t)) / (1.0 - z / (2.0 * t))
             if len(z) < len(p):
                 z = numpy.concatenate((z, numpy.zeros(len(p) - len(z))))
             a, b = numpy.poly(p).real, numpy.poly(z).real

@@ -129,8 +129,8 @@ class FirFilter(object):
         count: int = 1,
         complement: bool = False,
         gain: float = 1.0,
-        b: list | numpy.ndarray = [],
-        s: list | numpy.ndarray = [],
+        b: list | numpy.ndarray | None = None,
+        s: list | numpy.ndarray | None = None,
     ) -> None:
         """Initialize.
 
@@ -149,10 +149,14 @@ class FirFilter(object):
         count: int - instances per cascade
         complement: bool - complement response
         gain: float - gain
-        b: list | numpy.ndarray - forward coefficient
-        s: list | numpy.ndarray - state
+        b: list | numpy.ndarray | None - forward coefficient
+        s: list | numpy.ndarray | None - state
         """
 
+        if b is None:
+            b = []
+        if s is None:
+            s = []
         if not len(b):
             style = style.title()
             if style not in FirFilter.STYLE:
@@ -165,10 +169,7 @@ class FirFilter(object):
                 raise ValueError(f"Count = {count} Expected Count in (0, inf)")
             if complement:
                 frequency = 1.0 - frequency
-            if style == "Kaiser":
-                window = (style.lower(), 7.0)
-            else:
-                window = style.lower()  # type: ignore
+            window = (style.lower(), 7.0) if style == "Kaiser" else style.lower()
             eps, error = float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500, 3.0e-2, 1.0
             for _ in range(0, index):

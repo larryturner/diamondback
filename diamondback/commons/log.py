@@ -76,7 +76,7 @@
 """
 
 import contextlib
-import os
+import pathlib
 import sys
 from threading import RLock
 from typing import Any, ClassVar
@@ -108,8 +108,8 @@ class Log(object):
         with Log._rlock:
             try:
                 Log._level = logger.level(level.upper())
-            except Exception:
-                raise ValueError(f"Level = {level} Expected Level in {Log.LEVEL}")
+            except Exception as ex:
+                raise ValueError(f"Level = {level} Expected Level in {Log.LEVEL}") from ex
 
     @classmethod
     def stream(cls, stream: Any) -> None:
@@ -147,15 +147,13 @@ class Log(object):
                 Log.stream(sys.stdout)
             try:
                 v = logger.level(level.upper())
-            except Exception:
-                raise ValueError(f"Level = {level} Expected Level in {Log.LEVEL}")
+            except Exception as ex:
+                raise ValueError(f"Level = {level} Expected Level in {Log.LEVEL}") from ex
             if v.no >= Log._level.no:
                 if isinstance(entry, Exception):
                     entry = f"Exception = {type(entry).__name__} {entry}"
                     info = sys.exc_info()[-1]
                     while info:
-                        entry += (
-                            f" @ File = {info.tb_frame.f_code.co_filename.split(os.sep)[-1]} Line = {info.tb_lineno}"
-                        )
+                        entry += f" @ File = {pathlib.Path(info.tb_frame.f_code.co_filename).parts[-1]} Line = {info.tb_lineno}"
                         info = info.tb_next
                 logger.log(v.name, entry)

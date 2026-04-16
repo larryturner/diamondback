@@ -152,4 +152,4 @@ class ComplexFrequencyFilter(FirFilter):
         if numpy.isclose(x, 0.0):
             self.s[0] = 1.0
         else:
-            self.s[0] = x / abs(x)  # type: ignore
+            self.s[0] = x / abs(x)

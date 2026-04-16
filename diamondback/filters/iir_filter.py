@@ -124,9 +124,9 @@ class IirFilter(FirFilter):
         count: int = 1,
         complement: bool = False,
         gain: float = 1.0,
-        a: list | numpy.ndarray = [],
-        b: list | numpy.ndarray = [],
-        s: list | numpy.ndarray = [],
+        a: list | numpy.ndarray | None = None,
+        b: list | numpy.ndarray | None = None,
+        s: list | numpy.ndarray | None = None,
     ) -> None:
         """Initialize.
 
@@ -150,6 +150,12 @@ class IirFilter(FirFilter):
         s: list | numpy.ndarray - state
         """
 
+        if a is None:
+            a = []
+        if b is None:
+            b = []
+        if s is None:
+            s = []
         if (not len(a)) and (not len(b)):
             style = style.title()
             if style not in IirFilter.STYLE:
@@ -164,13 +170,13 @@ class IirFilter(FirFilter):
                 frequency = 1.0 - frequency
             eps, error = float(numpy.finfo(float).eps), numpy.inf
             index, rate, scale = 500, 3.0e-2 * (1.0 - 0.5 * ((order > 8) or ((order > 6) and (count > 1)))), 1.0
-            a, b = numpy.ndarray((0)), numpy.ndarray((0))
+            a, b = numpy.array([]), numpy.array([])
             for _ in range(0, index):
                 u, v = IirFilter._evaluate(style, scale * frequency, order)
                 x = numpy.exp(1j * math.pi * frequency)
                 e = (2.0 ** (-0.5)) - (
                     (abs(numpy.polyval(v, x) / numpy.polyval(numpy.concatenate(([1.0], -u[1:])), x))) ** count
-                )  # type: ignore
+                )
                 if abs(e) < error:
                     a, b, error = u, v, abs(e)
                     if error < (10e3 * eps):
@@ -181,7 +187,7 @@ class IirFilter(FirFilter):
                 b *= numpy.array([((-1.0) ** x) for x in range(0, len(b))])
                 b /= sum(b * numpy.array([((-1.0) ** x) for x in range(0, len(b))])) / sum(
                     numpy.concatenate(([1.0], -a[1:])) * numpy.array([((-1.0) ** x) for x in range(0, len(a))])
-                )  # type: ignore
+                )
             b *= gain
         if not isinstance(a, numpy.ndarray):
             a = numpy.array(list(a))
@@ -235,7 +241,7 @@ class IirFilter(FirFilter):
                     ),
                 )
             if order & 1:
-                a = numpy.convolve(a, numpy.ones(2))  # type: ignore
+                a = numpy.convolve(a, numpy.ones(2))
         elif style == "Chebyshev":
             ripple = 0.125
             u = numpy.array([numpy.exp(1j * math.pi * x / (2.0 * order)) for x in range(1, 2 * order, 2)])

@@ -1,6 +1,7 @@
 [project]
 authors = [{ name = "Larry Turner", email = "larry.turner@se.com" }]
 classifiers = ["Development Status :: 5 - Production/Stable",
+               "Intended Audience :: Developers",
                "Operating System :: OS Independent",
                "Programming Language :: Python :: 3.11",
                "Programming Language :: Python :: 3.12",
@@ -27,25 +28,18 @@ requires-python = ">= 3.11, < 3.15"
 version = "6.0.0"
 
 [project.urls]
+repository = "https://github.com/larryturner/diamondback"
 homepage = "https://github.com/larryturner/diamondback"
+documentation = "https://larryturner.github.io/diamondback/"
 
 [build-system]
 build-backend = "setuptools.build_meta"
 requires = ["build >= 1.2.2, < 2.0.0",
             "setuptools >= 80.9.0, < 81.0.0"]
 
-[tool.mypy]
-ignore_missing_imports = true
+[dependency-groups]
+build = [ "build >= 1.2.2, < 2.0.0"]
 
-[tool.ruff]
-line-length = 120
-
-[tool.setuptools.packages.find]
-include = ["diamondback*"]
-
-[project.optional-dependencies]
-build = [ "build >= 1.2.2, < 2.0.0",
-          "virtualenv >= 20.29.3, < 21.0.0"]
 dependencies = ["pydeps >= 3.0.1, < 4.0.0"]
 docs = ["sphinx >= 8.2.3, < 9.0.0",
         "sphinx-rtd-theme >= 3.0.2, < 4.0.0"]
@@ -56,7 +50,71 @@ notebook = ["ipython >= 8.31.0, < 9.0.0",
             "jupyter >= 1.1.1, < 2.0.0",
             "matplotlib >= 3.10.1, < 4.0.0",
             "pillow >= 11.1.0, < 12.0.0"]
-tests = ["pytest >= 8.3.5, < 9.0.0"]
+tests = ["coverage[toml] >= 7.3.2, < 8.0.0",
+         "pytest >= 8.3.5, < 9.0.0"]
 typing = ["mypy >= 1.15.0, < 2.0.0",
           "types-python-dateutil >= 2.9.0, < 3.0.0",
           "types-requests >= 2.31.0, < 3.0.0"]
+
+[tool.coverage.run]
+branch = true
+omit = [
+    "*tests*",
+    ".nox/*",
+    "*/metainfo.py",
+    "*/_version.py",
+]
+
+[tool.coverage.report]
+fail_under = 70
+ignore_errors = true
+show_missing = true
+
+[tool.mypy]
+check_untyped_defs = true
+disallow_any_generics = false
+disallow_untyped_defs = false
+ignore_missing_imports = true
+follow_imports = "silent"
+no_implicit_reexport = false
+warn_redundant_casts = true
+warn_no_return = false
+warn_unused_ignores = true
+
+[tool.setuptools.packages.find]
+include = ["diamondback*"]
+
+[tool.uv]
+default-groups = []
+required-version = ">= 0.11.7"
+
+[tool.ruff]
+exclude = [".git", ".mypy_cache", ".pytest_cache", ".nox/*", ".venv", ".*_version.py"]
+extend-include = ["*.ipynb"]
+line-length = 120
+
+[tool.ruff.lint]
+explicit-preview-rules = true
+extend-select = ["CPY001"]
+ignore = [
+    "ANN", "BLE001", "C", "COM", "CPY001", "D", "E501", "EM", "FBT",
+    "ICN", "ISC", "PD002", "PERF401", "PGH", "PIE808", "PLC1802", "PLR", "PYI041",
+    "RET", "RUF015", "RUF022", "SIM102", "SIM118", "SLF001", "TC002",
+    "TRY002", "TRY003", "UP004", "UP007", "UP017",
+]
+preview = true
+select = ["ALL"]
+
+[tool.ruff.lint.per-file-ignores]
+"*.ipynb" = ["E402"]
+"tests/*" = ["S101"]
+"_version.py" = ["Q000", "UP009"]
+
+[tool.ruff.lint.mccabe]
+max-complexity = 10
+
+[tool.ruff.lint.pylint]
+max-args = 10
+
+[tool.ruff.lint.flake8-tidy-imports]
+ban-relative-imports = "all"

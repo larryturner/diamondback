@@ -80,10 +80,7 @@ class WindowFilter(object):
             raise ValueError(f"style = {style} Expected Style in {WindowFilter.STYLE}")
         if order < 0:
             raise ValueError(f"Order = {order} Expected Order in [0, inf)")
-        if style == "Kaiser":
-            window = (style.lower(), 7.0)
-        else:
-            window = style.lower()  # type: ignore
+        window = (style.lower(), 7.0) if style == "Kaiser" else style.lower()
         super().__init__()
         b = get_window(window, order + 1, False)
         if normal:
