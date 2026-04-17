@@ -131,6 +131,14 @@ def dependencies(session: Session) -> None:
                 fout.write(x)
 
 
+@nox.session(venv_backend=None)
+def dev(session: Session) -> None:
+    """Development."""
+
+    session.run("uv", "sync", "--all-extras", "--all-groups", f"--python={PYTHON}", external=True)
+    session.run("uv", "run", "pre-commit", "install")
+
+
 @nox.session(python=PYTHON)
 def docs(session: Session) -> None:
     """Documentation."""
