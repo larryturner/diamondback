@@ -1,3 +1,7 @@
+6.0.2 - 2026-05-07
+~~~~~~~~~~~~~~~~~~
+- Modify jupyter requirements to address vulnerability.
+
 6.0.1 - 2026-04-16
 ~~~~~~~~~~~~~~~~~~
 - Modify administration to use uv.
