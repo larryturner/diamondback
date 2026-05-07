@@ -67,6 +67,7 @@ def build(session: Session) -> None:
     """Build."""
 
     session.run("uv", "sync", "--active", "--locked", "--group=build", external=True)
+    shutil.rmtree("dist", ignore_errors=True)
     session.run("python", "-m", "build", "-s", "-w")
     shutil.rmtree("build", ignore_errors=True)
 
@@ -128,6 +129,14 @@ def dependencies(session: Session) -> None:
                 for u, v in code.items():
                     x = x.replace(v, u)
                 fout.write(x)
+
+
+@nox.session(venv_backend=None)
+def dev(session: Session) -> None:
+    """Development."""
+
+    session.run("uv", "sync", "--all-extras", "--all-groups", f"--python={PYTHON}", external=True)
+    session.run("uv", "run", "pre-commit", "install")
 
 
 @nox.session(python=PYTHON)
