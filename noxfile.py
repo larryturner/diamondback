@@ -68,7 +68,7 @@ def build(session: Session) -> None:
 
     session.run("uv", "sync", "--active", "--locked", "--group=build", external=True)
     shutil.rmtree("dist", ignore_errors=True)
-    session.run("python", "-m", "build", "-s", "-w")
+    session.run("uv", "build", "--wheel", "--out-dir", "dist", external=True)
     shutil.rmtree("build", ignore_errors=True)
 
 

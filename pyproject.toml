@@ -32,14 +32,8 @@ repository = "https://github.com/larryturner/diamondback"
 homepage = "https://github.com/larryturner/diamondback"
 documentation = "https://larryturner.github.io/diamondback/"
 
-[build-system]
-build-backend = "setuptools>=80.9.0,<84.0.0"
-requires = ["build >= 1.2.2, < 2.0.0",
-            "setuptools >= 80.9.0, < 81.0.0"]
-
 [dependency-groups]
 build = [ "build >= 1.2.2, < 2.0.0"]
-
 dependencies = ["pydeps >= 3.0.1, < 4.0.0"]
 docs = ["sphinx >= 8.2.3, < 9.0.0",
         "sphinx-rtd-theme >= 3.0.2, < 4.0.0"]
