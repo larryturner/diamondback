@@ -33,7 +33,7 @@ homepage = "https://github.com/larryturner/diamondback"
 documentation = "https://larryturner.github.io/diamondback/"
 
 [build-system]
-build-backend = "setuptools.build_meta"
+build-backend = "setuptools>=80.9.0,<84.0.0"
 requires = ["build >= 1.2.2, < 2.0.0",
             "setuptools >= 80.9.0, < 81.0.0"]
 
