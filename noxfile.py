@@ -84,6 +84,7 @@ def clean(session: Session) -> None:
         ".ruff_cache",
         "build",
         "dist",
+        "docs",
     ):
         shutil.rmtree(x, ignore_errors=True)
     for x in [x for x in glob.glob("**/", recursive=True) if ("__pycache__" in x)]:

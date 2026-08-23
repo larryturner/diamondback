@@ -3,7 +3,6 @@ authors = [{ name = "Larry Turner", email = "larry.turner@se.com" }]
 classifiers = ["Development Status :: 5 - Production/Stable",
                "Intended Audience :: Developers",
                "Operating System :: OS Independent",
-               "Programming Language :: Python :: 3.11",
                "Programming Language :: Python :: 3.12",
                "Programming Language :: Python :: 3.13",
                "Programming Language :: Python :: 3.14"]
@@ -24,7 +23,7 @@ license = "BSD-3-Clause"
 license-files = []
 name = "diamondback"
 readme = "README.rst"
-requires-python = ">= 3.11, < 3.15"
+requires-python = ">= 3.12, < 3.15"
 version = "6.0.2"
 
 [project.urls]
@@ -35,7 +34,7 @@ documentation = "https://larryturner.github.io/diamondback/"
 [dependency-groups]
 build = [ "build >= 1.2.2, < 2.0.0"]
 dependencies = ["pydeps >= 3.0.1, < 4.0.0"]
-docs = ["sphinx >= 8.2.3, < 9.0.0",
+docs = ["sphinx >= 9.1.0, < 10.0.0",
         "sphinx-rtd-theme >= 3.0.2, < 4.0.0"]
 format = ["ruff >= 0.11.3, < 1.0.0"]
 lint = ["ruff >= 0.11.3, < 1.0.0"]
