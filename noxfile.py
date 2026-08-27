@@ -149,6 +149,7 @@ def docs(session: Session) -> None:
         (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
         session.run(
             "sphinx-apidoc",
+            "-f",
             "-o",
             str(pathlib.Path.cwd() / "templates"),
             REPOSITORY,
