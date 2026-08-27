@@ -153,6 +153,11 @@ def docs(session: Session) -> None:
             str(pathlib.Path.cwd() / "templates"),
             REPOSITORY,
         )
+        for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "*.rst")):
+            with pathlib.Path(x).open("r") as fin:
+                y = fin.read().replace("   :members:", "   :members:\n   :noindex:")
+            with pathlib.Path(x).open("w") as fout:
+                fout.write(y)
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "modules.rst")):
             with pathlib.Path(x).open("r") as fin:
                 y = fin.read().replace("noxfile", "")

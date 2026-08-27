@@ -9,6 +9,7 @@ diamondback.models.diversity\_model module
 
 .. automodule:: diamondback.models.diversity_model
    :members:
+   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -17,6 +18,7 @@ diamondback.models.gaussian\_mixture\_model module
 
 .. automodule:: diamondback.models.gaussian_mixture_model
    :members:
+   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -25,6 +27,7 @@ diamondback.models.gaussian\_model module
 
 .. automodule:: diamondback.models.gaussian_model
    :members:
+   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -33,5 +36,6 @@ Module contents
 
 .. automodule:: diamondback.models
    :members:
+   :noindex:
    :show-inheritance:
    :undoc-members:

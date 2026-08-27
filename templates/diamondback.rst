@@ -17,5 +17,6 @@ Module contents
 
 .. automodule:: diamondback
    :members:
+   :noindex:
    :show-inheritance:
    :undoc-members:
