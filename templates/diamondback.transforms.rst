@@ -9,7 +9,6 @@ diamondback.transforms.complex\_transform module
 
 .. automodule:: diamondback.transforms.complex_transform
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -18,7 +17,6 @@ diamondback.transforms.fourier\_transform module
 
 .. automodule:: diamondback.transforms.fourier_transform
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -27,7 +25,6 @@ diamondback.transforms.psd\_transform module
 
 .. automodule:: diamondback.transforms.psd_transform
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -36,7 +33,6 @@ diamondback.transforms.wavelet\_transform module
 
 .. automodule:: diamondback.transforms.wavelet_transform
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -45,7 +41,6 @@ diamondback.transforms.z\_transform module
 
 .. automodule:: diamondback.transforms.z_transform
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -54,6 +49,5 @@ Module contents
 
 .. automodule:: diamondback.transforms
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:

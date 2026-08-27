@@ -149,25 +149,17 @@ def docs(session: Session) -> None:
         (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
         session.run(
             "sphinx-apidoc",
-            "--force",
-            "--output",
+            "-o",
             str(pathlib.Path.cwd() / "templates"),
-            ".",
-            "tests",
+            REPOSITORY,
         )
-        for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "*.rst")):
-            with pathlib.Path(x).open("r") as fin:
-                y = fin.read().replace("   :members:", "   :members:\n   :noindex:")
-            with pathlib.Path(x).open("w") as fout:
-                fout.write(y)
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "modules.rst")):
             with pathlib.Path(x).open("r") as fin:
-                y = fin.read().replace("noxfile", "").replace("setup", "")
+                y = fin.read().replace("noxfile", "")
             with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
-        for x in ("noxfile.rst", "setup.rst"):
-            if (pathlib.Path.cwd() / "templates" / x).is_file():
-                os.remove(str(pathlib.Path.cwd() / "templates" / x))
+        if (pathlib.Path.cwd() / "templates" / "noxfile.rst").is_file():
+            os.remove(str(pathlib.Path.cwd() / "templates" / "noxfile.rst"))
         session.run(
             "sphinx-build",
             str(pathlib.Path.cwd() / "templates"),

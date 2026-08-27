@@ -9,7 +9,6 @@ diamondback.filters.complex\_bandpass\_filter module
 
 .. automodule:: diamondback.filters.complex_bandpass_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -18,7 +17,6 @@ diamondback.filters.complex\_exponential\_filter module
 
 .. automodule:: diamondback.filters.complex_exponential_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -27,7 +25,6 @@ diamondback.filters.complex\_frequency\_filter module
 
 .. automodule:: diamondback.filters.complex_frequency_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -36,7 +33,6 @@ diamondback.filters.derivative\_filter module
 
 .. automodule:: diamondback.filters.derivative_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -45,7 +41,6 @@ diamondback.filters.fir\_filter module
 
 .. automodule:: diamondback.filters.fir_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -54,7 +49,6 @@ diamondback.filters.goertzel\_filter module
 
 .. automodule:: diamondback.filters.goertzel_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -63,7 +57,6 @@ diamondback.filters.iir\_filter module
 
 .. automodule:: diamondback.filters.iir_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -72,7 +65,6 @@ diamondback.filters.integral\_filter module
 
 .. automodule:: diamondback.filters.integral_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -81,7 +73,6 @@ diamondback.filters.pid\_filter module
 
 .. automodule:: diamondback.filters.pid_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -90,7 +81,6 @@ diamondback.filters.polynomial\_rate\_filter module
 
 .. automodule:: diamondback.filters.polynomial_rate_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -99,7 +89,6 @@ diamondback.filters.polyphase\_rate\_filter module
 
 .. automodule:: diamondback.filters.polyphase_rate_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -108,7 +97,6 @@ diamondback.filters.rank\_filter module
 
 .. automodule:: diamondback.filters.rank_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -117,7 +105,6 @@ diamondback.filters.window\_filter module
 
 .. automodule:: diamondback.filters.window_filter
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
 
@@ -126,6 +113,5 @@ Module contents
 
 .. automodule:: diamondback.filters
    :members:
-   :noindex:
    :show-inheritance:
    :undoc-members:
