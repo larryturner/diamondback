@@ -1,3 +1,7 @@
+6.0.3 - Proposed
+~~~~~~~~~~~~~~~~
+- Modify documentation generation.
+
 6.0.2 - 2026-05-07
 ~~~~~~~~~~~~~~~~~~
 - Modify jupyter requirements to address vulnerability.
