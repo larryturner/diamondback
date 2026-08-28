@@ -9,11 +9,10 @@
     Larry Turner, Schneider Electric, AI Hub, 2019-03-22.
 """
 
-import os
 import pathlib
 import sys
 
-sys.path.insert(0, os.path.abspath(".."))
+sys.path.insert(0, str(pathlib.Path.cwd().parent))
 
 # Project.
 
