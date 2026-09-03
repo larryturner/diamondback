@@ -1,5 +1,7 @@
 6.0.3 - Proposed
 ~~~~~~~~~~~~~~~~
+- Modify jupyter notebook to use plotly and improve visualization.
+- Modify DiversityModel to improve state selection.
 - Modify documentation generation.
 
 6.0.2 - 2026-05-07
