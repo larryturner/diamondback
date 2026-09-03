@@ -141,7 +141,7 @@ inferred.  A style and order are specified.</p>
 <blockquote>
 <div><div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">diamondback</span><span class="w"> </span><span class="kn">import</span> <span class="n">DiversityModel</span>
 
-<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">"Euclidean"</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">diversity_model</span> <span class="o">=</span> <span class="n">DiversityModel</span><span class="p">(</span><span class="n">style</span> <span class="o">=</span> <span class="s2">"Euclidean"</span><span class="p">,</span> <span class="n">order</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="n">s</span> <span class="o">=</span> <span class="n">diversity_model</span><span class="o">.</span><span class="n">s</span>
