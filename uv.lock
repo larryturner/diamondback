@@ -485,7 +485,7 @@ wheels = [
 
 [[package]]
 name = "diamondback"
-version = "6.0.2"
+version = "6.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "loguru" },
