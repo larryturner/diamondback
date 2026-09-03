@@ -12,7 +12,7 @@
 
         from diamondback import GaussianMixtureModel
 
-        gaussian_mixture_model = GaussianMixtureModel(order = 10, index = 100)
+        gaussian_mixture_model = GaussianMixtureModel(order = 4, index = 100)
         x, y = numpy.random.rand(32, 2), numpy.random.randint(0, 10, 32)
         gaussian_mixture_model.fit(x, y)
         x = numpy.random.rand(16, 2)
@@ -61,7 +61,7 @@ class GaussianMixtureModel(object):
     def shape(self):
         return self._shape
 
-    def __init__(self, order: int = 10, index: int = 100, regularize: float = 1.0e-1) -> None:
+    def __init__(self, order: int = 1, index: int = 100, regularize: float = 1.0e-1) -> None:
         """Initialize.
 
         Parameters
