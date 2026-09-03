@@ -55,7 +55,7 @@
 
         from diamondback import DiversityModel
 
-        diversity_model = DiversityModel(style = "Euclidean", order = 4)
+        diversity_model = DiversityModel(style = "Euclidean", order = 5)
         x = numpy.random.rand(32, 2)
         y = diversity_model.fit(x)
         s = diversity_model.s
@@ -105,12 +105,12 @@ class DiversityModel(object):
         style = style.title()
         if style not in DiversityModel.STYLE:
             raise ValueError(f"style = {style} Expected Style in {DiversityModel.STYLE}")
-        if order < 0:
+        if order <= 0:
             raise ValueError(f"Order = {order} Expected Order in [0, inf)")
         super().__init__()
         self._distance = DiversityModel.DISTANCE[style]
         self._diversity = 0.0
-        self._s = numpy.zeros((order + 1, 0))
+        self._s = numpy.zeros((order, 0))
 
     def clear(self) -> None:
         """Clears an instance."""
@@ -135,12 +135,12 @@ class DiversityModel(object):
         if (len(x.shape) != 2) or (not all(x.shape)):
             raise ValueError(f"X = {x}")
         if not self.s.shape[1]:
-            self.s = numpy.zeros((self.s.shape[0], x.shape[1])) + numpy.finfo(float).max
+            self.s = numpy.ones((self.s.shape[0], x.shape[1])) * numpy.nan
         if x.shape[1] != self.s.shape[1]:
             raise ValueError(f"X = {x.shape} S = {self.s.shape}")
         cc = 0
         for ii in range(0, self.s.shape[0]):
-            if numpy.isclose(self.s[ii, 0], numpy.finfo(float).max):
+            if numpy.isnan(self.s[ii, 0]):
                 break
             cc += 1
         y = numpy.zeros(x.shape[0])
@@ -149,18 +149,18 @@ class DiversityModel(object):
                 self.s[cc, :] = x[ii, :]
                 cc += 1
             else:
-                v, jj = self._diversity, -1
+                distance = numpy.ones(cc) * numpy.inf
                 for kk in range(0, cc):
-                    u, s = numpy.inf, numpy.array(self.s)
+                    s = numpy.copy(self.s)
                     s[kk, :] = x[ii, :]
                     for uu in range(0, cc - 1):
                         for vv in range(uu + 1, cc):
                             d = self._distance(s[uu, :], s[vv, :])
-                            if d < u:
-                                u = d
-                    if u > v:
-                        v, jj = u, kk
-                if v > self._diversity:
-                    self._diversity, self.s[jj, :] = v, x[ii, :]
+                            if d < distance[kk]:
+                                distance[kk] = d
+                jj = distance.argmax()
+                if distance[jj] > self._diversity:
+                    self._diversity = distance[jj]
+                    self.s[jj, :] = x[ii, :]
             y[ii] = self._diversity
         return y

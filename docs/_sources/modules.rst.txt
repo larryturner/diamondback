@@ -5,5 +5,3 @@ diamondback
    :maxdepth: 4
 
    diamondback
-   
-   

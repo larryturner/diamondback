@@ -13,8 +13,8 @@
       <script src="../../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" /> 
@@ -66,7 +66,7 @@
            <div itemprop="articleBody">
              
   <h1>Source code for diamondback.transforms.wavelet_transform</h1><div class="highlight"><pre>
-<span></span><span class="sd">&quot;&quot;&quot;**Description**</span>
+<span></span><span class="sd">"""**Description**</span>
 <span class="sd">    Wavelet transform realizes a temporal spatial frequency</span>
 <span class="sd">    transformation in the form of analysis and synthesis filters with a</span>
 <span class="sd">    complementary frequency response, combined with downsampling and</span>
@@ -114,15 +114,15 @@
 <span class="sd">    to satisfy specified constraints.  A style and order are</span>
 <span class="sd">    specified.</span>
 
-<span class="sd">    Style is in (&quot;Coiflet&quot;, &quot;Daubechies&quot;, &quot;Haar&quot;, &quot;Symmlet&quot;).</span>
+<span class="sd">    Style is in ("Coiflet", "Daubechies", "Haar", "Symmlet").</span>
 
-<span class="sd">    * | &quot;Coiflet&quot; is asymmetric, very high quality, with order in [5 : 29 : 6].</span>
+<span class="sd">    * | "Coiflet" is asymmetric, very high quality, with order in [5 : 29 : 6].</span>
 
-<span class="sd">    * | &quot;Daubechies&quot; is asymmetric, high quality, with order in [3 : 19 : 2].</span>
+<span class="sd">    * | "Daubechies" is asymmetric, high quality, with order in [3 : 19 : 2].</span>
 
-<span class="sd">    * | &quot;Haar&quot; is symmetric, perfect reconstruction, with order in [1].</span>
+<span class="sd">    * | "Haar" is symmetric, perfect reconstruction, with order in [1].</span>
 
-<span class="sd">    * | &quot;Symmlet&quot; is nearly symmetric, high quality, with order in [7 : 19 : 2].</span>
+<span class="sd">    * | "Symmlet" is nearly symmetric, high quality, with order in [7 : 19 : 2].</span>
 
 <span class="sd">**Example**</span>
 
@@ -131,7 +131,7 @@
 <span class="sd">        from diamondback import WaveletTransform</span>
 <span class="sd">        import numpy</span>
 
-<span class="sd">        wavelet_transform = WaveletTransform(style = &quot;Haar&quot;, order = 1)</span>
+<span class="sd">        wavelet_transform = WaveletTransform(style = "Haar", order = 1)</span>
 <span class="sd">        count = 3</span>
 <span class="sd">        x = numpy.random.rand(2**(count + 3), 2**(count + 3))</span>
 <span class="sd">        y = wavelet_transform.transform(x, count, False)</span>
@@ -143,7 +143,7 @@
 
 <span class="sd">**Author**</span>
 <span class="sd">    Larry Turner, Schneider Electric, AI Hub, 2018-02-06.</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">"""</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassVar</span>
 
@@ -155,7 +155,7 @@
 <div class="viewcode-block" id="WaveletTransform">
 <a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.WaveletTransform">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">WaveletTransform</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Wavelet transform.&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">"""Wavelet transform."""</span>
 
     <span class="n">B</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
         <span class="n">Coiflet</span><span class="o">=</span><span class="p">{</span>
@@ -553,19 +553,19 @@
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_b</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize.</span>
+<span class="w">        </span><span class="sd">"""Initialize.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        style: str - in (&quot;Coiflet&quot;, &quot;Daubechies&quot;, &quot;Haar&quot;, &quot;Symmlet&quot;)</span>
+<span class="sd">        style: str - in ("Coiflet", "Daubechies", "Haar", "Symmlet")</span>
 <span class="sd">        order: int</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="n">style</span> <span class="o">=</span> <span class="n">style</span><span class="o">.</span><span class="n">title</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">style</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">B</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2"> Expected Style in </span><span class="si">{</span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"style = </span><span class="si">{</span><span class="n">style</span><span class="si">}</span><span class="s2"> Expected Style in </span><span class="si">{</span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">STYLE</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">order</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="n">style</span><span class="p">]:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Order in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="n">style</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Order = </span><span class="si">{</span><span class="n">order</span><span class="si">}</span><span class="s2"> Expected Order in </span><span class="si">{</span><span class="nb">tuple</span><span class="p">(</span><span class="n">WaveletTransform</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="n">style</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">WaveletTransform</span><span class="o">.</span><span class="n">B</span><span class="p">[</span><span class="n">style</span><span class="p">][</span><span class="n">order</span><span class="p">]</span>
         <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
@@ -585,7 +585,7 @@
 <div class="viewcode-block" id="WaveletTransform.transform">
 <a class="viewcode-back" href="../../../diamondback.transforms.html#diamondback.WaveletTransform.transform">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">inverse</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transforms an incident signal and produces a reference signal,</span>
+<span class="w">        </span><span class="sd">"""Transforms an incident signal and produces a reference signal,</span>
 <span class="sd">        performing analysis or synthesis operations.  Incident and reference</span>
 <span class="sd">        signals have two dimensions.  Dimension lengths must be unity or</span>
 <span class="sd">        an integral multiple of 2**count.</span>
@@ -599,18 +599,18 @@
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        y: numpy.ndarray - reference signal</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">        """</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"X = </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">v</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span> <span class="k">else</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">x</span><span class="p">])</span>
         <span class="n">rows</span><span class="p">,</span> <span class="n">cols</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">shape</span>
         <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Count = </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> Expected Count in (0, inf)&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Count = </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> Expected Count in (0, inf)"</span><span class="p">)</span>
         <span class="k">if</span> <span class="p">((</span><span class="n">rows</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">rows</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">)))</span> <span class="ow">or</span> <span class="p">((</span><span class="n">cols</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">cols</span> <span class="o">%</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">))):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s2"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2"> Expected Rows % </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="si">}</span><span class="s2"> and Columns % </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Rows = </span><span class="si">{</span><span class="n">rows</span><span class="si">}</span><span class="s2"> Columns = </span><span class="si">{</span><span class="n">cols</span><span class="si">}</span><span class="s2"> Expected Rows % </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="si">}</span><span class="s2"> and Columns % </span><span class="si">{</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
         <span class="n">rr</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">rows</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">cc</span> <span class="o">=</span> <span class="nb">max</span><span class="p">((</span><span class="n">cols</span> <span class="o">//</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">count</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>

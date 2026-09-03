@@ -61,8 +61,8 @@ Complex or real types are supported as appropriate.
 *diamondback* is defined in subpackages *commons*, *filters*, *models*, and
 *transforms*.
 
-`commons <https://larryturner.github.io/diamondback/diamondback.commons>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+commons
+^^^^^^^
 
 -   `Log <https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-log-module>`_
     formats and writes log entries with a specified level and stream using
@@ -82,8 +82,8 @@ Complex or real types are supported as appropriate.
     elective gzip compression, and generates SHA3-256 hash codes.  Singleton.
 
 
-`filters <https://larryturner.github.io/diamondback/diamondback.filters>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+filters
+^^^^^^^
 
 -   `ComplexBandpassFilter <https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complex-bandpass-filter-module>`_
     adaptively extracts or rejects signals at a normalized frequency of
@@ -155,8 +155,8 @@ Complex or real types are supported as appropriate.
     realizes discrete window functions useful in Fourier
     analysis, based on style, order, and normalization.
 
-`models <https://larryturner.github.io/diamondback/diamondback.models>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+models
+^^^^^^
 
 -   `DiversityModel <https://larryturner.github.io/diamondback/diamondback.models#diamondback-models-diversity-model-module>`_
     selects and retains a state extracted to maximize the minimum
@@ -178,8 +178,8 @@ Complex or real types are supported as appropriate.
     Learns distribution of a specified order per class, where intra-class
     models capture mixture distributions.
 
-`transforms <https://larryturner.github.io/diamondback/diamondback.transforms>`_
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+transforms
+^^^^^^^^^^
 
 -   `ComplexTransform <https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-complex-transform-module>`_
     converts a three-phase real signal to a complex signal, or a complex
@@ -231,11 +231,11 @@ tests, and typing behavior depends upon additional external packages.
 -   `ipython <https://pypi.org/project/ipython/>`_
 -   `ipywidgets <https://pypi.org/project/ipywidgets/>`_
 -   `jupyter <https://pypi.org/project/jupyter/>`_
--   `matplotlib <https://pypi.org/project/matplotlib/>`_
 -   `mypy <https://pypi.org/project/mypy/>`_
 -   `nox <https://pypi.org/project/nox/>`_
 -   `pandas <https://pypi.org/project/pandas/>`_
 -   `pillow <https://pypi.org/project/pillow/>`_
+-   `plotly <https://pypi.org/project/plotly/>`_
 -   `pydeps <https://pypi.org/project/pydeps/>`_
 -   `pytest <https://pypi.org/project/pytest/>`_
 -   `ruff <https://pypi.org/project/ruff/>`_

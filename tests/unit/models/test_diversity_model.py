@@ -27,7 +27,7 @@ class TestDiversityModel(object):
         """Test init."""
 
         ii = [11, 1, 2, 3, 10]
-        diversity_model = DiversityModel("Euclidean", len(ii) - 1)
+        diversity_model = DiversityModel("Euclidean", len(ii))
         assert diversity_model.s.shape == (len(ii), 0)
         x = numpy.array(
             [

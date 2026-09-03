@@ -68,7 +68,7 @@ def build(session: Session) -> None:
 
     session.run("uv", "sync", "--active", "--locked", "--group=build", external=True)
     shutil.rmtree("dist", ignore_errors=True)
-    session.run("python", "-m", "build", "-s", "-w")
+    session.run("uv", "build", "--wheel", "--out-dir", "dist", external=True)
     shutil.rmtree("build", ignore_errors=True)
 
 
@@ -84,6 +84,7 @@ def clean(session: Session) -> None:
         ".ruff_cache",
         "build",
         "dist",
+        "docs",
     ):
         shutil.rmtree(x, ignore_errors=True)
     for x in [x for x in glob.glob("**/", recursive=True) if ("__pycache__" in x)]:
@@ -148,11 +149,10 @@ def docs(session: Session) -> None:
         (pathlib.Path.cwd() / "docs").mkdir(exist_ok=True)
         session.run(
             "sphinx-apidoc",
-            "--force",
-            "--output",
+            "-f",
+            "-o",
             str(pathlib.Path.cwd() / "templates"),
-            ".",
-            "tests",
+            REPOSITORY,
         )
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "*.rst")):
             with pathlib.Path(x).open("r") as fin:
@@ -161,12 +161,11 @@ def docs(session: Session) -> None:
                 fout.write(y)
         for x in glob.glob(str(pathlib.Path.cwd() / "templates" / "modules.rst")):
             with pathlib.Path(x).open("r") as fin:
-                y = fin.read().replace("noxfile", "").replace("setup", "")
+                y = fin.read().replace("noxfile", "")
             with pathlib.Path(x).open("w") as fout:
                 fout.write(y)
-        for x in ("noxfile.rst", "setup.rst"):
-            if (pathlib.Path.cwd() / "templates" / x).is_file():
-                os.remove(str(pathlib.Path.cwd() / "templates" / x))
+        if (pathlib.Path.cwd() / "templates" / "noxfile.rst").is_file():
+            os.remove(str(pathlib.Path.cwd() / "templates" / "noxfile.rst"))
         session.run(
             "sphinx-build",
             str(pathlib.Path.cwd() / "templates"),

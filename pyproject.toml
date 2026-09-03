@@ -3,7 +3,6 @@ authors = [{ name = "Larry Turner", email = "larry.turner@se.com" }]
 classifiers = ["Development Status :: 5 - Production/Stable",
                "Intended Audience :: Developers",
                "Operating System :: OS Independent",
-               "Programming Language :: Python :: 3.11",
                "Programming Language :: Python :: 3.12",
                "Programming Language :: Python :: 3.13",
                "Programming Language :: Python :: 3.14"]
@@ -24,34 +23,28 @@ license = "BSD-3-Clause"
 license-files = []
 name = "diamondback"
 readme = "README.rst"
-requires-python = ">= 3.11, < 3.15"
-version = "6.0.2"
+requires-python = ">= 3.12, < 3.15"
+version = "6.1.0"
 
 [project.urls]
 repository = "https://github.com/larryturner/diamondback"
 homepage = "https://github.com/larryturner/diamondback"
 documentation = "https://larryturner.github.io/diamondback/"
 
-[build-system]
-build-backend = "setuptools.build_meta"
-requires = ["build >= 1.2.2, < 2.0.0",
-            "setuptools >= 80.9.0, < 81.0.0"]
-
 [dependency-groups]
 build = [ "build >= 1.2.2, < 2.0.0"]
-
 dependencies = ["pydeps >= 3.0.1, < 4.0.0"]
-docs = ["sphinx >= 8.2.3, < 9.0.0",
+docs = ["sphinx >= 9.1.0, < 10.0.0",
         "sphinx-rtd-theme >= 3.0.2, < 4.0.0"]
 format = ["ruff >= 0.11.3, < 1.0.0"]
 lint = ["ruff >= 0.11.3, < 1.0.0"]
 notebook = ["ipython >= 8.31.0, < 9.0.0",
             "ipywidgets >= 8.1.5, < 9.0.0",
             "jupyter >= 1.1.1, < 2.0.0",
-            "matplotlib >= 3.10.1, < 4.0.0",
-            "pillow >= 12.2.0, < 13.0.0"]
+            "pillow >= 12.2.0, < 13.0.0",
+            "plotly >= 7.0.0, < 8.0.0"]
 tests = ["coverage[toml] >= 7.3.2, < 8.0.0",
-         "pytest >= 8.3.5, < 9.0.0"]
+         "pytest >= 8.3.5, < 10.0.0"]
 typing = ["mypy >= 1.15.0, < 2.0.0",
           "types-python-dateutil >= 2.9.0, < 3.0.0",
           "types-requests >= 2.31.0, < 3.0.0"]

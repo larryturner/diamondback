@@ -14,8 +14,8 @@
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9bcbadda"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" /> 
@@ -46,10 +46,10 @@
 <li><a class="reference internal" href="#description">Description</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#details">Details</a><ul>
-<li><a class="reference internal" href="#id1">commons</a></li>
-<li><a class="reference internal" href="#id2">filters</a></li>
-<li><a class="reference internal" href="#id3">models</a></li>
-<li><a class="reference internal" href="#id4">transforms</a></li>
+<li><a class="reference internal" href="#commons">commons</a></li>
+<li><a class="reference internal" href="#filters">filters</a></li>
+<li><a class="reference internal" href="#models">models</a></li>
+<li><a class="reference internal" href="#transforms">transforms</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
@@ -139,8 +139,8 @@ lists, and dictionaries, with vector and matrix types expressed in numpy arrays.
 Complex or real types are supported as appropriate.</p>
 <p><em>diamondback</em> is defined in subpackages <em>commons</em>, <em>filters</em>, <em>models</em>, and
 <em>transforms</em>.</p>
-<section id="id1">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons">commons</a><a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="commons">
+<h3>commons<a class="headerlink" href="#commons" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.commons#diamondback-commons-log-module">Log</a>
 formats and writes log entries with a specified level and stream using
@@ -158,8 +158,8 @@ encodes and decodes an instance to a Base-85 encoded serialized string with
 elective gzip compression, and generates SHA3-256 hash codes.  Singleton.</p></li>
 </ul>
 </section>
-<section id="id2">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters">filters</a><a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="filters">
+<h3>filters<a class="headerlink" href="#filters" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.filters#diamondback-filters-complex-bandpass-filter-module">ComplexBandpassFilter</a>
 adaptively extracts or rejects signals at a normalized frequency of
@@ -220,8 +220,8 @@ realizes discrete window functions useful in Fourier
 analysis, based on style, order, and normalization.</p></li>
 </ul>
 </section>
-<section id="id3">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models">models</a><a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="models">
+<h3>models<a class="headerlink" href="#models" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.models#diamondback-models-diversity-model-module">DiversityModel</a>
 selects and retains a state extracted to maximize the minimum
@@ -242,8 +242,8 @@ Learns distribution of a specified order per class, where intra-class
 models capture mixture distributions.</p></li>
 </ul>
 </section>
-<section id="id4">
-<h3><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms">transforms</a><a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<section id="transforms">
+<h3>transforms<a class="headerlink" href="#transforms" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><a class="reference external" href="https://larryturner.github.io/diamondback/diamondback.transforms#diamondback-transforms-complex-transform-module">ComplexTransform</a>
 converts a three-phase real signal to a complex signal, or a complex
@@ -292,11 +292,11 @@ tests, and typing behavior depends upon additional external packages.</p>
 <li><p><a class="reference external" href="https://pypi.org/project/ipython/">ipython</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/ipywidgets/">ipywidgets</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/jupyter/">jupyter</a></p></li>
-<li><p><a class="reference external" href="https://pypi.org/project/matplotlib/">matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/mypy/">mypy</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/nox/">nox</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/pandas/">pandas</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/pillow/">pillow</a></p></li>
+<li><p><a class="reference external" href="https://pypi.org/project/plotly/">plotly</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/pydeps/">pydeps</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/pytest/">pytest</a></p></li>
 <li><p><a class="reference external" href="https://pypi.org/project/ruff/">ruff</a></p></li>
