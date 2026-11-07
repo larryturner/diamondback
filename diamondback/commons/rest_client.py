@@ -100,6 +100,7 @@ class RestClient(object):
         item: dict[str, str] | None = None,
         data: Any = None,
         json: Any = None,
+        exception: bool = True,
     ) -> requests.Response:
         """Request client for simple REST service requests. An API and an
         elective dictionary of parameter strings are encoded to build a
@@ -116,6 +117,7 @@ class RestClient(object):
         item: dict[str, str] | None
         data: Any
         json: Any
+        exception: bool
 
         Returns
         -------
@@ -142,5 +144,6 @@ class RestClient(object):
             proxies=self.proxy,
             timeout=self.timeout,
         ) as value:
-            value.raise_for_status()
+            if exception:
+                value.raise_for_status()
         return value

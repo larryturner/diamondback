@@ -27,10 +27,10 @@ Description
 
 *diamondback* complements Artificial Intelligence (AI) frameworks, by defining
 components which filter, model, and transform data into forms which are
-useful in feature extraction and pattern recognition.
+useful in feature extraction and cleaning.
 
-*diamondback* supports applications including cancellation, identification,
-optimization, probabilistic modeling, rate adaptation, and serialization.
+*diamondback* supports applications including cancellation, extraction,
+optimization, modeling, rate adaptation, and serialization.
 
 Installation
 ~~~~~~~~~~~~
